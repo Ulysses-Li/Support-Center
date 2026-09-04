@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<!-- 2025-12-09。大改語系刪除 -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NC Helix Drill</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- 用意：共用頁首頁尾放在上一層，NC Helix 只保留自己的畫面樣式。 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../header/header.css">
+  <link rel="stylesheet" href="../footer/footer.css">
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <div id="header-placeholder"></div>
+
+  <main class="nc-helix-main flex-grow-1">
+<section class="">
+    <div class="container my-3">
+      <!-- 用意：保留 NC Helix 專屬標題，並與共用頁首分開維護。 -->
+      <h1 class="mb-4 my-3 d-flex align-items-center">
+        <img src="https://nine9.jic-tools.com.tw/themes/nine9/images/logo.png" alt="Logo" height="100" style="margin-right:10px;">
+        <strong class="fw-bold">NC Program Generator for NC Helix Drill</strong>
+      </h1>
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="row g-3">
+
+            <div class="col-12">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title mb-3 fw-bold" data-i18n="form.partNo.title">Select Part No.</h5>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="partsGroup1" class="form-label fw-bold" data-i18n="form.partNo.group1">Part No. (99321 Series)</label>
+                      <select id="partsGroup1" class="form-select">
+                        <option value="" selected disabled data-i18n="form.common.select">Please select...</option>
+                        <option>00-99321-010-1320</option>
+                        <option>00-99321-012-1525</option>
+                        <option>00-99321-016-2030</option>
+                        <option>00-99321-020-2540</option>
+                        <option>00-99321-025-3050</option>
+                        <option>00-99321-025-4265</option>
+
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="partsGroup2" class="form-label fw-bold" data-i18n="form.partNo.group2">Part No. (99323 Series)</label>
+                      <select id="partsGroup2" class="form-select">
+                        <option value="" selected disabled data-i18n="form.common.select">Please select...</option>
+                        <option>00-99323-010-1320</option>
+                        <option>00-99323-012-1525</option>
+                        <option>00-99323-016-2030</option>
+                        <option>00-99323-020-2540</option>
+                        <option>00-99323-025-3050</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="mt-3 muted" id="pickedPartInfo" data-i18n="form.partNo.status.none">No Part No. selected.</div>
+
+
+                  <div class="mt-3 d-none" id="extensionBarBlock">
+                    <label class="form-label fw-bold" data-i18n="form.partNo.extBarLabel">Extension Bar</label>
+                    <select id="extensionBarSelect" class="form-select">
+                      <option value="" selected disabled data-i18n="form.common.select">Please select...</option>
+                    </select>
+                    <div id="extensionBarStatus" class="mt-2 text-muted" data-i18n="form.partNo.extBarStatus.none">
+                      No extension bar selected.
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="col-12">
+              <div class="row g-3 align-items-start">
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.material.label">Workpiece material</label>
+                  <select class="form-select" id="selectMaterial">
+                    <option value="" disabled selected data-i18n="form.common.select">Select material</option>
+                    <option value="Material01" data-group="P" data-color="#0066CC"
+                      style="background-color:#0066CC;color:white;font-weight:bold;">P — Carbon steel C&lt;0.3%</option>
+                    <option value="Material02" data-group="P" data-color="#0066CC"
+                      style="background-color:#0066CC;color:white;font-weight:bold;">P — Carbon steel C&gt;0.3%</option>
+                    <option value="Material03" data-group="P" data-color="#0066CC"
+                      style="background-color:#0066CC;color:white;font-weight:bold;">P — Low alloy steel C&lt;0.3%
+                    </option>
+                    <option value="Material04" data-group="P" data-color="#0066CC"
+                      style="background-color:#0066CC;color:white;font-weight:bold;">P — High alloy steel</option>
+                    <option value="Material06" data-group="M" data-color="#FFC000"
+                      style="background-color:#FFC000;font-weight:bold;">M — Stainless steel</option>
+                    <option value="Material07" data-group="K" data-color="#FF0000"
+                      style="background-color:#FF0000;color:white;font-weight:bold;">K — Cast iron</option>
+                    <option value="Material08" data-group="N" data-color="#00B050"
+                      style="background-color:#00B050;color:white;font-weight:bold;">N — Al, Al-alloys</option>
+                    <option value="Material09" data-group="N" data-color="#00B050"
+                      style="background-color:#00B050;color:white;font-weight:bold;">N — Cu, Cu-alloy, casting Cu-alloy
+                    </option>
+                    <option value="Material10" data-group="S" data-color="#E6007E"
+                      style="background-color:#E6007E;color:white;font-weight:bold;">S — Heat resistant alloy</option>
+                    <option value="Material11" data-group="S" data-color="#E6007E"
+                      style="background-color:#E6007E;color:white;font-weight:bold;">S — Ti, Ti-alloy</option>
+                    <option value="Material12" data-group="H" data-color="#A6A6A6"
+                      style="background-color:#A6A6A6;font-weight:bold;">H — Hardened steel &lt; HRC50</option>
+                  </select>
+                  <small class="text-muted d-block muted mb-4 my-2" id="materialHint">ISO group: –</small>
+
+                  <label class="form-label" data-i18n="form.power.label">Spindle Power</label>
+                  <select class="form-select" id="selectPower">
+                    <option value="low" selected data-i18n="form.power.low">&lt; 12 KW (Low / Conservative)</option>
+                    <option value="medium" data-i18n="form.power.medium">12-20 KW (Medium)</option>
+                    <option value="high" data-i18n="form.power.high">&gt; 20 KW (High)</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6 fw-bold">
+                  <div class="btn-group w-100 mb-2" role="group" aria-label="Modes">
+                    <button type="button" class="btn btn-primary mode-btn" data-mode="Mode1"
+                      data-i18n="form.mode.mode1">Mode1</button>
+                    <button type="button" class="btn btn-outline-primary mode-btn" data-mode="Mode2"
+                      data-i18n="form.mode.mode2">Mode2</button>
+                    <button type="button" class="btn btn-outline-primary mode-btn" data-mode="Mode3"
+                      data-i18n="form.mode.mode3">Mode3</button>
+                  </div>
+
+                  <div class="card shadow-sm" id="imgCard">
+                    <div class="card-body d-flex justify-content-center align-items-center" style="min-height:220px;">
+                      <img id="galleryImg"
+                        src="https://nine9.jic-tools.com.tw/upload_files/technology/NC_Helix_Drill/icon_helix_fig.01.jpg"
+                        class="img-fluid rounded" alt="preview">
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="col-12">
+              <div class="row g-3 align-items-start">
+                <div id="group1" class="col-md-6">
+
+                  <label class="form-label fw-bold" data-i18n="form.params.machiningDia">Machining Diameter</label>
+                  <div class="input-group mb-2">
+                    <input type="number" class="form-control" id="machiningDia1" placeholder="Ød1 / mm" step="0.1">
+                    <button type="button"
+                      class="btn btn-light btn-sm border-success text-success fw-bold px-5 py-1 btn-ce"
+                      id="machiningDiaCe1" data-i18n="form.common.clear">Clear</button>
+                  </div>
+
+                  <label class="form-label fw-bold" data-i18n="form.params.depth">Depth of Cut</label>
+                  <div class="input-group mb-2">
+                    <input type="number" class="form-control" id="depthDia1" placeholder="L1 / mm" step="0.1">
+                    <button type="button"
+                      class="btn btn-light btn-sm border-success text-success fw-bold px-5 py-1 btn-ce" id="depthDiaCe1"
+                      data-i18n="form.common.clear">Clear</button>
+                  </div>
+
+                  <label class="form-label fw-bold" data-i18n="form.params.pitch">Pitch</label>
+                  <div class="input-group mb-2">
+                    <input type="number" class="form-control" id="pitch1" placeholder="P1 / mm" step="0.1">
+                    <button type="button"
+                      class="btn btn-light btn-sm border-success text-success fw-bold px-5 py-1 btn-ce" id="pitchCe1"
+                      data-i18n="form.common.clear">Clear</button>
+                  </div>
+                </div>
+
+                <div id="group2" class="col-md-6 d-none">
+
+                  <label class="form-label fw-bold" data-i18n="form.params.machiningDia">Machining Diameter</label>
+                  <div class="input-group mb-2">
+                    <input type="number" class="form-control" id="machiningDia2" placeholder="Ød2 / mm" step="0.1">
+                    <button type="button"
+                      class="btn btn-light btn-sm border-success text-success fw-bold px-5 py-1 btn-ce"
+                      id="machiningDiaCe2" data-i18n="form.common.clear">Clear</button>
+                  </div>
+
+                  <label class="form-label fw-bold" data-i18n="form.params.depth">Depth of Cut</label>
+                  <div class="input-group mb-2">
+                    <input type="number" class="form-control" id="depthDia2" placeholder="L2 / mm" step="0.1">
+                    <button type="button"
+                      class="btn btn-light btn-sm border-success text-success fw-bold px-5 py-1 btn-ce" id="depthDiaCe2"
+                      data-i18n="form.common.clear">Clear</button>
+                  </div>
+
+                  <label class="form-label fw-bold" data-i18n="form.params.pitch">Pitch</label>
+                  <div class="input-group mb-2">
+                    <input type="number" class="form-control" id="pitch2" placeholder="P2 / mm" step="0.1">
+                    <button type="button"
+                      class="btn btn-light btn-sm border-success text-success fw-bold px-5 py-1 btn-ce" id="pitchCe2"
+                      data-i18n="form.common.clear">Clear</button>
+                  </div>
+                </div>
+
+                <!-- group3：版型與 group1 完全相同，預設隱藏 -->
+                <div id="group3" class="col-12 d-none">
+                  <label class="form-label fw-bold" data-i18n="form.params.preBore">Pre-bore diameter</label>
+                  <div class="input-group mb-2">
+                    <input type="number" class="form-control" id="preBore3" data-i18n-placeholder="form.placeholders.mm"
+                      step="0.1">
+                    <button type="button"
+                      class="btn btn-light btn-sm border-success text-success fw-bold px-5 py-1 btn-ce" id="preBoreCe3"
+                      data-i18n="form.common.clear">Clear</button>
+                  </div>
+
+                  <label class="form-label fw-bold" data-i18n="form.params.machiningDia">Machining Diameter</label>
+                  <div class="input-group mb-2">
+                    <input type="number" class="form-control" id="machiningDia3" placeholder="Ød3 / mm" step="0.1">
+                    <button type="button"
+                      class="btn btn-light btn-sm border-success text-success fw-bold px-5 py-1 btn-ce"
+                      id="machiningDiaCe3" data-i18n="form.common.clear">Clear</button>
+                  </div>
+
+                  <label class="form-label fw-bold" data-i18n="form.params.depth">Depth of Cut</label>
+                  <div class="input-group mb-2">
+                    <input type="number" class="form-control" id="depthDia3" placeholder="L3 / mm" step="0.1">
+                    <button type="button"
+                      class="btn btn-light btn-sm border-success text-success fw-bold px-5 py-1 btn-ce" id="depthDiaCe3"
+                      data-i18n="form.common.clear">Clear</button>
+                  </div>
+
+                  <label class="form-label fw-bold" data-i18n="form.params.pitch">Pitch</label>
+                  <div class="input-group mb-2">
+                    <input type="number" class="form-control" id="pitch3" placeholder="P3 / mm" step="0.1">
+                    <button type="button"
+                      class="btn btn-light btn-sm border-success text-success fw-bold px-5 py-1 btn-ce" id="pitchCe3"
+                      data-i18n="form.common.clear">Clear</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="col-12">
+              <div class="row g-3">
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.toolDia">Tool Diameter ØDc</label>
+                  <input type="text" class="form-control bg-light" id="toolDiameter" readonly
+                    style="cursor:not-allowed;" data-i18n-placeholder="form.placeholders.selectTool">
+                </div>
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.cuttingSpeed">Cutting Speed</label>
+                  <input type="number" class="form-control" id="vc" data-i18n-placeholder="form.placeholders.m_min" />
+                </div>
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.spindleSpeed">Spindle Speed</label>
+                  <input type="number" class="form-control" id="n" data-i18n-placeholder="form.placeholders.rpm"
+                    readonly style="background-color:#d4edda;cursor:not-allowed;" />
+                </div>
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.teeth">Number of Teeth</label>
+                  <input type="number" class="form-control bg-light" style="cursor:not-allowed;" id="z" value="2"
+                    readonly />
+                </div>
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.feedPerTooth">Feed per Tooth</label>
+                  <input type="number" class="form-control" id="fz" data-i18n-placeholder="form.placeholders.mm_tooth"
+                    step="0.001" required />
+                </div>
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.feedRate">Feed Rate</label>
+                  <input type="number" class="form-control" id="vf" data-i18n-placeholder="form.placeholders.mm_min"
+                    readonly style="background-color:#d4edda;cursor:not-allowed;" />
+                </div>
+
+
+                <hr class="my-4" />
+
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.toolNo">Tool Number</label>
+                  <input type="number" class="form-control" id="toolNo" value="99" />
+                </div>
+
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.coorSystem">Coordinate System</label>
+                  <input type="text" class="form-control" id="gcode" value="G54" />
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.coorX">Coordinate X</label>
+                  <input type="number" class="form-control" id="x" value="0" />
+                </div>
+
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.coorY">Coordinate Y</label>
+                  <input type="number" class="form-control" id="y" value="0" />
+                </div>
+
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.safeZ">Safe Height Z</label>
+                  <input type="number" class="form-control" id="zsafe" value="20" />
+                </div>
+
+                <div class="col-md-6 fw-bold">
+                  <label class="form-label" data-i18n="form.others.surfaceZ">Surface Coordinate Z</label>
+                  <input type="number" class="form-control" id="zsurface" value="0" />
+                </div>
+
+                <hr class="my-4" />
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 my-3">
+          <div class="right-pane-sticky">
+            <div class="d-flex justify-content-end mb-2">
+              <button class="btn btn-secondary me-2 fw-bold" id="addToolButton"
+                data-i18n="form.actions.addTool">Add Tool</button>
+              <button class="btn btn-primary me-2 fw-bold" id="generateButton"
+                data-i18n="form.actions.generate">Generate</button>
+              <button class="btn btn-success me-2 fw-bold" id="exportButton"
+                data-i18n="form.actions.export">Export</button>
+              <button class="btn btn-danger fw-bold" id="clearButton"
+                data-i18n="form.actions.clear">Clear</button>
+            </div>
+            <textarea id="result" class="form-control my-3" readonly style="height: 85vh;"></textarea>
+            <div id="machiningTimeResult" class="mt-2 text-end fw-bold fs-5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+<button type="button" class="btn btn-dark btn-lg rounded-circle " id="backToTopBtn" title="回到頂部">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-up"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+    </svg>
+  </button>
+
+  <!-- 用意：依資料、服務、狀態、UI 的順序載入，方便追查與更換單一功能。 -->
+  <script defer src="./src/data/tool-data.js"></script>
+  <script defer src="./src/data/cutting-data.js"></script>
+  <script defer src="./src/ui/tool-selection.js"></script>
+  <script defer src="./src/ui/material-style.js"></script>
+  <script defer src="./src/services/cutting-params.js"></script>
+  <script defer src="./src/state/form-state.js"></script>
+  <script defer src="./src/services/feed-calculator.js"></script>
+  <script defer src="./src/services/export-file.js"></script>
+  <script defer src="./src/ui/feed-warning.js"></script>
+  <script defer src="./src/ui/input-controls.js"></script>
+  <script defer src="./src/ui/mode-controller.js"></script>
+  <script defer src="./src/services/gcode-generator.js"></script>
+  <script defer src="./src/ui/back-to-top.js"></script>
+  <script defer src="./src/ui/language-controller.js"></script>
+  <script defer src="./src/ui/form-bindings.js"></script>
+  <script defer src="./src/main.js"></script>
+  <script defer src="../scripts/layout.js"
+    data-header-url="../header/header.html?v=20260520-news"
+    data-footer-url="../footer/footer.html"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

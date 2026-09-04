@@ -1,0 +1,221 @@
+/*
+ * NC Helix 專屬畫面樣式
+ * 用意：只控制 NC Helix 頁面，不覆蓋外層共用 header/footer。
+ */
+
+body {
+  background: #ffffff;
+}
+
+/* 全站微調 */
+    .nav-link {
+      font-weight: 600;
+    }
+
+    .icon-btn {
+      border: none;
+      background: transparent;
+      padding: .5rem;
+    }
+
+    /* sticky navbar 陰影 */
+    .navbar.sticky-top {
+      box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+    }
+
+    /* Logo 高度 */
+    .navbar-brand img {
+      height: 56px;
+    }
+
+    @media (min-width:768px) {
+      .navbar-brand img {
+        height: 72px;
+      }
+    }
+
+    @media (min-width:1200px) {
+      .navbar-brand img {
+        height: 88px;
+      }
+    }
+
+    /* Mega Menu */
+    .dropdown-menu.mega {
+      --bs-dropdown-min-width: 680px;
+      padding: 1rem 1.25rem;
+    }
+
+    @media (min-width:1400px) {
+      .dropdown-menu.mega {
+        --bs-dropdown-min-width: 820px;
+      }
+    }
+
+    /* 國家清單 */
+    .country-item {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .35rem .5rem;
+      border-radius: .5rem;
+    }
+
+    .country-item:hover {
+      background: rgba(0, 0, 0, .05);
+    }
+
+    .country-flag {
+      width: 24px;
+      height: 18px;
+      border-radius: 2px;
+      object-fit: cover;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+    }
+
+    .country-col h6 {
+      font-size: .875rem;
+      margin: .35rem .25rem;
+    }
+
+    .country-item.disabled {
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    .country-item.disabled span {
+      text-decoration: line-through;
+    }
+
+    .country-item.disabled .country-flag {
+      filter: grayscale(1);
+    }
+
+    /* 桌機 hover 展開 */
+    @media (min-width:992px) {
+      .dropdown-hover:hover>.dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-hover>.dropdown-toggle:focus {
+        outline: none;
+      }
+    }
+
+    /* 圖片 hover 放大（可重用） */
+    .product-card .img-wrap .img-link {
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .product-card .img-wrap:hover img,
+    .product-card .img-wrap:focus-within img {
+      transform: scale(1.06);
+    }
+
+    /* 偏好減少動態者：移除轉場 */
+    @media (prefers-reduced-motion: reduce) {
+      .product-card .img-wrap img {
+        transition: none;
+      }
+    }
+
+    .product-card {
+      border: 0;
+    }
+
+    /* 圖片容器：留圓角、裁切、背景 */
+    .product-card .img-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.25rem;
+      background: #f5f6f8;
+    }
+
+    /* 圖片：用比例容器控制高度 → 這裡改用 height:auto，避免跑版 */
+    .product-card .img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transform: scale(1);
+      transition: transform .45s ease;
+      will-change: transform;
+    }
+
+    /* 卡片標題等 */
+    .badge-new {
+      font-size: .75rem;
+      color: #c35;
+      letter-spacing: .08em;
+    }
+
+    .product-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    @media (min-width:992px) {
+      .product-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* 彩色底（全寬） */
+    .bg-mint {
+      background: #e8f5e9;
+    }
+
+    .bg-sky {
+      background: #e3f2fd;
+    }
+
+    /* 讓彩色底內的內容不貼邊：外層白面板 */
+    .section-panel {
+      background: rgba(255, 255, 255, .75);
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+
+    @media (min-width:992px) {
+      .section-panel {
+        padding: 1.5rem;
+      }
+    }
+
+    .bg-mint,
+    .bg-sky {
+      padding: 2rem 0;
+    }
+
+    @media (min-width:992px) {
+
+      .bg-mint,
+      .bg-sky {
+        padding: 3rem 0;
+      }
+    }
+
+    /* 影片外框（白底、圓角、陰影） */
+    .video-frame {
+      background: #fff;
+      border-radius: .75rem;
+      box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .06);
+      overflow: hidden;
+    }
+
+    /* 回頂端按鈕 */
+    #backToTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s, visibility .3s;
+    }
+
+    #backToTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+    }

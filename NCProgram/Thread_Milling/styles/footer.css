@@ -1,0 +1,12 @@
+/* Footer 獨立管理，避免公司資訊樣式混入表單邏輯。 */
+.site-footer { background: #3f474b; color: #e9ecef; }
+.site-footer .footer-topbar { height: 10px; background: #c7c7c7; }
+.site-footer a { color: #e9f2ff; }
+.site-footer a:hover { text-decoration: underline; }
+.footer-logo { height: 72px; display: block; margin-inline: auto; }
+@media (min-width: 1200px) { .footer-logo { height: 80px; } }
+.badge-row { display: flex; align-items: center; flex-wrap: wrap; gap: .35rem .5rem; justify-content: center; }
+.badge-row img { height: 48px; }
+.duns-img { height: 60px; max-width: 100%; }
+.footer-underline { height: 2px; width: 100%; background: rgba(255,255,255,.35); margin: .4rem 0 1rem; }
+@media (max-width: 991.98px) { .site-footer .row > [class*="col-"] { text-align: center; } }

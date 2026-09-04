@@ -1,0 +1,63 @@
+:root {
+    --home-orange: #f45b1f;
+    --home-orange-dark: #d94510;
+    --home-ink: #122230;
+    --home-muted: #526574;
+    --home-line: #cfdae2;
+    --home-surface: #fff;
+    --home-background: #f7fbfe;
+}
+
+/* 用意：限制首頁樣式作用範圍，避免影響其他 NC Program 頁面。 */
+.nc-home { margin: 0; color: var(--home-ink); background: var(--home-background); font-family: Arial, "Microsoft JhengHei", sans-serif; }
+/* 用意：以冷白、淡藍光暈與工程網格營造明亮的機械科技感。 */
+.home-main {
+    background-color: var(--home-background);
+    background-image:
+        radial-gradient(circle at 88% 5%, rgba(53, 155, 215, .14), transparent 27rem),
+        radial-gradient(circle at 8% 34%, rgba(244, 91, 31, .07), transparent 22rem),
+        linear-gradient(rgba(70, 112, 140, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(70, 112, 140, .045) 1px, transparent 1px);
+    background-size: auto, auto, 36px 36px, 36px 36px;
+}
+.home-intro { padding: 58px 0 42px; }
+.home-intro .container, .program-section .container, .category-section .container { max-width: 1320px; }
+.eyebrow, .section-kicker { color: var(--home-orange-dark); font-size: .78rem; font-weight: 800; letter-spacing: .14em; }
+.home-intro h1 { margin: 0 0 12px; font-size: clamp(2.6rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -.04em; }
+.intro-text { max-width: 760px; color: #3f4246; font-size: clamp(1.05rem, 1.8vw, 1.28rem); font-weight: 600; line-height: 1.65; }
+.program-section { padding: 0 0 62px; }
+.category-section { padding: 0 0 84px; }
+.section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 22px; padding-top: 28px; border-top: 2px solid #29495f; }
+.section-heading h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -.025em; }
+.section-note { color: var(--home-muted); font-weight: 700; text-align: right; }
+
+/* 用意：可用工具整張卡片皆可點擊，降低使用者尋找按鈕的時間。 */
+.program-card { min-height: 360px; height: 100%; padding: 34px; display: flex; flex-direction: column; align-items: flex-start; color: var(--home-ink); background: rgba(255, 255, 255, .94); border: 1px solid var(--home-line); border-radius: 12px; box-shadow: 0 12px 28px rgba(39, 79, 105, .09); text-decoration: none; transition: .22s ease; }
+.program-card:hover, .program-card:focus-visible { color: var(--home-ink); border-color: rgba(244, 91, 31, .65); box-shadow: 0 20px 42px rgba(39, 79, 105, .17); transform: translateY(-5px); }
+.program-card:focus-visible { outline: 3px solid rgba(244, 91, 31, .3); outline-offset: 3px; }
+.method-icon { width: 76px; height: 76px; margin-bottom: 24px; display: inline-flex; align-items: center; justify-content: center; color: #fff; background: linear-gradient(145deg, #ff7138, var(--home-orange)); border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .28); font-size: 1.85rem; }
+.method-label { margin-bottom: 8px; color: var(--home-orange-dark); font-size: .82rem; font-weight: 800; letter-spacing: .04em; }
+.program-title { margin-bottom: 10px; font-size: clamp(1.7rem, 3vw, 2.25rem); line-height: 1.12; }
+.program-description { margin-bottom: 26px; color: #4a4d52; font-size: 1.08rem; line-height: 1.55; }
+.program-link { margin-top: auto; padding: 12px 17px; display: inline-flex; align-items: center; gap: 12px; border: 2px solid var(--home-ink); border-radius: 7px; font-weight: 800; transition: .2s ease; }
+.program-card:hover .program-link, .program-card:focus-visible .program-link { color: #fff; background: var(--home-ink); }
+
+/* 用意：未開放分類使用較輕量的卡片，避免與可操作程式混淆。 */
+.category-card { min-height: 380px; height: 100%; padding: 28px; display: flex; flex-direction: column; align-items: flex-start; background: rgba(255, 255, 255, .9); border: 1px solid var(--home-line); border-radius: 10px; box-shadow: 0 7px 20px rgba(39, 79, 105, .055); }
+.category-card .method-icon { width: 64px; height: 64px; margin-bottom: 21px; font-size: 1.55rem; }
+.category-card h3 { margin: 0 0 10px; font-size: 1.75rem; font-weight: 800; line-height: 1.12; }
+.category-card p { margin-bottom: 22px; color: #55595e; font-size: 1.02rem; line-height: 1.55; }
+.coming-soon { margin-top: auto; padding: 9px 14px; color: #6d7074; background: #eceeed; border: 1px solid #d6d8d7; border-radius: 6px; font-weight: 800; }
+
+/* 用意：平板與手機縮小留白，並將區塊說明改為左對齊。 */
+@media (max-width: 767.98px) {
+    .home-intro { padding: 42px 0 32px; }
+    .section-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+    .section-note { text-align: left; }
+    .program-card { min-height: 0; padding: 26px; }
+    .category-card { min-height: 330px; }
+}
+@media (max-width: 420px) {
+    .method-icon { width: 66px; height: 66px; }
+    .program-link { width: 100%; justify-content: space-between; font-size: .95rem; }
+}

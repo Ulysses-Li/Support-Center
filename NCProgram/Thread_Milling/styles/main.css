@@ -1,0 +1,12 @@
+/* 主要畫面樣式：只放通用 UI，不放加工邏輯。 */
+body {
+    background: #ffffff;
+}
+
+textarea { height: 400px; }
+
+/* 系統計算結果欄位，用淡綠色提示不可手動輸入。 */
+.calculated-field { background-color: #d4edda; cursor: not-allowed; }
+
+/* 唯讀但不是計算結果的欄位，例如刀徑與齒數。 */
+.readonly-field { cursor: not-allowed; }

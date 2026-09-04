@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "test": "node Thread_Milling/tests/run-tests.js && node NC_Helix/tests/run-tests.js"
+  }
+}

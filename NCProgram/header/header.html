@@ -1,0 +1,139 @@
+<!-- =========================================================
+     Header
+     用意：
+     1. 全站共用 Header
+     2. Logo 品牌區
+     3. 桌機版主選單
+     4. 手機版漢堡 Menu
+========================================================= -->
+
+<header class="top-header">
+
+  <!-- =======================================================
+       Container
+       用意：
+       Bootstrap 滿版容器
+  ======================================================== -->
+  <div class="container-fluid">
+
+    <!-- =====================================================
+         Header Inner
+         用意：
+         控制 Header 最大寬度與置中
+    ====================================================== -->
+    <div class="header-inner">
+
+      <!-- ===================================================
+           Logo Area
+           用意：
+           點擊 Logo 回首頁
+      ==================================================== -->
+      <a href="https://nc.jic-tools.com.tw/index.html" class="logo-wrap">
+        <!-- <a href="${ROOT_PATH}/nine9/index.html" class="logo-wrap"> -->
+        <!-- =================================================
+             Nine9 Logo
+        ================================================== -->
+        <!-- <img src="https://nine9.jic-tools.com.tw/themes/nine9/images/logo.png" alt="Nine9 Logo" /> -->
+        <!-- <img src="../assets/images/jimmore-nine9-logo.png" alt="Nine9 Logo" /> -->
+<!-- <img
+  src="https://drive.google.com/thumbnail?id=1W6J1NyS9ordicwVyAayDWc-e-_1Wy8SM&sz=w1600"
+  alt="JIMMORE International Corp."
+  style="width:280px; height:auto;"
+> -->
+<img
+  src="https://drive.google.com/thumbnail?id=1W6J1NyS9ordicwVyAayDWc-e-_1Wy8SM&sz=w1600"
+  alt="JIMMORE International Corp."
+>
+        <!-- =================================================
+             Logo Text
+        ================================================== -->
+        <!-- <div class="logo-text">
+
+          <div class="logo-title">
+            NC program generator
+          </div>
+
+          <div class="logo-sub">
+            Technical Support Portal
+          </div>
+
+        </div> -->
+
+      </a>
+
+      <!-- ===================================================
+           Mobile Menu Button
+           用意：
+           手機版漢堡選單按鈕
+      ==================================================== -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu" aria-controls="topNav"
+        aria-expanded="false">
+
+        <i class="fa-solid fa-bars"></i>
+
+      </button>
+
+      <!-- ===================================================
+           Navigation
+      ==================================================== -->
+      <nav class="top-nav" id="topNav">
+
+        <!-- <a href="https://cwli.dev/Nine-9/nine9/products.html">
+          Product
+        </a> -->
+
+        <!-- <a href="https://cwli.dev/Nine-9/CuttingData/index.html">
+          Cutting Data
+        </a> -->
+
+        <a href="https://nc.jic-tools.com.tw/index.html">
+          NC Program
+        </a>
+
+        <!-- <a href="https://cwli.dev/Nine-9/News/index.html">
+          News
+        </a> -->
+
+        <!-- <a href="https://cwli.dev/Nine-9/ContactUs/index.html">
+          Contact Us
+        </a> -->
+
+
+
+        <a href="https://nine9.jic-tools.com.tw/" target="_blank">
+          Global
+          Website
+        </a>
+
+      </nav>
+
+    </div>
+
+  </div>
+
+</header>
+
+<!-- =========================================================
+     Mobile Menu Script
+     用意：
+     點擊漢堡按鈕展開 Menu
+========================================================= -->
+<script>
+
+  const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
+
+  const topNav =
+    document.getElementById("topNav");
+
+  /* =========================================================
+     點擊漢堡按鈕
+  ========================================================= */
+
+  mobileMenuBtn.addEventListener("click", () => {
+
+    topNav.classList.toggle("active");
+
+  });
+
+</script>
