@@ -1,0 +1,275 @@
+:root {
+  --brand-orange: #f15a24;
+  --brand-blue: #075aa8;
+  --ink: #102a43;
+  --muted: #587086;
+  --line: #d7e3ed;
+  --surface: #ffffff;
+  --surface-blue: #edf6ff;
+  --page: #f7fafc;
+  --shadow: 0 7px 22px rgba(27, 64, 94, 0.09);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--page);
+  background-image:
+    linear-gradient(rgba(7, 90, 168, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 90, 168, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+  font-family: Arial, "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+}
+
+/* 頁首改用白底與細藍線，降低手機畫面的黑色占比。 */
+.preview-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px clamp(16px, 5vw, 36px);
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 3px solid var(--brand-blue);
+  box-shadow: 0 4px 18px rgba(16, 42, 67, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand img {
+  width: 58px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.brand span { display: grid; }
+.brand strong { font-size: 1.15rem; line-height: 1.05; }
+.brand small { margin-top: 4px; color: var(--muted); font-size: 0.75rem; }
+
+.menu-button {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-content: center;
+  gap: 5px;
+  padding: 0;
+  border: 1px solid #c9d9e6;
+  border-radius: 12px;
+  color: var(--ink);
+  background: var(--surface-blue);
+}
+
+.menu-button span {
+  width: 20px;
+  height: 2px;
+  display: block;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.catalog-shell {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 24px 18px 52px;
+}
+
+.catalog-intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+  padding: 22px;
+  background: linear-gradient(125deg, #ffffff 0%, #eef7ff 100%);
+  border: 1px solid #cfdfec;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--brand-orange);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.catalog-intro h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2rem, 9vw, 3.25rem);
+  line-height: 1;
+}
+
+.family-count {
+  flex: 0 0 auto;
+  padding: 8px 11px;
+  color: #07508f;
+  background: #dceeff;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* 白色卡片搭配橘色識別線，取代原本的大面積中灰色。 */
+.family-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.family-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--brand-orange);
+}
+
+.family-toggle {
+  width: 100%;
+  min-height: 92px;
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px 12px 16px;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.icon-well {
+  width: 68px;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  background: var(--surface-blue);
+  border: 1px solid #d6e7f5;
+  border-radius: 14px;
+}
+
+.icon-well img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.family-name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 900;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.chevron {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  color: var(--brand-orange);
+  background: #fff0e9;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 900;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.family-card.is-open .chevron {
+  color: #fff;
+  background: var(--brand-orange);
+  transform: rotate(90deg);
+}
+
+.family-details {
+  display: none;
+  padding: 2px 18px 18px 30px;
+  border-top: 1px solid #e6edf3;
+}
+
+.family-card.is-open .family-details { display: block; }
+
+.detail-label {
+  margin: 14px 0 10px;
+  color: var(--brand-orange);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.product-links {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-links a {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  padding: 9px 12px;
+  color: #23445f;
+  background: #f6f9fc;
+  border: 1px solid #e1e9f0;
+  border-radius: 10px;
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.family-toggle:focus-visible,
+.product-links a:focus-visible {
+  outline: 3px solid rgba(241, 90, 36, 0.35);
+  outline-offset: 2px;
+}
+
+@media (max-width: 820px) {
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 575.98px) {
+  .preview-header { min-height: 70px; padding: 10px 14px; }
+  .brand img { width: 52px; height: 44px; }
+  .brand strong { font-size: 1.05rem; }
+  .catalog-shell { padding: 16px 12px 36px; }
+  .catalog-intro { align-items: start; padding: 17px; border-radius: 15px; }
+  .family-count { margin-top: 2px; font-size: 0.72rem; }
+  .product-grid { grid-template-columns: 1fr; gap: 10px; }
+  .family-card { border-radius: 14px; box-shadow: 0 5px 16px rgba(27, 64, 94, 0.075); }
+  .family-toggle { min-height: 84px; grid-template-columns: 66px minmax(0, 1fr) 30px; gap: 12px; padding: 9px 12px 9px 14px; }
+  .icon-well { width: 60px; height: 60px; border-radius: 12px; }
+  .icon-well img { width: 46px; height: 46px; }
+  .family-name { font-size: 1.08rem; }
+  .family-details { padding: 0 14px 15px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}

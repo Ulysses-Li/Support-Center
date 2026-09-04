@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nine9 產品分類手機亮色版設計樣板">
+  <title>Products｜手機亮色版樣板</title>
+  <!-- 樣板使用獨立 CSS，不會影響正式產品頁。 -->
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/png" href="/favicon.png?v=20260904">
+</head>
+<body>
+  <!-- 簡化的亮色頁首，用來觀察手機首屏整體明暗比例。 -->
+  <header class="preview-header">
+    <a class="brand" href="/index.html" aria-label="返回 Support Center 首頁">
+      <img src="/assets/images/jimmore-nine9-logo.png" alt="Jimmore">
+      <span><strong>Support Center</strong><small>Technical Support Portal</small></span>
+    </a>
+    <button class="menu-button" type="button" aria-label="開啟選單">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="catalog-shell">
+    <!-- 標題區以少量文字建立頁面層級，不占用過多手機首屏。 -->
+    <section class="catalog-intro" aria-labelledby="catalog-title">
+      <div>
+        <p class="eyebrow">NINE9 PRODUCT GUIDE</p>
+        <h1 id="catalog-title">Products</h1>
+      </div>
+      <span class="family-count">12 machining families</span>
+    </section>
+
+    <!-- JavaScript 會依產品資料產生可展開的亮色分類卡片。 -->
+    <section class="product-grid" id="productGrid" aria-label="產品分類"></section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
