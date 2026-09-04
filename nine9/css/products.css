@@ -1109,3 +1109,364 @@ body {
     .product-family-img width/height: 48px;
     .product-family-name font-size: 18px;
 */
+
+/* =========================================================
+   Products 正式融合版
+   用意：桌面使用白底技術型卡片，手機使用單開式手風琴。
+   本段放在舊版規則後方，作為目前正式採用的最終樣式。
+========================================================= */
+.product-family-card {
+  position: relative;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d5e2ed;
+  border-radius: 16px;
+  box-shadow: 0 12px 34px rgba(31, 65, 91, 0.09);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.product-family-card:hover {
+  transform: translateY(-4px);
+  border-color: #f4a17e;
+  box-shadow: 0 18px 42px rgba(31, 65, 91, 0.15);
+}
+
+/* 桌面版頂端使用橘、藍雙色細線保留品牌識別。 */
+.family-accent {
+  width: 100%;
+  height: 4px;
+  flex: 0 0 4px;
+  display: block;
+  background: linear-gradient(90deg, var(--nine9-orange) 0 30%, #0067ad 30% 100%);
+}
+
+.product-family-toggle {
+  width: 100%;
+  display: block;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.product-family-toggle:focus-visible {
+  outline: 3px solid rgba(0, 103, 173, 0.32);
+  outline-offset: -3px;
+}
+
+/* 標題列取消大片灰底，改用圖示框、分類編號與名稱。 */
+.product-family-head {
+  width: 100%;
+  min-height: 112px;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #0c2237;
+  background: #fff;
+  border: 0;
+  border-bottom: 1px solid #e6edf3;
+}
+
+.product-family-icon {
+  width: 74px;
+  height: 74px;
+  flex: 0 0 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf7ff;
+  border: 1px solid #cfe3f4;
+  border-radius: 14px;
+}
+
+.product-family-img {
+  width: 58px;
+  height: 58px;
+  display: block;
+  object-fit: contain;
+}
+
+.product-family-name-wrap {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.family-number {
+  display: block;
+  margin-bottom: 6px;
+  color: #0067ad !important;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.13em;
+}
+
+.product-family-name {
+  margin: 0;
+  color: #0c2237 !important;
+  font-size: clamp(21px, 1.8vw, 25px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* 桌面版內容固定顯示，底部按鈕保持在卡片底端。 */
+.product-family-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px 20px;
+  background: #fff;
+}
+
+.related-title {
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5b6f82;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.related-title::before {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  background: var(--nine9-orange);
+  border-radius: 50%;
+}
+
+.related-list {
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.related-list li {
+  margin: 0;
+  display: block;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.related-list li + li {
+  border-top: 1px solid #edf1f5;
+}
+
+.related-list li::before {
+  content: none;
+}
+
+.related-list a {
+  min-height: 42px;
+  padding: 9px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #273d50;
+  text-decoration: none;
+}
+
+.related-list a svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  color: #91a5b5;
+  transition: color 0.16s ease, transform 0.16s ease;
+}
+
+.related-list a:hover {
+  color: var(--nine9-orange);
+}
+
+.related-list a:hover svg {
+  color: var(--nine9-orange);
+  transform: translateX(3px);
+}
+
+.product-family-cta {
+  min-height: 44px;
+  margin-top: auto;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #0c2237;
+  background: #f7fafc;
+  border: 1px solid #cfdce6;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.product-family-cta:hover {
+  color: #fff;
+  background: var(--nine9-orange);
+  border-color: var(--nine9-orange);
+}
+
+.product-family-cta svg {
+  flex: 0 0 auto;
+}
+
+/* 桌面和平板固定展開內容，因此不顯示展開箭頭。 */
+.family-chevron {
+  display: none;
+}
+
+@media (max-width: 575.98px) {
+  /* 手機標題區縮短，讓第一張產品卡片在首屏自然露出。 */
+  .catalog-intro {
+    min-height: 108px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 19px 17px;
+  }
+
+  .catalog-eyebrow {
+    margin-bottom: 5px;
+  }
+
+  .catalog-intro h1 {
+    font-size: 40px;
+  }
+
+  /* 手機版使用單欄手風琴，左側橘線取代桌面雙色線。 */
+  .product-family-card {
+    display: block;
+    min-height: 0;
+    height: auto;
+    border-color: #d7e3ed;
+    border-radius: 15px;
+    box-shadow: 0 7px 22px rgba(31, 65, 91, 0.08);
+  }
+
+  .product-family-card:hover {
+    transform: none;
+    border-color: #d7e3ed;
+    box-shadow: 0 7px 22px rgba(31, 65, 91, 0.08);
+  }
+
+  .family-accent {
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 2;
+    width: 4px;
+    height: auto;
+    background: var(--nine9-orange);
+  }
+
+  .product-family-head {
+    min-height: 88px;
+    height: auto;
+    padding: 11px 12px 11px 14px;
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr) 32px;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 0;
+  }
+
+  .product-family-icon {
+    width: 62px;
+    height: 62px;
+    padding: 6px;
+    border-radius: 12px;
+  }
+
+  .product-family-img {
+    width: 49px;
+    height: 49px;
+  }
+
+  .family-number {
+    margin-bottom: 4px;
+    font-size: 10px;
+  }
+
+  .product-family-name {
+    font-size: 18px;
+    line-height: 1.08;
+  }
+
+  .family-chevron {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    color: var(--nine9-orange);
+    background: #fff0e9;
+    border-radius: 50%;
+    transition: transform 0.18s ease, color 0.18s ease, background 0.18s ease;
+  }
+
+  .family-chevron svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+
+  .product-family-card.is-open .family-chevron {
+    color: #fff;
+    background: var(--nine9-orange);
+    transform: rotate(180deg);
+  }
+
+  .product-family-body {
+    display: none;
+    padding: 3px 16px 17px 24px;
+    border-top: 1px solid #e7eef4;
+  }
+
+  .product-family-card.is-open .product-family-body {
+    display: flex;
+  }
+
+  .related-title {
+    margin-top: 13px;
+  }
+
+  .related-list a {
+    min-height: 40px;
+  }
+
+  .product-family-cta {
+    min-height: 42px;
+  }
+}
+
+/* 尊重使用者的減少動畫設定。 */
+@media (prefers-reduced-motion: reduce) {
+  .product-family-card,
+  .family-chevron,
+  .related-list a svg {
+    transition: none;
+  }
+}
