@@ -30,20 +30,30 @@ const arrowRight = `
     <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
   </svg>`;
 
+/* Bootstrap Icons 的向下箭頭，用來提示手機版卡片可以展開。 */
+const chevronDown = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16" aria-hidden="true">
+    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+  </svg>`;
+
 const grid = document.getElementById("familyGrid");
 
 /* 一次產生所有卡片，編號、圖片、產品清單與按鈕維持一致結構。 */
-grid.innerHTML = families.map((family, index) => `
-  <article class="family-card">
+grid.innerHTML = families.map((family, index) => {
+  const panelId = `family-panel-${index}`;
+
+  return `
+  <article class="family-card${index === 0 ? " is-open" : ""}">
     <div class="card-accent" aria-hidden="true"></div>
-    <header class="family-head">
+    <button class="family-head" type="button" aria-expanded="${index === 0 ? "true" : "false"}" aria-controls="${panelId}">
       <span class="family-icon"><img src="../../img/${escapeHTML(family.image)}" alt=""></span>
       <div class="family-heading">
         <span class="family-number">FAMILY ${String(index + 1).padStart(2, "0")}</span>
         <h2>${escapeHTML(family.title)}</h2>
       </div>
-    </header>
-    <div class="family-body">
+      <span class="mobile-chevron" aria-hidden="true">${chevronDown}</span>
+    </button>
+    <div class="family-body" id="${panelId}">
       <p class="related-label"><span></span>Related Products</p>
       <ul class="product-list">
         ${family.products.map((product) => `<li><a href="#">${escapeHTML(product)}${arrowRight}</a></li>`).join("")}
@@ -54,9 +64,41 @@ grid.innerHTML = families.map((family, index) => `
       </button>
     </div>
   </article>
-`).join("");
+  `;
+}).join("");
 
-/* 此頁是視覺樣板，暫時阻止測試連結跳離頁面。 */
+const mobileQuery = window.matchMedia("(max-width: 620px)");
+
+/* 手機版使用單開式手風琴；桌面版則固定顯示每張卡片的完整內容。 */
 grid.addEventListener("click", (event) => {
-  if (event.target.closest("a, button")) event.preventDefault();
+  const head = event.target.closest(".family-head");
+
+  if (head && mobileQuery.matches) {
+    const selectedCard = head.closest(".family-card");
+    const willOpen = !selectedCard.classList.contains("is-open");
+
+    grid.querySelectorAll(".family-card").forEach((card) => {
+      card.classList.remove("is-open");
+      card.querySelector(".family-head").setAttribute("aria-expanded", "false");
+    });
+
+    if (willOpen) {
+      selectedCard.classList.add("is-open");
+      head.setAttribute("aria-expanded", "true");
+    }
+  }
+
+  /* 視覺樣板暫時不導向正式產品頁。 */
+  if (event.target.closest("a, .family-action")) event.preventDefault();
 });
+
+/* 切換桌面與手機寬度時，同步按鈕的展開狀態。 */
+function syncResponsiveState() {
+  grid.querySelectorAll(".family-card").forEach((card) => {
+    const head = card.querySelector(".family-head");
+    head.setAttribute("aria-expanded", mobileQuery.matches ? String(card.classList.contains("is-open")) : "true");
+  });
+}
+
+mobileQuery.addEventListener("change", syncResponsiveState);
+syncResponsiveState();
