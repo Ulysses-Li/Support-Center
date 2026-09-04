@@ -85,21 +85,25 @@ function renderDownload() {
     <h1 class="page-title">${escapeHTML(data.productName)} Download</h1>
     <div class="title-line"></div>
 
+    <!-- 下載項目使用單層資訊卡，名稱、狀態與操作集中在同一個表面。 -->
     <div class="resource-grid">
-      ${data.downloads.map(item => `
+      ${data.downloads.map((item, index) => `
         <${item.href ? "a" : "div"}
           class="resource-card ${item.href ? "" : "is-disabled"}"
-          ${item.href ? `href="${escapeHTML(item.href)}" target="_blank"` : ""}
+          ${item.href ? `href="${escapeHTML(item.href)}" download` : ""}
         >
-          <div class="resource-title">${escapeHTML(item.title)}</div>
+          <!-- 編號讓兩個下載資源容易掃讀，也避免加入多餘裝飾框。 -->
+          <span class="resource-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
 
-          <div class="resource-preview">
-            ${item.image ? `
-              <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.title)}">
-            ` : `
-              <div class="resource-placeholder">Coming soon</div>
-            `}
+          <div class="resource-copy">
+            <h2 class="resource-title">${escapeHTML(item.title)}</h2>
+            <span class="resource-status">${item.href ? "Download PDF" : "Coming soon"}</span>
           </div>
+
+          <!-- 有連結時顯示下載符號；尚未提供時顯示狀態圓點。 -->
+          <span class="resource-action" aria-hidden="true">
+            ${item.href ? "↓" : "·"}
+          </span>
         </${item.href ? "a" : "div"}>
       `).join("")}
     </div>

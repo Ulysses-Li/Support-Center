@@ -144,18 +144,40 @@ body {
 .resource-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(220px, 1fr));
-  gap: 28px;
+  gap: 16px;
   max-width: 720px;
 }
 
 .resource-card {
-  color: #111;
+  position: relative;
+  min-height: 92px;
+  padding: 18px 18px 18px 20px;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
+  color: #0c2237;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(31, 65, 91, 0.09);
   text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 左側橘線是唯一主要分隔，避免再堆疊標題框與預覽框。 */
+.resource-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: #f05a1a;
 }
 
 .resource-card:hover {
   transform: translateY(-4px);
+  color: #0c2237;
+  box-shadow: 0 14px 30px rgba(31, 65, 91, 0.14);
 }
 
 .resource-card.is-disabled {
@@ -164,52 +186,47 @@ body {
 
 .resource-card.is-disabled:hover {
   transform: none;
+  box-shadow: 0 8px 24px rgba(31, 65, 91, 0.09);
+}
+
+.resource-number {
+  color: #f05a1a;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.resource-copy {
+  min-width: 0;
 }
 
 .resource-title {
-  font-size: 26px;
-  font-weight: 800;
-  margin-bottom: 14px;
-}
-
-.resource-title::before {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-right: 12px;
-  background: #f05a1a;
-}
-
-.resource-preview {
-  width: 190px;
-  height: 270px;
-  border: 1px solid #333;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.resource-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.resource-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  color: #666;
+  margin: 0;
+  color: #0c2237;
   font-size: 20px;
-  font-weight: 800;
-  text-align: center;
-  background: #f7f7f7;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.resource-status {
+  display: block;
+  margin-top: 5px;
+  color: #66798a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.resource-action {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: #f05a1a;
+  background: #fff0e9;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
 }
 
 .cad-download-panel {
@@ -1306,6 +1323,18 @@ body {
   .faq-grid,
   .support-form-row {
     grid-template-columns: 1fr;
+  }
+
+  /* 手機版維持單層橫向卡片，避免下載區佔用過長頁面。 */
+  .resource-card {
+    min-height: 82px;
+    padding: 15px 14px 15px 18px;
+    grid-template-columns: 36px minmax(0, 1fr) 32px;
+    gap: 10px;
+  }
+
+  .resource-title {
+    font-size: 18px;
   }
 
   .cad-download-intro,
