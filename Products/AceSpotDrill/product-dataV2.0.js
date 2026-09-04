@@ -4,7 +4,7 @@ const PRODUCT_PAGE_DATA = {
   "downloads": [
     {
       "title": "Catalog",
-      "image": "",
+      "image": "./downloads/ACE-Spot-Drill-Catalog-cover.jpg",
       "href": "./downloads/ACE-Spot-Drill-Catalog.pdf"
     },
     {

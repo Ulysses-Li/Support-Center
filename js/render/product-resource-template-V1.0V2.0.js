@@ -88,23 +88,40 @@ function renderDownload() {
     <!-- 下載項目使用單層資訊卡，名稱、狀態與操作集中在同一個表面。 -->
     <div class="resource-grid">
       ${data.downloads.map((item, index) => `
-        <${item.href ? "a" : "div"}
-          class="resource-card ${item.href ? "" : "is-disabled"}"
-          ${item.href ? `href="${escapeHTML(item.href)}" download` : ""}
-        >
-          <!-- 編號讓兩個下載資源容易掃讀，也避免加入多餘裝飾框。 -->
-          <span class="resource-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
+        <article class="resource-entry">
+          <${item.href ? "a" : "div"}
+            class="resource-card ${item.href ? "" : "is-disabled"}"
+            ${item.href ? `href="${escapeHTML(item.href)}" download` : ""}
+          >
+            <!-- 編號讓兩個下載資源容易掃讀，也避免加入多餘裝飾框。 -->
+            <span class="resource-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
 
-          <div class="resource-copy">
-            <h2 class="resource-title">${escapeHTML(item.title)}</h2>
-            <span class="resource-status">${item.href ? "Download PDF" : "Coming soon"}</span>
-          </div>
+            <div class="resource-copy">
+              <h2 class="resource-title">${escapeHTML(item.title)}</h2>
+              <span class="resource-status">${item.href ? "Download PDF" : "Coming soon"}</span>
+            </div>
 
-          <!-- 有連結時顯示下載符號；尚未提供時顯示狀態圓點。 -->
-          <span class="resource-action" aria-hidden="true">
-            ${item.href ? "↓" : "·"}
-          </span>
-        </${item.href ? "a" : "div"}>
+            <!-- 有連結時顯示下載符號；尚未提供時顯示狀態圓點。 -->
+            <span class="resource-action" aria-hidden="true">
+              ${item.href ? "↓" : "·"}
+            </span>
+          </${item.href ? "a" : "div"}>
+
+          <!-- 封面與下載卡保持同欄；有 PDF 時點封面也可直接下載。 -->
+          <${item.href ? "a" : "div"}
+            class="resource-cover ${item.image ? "has-image" : "is-placeholder"}"
+            ${item.href ? `href="${escapeHTML(item.href)}" download aria-label="Download ${escapeHTML(item.title)} PDF"` : ""}
+          >
+            ${item.image ? `
+              <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.title)} cover">
+            ` : `
+              <span class="resource-cover-placeholder">
+                <strong>${escapeHTML(item.title)}</strong>
+                <small>Coming soon</small>
+              </span>
+            `}
+          </${item.href ? "a" : "div"}>
+        </article>
       `).join("")}
     </div>
   `;

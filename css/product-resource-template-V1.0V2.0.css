@@ -146,6 +146,14 @@ body {
   grid-template-columns: repeat(2, minmax(220px, 1fr));
   gap: 16px;
   max-width: 720px;
+  align-items: start;
+}
+
+/* 每個下載項目將操作卡與封面放在同一欄。 */
+.resource-entry {
+  min-width: 0;
+  display: grid;
+  gap: 14px;
 }
 
 .resource-card {
@@ -227,6 +235,73 @@ body {
   font-size: 22px;
   font-weight: 900;
   line-height: 1;
+}
+
+/* PDF 封面維持原始型錄比例，並和上方下載卡對齊。 */
+.resource-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 603.78 / 858.898;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #0c2237;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(31, 65, 91, 0.09);
+  text-decoration: none;
+}
+
+.resource-cover.has-image {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resource-cover.has-image:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(31, 65, 91, 0.14);
+}
+
+.resource-cover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* 尚無檔案時保留相同尺寸，避免兩欄高度與版面跳動。 */
+.resource-cover.is-placeholder {
+  background:
+    linear-gradient(rgba(0, 103, 173, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 103, 173, 0.05) 1px, transparent 1px),
+    #f8fbfe;
+  background-size: 28px 28px;
+}
+
+.resource-cover.is-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: #f05a1a;
+}
+
+.resource-cover-placeholder {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.resource-cover-placeholder strong {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.resource-cover-placeholder small {
+  color: #66798a;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .cad-download-panel {
@@ -1335,6 +1410,53 @@ body {
 
   .resource-title {
     font-size: 18px;
+  }
+
+  /* Catalog 與 Cutting Data 在手機版也維持同一排。 */
+  .resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .resource-entry {
+    gap: 10px;
+  }
+
+  .resource-card {
+    min-height: 76px;
+    padding: 12px;
+    grid-template-columns: minmax(0, 1fr) 28px;
+    gap: 7px;
+  }
+
+  .resource-number {
+    display: none;
+  }
+
+  .resource-title {
+    font-size: 16px;
+  }
+
+  .resource-status {
+    font-size: 12px;
+  }
+
+  .resource-action {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+
+  .resource-cover {
+    border-radius: 9px;
+  }
+
+  .resource-cover-placeholder strong {
+    font-size: 16px;
+  }
+
+  .resource-cover-placeholder small {
+    font-size: 12px;
   }
 
   .cad-download-intro,
