@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nine9 產品分類卡片桌面版設計樣板">
+  <title>Nine9 Products｜桌面卡片樣板</title>
+  <link rel="icon" href="../../favicon.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- 樣板導覽列：只用來模擬正式頁面的桌面觀看環境。 -->
+  <header class="demo-header">
+    <a class="brand" href="#" aria-label="Nine9 Support Center">
+      <img src="../../assets/images/jimmore-nine9-logo.png" alt="Nine9">
+      <span><strong>Support Center</strong><small>Technical Support Portal</small></span>
+    </a>
+    <span class="demo-label">DESKTOP CARD STUDY</span>
+  </header>
+
+  <main class="catalog-shell">
+    <!-- 簡短頁首讓使用者先知道目前瀏覽的內容，不搶走產品卡片焦點。 -->
+    <section class="catalog-intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">NINE9 PRODUCT GUIDE</p>
+        <h1 id="page-title">Products</h1>
+      </div>
+      <p class="family-count"><strong>12</strong> machining families</p>
+    </section>
+
+    <!-- 產品卡片由 app.js 使用集中資料產生。 -->
+    <section class="family-grid" id="familyGrid" aria-label="Product families"></section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
