@@ -25,6 +25,7 @@ npm run dev
 - 加工分類：`Machining/`
 - 產品內容資料：`Products/<產品名稱>/product-data.js`
 - 共用產品頁渲染：`js/render/product-resource-template-V1.0.js`
+- 全站共用圖片：`assets/images/`；瀏覽器圖示則直接放在專案根目錄
 - NC Program 首頁與兩套產生器：`NCProgram/`
 - 完整架構與程式說明：[`docs/CODE_GUIDE.zh-TW.md`](docs/CODE_GUIDE.zh-TW.md)
 
