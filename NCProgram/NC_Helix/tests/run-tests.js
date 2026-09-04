@@ -20,8 +20,11 @@ test('NC Helix page uses shared layout and external modules', () => {
     const html = fs.readFileSync(path.join(helixRoot, 'index.html'), 'utf8');
     assert.doesNotMatch(html, /<style[\s>]/i);
     assert.doesNotMatch(html, /\son(?:change|click|input)=/i);
-    assert.match(html, /\.\.\/header\/header\.css/);
-    assert.match(html, /\.\.\/footer\/footer\.css/);
+    // NC Program 已整併進 Support Center，必須引用網站根目錄的唯一共用版型。
+    assert.match(html, /href="\/header\/header\.css"/);
+    assert.match(html, /href="\/footer\/footer\.css"/);
+    assert.match(html, /data-header-url="\/header\/header\.html/);
+    assert.match(html, /data-footer-url="\/footer\/footer\.html/);
     assert.match(html, /\.\/src\/data\/cutting-data\.js/);
     assert.match(html, /\.\/src\/services\/gcode-generator\.js/);
     assert.match(html, /\.\/src\/ui\/form-bindings\.js/);

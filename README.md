@@ -33,3 +33,5 @@ npm run dev
 檔名含 `V2.0` 的檔案目前只供 ACE Spot Drill 頁面使用；其他產品仍使用 V1.0。`js/**/no/` 是未被目前頁面引用的保留版本。這些檔案暫不刪除，避免遺失可追溯內容。
 
 `NCProgram/Thread_Milling/` 與 `NCProgram/NC_Helix/` 是目前首頁使用的正式工具；未加底線的 `NCProgram/ThreadMilling/` 是整併前版本，暫時保留供比對。
+
+全站頁面（包含 NC Program）只引用根目錄的 `header/` 與 `footer/`。`NCProgram/header/`、`NCProgram/footer/` 已解除引用，應由維護者手動刪除。

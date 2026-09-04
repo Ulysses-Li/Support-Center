@@ -69,7 +69,9 @@
 
 `css/site-background.css` 集中定義冷白底、淡藍／淡橘徑向光暈與 36px 工程網格。一般頁面由 `header/header.css` 載入，NC Program 則由自己的頁首樣式載入同一個根目錄檔案。
 
-NC Program 保留獨立站的黑色頁首外觀，但 Logo 與 NC Program 導覽都使用站內根路徑，不綁定網域或舊的 `/Nine-9` 子路徑。
+NC Program 改用 Support Center 的共用黑色頁首；Logo 與所有導覽都使用站內根路徑，不綁定網域或舊的 `/Nine-9` 子路徑。
+
+全站只有根目錄的 `header/`、`footer/` 是正式版型來源。NC Program 各頁透過 `/header/...` 與 `/footer/...` 載入相同內容，不再引用 `NCProgram` 內的重複副本。
 
 目前首頁使用兩套正式工具：
 

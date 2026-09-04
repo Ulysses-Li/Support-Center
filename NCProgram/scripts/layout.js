@@ -1,8 +1,9 @@
 (function () {
     // 用意：讀取目前 script 標籤上的設定，讓不同子資料夾共用同一個版型載入器。
     const layoutScript = document.currentScript;
-    const headerUrl = layoutScript?.dataset.headerUrl || '../header/header.html';
-    const footerUrl = layoutScript?.dataset.footerUrl || '../footer/footer.html';
+    // 預設直接使用 Support Center 根目錄的唯一共用版型。
+    const headerUrl = layoutScript?.dataset.headerUrl || '/header/header.html';
+    const footerUrl = layoutScript?.dataset.footerUrl || '/footer/footer.html';
 
     // 用意：將外部 HTML 元件載入指定容器，集中處理回應錯誤。
     async function loadFragment(targetId, url) {
