@@ -5,7 +5,7 @@ const PRODUCT_PAGE_DATA = {
     {
       "title": "Catalog",
       "image": "./downloads/ACE-Spot-Drill-Catalog-cover.jpg",
-      "href": "./downloads/ACE-Spot-Drill-Catalog.pdf"
+      "href": "./ACE-Spot-Drill-Catalog.pdf"
     },
     {
       "title": "Cutting Data",

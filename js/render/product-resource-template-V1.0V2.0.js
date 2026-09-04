@@ -91,14 +91,14 @@ function renderDownload() {
         <article class="resource-entry">
           <${item.href ? "a" : "div"}
             class="resource-card ${item.href ? "" : "is-disabled"}"
-            ${item.href ? `href="${escapeHTML(item.href)}" download` : ""}
+            ${item.href ? `href="${escapeHTML(item.href)}" target="_blank" rel="noopener"` : ""}
           >
             <!-- 編號讓兩個下載資源容易掃讀，也避免加入多餘裝飾框。 -->
             <span class="resource-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
 
             <div class="resource-copy">
               <h2 class="resource-title">${escapeHTML(item.title)}</h2>
-              <span class="resource-status">${item.href ? "Download PDF" : "Coming soon"}</span>
+              <span class="resource-status">${item.href ? "Preview PDF" : "Coming soon"}</span>
             </div>
 
             <!-- 有連結時顯示下載符號；尚未提供時顯示狀態圓點。 -->
@@ -107,10 +107,10 @@ function renderDownload() {
             </span>
           </${item.href ? "a" : "div"}>
 
-          <!-- 封面與下載卡保持同欄；有 PDF 時點封面也可直接下載。 -->
+          <!-- 封面與標題保持同欄；有 PDF 時點封面會開啟瀏覽器預覽。 -->
           <${item.href ? "a" : "div"}
             class="resource-cover ${item.image ? "has-image" : "is-placeholder"}"
-            ${item.href ? `href="${escapeHTML(item.href)}" download aria-label="Download ${escapeHTML(item.title)} PDF"` : ""}
+            ${item.href ? `href="${escapeHTML(item.href)}" target="_blank" rel="noopener" aria-label="Preview ${escapeHTML(item.title)} PDF"` : ""}
           >
             ${item.image ? `
               <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.title)} cover">
