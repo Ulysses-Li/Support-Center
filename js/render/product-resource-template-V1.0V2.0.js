@@ -781,7 +781,8 @@ function bindMenu() {
 }
 
 function loadHeader() {
-  fetch("../../header/headerV2.0.html?v=V2.0")
+  // 全站統一載入根目錄的正式頁首，避免維護多份相同版型。
+  fetch("../../header/header.html?v=20260520-news")
     .then(response => response.text())
     .then(data => {
       document.getElementById("header-placeholder").innerHTML = data;
@@ -798,7 +799,8 @@ function loadHeader() {
 }
 
 function loadFooter() {
-  fetch("../../footer/footerV2.0.html?v=V2.0")
+  // 全站統一載入根目錄的正式頁尾，避免維護多份相同版型。
+  fetch("../../footer/footer.html")
     .then(response => response.text())
     .then(data => {
       document.getElementById("footer-placeholder").innerHTML = data;
