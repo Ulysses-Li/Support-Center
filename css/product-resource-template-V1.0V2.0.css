@@ -149,52 +149,34 @@ body {
   align-items: start;
 }
 
-/* 每個下載項目將操作卡與封面放在同一欄。 */
+/* 每個下載項目將簡潔標題與封面放在同一欄。 */
 .resource-entry {
   min-width: 0;
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
-.resource-card {
+.resource-heading {
   position: relative;
-  min-height: 92px;
-  padding: 18px 18px 18px 20px;
+  min-height: 68px;
+  padding: 4px 4px 10px 18px;
   display: grid;
-  grid-template-columns: 42px minmax(0, 1fr) 34px;
+  grid-template-columns: 34px minmax(0, 1fr);
   align-items: center;
-  gap: 14px;
-  overflow: hidden;
+  gap: 12px;
   color: #0c2237;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(31, 65, 91, 0.09);
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-bottom: 1px solid #cfdae4;
 }
 
-/* 左側橘線是唯一主要分隔，避免再堆疊標題框與預覽框。 */
-.resource-card::before {
+/* 橘色短線延續舊版下載標題的視覺識別。 */
+.resource-heading::before {
   content: "";
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 34px;
   background: #f05a1a;
-}
-
-.resource-card:hover {
-  transform: translateY(-4px);
-  color: #0c2237;
-  box-shadow: 0 14px 30px rgba(31, 65, 91, 0.14);
-}
-
-.resource-card.is-disabled {
-  cursor: default;
-}
-
-.resource-card.is-disabled:hover {
-  transform: none;
-  box-shadow: 0 8px 24px rgba(31, 65, 91, 0.09);
 }
 
 .resource-number {
@@ -218,23 +200,10 @@ body {
 
 .resource-status {
   display: block;
-  margin-top: 5px;
+  margin-top: 3px;
   color: #66798a;
   font-size: 14px;
   font-weight: 700;
-}
-
-.resource-action {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  color: #f05a1a;
-  background: #fff0e9;
-  border-radius: 50%;
-  font-size: 22px;
-  font-weight: 900;
-  line-height: 1;
 }
 
 /* PDF 封面維持原始型錄比例，並和上方下載卡對齊。 */
@@ -1400,18 +1369,6 @@ body {
     grid-template-columns: 1fr;
   }
 
-  /* 手機版維持單層橫向卡片，避免下載區佔用過長頁面。 */
-  .resource-card {
-    min-height: 82px;
-    padding: 15px 14px 15px 18px;
-    grid-template-columns: 36px minmax(0, 1fr) 32px;
-    gap: 10px;
-  }
-
-  .resource-title {
-    font-size: 18px;
-  }
-
   /* Catalog 與 Cutting Data 在手機版也維持同一排。 */
   .resource-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1422,11 +1379,17 @@ body {
     gap: 10px;
   }
 
-  .resource-card {
-    min-height: 76px;
-    padding: 12px;
-    grid-template-columns: minmax(0, 1fr) 28px;
-    gap: 7px;
+  .resource-heading {
+    min-height: 66px;
+    padding: 4px 3px 9px 12px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .resource-heading::before {
+    top: 10px;
+    width: 4px;
+    height: 32px;
   }
 
   .resource-number {
@@ -1439,12 +1402,6 @@ body {
 
   .resource-status {
     font-size: 12px;
-  }
-
-  .resource-action {
-    width: 28px;
-    height: 28px;
-    font-size: 18px;
   }
 
   .resource-cover {

@@ -85,27 +85,18 @@ function renderDownload() {
     <h1 class="page-title">${escapeHTML(data.productName)} Download</h1>
     <div class="title-line"></div>
 
-    <!-- 下載項目使用單層資訊卡，名稱、狀態與操作集中在同一個表面。 -->
+    <!-- 下載項目恢復簡潔標題列，封面預覽維持在標題下方。 -->
     <div class="resource-grid">
       ${data.downloads.map((item, index) => `
         <article class="resource-entry">
-          <${item.href ? "a" : "div"}
-            class="resource-card ${item.href ? "" : "is-disabled"}"
-            ${item.href ? `href="${escapeHTML(item.href)}" target="_blank" rel="noopener"` : ""}
-          >
-            <!-- 編號讓兩個下載資源容易掃讀，也避免加入多餘裝飾框。 -->
+          <div class="resource-heading">
+            <!-- 編號保留資料順序，橘色短線延續原本下載區的識別方式。 -->
             <span class="resource-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
-
             <div class="resource-copy">
               <h2 class="resource-title">${escapeHTML(item.title)}</h2>
               <span class="resource-status">${item.href ? "Preview PDF" : "Coming soon"}</span>
             </div>
-
-            <!-- 有連結時顯示下載符號；尚未提供時顯示狀態圓點。 -->
-            <span class="resource-action" aria-hidden="true">
-              ${item.href ? "↓" : "·"}
-            </span>
-          </${item.href ? "a" : "div"}>
+          </div>
 
           <!-- 封面與標題保持同欄；有 PDF 時點封面會開啟瀏覽器預覽。 -->
           <${item.href ? "a" : "div"}
