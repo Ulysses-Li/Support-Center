@@ -34,4 +34,4 @@ npm run dev
 
 `NCProgram/Thread_Milling/` 與 `NCProgram/NC_Helix/` 是目前首頁使用的正式工具；未加底線的 `NCProgram/ThreadMilling/` 是整併前版本，暫時保留供比對。
 
-全站頁面（包含 NC Program）只引用根目錄的 `header/` 與 `footer/`。`NCProgram/header/`、`NCProgram/footer/` 已解除引用，應由維護者手動刪除。
+全站頁面（包含 NC Program）只引用根目錄的 `header/` 與 `footer/`；已解除引用的頁首頁尾副本集中保留在 `等待移除/`，方便確認後再清理。
