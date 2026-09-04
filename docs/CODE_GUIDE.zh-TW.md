@@ -68,7 +68,7 @@
 
 `NCProgram/home.css` 的首頁背景採冷白底、淡藍／淡橘徑向光暈與 36px 工程網格。這是 `NCProgram/index.html` 實際載入的樣式。
 
-NC Program 保留獨立站的黑色頁首外觀，但 Logo 與 NC Program 導覽已改連到 `https://cwli.dev/Nine-9/` 內的整合頁面，避免使用者跳回舊站。
+NC Program 保留獨立站的黑色頁首外觀，但 Logo 與 NC Program 導覽都使用站內根路徑，不綁定網域或舊的 `/Nine-9` 子路徑。
 
 目前首頁使用兩套正式工具：
 
