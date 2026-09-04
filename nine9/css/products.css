@@ -917,7 +917,7 @@ body {
 
   }
 
-  /* 圓形箭頭提示卡片可以展開；展開後旋轉並反白。 */
+  /* 圓形 Bootstrap 向下箭頭提示卡片可以展開；展開後轉為向上並反白。 */
   .family-chevron {
     width: 30px;
     height: 30px;
@@ -926,15 +926,20 @@ body {
     color: var(--nine9-orange);
     background: #fff0e9;
     border-radius: 50%;
-    font-size: 20px;
-    font-weight: 900;
     transition: transform 0.18s ease, color 0.18s ease, background 0.18s ease;
+  }
+
+  /* 固定 SVG 尺寸，避免圖示受文字字級影響。 */
+  .family-chevron svg {
+    display: block;
+    width: 16px;
+    height: 16px;
   }
 
   .product-family-card.is-open .family-chevron {
     color: #ffffff;
     background: var(--nine9-orange);
-    transform: rotate(90deg);
+    transform: rotate(180deg);
   }
 
   /* =======================================================

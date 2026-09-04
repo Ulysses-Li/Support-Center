@@ -194,15 +194,20 @@ body {
   color: var(--brand-orange);
   background: #fff0e9;
   border-radius: 50%;
-  font-size: 1.2rem;
-  font-weight: 900;
   transition: transform 180ms ease, background 180ms ease;
+}
+
+/* 固定 Bootstrap SVG 圖示尺寸，避免受到文字樣式影響。 */
+.chevron svg {
+  display: block;
+  width: 16px;
+  height: 16px;
 }
 
 .family-card.is-open .chevron {
   color: #fff;
   background: var(--brand-orange);
-  transform: rotate(90deg);
+  transform: rotate(180deg);
 }
 
 .family-details {
