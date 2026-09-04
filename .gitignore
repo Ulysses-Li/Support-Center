@@ -17,3 +17,5 @@ coverage/
 # 從獨立 NC Program 專案保留的內部版本紀錄與瀏覽器稽核目錄
 NCProgram/.git-imported-reference/
 NCProgram/.browser-profile-audit/
+等待移除/NCProgram/.git-imported-reference/
+等待移除/NCProgram/.browser-profile-audit/
