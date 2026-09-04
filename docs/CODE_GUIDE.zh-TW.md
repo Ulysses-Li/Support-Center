@@ -21,6 +21,7 @@
 | `Products/` | 各產品頁面與該產品專屬資料。 |
 | `js/data/` | 跨頁共用的產品分類資料。 |
 | `js/render/` | 把資料渲染成產品卡片、下載、FAQ、切削資料等畫面。 |
+| `css/site-background.css` | 全站唯一的工程網格背景設定；其他頁面不再各自複製漸層。 |
 | `header/`、`footer/` | 共用導覽列與頁尾。 |
 | `CADDownload/` | CAD 型號搜尋與下載狀態。 |
 | `CuttingData/` | 各產品切削資料入口。 |
@@ -66,7 +67,7 @@
 
 ## NC Program 工具
 
-`NCProgram/home.css` 的首頁背景採冷白底、淡藍／淡橘徑向光暈與 36px 工程網格。這是 `NCProgram/index.html` 實際載入的樣式。
+`css/site-background.css` 集中定義冷白底、淡藍／淡橘徑向光暈與 36px 工程網格。一般頁面由 `header/header.css` 載入，NC Program 則由自己的頁首樣式載入同一個根目錄檔案。
 
 NC Program 保留獨立站的黑色頁首外觀，但 Logo 與 NC Program 導覽都使用站內根路徑，不綁定網域或舊的 `/Nine-9` 子路徑。
 

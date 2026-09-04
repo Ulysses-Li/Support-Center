@@ -11,24 +11,8 @@
 
 body {
   margin: 0;
-  background: var(--page-bg);
   font-family: Arial, "Microsoft JhengHei", sans-serif;
   color: var(--text-main);
-}
-
-/*
- * NC Program 參考站的工程網格背景：
- * 右上淡藍光暈增加科技感，左側淡橘光暈呼應 Nine9 品牌色，
- * 兩層線性漸層組成 36px 的細網格；只套用在主內容，不影響共用頁首與頁尾。
- */
-body > main {
-  background-color: var(--page-bg);
-  background-image:
-    radial-gradient(circle at 88% 5%, rgba(53, 155, 215, 0.14), transparent 27rem),
-    radial-gradient(circle at 8% 34%, rgba(244, 91, 31, 0.07), transparent 22rem),
-    linear-gradient(rgba(70, 112, 140, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(70, 112, 140, 0.045) 1px, transparent 1px);
-  background-size: auto, auto, 36px 36px, 36px 36px;
 }
 
 a {

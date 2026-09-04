@@ -5,21 +5,11 @@
     --home-muted: #526574;
     --home-line: #cfdae2;
     --home-surface: #fff;
-    --home-background: #f7fbfe;
+    --home-background: var(--site-background, #f7fbfe);
 }
 
-/* 用意：限制首頁樣式作用範圍，避免影響其他 NC Program 頁面。 */
-.nc-home { margin: 0; color: var(--home-ink); background: var(--home-background); font-family: Arial, "Microsoft JhengHei", sans-serif; }
-/* 用意：以冷白、淡藍光暈與工程網格營造明亮的機械科技感。 */
-.home-main {
-    background-color: var(--home-background);
-    background-image:
-        radial-gradient(circle at 88% 5%, rgba(53, 155, 215, .14), transparent 27rem),
-        radial-gradient(circle at 8% 34%, rgba(244, 91, 31, .07), transparent 22rem),
-        linear-gradient(rgba(70, 112, 140, .045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(70, 112, 140, .045) 1px, transparent 1px);
-    background-size: auto, auto, 36px 36px, 36px 36px;
-}
+/* 用意：首頁只保留文字與字型設定；背景統一由 css/site-background.css 管理。 */
+.nc-home { margin: 0; color: var(--home-ink); font-family: Arial, "Microsoft JhengHei", sans-serif; }
 .home-intro { padding: 58px 0 42px; }
 .home-intro .container, .program-section .container, .category-section .container { max-width: 1320px; }
 .eyebrow, .section-kicker { color: var(--home-orange-dark); font-size: .78rem; font-weight: 800; letter-spacing: .14em; }

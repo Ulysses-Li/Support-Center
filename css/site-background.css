@@ -1,0 +1,28 @@
+/* =========================================================
+   全站共用工程網格背景
+   用意：
+   1. 集中管理所有頁面的底色與網格，避免各頁重複設定。
+   2. 淡藍光暈營造科技感，淡橘光暈呼應 Nine9 品牌色。
+   3. 以 36px 雙向線性漸層形成工程圖紙風格。
+========================================================= */
+
+:root {
+  --site-background: #f7fbfe;
+}
+
+body {
+  background-color: var(--site-background) !important;
+  background-image:
+    radial-gradient(circle at 88% 5%, rgba(53, 155, 215, 0.14), transparent 27rem),
+    radial-gradient(circle at 8% 34%, rgba(244, 91, 31, 0.07), transparent 22rem),
+    linear-gradient(rgba(70, 112, 140, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70, 112, 140, 0.045) 1px, transparent 1px) !important;
+  background-size: auto, auto, 36px 36px, 36px 36px !important;
+}
+
+/* 讓主內容顯示 body 的共用背景，同時保留卡片與頁首頁尾自己的底色。 */
+body > main {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
