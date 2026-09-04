@@ -68,7 +68,7 @@ function renderProductsCards() {
              Product Card
         ================================================== -->
 
-        <article class="product-family-card${index === 0 ? " is-open" : ""}" data-href="${escapeHTML(family.href)}">
+        <article class="product-family-card" data-href="${escapeHTML(family.href)}">
 
           <!-- 桌面版頂端雙品牌色識別線；手機版會轉為左側橘線。 -->
           <span class="family-accent" aria-hidden="true"></span>

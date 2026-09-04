@@ -1345,12 +1345,15 @@ body {
   /* 手機標題區縮短，讓第一張產品卡片在首屏自然露出。 */
   .catalog-intro {
     min-height: 108px;
-    align-items: flex-start;
+    position: relative;
+    display: block;
     margin-bottom: 20px;
     padding: 19px 17px;
+    border: 0;
   }
 
   .catalog-eyebrow {
+    max-width: 145px;
     margin-bottom: 5px;
   }
 
@@ -1358,19 +1361,29 @@ body {
     font-size: 40px;
   }
 
+  /* 數量標籤固定在右上角，避免與 Products 標題互相擠壓。 */
+  .family-count {
+    position: absolute;
+    top: 19px;
+    right: 17px;
+    max-width: calc(100% - 190px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   /* 手機版使用單欄手風琴，左側橘線取代桌面雙色線。 */
   .product-family-card {
     display: block;
     min-height: 0;
     height: auto;
-    border-color: #d7e3ed;
+    border: 0;
     border-radius: 15px;
     box-shadow: 0 7px 22px rgba(31, 65, 91, 0.08);
   }
 
   .product-family-card:hover {
     transform: none;
-    border-color: #d7e3ed;
     box-shadow: 0 7px 22px rgba(31, 65, 91, 0.08);
   }
 
@@ -1398,6 +1411,7 @@ body {
     width: 62px;
     height: 62px;
     padding: 6px;
+    border: 0;
     border-radius: 12px;
   }
 
@@ -1442,7 +1456,7 @@ body {
   .product-family-body {
     display: none;
     padding: 3px 16px 17px 24px;
-    border-top: 1px solid #e7eef4;
+    border-top: 0;
   }
 
   .product-family-card.is-open .product-family-body {
@@ -1457,8 +1471,15 @@ body {
     min-height: 40px;
   }
 
+  /* 手機版以留白分隔產品，不重複堆疊橫線。 */
+  .related-list li + li {
+    border-top: 0;
+  }
+
   .product-family-cta {
     min-height: 42px;
+    background: #f1f7fb;
+    border: 0;
   }
 }
 
