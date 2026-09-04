@@ -112,6 +112,9 @@ function renderProductsCards() {
 
               </div>
 
+              <!-- 手機版展開提示：卡片開啟時由 CSS 旋轉並改為品牌橘色。 -->
+              <span class="family-chevron" aria-hidden="true">›</span>
+
             </div>
 
           </button>

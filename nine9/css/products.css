@@ -29,6 +29,49 @@ body {
   margin: 0 auto;
 }
 
+/* ===============================
+   產品目錄亮色標題區
+   用意：降低灰黑面積，並在手機首屏快速呈現頁面層級。
+   =============================== */
+.catalog-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+  padding: 24px;
+  background: linear-gradient(125deg, #ffffff 0%, #eef7ff 100%);
+  border: 1px solid #cfdfec;
+  border-radius: 18px;
+  box-shadow: 0 7px 22px rgba(27, 64, 94, 0.09);
+}
+
+.catalog-eyebrow {
+  margin: 0 0 6px;
+  color: var(--nine9-orange);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.catalog-intro h1 {
+  margin: 0;
+  color: #102a43;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.family-count {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  color: #07508f;
+  background: #dceeff;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .products-title {
   font-size: clamp(36px, 4vw, 48px);
   font-weight: 900;
@@ -409,6 +452,11 @@ body {
 
 }
 
+/* 桌面版直接顯示完整卡片，不需要展開提示。 */
+.family-chevron {
+  display: none;
+}
+
 /* 標題文字
 .product-family-name {
   font-size: clamp(22px, 1.8vw, 28px);
@@ -643,8 +691,33 @@ body {
 
   .products-page {
 
-    padding: 10px 10px 18px;
+    padding: 16px 12px 36px;
 
+  }
+
+  /* 亮色標題區在手機上維持緊湊，避免把產品卡片推到首屏之外。 */
+  .catalog-intro {
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 17px;
+    border-radius: 15px;
+  }
+
+  .catalog-eyebrow {
+    max-width: 145px;
+    margin-bottom: 7px;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .catalog-intro h1 {
+    font-size: 38px;
+  }
+
+  .family-count {
+    margin-top: 1px;
+    padding: 8px 10px;
+    font-size: 12px;
   }
 
   /* =======================================================
@@ -694,20 +767,34 @@ body {
 
   .product-family-card {
 
+    position: relative;
+
     width: 100%;
 
     min-height: 0;
 
     height: auto;
 
-    border-radius: 8px;
+    border: 1px solid #d7e3ed;
+
+    border-radius: 14px;
 
     overflow: hidden;
 
     background: #ffffff;
 
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 5px 16px rgba(27, 64, 94, 0.075);
 
+  }
+
+  /* 左側橘色識別線保留 Nine9 品牌感，但不壓暗卡片。 */
+  .product-family-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 1;
+    width: 4px;
+    background: var(--nine9-orange);
   }
 
   /* =======================================================
@@ -719,15 +806,21 @@ body {
 
     width: 100%;
 
-    height: 80px;
+    height: 84px;
 
-    min-height: 80px;
+    min-height: 84px;
 
     display: grid;
 
-    grid-template-columns: 92px 1fr;
+    grid-template-columns: 66px minmax(0, 1fr) 30px;
 
-    background: var(--head-gray);
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 9px 12px 9px 14px;
+
+    background: #ffffff;
 
     border: 0;
 
@@ -740,13 +833,17 @@ body {
 
   .product-family-icon {
 
-    width: 92px;
+    width: 60px;
 
-    height: 80px;
+    height: 60px;
 
-    padding: 8px;
+    padding: 7px;
 
-    background: var(--head-light);
+    background: #edf6ff;
+
+    border: 1px solid #d6e7f5;
+
+    border-radius: 12px;
 
     display: flex;
 
@@ -762,9 +859,9 @@ body {
 
   .product-family-img {
 
-    width: 50px;
+    width: 46px;
 
-    height: 50px;
+    height: 46px;
 
     object-fit: contain;
 
@@ -778,9 +875,9 @@ body {
 
   .product-family-name-wrap {
 
-    height: 80px;
+    height: auto;
 
-    padding: 0 14px;
+    padding: 0;
 
     display: flex;
 
@@ -788,9 +885,9 @@ body {
 
     justify-content: flex-start;
 
-    background: var(--head-gray);
+    background: transparent;
 
-    overflow: hidden;
+    overflow: visible;
 
   }
 
@@ -800,7 +897,9 @@ body {
 
   .product-family-name {
 
-    font-size: 20px;
+    color: #102a43 !important;
+
+    font-size: 17px;
 
     font-weight: 900;
 
@@ -818,6 +917,26 @@ body {
 
   }
 
+  /* 圓形箭頭提示卡片可以展開；展開後旋轉並反白。 */
+  .family-chevron {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    color: var(--nine9-orange);
+    background: #fff0e9;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 900;
+    transition: transform 0.18s ease, color 0.18s ease, background 0.18s ease;
+  }
+
+  .product-family-card.is-open .family-chevron {
+    color: #ffffff;
+    background: var(--nine9-orange);
+    transform: rotate(90deg);
+  }
+
   /* =======================================================
      手機版 Related Products
   ======================================================== */
@@ -829,6 +948,8 @@ body {
     padding: 12px 14px 14px;
 
     background: #ffffff;
+
+    border-top: 1px solid #e6edf3;
 
   }
 
