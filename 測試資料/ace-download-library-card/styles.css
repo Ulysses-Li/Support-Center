@@ -1,0 +1,176 @@
+:root {
+  --ink: #0c2439;
+  --muted: #5e7184;
+  --orange: #f05a1a;
+  --blue: #0067ad;
+  --line: #c9dbea;
+  --paper: #f7fbff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Inter, "Noto Sans TC", Arial, sans-serif;
+  background-color: #f4f9fd;
+  background-image:
+    linear-gradient(rgba(0, 103, 173, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 103, 173, .055) 1px, transparent 1px),
+    radial-gradient(circle at 85% 8%, rgba(105, 190, 245, .2), transparent 34%),
+    radial-gradient(circle at 8% 68%, rgba(240, 90, 26, .08), transparent 30%);
+  background-size: 32px 32px, 32px 32px, auto, auto;
+  min-height: 100vh;
+}
+
+.demo-header {
+  min-height: 96px;
+  padding: 16px clamp(24px, 7vw, 96px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #050505;
+  color: #fff;
+}
+
+.brand { display: flex; align-items: center; gap: 15px; color: inherit; text-decoration: none; }
+.brand img { width: 82px; height: 58px; object-fit: contain; }
+.brand span { display: grid; }
+.brand strong { font-size: 23px; line-height: 1.1; }
+.brand small { margin-top: 3px; color: #bcc6d0; }
+.demo-label { font-size: 12px; font-weight: 800; letter-spacing: .15em; color: #ff8b59; }
+
+.page-shell { width: min(100% - 48px, 1080px); margin: 0 auto; padding: 54px 0 90px; }
+
+.intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.eyebrow, .document-number {
+  margin: 0;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+
+h1 { margin: 8px 0 0; font-size: clamp(42px, 6vw, 72px); line-height: .95; letter-spacing: -.04em; }
+.intro-copy { max-width: 400px; margin: 0; color: var(--muted); font-weight: 650; line-height: 1.6; }
+
+.resource-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 32px; }
+
+.document-card {
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .88);
+  box-shadow: 0 15px 38px rgba(12, 36, 57, .12);
+}
+
+.document-link { display: block; color: inherit; text-decoration: none; }
+.cover-wrap { position: relative; overflow: hidden; aspect-ratio: 1.42 / 1; background: #eaf1f6; }
+.cover-wrap > img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top; transition: transform .3s ease; }
+.document-link:hover .cover-wrap > img { transform: scale(1.025); }
+
+.file-badge {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  left: 16px;
+  padding: 8px 11px;
+  border-radius: 99px;
+  background: rgba(7, 25, 42, .88);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  backdrop-filter: blur(8px);
+}
+
+.cover-action {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(240, 90, 26, .32);
+}
+
+.cover-action svg, .download-button svg { width: 18px; height: 18px; fill: currentColor; }
+
+.document-info { min-height: 154px; padding: 24px; display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+.document-info h2 { margin: 7px 0 6px; font-size: 24px; line-height: 1.15; }
+.document-info p { margin: 0; color: var(--muted); font-size: 14px; }
+
+.download-button, .pending-status {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.download-button { background: var(--ink); color: #fff; }
+.document-link:hover .download-button { background: var(--orange); }
+.pending-status { color: #8a98a6; background: #eef2f5; }
+
+.placeholder-cover {
+  display: grid;
+  place-items: center;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgba(0, 103, 173, .08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 103, 173, .08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  border-top: 5px solid var(--orange);
+}
+
+.placeholder-cover .file-badge { background: #e8eef3; color: #718191; }
+.placeholder-mark { display: grid; justify-items: center; gap: 7px; color: #7b8b99; }
+.placeholder-mark svg { width: 48px; height: 48px; padding: 13px; border-radius: 50%; fill: currentColor; background: #e6edf3; }
+.placeholder-mark strong { font-size: 22px; color: var(--ink); }
+.placeholder-mark small { font-weight: 700; }
+
+/* 手機維持兩張文件並排，縮短文字以方便直接比較。 */
+@media (max-width: 620px) {
+  .demo-header { min-height: 72px; padding: 10px 16px; }
+  .brand { gap: 9px; }
+  .brand img { width: 55px; height: 42px; }
+  .brand strong { font-size: 17px; }
+  .brand small { font-size: 10px; }
+  .demo-label { display: none; }
+  .page-shell { width: min(100% - 24px, 520px); padding: 27px 0 55px; }
+  .intro { align-items: start; gap: 12px; padding-bottom: 18px; }
+  h1 { font-size: 40px; }
+  .intro-copy { max-width: 130px; font-size: 12px; line-height: 1.45; }
+  .resource-grid { gap: 10px; margin-top: 18px; }
+  .document-card { border-radius: 13px; box-shadow: 0 8px 22px rgba(12, 36, 57, .11); }
+  .cover-wrap { aspect-ratio: .82 / 1; }
+  .file-badge { top: 8px; left: 8px; padding: 6px 7px; font-size: 7px; }
+  .cover-action { right: 8px; bottom: 8px; width: 35px; height: 35px; }
+  .document-info { min-height: 132px; padding: 13px 11px; display: block; }
+  .document-number { font-size: 8px; letter-spacing: .1em; }
+  .document-info h2 { margin: 5px 0 4px; font-size: 16px; }
+  .document-info p { min-height: 32px; font-size: 10px; line-height: 1.4; }
+  .download-button, .pending-status { width: 100%; justify-content: center; margin-top: 11px; padding: 8px 5px; font-size: 10px; }
+  .download-button svg { width: 13px; height: 13px; }
+  .placeholder-mark svg { width: 38px; height: 38px; padding: 11px; }
+  .placeholder-mark strong { font-size: 15px; }
+  .placeholder-mark small { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-wrap > img { transition: none; }
+}

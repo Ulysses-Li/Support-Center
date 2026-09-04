@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACE Spot Drill｜下載卡片設計樣板</title>
+  <link rel="icon" href="../../favicon.png" type="image/png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- 樣板導覽列：僅用來模擬正式網站的觀看環境。 -->
+  <header class="demo-header">
+    <a class="brand" href="../../index.html" aria-label="回到 Support Center 首頁">
+      <img src="../../assets/images/Jimmore International Corp. logo_2.png" alt="Jimmore International Corp.">
+      <span><strong>Support Center</strong><small>Technical Support Portal</small></span>
+    </a>
+    <span class="demo-label">DESIGN STUDY</span>
+  </header>
+
+  <!-- 下載區：將封面、檔案資訊和操作按鈕合併成一張文件卡片。 -->
+  <main class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">ACE SPOT DRILL</p>
+        <h1 id="page-title">Downloads</h1>
+      </div>
+      <p class="intro-copy">產品目錄與加工資料集中管理，直接從封面辨識文件。</p>
+    </section>
+
+    <section class="resource-grid" aria-label="ACE Spot Drill 下載資源">
+      <!-- 目錄卡片：整張卡片都可下載 PDF，保留單一明確操作。 -->
+      <article class="document-card document-card--ready">
+        <a class="document-link" href="../../Products/AceSpotDrill/downloads/ACE-Spot-Drill-Catalog.pdf" download>
+          <div class="cover-wrap">
+            <span class="file-badge">PDF · 10 PAGES</span>
+            <img src="../../Products/AceSpotDrill/downloads/ACE-Spot-Drill-Catalog-cover.jpg" alt="ACE Spot Drill 產品目錄封面">
+            <span class="cover-action" aria-hidden="true">
+              <svg viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5h4.5a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5zm7-9.4a.5.5 0 0 1 1 0v8.8l2.15-2.15a.5.5 0 1 1 .7.7l-3 3a.5.5 0 0 1-.7 0l-3-3a.5.5 0 1 1 .7-.7L7.5 9.3V.5z"/></svg>
+            </span>
+          </div>
+          <div class="document-info">
+            <div>
+              <span class="document-number">01 · CATALOG</span>
+              <h2>ACE Spot Drill Catalog</h2>
+              <p>產品規格、特色與選用資訊</p>
+            </div>
+            <span class="download-button">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M.5 9.9a.5.5 0 0 1 .5.5h4.5a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5zm7-9.4a.5.5 0 0 1 1 0v8.8l2.15-2.15a.5.5 0 1 1 .7.7l-3 3a.5.5 0 0 1-.7 0l-3-3a.5.5 0 1 1 .7-.7L7.5 9.3V.5z"/></svg>
+              Download PDF
+            </span>
+          </div>
+        </a>
+      </article>
+
+      <!-- 加工資料卡片：與正式文件維持相同比例，以狀態取代無效按鈕。 -->
+      <article class="document-card document-card--pending" aria-label="Cutting Data 即將推出">
+        <div class="cover-wrap placeholder-cover">
+          <span class="file-badge">COMING SOON</span>
+          <div class="placeholder-mark" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><path d="M5 4a3 3 0 1 1 6 0v1h.5A1.5 1.5 0 0 1 13 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 3 14.5v-8A1.5 1.5 0 0 1 4.5 5H5V4zm1 1h4V4a2 2 0 1 0-4 0v1z"/></svg>
+            <strong>Cutting Data</strong>
+            <small>資料整理中</small>
+          </div>
+        </div>
+        <div class="document-info">
+          <div>
+            <span class="document-number">02 · CUTTING DATA</span>
+            <h2>Cutting Data</h2>
+            <p>切削條件與建議參數</p>
+          </div>
+          <span class="pending-status">準備中</span>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
