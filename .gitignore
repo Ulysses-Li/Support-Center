@@ -1,0 +1,19 @@
+# 作業系統與編輯器產生的暫存檔
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node.js 安裝套件與測試輸出
+node_modules/
+coverage/
+
+# 本機日誌與環境設定（避免把機密資料提交到 Git）
+*.log
+.env
+.env.*
+!.env.example
+
+# 從獨立 NC Program 專案保留的內部版本紀錄與瀏覽器稽核目錄
+NCProgram/.git-imported-reference/
+NCProgram/.browser-profile-audit/

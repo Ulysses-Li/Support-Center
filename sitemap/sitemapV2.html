@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nine9 Tech Center | Report Sitemap</title>
+  <style>
+    :root {
+      --bg: #eef1f5;
+      --paper: #ffffff;
+      --ink: #07111f;
+      --muted: #5d6877;
+      --line: #d8dee8;
+      --orange: #f05a1a;
+      --blue: #1263f1;
+      --green: #11805a;
+      --black: #050505;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: Arial, "Microsoft JhengHei", sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .deck {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 24px 70px;
+    }
+
+    .slide {
+      min-height: 620px;
+      margin-bottom: 26px;
+      padding: 38px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+    }
+
+    .slide-cover {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 34px;
+      align-items: stretch;
+      color: #fff;
+      background: #111;
+      border-color: #111;
+    }
+
+    .cover-main {
+      display: grid;
+      align-content: center;
+      gap: 16px;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .logo-row img {
+      width: 112px;
+      height: auto;
+    }
+
+    .logo-row strong {
+      display: block;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .logo-row span {
+      display: block;
+      margin-top: 4px;
+      color: #cbd5e1;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .kicker {
+      color: var(--orange);
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 58px;
+      font-weight: 900;
+      line-height: 1.04;
+    }
+
+    .cover-main p {
+      max-width: 720px;
+      margin: 0;
+      color: #eef2f7;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .cover-side {
+      display: grid;
+      align-content: center;
+      gap: 14px;
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+    }
+
+    .fact {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+    }
+
+    .fact strong {
+      color: #fff;
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .fact span {
+      color: #eef2f7;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .report-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding: 14px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .report-nav a {
+      padding: 8px 12px;
+      color: var(--ink);
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .report-nav a:hover {
+      color: #fff;
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .slide-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 26px;
+      padding-bottom: 14px;
+      border-bottom: 3px solid #111;
+    }
+
+    .slide-no {
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 4px 0 0;
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.08;
+    }
+
+    .slide-head p {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .summary-card {
+      padding: 22px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .summary-card b {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.18;
+    }
+
+    .summary-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .center-node {
+      display: grid;
+      place-items: center;
+      padding: 26px;
+      color: #fff;
+      background: #111;
+      border: 4px solid var(--orange);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .center-node strong {
+      display: block;
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1.08;
+    }
+
+    .center-node span {
+      display: block;
+      margin-top: 8px;
+      color: #cbd5e1;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .branch-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .branch {
+      padding: 20px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-left: 7px solid var(--orange);
+      border-radius: 8px;
+    }
+
+    .branch.product {
+      border-left-color: var(--blue);
+    }
+
+    .branch.support {
+      border-left-color: var(--green);
+    }
+
+    .branch h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .branch p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chips a,
+    .chips span {
+      padding: 6px 10px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .chips a:hover {
+      color: #fff;
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .flow-step {
+      position: relative;
+      min-width: 0;
+      padding: 20px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: ">";
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      color: var(--orange);
+      font-size: 26px;
+      font-weight: 900;
+      transform: translateY(-50%);
+    }
+
+    .num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 12px;
+      color: #fff;
+      background: var(--orange);
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    .flow-step strong {
+      display: block;
+      font-size: 19px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .flow-step p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .ace-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .ace-panel {
+      padding: 22px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .ace-panel h3 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .check-list li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-top: 7px;
+      background: var(--orange);
+      border-radius: 50%;
+    }
+
+    .check-list a {
+      color: var(--blue);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .check-list a:hover {
+      text-decoration: underline;
+    }
+
+    .next-steps {
+      counter-reset: step;
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .next-steps li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .next-steps li::before {
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      color: #fff;
+      background: var(--blue);
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    .closing {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .closing-card {
+      padding: 22px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .closing-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .closing-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .print-note {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .deck { max-width: none; padding: 0; }
+      .report-nav { display: none; }
+      .slide { page-break-after: always; min-height: auto; box-shadow: none; border-radius: 0; }
+    }
+
+    @media (max-width: 980px) {
+      .slide,
+      .slide-cover {
+        min-height: auto;
+      }
+
+      .slide-cover,
+      .summary-grid,
+      .architecture,
+      .ace-grid,
+      .closing {
+        grid-template-columns: 1fr;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step:not(:last-child)::after {
+        content: "v";
+        right: 20px;
+        top: auto;
+        bottom: -18px;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .deck {
+        padding: 16px 10px 42px;
+      }
+
+      .slide {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .slide-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .slide-head p {
+        text-align: left;
+      }
+
+      .branch-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide slide-cover" id="cover">
+      <div class="cover-main">
+        <div class="logo-row">
+          <img src="https://nine9.jic-tools.com.tw/themes/nine9/images/logo.png" alt="Nine9">
+          <div>
+            <strong>Tech Center</strong>
+            <span>Technical Application Portal</span>
+          </div>
+        </div>
+        <div class="kicker">Report Version</div>
+        <h1>Nine9 Tech Center 網站架構報告</h1>
+        <p>本報告整理 Tech Center 的網站定位、客戶使用流程、目前 ACE Spot Drill V2.0 展示成果，以及後續推廣到其他產品的建議方向。</p>
+      </div>
+      <aside class="cover-side">
+        <div class="fact"><strong>22</strong><span>產品頁<br>Product Pages</span></div>
+        <div class="fact"><strong>12</strong><span>加工分類<br>Machining Categories</span></div>
+        <div class="fact"><strong>7</strong><span>產品頁功能<br>Product Tools</span></div>
+      </aside>
+    </section>
+
+    <nav class="report-nav" aria-label="Report navigation">
+      <a href="#summary">1. Executive Summary</a>
+      <a href="#architecture">2. 網站架構</a>
+      <a href="#flow">3. 客戶流程</a>
+      <a href="#ace">4. ACE V2.0 成果</a>
+      <a href="#next">5. 下一步</a>
+      <a href="./index.html">清單版 Sitemap</a>
+    </nav>
+
+    <section class="slide" id="summary">
+      <div class="slide-head">
+        <div>
+          <div class="slide-no">01 / Executive Summary</div>
+          <h2>這個網站解決什麼問題</h2>
+        </div>
+        <p>把原本分散的技術資料、產品資料與支援窗口，整理成一個客戶可以自行使用的入口。</p>
+      </div>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <b>Before</b>
+          <strong>資料分散，客戶不容易找</strong>
+          <p>型錄、CAD、切削條件、NC 程式、FAQ、影片與聯絡方式散在不同位置，客戶需要來回詢問。</p>
+        </article>
+        <article class="summary-card">
+          <b>Now</b>
+          <strong>Tech Center 集中所有入口</strong>
+          <p>客戶可從產品、加工方式或功能工具進入，快速找到對應資料。</p>
+        </article>
+        <article class="summary-card">
+          <b>Demo</b>
+          <strong>ACE Spot Drill V2.0 可展示</strong>
+          <p>ACE 已完成新版產品頁方向，包含 CAD 選型下載與 Technical Support 表單。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" id="architecture">
+      <div class="slide-head">
+        <div>
+          <div class="slide-no">02 / Site Architecture</div>
+          <h2>網站主架構</h2>
+        </div>
+        <p>以 Tech Center 為中心，客戶可透過三條路徑進入：功能工具、產品頁、加工分類。</p>
+      </div>
+
+      <div class="architecture">
+        <div class="center-node">
+          <div>
+            <strong>Nine9<br>Tech Center</strong>
+            <span>客戶技術資料入口</span>
+          </div>
+        </div>
+
+        <div class="branch-grid">
+          <article class="branch">
+            <h3>功能工具入口</h3>
+            <p>客戶知道要找 CAD、Cutting Data 或 NC Program 時，可直接進入工具。</p>
+            <div class="chips">
+              <a href="../CADDownload/index.html">CAD Download</a>
+              <a href="../CuttingData/index.html">Cutting Data</a>
+              <a href="../NCProgram/index.html">NC Program</a>
+              <a href="../TechnicalFAQ/index.html">Technical FAQ</a>
+            </div>
+          </article>
+
+          <article class="branch product">
+            <h3>產品頁入口</h3>
+            <p>每一個產品頁都整理該產品的完整資料，是最重要的內容單位。</p>
+            <div class="chips">
+              <a href="../Products/AceSpotDrill/indexV2.0.html">ACE V2.0</a>
+              <a href="../Products/ChamferMill/index.html">Chamfer Mill</a>
+              <a href="../Products/NCSpotDrill/index.html">NC Spot Drill</a>
+              <span>共 22 個產品</span>
+            </div>
+          </article>
+
+          <article class="branch">
+            <h3>加工分類入口</h3>
+            <p>客戶不一定知道產品名稱，因此可從 Spotting、Drilling、Milling 等加工需求找產品。</p>
+            <div class="chips">
+              <a href="../Machining/Spotting/index.html">Spotting</a>
+              <a href="../Machining/Drilling/index.html">Drilling</a>
+              <a href="../Machining/Milling/index.html">Milling</a>
+              <a href="../Machining/Deburring/index.html">Deburring</a>
+              <span>共 12 類</span>
+            </div>
+          </article>
+
+          <article class="branch support">
+            <h3>技術支援入口</h3>
+            <p>當客戶無法自行判斷選型或加工條件，可從產品頁送出支援需求。</p>
+            <div class="chips">
+              <a href="../Products/AceSpotDrill/indexV2.0.html#support">Technical Support</a>
+              <span>必填聯絡人</span>
+              <span>必填公司</span>
+              <span>必填國家</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="flow">
+      <div class="slide-head">
+        <div>
+          <div class="slide-no">03 / Customer Flow</div>
+          <h2>客戶使用流程</h2>
+        </div>
+        <p>用一條主線說明客戶如何從首頁一路走到下載資料或寄出技術支援需求。</p>
+      </div>
+
+      <div class="flow">
+        <article class="flow-step">
+          <span class="num">1</span>
+          <strong>進入 Tech Center</strong>
+          <p>首頁提供 Product、Cutting Data、CAD、NC Program、FAQ 等主要入口。</p>
+        </article>
+        <article class="flow-step">
+          <span class="num">2</span>
+          <strong>選擇找法</strong>
+          <p>依產品名稱、加工分類，或直接使用功能工具尋找資料。</p>
+        </article>
+        <article class="flow-step">
+          <span class="num">3</span>
+          <strong>進入產品頁</strong>
+          <p>產品頁集中型錄、CAD、切削資料、NC 程式、影片與 FAQ。</p>
+        </article>
+        <article class="flow-step">
+          <span class="num">4</span>
+          <strong>取得資料</strong>
+          <p>客戶下載 CAD、查切削條件，或取得初步 NC 程式。</p>
+        </article>
+        <article class="flow-step">
+          <span class="num">5</span>
+          <strong>需要協助就寄信</strong>
+          <p>Technical Support 表單會帶入產品與客戶資料，送給內部窗口。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" id="ace">
+      <div class="slide-head">
+        <div>
+          <div class="slide-no">04 / ACE V2.0 Demo</div>
+          <h2>目前可展示成果</h2>
+        </div>
+        <p>ACE Spot Drill V2.0 是目前最完整的新版產品頁展示樣板。</p>
+      </div>
+
+      <div class="ace-grid">
+        <article class="ace-panel">
+          <h3>ACE V2.0 已完成</h3>
+          <ul class="check-list">
+            <li><span>全站 ACE Spot Drill 入口已接到 <a href="../Products/AceSpotDrill/indexV2.0.html">V2.0 產品頁</a>。</span></li>
+            <li><span>新增 <a href="../Products/AceSpotDrill/indexV2.0.html#cad-download">ACE 專用 CAD Download</a>，用 Holder Type、SI Size、刀片角度選型。</span></li>
+            <li><span>已接上 ACE 本機 STEP 檔；DXF 若官方未提供，會清楚顯示未提供。</span></li>
+            <li><span><a href="../Products/AceSpotDrill/indexV2.0.html#support">Technical Support</a> 改成專業支援表單，必填聯絡人、公司名稱、國家。</span></li>
+          </ul>
+        </article>
+
+        <article class="ace-panel">
+          <h3>主管可看的重點</h3>
+          <ul class="check-list">
+            <li><span>新版產品頁不只是資料頁，而是「產品技術入口」。</span></li>
+            <li><span>CAD 表單讓客戶依型號條件快速找到正確檔案。</span></li>
+            <li><span>支援表單讓內部收到更完整的客戶背景資料。</span></li>
+            <li><span>ACE 確認後，可逐步套用到其他產品。</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" id="next">
+      <div class="slide-head">
+        <div>
+          <div class="slide-no">05 / Next Step</div>
+          <h2>建議下一步</h2>
+        </div>
+        <p>先用 ACE V2.0 給主管確認方向，再決定是否推廣到更多產品。</p>
+      </div>
+
+      <div class="closing">
+        <article class="closing-card">
+          <strong>短期：確認新版方向</strong>
+          <p>先確認 ACE V2.0 的 CAD Download、Technical Support、頁面資訊架構是否符合主管期待。</p>
+        </article>
+        <article class="closing-card">
+          <strong>中期：擴充資料</strong>
+          <p>補齊其他產品的 CAD 檔、切削資料、FAQ 與影片，讓每個產品頁都能像 ACE 一樣完整。</p>
+        </article>
+      </div>
+
+      <ol class="next-steps">
+        <li>主管確認 ACE V2.0 版型與流程。</li>
+        <li>整理下一批要套用的產品清單。</li>
+        <li>補齊各產品 CAD / Cutting Data / FAQ 來源資料。</li>
+        <li>逐步將 V2.0 模板推廣到正式產品頁。</li>
+      </ol>
+
+      <p class="print-note">補充：若要逐頁檢查所有連結，請開啟 <a href="./index.html">清單版 sitemap</a>。</p>
+    </section>
+  </main>
+</body>
+</html>

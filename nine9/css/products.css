@@ -1,0 +1,985 @@
+:root {
+  --nine9-orange: #f05a1a;
+  --page-bg: #f3f6fa;
+  --card-bg: #ffffff;
+  --head-gray: #cfcfcf;
+  --head-light: #f5f5f5;
+  --text-main: #050505;
+  --text-muted: #1f2937;
+  --border-soft: rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+/* ===============================
+   頁面基本設定
+   =============================== */
+body {
+  margin: 0;
+  background: var(--page-bg);
+  font-family: Arial, "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  color: var(--text-main);
+}
+
+.products-page {
+  padding: 18px 16px;
+}
+
+.products-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.products-title {
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1;
+  margin: 8px 0 28px;
+}
+
+.home-page {
+  padding: 28px 16px 70px;
+}
+
+.home-hero,
+.home-tool-grid,
+.home-product-strip {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 28px;
+  align-items: stretch;
+  min-height: 320px;
+  padding: 38px;
+  color: #fff;
+  background: #111;
+  border-radius: 8px;
+}
+
+.home-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #ff9a68;
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.home-hero h1 {
+  max-width: 680px;
+  margin: 0 0 18px;
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 0.98;
+}
+
+.home-hero p {
+  max-width: 620px;
+  margin: 0;
+  color: #e7e7e7;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.home-hero-panel {
+  display: grid;
+  gap: 14px;
+  align-content: end;
+}
+
+.home-feature,
+.home-tool-card,
+.home-method-row a {
+  text-decoration: none;
+}
+
+.home-feature {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  grid-template-areas:
+    "icon label"
+    "icon text";
+  gap: 4px 14px;
+  align-items: center;
+  padding: 18px;
+  color: #111;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.home-feature:hover {
+  color: #111;
+}
+
+.home-feature.is-primary {
+  color: #fff;
+  background: var(--nine9-orange);
+}
+
+.home-feature i {
+  grid-area: icon;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #111;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.home-feature span {
+  grid-area: label;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.home-feature strong {
+  grid-area: text;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.home-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.home-tool-card {
+  min-height: 210px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 12px;
+  padding: 24px;
+  color: var(--text-main);
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-tool-card:hover {
+  color: var(--text-main);
+  border-color: rgba(240, 90, 26, 0.44);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-3px);
+}
+
+.home-tool-card i {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--nine9-orange);
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.home-tool-card h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.home-tool-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.home-product-strip {
+  margin-top: 34px;
+  padding: 26px;
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+}
+
+.home-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.home-section-heading h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.home-section-heading a {
+  color: var(--nine9-orange);
+  font-size: 16px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.home-method-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.home-method-row a {
+  min-height: 116px;
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  color: #111;
+  background: #f5f6f8;
+  border: 1px solid #e1e5eb;
+  border-radius: 8px;
+}
+
+.home-method-row a:hover {
+  color: var(--nine9-orange);
+  border-color: rgba(240, 90, 26, 0.44);
+}
+
+.home-method-row img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.home-method-row span {
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+/* ===============================
+   Card 外層
+   =============================== */
+.product-family-card {
+  height: 100%;
+  min-height: 390px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.product-family-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(240, 90, 26, 0.42);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ===============================
+   Card 上方：圖片 + 標題
+   改成 flex，避免 iPhone Safari 跑版
+   =============================== */
+.product-family-head {
+  width: 100%;
+  height: 108px;
+  display: flex;
+  align-items: stretch;
+  border: 0;
+  padding: 0;
+  background: var(--head-gray);
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* 左側圖片區 */
+.product-family-icon {
+  width: 120px;
+  flex: 0 0 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--head-light);
+  border-right: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+   Product Family Link
+========================================================= */
+
+.product-family-toggle {
+
+  display: block;
+
+  width: 100%;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: inherit;
+
+  font: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+}
+
+.product-family-toggle:hover,
+.product-family-toggle:focus,
+.product-family-toggle:active {
+
+  text-decoration: none;
+
+  color: inherit;
+
+  outline: none;
+
+}
+
+.product-family-toggle h2,
+.product-family-toggle span,
+.product-family-toggle div {
+
+  color: inherit;
+
+  text-decoration: none;
+
+}
+
+/* 圖片本體 */
+.product-family-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+}
+
+/* 右側標題區
+.product-family-name-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  background: var(--head-gray);
+  overflow: hidden;
+} */
+
+/* =========================================================
+   Product Family Name Wrap
+   用意：
+   1. 文字上下置中
+   2. 長文字可換行
+========================================================= */
+
+.product-family-name-wrap {
+
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  padding: 0 18px;
+
+  background: var(--head-gray);
+
+  overflow: visible;
+
+}
+
+/* 標題文字
+.product-family-name {
+  font-size: clamp(22px, 1.8vw, 28px);
+  font-weight: 900;
+  line-height: 1.08;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+/* =========================================================
+   Product Family Name
+   用意：
+   1. 產品名稱自動換行
+   2. 長文字不截斷
+   3. 上下置中
+   4. 與 Nine9 Tech Center 版型一致
+========================================================= */
+
+.product-family-name {
+
+  /* 字體大小 */
+  font-size: clamp(22px, 1.8vw, 28px);
+
+  /* 粗體 */
+  font-weight: 900;
+
+  /* 行高 */
+  line-height: 1.05;
+
+  /* 清掉 h2 預設外距 */
+  margin: 0;
+
+  /* =======================================================
+     關鍵：
+     不要單行
+  ======================================================== */
+  white-space: normal;
+
+  /* =======================================================
+     長單字允許換行
+     例如：
+     Deburring&Chamfering
+  ======================================================== */
+  overflow-wrap: anywhere;
+
+  word-break: break-word;
+
+  /* =======================================================
+     不要省略號
+  ======================================================== */
+  overflow: visible;
+
+  text-overflow: unset;
+
+  /* =====================================================
+     防止超連結藍線
+  ====================================================== */
+
+  color: inherit !important;
+
+  text-decoration: none !important;
+
+
+}
+
+/* ===============================
+   Card 下方：Related Products
+   =============================== */
+.product-family-body {
+  display: block;
+  padding: 18px 18px 24px;
+}
+
+.related-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--nine9-orange);
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.related-title::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 22px;
+  background: var(--nine9-orange);
+}
+
+.related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.related-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 19px;
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.related-list li::before {
+  content: "›";
+  flex: 0 0 auto;
+  color: var(--text-main);
+  font-size: 26px;
+  line-height: 0.9;
+}
+
+.related-list a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.related-list a:hover {
+  color: var(--nine9-orange);
+}
+
+.product-family-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  margin-top: 4px;
+  color: var(--nine9-orange);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.product-family-cta:hover {
+  color: #c44712;
+}
+
+/* ===============================
+   平板版
+   =============================== */
+@media (max-width: 991.98px) {
+  .home-hero,
+  .home-tool-grid,
+  .home-method-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .product-family-card {
+    min-height: 360px;
+  }
+
+  .product-family-head {
+    height: 100px;
+  }
+
+  .product-family-icon {
+    width: 110px;
+    flex: 0 0 110px;
+  }
+
+  .product-family-img {
+    width: 66px;
+    height: 66px;
+  }
+
+  .product-family-name {
+    font-size: 24px;
+  }
+
+ 
+
+}
+
+/* ===============================
+   手機版
+   iPhone / Android 最佳化
+   =============================== */
+
+@media (max-width: 575.98px) {
+  .home-page {
+    padding: 12px 10px 28px;
+  }
+
+  .home-hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 24px 18px;
+  }
+
+  .home-hero h1 {
+    font-size: 36px;
+  }
+
+  .home-hero p {
+    font-size: 17px;
+  }
+
+  .home-tool-grid,
+  .home-method-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .home-tool-card {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .home-product-strip {
+    margin-top: 14px;
+    padding: 16px;
+  }
+
+  .home-section-heading {
+    display: grid;
+    gap: 6px;
+  }
+
+  .home-section-heading h2 {
+    font-size: 22px;
+  }
+
+  /* =======================================================
+     頁面上下左右留白
+     原本太大：
+     14px 12px 24px
+  ======================================================== */
+
+  .products-page {
+
+    padding: 10px 10px 18px;
+
+  }
+
+  /* =======================================================
+     Products 標題
+  ======================================================== */
+
+  .products-title {
+
+    font-size: 30px;
+
+    line-height: 1.05;
+
+    margin: 2px 0 14px;
+
+  }
+
+  /* =======================================================
+     Grid 間距
+     原本 16px 太鬆
+  ======================================================== */
+
+  #productsGrid {
+
+    margin-left: 0;
+
+    margin-right: 0;
+
+    row-gap: 10px;
+
+  }
+
+  /* =======================================================
+     Bootstrap 欄位
+  ======================================================== */
+
+  #productsGrid>[class*="col-"] {
+
+    padding-left: 0;
+
+    padding-right: 0;
+
+  }
+
+  /* =======================================================
+     Card
+  ======================================================== */
+
+  .product-family-card {
+
+    width: 100%;
+
+    min-height: 0;
+
+    height: auto;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+
+  }
+
+  /* =======================================================
+     上方區塊高度
+     原本 88px
+  ======================================================== */
+
+  .product-family-head {
+
+    width: 100%;
+
+    height: 80px;
+
+    min-height: 80px;
+
+    display: grid;
+
+    grid-template-columns: 92px 1fr;
+
+    background: var(--head-gray);
+
+    border: 0;
+
+  }
+
+  
+  /* =======================================================
+     左側圖片區
+  ======================================================== */
+
+  .product-family-icon {
+
+    width: 92px;
+
+    height: 80px;
+
+    padding: 8px;
+
+    background: var(--head-light);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+  }
+
+  /* =======================================================
+     圖片大小
+  ======================================================== */
+
+  .product-family-img {
+
+    width: 50px;
+
+    height: 50px;
+
+    object-fit: contain;
+
+    display: block;
+
+  }
+
+  /* =======================================================
+     右側文字區
+  ======================================================== */
+
+  .product-family-name-wrap {
+
+    height: 80px;
+
+    padding: 0 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    background: var(--head-gray);
+
+    overflow: hidden;
+
+  }
+
+  /* =======================================================
+     分類名稱
+  ======================================================== */
+
+  .product-family-name {
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    line-height: 1.02;
+
+    letter-spacing: 0;
+
+    margin: 0;
+
+    white-space: normal;
+
+    overflow-wrap: anywhere;
+
+    word-break: break-word;
+
+  }
+
+  /* =======================================================
+     手機版 Related Products
+  ======================================================== */
+
+  .product-family-body {
+
+    display: none;
+
+    padding: 12px 14px 14px;
+
+    background: #ffffff;
+
+  }
+
+  /* 點擊展開 */
+
+  .product-family-card.is-open .product-family-body {
+
+    display: block;
+
+  }
+
+  /* =======================================================
+     Related Products 標題
+  ======================================================== */
+
+  .related-title {
+
+    font-size: 16px;
+
+    margin-bottom: 10px;
+
+  }
+
+  .related-title::before {
+
+    width: 5px;
+
+    height: 16px;
+
+  }
+
+  /* =======================================================
+     Related Products 清單
+  ======================================================== */
+
+  .related-list li {
+
+    font-size: 15px;
+
+    line-height: 1.3;
+
+    margin-bottom: 8px;
+
+  }
+
+  .related-list li::before {
+
+    font-size: 20px;
+
+  }
+
+  /* =======================================================
+     手機版不要 Hover 位移
+  ======================================================== */
+
+  .product-family-card:hover {
+
+    transform: none;
+
+  }
+
+  /* =========================================================
+   手機版：
+   覆蓋 Bootstrap g-4 間距
+   用意：
+   讓手機版卡片更緊湊
+========================================================= */
+
+  #productsGrid {
+
+    --bs-gutter-x: 0;
+
+    --bs-gutter-y: 6px;
+
+  }
+
+}
+
+/* ===============================
+   調整方式說明
+   =============================== */
+
+/*
+1. 調整 Card 高度：
+   .product-family-card {
+     min-height: 390px;
+   }
+
+2. 調整 Card 圓角：
+   .product-family-card {
+     border-radius: 16px;
+   }
+
+3. 調整上方圖片與標題區高度：
+   .product-family-head {
+     height: 108px;
+   }
+
+4. 調整左邊圖片區寬度：
+   .product-family-icon {
+     width: 120px;
+     flex: 0 0 120px;
+   }
+
+5. 調整圖片大小：
+   .product-family-img {
+     width: 72px;
+     height: 72px;
+   }
+
+6. 調整分類標題大小：
+   .product-family-name {
+     font-size: clamp(22px, 1.8vw, 28px);
+   }
+
+7. 手機版卡片高度：
+   @media (max-width: 575.98px) {
+     .product-family-head {
+       height: 84px;
+     }
+   }
+
+8. 手機版圖片大小：
+   @media (max-width: 575.98px) {
+     .product-family-img {
+       width: 52px;
+       height: 52px;
+     }
+   }
+
+9. 手機版文字大小：
+   @media (max-width: 575.98px) {
+     .product-family-name {
+       font-size: 20px;
+     }
+   }
+
+10. 手機版 Related Products 預設收合：
+    .product-family-body {
+      display: none;
+    }
+
+11. 手機版點擊後展開：
+    .product-family-card.is-open .product-family-body {
+      display: block;
+    }
+
+12. 如果手機版還是覺得太大：
+    把以下數值再縮小：
+    .product-family-head height: 80px;
+    .product-family-icon width: 86px;
+    .product-family-img width/height: 48px;
+    .product-family-name font-size: 18px;
+*/

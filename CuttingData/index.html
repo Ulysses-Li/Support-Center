@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nine9 Tech Center | Cutting Data</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../header/header.css">
+  <link rel="stylesheet" href="../footer/footer.css">
+  <link rel="stylesheet" href="./cutting-data.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <div id="header-placeholder"></div>
+
+  <main class="cutting-data-page flex-grow-1">
+    <section class="cutting-hero" aria-labelledby="cuttingTitle">
+      <span>Cutting Data</span>
+      <h1 id="cuttingTitle">Select product first</h1>
+      <p>Choose a product to open the matching cutting data calculator or check which data is being prepared.</p>
+    </section>
+
+    <section class="cutting-workspace" aria-label="Cutting data product selector">
+      <div class="product-selector">
+        <div class="section-heading">
+          <h2>Product Options</h2>
+          <p>Available data appears first.</p>
+        </div>
+
+        <div class="cutting-product-grid" id="cuttingProductGrid"></div>
+      </div>
+
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="./cutting-data.js"></script>
+  <script>
+    fetch("../header/header.html?v=20260520-news")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const topNav = document.getElementById("topNav");
+
+        if (mobileMenuBtn && topNav) {
+          mobileMenuBtn.addEventListener("click", function () {
+            topNav.classList.toggle("active");
+          });
+        }
+      });
+
+    fetch("../footer/footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

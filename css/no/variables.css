@@ -1,0 +1,11 @@
+:root {
+  --nine9-orange: #f05a1a;
+  --nine9-dark: #111827;
+  --nine9-blue: #1f3a5f;
+  --page-bg: #f3f6fa;
+  --card-bg: #ffffff;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --border-light: #e5e7eb;
+  --shadow-soft: 0 16px 40px rgba(15, 23, 42, 0.08);
+}

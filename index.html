@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nine9 Tech Center</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <!-- 首頁移到專案根目錄後，資源路徑都以根目錄為基準。 -->
+  <link rel="stylesheet" href="nine9/css/products.css">
+  <link rel="stylesheet" href="header/header.css">
+  <link rel="stylesheet" href="footer/footer.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <div id="header-placeholder"></div>
+
+  <main class="home-page flex-grow-1">
+    <section class="home-hero" aria-labelledby="homeTitle">
+      <div class="home-hero-copy">
+        <span class="home-kicker">Nine9 Support Center</span>
+        <h1 id="homeTitle">Technical Support Portal</h1>
+        <p>
+          Find products, cutting data, CAD references, NC program tools, and technical support resources from one place.
+        </p>
+      </div>
+
+      <div class="home-hero-panel" aria-label="Featured technical tools">
+        <a class="home-feature is-primary" href="nine9/products.html">
+          <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>
+          <span>Product Finder</span>
+          <strong>Browse by machining category</strong>
+        </a>
+
+        <a class="home-feature" href="NCProgram/index.html">
+          <i class="fa-solid fa-code" aria-hidden="true"></i>
+          <span>NC Program</span>
+          <strong>Generate starter NC code</strong>
+        </a>
+      </div>
+    </section>
+
+    <section class="home-tool-grid" aria-label="Tech Center shortcuts">
+
+      <a class="home-tool-card" href="CuttingData/index.html">
+        <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+        <h2>Cutting Data</h2>
+        <p>用產品預設值快速換算轉速與進給。</p>
+      </a>
+
+      <a class="home-tool-card" href="CADDownload/index.html">
+        <i class="fa-solid fa-cube" aria-hidden="true"></i>
+        <h2>CAD Download</h2>
+        <p>查找 2D DXF 與 3D STEP 檔案入口。</p>
+      </a>
+
+      <a class="home-tool-card" href="NCProgram/index.html">
+        <i class="fa-solid fa-gears" aria-hidden="true"></i>
+        <h2>NC Program</h2>
+        <p>給沒有 CAM 軟體的使用者建立起始加工程式。</p>
+      </a>
+
+      <a class="home-tool-card" href="nine9/products.html">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <h2>找產品</h2>
+        <p>依工法分類快速找到 Nine9 產品與技術資料。</p>
+      </a>
+
+      <a class="home-tool-card" href="ProductVideos/index.html">
+        <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
+        <h2>Product Videos</h2>
+        <p>放置企劃與行銷拍攝的產品介紹影片。</p>
+      </a>
+
+      <a class="home-tool-card" href="TechnicalFAQ/index.html">
+        <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+        <h2>Technical FAQ</h2>
+        <p>選擇產品查看常見加工問題、應用說明與技術資料。</p>
+      </a>
+    </section>
+
+    <section class="home-product-strip" aria-labelledby="popularTitle">
+      <div class="home-section-heading">
+        <h2 id="popularTitle">Popular Machining Methods</h2>
+        <a href="nine9/products.html">View all products</a>
+      </div>
+
+      <div class="home-method-row">
+        <a href="Machining/Spotting/index.html">
+          <img src="img/spotting.png" alt="">
+          <span>Spotting</span>
+        </a>
+        <a href="Machining/Engraving/index.html">
+          <img src="img/engraving.png" alt="">
+          <span>Engraving</span>
+        </a>
+        <a href="Machining/Drilling/index.html">
+          <img src="img/drilling.png" alt="">
+          <span>Drilling</span>
+        </a>
+        <a href="Machining/Chamfering_Corner_Radii/index.html">
+          <img src="img/chamfering.png" alt="">
+          <span>Chamfering</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // 載入共用頁首，再啟用行動版選單按鈕。
+    fetch("header/header.html?v=20260520-news")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const topNav = document.getElementById("topNav");
+
+        if (mobileMenuBtn && topNav) {
+          mobileMenuBtn.addEventListener("click", function () {
+            topNav.classList.toggle("active");
+          });
+        }
+      });
+
+    // 載入共用頁尾，避免每個頁面維護重複內容。
+    fetch("footer/footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      });
+  </script>
+</body>
+
+</html>

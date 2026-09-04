@@ -1,0 +1,339 @@
+:root {
+  --nine9-orange: #f05a1a;
+  --page-bg: #f7fbfe;
+  --card-bg: #ffffff;
+  --text-main: #111111;
+  --text-muted: #3f4650;
+  --border-dark: #222222;
+  --border-soft: rgba(0, 0, 0, 0.12);
+  --shadow-soft: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  font-family: Arial, "Microsoft JhengHei", sans-serif;
+  color: var(--text-main);
+}
+
+/*
+ * NC Program 參考站的工程網格背景：
+ * 右上淡藍光暈增加科技感，左側淡橘光暈呼應 Nine9 品牌色，
+ * 兩層線性漸層組成 36px 的細網格；只套用在主內容，不影響共用頁首與頁尾。
+ */
+body > main {
+  background-color: var(--page-bg);
+  background-image:
+    radial-gradient(circle at 88% 5%, rgba(53, 155, 215, 0.14), transparent 27rem),
+    radial-gradient(circle at 8% 34%, rgba(244, 91, 31, 0.07), transparent 22rem),
+    linear-gradient(rgba(70, 112, 140, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70, 112, 140, 0.045) 1px, transparent 1px);
+  background-size: auto, auto, 36px 36px, 36px 36px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nc-program-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 44px 24px 90px;
+}
+
+.page-title {
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0 0 14px;
+}
+
+.page-intro {
+  max-width: 760px;
+  margin: -2px 0 18px;
+  color: var(--text-muted);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.title-line {
+  height: 2px;
+  background: var(--border-dark);
+  margin-bottom: 34px;
+}
+
+.program-section {
+  margin-bottom: 42px;
+}
+
+.program-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.program-grid-compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.program-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
+  min-height: 300px;
+  padding: 28px;
+  color: var(--text-main);
+  background: var(--card-bg);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.program-card:hover {
+  color: var(--text-main);
+  border-color: rgba(240, 90, 26, 0.44);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-4px);
+}
+
+.program-card.is-placeholder {
+  cursor: default;
+}
+
+.program-card.is-placeholder:hover {
+  border-color: var(--border-soft);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  transform: none;
+}
+
+.program-visual {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: var(--nine9-orange);
+  border-radius: 8px;
+  font-size: 26px;
+  overflow: hidden;
+}
+
+.program-visual::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.48);
+  border-radius: 50%;
+}
+
+.program-visual.is-threading::after {
+  border-radius: 8px;
+  transform: rotate(45deg);
+}
+
+.program-visual.is-helix::after {
+  border-radius: 50%;
+  border-style: dashed;
+}
+
+.program-visual.is-spotting::after {
+  inset: 18px 14px 10px;
+  border-radius: 50% 50% 12px 12px;
+  transform: perspective(80px) rotateX(22deg);
+}
+
+.program-visual.is-drilling::after {
+  inset: 14px;
+  border-radius: 50%;
+}
+
+.program-visual.is-milling::after {
+  inset: 16px;
+  border-radius: 4px;
+  transform: skew(-10deg);
+}
+
+.program-visual.is-boring::after {
+  inset: 10px;
+  border-width: 3px;
+  box-shadow: inset 0 0 0 9px rgba(255, 255, 255, 0.26);
+}
+
+.program-visual.is-deburring::after {
+  inset: 16px 11px 13px;
+  border-radius: 8px;
+  transform: rotate(-18deg);
+}
+
+.program-visual.is-turning::after {
+  inset: 13px;
+  border-radius: 50%;
+  border-style: dashed;
+}
+
+.program-visual i {
+  position: relative;
+  z-index: 1;
+}
+
+.program-category {
+  display: inline-block;
+  margin-bottom: 9px;
+  color: var(--nine9-orange);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.program-card h3 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.program-card p {
+  margin: 0;
+  max-width: 520px;
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.program-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  justify-self: start;
+  min-height: 48px;
+  padding: 12px 18px;
+  color: var(--text-main);
+  border: 2px solid var(--border-dark);
+  border-radius: 6px;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.program-card:hover .program-cta {
+  color: var(--nine9-orange);
+  border-color: var(--nine9-orange);
+}
+
+.program-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  min-height: 42px;
+  padding: 10px 16px;
+  color: #656b74;
+  background: #f0f1f3;
+  border: 1px solid #d7dbe0;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .nc-program-page {
+    padding: 28px 16px 64px;
+  }
+
+  .title-line {
+    margin-bottom: 18px;
+  }
+
+  .page-intro {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .program-section {
+    margin-bottom: 30px;
+  }
+
+  .section-heading {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 22px;
+  }
+
+  .section-heading p {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .program-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .program-card {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .program-visual {
+    width: 62px;
+    height: 62px;
+    font-size: 22px;
+  }
+
+  .program-card h3 {
+    font-size: 24px;
+  }
+
+  .program-card p {
+    font-size: 16px;
+  }
+
+  .program-cta {
+    width: 100%;
+    font-size: 15px;
+  }
+}
