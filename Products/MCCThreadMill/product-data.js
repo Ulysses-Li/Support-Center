@@ -16,7 +16,8 @@ const PRODUCT_PAGE_DATA = {
   "programming": {
     "title": "NC Program Generator",
     "desc": "MCC Thread Mill technical support area for catalog downloads, cutting data, NC programming support, and knowledge-base FAQ.",
-    "href": "../../NCProgram/ThreadMilling/index.html"
+    // 舊版 ThreadMilling 已移除，統一連到正式的 Thread_Milling 工具。
+    "href": "../../NCProgram/Thread_Milling/index.html"
   },
   "faqs": [
     {
