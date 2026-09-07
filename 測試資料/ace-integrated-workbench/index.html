@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACE Spot Drill｜整合式加工工作台</title>
+  <link rel="icon" href="../../favicon.png" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../header/header.css">
+  <link rel="stylesheet" href="../../footer/footer.css">
+  <link rel="stylesheet" href="../../css/site-background.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <div id="header-placeholder"></div>
+
+  <main class="workbench-page flex-grow-1">
+    <div class="workbench-shell">
+      <!-- 工作台標題：讓使用者知道所有結果都由同一組選型條件產生。 -->
+      <header class="workbench-heading">
+        <div>
+          <p class="eyebrow">ACE SPOT DRILL WORKBENCH</p>
+          <h1>一次選型，完成加工設定</h1>
+          <p class="heading-copy">產品規格與 Cutting Data 共用同一組尺寸、角度和工件材質，修改任一條件即時更新全部結果。</p>
+        </div>
+        <a class="catalog-button" href="../../Products/AceSpotDrill/ACE-Spot-Drill-Catalog.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 0A1.5 1.5 0 0 0 3 1.5v13A1.5 1.5 0 0 0 4.5 16h7a1.5 1.5 0 0 0 1.5-1.5V4.7a1.5 1.5 0 0 0-.44-1.06L9.35.44A1.5 1.5 0 0 0 8.3 0H4.5zM8 1v3.5A1.5 1.5 0 0 0 9.5 6H12v8.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5H8z"/></svg>
+          預覽產品型錄
+        </a>
+      </header>
+
+      <!-- 流程列用於標示目前整合的三個工作階段。 -->
+      <nav class="workflow" aria-label="整合工作流程">
+        <span class="is-active"><b>01</b>產品選型</span>
+        <span><b>02</b>Cutting Data</span>
+        <span class="is-pending"><b>03</b>CAD 配對</span>
+      </nav>
+
+      <!-- 所有共用選項集中在這個表單，避免不同功能重複輸入。 -->
+      <form class="control-panel" id="workbenchForm">
+        <div class="control-heading">
+          <div>
+            <span>SHARED INPUT</span>
+            <h2>加工條件</h2>
+          </div>
+          <button type="button" id="resetButton">恢復建議值</button>
+        </div>
+
+        <div class="control-grid">
+          <label><span>加工方式</span><select id="operation"></select></label>
+          <label><span>刀片尺寸</span><select id="insertSize"></select></label>
+          <label><span>刀片角度</span><select id="angle"></select></label>
+          <label><span>工件材質</span><select id="material"></select></label>
+          <label><span>加工直徑 D（mm）</span><input id="diameter" type="number" min="0.1" step="0.1" inputmode="decimal"><small id="diameterError"></small></label>
+          <label><span>切削速度 Vc（m/min）</span><input id="cuttingSpeed" type="number" min="0.1" step="0.1" inputmode="decimal"></label>
+          <label><span>每轉進給 f（mm/rev）</span><input id="feedPerRev" type="number" min="0.001" step="0.001" inputmode="decimal"></label>
+        </div>
+      </form>
+
+      <section class="dashboard" aria-live="polite">
+        <!-- 產品摘要顯示目前選到的刀片與必要尺寸。 -->
+        <article class="dashboard-card product-summary">
+          <div class="card-heading">
+            <div><span>01 / PRODUCT</span><h2>產品選型</h2></div>
+            <span class="angle-badge" id="angleBadge">90°</span>
+          </div>
+          <div class="product-hero">
+            <span>INSERT MODEL</span>
+            <strong id="insertModel">-</strong>
+            <p id="applicationNote">-</p>
+          </div>
+          <dl class="spec-grid">
+            <div><dt>建議牌號</dt><dd id="grade">-</dd></div>
+            <div><dt>Dmax.</dt><dd id="dmax">-</dd></div>
+            <div><dt>Tmax.</dt><dd id="tmax">-</dd></div>
+            <div><dt>Spotting Depth</dt><dd id="spotDepth">-</dd></div>
+          </dl>
+        </article>
+
+        <!-- Cutting Data 結果將建議範圍和實際計算值放在同一卡片。 -->
+        <article class="dashboard-card cutting-summary">
+          <div class="card-heading">
+            <div><span>02 / CUTTING DATA</span><h2>加工參數</h2></div>
+            <span class="data-status">LIVE</span>
+          </div>
+          <div class="recommendation-row">
+            <div><span>Vc 建議範圍</span><strong id="vcRange">-</strong></div>
+            <div><span>f 建議範圍</span><strong id="feedRange">-</strong></div>
+            <div><span>Q 啄鑽深度</span><strong id="peckDepth">-</strong></div>
+          </div>
+          <div class="output-row">
+            <div class="primary-output"><span>Spindle Speed</span><strong id="rpm">-</strong><small>RPM</small></div>
+            <div class="primary-output"><span>Feed Rate</span><strong id="feedRate">-</strong><small>mm/min</small></div>
+          </div>
+          <p class="calculation-note" id="calculationNote">請選擇加工條件。</p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../../Products/AceSpotDrill/product-dataV2.0.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
