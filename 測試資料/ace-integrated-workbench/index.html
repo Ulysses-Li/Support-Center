@@ -16,124 +16,132 @@
   <div id="header-placeholder"></div>
 
   <main class="workbench-page flex-grow-1">
-    <div class="workbench-shell">
-      <!-- 工作台標題：讓使用者知道所有結果都由同一組選型條件產生。 -->
-      <header class="workbench-heading">
+    <div class="container workbench-shell">
+      <!-- 縮短說明區，讓使用者在第一個畫面就能開始設定。 -->
+      <header class="workbench-heading d-flex flex-column flex-lg-row align-items-lg-end justify-content-between gap-3">
         <div>
-          <p class="eyebrow">ACE SPOT DRILL WORKBENCH</p>
-          <h1>一次選型，完成加工設定</h1>
-          <p class="heading-copy">產品規格與 Cutting Data 共用同一組尺寸、角度和工件材質，修改任一條件即時更新全部結果。</p>
+          <p class="eyebrow">ACE SPOT DRILL</p>
+          <h1>加工設定工作台</h1>
+          <p class="heading-copy mb-0">依序選擇加工、刀片與切削條件，右側立即整理成可使用的結果。</p>
         </div>
-        <a class="catalog-button" href="../../Products/AceSpotDrill/ACE-Spot-Drill-Catalog.pdf" target="_blank" rel="noopener">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 0A1.5 1.5 0 0 0 3 1.5v13A1.5 1.5 0 0 0 4.5 16h7a1.5 1.5 0 0 0 1.5-1.5V4.7a1.5 1.5 0 0 0-.44-1.06L9.35.44A1.5 1.5 0 0 0 8.3 0H4.5zM8 1v3.5A1.5 1.5 0 0 0 9.5 6H12v8.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5H8z"/></svg>
-          預覽產品型錄
+        <a class="btn catalog-button" href="../../Products/AceSpotDrill/ACE-Spot-Drill-Catalog.pdf" target="_blank" rel="noopener">
+          <!-- Bootstrap Icons：filetype-pdf，直接內嵌避免搬站後圖示失效。 -->
+          <svg class="bi bi-filetype-pdf" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/></svg>
+          開啟產品型錄
         </a>
       </header>
 
-      <!-- 流程列用於標示目前整合的三個工作階段。 -->
-      <nav class="workflow" aria-label="整合工作流程">
-        <span class="is-active"><b>01</b>產品選型</span>
-        <span><b>02</b>Cutting Data</span>
-        <span><b>03</b>CAD 配對</span>
-      </nav>
-
-      <!-- 所有共用選項集中在這個表單，避免不同功能重複輸入。 -->
-      <form class="control-panel" id="workbenchForm">
-        <div class="control-heading">
-          <div>
-            <span>SHARED INPUT</span>
-            <h2>加工條件</h2>
-          </div>
-          <button type="button" id="resetButton">恢復建議值</button>
-        </div>
-
-        <div class="control-grid">
-          <label><span>加工方式</span><select id="operation"></select></label>
-          <label><span>刀片尺寸</span><select id="insertSize"></select></label>
-          <label><span>刀片角度</span><select id="angle"></select></label>
-          <label><span>工件材質</span><select id="material"></select></label>
-          <label><span>刀桿形式</span><select id="holderType"><option value="cylindrical">Cylindrical Shank｜直柄</option><option value="screw-fit">Screw Fit Cutter｜螺牙式</option></select></label>
-          <label><span>CAD 格式</span><select id="cadFormat"><option value="step">3D STEP</option><option value="dxf">2D DXF</option></select></label>
-          <label><span>加工直徑 D（mm）</span><input id="diameter" type="number" min="0.1" step="0.1" inputmode="decimal"><small id="diameterError"></small></label>
-          <label><span>切削速度 Vc（m/min）</span><input id="cuttingSpeed" type="number" min="0.1" step="0.1" inputmode="decimal"></label>
-          <label><span>每轉進給 f（mm/rev）</span><input id="feedPerRev" type="number" min="0.001" step="0.001" inputmode="decimal"></label>
-        </div>
-      </form>
-
-      <section class="dashboard" aria-live="polite">
-        <!-- 產品摘要顯示目前選到的刀片與必要尺寸。 -->
-        <article class="dashboard-card product-summary">
-          <div class="card-heading">
-            <div><span>01 / PRODUCT</span><h2>產品選型</h2></div>
-            <span class="angle-badge" id="angleBadge">90°</span>
-          </div>
-          <div class="product-hero">
-            <span>INSERT MODEL</span>
-            <strong id="insertModel">-</strong>
-            <p id="applicationNote">-</p>
-          </div>
-          <dl class="spec-grid">
-            <div><dt>建議牌號</dt><dd id="grade">-</dd></div>
-            <div><dt>Dmax.</dt><dd id="dmax">-</dd></div>
-            <div><dt>Tmax.</dt><dd id="tmax">-</dd></div>
-            <div><dt>Spotting Depth</dt><dd id="spotDepth">-</dd></div>
-          </dl>
-        </article>
-
-        <!-- Cutting Data 結果將建議範圍和實際計算值放在同一卡片。 -->
-        <article class="dashboard-card cutting-summary">
-          <div class="card-heading">
-            <div><span>02 / CUTTING DATA</span><h2>加工參數</h2></div>
-            <span class="data-status">LIVE</span>
-          </div>
-          <div class="recommendation-row">
-            <div><span>Vc 建議範圍</span><strong id="vcRange">-</strong></div>
-            <div><span>f 建議範圍</span><strong id="feedRange">-</strong></div>
-            <div><span>Q 啄鑽深度</span><strong id="peckDepth">-</strong></div>
-          </div>
-          <div class="output-row">
-            <div class="primary-output"><span>Spindle Speed</span><strong id="rpm">-</strong><small>RPM</small></div>
-            <div class="primary-output"><span>Feed Rate</span><strong id="feedRate">-</strong><small>mm/min</small></div>
-          </div>
-          <p class="calculation-note" id="calculationNote">請選擇加工條件。</p>
-        </article>
-
-        <!-- CAD 區沿用同一組 SI、角度與刀桿，不要求使用者再次選擇。 -->
-        <article class="dashboard-card cad-summary">
-          <div class="card-heading">
-            <div><span>03 / CAD MATCH</span><h2>CAD 自動配對</h2></div>
-            <span class="cad-status-pill" id="cadStatusPill">CHECKING</span>
-          </div>
-
-          <div class="cad-layout">
-            <section class="holder-summary">
-              <span class="section-label">MATCHED HOLDER</span>
-              <h3 id="holderPartNumber">-</h3>
-              <p id="holderDescription">-</p>
-              <dl class="holder-grid" id="holderDimensions"></dl>
-            </section>
-
-            <section class="file-summary">
-              <span class="section-label">MATCHED FILE</span>
-              <div class="file-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16"><path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3.5 0H13L9.5 1v2.5a1 1 0 0 0 1 1z"/></svg>
+      <div class="row g-4 align-items-start workspace-grid">
+        <!-- 左欄使用三個短步驟，降低九個欄位同時出現的認知負擔。 -->
+        <section class="col-12 col-lg-7">
+          <form class="setup-stack" id="workbenchForm">
+            <section class="setup-card">
+              <div class="step-heading"><span>1</span><div><h2>選擇加工需求</h2><p>先決定用途與工件材質。</p></div></div>
+              <div class="row g-3">
+                <label class="col-12 col-sm-6"><span class="form-label">加工方式</span><select class="form-select" id="operation"></select></label>
+                <label class="col-12 col-sm-6"><span class="form-label">工件材質</span><select class="form-select" id="material"></select></label>
               </div>
-              <strong id="cadFileName">-</strong>
-              <p id="cadStatus" aria-live="polite">正在檢查檔案。</p>
-              <a id="cadDownloadButton" class="cad-download-button is-disabled" href="#" aria-disabled="true">
-                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M.5 9.9a.5.5 0 0 1 .5.5h4.5a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5zm7-9.4a.5.5 0 0 1 1 0v8.8l2.15-2.15a.5.5 0 1 1 .7.7l-3 3a.5.5 0 0 1-.7 0l-3-3a.5.5 0 1 1 .7-.7L7.5 9.3V.5z"/></svg>
-                下載配對 CAD
-              </a>
+            </section>
+
+            <section class="setup-card">
+              <div class="step-heading"><span>2</span><div><h2>選擇刀片</h2><p>尺寸與角度會限制可加工範圍。</p></div></div>
+              <div class="row g-3">
+                <label class="col-12 col-sm-6"><span class="form-label">刀片尺寸</span><select class="form-select" id="insertSize"></select></label>
+                <label class="col-12 col-sm-6"><span class="form-label">刀片角度</span><select class="form-select" id="angle"></select></label>
+              </div>
+            </section>
+
+            <section class="setup-card">
+              <div class="step-heading"><span>3</span><div><h2>確認加工參數</h2><p>已帶入建議中間值，可直接微調。</p></div></div>
+              <div class="row g-3">
+                <label class="col-12 col-sm-4"><span class="form-label">加工直徑 D</span><div class="input-group"><input class="form-control" id="diameter" type="number" min="0.1" step="0.1" inputmode="decimal"><span class="input-group-text">mm</span></div><small id="diameterError"></small></label>
+                <label class="col-12 col-sm-4"><span class="form-label">切削速度 Vc</span><div class="input-group"><input class="form-control" id="cuttingSpeed" type="number" min="0.1" step="0.1" inputmode="decimal"><span class="input-group-text">m/min</span></div></label>
+                <label class="col-12 col-sm-4"><span class="form-label">每轉進給 f</span><div class="input-group"><input class="form-control" id="feedPerRev" type="number" min="0.001" step="0.001" inputmode="decimal"><span class="input-group-text">mm/rev</span></div></label>
+              </div>
+              <div class="d-flex justify-content-between align-items-center gap-3 mt-3">
+                <p class="calculation-note mb-0" id="calculationNote">請選擇加工條件。</p>
+                <button class="btn reset-button flex-shrink-0" type="button" id="resetButton">恢復建議值</button>
+              </div>
+            </section>
+          </form>
+        </section>
+
+        <!-- 右欄固定呈現當下最需要抄到機台與採購單的資訊。 -->
+        <aside class="col-12 col-lg-5" aria-live="polite">
+          <div class="result-panel">
+            <div class="result-title d-flex justify-content-between align-items-start gap-3">
+              <div><span>LIVE RESULT</span><h2>目前設定</h2></div>
+              <span class="angle-badge" id="angleBadge">90°</span>
+            </div>
+
+            <section class="product-hero">
+              <span>INSERT MODEL</span>
+              <strong id="insertModel">-</strong>
+              <p id="applicationNote">-</p>
+            </section>
+
+            <div class="output-row">
+              <div class="primary-output"><span>主軸轉速</span><strong id="rpm">-</strong><small>RPM</small></div>
+              <div class="primary-output"><span>進給速度</span><strong id="feedRate">-</strong><small>mm/min</small></div>
+            </div>
+
+            <!-- 次要技術數據預設收合，需要時再查看。 -->
+            <details class="detail-disclosure">
+              <summary>查看完整規格與建議範圍</summary>
+              <dl class="spec-grid">
+                <div><dt>建議牌號</dt><dd id="grade">-</dd></div>
+                <div><dt>Dmax.</dt><dd id="dmax">-</dd></div>
+                <div><dt>Tmax.</dt><dd id="tmax">-</dd></div>
+                <div><dt>Spotting Depth</dt><dd id="spotDepth">-</dd></div>
+                <div><dt>Vc 建議範圍</dt><dd id="vcRange">-</dd></div>
+                <div><dt>f 建議範圍</dt><dd id="feedRange">-</dd></div>
+                <div><dt>Q 啄鑽深度</dt><dd id="peckDepth">-</dd></div>
+              </dl>
+            </details>
+
+            <section class="resource-section">
+              <div class="section-heading"><div><span>OUTPUT</span><h3>輸出與下載</h3></div><small>缺少的檔案集中顯示於此</small></div>
+              <a class="resource-row is-ready" href="../../Products/AceSpotDrill/ACE-Spot-Drill-Catalog.pdf" target="_blank" rel="noopener"><div><strong>產品型錄</strong><span>PDF 可預覽</span></div><b>開啟</b></a>
+
+              <div class="resource-row cad-resource">
+                <div class="d-flex justify-content-between align-items-start gap-2"><div><strong>CAD 檔案</strong><span id="cadFileName">-</span></div><span class="cad-status-pill" id="cadStatusPill">CHECKING</span></div>
+                <div class="row g-2 mt-2">
+                  <label class="col-7"><span class="visually-hidden">刀桿形式</span><select class="form-select form-select-sm" id="holderType"><option value="cylindrical">Cylindrical Shank｜直柄</option><option value="screw-fit">Screw Fit Cutter｜螺牙式</option></select></label>
+                  <label class="col-5"><span class="visually-hidden">CAD 格式</span><select class="form-select form-select-sm" id="cadFormat"><option value="step">3D STEP</option><option value="dxf">2D DXF</option></select></label>
+                </div>
+                <p id="cadStatus" aria-live="polite">正在檢查檔案。</p>
+                <div class="d-flex justify-content-between align-items-center gap-3">
+                  <button class="holder-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#holderDetails" aria-expanded="false" aria-controls="holderDetails">刀桿規格</button>
+                  <a id="cadDownloadButton" class="cad-download-button is-disabled" href="#" aria-disabled="true">下載 CAD</a>
+                </div>
+                <div class="collapse" id="holderDetails">
+                  <div class="holder-summary">
+                    <span>MATCHED HOLDER</span><h4 id="holderPartNumber">-</h4><p id="holderDescription">-</p>
+                    <dl class="holder-grid" id="holderDimensions"></dl>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 尚未建置的版面收合在次要資源，不占用主要操作空間。 -->
+              <details class="future-resources">
+                <summary>其他尚未建立的資源 <span>3</span></summary>
+                <div class="list-group list-group-flush">
+                  <div class="list-group-item d-flex justify-content-between align-items-center px-0"><span>NC Program Generator</span><small>規劃中</small></div>
+                  <div class="list-group-item d-flex justify-content-between align-items-center px-0"><span>產品操作影片</span><small>待補資料</small></div>
+                  <div class="list-group-item d-flex justify-content-between align-items-center px-0"><span>技術 FAQ</span><small>待補資料</small></div>
+                </div>
+              </details>
             </section>
           </div>
-        </article>
-      </section>
+        </aside>
+      </div>
     </div>
   </main>
 
   <div id="footer-placeholder"></div>
   <script src="../../Products/AceSpotDrill/product-dataV2.0.js"></script>
   <script src="../../Products/AceSpotDrill/cad-downloadV2.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
