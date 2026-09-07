@@ -8,7 +8,7 @@
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; color: var(--wb-ink); font-family: Arial, "Noto Sans TC", sans-serif; }
+body { margin: 0; color: var(--wb-ink); font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
 .workbench-page { min-height: 780px; padding: 34px 12px 72px; }
 .workbench-shell { max-width: 1180px; }
 
@@ -32,7 +32,7 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, "Noto Sans TC", sans
 .form-select, .form-control, .input-group-text { min-height: 46px; border-color: #c8d7e2; font-size: .92rem; font-weight: 700; }
 .form-select, .form-control { color: var(--wb-ink); background-color: #f8fbfd; }
 .form-select:focus, .form-control:focus { border-color: var(--wb-blue); box-shadow: 0 0 0 .2rem rgba(0,103,173,.14); }
-.input-group-text { padding-inline: 9px; color: #647688; background: #eef4f8; font-size: .72rem; }
+.input-group-text { padding-inline: 9px; color: #647688; background: #eef4f8; font-size: .75rem; }
 .form-control.is-invalid { border-color: #c52b2b; }
 #diameterError { min-height: 15px; display: block; margin-top: 5px; color: #ba2525; font-size: .75rem; font-weight: 750; }
 .reset-button { min-height: 40px; padding: 8px 12px; color: var(--wb-ink); background: #eef4f8; border: 1px solid var(--wb-line); font-size: .82rem; font-weight: 850; }
@@ -42,18 +42,18 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, "Noto Sans TC", sans
 
 /* 右欄是一張固定結果單，主要數值不必向下尋找。 */
 .result-panel { position: sticky; top: 18px; border-top: 4px solid var(--wb-blue); }
-.result-title > div > span, .section-heading > div > span { color: var(--wb-blue); font-size: .72rem; font-weight: 900; letter-spacing: .13em; }
+.result-title > div > span, .section-heading > div > span { color: var(--wb-blue); font-size: .75rem; font-weight: 900; letter-spacing: .13em; }
 .result-title h2 { margin: 4px 0 0; font-size: 1.35rem; font-weight: 900; }
 .angle-badge { width: 48px; height: 48px; flex: 0 0 auto; display: grid; place-items: center; color: #fff; background: var(--wb-orange); border-radius: 50%; font-size: 1rem; font-weight: 900; }
 .product-hero { margin-top: 16px; padding: 18px; color: #fff; background: linear-gradient(120deg, #0b2237, #15527c); border-radius: 10px; }
-.product-hero > span { color: #80ceff; font-size: .7rem; font-weight: 900; letter-spacing: .14em; }
+.product-hero > span { color: #80ceff; font-size: .75rem; font-weight: 900; letter-spacing: .14em; }
 .product-hero strong { display: block; margin-top: 5px; font-size: clamp(1.65rem, 3vw, 2.15rem); overflow-wrap: anywhere; }
 .product-hero p { margin: 6px 0 0; color: #d3e4f0; font-size: .85rem; font-weight: 650; }
 .output-row { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 9px; margin-top: 10px; }
 .primary-output { min-height: 104px; padding: 15px; display: grid; align-content: center; color: #fff; background: var(--wb-ink); border-radius: 9px; }
 .primary-output span { color: #9edaff; font-size: .78rem; font-weight: 800; }
 .primary-output strong { margin-top: 4px; font-size: clamp(1.8rem, 4vw, 2.35rem); line-height: 1; }
-.primary-output small { margin-top: 5px; color: #c5d7e5; font-size: .72rem; font-weight: 750; }
+.primary-output small { margin-top: 5px; color: #c5d7e5; font-size: .75rem; font-weight: 750; }
 
 /* 次要規格使用原生 disclosure，需要時才展開。 */
 .detail-disclosure { margin-top: 11px; border: 1px solid var(--wb-line); border-radius: 9px; overflow: hidden; }
@@ -62,23 +62,26 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, "Noto Sans TC", sans
 .detail-disclosure[open] summary::after { content: "−"; }
 .spec-grid, .holder-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1px; margin: 0; background: var(--wb-line); }
 .spec-grid div, .holder-grid div { min-height: 63px; padding: 10px; background: #fff; }
-.spec-grid dt, .holder-grid dt { color: var(--wb-muted); font-size: .72rem; font-weight: 750; }
+.spec-grid dt, .holder-grid dt { color: var(--wb-muted); font-size: .75rem; font-weight: 750; }
 .spec-grid dd, .holder-grid dd { margin: 4px 0 0; font-size: .85rem; font-weight: 900; overflow-wrap: anywhere; }
 
 /* 尚未備妥的資料與可用下載統一收在資源區，不再建立大型空白卡片。 */
 .resource-section { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--wb-line); }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
 .section-heading h3 { margin: 3px 0 0; font-size: 1.05rem; font-weight: 900; }
-.section-heading small { color: var(--wb-muted); font-size: .7rem; }
+.section-heading small { color: var(--wb-muted); font-size: .75rem; }
 .resource-row { padding: 12px; display: block; color: var(--wb-ink); background: #f8fbfd; border: 1px solid var(--wb-line); border-radius: 9px; text-decoration: none; }
 .resource-row + .resource-row { margin-top: 8px; }
 .resource-row > div > strong, .resource-row > div > span { display: block; }
 .resource-row strong { font-size: .9rem; }
-.resource-row span { margin-top: 3px; color: var(--wb-muted); font-size: .72rem; overflow-wrap: anywhere; }
+.resource-row span { margin-top: 3px; color: var(--wb-muted); font-size: .75rem; overflow-wrap: anywhere; }
 .resource-row.is-ready { display: flex; align-items: center; justify-content: space-between; border-left: 4px solid #1f9d55; }
 .resource-row.is-ready b { color: #13743e; font-size: .78rem; }
 .cad-resource { border-left: 4px solid var(--wb-orange); }
-.cad-status-pill { padding: 5px 8px; flex: 0 0 auto; color: #55697b; background: #eef2f5; border-radius: 99px; font-size: .65rem !important; font-weight: 900; letter-spacing: .05em; }
+.cad-resource > div:first-child > div { min-width: 0; }
+.cad-resource > div:first-child strong, .cad-resource > div:first-child span { display: block; }
+.cad-resource #cadFileName { margin-top: 3px; line-height: 1.35; overflow-wrap: anywhere; }
+.cad-status-pill { padding: 5px 8px; flex: 0 0 auto; color: #55697b; background: #eef2f5; border-radius: 99px; font-size: .75rem !important; font-weight: 900; letter-spacing: .05em; }
 .cad-status-pill.is-checking { color: #075d92; background: #dbf0ff; }
 .cad-status-pill.is-available { color: #166534; background: #dcfce7; }
 .cad-status-pill.is-waiting { color: #8d350e; background: #fff1ea; }
@@ -87,7 +90,7 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, "Noto Sans TC", sans
 .cad-download-button { min-height: 38px; padding: 8px 12px; display: inline-flex; align-items: center; color: #fff; background: var(--wb-orange); border-radius: 7px; font-size: .8rem; font-weight: 900; text-decoration: none; }
 .cad-download-button.is-disabled { color: #8493a0; background: #e7edf1; cursor: not-allowed; }
 .holder-summary { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--wb-line); }
-.holder-summary > span { color: var(--wb-blue); font-size: .68rem; font-weight: 900; letter-spacing: .1em; }
+.holder-summary > span { color: var(--wb-blue); font-size: .75rem; font-weight: 900; letter-spacing: .1em; }
 .holder-summary h4 { margin: 5px 0 0; font-size: 1rem; font-weight: 900; overflow-wrap: anywhere; }
 .holder-summary > p { margin: 4px 0 10px; color: var(--wb-muted); font-size: .75rem; }
 .holder-grid { border: 1px solid var(--wb-line); border-radius: 7px; overflow: hidden; }
@@ -95,7 +98,7 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, "Noto Sans TC", sans
 .future-resources summary { min-height: 42px; display: flex; align-items: center; justify-content: space-between; color: #506579; cursor: pointer; font-size: .8rem; font-weight: 800; list-style: none; }
 .future-resources summary span { min-width: 24px; padding: 3px 7px; color: #657888; background: #e7edf1; border-radius: 99px; text-align: center; }
 .future-resources .list-group-item { min-height: 42px; color: #52677b; background: transparent; border-color: var(--wb-line); font-size: .8rem; font-weight: 750; }
-.future-resources .list-group-item small { color: #8d350e; background: #fff1ea; border-radius: 99px; padding: 4px 7px; font-size: .68rem; font-weight: 850; }
+.future-resources .list-group-item small { color: #8d350e; background: #fff1ea; border-radius: 99px; padding: 4px 7px; font-size: .75rem; font-weight: 850; }
 
 @media (max-width: 991.98px) {
   .result-panel { position: static; }

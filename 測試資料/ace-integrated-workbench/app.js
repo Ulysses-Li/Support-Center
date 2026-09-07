@@ -132,11 +132,11 @@ async function updateCadPanel() {
   const matchedFile = holder && ACE_CAD_FILES.find(file => file.holderPart === holder.filePart && Number(file.angle) === Number(angle));
 
   if (!holder) {
-    setText("holderPartNumber", "尚無相容刀桿");
+    setText("holderPartNumber", "No compatible holder");
     setText("holderDescription", `${insert.id} / ${angle}°`);
     document.getElementById("holderDimensions").innerHTML = "";
     setText("cadFileName", "-");
-    setCadAvailability("waiting", "目前條件尚未建立刀桿資料。");
+    setCadAvailability("waiting", "No holder data is available for this selection.");
     return;
   }
 
@@ -152,27 +152,27 @@ async function updateCadPanel() {
   setText("cadFileName", expectedName);
 
   if (cadFormat === "dxf") {
-    setCadAvailability("waiting", "刀桿已配對；官方目前尚未提供 2D DXF 檔案。");
+    setCadAvailability("waiting", "Holder matched. A 2D DXF file is not available yet.");
     return;
   }
   if (!matchedFile) {
-    setCadAvailability("waiting", "刀桿已配對，但這個角度尚未建立 STEP 對應資料。");
+    setCadAvailability("waiting", "Holder matched. No STEP mapping exists for this angle.");
     return;
   }
 
   const href = `../../Products/AceSpotDrill/cadV2.0/${encodeURIComponent(matchedFile.value)}.STEP`;
-  setCadAvailability("checking", "已完成型號配對，正在確認本機 CAD 檔案。");
+  setCadAvailability("checking", "Match found. Checking the local CAD file.");
   try {
     const response = await fetch(href, { method: "HEAD", cache: "no-store" });
     if (requestId !== cadAvailabilityRequest) return;
     if (response.ok) {
-      setCadAvailability("available", "CAD 檔案已就緒，可直接下載。", href, expectedName);
+      setCadAvailability("available", "The CAD file is ready to download.", href, expectedName);
     } else {
-      setCadAvailability("waiting", "型號配對完成，但實體 CAD 檔案尚未匯入專案。");
+      setCadAvailability("waiting", "Match found, but the CAD file has not been added yet.");
     }
   } catch {
     if (requestId === cadAvailabilityRequest) {
-      setCadAvailability("waiting", "型號配對完成，但目前無法讀取 CAD 檔案。");
+      setCadAvailability("waiting", "Match found, but the CAD file cannot be accessed.");
     }
   }
 }
@@ -193,23 +193,23 @@ function updateDashboard() {
 
   controls.diameter.max = insert.diameter;
   controls.diameter.classList.toggle("is-invalid", invalidDiameter);
-  setText("diameterError", invalidDiameter ? `D 不可超過 Dmax ${insert.diameter} mm。` : "");
+  setText("diameterError", invalidDiameter ? `D must not exceed Dmax ${insert.diameter} mm.` : "");
 
   const insertModel = insert.label.split(" - ").slice(1).join(" - ") || insert.label;
   setText("insertModel", `${insertModel}-${angle}`);
   setText("angleBadge", `${angle}°`);
   setText("grade", material.grade);
   setText("dmax", `${insert.diameter} mm`);
-  setText("tmax", tmax ? `${tmax} mm` : "不適用");
-  setText("spotDepth", spotDepth == null ? "不適用" : `${formatNumber(spotDepth)} mm`);
+  setText("tmax", tmax ? `${tmax} mm` : "N/A");
+  setText("spotDepth", spotDepth == null ? "N/A" : `${formatNumber(spotDepth)} mm`);
   setText("applicationNote", operation.id === "spotting"
-    ? `${material.label}定位點鑽，${angle}° 刀片。`
-    : `${material.label}倒角加工，${angle}° 刀片。`
+    ? `${material.label} spotting with a ${angle}° insert.`
+    : `${material.label} chamfering with a ${angle}° insert.`
   );
 
   setText("vcRange", formatRange(material.vc, "m/min"));
   setText("feedRange", formatRange(feedRange, "mm/rev"));
-  setText("peckDepth", operation.showQ ? (material.q || "依深度比計算") : "不適用");
+  setText("peckDepth", operation.showQ ? (material.q || "Use the depth ratio") : "N/A");
   setText("rpm", rpm == null ? "-" : Math.round(rpm));
   setText("feedRate", feedRate == null ? "-" : formatNumber(feedRate, 1));
 
@@ -217,10 +217,10 @@ function updateDashboard() {
   const requiresPeck = operation.id === "spotting" && angle === "60";
   note.classList.toggle("is-warning", requiresPeck || invalidDiameter);
   note.textContent = invalidDiameter
-    ? `加工直徑超出 ${insert.label} 的 Dmax，請先修正輸入值。`
+    ? `The diameter exceeds the Dmax for ${insert.label}.`
     : requiresPeck
-      ? "60° 點鑽依型錄要求使用啄鑽循環，請依材料與 t/Tmax 選擇 Q。"
-      : `以 Vc ${formatNumber(cuttingSpeed, 1)} m/min、f ${formatNumber(feedPerRev, 3)} mm/rev 計算。`;
+      ? "A 60° spotting operation requires a peck cycle. Select Q by material and t/Tmax."
+      : `Calculated with Vc ${formatNumber(cuttingSpeed, 1)} m/min and f ${formatNumber(feedPerRev, 3)} mm/rev.`;
 
   updateCadPanel();
 }
