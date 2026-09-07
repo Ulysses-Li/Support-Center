@@ -72,9 +72,32 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, "Noto Sans TC", sans
 .calculation-note { margin: 12px 0 0; padding: 11px 13px; color: #53677a; background: #f5f8fa; border-radius: 8px; font-size: 13px; font-weight: 650; line-height: 1.5; }
 .calculation-note.is-warning { color: #8d350e; background: #fff1ea; }
 
+/* CAD 區把刀桿規格與檔案狀態並列，讓配對結果可以快速確認。 */
+.cad-summary { grid-column: 1 / -1; border-top: 4px solid var(--wb-blue); }
+.cad-status-pill { padding: 6px 10px; color: #55697b; background: #eef2f5; border-radius: 99px; font-size: 12px; font-weight: 900; letter-spacing: .08em; }
+.cad-status-pill.is-checking { color: #075d92; background: #dbf0ff; }
+.cad-status-pill.is-available { color: #166534; background: #dcfce7; }
+.cad-status-pill.is-waiting { color: #8d350e; background: #fff1ea; }
+.cad-layout { display: grid; grid-template-columns: 1.45fr .8fr; gap: 16px; margin-top: 18px; }
+.holder-summary, .file-summary { min-width: 0; padding: 20px; background: #f7fafc; border: 1px solid var(--wb-line); border-radius: 11px; }
+.section-label { color: var(--wb-blue); font-size: 11px; font-weight: 900; letter-spacing: .13em; }
+.holder-summary h3 { margin: 7px 0 0; font-size: clamp(22px, 3vw, 30px); overflow-wrap: anywhere; }
+.holder-summary > p { margin: 7px 0 0; color: var(--wb-muted); font-size: 14px; font-weight: 700; }
+.holder-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin: 18px 0 0; overflow: hidden; background: var(--wb-line); border: 1px solid var(--wb-line); border-radius: 9px; }
+.holder-grid div { min-height: 68px; padding: 12px; background: #fff; }
+.file-summary { display: grid; align-content: center; justify-items: start; }
+.file-icon { width: 46px; height: 46px; margin: 14px 0; display: grid; place-items: center; color: var(--wb-orange); background: #ffebe2; border-radius: 10px; }
+.file-icon svg { width: 23px; height: 23px; fill: currentColor; }
+.file-summary strong { max-width: 100%; font-size: 15px; overflow-wrap: anywhere; }
+.file-summary p { margin: 8px 0 16px; color: var(--wb-muted); font-size: 13px; font-weight: 700; line-height: 1.5; }
+.cad-download-button { min-height: 44px; padding: 10px 14px; display: inline-flex; align-items: center; gap: 8px; color: #fff; background: var(--wb-orange); border-radius: 8px; font-size: 14px; font-weight: 900; text-decoration: none; }
+.cad-download-button svg { width: 17px; height: 17px; fill: currentColor; }
+.cad-download-button.is-disabled { color: #8493a0; background: #e7edf1; cursor: not-allowed; }
+
 @media (max-width: 920px) {
   .control-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .dashboard { grid-template-columns: 1fr; }
+  .cad-layout { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 575.98px) {
@@ -88,6 +111,7 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, "Noto Sans TC", sans
   .control-panel, .dashboard-card { padding: 16px; border-radius: 11px; }
   .control-grid { grid-template-columns: 1fr; }
   .recommendation-row { grid-template-columns: 1fr; }
+  .holder-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .recommendation-row > div { min-height: 66px; }
   .primary-output { min-height: 104px; }
 }

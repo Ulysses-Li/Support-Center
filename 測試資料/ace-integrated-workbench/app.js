@@ -4,10 +4,14 @@ const controls = {
   size: document.getElementById("insertSize"),
   angle: document.getElementById("angle"),
   material: document.getElementById("material"),
+  holderType: document.getElementById("holderType"),
+  cadFormat: document.getElementById("cadFormat"),
   diameter: document.getElementById("diameter"),
   cuttingSpeed: document.getElementById("cuttingSpeed"),
   feedPerRev: document.getElementById("feedPerRev")
 };
+
+let cadAvailabilityRequest = 0;
 
 function escapeHTML(value) {
   return String(value ?? "")
@@ -97,6 +101,82 @@ function calculateSpotDepth(diameter, angle, insert) {
   return Math.max(diameter * factors[angle] - Number(offset), 0);
 }
 
+function holderDimensionRows(holder) {
+  if (holder.type === "cylindrical") {
+    return [["Code", holder.code], ["Ød", holder.dimensions.d], ["ØD", holder.dimensions.od], ["L1", holder.dimensions.l1], ["L2", holder.dimensions.l2], ["Screw", holder.screw], ["Key", holder.key]];
+  }
+  return [["Code", holder.code], ["ØD", holder.dimensions.od], ["L", holder.dimensions.l], ["M", holder.dimensions.m], ["DPM", holder.dimensions.dpm], ["Screw", holder.screw], ["Key", holder.key]];
+}
+
+function setCadAvailability(state, message, href = "", filename = "") {
+  const pill = document.getElementById("cadStatusPill");
+  const button = document.getElementById("cadDownloadButton");
+  pill.className = `cad-status-pill is-${state}`;
+  pill.textContent = state === "available" ? "AVAILABLE" : state === "checking" ? "CHECKING" : "WAITING";
+  setText("cadStatus", message);
+
+  button.classList.toggle("is-disabled", state !== "available");
+  button.setAttribute("aria-disabled", state === "available" ? "false" : "true");
+  button.href = state === "available" ? href : "#";
+  if (state === "available") button.download = filename;
+  else button.removeAttribute("download");
+}
+
+/** 以目前選到的 SI、角度與刀桿型式配對 CAD；只在實體檔案存在時開放下載。 */
+async function updateCadPanel() {
+  const requestId = ++cadAvailabilityRequest;
+  const { insert, angle } = currentSelection();
+  const holderType = controls.holderType.value;
+  const cadFormat = controls.cadFormat.value;
+  const holder = ACE_CAD_CONFIG.holders.find(item => item.type === holderType && item.si === insert.id);
+  const matchedFile = holder && ACE_CAD_FILES.find(file => file.holderPart === holder.filePart && Number(file.angle) === Number(angle));
+
+  if (!holder) {
+    setText("holderPartNumber", "尚無相容刀桿");
+    setText("holderDescription", `${insert.id} / ${angle}°`);
+    document.getElementById("holderDimensions").innerHTML = "";
+    setText("cadFileName", "-");
+    setCadAvailability("waiting", "目前條件尚未建立刀桿資料。");
+    return;
+  }
+
+  const holderTypeLabel = ACE_CAD_CONFIG.holderTypes.find(item => item.id === holderType)?.label || holderType;
+  setText("holderPartNumber", holder.partsNo);
+  setText("holderDescription", `${holder.si} / ${holderTypeLabel} / ${insert.label.split(" - ").pop()}-${angle}`);
+  document.getElementById("holderDimensions").innerHTML = holderDimensionRows(holder).map(([label, value]) =>
+    `<div><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`
+  ).join("");
+
+  const extension = cadFormat === "step" ? "STEP" : "DXF";
+  const expectedName = matchedFile ? `${matchedFile.value}.${extension}` : `${holder.filePart}.${extension}`;
+  setText("cadFileName", expectedName);
+
+  if (cadFormat === "dxf") {
+    setCadAvailability("waiting", "刀桿已配對；官方目前尚未提供 2D DXF 檔案。");
+    return;
+  }
+  if (!matchedFile) {
+    setCadAvailability("waiting", "刀桿已配對，但這個角度尚未建立 STEP 對應資料。");
+    return;
+  }
+
+  const href = `../../Products/AceSpotDrill/cadV2.0/${encodeURIComponent(matchedFile.value)}.STEP`;
+  setCadAvailability("checking", "已完成型號配對，正在確認本機 CAD 檔案。");
+  try {
+    const response = await fetch(href, { method: "HEAD", cache: "no-store" });
+    if (requestId !== cadAvailabilityRequest) return;
+    if (response.ok) {
+      setCadAvailability("available", "CAD 檔案已就緒，可直接下載。", href, expectedName);
+    } else {
+      setCadAvailability("waiting", "型號配對完成，但實體 CAD 檔案尚未匯入專案。");
+    }
+  } catch {
+    if (requestId === cadAvailabilityRequest) {
+      setCadAvailability("waiting", "型號配對完成，但目前無法讀取 CAD 檔案。");
+    }
+  }
+}
+
 /** 將一組選擇同步輸出到產品摘要與切削參數結果。 */
 function updateDashboard() {
   const { operation, insert, material, angle, feedRange } = currentSelection();
@@ -141,6 +221,8 @@ function updateDashboard() {
     : requiresPeck
       ? "60° 點鑽依型錄要求使用啄鑽循環，請依材料與 t/Tmax 選擇 Q。"
       : `以 Vc ${formatNumber(cuttingSpeed, 1)} m/min、f ${formatNumber(feedPerRev, 3)} mm/rev 計算。`;
+
+  updateCadPanel();
 }
 
 function initializeWorkbench() {
@@ -176,8 +258,12 @@ controls.operation.addEventListener("change", () => { refreshDependentOptions({ 
 controls.size.addEventListener("change", () => { refreshDependentOptions({ resetValues: true }); updateDashboard(); });
 controls.angle.addEventListener("change", () => { resetRecommendedValues(); updateDashboard(); });
 controls.material.addEventListener("change", () => { resetRecommendedValues(); updateDashboard(); });
+[controls.holderType, controls.cadFormat].forEach(select => select.addEventListener("change", updateDashboard));
 [controls.diameter, controls.cuttingSpeed, controls.feedPerRev].forEach(input => input.addEventListener("input", updateDashboard));
 document.getElementById("resetButton").addEventListener("click", () => { resetRecommendedValues(); updateDashboard(); });
+document.getElementById("cadDownloadButton").addEventListener("click", event => {
+  if (event.currentTarget.getAttribute("aria-disabled") === "true") event.preventDefault();
+});
 
 initializeWorkbench();
 loadSharedLayout();

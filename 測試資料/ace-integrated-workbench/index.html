@@ -34,7 +34,7 @@
       <nav class="workflow" aria-label="整合工作流程">
         <span class="is-active"><b>01</b>產品選型</span>
         <span><b>02</b>Cutting Data</span>
-        <span class="is-pending"><b>03</b>CAD 配對</span>
+        <span><b>03</b>CAD 配對</span>
       </nav>
 
       <!-- 所有共用選項集中在這個表單，避免不同功能重複輸入。 -->
@@ -52,6 +52,8 @@
           <label><span>刀片尺寸</span><select id="insertSize"></select></label>
           <label><span>刀片角度</span><select id="angle"></select></label>
           <label><span>工件材質</span><select id="material"></select></label>
+          <label><span>刀桿形式</span><select id="holderType"><option value="cylindrical">Cylindrical Shank｜直柄</option><option value="screw-fit">Screw Fit Cutter｜螺牙式</option></select></label>
+          <label><span>CAD 格式</span><select id="cadFormat"><option value="step">3D STEP</option><option value="dxf">2D DXF</option></select></label>
           <label><span>加工直徑 D（mm）</span><input id="diameter" type="number" min="0.1" step="0.1" inputmode="decimal"><small id="diameterError"></small></label>
           <label><span>切削速度 Vc（m/min）</span><input id="cuttingSpeed" type="number" min="0.1" step="0.1" inputmode="decimal"></label>
           <label><span>每轉進給 f（mm/rev）</span><input id="feedPerRev" type="number" min="0.001" step="0.001" inputmode="decimal"></label>
@@ -95,12 +97,43 @@
           </div>
           <p class="calculation-note" id="calculationNote">請選擇加工條件。</p>
         </article>
+
+        <!-- CAD 區沿用同一組 SI、角度與刀桿，不要求使用者再次選擇。 -->
+        <article class="dashboard-card cad-summary">
+          <div class="card-heading">
+            <div><span>03 / CAD MATCH</span><h2>CAD 自動配對</h2></div>
+            <span class="cad-status-pill" id="cadStatusPill">CHECKING</span>
+          </div>
+
+          <div class="cad-layout">
+            <section class="holder-summary">
+              <span class="section-label">MATCHED HOLDER</span>
+              <h3 id="holderPartNumber">-</h3>
+              <p id="holderDescription">-</p>
+              <dl class="holder-grid" id="holderDimensions"></dl>
+            </section>
+
+            <section class="file-summary">
+              <span class="section-label">MATCHED FILE</span>
+              <div class="file-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16"><path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3.5 0H13L9.5 1v2.5a1 1 0 0 0 1 1z"/></svg>
+              </div>
+              <strong id="cadFileName">-</strong>
+              <p id="cadStatus" aria-live="polite">正在檢查檔案。</p>
+              <a id="cadDownloadButton" class="cad-download-button is-disabled" href="#" aria-disabled="true">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M.5 9.9a.5.5 0 0 1 .5.5h4.5a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5zm7-9.4a.5.5 0 0 1 1 0v8.8l2.15-2.15a.5.5 0 1 1 .7.7l-3 3a.5.5 0 0 1-.7 0l-3-3a.5.5 0 1 1 .7-.7L7.5 9.3V.5z"/></svg>
+                下載配對 CAD
+              </a>
+            </section>
+          </div>
+        </article>
       </section>
     </div>
   </main>
 
   <div id="footer-placeholder"></div>
   <script src="../../Products/AceSpotDrill/product-dataV2.0.js"></script>
+  <script src="../../Products/AceSpotDrill/cad-downloadV2.0.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
