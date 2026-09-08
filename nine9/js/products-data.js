@@ -14,7 +14,7 @@ const PRODUCT_FAMILIES = [
     image: "../img/spotting.png",
     href: "../Machining/Spotting/index.html",
     products: [
-      { name: "ACE Spot Drill", href: "../Products/AceSpotDrill/indexV2.0.html" },
+      { name: "ACE Spot Drill", href: "../Products/AceSpotDrill/indexV3.0.html" },
       { name: "Micro Spot Drill", href: "../Products/MicroSpotDrill/index.html" },
       { name: "NC Spot Drill", href: "../Products/NCSpotDrill/index.html" }
     ]
@@ -95,7 +95,7 @@ const PRODUCT_FAMILIES = [
     href: "../Machining/Chamfering_Corner_Radii/index.html",
     products: [
       { name: "Chamfer Mill", href: "../Products/ChamferMill/index.html" },
-      { name: "ACE Spot Drill", href: "../Products/AceSpotDrill/indexV2.0.html" },
+      { name: "ACE Spot Drill", href: "../Products/AceSpotDrill/indexV3.0.html" },
       { name: "NC Spot Drill", href: "../Products/NCSpotDrill/index.html" },
       { name: "Corner Rounding_RC Type", href: "../Products/CornerRoundingRC/index.html" },
       { name: "Corner Rounding_R Type", href: "../Products/CornerRoundingR/index.html" }
