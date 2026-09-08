@@ -19,3 +19,8 @@ NCProgram/.git-imported-reference/
 NCProgram/.browser-profile-audit/
 等待移除/NCProgram/.git-imported-reference/
 等待移除/NCProgram/.browser-profile-audit/
+
+# 說明書製作與瀏覽器截圖產生的本機暫存資料
+docs/manual-edge-profile/
+docs/manual-temp/
+測試資料/google-doc-qa/
