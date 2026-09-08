@@ -151,12 +151,12 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, Helvetica, sans-seri
 .future-resources .list-group-item small { color: #8d350e; background: #fff1ea; border-radius: 99px; padding: 4px 7px; font-size: .75rem; font-weight: 850; }
 
 @media (max-width: 991.98px) {
-  .workbench-shell { padding-left: 58px; }
+  .workbench-shell { padding-left: 12px; }
   .product-layout { display: block; }
-  .mobile-tool-button { width: 44px; min-height: 108px; margin: 0; padding: 10px 7px; position: fixed; top: 50%; left: 0; z-index: 1030; flex-direction: column; justify-content: center; gap: 7px; color: #fff; background: var(--wb-ink); border: 0; border-radius: 0 12px 12px 0; box-shadow: 0 8px 24px rgba(12,34,55,.24); transform: translateY(-50%); }
+  .mobile-tool-button { width: max-content; max-width: 100%; min-height: 44px; margin: 0 0 14px; padding: 10px 13px; position: sticky; top: 8px; left: auto; z-index: 1030; flex-direction: row; justify-content: center; gap: 8px; color: #fff; background: var(--wb-ink); border: 0; border-radius: 9px; box-shadow: 0 8px 24px rgba(12,34,55,.2); transform: none; }
   .mobile-tool-button:hover, .mobile-tool-button:focus-visible { color: #fff; background: var(--wb-blue); }
   .mobile-tool-button svg { width: 20px; height: 20px; fill: currentColor; }
-  .mobile-tool-label { font-size: .62rem; font-weight: 900; letter-spacing: .08em; line-height: 1; text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); }
+  .mobile-tool-label { font-size: .75rem; font-weight: 900; letter-spacing: .06em; line-height: 1; text-transform: uppercase; writing-mode: horizontal-tb; transform: none; }
   .product-sidebar { background: #f7fbfe; }
   .product-sidebar .offcanvas-header { min-height: 82px; padding: 18px; border-bottom: 1px solid var(--wb-line); }
   .product-sidebar .offcanvas-title { margin-top: 3px; font-size: 1.2rem; font-weight: 900; }
@@ -169,7 +169,7 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, Helvetica, sans-seri
 
 @media (max-width: 575.98px) {
   .workbench-page { padding: 24px 0 54px; }
-  .workbench-shell { padding-right: 12px; padding-left: 54px; }
+  .workbench-shell { padding-right: 12px; padding-left: 12px; }
   .workbench-heading h1 { font-size: 2.2rem; }
   .catalog-button { width: 100%; justify-content: center; }
   .setup-card, .result-panel { padding: 16px; border-radius: 11px; }
