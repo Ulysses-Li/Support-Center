@@ -254,6 +254,32 @@ function loadSharedLayout() {
     .then(html => { document.getElementById("footer-placeholder").innerHTML = html; });
 }
 
+/** 控制桌面圖示列收合、目前入口狀態，以及手機選取後自動關閉 Offcanvas。 */
+function initializeProductSidebar() {
+  const layout = document.getElementById("productLayout");
+  const sidebar = document.getElementById("productSidebar");
+  const collapseButton = document.getElementById("sidebarCollapseButton");
+  const links = [...document.querySelectorAll(".sidebar-nav .nav-link")];
+
+  collapseButton?.addEventListener("click", () => {
+    const isCollapsed = layout.classList.toggle("is-sidebar-collapsed");
+    collapseButton.setAttribute("aria-expanded", String(!isCollapsed));
+    collapseButton.setAttribute("aria-label", isCollapsed ? "Expand product tools" : "Collapse product tools");
+  });
+
+  links.forEach(link => link.addEventListener("click", () => {
+    links.forEach(item => item.classList.remove("active"));
+    link.classList.add("active");
+
+    const target = document.querySelector(link.getAttribute("href"));
+    if (target?.matches("details")) target.open = true;
+
+    if (window.innerWidth < 992 && window.bootstrap?.Offcanvas) {
+      window.bootstrap.Offcanvas.getOrCreateInstance(sidebar).hide();
+    }
+  }));
+}
+
 controls.operation.addEventListener("change", () => { refreshDependentOptions({ resetValues: true }); updateDashboard(); });
 controls.size.addEventListener("change", () => { refreshDependentOptions({ resetValues: true }); updateDashboard(); });
 controls.angle.addEventListener("change", () => { resetRecommendedValues(); updateDashboard(); });
@@ -266,4 +292,5 @@ document.getElementById("cadDownloadButton").addEventListener("click", event => 
 });
 
 initializeWorkbench();
+initializeProductSidebar();
 loadSharedLayout();
