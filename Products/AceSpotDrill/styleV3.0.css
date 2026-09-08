@@ -153,7 +153,7 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, Helvetica, sans-seri
 @media (max-width: 991.98px) {
   .workbench-shell { padding-left: 12px; }
   .product-layout { display: block; }
-  .mobile-tool-button { width: max-content; max-width: 100%; min-height: 44px; margin: 0 0 14px; padding: 10px 13px; position: sticky; top: 8px; left: auto; z-index: 1030; flex-direction: row; justify-content: center; gap: 8px; color: #fff; background: var(--wb-ink); border: 0; border-radius: 9px; box-shadow: 0 8px 24px rgba(12,34,55,.2); transform: none; }
+  .mobile-tool-button { width: max-content; max-width: 100%; min-height: 44px; margin: 0 0 14px -12px; padding: 10px 13px; position: sticky; top: 8px; left: 0; z-index: 1030; flex-direction: row; justify-content: center; gap: 8px; color: #fff; background: var(--wb-ink); border: 0; border-radius: 0 9px 9px 0; box-shadow: 0 8px 24px rgba(12,34,55,.2); transform: none; }
   .mobile-tool-button:hover, .mobile-tool-button:focus-visible { color: #fff; background: var(--wb-blue); }
   .mobile-tool-button svg { width: 20px; height: 20px; fill: currentColor; }
   .mobile-tool-label { font-size: .75rem; font-weight: 900; letter-spacing: .06em; line-height: 1; text-transform: uppercase; writing-mode: horizontal-tb; transform: none; }
