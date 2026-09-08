@@ -160,7 +160,7 @@ async function updateCadPanel() {
     return;
   }
 
-  const href = `../../Products/AceSpotDrill/cadV2.0/${encodeURIComponent(matchedFile.value)}.STEP`;
+  const href = `./cadV2.0/${encodeURIComponent(matchedFile.value)}.STEP`;
   setCadAvailability("checking", "Match found. Checking the local CAD file.");
   try {
     const response = await fetch(href, { method: "HEAD", cache: "no-store" });
