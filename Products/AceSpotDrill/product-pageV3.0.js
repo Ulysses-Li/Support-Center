@@ -11,6 +11,17 @@ const controls = {
   feedPerRev: document.getElementById("feedPerRev")
 };
 
+/** ISO 513 常用工件材料群組；以代碼加顏色呈現，避免只靠色彩判讀。 */
+const ISO_MATERIAL_GROUPS = {
+  carbonLow: { code: "P", family: "Steel" },
+  carbonHigh: { code: "P", family: "Steel" },
+  lowAlloy: { code: "P", family: "Steel" },
+  highAlloy: { code: "P", family: "Steel" },
+  stainless: { code: "M", family: "Stainless steel" },
+  castIron: { code: "K", family: "Cast iron" },
+  nonFerrous: { code: "N", family: "Non-ferrous metal" }
+};
+
 let cadAvailabilityRequest = 0;
 
 function escapeHTML(value) {
@@ -61,6 +72,14 @@ function currentSelection() {
   return { operation, insert, material, angle, feedRange };
 }
 
+function updateMaterialIdentity() {
+  const group = ISO_MATERIAL_GROUPS[controls.material.value] || { code: "P", family: "Steel" };
+  const badge = document.getElementById("materialIsoBadge");
+  badge.dataset.iso = group.code;
+  badge.textContent = group.code;
+  setText("materialIsoNote", `ISO ${group.code} · ${group.family}`);
+}
+
 /** 依照上游條件重建選項，並盡量保留使用者目前選擇。 */
 function refreshDependentOptions({ resetValues = false } = {}) {
   const operation = currentOperation();
@@ -79,7 +98,7 @@ function refreshDependentOptions({ resetValues = false } = {}) {
 
   const previousMaterial = controls.material.value;
   controls.material.innerHTML = Object.entries(operation.materials).map(([id, material]) =>
-    `<option value="${escapeHTML(id)}">${escapeHTML(material.label)}</option>`
+    `<option value="${escapeHTML(id)}">${escapeHTML(ISO_MATERIAL_GROUPS[id]?.code || "-")} · ${escapeHTML(material.label)}</option>`
   ).join("");
   controls.material.value = operation.materials[previousMaterial] ? previousMaterial : "stainless";
 
@@ -190,6 +209,8 @@ function updateDashboard() {
     ? calculateSpotDepth(diameter, angle, insert)
     : null;
   const tmax = insert.spotDepth?.tmax?.[angle];
+
+  updateMaterialIdentity();
 
   controls.diameter.max = insert.diameter;
   controls.diameter.classList.toggle("is-invalid", invalidDiameter);
