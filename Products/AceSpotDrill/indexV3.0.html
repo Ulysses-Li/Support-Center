@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,51 +13,85 @@
   <link rel="stylesheet" href="../../css/site-background.css">
   <link rel="stylesheet" href="./styleV3.0.css">
 </head>
+
 <body class="d-flex flex-column min-vh-100">
   <div id="header-placeholder"></div>
 
   <main class="workbench-page flex-grow-1">
     <div class="container-fluid workbench-shell">
       <!-- 手機以 Bootstrap Offcanvas 開啟工具列；桌面則常駐左側並可縮成純圖示。 -->
-      <button class="btn mobile-tool-button d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#productSidebar" aria-controls="productSidebar">
-        <svg class="bi bi-layout-sidebar-inset" viewBox="0 0 16 16" aria-hidden="true"><path d="M14 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2z"/><path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>
+      <button class="btn mobile-tool-button d-lg-none" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#productSidebar" aria-controls="productSidebar">
+        <svg class="bi bi-layout-sidebar-inset" viewBox="0 0 16 16" aria-hidden="true">
+          <path
+            d="M14 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2z" />
+          <path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" />
+        </svg>
         <span class="mobile-tool-label">Product Tools</span>
       </button>
 
       <div class="product-layout" id="productLayout">
-        <aside class="product-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="productSidebar" aria-labelledby="productSidebarLabel">
+        <aside class="product-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="productSidebar"
+          aria-labelledby="productSidebarLabel">
           <div class="offcanvas-header d-lg-none">
-            <div><span class="sidebar-kicker">ACE SPOT DRILL</span><h2 class="offcanvas-title" id="productSidebarLabel">Product Tools</h2></div>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#productSidebar" aria-label="Close"></button>
+            <div><span class="sidebar-kicker">ACE SPOT DRILL</span>
+              <h2 class="offcanvas-title" id="productSidebarLabel">Product Tools</h2>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#productSidebar"
+              aria-label="Close"></button>
           </div>
           <div class="sidebar-inner">
             <div class="sidebar-heading d-none d-lg-flex">
-              <div><span class="sidebar-kicker">ACE SPOT DRILL</span><strong class="sidebar-label">Product Tools</strong></div>
-              <button class="btn sidebar-collapse-button" id="sidebarCollapseButton" type="button" aria-expanded="true" aria-label="Collapse product tools">
-                <svg class="bi bi-chevron-double-left" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/></svg>
+              <div><span class="sidebar-kicker">ACE SPOT DRILL</span><strong class="sidebar-label">Product
+                  Tools</strong></div>
+              <button class="btn sidebar-collapse-button" id="sidebarCollapseButton" type="button" aria-expanded="true"
+                aria-label="Collapse product tools">
+                <svg class="bi bi-chevron-double-left" viewBox="0 0 16 16" aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+                  <path fill-rule="evenodd"
+                    d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+                </svg>
               </button>
             </div>
 
             <nav class="nav flex-column sidebar-nav" aria-label="ACE Spot Drill page sections">
               <a class="nav-link active" href="#setup" aria-label="Machining Setup">
-                <span class="sidebar-icon"><svg class="bi bi-sliders2-vertical" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M0 10.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H3V1.5a.5.5 0 0 0-1 0V10H.5a.5.5 0 0 0-.5.5M2.5 12a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5m3-6.5A.5.5 0 0 0 6 6h1.5v8.5a.5.5 0 0 0 1 0V6H10a.5.5 0 0 0 0-1H6a.5.5 0 0 0-.5.5M8 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2A.5.5 0 0 0 8 1m3 9.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H14V1.5a.5.5 0 0 0-1 0V10h-1.5a.5.5 0 0 0-.5.5m2.5 1.5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5"/></svg></span>
+                <span class="sidebar-icon"><svg class="bi bi-sliders2-vertical" viewBox="0 0 16 16" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                      d="M0 10.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H3V1.5a.5.5 0 0 0-1 0V10H.5a.5.5 0 0 0-.5.5M2.5 12a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5m3-6.5A.5.5 0 0 0 6 6h1.5v8.5a.5.5 0 0 0 1 0V6H10a.5.5 0 0 0 0-1H6a.5.5 0 0 0-.5.5M8 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2A.5.5 0 0 0 8 1m3 9.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H14V1.5a.5.5 0 0 0-1 0V10h-1.5a.5.5 0 0 0-.5.5m2.5 1.5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5" />
+                  </svg></span>
                 <span class="sidebar-label"><strong>Setup</strong><small>Choose machining values</small></span>
               </a>
               <a class="nav-link" href="#results" aria-label="Live Result">
-                <span class="sidebar-icon"><svg class="bi bi-speedometer2" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z"/><path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A8 8 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3"/></svg></span>
+                <span class="sidebar-icon"><svg class="bi bi-speedometer2" viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z" />
+                    <path fill-rule="evenodd"
+                      d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A8 8 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3" />
+                  </svg></span>
                 <span class="sidebar-label"><strong>Live Result</strong><small>Speeds and specifications</small></span>
               </a>
               <a class="nav-link" href="#resources" aria-label="Files and Resources">
-                <span class="sidebar-icon"><svg class="bi bi-folder2-open" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v.64c.57.265.94.876.856 1.546l-.64 5.124A2.5 2.5 0 0 1 12.733 15H3.266a2.5 2.5 0 0 1-2.481-2.19l-.64-5.124A1.5 1.5 0 0 1 1 6.14zM2 6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3H2.5a.5.5 0 0 0-.5.5zm-.367 1a.5.5 0 0 0-.496.562l.64 5.124A1.5 1.5 0 0 0 3.266 14h9.468a1.5 1.5 0 0 0 1.489-1.314l.64-5.124A.5.5 0 0 0 14.367 7z"/></svg></span>
+                <span class="sidebar-icon"><svg class="bi bi-folder2-open" viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v.64c.57.265.94.876.856 1.546l-.64 5.124A2.5 2.5 0 0 1 12.733 15H3.266a2.5 2.5 0 0 1-2.481-2.19l-.64-5.124A1.5 1.5 0 0 1 1 6.14zM2 6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3H2.5a.5.5 0 0 0-.5.5zm-.367 1a.5.5 0 0 0-.496.562l.64 5.124A1.5 1.5 0 0 0 3.266 14h9.468a1.5 1.5 0 0 0 1.489-1.314l.64-5.124A.5.5 0 0 0 14.367 7z" />
+                  </svg></span>
                 <span class="sidebar-label"><strong>Files</strong><small>Catalog and CAD</small></span>
               </a>
               <a class="nav-link" href="#planned" aria-label="NC Program">
-                <span class="sidebar-icon"><svg class="bi bi-code-slash" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/></svg></span>
+                <span class="sidebar-icon"><svg class="bi bi-code-slash" viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
+                  </svg></span>
                 <span class="sidebar-label"><strong>NC Program</strong><small>Planned module</small></span>
                 <span class="sidebar-status" title="Coming soon">SOON</span>
               </a>
               <a class="nav-link" href="#planned" aria-label="Technical Support">
-                <span class="sidebar-icon"><svg class="bi bi-life-preserver" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m6.43-5.228a7.03 7.03 0 0 1-3.658 3.658l-1.115-2.788a4 4 0 0 0 1.985-1.985zM5.228 14.43a7.03 7.03 0 0 1-3.658-3.658l2.788-1.115a4 4 0 0 0 1.985 1.985zm9.202-9.202-2.788 1.115a4 4 0 0 0-1.985-1.985l1.115-2.788a7.03 7.03 0 0 1 3.658 3.658m-8.087-.87a4 4 0 0 0-1.985 1.985L1.57 5.228A7.03 7.03 0 0 1 5.228 1.57zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg></span>
+                <span class="sidebar-icon"><svg class="bi bi-life-preserver" viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m6.43-5.228a7.03 7.03 0 0 1-3.658 3.658l-1.115-2.788a4 4 0 0 0 1.985-1.985zM5.228 14.43a7.03 7.03 0 0 1-3.658-3.658l2.788-1.115a4 4 0 0 0 1.985 1.985zm9.202-9.202-2.788 1.115a4 4 0 0 0-1.985-1.985l1.115-2.788a7.03 7.03 0 0 1 3.658 3.658m-8.087-.87a4 4 0 0 0-1.985 1.985L1.57 5.228A7.03 7.03 0 0 1 5.228 1.57zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                  </svg></span>
                 <span class="sidebar-label"><strong>Support</strong><small>FAQ and technical help</small></span>
                 <span class="sidebar-status" title="Coming soon">SOON</span>
               </a>
@@ -65,131 +100,214 @@
         </aside>
 
         <div class="product-workspace">
-      <!-- 縮短說明區，讓使用者在第一個畫面就能開始設定。 -->
-      <header class="workbench-heading d-flex flex-column flex-lg-row align-items-lg-end justify-content-between gap-3">
-        <div>
-          <p class="eyebrow">ACE SPOT DRILL</p>
-          <h1>Machining Setup</h1>
-          <p class="heading-copy mb-0">Choose the application, insert, and cutting conditions. Your results update instantly.</p>
-        </div>
-        <a class="btn catalog-button" href="./ACE-Spot-Drill-Catalog.pdf" target="_blank" rel="noopener">
-          <!-- Bootstrap Icons：filetype-pdf，直接內嵌避免搬站後圖示失效。 -->
-          <svg class="bi bi-filetype-pdf" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/></svg>
-          Open PDF Catalog
-        </a>
-      </header>
-
-      <div class="row g-4 align-items-start workspace-grid">
-        <!-- 左欄使用三個短步驟，降低九個欄位同時出現的認知負擔。 -->
-        <section class="col-12 col-lg-7" id="setup">
-          <form class="setup-stack" id="workbenchForm">
-            <section class="setup-card">
-              <div class="step-heading"><span>1</span><div><h2>Choose the Application</h2><p>Start with the operation and workpiece material.</p></div></div>
-              <div class="row g-3">
-                <label class="col-12 col-sm-6"><span class="form-label">Operation</span><select class="form-select" id="operation"></select></label>
-                <label class="col-12 col-sm-6">
-                  <span class="form-label">Workpiece Material</span>
-                  <span class="material-select-wrap">
-                    <span class="material-iso-badge" id="materialIsoBadge" data-iso="M" aria-hidden="true">M</span>
-                    <select class="form-select" id="material"></select>
-                  </span>
-                  <small class="material-iso-note" id="materialIsoNote">ISO M · Stainless steel</small>
-                </label>
-              </div>
-            </section>
-
-            <section class="setup-card">
-              <div class="step-heading"><span>2</span><div><h2>Select the Insert</h2><p>Size and angle define the machining range.</p></div></div>
-              <div class="row g-3">
-                <label class="col-12 col-sm-6"><span class="form-label">Insert Size</span><select class="form-select" id="insertSize"></select></label>
-                <label class="col-12 col-sm-6"><span class="form-label">Included Angle</span><select class="form-select" id="angle"></select></label>
-              </div>
-            </section>
-
-            <section class="setup-card">
-              <div class="step-heading"><span>3</span><div><h2>Set Cutting Values</h2><p>Recommended mid-range values are prefilled.</p></div></div>
-              <div class="row g-3">
-                <label class="col-12 col-sm-4"><span class="form-label">Diameter D</span><div class="input-group"><input class="form-control" id="diameter" type="number" min="0.1" step="0.1" inputmode="decimal"><span class="input-group-text">mm</span></div><small id="diameterError"></small></label>
-                <label class="col-12 col-sm-4"><span class="form-label">Cutting Speed Vc</span><div class="input-group"><input class="form-control" id="cuttingSpeed" type="number" min="0.1" step="0.1" inputmode="decimal"><span class="input-group-text">m/min</span></div></label>
-                <label class="col-12 col-sm-4"><span class="form-label">Feed per Rev. f</span><div class="input-group"><input class="form-control" id="feedPerRev" type="number" min="0.001" step="0.001" inputmode="decimal"><span class="input-group-text">mm/rev</span></div></label>
-              </div>
-              <div class="d-flex justify-content-between align-items-center gap-3 mt-3">
-                <p class="calculation-note mb-0" id="calculationNote">Select the machining conditions.</p>
-                <button class="btn reset-button flex-shrink-0" type="button" id="resetButton">Reset Values</button>
-              </div>
-            </section>
-          </form>
-        </section>
-
-        <!-- 右欄固定呈現當下最需要抄到機台與採購單的資訊。 -->
-        <aside class="col-12 col-lg-5" id="results" aria-live="polite">
-          <div class="result-panel">
-            <div class="result-title d-flex justify-content-between align-items-start gap-3">
-              <div><span>LIVE RESULT</span><h2>Current Setup</h2></div>
-              <span class="angle-badge" id="angleBadge">90°</span>
+          <!-- 縮短說明區，讓使用者在第一個畫面就能開始設定。 -->
+          <header
+            class="workbench-heading d-flex flex-column flex-lg-row align-items-lg-end justify-content-between gap-3">
+            <div>
+              <p class="eyebrow">ACE SPOT DRILL</p>
+              <h1>Machining Setup</h1>
+              <p class="heading-copy mb-0">Choose the application, insert, and cutting conditions. Your results update
+                instantly.</p>
             </div>
+            <a class="btn catalog-button" href="./ACE-Spot-Drill-Catalog.pdf" target="_blank" rel="noopener">
+              <!-- Bootstrap Icons：filetype-pdf，直接內嵌避免搬站後圖示失效。 -->
+              <svg class="bi bi-filetype-pdf" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z" />
+              </svg>
+              Open PDF Catalog
+            </a>
+          </header>
 
-            <section class="product-hero">
-              <span>INSERT MODEL</span>
-              <strong id="insertModel">-</strong>
-              <p id="applicationNote">-</p>
-            </section>
-
-            <div class="output-row">
-              <div class="primary-output"><span>Spindle Speed</span><strong id="rpm">-</strong><small>RPM</small></div>
-              <div class="primary-output"><span>Feed Rate</span><strong id="feedRate">-</strong><small>mm/min</small></div>
-            </div>
-
-            <!-- 次要技術數據預設收合，需要時再查看。 -->
-            <details class="detail-disclosure">
-              <summary>Full Specifications &amp; Ranges</summary>
-              <dl class="spec-grid">
-                <div><dt>Recommended Grade</dt><dd id="grade">-</dd></div>
-                <div><dt>Dmax.</dt><dd id="dmax">-</dd></div>
-                <div><dt>Tmax.</dt><dd id="tmax">-</dd></div>
-                <div><dt>Spotting Depth</dt><dd id="spotDepth">-</dd></div>
-                <div><dt>Vc Range</dt><dd id="vcRange">-</dd></div>
-                <div><dt>f Range</dt><dd id="feedRange">-</dd></div>
-                <div><dt>Peck Depth Q</dt><dd id="peckDepth">-</dd></div>
-              </dl>
-            </details>
-
-            <section class="resource-section" id="resources">
-              <div class="section-heading"><div><span>OUTPUT</span><h3>Files &amp; Resources</h3></div><small>Unavailable files stay here</small></div>
-              <a class="resource-row is-ready" href="./ACE-Spot-Drill-Catalog.pdf" target="_blank" rel="noopener"><div><strong>Product Catalog</strong><span>PDF preview available</span></div><b>OPEN</b></a>
-
-              <div class="resource-row cad-resource">
-                <div class="d-flex justify-content-between align-items-start gap-2"><div><strong>CAD File</strong><span id="cadFileName">-</span></div><span class="cad-status-pill" id="cadStatusPill">CHECKING</span></div>
-                <div class="row g-2 mt-2">
-                  <label class="col-7"><span class="visually-hidden">Holder Type</span><select class="form-select form-select-sm" id="holderType"><option value="cylindrical">Cylindrical Shank</option><option value="screw-fit">Screw Fit Cutter</option></select></label>
-                  <label class="col-5"><span class="visually-hidden">CAD Format</span><select class="form-select form-select-sm" id="cadFormat"><option value="step">3D STEP</option><option value="dxf">2D DXF</option></select></label>
-                </div>
-                <p id="cadStatus" aria-live="polite">Checking file availability.</p>
-                <div class="d-flex justify-content-between align-items-center gap-3">
-                  <button class="holder-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#holderDetails" aria-expanded="false" aria-controls="holderDetails">Holder Specs</button>
-                  <a id="cadDownloadButton" class="cad-download-button is-disabled" href="#" aria-disabled="true">Download CAD</a>
-                </div>
-                <div class="collapse" id="holderDetails">
-                  <div class="holder-summary">
-                    <span>MATCHED HOLDER</span><h4 id="holderPartNumber">-</h4><p id="holderDescription">-</p>
-                    <dl class="holder-grid" id="holderDimensions"></dl>
+          <div class="row g-4 align-items-start workspace-grid">
+            <!-- 左欄使用三個短步驟，降低九個欄位同時出現的認知負擔。 -->
+            <section class="col-12 col-lg-7" id="setup">
+              <form class="setup-stack" id="workbenchForm">
+                <section class="setup-card">
+                  <div class="step-heading"><span>1</span>
+                    <div>
+                      <h2>Choose the Application</h2>
+                      <p>Start with the operation and workpiece material.</p>
+                    </div>
                   </div>
-                </div>
-              </div>
+                  <div class="row g-3">
+                    <label class="col-12 col-sm-6"><span class="form-label">Operation</span><select class="form-select"
+                        id="operation"></select></label>
+                    <label class="col-12 col-sm-6">
+                      <span class="form-label">Workpiece Material</span>
+                      <span class="material-select-wrap">
+                        <span class="material-iso-badge" id="materialIsoBadge" data-iso="M" aria-hidden="true">M</span>
+                        <select class="form-select" id="material"></select>
+                      </span>
+                      <small class="material-iso-note" id="materialIsoNote">ISO M · Stainless steel</small>
+                    </label>
+                  </div>
+                </section>
 
-              <!-- 尚未建置的版面收合在次要資源，不占用主要操作空間。 -->
-              <details class="future-resources" id="planned">
-                <summary>Planned Resources <span>3</span></summary>
-                <div class="list-group list-group-flush">
-                  <div class="list-group-item d-flex justify-content-between align-items-center px-0"><span>NC Program Generator</span><small>PLANNED</small></div>
-                  <div class="list-group-item d-flex justify-content-between align-items-center px-0"><span>Product Videos</span><small>NO DATA</small></div>
-                  <div class="list-group-item d-flex justify-content-between align-items-center px-0"><span>Technical FAQ</span><small>NO DATA</small></div>
-                </div>
-              </details>
+                <section class="setup-card">
+                  <div class="step-heading"><span>2</span>
+                    <div>
+                      <h2>Select the Insert</h2>
+                      <p>Size and angle define the machining range.</p>
+                    </div>
+                  </div>
+                  <div class="row g-3">
+                    <label class="col-12 col-sm-6"><span class="form-label">Insert Size</span><select
+                        class="form-select" id="insertSize"></select></label>
+                    <label class="col-12 col-sm-6"><span class="form-label">Included Angle</span><select
+                        class="form-select" id="angle"></select></label>
+                  </div>
+                </section>
+
+                <section class="setup-card">
+                  <div class="step-heading"><span>3</span>
+                    <div>
+                      <h2>Set Cutting Values</h2>
+                      <p>Recommended mid-range values are prefilled.</p>
+                    </div>
+                  </div>
+                  <div class="row g-3">
+                    <label class="col-12 col-sm-4"><span class="form-label">Diameter D</span>
+                      <div class="input-group"><input class="form-control" id="diameter" type="number" min="0.1"
+                          step="0.1" inputmode="decimal"><span class="input-group-text">mm</span></div><small
+                        id="diameterError"></small>
+                    </label>
+                    <label class="col-12 col-sm-4"><span class="form-label">Cutting Speed Vc</span>
+                      <div class="input-group"><input class="form-control" id="cuttingSpeed" type="number" min="0.1"
+                          step="0.1" inputmode="decimal"><span class="input-group-text">m/min</span></div>
+                    </label>
+                    <label class="col-12 col-sm-4"><span class="form-label">Feed per Rev. f</span>
+                      <div class="input-group"><input class="form-control" id="feedPerRev" type="number" min="0.001"
+                          step="0.001" inputmode="decimal"><span class="input-group-text">mm/rev</span></div>
+                    </label>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center gap-3 mt-3">
+                    <p class="calculation-note mb-0" id="calculationNote">Select the machining conditions.</p>
+                    <button class="btn reset-button flex-shrink-0" type="button" id="resetButton">Reset Values</button>
+                  </div>
+                </section>
+              </form>
             </section>
+
+            <!-- 右欄固定呈現當下最需要抄到機台與採購單的資訊。 -->
+            <aside class="col-12 col-lg-5" id="results" aria-live="polite">
+              <div class="result-panel">
+                <div class="result-title d-flex justify-content-between align-items-start gap-3">
+                  <div><span>LIVE RESULT</span>
+                    <h2>Current Setup</h2>
+                  </div>
+                  <span class="angle-badge" id="angleBadge">90°</span>
+                </div>
+
+                <section class="product-hero">
+                  <span>INSERT MODEL</span>
+                  <strong id="insertModel">-</strong>
+                  <p id="applicationNote">-</p>
+                </section>
+
+                <div class="output-row">
+                  <div class="primary-output"><span>Spindle Speed</span><strong id="rpm">-</strong><small>RPM</small>
+                  </div>
+                  <div class="primary-output"><span>Feed Rate</span><strong
+                      id="feedRate">-</strong><small>mm/min</small></div>
+                </div>
+
+                <!-- 次要技術數據預設收合，需要時再查看。 -->
+                <details class="detail-disclosure">
+                  <summary>Full Specifications &amp; Ranges</summary>
+                  <dl class="spec-grid">
+                    <div>
+                      <dt>Recommended Grade</dt>
+                      <dd id="grade">-</dd>
+                    </div>
+                    <div>
+                      <dt>Dmax.</dt>
+                      <dd id="dmax">-</dd>
+                    </div>
+                    <div>
+                      <dt>Tmax.</dt>
+                      <dd id="tmax">-</dd>
+                    </div>
+                    <div>
+                      <dt>Spotting Depth</dt>
+                      <dd id="spotDepth">-</dd>
+                    </div>
+                    <div>
+                      <dt>Vc Range</dt>
+                      <dd id="vcRange">-</dd>
+                    </div>
+                    <div>
+                      <dt>f Range</dt>
+                      <dd id="feedRange">-</dd>
+                    </div>
+                    <div>
+                      <dt>Peck Depth Q</dt>
+                      <dd id="peckDepth">-</dd>
+                    </div>
+                  </dl>
+                </details>
+
+                <section class="resource-section" id="resources">
+                  <div class="section-heading">
+                    <div><span>OUTPUT</span>
+                      <h3>Files &amp; Resources</h3>
+                    </div><small>Unavailable files stay here</small>
+                  </div>
+                  <a class="resource-row is-ready" href="./ACE-Spot-Drill-Catalog.pdf" target="_blank" rel="noopener">
+                    <div><strong>Product Catalog</strong><span>PDF preview available</span></div><b>OPEN</b>
+                  </a>
+
+                  <div class="resource-row cad-resource">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div><strong>CAD File</strong><span id="cadFileName">-</span></div><span class="cad-status-pill"
+                        id="cadStatusPill">CHECKING</span>
+                    </div>
+                    <div class="row g-2 mt-2">
+                      <label class="col-7"><span class="visually-hidden">Holder Type</span><select
+                          class="form-select form-select-sm" id="holderType">
+                          <option value="cylindrical">Cylindrical Shank</option>
+                          <option value="screw-fit">Screw Fit Cutter</option>
+                        </select></label>
+                      <label class="col-5"><span class="visually-hidden">CAD Format</span><select
+                          class="form-select form-select-sm" id="cadFormat">
+                          <option value="step">3D STEP</option>
+                          <option value="dxf">2D DXF</option>
+                        </select></label>
+                    </div>
+                    <p id="cadStatus" aria-live="polite">Checking file availability.</p>
+                    <div class="d-flex justify-content-between align-items-center gap-3">
+                      <button class="holder-toggle" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#holderDetails" aria-expanded="false" aria-controls="holderDetails">Holder
+                        Specs</button>
+                      <a id="cadDownloadButton" class="cad-download-button is-disabled" href="#"
+                        aria-disabled="true">Download CAD</a>
+                    </div>
+                    <div class="collapse" id="holderDetails">
+                      <div class="holder-summary">
+                        <span>MATCHED HOLDER</span>
+                        <h4 id="holderPartNumber">-</h4>
+                        <p id="holderDescription">-</p>
+                        <dl class="holder-grid" id="holderDimensions"></dl>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 尚未建置的版面收合在次要資源，不占用主要操作空間。 -->
+                  <details class="future-resources" id="planned">
+                    <summary>Planned Resources <span>3</span></summary>
+                    <div class="list-group list-group-flush">
+                      <div class="list-group-item d-flex justify-content-between align-items-center px-0"><span>NC
+                          Program Generator</span><small>PLANNED</small></div>
+                      <div class="list-group-item d-flex justify-content-between align-items-center px-0"><span>Product
+                          Videos</span><small>NO DATA</small></div>
+                      <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                        <span>Technical FAQ</span><small>NO DATA</small></div>
+                    </div>
+                  </details>
+                </section>
+              </div>
+            </aside>
           </div>
-        </aside>
-      </div>
         </div>
       </div>
     </div>
@@ -201,4 +319,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./product-pageV3.0.js"></script>
 </body>
+
 </html>

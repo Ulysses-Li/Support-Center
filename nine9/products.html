@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +15,7 @@
 
   <!-- Products Card 專用樣式 -->
   <link rel="stylesheet" href="css/products.css">
-  
+
   <link rel="stylesheet" href="../header/header.css">
   <link rel="stylesheet" href="../footer/footer.css">
 
@@ -26,7 +27,7 @@
 </head>
 
 <body>
-    <!-- Header -->
+  <!-- Header -->
   <div id="header-placeholder"></div>
 
   <main class="products-page">
@@ -47,59 +48,59 @@
 
   <!-- Footer 插入位置：一定要有這行 -->
   <div id="footer-placeholder"></div>
-  
+
   <!-- 產品資料：未來要新增/刪除/修改分類，主要改這支檔案 -->
   <script src="js/products-data.js"></script>
 
   <!-- 產品渲染：負責把資料變成 HTML Card -->
   <script src="js/products-render.js"></script>
 
-<script>
-/* =========================================================
-   Header Loader
-   用意：
-   載入共用 Header，並在載入完成後綁定手機選單按鈕
-========================================================= */
-
-fetch('../header/header.html?v=20260520-news')
-  .then(response => response.text())
-  .then(data => {
-
-    document.getElementById('header-placeholder').innerHTML = data;
-
-    /* =====================================================
-       Mobile Menu Toggle
+  <script>
+    /* =========================================================
+       Header Loader
        用意：
-       Header 被插入頁面後，才找得到 mobileMenuBtn / topNav
-    ====================================================== */
+       載入共用 Header，並在載入完成後綁定手機選單按鈕
+    ========================================================= */
 
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const topNav = document.getElementById('topNav');
+    fetch('../header/header.html?v=20260520-news')
+      .then(response => response.text())
+      .then(data => {
 
-    if (mobileMenuBtn && topNav) {
+        document.getElementById('header-placeholder').innerHTML = data;
 
-      mobileMenuBtn.addEventListener('click', function () {
+        /* =====================================================
+           Mobile Menu Toggle
+           用意：
+           Header 被插入頁面後，才找得到 mobileMenuBtn / topNav
+        ====================================================== */
 
-        topNav.classList.toggle('active');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const topNav = document.getElementById('topNav');
+
+        if (mobileMenuBtn && topNav) {
+
+          mobileMenuBtn.addEventListener('click', function () {
+
+            topNav.classList.toggle('active');
+
+          });
+
+        }
 
       });
 
-    }
+    /* =========================================================
+       Footer Loader
+    ========================================================= */
 
-  });
+    fetch('../footer/footer.html')
+      .then(response => response.text())
+      .then(data => {
 
-/* =========================================================
-   Footer Loader
-========================================================= */
+        document.getElementById('footer-placeholder').innerHTML = data;
 
-fetch('../footer/footer.html')
-  .then(response => response.text())
-  .then(data => {
-
-    document.getElementById('footer-placeholder').innerHTML = data;
-
-  });
-</script>
+      });
+  </script>
 </body>
 
 </html>
