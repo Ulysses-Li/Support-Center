@@ -15,8 +15,8 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, Helvetica, sans-seri
 /* 產品工具列在桌面可縮為圖示列，手機則交由 Bootstrap Offcanvas 管理。 */
 .product-layout { display: grid; grid-template-columns: 224px minmax(0, 1fr); gap: 24px; align-items: start; transition: grid-template-columns .2s ease; }
 .product-workspace { min-width: 0; }
-.product-sidebar { --bs-offcanvas-width: min(86vw, 310px); color: var(--wb-ink); }
-.sidebar-inner { position: sticky; top: 18px; padding: 12px; background: rgba(255,255,255,.95); border: 1px solid rgba(213,225,234,.92); border-radius: 14px; box-shadow: 0 12px 30px rgba(26,58,82,.09); }
+.product-sidebar { --bs-offcanvas-width: min(86vw, 310px); min-width: 0; color: var(--wb-ink); }
+.sidebar-inner { min-width: 0; position: sticky; top: 18px; padding: 12px; overflow: hidden; background: rgba(255,255,255,.95); border: 1px solid rgba(213,225,234,.92); border-radius: 14px; box-shadow: 0 12px 30px rgba(26,58,82,.09); }
 .sidebar-heading { min-height: 58px; padding: 4px 4px 13px 8px; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--wb-line); }
 .sidebar-heading > div { min-width: 0; }
 .sidebar-kicker { display: block; color: var(--wb-orange); font-size: .66rem; font-weight: 900; letter-spacing: .12em; white-space: nowrap; }
@@ -24,18 +24,18 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, Helvetica, sans-seri
 .sidebar-collapse-button { width: 36px; height: 36px; flex: 0 0 auto; display: inline-grid; place-items: center; color: var(--wb-blue); background: var(--wb-pale); border: 1px solid #cde0ee; border-radius: 9px; }
 .sidebar-collapse-button:hover, .sidebar-collapse-button:focus-visible { color: #fff; background: var(--wb-blue); }
 .sidebar-collapse-button svg { width: 16px; height: 16px; fill: currentColor; transition: transform .2s ease; }
-.sidebar-nav { gap: 6px; margin-top: 11px; }
-.sidebar-nav .nav-link { min-height: 56px; padding: 8px; display: flex; align-items: center; gap: 10px; color: #40566a; border-radius: 10px; position: relative; }
+.sidebar-nav { width: 100%; min-width: 0; gap: 6px; margin-top: 11px; }
+.sidebar-nav .nav-link { width: 100%; min-width: 0; min-height: 56px; padding: 8px; display: flex; align-items: center; gap: 10px; overflow: hidden; color: #40566a; border-radius: 10px; position: relative; }
 .sidebar-nav .nav-link:hover, .sidebar-nav .nav-link:focus-visible { color: var(--wb-blue); background: #f3f8fc; }
 .sidebar-nav .nav-link.active { color: var(--wb-ink); background: #eaf5fd; box-shadow: inset 3px 0 0 var(--wb-orange); }
 .sidebar-icon { width: 38px; height: 38px; flex: 0 0 auto; display: grid; place-items: center; color: var(--wb-blue); background: #fff; border: 1px solid #cfe1ee; border-radius: 9px; }
 .sidebar-nav .active .sidebar-icon { color: #fff; background: var(--wb-blue); border-color: var(--wb-blue); }
 .sidebar-icon svg { width: 18px; height: 18px; fill: currentColor; }
-.sidebar-label { min-width: 0; display: block; }
-.sidebar-label strong, .sidebar-label small { display: block; white-space: nowrap; }
-.sidebar-label strong { font-size: .84rem; font-weight: 900; }
-.sidebar-label small { margin-top: 2px; color: var(--wb-muted); font-size: .66rem; font-weight: 650; }
-.sidebar-status { margin-left: auto; padding: 3px 5px; color: #8d350e; background: #fff1ea; border-radius: 99px; font-size: .58rem; font-weight: 900; letter-spacing: .04em; }
+.sidebar-label { min-width: 0; flex: 1 1 auto; display: block; overflow: hidden; }
+.sidebar-label strong, .sidebar-label small { display: block; }
+.sidebar-label strong { overflow: hidden; font-size: .84rem; font-weight: 900; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-label small { margin-top: 2px; color: var(--wb-muted); font-size: .66rem; font-weight: 650; line-height: 1.25; }
+.sidebar-status { width: 8px; height: 8px; margin-left: auto; padding: 0; flex: 0 0 auto; overflow: hidden; color: transparent; background: var(--wb-orange); border-radius: 50%; font-size: 0; }
 .product-layout.is-sidebar-collapsed { grid-template-columns: 72px minmax(0, 1fr); }
 .product-layout.is-sidebar-collapsed .sidebar-inner { padding-inline: 9px; }
 .product-layout.is-sidebar-collapsed .sidebar-heading { justify-content: center; padding-inline: 0; }
@@ -47,6 +47,10 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, Helvetica, sans-seri
 .mobile-tool-button { min-height: 44px; margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px; color: var(--wb-ink); background: #fff; border: 1px solid var(--wb-line); border-radius: 9px; font-size: .86rem; font-weight: 900; box-shadow: 0 7px 18px rgba(26,58,82,.08); }
 .mobile-tool-button svg { width: 19px; height: 19px; fill: var(--wb-blue); }
 #setup, #results, #resources, #planned { scroll-margin-top: 18px; }
+
+@media (min-width: 992px) {
+  .product-sidebar { width: 100% !important; }
+}
 
 /* 標題保持精簡，第一個畫面優先留給實際操作。 */
 .workbench-heading { margin-bottom: 22px; padding-bottom: 18px; border-bottom: 2px solid var(--wb-ink); }
@@ -147,7 +151,12 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, Helvetica, sans-seri
 .future-resources .list-group-item small { color: #8d350e; background: #fff1ea; border-radius: 99px; padding: 4px 7px; font-size: .75rem; font-weight: 850; }
 
 @media (max-width: 991.98px) {
+  .workbench-shell { padding-left: 58px; }
   .product-layout { display: block; }
+  .mobile-tool-button { width: 44px; min-height: 108px; margin: 0; padding: 10px 7px; position: fixed; top: 50%; left: 0; z-index: 1030; flex-direction: column; justify-content: center; gap: 7px; color: #fff; background: var(--wb-ink); border: 0; border-radius: 0 12px 12px 0; box-shadow: 0 8px 24px rgba(12,34,55,.24); transform: translateY(-50%); }
+  .mobile-tool-button:hover, .mobile-tool-button:focus-visible { color: #fff; background: var(--wb-blue); }
+  .mobile-tool-button svg { width: 20px; height: 20px; fill: currentColor; }
+  .mobile-tool-label { font-size: .62rem; font-weight: 900; letter-spacing: .08em; line-height: 1; text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); }
   .product-sidebar { background: #f7fbfe; }
   .product-sidebar .offcanvas-header { min-height: 82px; padding: 18px; border-bottom: 1px solid var(--wb-line); }
   .product-sidebar .offcanvas-title { margin-top: 3px; font-size: 1.2rem; font-weight: 900; }
@@ -160,6 +169,7 @@ body { margin: 0; color: var(--wb-ink); font-family: Arial, Helvetica, sans-seri
 
 @media (max-width: 575.98px) {
   .workbench-page { padding: 24px 0 54px; }
+  .workbench-shell { padding-right: 12px; padding-left: 54px; }
   .workbench-heading h1 { font-size: 2.2rem; }
   .catalog-button { width: 100%; justify-content: center; }
   .setup-card, .result-panel { padding: 16px; border-radius: 11px; }
