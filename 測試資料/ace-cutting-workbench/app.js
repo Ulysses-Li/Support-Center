@@ -5,6 +5,110 @@ const isoGroups = { carbonLow: "P", carbonHigh: "P", lowAlloy: "P", highAlloy: "
 const operations = PRODUCT_PAGE_DATA.cuttingData.operations;
 let copyText = "";
 
+// 用 SVG 原生幾何呈現局部直邊剖面；不以圖形比例推算數字，所有尺寸由純函式提供。
+function renderChamferDiagram(result) {
+  const svg = $("chamferDiagram");
+  if (!result?.valid) {
+    svg.innerHTML = '<title id="diagramTitle">Chamfer section unavailable</title><desc id="diagramDescription">Enter valid C and contact diameter values to display the section.</desc><text x="360" y="190" text-anchor="middle" fill="#5c7183" font-size="18">Adjust C and contact D to display the section.</text>';
+    $("diagramCaption").textContent = "The full chamfer must fit inside the usable cutting edge.";
+    return;
+  }
+  const { geometry: g, radius, c, diameter, position, actualDrop, z, reference } = result;
+  const maxR = g.maxDiameter / 2;
+  const scale = Math.min(58, 320 / (2 * maxR + c), 195 / (actualDrop + g.tipCorrection + 1));
+  const edgeX = 210, topY = 130, axisX = edgeX + radius * scale;
+  const upperX = edgeX - c * scale, lowerY = topY + c * scale;
+  const tipY = topY + actualDrop * scale, theoreticalY = tipY + g.tipCorrection * scale;
+  const toolTopY = tipY - (maxR - g.tipCorrection) * scale;
+  const refY = topY + (1 - position) * c * scale;
+  const leftRef = axisX - diameter / 2 * scale, rightRef = axisX + diameter / 2 * scale;
+  const shownDatumY = result.datum === "actual" ? tipY : theoreticalY;
+  const refLabel = { upper: "upper edge", middle: "middle", lower: "lower edge" }[reference];
+  svg.innerHTML = `
+    <title id="diagramTitle">45 degree chamfer: C${numberText(c, 4)}, compensation R${numberText(radius, 4)}, Z${numberText(z, 4)}</title>
+    <desc id="diagramDescription">The material is on the left. The original contour is the vertical dashed line. The tool center is R millimeters toward the free side. The selected diameter meets the ${refLabel} of the orange chamfer. Negative Z is measured from the work surface to the selected tool tip datum. Local straight section only.</desc>
+    <defs><pattern id="sectionHatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="10" stroke="#cfdee8" stroke-width="2"/></pattern>
+      <marker id="dimArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0067ad"/></marker></defs>
+    <path d="M36 ${topY}H${upperX}L${edgeX} ${lowerY}V320H36Z" fill="#edf3f7"/><path d="M36 ${topY}H${upperX}L${edgeX} ${lowerY}V320H36Z" fill="url(#sectionHatch)" stroke="#9eb5c5"/>
+    <path d="M${axisX - maxR * scale} ${toolTopY}H${axisX + maxR * scale}L${axisX + g.tipCorrection * scale} ${tipY}H${axisX - g.tipCorrection * scale}Z" fill="#0067ad15" stroke="#0067ad" stroke-width="2"/>
+    <path d="M${axisX - g.tipCorrection * scale} ${tipY}L${axisX} ${theoreticalY}L${axisX + g.tipCorrection * scale} ${tipY}" fill="none" stroke="#0067ad" stroke-dasharray="3 3"/>
+    <path d="M36 ${topY}H665M${edgeX} 86V342" stroke="#839caf" stroke-dasharray="5 5" fill="none"/>
+    <path d="M${axisX} 45V342" stroke="#0067ad" stroke-dasharray="7 4"/><text x="${axisX}" y="30" text-anchor="middle" class="diagram-label">Tool center</text>
+    <path d="M${upperX} ${topY}L${edgeX} ${lowerY}" stroke="#f05a1a" stroke-width="5"/>
+    <path d="M${leftRef} ${refY}H${rightRef}" stroke="#f05a1a" stroke-dasharray="4 3"/><circle cx="${leftRef}" cy="${refY}" r="5" fill="#f05a1a"/>
+    <text x="${rightRef + 12}" y="${refY - 8}" class="diagram-contact">Ø${numberText(diameter, 4)}</text>
+    <text x="40" y="${topY - 12}" class="diagram-label">Work surface · Z0</text><text x="55" y="280" class="diagram-label">Material</text>
+    <path d="M${upperX} ${topY - 8}V84M${edgeX} ${topY - 8}V84M${upperX} 94H${edgeX}" stroke="#0067ad" fill="none"/>
+    <text x="${(upperX + edgeX) / 2}" y="77" text-anchor="middle" class="diagram-label">C ${numberText(c, 4)}</text>
+    <path d="M${edgeX} 350H${axisX}" stroke="#0067ad" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+    <text x="${(edgeX + axisX) / 2}" y="374" text-anchor="middle" class="diagram-label">R ${numberText(radius, 4)} mm</text>
+    <text x="36" y="398" class="diagram-label">Dashed vertical at material edge = original XY contour</text>
+    <path d="M615 ${topY}V${shownDatumY}M${axisX} ${shownDatumY}H624" stroke="#0067ad" fill="none" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+    <text x="632" y="${(topY + shownDatumY) / 2}" text-anchor="middle" transform="rotate(-90 632 ${(topY + shownDatumY) / 2})" class="diagram-label">Z ${numberText(z, 4)} mm</text>`;
+  $("diagramCaption").textContent = `Contact D is at the ${refLabel}. Z uses the ${result.datum === "actual" ? "actual insert tip" : "theoretical sharp point"}. Local section; dimensions in mm.`;
+}
+
+function renderChamferSetup(operation, insert, angle, diameter) {
+  const chamfering = operation.id === "chamfering";
+  const enabled = chamfering && angle === "90";
+  document.body.classList.toggle("chamfer-active", enabled);
+  ["chamferInputs", "chamferSetup", "chamferFigure", "chamferDetails"].forEach(id => { $(id).hidden = !enabled; });
+  $("chamferMessage").hidden = !chamfering;
+  $("chamferMessage").textContent = "";
+  $("cuttingValuesTitle").textContent = enabled ? "Chamfer & cutting values" : "Cutting values";
+  $("diameterLabel").textContent = enabled ? "Contact Ø" : "Diameter";
+  $("depthLabel").textContent = "Spotting depth";
+  $("maxDepthLabel").textContent = "Max. depth";
+  ["compensationR", "zTarget", "compensationDiameter"].forEach(id => { $(id).textContent = "—"; });
+  if (!chamfering) return null;
+  if (!enabled) {
+    $("chamferMessage").textContent = "C-chamfer compensation supports 90° inserts (45° face). Select 90° to use the geometry assistant. Speeds and feeds remain available for this angle.";
+    return null;
+  }
+  const c = Number($("chamferC").value);
+  const reference = $("contactReference").value;
+  const datum = $("zDatum").value;
+  const result = calculateChamfer({ size: insert.id, angle, c, diameter, reference, datum });
+  const g = result.geometry;
+  $("depthLabel").textContent = "Chamfer size";
+  $("spotDepth").textContent = Number.isFinite(c) && c > 0 ? `C${numberText(c, 4)} × 45°` : "—";
+  $("maxDepthLabel").textContent = "Max. tool depth";
+  $("tmax").textContent = `${g.maxDepth} mm`;
+  $("chamferC").max = g.maxC;
+  const validC = Number.isFinite(c) && c > 0 && c <= g.maxC;
+  $("chamferC").setAttribute("aria-invalid", String(!validC));
+  $("chamferC").classList.toggle("is-invalid", !validC);
+  $("chamferCError").textContent = validC ? "" : `Enter C above 0 and up to ${g.maxC} mm.`;
+  $("chamferCHint").textContent = `Catalog Cmax ${g.maxC} mm`;
+  $("tipCorrectionNote").textContent = `Catalog tip correction ℓ = ${g.tipCorrection} mm. Z0 is the work surface.`;
+  $("compensationDatum").textContent = `Z0 = work surface · ${datum === "actual" ? "actual insert tip" : "theoretical sharp point"} tool-length reference.`;
+  const slider = $("contactDiameterRange");
+  slider.disabled = !Number.isFinite(result.minD) || result.minD > result.maxD;
+  if (!slider.disabled) {
+    slider.min = result.minD;
+    slider.max = result.maxD;
+    slider.value = Math.max(result.minD, Math.min(result.maxD, diameter || result.minD));
+    slider.setAttribute("aria-valuetext", `Contact diameter ${numberText(Number(slider.value), 4)} mm`);
+    $("diameterHint").textContent = `Contact range Ø${numberText(result.minD, 4)}–${numberText(result.maxD, 4)} mm`;
+  }
+  if (validC && !result.valid) {
+    fields.diameter.classList.add("is-invalid");
+    fields.diameter.setAttribute("aria-invalid", "true");
+    $("diameterError").textContent = "The full chamfer extends outside the usable edge. Adjust contact D or C.";
+  }
+  const messages = [...result.errors];
+  if (result.valid) {
+    $("compensationR").textContent = numberText(result.radius, 4);
+    $("zTarget").textContent = numberText(result.z, 4);
+    $("compensationDiameter").textContent = `Ø${numberText(result.compensationDiameter, 4)} mm`;
+    if (result.reduceFeed) messages.push(`Catalog guidance: reduce feed above C${g.reduceFeedAbove}. At Cmax, use the minimum feed ${selection().feedRange[0]} mm/rev.`);
+  }
+  $("chamferMessage").textContent = messages.join(" ");
+  $("geometryFormula").textContent = `90° insert / 45° face: R = D/2 − k×C (upper k=1, middle k=0.5, lower k=0). Z = −(R+C${datum === "actual" ? "−ℓ" : ""}). ℓ = ${g.tipCorrection} mm.`;
+  renderChamferDiagram(result);
+  return result;
+}
+
 function escapeHTML(value) {
   return String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
 }
@@ -84,9 +188,19 @@ function renderResults() {
   if (validFeed && (feed < feedRange[0] || feed > feedRange[1])) messages.push("Feed is outside the recommended range.");
   if (operation.id === "spotting" && angle === "60") messages.push(`60° spotting requires a peck cycle. Q: ${material.q}; select Q by material and t/Tmax.`);
   $("calculationMessage").textContent = messages.join(" ");
-  $("copyButton").disabled = !valid;
+  const chamfer = renderChamferSetup(operation, insert, angle, diameter);
+  $("copyButton").disabled = !valid || (chamfer && !chamfer.valid);
   $("copyFeedback").textContent = "";
-  copyText = valid ? [`ACE Spot Drill | ${operation.label}`, `Insert: ${model} | Grade: ${material.grade}`, `Material: ${material.label}`, `D: ${diameter} mm | Vc: ${vc} m/min | f: ${feed} mm/rev`, `Spindle speed: ${Math.round(rpm)} rpm`, `Feed rate: ${numberText(feedRate, 1)} mm/min`, ...messages].join("\n") : "";
+  const geometryLines = chamfer?.valid ? [
+    `Chamfer: C${numberText(chamfer.c, 4)} x 45 deg | Contact D at ${chamfer.reference} of chamfer`,
+    `Full geometry compensation: R ${numberText(chamfer.radius, 4)} mm / diameter ${numberText(chamfer.compensationDiameter, 4)} mm`,
+    `Z target: ${numberText(chamfer.z, 4)} mm | Work surface Z0 | ${chamfer.datum === "actual" ? "Actual insert tip" : "Theoretical sharp point"} datum`,
+    `Catalog tip correction: ${chamfer.geometry.tipCorrection} mm`,
+    `Program the original contour. Apply full geometry compensation once; select G41/G42 from travel direction and the free side. D address is an offset register.`,
+    `Local straight-edge geometry only; check corners, hole clearance and lead-in/out separately.`,
+    ...(chamfer.reduceFeed ? [$("chamferMessage").textContent] : [])
+  ] : [];
+  copyText = !$("copyButton").disabled ? [`ACE Spot Drill | ${operation.label}`, `Insert: ${model} | Grade: ${material.grade}`, `Material: ${material.label}`, `D: ${diameter} mm | Vc: ${vc} m/min | f: ${feed} mm/rev`, `Spindle speed: ${Math.round(rpm)} rpm`, `Feed rate: ${numberText(feedRate, 1)} mm/min`, ...geometryLines, ...messages].join("\n") : "";
 }
 
 $("calculatorForm").addEventListener("submit", event => event.preventDefault());
@@ -94,6 +208,8 @@ fields.operation.addEventListener("change", () => { refreshOptions(); resetValue
 fields.insertSize.addEventListener("change", () => { refreshOptions(); resetValues(); });
 [fields.material, fields.angle].forEach(field => field.addEventListener("change", () => resetValues({ resetDiameter: false })));
 [fields.diameter, fields.cuttingSpeed, fields.feedPerRev].forEach(field => field.addEventListener("input", renderResults));
+["chamferC", "contactReference", "zDatum"].forEach(id => $(id).addEventListener(id === "chamferC" ? "input" : "change", renderResults));
+$("contactDiameterRange").addEventListener("input", () => { fields.diameter.value = $("contactDiameterRange").value; renderResults(); });
 $("resetButton").addEventListener("click", () => resetValues());
 $("copyButton").addEventListener("click", async () => {
   if (!copyText) return;
@@ -106,10 +222,14 @@ $("copyButton").addEventListener("click", async () => {
   }
 });
 
-fillOptions(fields.operation, operations.map(item => [item.id, item.label]), "spotting");
+// 預覽連結可指定既有產品條件；只接受資料表中存在的值，不接受任意 HTML。
+const initialParams = new URLSearchParams(window.location.search);
+const initialOperation = operations.find(item => item.id === initialParams.get("operation")) || operations[0];
+fillOptions(fields.operation, operations.map(item => [item.id, item.label]), initialOperation.id);
 refreshOptions();
-fields.insertSize.value = "SI10";
+fields.insertSize.value = initialOperation.insertGroups.some(item => item.id === initialParams.get("size")) ? initialParams.get("size") : "SI10";
 refreshOptions();
+if (initialOperation.materials[initialParams.get("material")]) fields.material.value = initialParams.get("material");
 resetValues();
 
 // 沿用全站 Header／Footer，並補齊手機選單的語意狀態。

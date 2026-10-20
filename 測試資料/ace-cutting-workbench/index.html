@@ -52,22 +52,48 @@
               </div>
             </fieldset>
             <fieldset class="condition-group mb-0">
-              <legend><span class="step-number">03</span> Cutting values</legend>
+              <legend><span class="step-number">03</span> <span id="cuttingValuesTitle">Cutting values</span></legend>
+              <!-- C 角與接觸直徑必須一起定義；沿原始輪廓編程，不要求工件形狀。 -->
+              <div id="chamferInputs" hidden>
+                <p class="section-note">Program the original, unchamfered contour. Set the C size and where the selected diameter touches the chamfer.</p>
+                <div class="row g-3 mb-3">
+                  <div class="col-12 col-sm-5"><label for="chamferC" class="form-label">Chamfer size C <span>× 45°</span></label><div class="input-group"><input class="form-control" id="chamferC" type="number" value="0.5" min="0.01" step="any" inputmode="decimal" aria-describedby="chamferCHint chamferCError"><span class="input-group-text">mm</span></div><p class="field-hint" id="chamferCHint"></p><p class="field-error" id="chamferCError"></p></div>
+                  <div class="col-12 col-sm-7"><label for="contactReference" class="form-label">D touches the chamfer at</label><select id="contactReference" class="form-select"><option value="upper">Upper edge · work surface Z0</option><option value="middle">Middle of chamfer</option><option value="lower">Lower edge · original contour</option></select></div>
+                  <div class="col-12"><label for="zDatum" class="form-label">Tool length / Z reference</label><select id="zDatum" class="form-select" aria-describedby="tipCorrectionNote"><option value="actual">Actual insert tip touched off at Z0</option><option value="theoretical">Theoretical sharp point set at Z0</option></select><p class="field-hint" id="tipCorrectionNote"></p></div>
+                </div>
+                <label for="contactDiameterRange" class="form-label">Choose a cutting position <span>· adjusts contact D below</span></label>
+                <input type="range" class="form-range" id="contactDiameterRange" step="0.001" aria-describedby="diameterHint">
+              </div>
               <p class="section-note">Recommended values are filled in. Adjust them to your setup.</p>
               <div class="row g-3">
-                <div class="col-12 col-sm-4"><label for="diameter" class="form-label">Diameter <span>D</span></label><div class="input-group"><input class="form-control" id="diameter" type="number" min="0.1" step="any" inputmode="decimal" aria-describedby="diameterHint diameterError"><span class="input-group-text">mm</span></div><p class="field-hint" id="diameterHint"></p><p class="field-error" id="diameterError"></p></div>
+                <div class="col-12 col-sm-4"><label for="diameter" class="form-label"><span id="diameterLabel">Diameter</span> <span>D</span></label><div class="input-group"><input class="form-control" id="diameter" type="number" min="0.1" step="any" inputmode="decimal" aria-describedby="diameterHint diameterError"><span class="input-group-text">mm</span></div><p class="field-hint" id="diameterHint"></p><p class="field-error" id="diameterError"></p></div>
                 <div class="col-12 col-sm-4"><label for="cuttingSpeed" class="form-label">Cutting speed <span>Vc</span></label><div class="input-group"><input class="form-control" id="cuttingSpeed" type="number" min="0.1" step="any" inputmode="decimal" aria-describedby="vcHint vcError"><span class="input-group-text">m/min</span></div><p class="field-hint" id="vcHint"></p><p class="field-error" id="vcError"></p></div>
                 <div class="col-12 col-sm-4"><label for="feedPerRev" class="form-label">Feed per rev. <span>f</span></label><div class="input-group"><input class="form-control" id="feedPerRev" type="number" min="0.001" step="any" inputmode="decimal" aria-describedby="feedHint feedError"><span class="input-group-text">mm/rev</span></div><p class="field-hint" id="feedHint"></p><p class="field-error" id="feedError"></p></div>
               </div>
               <p class="calculation-message mb-0" id="calculationMessage" role="status"></p>
+              <p class="calculation-message mb-0" id="chamferMessage" role="status" hidden></p>
             </fieldset>
           </form>
           <p class="preset-note mt-3 mb-0">Values follow the selected product data. Changing a selection restores its recommended cutting speed and feed.</p>
+          <figure class="surface chamfer-figure mt-4 mb-0" id="chamferFigure" hidden>
+            <div class="d-flex flex-wrap justify-content-between gap-2 mb-2"><h2 class="panel-title mb-0">Chamfer section</h2><span class="field-hint m-0">90° insert · 45° face</span></div>
+            <svg id="chamferDiagram" viewBox="0 0 720 410" role="img" aria-labelledby="diagramTitle diagramDescription"></svg>
+            <figcaption id="diagramCaption" class="field-hint mb-0"></figcaption>
+          </figure>
         </section>
 
         <aside class="col-12 col-lg-5 align-self-stretch" aria-labelledby="resultTitle">
           <div class="surface result-panel">
             <div class="d-flex align-items-center justify-content-between gap-2 mb-4"><h2 id="resultTitle" class="panel-title mb-0">Cutting results</h2><span class="live-label"><span></span> Live calculation</span></div>
+            <section id="chamferSetup" class="chamfer-setup mb-4" aria-labelledby="compensationTitle" hidden>
+              <h3 id="compensationTitle" class="detail-label mb-2">G41 / G42 · full geometry compensation</h3>
+              <div class="geometry-values" aria-live="polite" aria-atomic="true">
+                <div><span class="output-label">Compensation R</span><div class="output-value"><strong id="compensationR">—</strong><span>mm</span></div></div>
+                <div><span class="output-label">Z target</span><div class="output-value"><strong id="zTarget">—</strong><span>mm</span></div></div>
+              </div>
+              <p class="field-hint mt-2 mb-0">If your control uses diameter: <strong id="compensationDiameter">—</strong></p>
+              <p class="field-hint mt-2 mb-0" id="compensationDatum"></p>
+            </section>
             <!-- 手機將同一組結果固定在底部，調整表單時仍可直接看見數據。 -->
             <div class="key-results" aria-live="polite" aria-atomic="true">
               <div><span class="output-label">Spindle speed</span><div class="output-value"><strong id="rpm">—</strong><span>rpm</span></div></div>
@@ -77,8 +103,8 @@
             <dl class="result-specs row g-3 mt-1 mb-4">
               <div class="col-6"><dt>Recommended grade</dt><dd id="grade">—</dd></div>
               <div class="col-6"><dt>Max. diameter</dt><dd id="dmax">—</dd></div>
-              <div class="col-6"><dt>Spotting depth</dt><dd id="spotDepth">—</dd></div>
-              <div class="col-6"><dt>Max. depth</dt><dd id="tmax">—</dd></div>
+              <div class="col-6"><dt id="depthLabel">Spotting depth</dt><dd id="spotDepth">—</dd></div>
+              <div class="col-6"><dt id="maxDepthLabel">Max. depth</dt><dd id="tmax">—</dd></div>
             </dl>
             <button class="btn copy-button w-100" type="button" id="copyButton">
               <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4 0a2 2 0 0 0-2 2v9h1V2a1 1 0 0 1 1-1h9V0z"/><path d="M6 3a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-1 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/></svg>
@@ -86,6 +112,13 @@
             </button>
             <p class="copy-feedback mb-0" id="copyFeedback" role="status"></p>
             <details class="calculation-details mt-3"><summary>Calculation details</summary><div class="pt-3"><p>n = 1000 × Vc / (π × D)<br>Vf = n × f</p><p class="mb-0" id="peckNote"></p></div></details>
+            <details class="calculation-details mt-3" id="chamferDetails" hidden><summary>Compensation &amp; Z reference</summary><div class="pt-3">
+              <p id="geometryFormula"></p>
+              <p>XY follows the original contour at its original size. R is the tool-center distance to that contour, toward the free side. Apply this geometry offset only once.</p>
+              <p>Select G41 or G42 from travel direction and the free side. The D address selects an offset register; it is not the numerical radius shown here.</p>
+              <p>These are full geometry values, not CAM wear-only offsets. Z0 is the work surface; the selected tool length reference determines the negative Z target. Local straight-edge geometry does not verify corners, hole clearance, holders, or lead-in/out moves.</p>
+              <p class="mb-0">Sources: <a href="../../Products/AceSpotDrill/ACE-Spot-Drill-Catalog.pdf#page=6" target="_blank" rel="noopener">ACE catalog, pp. 16–23</a> · <a href="https://www.haascnc.com/service/codes-settings.type%3Dsetting.machine%3Dmill.value%3DS40.html" target="_blank" rel="noopener">Control radius/diameter setting</a></p>
+            </div></details>
           </div>
         </aside>
       </div>
@@ -94,6 +127,7 @@
   <div id="footer-placeholder"></div>
   <!-- 僅引用正式產品資料，樣板不維護第二份切削數據。 -->
   <script src="../../Products/AceSpotDrill/product-dataV2.0.js"></script>
+  <script src="./chamfer-geometry.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
