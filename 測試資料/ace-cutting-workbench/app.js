@@ -309,13 +309,13 @@ fields.insertSize.addEventListener("change", () => { refreshOptions(); resetValu
 fields.material.addEventListener("change", () => resetValues({ resetDiameter: false }));
 fields.angle.addEventListener("change", () => resetValues({ resetDiameter: false, fitDiameter: true }));
 [fields.diameter, fields.cuttingSpeed, fields.feedPerRev].forEach(field => field.addEventListener("input", renderResults));
-// 聚焦後才接管滾輪；保留 5.1384 等細值，每格直接加減 0.1，不先吸附到小數一位。
-[fields.diameter, $("chamferC")].forEach(field => {
-  function adjustByTenth(direction) {
+// 聚焦後才接管滾輪；依各欄位 step 微調，保留更細的手動輸入，不先吸附至格線。
+[fields.diameter, $("chamferC"), fields.feedPerRev].forEach(field => {
+  function adjustValue(direction) {
     if (!field.value || !Number.isFinite(field.valueAsNumber)) return;
     const minimum = field.min === "" ? -Infinity : Number(field.min);
     const maximum = field.max === "" ? Infinity : Number(field.max);
-    const next = Math.max(minimum, Math.min(maximum, Number((field.valueAsNumber + direction * .1).toFixed(10))));
+    const next = Math.max(minimum, Math.min(maximum, Number((field.valueAsNumber + direction * Number(field.step)).toFixed(10))));
     if (next !== field.valueAsNumber) {
       field.value = String(next);
       field.dispatchEvent(new Event("input", { bubbles: true }));
@@ -324,12 +324,12 @@ fields.angle.addEventListener("change", () => resetValues({ resetDiameter: false
   field.addEventListener("wheel", event => {
     if (document.activeElement !== field || event.deltaY === 0 || event.ctrlKey) return;
     event.preventDefault();
-    adjustByTenth(event.deltaY < 0 ? 1 : -1);
+    adjustValue(event.deltaY < 0 ? 1 : -1);
   }, { passive: false });
   field.addEventListener("keydown", event => {
     if (!["ArrowUp", "ArrowDown"].includes(event.key)) return;
     event.preventDefault();
-    adjustByTenth(event.key === "ArrowUp" ? 1 : -1);
+    adjustValue(event.key === "ArrowUp" ? 1 : -1);
   });
 });
 ["chamferC", "zDatum"].forEach(id => $(id).addEventListener(id === "chamferC" ? "input" : "change", renderResults));
