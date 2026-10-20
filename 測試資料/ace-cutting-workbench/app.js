@@ -250,7 +250,8 @@ function renderResults() {
   $("materialBadge").textContent = isoGroups[fields.material.value] || "—";
   $("materialBadge").dataset.iso = isoGroups[fields.material.value];
   fields.diameter.max = spotting?.geometry?.maxContactDiameter ?? insert.diameter;
-  fields.diameter.min = spotting?.geometry?.minDiameter ?? .1;
+  // 原生微調以 0.1 為格線；實際型錄下限仍由上面的幾何驗證判斷。
+  fields.diameter.min = Math.floor((spotting?.geometry?.minDiameter ?? .1) * 10) / 10;
   [["diameter", validD, "diameterError", spotting ? spotting.errors.join(" ") : `Enter a diameter above 0 and up to ${insert.diameter} mm.`], ["cuttingSpeed", validVc, "vcError", "Enter a speed above 0."], ["feedPerRev", validFeed, "feedError", "Enter a feed above 0."]].forEach(([id, isValid, error, message]) => {
     fields[id].classList.toggle("is-invalid", !isValid);
     fields[id].setAttribute("aria-invalid", String(!isValid));
@@ -308,6 +309,29 @@ fields.insertSize.addEventListener("change", () => { refreshOptions(); resetValu
 fields.material.addEventListener("change", () => resetValues({ resetDiameter: false }));
 fields.angle.addEventListener("change", () => resetValues({ resetDiameter: false, fitDiameter: true }));
 [fields.diameter, fields.cuttingSpeed, fields.feedPerRev].forEach(field => field.addEventListener("input", renderResults));
+// 聚焦後才接管滾輪；保留 5.1384 等細值，每格直接加減 0.1，不先吸附到小數一位。
+[fields.diameter, $("chamferC")].forEach(field => {
+  function adjustByTenth(direction) {
+    if (!field.value || !Number.isFinite(field.valueAsNumber)) return;
+    const minimum = field.min === "" ? -Infinity : Number(field.min);
+    const maximum = field.max === "" ? Infinity : Number(field.max);
+    const next = Math.max(minimum, Math.min(maximum, Number((field.valueAsNumber + direction * .1).toFixed(10))));
+    if (next !== field.valueAsNumber) {
+      field.value = String(next);
+      field.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+  }
+  field.addEventListener("wheel", event => {
+    if (document.activeElement !== field || event.deltaY === 0 || event.ctrlKey) return;
+    event.preventDefault();
+    adjustByTenth(event.deltaY < 0 ? 1 : -1);
+  }, { passive: false });
+  field.addEventListener("keydown", event => {
+    if (!["ArrowUp", "ArrowDown"].includes(event.key)) return;
+    event.preventDefault();
+    adjustByTenth(event.key === "ArrowUp" ? 1 : -1);
+  });
+});
 ["chamferC", "zDatum"].forEach(id => $(id).addEventListener(id === "chamferC" ? "input" : "change", renderResults));
 $("contactReference").addEventListener("change", () => {
   const nextReference = $("contactReference").value;
