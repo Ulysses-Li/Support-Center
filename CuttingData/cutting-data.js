@@ -9,7 +9,7 @@ const CUTTING_DATA_PRODUCTS = [
     category: "Spotting / Chamfering",
     image: "../img/spotting.png",
     status: "Available",
-    href: "../Products/AceSpotDrill/indexV2.0.html#cutting-data",
+    href: "../Products/AceSpotDrill/indexV3.0.html",
     summary: "Product preset cutting data for spotting and chamfering.",
     details: [
       "Operation: Spotting / Chamfering",
@@ -22,7 +22,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Chamfer Mill",
     category: "Chamfering",
     image: "../img/chamfering.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/ChamferMill/index.html#cutting-data",
     summary: "Chamfer milling cutting data presets are being prepared.",
     details: [
@@ -36,7 +36,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Corner Rounding_RC Type",
     category: "Corner Rounding",
     image: "../img/chamfering.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/CornerRoundingRC/index.html#cutting-data",
     summary: "Corner rounding RC cutting data will support radius machining setup.",
     details: [
@@ -50,7 +50,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Corner Rounding_R Type",
     category: "Corner Rounding",
     image: "../img/chamfering.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/CornerRoundingR/index.html#cutting-data",
     summary: "Corner rounding R cutting data will support radius machining setup.",
     details: [
@@ -64,7 +64,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Ergo ER Taper-Shank Cutter",
     category: "Accessories / Cutter",
     image: "../img/Ergo.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/ErgoER/index.html#cutting-data",
     summary: "ER taper-shank cutter cutting references are being prepared.",
     details: [
@@ -78,7 +78,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "i-Center Center Drill",
     category: "Centering",
     image: "../img/centering.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/ICenter/index.html#cutting-data",
     summary: "Center drilling cutting data presets are being prepared.",
     details: [
@@ -92,7 +92,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "MCC Deburring Mill",
     category: "Deburring",
     image: "../img/deburring.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/MCCDeburring/index.html#cutting-data",
     summary: "MCC deburring cutting data will support edge break applications.",
     details: [
@@ -106,7 +106,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "MCC Thread Mill",
     category: "Threading",
     image: "../img/threading.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/MCCThreadMill/index.html#cutting-data",
     summary: "Thread milling cutting data can be tied to the NC Program generator later.",
     details: [
@@ -120,7 +120,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "NC Spot Drill",
     category: "Spotting / Chamfering",
     image: "../img/spotting.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/NCSpotDrill/index.html#cutting-data",
     summary: "Cutting data selector for NC Spot Drill is being prepared.",
     details: [
@@ -134,7 +134,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Micro Spot Drill",
     category: "Engraving / Spotting",
     image: "../img/engraving.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/MicroSpotDrill/index.html#cutting-data",
     summary: "Micro tool cutting data and feed conversion are planned.",
     details: [
@@ -148,7 +148,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "N9MT-W",
     category: "Engraving",
     image: "../img/engraving.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/N9MTW/index.html#cutting-data",
     summary: "N9MT-W engraving cutting data is being prepared.",
     details: [
@@ -162,7 +162,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "NC Deburring",
     category: "Deburring",
     image: "../img/deburring.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/NCDeburring/index.html#cutting-data",
     summary: "NC Deburring cutting data will support edge break and back deburring.",
     details: [
@@ -176,7 +176,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "NC Helix Drill",
     category: "Hole Making",
     image: "../img/helix.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/NCHelixDrill/index.html#cutting-data",
     summary: "Helical drilling cutting data will connect tool size, hole size, and pitch values.",
     details: [
@@ -190,7 +190,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "NineBore Boring Tool",
     category: "Boring",
     image: "../img/boring.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/NineBore/index.html#cutting-data",
     summary: "Boring cutting data presets are being prepared.",
     details: [
@@ -204,7 +204,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "NineSwiss Modular Head Boring Tool",
     category: "Boring",
     image: "../img/boring.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/NineSwissBoring/index.html#cutting-data",
     summary: "NineSwiss boring cutting data presets are being prepared.",
     details: [
@@ -218,7 +218,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "NineSwiss Modular Head Turning Tool",
     category: "Turning",
     image: "../img/turning.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/NineSwissTurning/index.html#cutting-data",
     summary: "NineSwiss turning cutting data presets are being prepared.",
     details: [
@@ -232,7 +232,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Power Mill",
     category: "Milling",
     image: "../img/milling.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/PowerMill/index.html#cutting-data",
     summary: "Milling cutting data presets are planned for general milling applications.",
     details: [
@@ -246,7 +246,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Super Drill",
     category: "Drilling",
     image: "../img/drilling.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/SuperDrill/index.html#cutting-data",
     summary: "Super Drill cutting data presets are being prepared.",
     details: [
@@ -260,7 +260,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Super Power Drill",
     category: "Drilling",
     image: "../img/drilling.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/SuperPowerDrill/index.html#cutting-data",
     summary: "Super Power Drill cutting data presets are being prepared.",
     details: [
@@ -274,7 +274,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "V060 / V045",
     category: "Engraving",
     image: "../img/engraving.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/V060/index.html#cutting-data",
     summary: "V060 / V045 engraving cutting data is being prepared.",
     details: [
@@ -288,7 +288,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "W060",
     category: "Engraving",
     image: "../img/engraving.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/W060/index.html#cutting-data",
     summary: "W060 engraving cutting data is being prepared.",
     details: [
@@ -302,7 +302,7 @@ const CUTTING_DATA_PRODUCTS = [
     name: "X060",
     category: "Engraving",
     image: "../img/engraving.png",
-    status: "Available",
+    status: "Preparing",
     href: "../Products/X060/index.html#cutting-data",
     summary: "X060 engraving cutting data is being prepared.",
     details: [
@@ -323,43 +323,30 @@ function escapeHTML(value) {
     .replaceAll("'", "&#039;");
 }
 
-// 依資料陣列產生產品卡片，並替可用項目綁定跳轉事件。
-function renderProductCards(selectedId) {
+// 可用產品以連結直接進入互動工作台；未備妥資料僅顯示狀態，避免進入空白計算頁。
+function renderProductCards() {
   const grid = document.getElementById("cuttingProductGrid");
   if (!grid) return;
 
-  grid.innerHTML = CUTTING_DATA_PRODUCTS.map(product => `
-    <button
-      type="button"
-      class="cutting-product-card ${product.id === selectedId ? "is-active" : ""}"
+  grid.innerHTML = CUTTING_DATA_PRODUCTS.map(product => {
+    const available = product.status === "Available" && Boolean(product.href);
+    const tag = available ? "a" : "div";
+    return `
+    <${tag}
+      ${available ? `href="${escapeHTML(product.href)}"` : ""}
+      class="cutting-product-card ${available ? "is-available" : "is-unavailable"}"
       data-product-id="${escapeHTML(product.id)}"
     >
       <img src="${escapeHTML(product.image)}" alt="">
       <span>${escapeHTML(product.category)}</span>
       <strong>${escapeHTML(product.name)}</strong>
-      <em class="${product.status === "Available" ? "is-available" : ""}">${escapeHTML(product.status)}</em>
-    </button>
-  `).join("");
-
-  grid.querySelectorAll("button").forEach(button => {
-    button.addEventListener("click", () => {
-      const product = CUTTING_DATA_PRODUCTS.find(item => item.id === button.dataset.productId);
-
-      if (product?.href) {
-        window.location.href = product.href;
-      }
-    });
-  });
-}
-
-// 決定目前選取產品；找不到時安全回退到第一筆。
-function renderCuttingDataPage(selectedId = CUTTING_DATA_PRODUCTS[0].id) {
-  const selected = CUTTING_DATA_PRODUCTS.find(product => product.id === selectedId) || CUTTING_DATA_PRODUCTS[0];
-
-  renderProductCards(selected.id);
+      <em class="${available ? "is-available" : ""}">${available ? "Open Calculator →" : "Data being prepared"}</em>
+    </${tag}>
+  `;
+  }).join("");
 }
 
 // DOM 完成後建立切削資料產品清單。
 document.addEventListener("DOMContentLoaded", () => {
-  renderCuttingDataPage();
+  renderProductCards();
 });
