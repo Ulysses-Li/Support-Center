@@ -73,7 +73,7 @@ body { color: var(--ink); font-family: Arial, "Microsoft JhengHei", sans-serif; 
 .geometry-values .output-value strong { font-size: clamp(26px, 2.8vw, 36px); }
 .chamfer-active .key-results { padding: 14px 16px; }
 .chamfer-active .key-results .output-value strong { font-size: 30px; }
-.chamfer-figure svg { display: block; width: 100%; height: auto; min-height: 240px; }
+.section-figure svg { display: block; width: 100%; height: auto; min-height: 240px; }
 .diagram-label { fill: #3b5f78; font-family: Arial, sans-serif; font-size: 15px; }
 .diagram-contact { fill: #b53a0a; font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; }
 .diagram-label, .diagram-contact { paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
@@ -105,7 +105,7 @@ body { color: var(--ink); font-family: Arial, "Microsoft JhengHei", sans-serif; 
   .live-label { font-size: 14px; }
   .chamfer-active .key-results { position: static; border: 0; border-radius: 10px; box-shadow: none; }
   .chamfer-active .geometry-values { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1030; padding: 12px 20px max(12px, env(safe-area-inset-bottom)); background: #fff7f0; border-top: 1px solid #e6cab6; border-radius: 0; box-shadow: 0 -6px 24px #0c22370d; }
-  .chamfer-figure { padding-inline: 12px; }
-  .chamfer-figure svg { min-height: 0; }
+  .section-figure { padding-inline: 12px; }
+  .section-figure svg { min-height: 0; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }

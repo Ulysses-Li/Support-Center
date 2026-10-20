@@ -1,10 +1,59 @@
-/* 樣板僅負責互動與呈現，切削範圍一律讀取正式 ACE 產品資料。 */
+/* 切削速度／進給讀取正式 ACE 產品資料；剖面幾何使用已核對型錄的共用尺寸。 */
 const $ = id => document.getElementById(id);
 const fields = Object.fromEntries(["operation", "material", "insertSize", "angle", "diameter", "cuttingSpeed", "feedPerRev"].map(id => [id, $(id)]));
 const isoGroups = { carbonLow: "P", carbonHigh: "P", lowAlloy: "P", highAlloy: "P", stainless: "M", castIron: "K", nonFerrous: "N" };
 const operations = PRODUCT_PAGE_DATA.cuttingData.operations;
 let copyText = "";
 let previousContactReference = $("contactReference").value;
+
+// 點鑽剖面保持相同 X／Z 比例；橘色為切削刃，虛線延伸至理論尖點，實際深度扣除型錄 ℓ。
+function renderSpottingDiagram(result) {
+  const svg = $("spottingDiagram");
+  const g = result.geometry;
+  $("spottingAngleLabel").textContent = g ? `${g.angle}° insert · axial section` : "";
+  if (!result.valid) {
+    svg.innerHTML = '<title id="spottingDiagramTitle">Spotting section unavailable</title><desc id="spottingDiagramDescription">Enter a valid diameter within the modeled cutting edge and catalog depth limit.</desc><text x="360" y="190" text-anchor="middle" fill="#5c7183" font-size="18">Adjust D to display the spotting section.</text>';
+    $("spottingCaption").textContent = result.errors.join(" ");
+    return;
+  }
+  const { diameter, depth, theoreticalDepth, z } = result;
+  const scale = Math.min(80, 350 / diameter, 160 / theoreticalDepth);
+  const axisX = 320, topY = 140;
+  const leftX = axisX - diameter / 2 * scale, rightX = axisX + diameter / 2 * scale;
+  const tipY = topY + depth * scale, theoreticalY = topY + theoreticalDepth * scale;
+  const tipR = g.tipCorrection / g.depthPerWidth * scale;
+  const halfAngle = g.angle * Math.PI / 360;
+  const arcRadius = Math.min(32, theoreticalDepth * scale * .55);
+  const arcX = arcRadius * Math.sin(halfAngle), arcY = theoreticalY - arcRadius * Math.cos(halfAngle);
+  const material = `M36 ${topY}H${leftX}L${axisX - tipR} ${tipY}H${axisX + tipR}L${rightX} ${topY}H684V325H36Z`;
+  svg.innerHTML = `
+    <title id="spottingDiagramTitle">${g.angle} degree spotting: diameter ${numberText(diameter, 4)} mm, actual tip depth ${numberText(depth, 4)} mm, Z ${numberText(z, 4)} mm</title>
+    <desc id="spottingDiagramDescription">A centered axial section through the spotted hole. D is measured at the work surface Z0. The solid tool tip stops above the dashed theoretical sharp point by the catalog correction ℓ. Depth t and negative Z use the actual insert tip. Nose radius is not modeled.</desc>
+    <defs><pattern id="spottingHatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="10" stroke="#cfdee8" stroke-width="2"/></pattern>
+      <marker id="spottingArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0067ad"/></marker></defs>
+    <path d="${material}" fill="#edf3f7"/><path d="${material}" fill="url(#spottingHatch)" stroke="#9eb5c5"/>
+    <path d="M${leftX} ${topY}H${rightX}L${axisX + tipR} ${tipY}H${axisX - tipR}Z" fill="#0067ad15"/>
+    <path d="M${leftX} ${topY}L${axisX - tipR} ${tipY}M${rightX} ${topY}L${axisX + tipR} ${tipY}" stroke="#f05a1a" stroke-width="4"/>
+    <path d="M${axisX - tipR} ${tipY}H${axisX + tipR}" stroke="#0067ad" stroke-width="2"/>
+    <path d="M${axisX - tipR} ${tipY}L${axisX} ${theoreticalY}L${axisX + tipR} ${tipY}" fill="none" stroke="#0067ad" stroke-dasharray="3 3"/>
+    <path d="M36 ${topY}H684M${axisX} 45V340" fill="none" stroke="#839caf" stroke-dasharray="6 4"/>
+    <text x="${axisX}" y="30" text-anchor="middle" class="diagram-label">Tool / hole center</text>
+    <text x="40" y="${topY - 13}" class="diagram-label">Work surface · Z0</text><text x="55" y="288" class="diagram-label">Material</text>
+    <path d="M${leftX} ${topY - 7}V73M${rightX} ${topY - 7}V73M${leftX} 84H${rightX}" fill="none" stroke="#0067ad" marker-end="url(#spottingArrow)"/>
+    <path d="M${rightX} 84H${leftX}" stroke="#0067ad" marker-end="url(#spottingArrow)"/>
+    <text x="${axisX}" y="68" text-anchor="middle" class="diagram-contact">D Ø${numberText(diameter, 4)} mm</text>
+    <path d="M${axisX - arcX} ${arcY}A${arcRadius} ${arcRadius} 0 0 1 ${axisX + arcX} ${arcY}" stroke="#0067ad" fill="none"/>
+    <text x="${axisX}" y="${theoreticalY - arcRadius - 12}" text-anchor="middle" class="diagram-contact">${g.angle}°</text>
+    <path d="M${axisX + tipR} ${tipY}H629M620 ${topY}V${tipY}" fill="none" stroke="#0067ad"/>
+    <path d="M620 ${topY}V${tipY}" stroke="#0067ad" marker-start="url(#spottingArrow)" marker-end="url(#spottingArrow)"/>
+    <text x="642" y="${(topY + tipY) / 2}" text-anchor="middle" transform="rotate(-90 642 ${(topY + tipY) / 2})" class="diagram-label">t ${numberText(depth, 4)} mm</text>
+    <text x="475" y="${tipY - 12}" class="diagram-label">Actual insert tip</text>
+    <path d="M${axisX} ${theoreticalY}H540" stroke="#839caf" stroke-dasharray="3 3"/>
+    <text x="470" y="${theoreticalY + 22}" class="diagram-label">Theoretical point</text>
+    <text x="36" y="365" class="diagram-label">Catalog tip correction ℓ = ${g.tipCorrection} mm</text>
+    <text x="36" y="394" class="diagram-contact">Z target ${numberText(z, 4)} mm · actual insert tip</text>`;
+  $("spottingCaption").textContent = `D Ø${numberText(diameter, 4)} mm at Z0 → depth t ${numberText(depth, 4)} mm. Z ${numberText(z, 4)} mm assumes the actual insert tip is touched off at the work surface. Idealized section; nose radius is not shown.`;
+}
 
 // 用 SVG 原生幾何呈現局部直邊剖面；不以圖形比例推算數字，所有尺寸由純函式提供。
 function renderChamferDiagram(result) {
@@ -68,7 +117,7 @@ function renderChamferSetup(operation, insert, angle, diameter) {
   $("chamferMessage").textContent = "";
   $("cuttingValuesTitle").textContent = enabled ? "Chamfer & cutting values" : "Cutting values";
   $("diameterLabel").textContent = enabled ? "Contact Ø" : "Diameter";
-  $("depthLabel").textContent = "Spotting depth";
+  $("depthLabel").textContent = "Spotting depth t";
   $("maxDepthLabel").textContent = "Max. depth";
   ["compensationR", "zTarget", "compensationDiameter"].forEach(id => { $(id).textContent = "—"; });
   if (!chamfering) return null;
@@ -155,11 +204,11 @@ function refreshOptions() {
   const materials = Object.entries(operation.materials);
   fillOptions(fields.material, materials.map(([id, item]) => [id, item.label]), operation.materials.stainless ? "stainless" : materials[0][0]);
 }
-function resetValues({ resetDiameter = true, fitChamferDiameter = false } = {}) {
+function resetValues({ resetDiameter = true, fitDiameter = false } = {}) {
   const { operation, insert, angle, material, feedRange } = selection();
   if (resetDiameter) fields.diameter.value = insert.diameter;
   // 換角度／刀片時同步配對 D，尤其 60° 需同時滿足 Tmax；材質變更不改使用者的 D。
-  if ((resetDiameter || fitChamferDiameter) && operation.id === "chamfering") {
+  if ((resetDiameter || fitDiameter) && operation.id === "chamfering") {
     const band = calculateChamfer({ size: insert.id, angle, c: Number($("chamferC").value), diameter: Number(fields.diameter.value), reference: $("contactReference").value, datum: $("zDatum").value });
     if (Number.isFinite(band.minD) && band.minD <= band.maxD) {
       const lower = Math.ceil((band.minD - 1e-10) * 10000) / 10000;
@@ -168,36 +217,46 @@ function resetValues({ resetDiameter = true, fitChamferDiameter = false } = {}) 
       fields.diameter.value = numberText(fitted, lower <= upper ? 4 : 10);
     }
   }
+  // 點鑽同樣以 Dmax／Tmax 配對新選擇；手動輸入不自動修正，保留錯誤提示供使用者判讀。
+  if ((resetDiameter || fitDiameter) && operation.id === "spotting") {
+    const g = getChamferGeometry(insert.id, angle);
+    if (g) {
+      let lower = Math.ceil((g.minDiameter - 1e-10) * 10000) / 10000;
+      if (lower / 2 * g.depthPerWidth <= g.tipCorrection) lower += .0001;
+      const upper = Math.floor((g.maxContactDiameter + 1e-10) * 10000) / 10000;
+      fields.diameter.value = numberText(Math.max(lower, Math.min(upper, Number(fields.diameter.value))), 4);
+    }
+  }
   fields.cuttingSpeed.value = numberText(midpoint(material.vc), 1);
   fields.feedPerRev.value = numberText(midpoint(feedRange), 3);
   renderResults();
 }
 
-// 公式沿用現有計算器，無效數值不產生可複製結果，避免保留上一筆有效值。
+// 轉速／進給沿用現有計算器；幾何統一使用已核對的型錄 ℓ／Tmax，無效時不保留上一筆結果。
 function renderResults() {
   const { operation, insert, material, angle, feedRange } = selection();
   const diameter = Number(fields.diameter.value);
   const vc = Number(fields.cuttingSpeed.value);
   const feed = Number(fields.feedPerRev.value);
-  const validD = Number.isFinite(diameter) && diameter > 0 && diameter <= insert.diameter;
+  const spotting = operation.id === "spotting" ? calculateSpotting({ size: insert.id, angle, diameter }) : null;
+  const validD = Number.isFinite(diameter) && diameter > 0 && diameter <= insert.diameter && (!spotting || spotting.valid);
   const validVc = Number.isFinite(vc) && vc > 0;
   const validFeed = Number.isFinite(feed) && feed > 0;
   const rpm = validD && validVc ? 1000 * vc / (Math.PI * diameter) : NaN;
   const feedRate = validFeed ? rpm * feed : NaN;
   const valid = Number.isFinite(rpm) && Number.isFinite(feedRate);
-  const factors = { "60": .866, "90": .5, "120": .289, "142": .172 };
-  const offset = insert.spotDepth?.l?.[angle];
-  const depth = operation.id === "spotting" && validD && Number.isFinite(offset) ? Math.max(0, diameter * factors[angle] - offset) : NaN;
+  const depth = spotting?.valid ? spotting.depth : NaN;
   const model = `${insert.label.split(" - ").slice(1).join(" - ")}-${angle}`;
   $("materialBadge").textContent = isoGroups[fields.material.value] || "—";
   $("materialBadge").dataset.iso = isoGroups[fields.material.value];
-  fields.diameter.max = insert.diameter;
-  [["diameter", validD, "diameterError", `Enter a diameter above 0 and up to ${insert.diameter} mm.`], ["cuttingSpeed", validVc, "vcError", "Enter a speed above 0."], ["feedPerRev", validFeed, "feedError", "Enter a feed above 0."]].forEach(([id, isValid, error, message]) => {
+  fields.diameter.max = spotting?.geometry?.maxContactDiameter ?? insert.diameter;
+  fields.diameter.min = spotting?.geometry?.minDiameter ?? .1;
+  [["diameter", validD, "diameterError", spotting ? spotting.errors.join(" ") : `Enter a diameter above 0 and up to ${insert.diameter} mm.`], ["cuttingSpeed", validVc, "vcError", "Enter a speed above 0."], ["feedPerRev", validFeed, "feedError", "Enter a feed above 0."]].forEach(([id, isValid, error, message]) => {
     fields[id].classList.toggle("is-invalid", !isValid);
     fields[id].setAttribute("aria-invalid", String(!isValid));
     $(error).textContent = isValid ? "" : message;
   });
-  $("diameterHint").textContent = `Max. ${insert.diameter} mm`;
+  $("diameterHint").textContent = spotting?.geometry ? `Modeled Ø${numberText(spotting.geometry.minDiameter, 4)}–${numberText(spotting.geometry.maxContactDiameter, 4)} mm · Dmax / Tmax` : `Max. ${insert.diameter} mm`;
   $("vcHint").textContent = `${material.vc[0]}–${material.vc[1]} m/min`;
   $("feedHint").textContent = `${feedRange[0]}–${feedRange[1]} mm/rev`;
   $("rpm").textContent = Number.isFinite(rpm) ? Math.round(rpm).toLocaleString("en-US") : "—";
@@ -206,8 +265,8 @@ function renderResults() {
   $("selectionSummary").textContent = `${operation.label} · ${material.label} · ${angle}°`;
   $("grade").textContent = material.grade;
   $("dmax").textContent = `${insert.diameter} mm`;
-  $("spotDepth").textContent = Number.isFinite(depth) ? `${numberText(depth)} mm` : "—";
-  const maxDepth = insert.spotDepth?.tmax?.[angle];
+  $("spotDepth").textContent = Number.isFinite(depth) ? `${numberText(depth, 4)} mm` : "—";
+  const maxDepth = spotting?.geometry?.maxDepth ?? insert.spotDepth?.tmax?.[angle];
   $("tmax").textContent = Number.isFinite(maxDepth) ? `${maxDepth} mm` : "—";
   $("peckNote").textContent = operation.showQ ? `Peck depth Q: ${material.q || "See product catalog"}.` : "Feed is specified per revolution (mm/rev).";
   const messages = [];
@@ -217,6 +276,13 @@ function renderResults() {
   if (operation.id === "spotting" && angle === "60") messages.push(`60° spotting requires a peck cycle. Q: ${material.q}; select Q by material and t/Tmax.`);
   $("calculationMessage").textContent = messages.join(" ");
   const chamfer = renderChamferSetup(operation, insert, angle, diameter);
+  ["spottingFigure", "spottingZNote", "spottingFormula"].forEach(id => { $(id).hidden = !spotting; });
+  if (spotting) {
+    renderSpottingDiagram(spotting);
+    $("spottingZNote").textContent = spotting.valid ? `Z target ${numberText(spotting.z, 4)} mm · work surface Z0, actual insert tip datum.` : "Enter a valid D to calculate the actual-tip Z target.";
+    const g = spotting.geometry;
+    $("spottingFormula").textContent = g ? `t = D / (2 × tan(${g.angle}° / 2)) − ℓ; Z = −t. Catalog ℓ = ${g.tipCorrection} mm; Tmax = ${g.maxDepth} mm. D is the diameter at the work surface. ${g.minDiameterSource === "catalog" ? "Minimum modeled D uses catalog d1." : "Minimum D is the theoretical tip-plane intersection, not a catalog-rated minimum; nose radius is not modeled."} Source: ACE catalog, pp. 16–19.` : "Geometry unavailable.";
+  }
   $("copyButton").disabled = !valid || (chamfer && !chamfer.valid);
   $("copyFeedback").textContent = "";
   const geometryLines = chamfer?.valid ? [
@@ -228,6 +294,10 @@ function renderResults() {
     `Program the original contour. Apply full geometry compensation once; select G41/G42 from travel direction and the free side. D address is an offset register.`,
     `Local straight-edge geometry only; check corners, hole clearance and lead-in/out separately.`,
     ...(chamfer.reduceFeed ? [$("chamferMessage").textContent] : [])
+  ] : spotting?.valid ? [
+    `Spotting depth t: ${numberText(spotting.depth, 4)} mm | Z target: ${numberText(spotting.z, 4)} mm`,
+    `D is measured at the work surface Z0. Tool length datum: actual insert tip. Catalog tip correction ℓ: ${spotting.geometry.tipCorrection} mm | Tmax: ${spotting.geometry.maxDepth} mm`,
+    `Idealized section; nose radius is not modeled.`
   ] : [];
   copyText = !$("copyButton").disabled ? [`ACE Spot Drill | ${operation.label}`, `Insert: ${model} | Grade: ${material.grade}`, `Material: ${material.label}`, `D: ${diameter} mm | Vc: ${vc} m/min | f: ${feed} mm/rev`, `Spindle speed: ${Math.round(rpm)} rpm`, `Feed rate: ${numberText(feedRate, 1)} mm/min`, ...geometryLines, ...messages].join("\n") : "";
 }
@@ -236,7 +306,7 @@ $("calculatorForm").addEventListener("submit", event => event.preventDefault());
 fields.operation.addEventListener("change", () => { refreshOptions(); resetValues(); });
 fields.insertSize.addEventListener("change", () => { refreshOptions(); resetValues(); });
 fields.material.addEventListener("change", () => resetValues({ resetDiameter: false }));
-fields.angle.addEventListener("change", () => resetValues({ resetDiameter: false, fitChamferDiameter: true }));
+fields.angle.addEventListener("change", () => resetValues({ resetDiameter: false, fitDiameter: true }));
 [fields.diameter, fields.cuttingSpeed, fields.feedPerRev].forEach(field => field.addEventListener("input", renderResults));
 ["chamferC", "zDatum"].forEach(id => $(id).addEventListener(id === "chamferC" ? "input" : "change", renderResults));
 $("contactReference").addEventListener("change", () => {

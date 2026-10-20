@@ -74,8 +74,14 @@
               <p class="calculation-message mb-0" id="chamferMessage" role="status" hidden></p>
             </fieldset>
           </form>
-          <p class="preset-note mt-3 mb-0">Changing a selection restores its recommended cutting speed and feed. Changing the insert or angle also fits contact D to the modeled range.</p>
-          <figure class="surface chamfer-figure mt-4 mb-0" id="chamferFigure" hidden>
+          <p class="preset-note mt-3 mb-0">Changing a selection restores its recommended cutting speed and feed. Changing the insert or angle also fits D to the modeled range.</p>
+          <!-- 點鑽與倒角共用型錄幾何，但分別呈現孔中心剖面與原始輪廓補正。 -->
+          <figure class="surface section-figure mt-4 mb-0" id="spottingFigure" hidden>
+            <div class="d-flex flex-wrap justify-content-between gap-2 mb-2"><h2 class="panel-title mb-0">Spotting section</h2><span class="field-hint m-0" id="spottingAngleLabel"></span></div>
+            <svg id="spottingDiagram" viewBox="0 0 720 410" role="img" aria-labelledby="spottingDiagramTitle spottingDiagramDescription"></svg>
+            <figcaption id="spottingCaption" class="field-hint mb-0"></figcaption>
+          </figure>
+          <figure class="surface section-figure mt-4 mb-0" id="chamferFigure" hidden>
             <div class="d-flex flex-wrap justify-content-between gap-2 mb-2"><h2 class="panel-title mb-0">Chamfer section</h2><span class="field-hint m-0" id="diagramAngleLabel">90° insert · 45° face</span></div>
             <svg id="chamferDiagram" viewBox="0 0 720 410" role="img" aria-labelledby="diagramTitle diagramDescription"></svg>
             <figcaption id="diagramCaption" class="field-hint mb-0"></figcaption>
@@ -107,12 +113,13 @@
               <div class="col-6"><dt id="depthLabel">Spotting depth</dt><dd id="spotDepth">—</dd></div>
               <div class="col-6"><dt id="maxDepthLabel">Max. depth</dt><dd id="tmax">—</dd></div>
             </dl>
+            <p class="field-hint mb-4" id="spottingZNote" hidden></p>
             <button class="btn copy-button w-100" type="button" id="copyButton">
               <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4 0a2 2 0 0 0-2 2v9h1V2a1 1 0 0 1 1-1h9V0z"/><path d="M6 3a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-1 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/></svg>
               Copy cutting data
             </button>
             <p class="copy-feedback mb-0" id="copyFeedback" role="status"></p>
-            <details class="calculation-details mt-3"><summary>Calculation details</summary><div class="pt-3"><p>n = 1000 × Vc / (π × D)<br>Vf = n × f</p><p class="mb-0" id="peckNote"></p></div></details>
+            <details class="calculation-details mt-3"><summary>Calculation details</summary><div class="pt-3"><p>n = 1000 × Vc / (π × D)<br>Vf = n × f</p><p id="spottingFormula" hidden></p><p class="mb-0" id="peckNote"></p></div></details>
             <details class="calculation-details mt-3" id="chamferDetails" hidden><summary>Compensation &amp; Z reference</summary><div class="pt-3">
               <p id="geometryFormula"></p>
               <p>XY follows the original contour at its original size. R is the tool-center distance to that contour, toward the free side. Apply this geometry offset only once.</p>

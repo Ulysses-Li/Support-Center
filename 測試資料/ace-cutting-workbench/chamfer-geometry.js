@@ -1,4 +1,4 @@
-/* ACE 倒角幾何：集中管理型錄尺寸，與既有切削速度／進給資料分開。
+/* ACE 點鑽與倒角幾何：集中管理型錄尺寸，與既有切削速度／進給資料分開。
  * 來源：Products/AceSpotDrill/ACE-Spot-Drill-Catalog.pdf
  * 印刷頁 16–17：d1、Dmax；頁 19：實際刀尖修正 ℓ、Tmax；頁 20–23：Cmax、降進給門檻。
  * 注意：既有 spotting 資料的 ℓ 與型錄不一致，本助手直接使用核對過的型錄值。
@@ -37,6 +37,23 @@ function getChamferGeometry(size, angle) {
 const ACE_CHAMFER_90 = Object.freeze(Object.fromEntries(Object.keys(ACE_CHAMFER_SIZES).map(size => [size, getChamferGeometry(size, 90)])));
 
 const CHAMFER_CONTACT_POSITIONS = Object.freeze({ upper: 1, middle: .5, lower: 0 });
+
+// 點鑽 D 位於工件頂面；實際刀尖深度扣除型錄 ℓ，不能把超過 Tmax 的深度截短後冒充有效結果。
+function calculateSpotting({ size, angle, diameter }) {
+  const geometry = getChamferGeometry(size, angle);
+  if (!geometry) return { valid: false, errors: ["Select a supported ACE insert and angle."], unsupported: true };
+  const errors = [];
+  if (!Number.isFinite(diameter) || diameter <= 0) {
+    return { valid: false, errors: ["Enter a positive spotting diameter D."], geometry };
+  }
+  const theoreticalDepth = diameter / 2 * geometry.depthPerWidth;
+  const depth = theoreticalDepth - geometry.tipCorrection;
+  if (diameter < geometry.minDiameter - 1e-9 || diameter > geometry.maxDiameter + 1e-9 || depth <= 0) {
+    errors.push("D must intersect the modeled cutting edge and stay within catalog Dmax.");
+  }
+  if (depth > geometry.maxDepth + 1e-9) errors.push("The spotting depth exceeds catalog Tmax. Reduce D.");
+  return { valid: !errors.length, errors, geometry, diameter, theoreticalDepth, depth, z: -depth };
+}
 
 // 換直徑標示位置時保留同一組 R／Z：D新 = D舊 + 2C × (k新 − k舊)。
 // 不將原本無效的輸入夾限成合法值；交由既有驗證呈現錯誤。
@@ -84,4 +101,4 @@ function calculateChamfer({ size, angle, c, diameter, reference = "upper", datum
 }
 
 // 同一個純函式供瀏覽器與 Node 幾何測試使用，不需模擬 DOM。
-if (typeof module !== "undefined") module.exports = { ACE_CHAMFER_90, ACE_CHAMFER_SIZES, ACE_CHAMFER_ANGLES, getChamferGeometry, calculateChamfer, convertContactDiameter };
+if (typeof module !== "undefined") module.exports = { ACE_CHAMFER_90, ACE_CHAMFER_SIZES, ACE_CHAMFER_ANGLES, getChamferGeometry, calculateSpotting, calculateChamfer, convertContactDiameter };
