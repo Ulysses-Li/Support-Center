@@ -10,48 +10,58 @@ let previousContactReference = $("contactReference").value;
 function renderChamferDiagram(result) {
   const svg = $("chamferDiagram");
   if (!result?.valid) {
-    svg.innerHTML = '<title id="diagramTitle">Chamfer section unavailable</title><desc id="diagramDescription">Enter valid C and contact diameter values to display the section.</desc><text x="360" y="190" text-anchor="middle" fill="#5c7183" font-size="18">Adjust C and contact D to display the section.</text>';
-    $("diagramCaption").textContent = "The full chamfer must fit inside the usable cutting edge.";
+    svg.innerHTML = '<title id="diagramTitle">Chamfer section unavailable</title><desc id="diagramDescription">Enter valid chamfer width and contact diameter values to display the section.</desc><text x="360" y="190" text-anchor="middle" fill="#5c7183" font-size="18">Adjust width and contact D to display the section.</text>';
+    $("diagramCaption").textContent = "The full chamfer must fit inside the modeled diameter band and catalog Tmax.";
     return;
   }
-  const { geometry: g, radius, c, diameter, position, actualDrop, z, reference } = result;
+  const { geometry: g, radius, c, height, diameter, position, actualDrop, z, reference } = result;
   const maxR = g.maxDiameter / 2;
-  const scale = Math.min(58, 320 / (2 * maxR + c), 195 / (actualDrop + g.tipCorrection + 1));
+  const scale = Math.min(58, 320 / (2 * maxR + c), 190 / (Math.max(actualDrop + g.tipCorrection, height) + .6));
   const edgeX = 210, topY = 130, axisX = edgeX + radius * scale;
-  const upperX = edgeX - c * scale, lowerY = topY + c * scale;
+  const upperX = edgeX - c * scale, lowerY = topY + height * scale;
   const tipY = topY + actualDrop * scale, theoreticalY = tipY + g.tipCorrection * scale;
-  const toolTopY = tipY - (maxR - g.tipCorrection) * scale;
-  const refY = topY + (1 - position) * c * scale;
+  const tipR = g.tipCorrection / g.depthPerWidth;
+  // 若錐體在圖框上方延伸，只裁切顯示長度；斜面角度和所有尺寸仍用真實比例。
+  const toolTopY = Math.max(55, tipY - (maxR * g.depthPerWidth - g.tipCorrection) * scale);
+  const visibleTopR = (tipY - toolTopY) / (g.depthPerWidth * scale) + tipR;
+  const refY = topY + (1 - position) * height * scale;
   const leftRef = axisX - diameter / 2 * scale, rightRef = axisX + diameter / 2 * scale;
   const shownDatumY = result.datum === "actual" ? tipY : theoreticalY;
   const refLabel = { upper: "upper edge", middle: "middle", lower: "lower edge" }[reference];
+  const beta = g.faceAngle * Math.PI / 180;
+  const arcEndX = upperX + 25 * Math.cos(beta), arcEndY = topY + 25 * Math.sin(beta);
   svg.innerHTML = `
-    <title id="diagramTitle">45 degree chamfer: C${numberText(c, 4)}, compensation R${numberText(radius, 4)}, Z${numberText(z, 4)}</title>
+    <title id="diagramTitle">${g.faceAngle} degree chamfer: W${numberText(c, 4)}, H${numberText(height, 4)}, compensation R${numberText(radius, 4)}, Z${numberText(z, 4)}</title>
     <desc id="diagramDescription">The material is on the left. The original contour is the vertical dashed line. The tool center is R millimeters toward the free side. The selected diameter meets the ${refLabel} of the orange chamfer. Negative Z is measured from the work surface to the selected tool tip datum. Local straight section only.</desc>
     <defs><pattern id="sectionHatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="10" stroke="#cfdee8" stroke-width="2"/></pattern>
       <marker id="dimArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0067ad"/></marker></defs>
     <path d="M36 ${topY}H${upperX}L${edgeX} ${lowerY}V320H36Z" fill="#edf3f7"/><path d="M36 ${topY}H${upperX}L${edgeX} ${lowerY}V320H36Z" fill="url(#sectionHatch)" stroke="#9eb5c5"/>
-    <path d="M${axisX - maxR * scale} ${toolTopY}H${axisX + maxR * scale}L${axisX + g.tipCorrection * scale} ${tipY}H${axisX - g.tipCorrection * scale}Z" fill="#0067ad15" stroke="#0067ad" stroke-width="2"/>
-    <path d="M${axisX - g.tipCorrection * scale} ${tipY}L${axisX} ${theoreticalY}L${axisX + g.tipCorrection * scale} ${tipY}" fill="none" stroke="#0067ad" stroke-dasharray="3 3"/>
+    <path d="M${axisX - visibleTopR * scale} ${toolTopY}H${axisX + visibleTopR * scale}L${axisX + tipR * scale} ${tipY}H${axisX - tipR * scale}Z" fill="#0067ad15" stroke="#0067ad" stroke-width="2"/>
+    <path d="M${axisX - tipR * scale} ${tipY}L${axisX} ${theoreticalY}L${axisX + tipR * scale} ${tipY}" fill="none" stroke="#0067ad" stroke-dasharray="3 3"/>
     <path d="M36 ${topY}H665M${edgeX} 86V342" stroke="#839caf" stroke-dasharray="5 5" fill="none"/>
     <path d="M${axisX} 45V342" stroke="#0067ad" stroke-dasharray="7 4"/><text x="${axisX}" y="30" text-anchor="middle" class="diagram-label">Tool center</text>
     <path d="M${upperX} ${topY}L${edgeX} ${lowerY}" stroke="#f05a1a" stroke-width="5"/>
+    <path d="M${upperX + 25} ${topY}A25 25 0 0 1 ${arcEndX} ${arcEndY}" stroke="#b53a0a" fill="none"/>
+    <text x="${upperX + 45 * Math.cos(beta / 2)}" y="${topY + 45 * Math.sin(beta / 2) + 4}" class="diagram-contact">${g.faceAngle}°</text>
     <path d="M${leftRef} ${refY}H${rightRef}" stroke="#f05a1a" stroke-dasharray="4 3"/><circle cx="${leftRef}" cy="${refY}" r="5" fill="#f05a1a"/>
     <text x="${rightRef + 12}" y="${refY - 8}" class="diagram-contact">Ø${numberText(diameter, 4)}</text>
     <text x="40" y="${topY - 12}" class="diagram-label">Work surface · Z0</text><text x="55" y="280" class="diagram-label">Material</text>
     <path d="M${upperX} ${topY - 8}V84M${edgeX} ${topY - 8}V84M${upperX} 94H${edgeX}" stroke="#0067ad" fill="none"/>
-    <text x="${(upperX + edgeX) / 2}" y="77" text-anchor="middle" class="diagram-label">C ${numberText(c, 4)}</text>
+    <text x="${(upperX + edgeX) / 2}" y="77" text-anchor="middle" class="diagram-label">${g.angle === 90 ? "C" : "W"} ${numberText(c, 4)}</text>
+    <path d="M550 ${topY}V${lowerY}" stroke="#0067ad" fill="none" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+    <path d="M550 ${(topY + lowerY) / 2}V100H530" stroke="#0067ad" fill="none"/>
+    <text x="535" y="92" text-anchor="end" class="diagram-label">H ${numberText(height, 4)} mm</text>
     <path d="M${edgeX} 350H${axisX}" stroke="#0067ad" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
     <text x="${(edgeX + axisX) / 2}" y="374" text-anchor="middle" class="diagram-label">R ${numberText(radius, 4)} mm</text>
     <text x="36" y="398" class="diagram-label">Dashed vertical at material edge = original XY contour</text>
-    <path d="M615 ${topY}V${shownDatumY}M${axisX} ${shownDatumY}H624" stroke="#0067ad" fill="none" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+    <path d="M615 ${topY}V${shownDatumY}" stroke="#0067ad" fill="none" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/><path d="M${axisX} ${shownDatumY}H624" stroke="#0067ad"/>
     <text x="632" y="${(topY + shownDatumY) / 2}" text-anchor="middle" transform="rotate(-90 632 ${(topY + shownDatumY) / 2})" class="diagram-label">Z ${numberText(z, 4)} mm</text>`;
-  $("diagramCaption").textContent = `Contact D is at the ${refLabel}. Z uses the ${result.datum === "actual" ? "actual insert tip" : "theoretical sharp point"}. Local section; dimensions in mm.`;
+  $("diagramCaption").textContent = `${g.angle}° insert → ${g.faceAngle}° face. Horizontal width W = ${numberText(c, 4)} mm; vertical depth H = ${numberText(height, 4)} mm. Contact D is at the ${refLabel}; Z uses the ${result.datum === "actual" ? "actual insert tip" : "theoretical sharp point"}.`;
 }
 
 function renderChamferSetup(operation, insert, angle, diameter) {
   const chamfering = operation.id === "chamfering";
-  const enabled = chamfering && angle === "90";
+  const enabled = chamfering && Boolean(getChamferGeometry(insert.id, angle));
   document.body.classList.toggle("chamfer-active", enabled);
   ["chamferInputs", "chamferSetup", "chamferFigure", "chamferDetails"].forEach(id => { $(id).hidden = !enabled; });
   $("chamferMessage").hidden = !chamfering;
@@ -63,7 +73,7 @@ function renderChamferSetup(operation, insert, angle, diameter) {
   ["compensationR", "zTarget", "compensationDiameter"].forEach(id => { $(id).textContent = "—"; });
   if (!chamfering) return null;
   if (!enabled) {
-    $("chamferMessage").textContent = "C-chamfer compensation supports 90° inserts (45° face). Select 90° to use the geometry assistant. Speeds and feeds remain available for this angle.";
+    $("chamferMessage").textContent = "Geometry is not available for this insert and angle.";
     return null;
   }
   const c = Number($("chamferC").value);
@@ -71,31 +81,38 @@ function renderChamferSetup(operation, insert, angle, diameter) {
   const datum = $("zDatum").value;
   const result = calculateChamfer({ size: insert.id, angle, c, diameter, reference, datum });
   const g = result.geometry;
+  const widthLabel = g.angle === 90 ? "C" : "W";
+  $("chamferWidthLabel").textContent = g.angle === 90 ? "Chamfer size C" : "Horizontal width W";
+  $("chamferFaceLabel").textContent = `× ${g.faceAngle}°`;
+  $("diagramAngleLabel").textContent = `${g.angle}° insert · ${g.faceAngle}° face`;
   $("depthLabel").textContent = "Chamfer size";
-  $("spotDepth").textContent = Number.isFinite(c) && c > 0 ? `C${numberText(c, 4)} × 45°` : "—";
+  $("spotDepth").textContent = Number.isFinite(c) && c > 0 ? `${widthLabel}${numberText(c, 4)} × ${g.faceAngle}°` : "—";
   $("maxDepthLabel").textContent = "Max. tool depth";
   $("tmax").textContent = `${g.maxDepth} mm`;
   $("chamferC").max = g.maxC;
   const validC = Number.isFinite(c) && c > 0 && c <= g.maxC;
   $("chamferC").setAttribute("aria-invalid", String(!validC));
   $("chamferC").classList.toggle("is-invalid", !validC);
-  $("chamferCError").textContent = validC ? "" : `Enter C above 0 and up to ${g.maxC} mm.`;
-  $("chamferCHint").textContent = `Catalog Cmax ${g.maxC} mm`;
+  $("chamferCError").textContent = validC ? "" : `Enter ${widthLabel} above 0 and up to ${g.maxC} mm.`;
+  $("chamferCHint").textContent = g.maxWidthSource === "catalog" ? `Catalog Cmax ${g.maxC} mm` : `Geometric W limit ${numberText(g.maxC, 4)} mm (Dmax / Tmax; not a rated Cmax)`;
   $("tipCorrectionNote").textContent = `Catalog tip correction ℓ = ${g.tipCorrection} mm. Z0 is the work surface.`;
   $("compensationDatum").textContent = `Z0 = work surface · ${datum === "actual" ? "actual insert tip" : "theoretical sharp point"} tool-length reference.`;
+  $("chamferDepthHint").textContent = validC ? `Horizontal W ${numberText(c, 4)} mm → vertical H ${numberText(c * g.depthPerWidth, 4)} mm` : "";
   const slider = $("contactDiameterRange");
-  slider.disabled = !Number.isFinite(result.minD) || result.minD > result.maxD;
+  const sliderMin = Math.ceil((result.minD - 1e-10) * 10000) / 10000;
+  const sliderMax = Math.floor((result.maxD + 1e-10) * 10000) / 10000;
+  slider.disabled = !Number.isFinite(result.minD) || sliderMin > sliderMax;
   if (!slider.disabled) {
-    slider.min = result.minD;
-    slider.max = result.maxD;
-    slider.value = Math.max(result.minD, Math.min(result.maxD, diameter || result.minD));
+    slider.min = sliderMin;
+    slider.max = sliderMax;
+    slider.value = Math.max(sliderMin, Math.min(sliderMax, diameter || sliderMin));
     slider.setAttribute("aria-valuetext", `Contact diameter ${numberText(Number(slider.value), 4)} mm`);
     $("diameterHint").textContent = `Contact range Ø${numberText(result.minD, 4)}–${numberText(result.maxD, 4)} mm`;
   }
   if (validC && !result.valid) {
     fields.diameter.classList.add("is-invalid");
     fields.diameter.setAttribute("aria-invalid", "true");
-    $("diameterError").textContent = "The full chamfer extends outside the usable edge. Adjust contact D or C.";
+    $("diameterError").textContent = `The chamfer exceeds the modeled band or Tmax. Adjust contact D or ${widthLabel}.`;
   }
   const messages = [...result.errors];
   if (result.valid) {
@@ -105,7 +122,7 @@ function renderChamferSetup(operation, insert, angle, diameter) {
     if (result.reduceFeed) messages.push(`Catalog guidance: reduce feed above C${g.reduceFeedAbove}. At Cmax, use the minimum feed ${selection().feedRange[0]} mm/rev.`);
   }
   $("chamferMessage").textContent = messages.join(" ");
-  $("geometryFormula").textContent = `90° insert / 45° face: R = D/2 − k×C (upper k=1, middle k=0.5, lower k=0). Z = −(R+C${datum === "actual" ? "−ℓ" : ""}). ℓ = ${g.tipCorrection} mm.`;
+  $("geometryFormula").textContent = `${g.angle}° insert / ${g.faceAngle}° face: q = cot(${g.angle}°/2); H = W×q; R = D/2 − k×W (upper k=1, middle k=0.5, lower k=0). Z = −((R+W)×q${datum === "actual" ? "−ℓ" : ""}). ℓ = ${g.tipCorrection} mm. ${g.minDiameterSource === "catalog" ? "Lower band uses catalog d1." : "Lower band is the geometric tip-plane intersection; catalog d1 and nose radius are not specified for this angle."}`;
   renderChamferDiagram(result);
   return result;
 }
@@ -138,9 +155,19 @@ function refreshOptions() {
   const materials = Object.entries(operation.materials);
   fillOptions(fields.material, materials.map(([id, item]) => [id, item.label]), operation.materials.stainless ? "stainless" : materials[0][0]);
 }
-function resetValues({ resetDiameter = true } = {}) {
-  const { insert, material, feedRange } = selection();
+function resetValues({ resetDiameter = true, fitChamferDiameter = false } = {}) {
+  const { operation, insert, angle, material, feedRange } = selection();
   if (resetDiameter) fields.diameter.value = insert.diameter;
+  // 換角度／刀片時同步配對 D，尤其 60° 需同時滿足 Tmax；材質變更不改使用者的 D。
+  if ((resetDiameter || fitChamferDiameter) && operation.id === "chamfering") {
+    const band = calculateChamfer({ size: insert.id, angle, c: Number($("chamferC").value), diameter: Number(fields.diameter.value), reference: $("contactReference").value, datum: $("zDatum").value });
+    if (Number.isFinite(band.minD) && band.minD <= band.maxD) {
+      const lower = Math.ceil((band.minD - 1e-10) * 10000) / 10000;
+      const upper = Math.floor((band.maxD + 1e-10) * 10000) / 10000;
+      const fitted = lower <= upper ? Math.max(lower, Math.min(upper, Number(fields.diameter.value))) : (band.minD + band.maxD) / 2;
+      fields.diameter.value = numberText(fitted, lower <= upper ? 4 : 10);
+    }
+  }
   fields.cuttingSpeed.value = numberText(midpoint(material.vc), 1);
   fields.feedPerRev.value = numberText(midpoint(feedRange), 3);
   renderResults();
@@ -193,10 +220,11 @@ function renderResults() {
   $("copyButton").disabled = !valid || (chamfer && !chamfer.valid);
   $("copyFeedback").textContent = "";
   const geometryLines = chamfer?.valid ? [
-    `Chamfer: C${numberText(chamfer.c, 4)} x 45 deg | Contact D at ${chamfer.reference} of chamfer`,
+    `Chamfer: ${chamfer.geometry.angle === 90 ? "C" : "W"}${numberText(chamfer.c, 4)} x ${chamfer.geometry.faceAngle} deg | Vertical depth H: ${numberText(chamfer.height, 4)} mm | Contact D at ${chamfer.reference} of chamfer`,
     `Full geometry compensation: R ${numberText(chamfer.radius, 4)} mm / diameter ${numberText(chamfer.compensationDiameter, 4)} mm`,
     `Z target: ${numberText(chamfer.z, 4)} mm | Work surface Z0 | ${chamfer.datum === "actual" ? "Actual insert tip" : "Theoretical sharp point"} datum`,
     `Catalog tip correction: ${chamfer.geometry.tipCorrection} mm`,
+    ...(chamfer.geometry.maxWidthSource === "geometry" ? [`Width limit is geometric from Dmax/Tmax, not a catalog-rated Cmax. Lower diameter source: ${chamfer.geometry.minDiameterSource}. Nose radius is not modeled.`] : []),
     `Program the original contour. Apply full geometry compensation once; select G41/G42 from travel direction and the free side. D address is an offset register.`,
     `Local straight-edge geometry only; check corners, hole clearance and lead-in/out separately.`,
     ...(chamfer.reduceFeed ? [$("chamferMessage").textContent] : [])
@@ -207,13 +235,14 @@ function renderResults() {
 $("calculatorForm").addEventListener("submit", event => event.preventDefault());
 fields.operation.addEventListener("change", () => { refreshOptions(); resetValues(); });
 fields.insertSize.addEventListener("change", () => { refreshOptions(); resetValues(); });
-[fields.material, fields.angle].forEach(field => field.addEventListener("change", () => resetValues({ resetDiameter: false })));
+fields.material.addEventListener("change", () => resetValues({ resetDiameter: false }));
+fields.angle.addEventListener("change", () => resetValues({ resetDiameter: false, fitChamferDiameter: true }));
 [fields.diameter, fields.cuttingSpeed, fields.feedPerRev].forEach(field => field.addEventListener("input", renderResults));
 ["chamferC", "zDatum"].forEach(id => $(id).addEventListener(id === "chamferC" ? "input" : "change", renderResults));
 $("contactReference").addEventListener("change", () => {
   const nextReference = $("contactReference").value;
   const { operation, angle } = selection();
-  if (operation.id === "chamfering" && angle === "90") {
+  if (operation.id === "chamfering" && getChamferGeometry(selection().insert.id, angle)) {
     const diameter = convertContactDiameter({
       diameter: Number(fields.diameter.value), c: Number($("chamferC").value),
       from: previousContactReference, to: nextReference
@@ -245,6 +274,7 @@ refreshOptions();
 fields.insertSize.value = initialOperation.insertGroups.some(item => item.id === initialParams.get("size")) ? initialParams.get("size") : "SI10";
 refreshOptions();
 if (initialOperation.materials[initialParams.get("material")]) fields.material.value = initialParams.get("material");
+if (Object.hasOwn(selection().insert.angles, initialParams.get("angle"))) fields.angle.value = initialParams.get("angle");
 resetValues();
 
 // 沿用全站 Header／Footer，並補齊手機選單的語意狀態。

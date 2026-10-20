@@ -25,7 +25,7 @@ body { color: var(--ink); font-family: Arial, "Microsoft JhengHei", sans-serif; 
 .step-number { color: var(--blue); font-size: 14px; font-variant-numeric: tabular-nums; }
 .form-label { color: #344e63; margin-bottom: 8px; font-size: 14px; font-weight: 650; }
 .form-label > span { color: var(--muted); font-weight: 400; }
-.form-label > #diameterLabel { color: #344e63; font-weight: 650; }
+.form-label > #diameterLabel, .form-label > #chamferWidthLabel { color: #344e63; font-weight: 650; }
 .form-select, .form-control { min-height: 48px; color: var(--ink); border-color: #cbdbe6; background-color: #fff; font-size: 16px; }
 .form-select:focus, .form-control:focus { border-color: var(--blue); box-shadow: 0 0 0 .2rem #0067ad18; }
 .input-group-text { padding: 7px 8px; color: var(--muted); background: #f5f8fa; border-color: #cbdbe6; font-size: 14px; }
@@ -76,6 +76,7 @@ body { color: var(--ink); font-family: Arial, "Microsoft JhengHei", sans-serif; 
 .chamfer-figure svg { display: block; width: 100%; height: auto; min-height: 240px; }
 .diagram-label { fill: #3b5f78; font-family: Arial, sans-serif; font-size: 15px; }
 .diagram-contact { fill: #b53a0a; font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; }
+.diagram-label, .diagram-contact { paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
 .form-range { min-height: 44px; accent-color: var(--blue); }
 .form-range::-webkit-slider-thumb { background: var(--blue); }
 .form-range::-moz-range-thumb { background: var(--blue); }

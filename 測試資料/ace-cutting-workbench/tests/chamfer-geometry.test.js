@@ -1,7 +1,7 @@
 /* 以已知尺寸與剖面接觸點驗證補正／Z 配對，避免只比對程式內部公式。 */
 const { test } = require("node:test");
 const assert = require("node:assert/strict");
-const { ACE_CHAMFER_90, calculateChamfer, convertContactDiameter } = require("../chamfer-geometry.js");
+const { ACE_CHAMFER_90, ACE_CHAMFER_SIZES, ACE_CHAMFER_ANGLES, getChamferGeometry, calculateChamfer, convertContactDiameter } = require("../chamfer-geometry.js");
 const close = (actual, expected) => assert.ok(Math.abs(actual - expected) < 1e-8, `${actual} != ${expected}`);
 const input = { size: "SI06", angle: 90, c: .5, diameter: 5.5, reference: "upper", datum: "actual" };
 
@@ -73,7 +73,7 @@ test("rejects excessive upper diameter, truncated-tip contact, Cmax and invalid 
 });
 
 test("unsupported angles and sizes do not return numerical compensation", () => {
-  for (const change of [{ angle: 60 }, { angle: 120 }, { angle: 142 }, { size: "SI99" }]) {
+  for (const change of [{ angle: 55 }, { angle: 0 }, { angle: NaN }, { size: "SI99" }]) {
     const result = calculateChamfer({ ...input, ...change });
     assert.equal(result.valid, false);
     assert.equal(result.radius, undefined);
@@ -113,4 +113,68 @@ test("invalid diameter or C cannot be converted into a new apparently valid inpu
   for (const change of [{ diameter: 0 }, { diameter: NaN }, { c: 0 }, { c: NaN }, { from: "unknown" }, { to: "unknown" }]) {
     assert.ok(Number.isNaN(convertContactDiameter({ diameter: 5.5, c: .5, from: "upper", to: "lower", ...change })));
   }
+});
+
+test("60/120/142 degree inserts have independently checked face slopes, H and Z", () => {
+  const cases = [
+    { angle: 60, face: 60, height: .8660254037844386, z: -3.1141016151377544 },
+    { angle: 120, face: 30, height: .2886751345948129, z: -1.1047005383792515 },
+    { angle: 142, face: 19, height: .17216380664483264, z: -.6486552265793305 }
+  ];
+  for (const expected of cases) {
+    const r = calculateChamfer({ ...input, angle: expected.angle, diameter: 4 });
+    assert.equal(r.valid, true, r.errors.join(" "));
+    close(r.radius, 1.5);
+    close(r.height, expected.height);
+    close(r.z, expected.z);
+    assert.equal(r.geometry.faceAngle, expected.face);
+  }
+});
+
+test("all four angles meet both chamfer endpoints for each size/reference/datum", () => {
+  let checked = 0;
+  for (const size of Object.keys(ACE_CHAMFER_SIZES)) for (const angle of ACE_CHAMFER_ANGLES) {
+    const g = getChamferGeometry(size, angle);
+    const slope = Math.tan((90 - angle / 2) * Math.PI / 180);
+    for (const width of [.1, .5, g.maxC]) for (const [reference, k] of [["upper", 1], ["middle", .5], ["lower", 0]]) {
+      const min = g.minDiameter + 2 * k * width;
+      const max = g.maxContactDiameter - 2 * (1 - k) * width;
+      for (const diameter of [min, (min + max) / 2, max]) for (const datum of ["actual", "theoretical"]) {
+        const r = calculateChamfer({ size, angle, c: width, diameter, reference, datum });
+        assert.equal(r.valid, true, `${size}/${angle}/${width}/${reference}: ${r.errors}`);
+        const theoreticalTipZ = r.z - (datum === "actual" ? g.tipCorrection : 0);
+        close(r.radius - (-theoreticalTipZ) / slope, -width);
+        close(r.radius - (-r.height - theoreticalTipZ) / slope, 0);
+        close(r.height, width * slope);
+        assert.ok(r.actualDrop <= g.maxDepth + 1e-8);
+        const next = reference === "upper" ? "lower" : "upper";
+        const convertedD = convertContactDiameter({ diameter, c: width, from: reference, to: next });
+        const converted = calculateChamfer({ size, angle, c: width, diameter: convertedD, reference: next, datum });
+        assert.equal(converted.valid, true);
+        close(converted.radius, r.radius);
+        close(converted.z, r.z);
+        checked++;
+      }
+    }
+  }
+  assert.equal(checked, 1296);
+});
+
+test("60 degree contact is limited by catalog Tmax as well as nominal Dmax", () => {
+  const nominal = calculateChamfer({ ...input, angle: 60 });
+  assert.equal(nominal.valid, false);
+  const g = getChamferGeometry("SI06", 60);
+  assert.ok(g.maxContactDiameter < g.maxDiameter);
+  const fitted = calculateChamfer({ ...input, angle: 60, diameter: g.maxContactDiameter });
+  assert.equal(fitted.valid, true);
+  close(fitted.actualDrop, 4.1);
+});
+
+test("other angles do not inherit 90 degree catalog Cmax or feed reduction ratings", () => {
+  for (const angle of [60, 120, 142]) {
+    const g = getChamferGeometry("SI06", angle);
+    assert.equal(g.maxWidthSource, "geometry");
+    assert.equal(g.reduceFeedAbove, null);
+  }
+  for (const angle of [120, 142]) assert.equal(getChamferGeometry("SI06", angle).minDiameterSource, "tip-plane geometry");
 });
