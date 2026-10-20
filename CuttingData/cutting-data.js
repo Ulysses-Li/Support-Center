@@ -9,12 +9,12 @@ const CUTTING_DATA_PRODUCTS = [
     category: "Spotting / Chamfering",
     image: "../img/spotting.png",
     status: "Available",
-    href: "../Products/AceSpotDrill/indexV3.0.html",
+    href: "./AceSpotDrill/index.html",
     summary: "Product preset cutting data for spotting and chamfering.",
     details: [
       "Operation: Spotting / Chamfering",
       "Product selection: SI06 to SI20",
-      "Output: Vc, feed, Q, grade, RPM, feed rate"
+      "Output: RPM, feed, spotting depth, chamfer compensation and Z"
     ]
   },
   {

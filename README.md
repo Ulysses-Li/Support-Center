@@ -22,6 +22,7 @@ npm run dev
 
 - 首頁：`index.html`
 - 產品總覽：`nine9/products.html`
+- 切削資料產品選擇：`CuttingData/index.html`；ACE 互動計算器：`CuttingData/AceSpotDrill/index.html`
 - 加工分類：`Machining/`
 - 產品內容資料：`Products/<產品名稱>/product-data.js`
 - 共用產品頁渲染：`js/render/product-resource-template-V1.0.js`
@@ -30,6 +31,12 @@ npm run dev
 - 完整架構與程式說明：[`docs/CODE_GUIDE.zh-TW.md`](docs/CODE_GUIDE.zh-TW.md)
 
 ## 版本檔案注意事項
+
+ACE Cutting Data 的正式計算器獨立放在 `CuttingData/AceSpotDrill/`，包含點鑽／倒角剖面與補正計算；正式頁不引用 `測試資料/`。型錄幾何集中在該目錄的 `chamfer-geometry.js`，切削速度與進給預設仍共用正式產品資料。可用以下指令驗證點鑽與倒角幾何：
+
+```powershell
+node --test CuttingData/AceSpotDrill/tests/chamfer-geometry.test.js CuttingData/AceSpotDrill/tests/spotting-geometry.test.js
+```
 
 檔名含 `V2.0` 的產品版型目前只供 ACE Spot Drill 頁面使用；其他產品仍使用 V1.0。未被正式頁面引用的 `css/no/`、`js/data/no/`、`js/render/no/` 已移至 `等待移除/` 保留。
 

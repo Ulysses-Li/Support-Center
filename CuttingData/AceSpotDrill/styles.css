@@ -1,0 +1,111 @@
+:root { --ink: #0c2237; --muted: #5c7183; --blue: #0067ad; --orange: #f05a1a; --line: #d9e5ed; }
+body { color: var(--ink); font-family: Arial, "Microsoft JhengHei", sans-serif; font-size: 16px; }
+.calculator-page { padding: 28px 0 64px; }
+.calculator-container { max-width: 1240px; }
+.breadcrumb { font-size: 14px; --bs-breadcrumb-divider: " / "; }
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--blue); text-decoration: underline; }
+.breadcrumb-item.active { color: var(--ink); }
+.product-heading { padding-bottom: 8px; }
+.product-icon { width: 80px; height: 80px; flex: 0 0 auto; display: grid; place-items: center; background: #e8f3fb; border-radius: 16px; }
+.product-icon img { object-fit: contain; }
+.eyebrow { color: var(--blue); font-size: 14px; font-weight: 750; letter-spacing: .09em; }
+.product-heading h1 { font-size: clamp(28px, 3vw, 38px); font-weight: 750; letter-spacing: -.035em; line-height: 1.15; }
+.heading-description { color: var(--muted); font-size: 16px; }
+.catalog-link { min-height: 44px; display: inline-flex; align-items: center; gap: 9px; color: var(--ink); background: #fff; border: 1px solid var(--line); font-size: 14px; font-weight: 650; }
+.catalog-link:hover { color: var(--blue); border-color: var(--blue); background: #fff; }
+.file-label { padding: 2px 5px; color: var(--muted); background: #eef3f7; border-radius: 3px; font-size: 14px; }
+/* 設定區使用一張白色工作表，靠間距建立分組，避免每步驟重複套框。 */
+.surface { padding: 28px; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 8px 28px rgba(24, 63, 92, .055); }
+.panel-title { font-size: 20px; font-weight: 750; letter-spacing: -.02em; }
+.reset-link { min-height: 44px; padding: 6px 0 6px 12px; color: var(--blue); font-size: 14px; font-weight: 650; white-space: nowrap; }
+.reset-link:hover { color: var(--ink); text-decoration: underline; }
+.condition-group { min-width: 0; margin: 0 0 30px; padding: 0; }
+.condition-group legend { float: none; display: flex; align-items: center; gap: 10px; margin-bottom: 16px; font-size: 16px; font-weight: 750; }
+.step-number { color: var(--blue); font-size: 14px; font-variant-numeric: tabular-nums; }
+.form-label { color: #344e63; margin-bottom: 8px; font-size: 14px; font-weight: 650; }
+.form-label > span { color: var(--muted); font-weight: 400; }
+.form-label > #diameterLabel, .form-label > #chamferWidthLabel { color: #344e63; font-weight: 650; }
+.form-select, .form-control { min-height: 48px; color: var(--ink); border-color: #cbdbe6; background-color: #fff; font-size: 16px; }
+.form-select:focus, .form-control:focus { border-color: var(--blue); box-shadow: 0 0 0 .2rem #0067ad18; }
+.input-group-text { padding: 7px 8px; color: var(--muted); background: #f5f8fa; border-color: #cbdbe6; font-size: 14px; }
+.input-group .form-control { min-width: 0; padding-inline: 10px; }
+.material-control { display: flex; }
+.material-badge { width: 40px; flex-shrink: 0; display: grid; place-items: center; color: #27394a; background: #f3d649; border-radius: 6px 0 0 6px; font-weight: 750; }
+.material-control .form-select { min-width: 0; border-radius: 0 6px 6px 0; }
+.material-badge[data-iso="P"] { color: #fff; background: #176bb3; }
+.material-badge[data-iso="K"] { color: #fff; background: #c83d38; }
+.material-badge[data-iso="N"] { color: #fff; background: #298246; }
+.section-note, .field-hint, .preset-note { color: var(--muted); font-size: 14px; line-height: 1.5; }
+.section-note { margin: -6px 0 18px; }
+.field-hint { margin: 8px 0 0; }
+.field-error { color: #b62e2e; margin: 4px 0 0; font-size: 14px; }
+.field-error:empty, .calculation-message:empty, .copy-feedback:empty { display: none; }
+.calculation-message { margin-top: 20px; padding: 12px 14px; color: #874017; background: #fff4e9; border-radius: 8px; font-size: 14px; line-height: 1.5; }
+.preset-note { max-width: 620px; }
+/* 結果只在頂邊保留技術藍；主要數字使用大字與清楚單位。 */
+.result-panel { position: sticky; top: 24px; border-top: 3px solid var(--blue); }
+.live-label { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 14px; white-space: nowrap; }
+.live-label > span { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; }
+.key-results { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 22px 20px; background: #edf6fc; border-radius: 10px; }
+.output-label { color: #3b5f78; font-size: 14px; font-weight: 650; }
+.output-value { display: flex; flex-wrap: wrap; align-items: baseline; gap: 5px 8px; margin-top: 6px; }
+.output-value strong { color: var(--ink); font-size: clamp(30px, 3vw, 44px); font-weight: 750; letter-spacing: -.04em; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.output-value > span { color: var(--muted); font-size: 14px; }
+.detail-label { display: block; color: var(--muted); font-size: 14px; }
+.selected-insert > strong { display: block; margin: 4px 0 5px; font-size: 24px; font-weight: 750; overflow-wrap: anywhere; }
+.selected-insert p { color: var(--muted); font-size: 14px; }
+.result-specs dt { color: var(--muted); font-size: 14px; font-weight: 400; }
+.result-specs dd { margin: 5px 0 0; font-size: 16px; font-weight: 650; }
+.copy-button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; color: #fff; background: var(--orange); border: 1px solid var(--orange); font-size: 16px; font-weight: 650; }
+.copy-button:hover, .copy-button:focus-visible { color: #fff; background: #ce440a; border-color: #ce440a; }
+.copy-button:disabled { color: #6a7e8c; background: #e6edf1; border-color: #e6edf1; opacity: 1; }
+.copy-feedback { margin-top: 10px; color: var(--blue); font-size: 14px; }
+.calculation-details { border-top: 1px solid var(--line); padding-top: 6px; color: var(--muted); font-size: 14px; }
+.calculation-details summary { min-height: 44px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: #36566d; font-weight: 650; list-style: none; }
+.calculation-details summary::-webkit-details-marker { display: none; }
+.calculation-details summary::after { content: "+"; font-size: 20px; color: var(--blue); }
+.calculation-details[open] summary::after { content: "−"; }
+/* 倒角補正與 Z 放在切削轉速之前，所有值共用同一個剖面基準。 */
+[hidden] { display: none !important; }
+.geometry-values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px; color: var(--ink); background: #fff4eb; border-radius: 10px; }
+.geometry-values .output-label { color: #874017; }
+.geometry-values .output-value strong { font-size: clamp(26px, 2.8vw, 36px); }
+.chamfer-active .key-results { padding: 14px 16px; }
+.chamfer-active .key-results .output-value strong { font-size: 30px; }
+.section-figure svg { display: block; width: 100%; height: auto; min-height: 240px; }
+.diagram-label { fill: #3b5f78; font-family: Arial, sans-serif; font-size: 15px; }
+.diagram-contact { fill: #b53a0a; font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; }
+.diagram-label, .diagram-contact { paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
+.form-range { min-height: 44px; accent-color: var(--blue); }
+.form-range::-webkit-slider-thumb { background: var(--blue); }
+.form-range::-moz-range-thumb { background: var(--blue); }
+:focus-visible { outline: 3px solid #0067ad70; outline-offset: 3px; }
+/* 共用 Header 的漢堡按鈕使用純 CSS 線條，樣板不額外載入圖示字型。 */
+.mobile-menu-btn::before { content: "☰"; }
+.mobile-menu-btn i { display: none; }
+@media (max-width: 991.98px) {
+  .result-panel { position: static; }
+  .product-heading { padding-bottom: 8px; }
+}
+@media (max-width: 575.98px) {
+  html { scroll-padding-bottom: 115px; }
+  body { padding-bottom: 96px; }
+  .calculator-page { padding-top: 20px; }
+  .product-heading h1 { font-size: 28px; }
+  .product-icon { width: 60px; height: 60px; border-radius: 12px; }
+  .product-icon img { width: 44px; height: 44px; }
+  .eyebrow { font-size: 14px; letter-spacing: 0; }
+  .heading-description { font-size: 14px; }
+  .surface { padding: 20px; border-radius: 12px; }
+  .panel-title { font-size: 18px; }
+  .key-results { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1030; gap: 12px; padding: 12px 20px max(12px, env(safe-area-inset-bottom)); background: #f3f9fd; border-top: 1px solid #bfd6e5; border-radius: 0; box-shadow: 0 -6px 24px #0c22370d; }
+  .output-value { margin-top: 2px; flex-wrap: nowrap; }
+  .output-value strong { font-size: 30px; }
+  .live-label { font-size: 14px; }
+  .chamfer-active .key-results { position: static; border: 0; border-radius: 10px; box-shadow: none; }
+  .chamfer-active .geometry-values { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1030; padding: 12px 20px max(12px, env(safe-area-inset-bottom)); background: #fff7f0; border-top: 1px solid #e6cab6; border-radius: 0; box-shadow: 0 -6px 24px #0c22370d; }
+  .section-figure { padding-inline: 12px; }
+  .section-figure svg { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }

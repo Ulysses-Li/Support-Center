@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACE Spot Drill | Cutting Data</title>
+  <link rel="icon" href="../../favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../header/header.css">
+  <link rel="stylesheet" href="../../footer/footer.css">
+  <link rel="stylesheet" href="../../css/site-background.css">
+  <link rel="stylesheet" href="./styles.css?v=20261020">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <div id="header-placeholder"></div>
+  <main class="calculator-page flex-grow-1">
+    <div class="container calculator-container">
+      <!-- 麵包屑提供既有層級導覽，不另放一個突兀的返回按鈕。 -->
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="breadcrumb mb-0"><li class="breadcrumb-item"><a href="../../CuttingData/index.html">Cutting Data</a></li><li class="breadcrumb-item active" aria-current="page">ACE Spot Drill</li></ol>
+      </nav>
+      <header class="product-heading d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+        <div class="d-flex align-items-center gap-3">
+          <div class="product-icon"><img src="../../img/spotting.png" alt="" width="56" height="56"></div>
+          <div><p class="eyebrow mb-1">CUTTING DATA CALCULATOR</p><h1 class="mb-1">ACE Spot Drill</h1><p class="heading-description mb-0">Set your conditions. Get your cutting data.</p></div>
+        </div>
+        <a class="btn catalog-link" href="../../Products/AceSpotDrill/ACE-Spot-Drill-Catalog.pdf" target="_blank" rel="noopener">
+          <!-- Bootstrap Icons：file-earmark-pdf；圖示直接內嵌。 -->
+          <svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/><path d="M4.5 6.5h7v1h-7zm0 3h7v1h-7zm0 3h4v1h-4z"/></svg>
+          Product catalog <span class="file-label">PDF</span>
+        </a>
+      </header>
+
+      <div class="row g-4 align-items-start">
+        <section class="col-12 col-lg-7" aria-labelledby="conditionsTitle">
+          <form class="surface conditions-panel" id="calculatorForm" novalidate>
+            <div class="d-flex align-items-center justify-content-between gap-3 mb-4"><h2 id="conditionsTitle" class="panel-title mb-0">Machining conditions</h2><button class="btn reset-link" type="button" id="resetButton">Reset values</button></div>
+            <!-- 相同表單在桌面與手機共用；依 Bootstrap 欄位斷點自然換行。 -->
+            <fieldset class="condition-group">
+              <legend><span class="step-number">01</span> Application</legend>
+              <div class="row g-3">
+                <div class="col-12 col-sm-5"><label for="operation" class="form-label">Operation</label><select class="form-select" id="operation"></select></div>
+                <div class="col-12 col-sm-7"><label for="material" class="form-label">Workpiece material</label><div class="material-control"><span id="materialBadge" class="material-badge" aria-hidden="true">M</span><select class="form-select" id="material"></select></div></div>
+              </div>
+            </fieldset>
+            <fieldset class="condition-group">
+              <legend><span class="step-number">02</span> Insert selection</legend>
+              <div class="row g-3">
+                <div class="col-12 col-sm-7"><label for="insertSize" class="form-label">Insert size</label><select class="form-select" id="insertSize"></select></div>
+                <div class="col-12 col-sm-5"><label for="angle" class="form-label">Included angle</label><select class="form-select" id="angle"></select></div>
+              </div>
+            </fieldset>
+            <fieldset class="condition-group mb-0">
+              <legend><span class="step-number">03</span> <span id="cuttingValuesTitle">Cutting values</span></legend>
+              <!-- 倒角寬度與接觸直徑必須一起定義；沿原始輪廓編程，不要求工件形狀。 -->
+              <div id="chamferInputs" hidden>
+                <p class="section-note">Program the original, unchamfered contour. Set the chamfer width and where the selected diameter touches the chamfer.</p>
+                <div class="row g-3 mb-3">
+                  <div class="col-12 col-sm-5"><label for="chamferC" class="form-label"><span id="chamferWidthLabel">Chamfer size C</span> <span id="chamferFaceLabel">× 45°</span></label><div class="input-group"><input class="form-control" id="chamferC" type="number" value="0.5" min="0" step="0.1" inputmode="decimal" aria-describedby="chamferCHint chamferCError"><span class="input-group-text">mm</span></div><p class="field-hint" id="chamferCHint"></p><p class="field-error" id="chamferCError"></p></div>
+                  <div class="col-12 col-sm-7"><label for="contactReference" class="form-label">D touches the chamfer at</label><select id="contactReference" class="form-select"><option value="upper">Upper edge · work surface Z0</option><option value="middle">Middle of chamfer</option><option value="lower">Lower edge · original contour</option></select></div>
+                  <div class="col-12"><label for="zDatum" class="form-label">Tool length / Z reference</label><select id="zDatum" class="form-select" aria-describedby="tipCorrectionNote"><option value="actual">Actual insert tip touched off at Z0</option><option value="theoretical">Theoretical sharp point set at Z0</option></select><p class="field-hint" id="tipCorrectionNote"></p></div>
+                </div>
+                <label for="contactDiameterRange" class="form-label">Choose a cutting position <span>· adjusts contact D below</span></label>
+                <input type="range" class="form-range" id="contactDiameterRange" step="0.0001" aria-describedby="diameterHint">
+              </div>
+              <p class="section-note">Recommended values are filled in. Adjust them to your setup.</p>
+              <div class="row g-3">
+                <div class="col-12 col-sm-4"><label for="diameter" class="form-label"><span id="diameterLabel">Diameter</span> <span>D</span></label><div class="input-group"><input class="form-control" id="diameter" type="number" min="0.1" step="0.1" inputmode="decimal" aria-describedby="diameterHint diameterError"><span class="input-group-text">mm</span></div><p class="field-hint" id="diameterHint"></p><p class="field-error" id="diameterError"></p></div>
+                <div class="col-12 col-sm-4"><label for="cuttingSpeed" class="form-label">Cutting speed <span>Vc</span></label><div class="input-group"><input class="form-control" id="cuttingSpeed" type="number" min="0.1" step="any" inputmode="decimal" aria-describedby="vcHint vcError"><span class="input-group-text">m/min</span></div><p class="field-hint" id="vcHint"></p><p class="field-error" id="vcError"></p></div>
+                <div class="col-12 col-sm-4"><label for="feedPerRev" class="form-label">Feed per rev. <span>f</span></label><div class="input-group"><input class="form-control" id="feedPerRev" type="number" min="0" step="0.01" inputmode="decimal" aria-describedby="feedHint feedError"><span class="input-group-text">mm/rev</span></div><p class="field-hint" id="feedHint"></p><p class="field-error" id="feedError"></p></div>
+              </div>
+              <p class="calculation-message mb-0" id="calculationMessage" role="status"></p>
+              <p class="calculation-message mb-0" id="chamferMessage" role="status" hidden></p>
+            </fieldset>
+          </form>
+          <p class="preset-note mt-3 mb-0">Changing a selection restores its recommended cutting speed and feed. Changing the insert or angle also fits D to the modeled range.</p>
+          <!-- 點鑽與倒角共用型錄幾何，但分別呈現孔中心剖面與原始輪廓補正。 -->
+          <figure class="surface section-figure mt-4 mb-0" id="spottingFigure" hidden>
+            <div class="d-flex flex-wrap justify-content-between gap-2 mb-2"><h2 class="panel-title mb-0">Spotting section</h2><span class="field-hint m-0" id="spottingAngleLabel"></span></div>
+            <svg id="spottingDiagram" viewBox="0 0 720 410" role="img" aria-labelledby="spottingDiagramTitle spottingDiagramDescription"></svg>
+            <figcaption id="spottingCaption" class="field-hint mb-0"></figcaption>
+          </figure>
+          <figure class="surface section-figure mt-4 mb-0" id="chamferFigure" hidden>
+            <div class="d-flex flex-wrap justify-content-between gap-2 mb-2"><h2 class="panel-title mb-0">Chamfer section</h2><span class="field-hint m-0" id="diagramAngleLabel">90° insert · 45° face</span></div>
+            <svg id="chamferDiagram" viewBox="0 0 720 410" role="img" aria-labelledby="diagramTitle diagramDescription"></svg>
+            <figcaption id="diagramCaption" class="field-hint mb-0"></figcaption>
+          </figure>
+        </section>
+
+        <aside class="col-12 col-lg-5 align-self-stretch" aria-labelledby="resultTitle">
+          <div class="surface result-panel">
+            <div class="d-flex align-items-center justify-content-between gap-2 mb-4"><h2 id="resultTitle" class="panel-title mb-0">Cutting results</h2><span class="live-label"><span></span> Live calculation</span></div>
+            <section id="chamferSetup" class="chamfer-setup mb-4" aria-labelledby="compensationTitle" hidden>
+              <h3 id="compensationTitle" class="detail-label mb-2">G41 / G42 · full geometry compensation</h3>
+              <div class="geometry-values" aria-live="polite" aria-atomic="true">
+                <div><span class="output-label">Compensation R</span><div class="output-value"><strong id="compensationR">—</strong><span>mm</span></div></div>
+                <div><span class="output-label">Z target</span><div class="output-value"><strong id="zTarget">—</strong><span>mm</span></div></div>
+              </div>
+              <p class="field-hint mt-2 mb-0">If your control uses diameter: <strong id="compensationDiameter">—</strong></p>
+              <p class="field-hint mt-2 mb-0" id="compensationDatum"></p>
+              <p class="field-hint mt-2 mb-0" id="chamferDepthHint"></p>
+            </section>
+            <!-- 手機將同一組結果固定在底部，調整表單時仍可直接看見數據。 -->
+            <div class="key-results" aria-live="polite" aria-atomic="true">
+              <div><span class="output-label">Spindle speed</span><div class="output-value"><strong id="rpm">—</strong><span>rpm</span></div></div>
+              <div><span class="output-label">Feed rate</span><div class="output-value"><strong id="feedRate">—</strong><span>mm/min</span></div></div>
+            </div>
+            <div class="selected-insert mt-4"><span class="detail-label">Selected insert</span><strong id="insertModel">—</strong><p id="selectionSummary" class="mb-0"></p></div>
+            <dl class="result-specs row g-3 mt-1 mb-4">
+              <div class="col-6"><dt>Recommended grade</dt><dd id="grade">—</dd></div>
+              <div class="col-6"><dt>Max. diameter</dt><dd id="dmax">—</dd></div>
+              <div class="col-6"><dt id="depthLabel">Spotting depth</dt><dd id="spotDepth">—</dd></div>
+              <div class="col-6"><dt id="maxDepthLabel">Max. depth</dt><dd id="tmax">—</dd></div>
+            </dl>
+            <p class="field-hint mb-4" id="spottingZNote" hidden></p>
+            <button class="btn copy-button w-100" type="button" id="copyButton">
+              <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4 0a2 2 0 0 0-2 2v9h1V2a1 1 0 0 1 1-1h9V0z"/><path d="M6 3a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-1 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/></svg>
+              Copy cutting data
+            </button>
+            <p class="copy-feedback mb-0" id="copyFeedback" role="status"></p>
+            <details class="calculation-details mt-3"><summary>Calculation details</summary><div class="pt-3"><p>n = 1000 × Vc / (π × D)<br>Vf = n × f</p><p id="spottingFormula" hidden></p><p class="mb-0" id="peckNote"></p></div></details>
+            <details class="calculation-details mt-3" id="chamferDetails" hidden><summary>Compensation &amp; Z reference</summary><div class="pt-3">
+              <p id="geometryFormula"></p>
+              <p>XY follows the original contour at its original size. R is the tool-center distance to that contour, toward the free side. Apply this geometry offset only once.</p>
+              <p>Select G41 or G42 from travel direction and the free side. The D address selects an offset register; it is not the numerical radius shown here.</p>
+              <p>These are full geometry values, not CAM wear-only offsets. Z0 is the work surface; the selected tool length reference determines the negative Z target. Local straight-edge geometry does not verify corners, hole clearance, holders, or lead-in/out moves.</p>
+              <p class="mb-0">Sources: <a href="../../Products/AceSpotDrill/ACE-Spot-Drill-Catalog.pdf#page=6" target="_blank" rel="noopener">ACE catalog, pp. 16–23</a> · <a href="https://www.haascnc.com/service/codes-settings.type%3Dsetting.machine%3Dmill.value%3DS40.html" target="_blank" rel="noopener">Control radius/diameter setting</a></p>
+            </div></details>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <!-- 僅引用正式產品資料，計算器不維護第二份切削數據。 -->
+  <script src="../../Products/AceSpotDrill/product-dataV2.0.js"></script>
+  <script src="./chamfer-geometry.js?v=20261020"></script>
+  <script src="./app.js?v=20261020"></script>
+</body>
+</html>
