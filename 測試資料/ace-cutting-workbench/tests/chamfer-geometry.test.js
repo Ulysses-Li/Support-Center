@@ -1,7 +1,7 @@
 /* 以已知尺寸與剖面接觸點驗證補正／Z 配對，避免只比對程式內部公式。 */
 const { test } = require("node:test");
 const assert = require("node:assert/strict");
-const { ACE_CHAMFER_90, calculateChamfer } = require("../chamfer-geometry.js");
+const { ACE_CHAMFER_90, calculateChamfer, convertContactDiameter } = require("../chamfer-geometry.js");
 const close = (actual, expected) => assert.ok(Math.abs(actual - expected) < 1e-8, `${actual} != ${expected}`);
 const input = { size: "SI06", angle: 90, c: .5, diameter: 5.5, reference: "upper", datum: "actual" };
 
@@ -84,4 +84,33 @@ test("unsupported angles and sizes do not return numerical compensation", () => 
 test("large C reports catalog feed reduction threshold", () => {
   assert.equal(calculateChamfer({ ...input, c: 1 }).reduceFeed, false);
   assert.equal(calculateChamfer({ ...input, c: 1.01 }).reduceFeed, true);
+});
+
+test("C0.5 upper Ø5.5 converts to middle Ø5 / lower Ø4.5 and back", () => {
+  const middle = convertContactDiameter({ diameter: 5.5, c: .5, from: "upper", to: "middle" });
+  close(middle, 5);
+  const lower = convertContactDiameter({ diameter: middle, c: .5, from: "middle", to: "lower" });
+  close(lower, 4.5);
+  close(convertContactDiameter({ diameter: lower, c: .5, from: "lower", to: "upper" }), 5.5);
+});
+
+test("reference conversion preserves R and Z across all sizes and contact positions", () => {
+  for (const [size, g] of Object.entries(ACE_CHAMFER_90)) for (const c of [.5, g.maxC]) {
+    for (const from of ["upper", "middle", "lower"]) for (const to of ["upper", "middle", "lower"]) {
+      const originalDiameter = convertContactDiameter({ diameter: g.maxDiameter, c, from: "upper", to: from });
+      const changedDiameter = convertContactDiameter({ diameter: originalDiameter, c, from, to });
+      const original = calculateChamfer({ ...input, size, c, diameter: originalDiameter, reference: from });
+      const changed = calculateChamfer({ ...input, size, c, diameter: changedDiameter, reference: to });
+      assert.equal(original.valid, true);
+      assert.equal(changed.valid, true);
+      close(original.radius, changed.radius);
+      close(original.z, changed.z);
+    }
+  }
+});
+
+test("invalid diameter or C cannot be converted into a new apparently valid input", () => {
+  for (const change of [{ diameter: 0 }, { diameter: NaN }, { c: 0 }, { c: NaN }, { from: "unknown" }, { to: "unknown" }]) {
+    assert.ok(Number.isNaN(convertContactDiameter({ diameter: 5.5, c: .5, from: "upper", to: "lower", ...change })));
+  }
 });

@@ -12,6 +12,17 @@ const ACE_CHAMFER_90 = Object.freeze({
   SI20: { minDiameter: 4, maxDiameter: 19.5, tipCorrection: 1.16, maxDepth: 8.9, maxC: 7, reduceFeedAbove: 3 }
 });
 
+const CHAMFER_CONTACT_POSITIONS = Object.freeze({ upper: 1, middle: .5, lower: 0 });
+
+// 換直徑標示位置時保留同一組 R／Z：D新 = D舊 + 2C × (k新 − k舊)。
+// 不將原本無效的輸入夾限成合法值；交由既有驗證呈現錯誤。
+function convertContactDiameter({ diameter, c, from, to }) {
+  const previous = CHAMFER_CONTACT_POSITIONS[from];
+  const next = CHAMFER_CONTACT_POSITIONS[to];
+  if (!Number.isFinite(diameter) || diameter <= 0 || !Number.isFinite(c) || c <= 0 || previous === undefined || next === undefined) return NaN;
+  return diameter + 2 * c * (next - previous);
+}
+
 /**
  * 原始輪廓 x=0；材料在 x<0；工件頂面 z=0。90° 刀片切出 45° 等邊 C 角。
  * 刀心向自由側偏移 R，倒角下緣 (0,-C)，上緣 (-C,0)。
@@ -22,8 +33,7 @@ const ACE_CHAMFER_90 = Object.freeze({
  */
 function calculateChamfer({ size, angle, c, diameter, reference = "upper", datum = "actual" }) {
   const geometry = ACE_CHAMFER_90[size];
-  const positions = { upper: 1, middle: .5, lower: 0 };
-  const position = positions[reference];
+  const position = CHAMFER_CONTACT_POSITIONS[reference];
   const errors = [];
   if (Number(angle) !== 90 || !geometry) return { valid: false, errors: ["C-chamfer setup supports 90° ACE inserts (45° chamfer face)."], unsupported: true };
   if (!Number.isFinite(c) || c <= 0 || c > geometry.maxC) errors.push(`C must be above 0 and no greater than ${geometry.maxC} mm.`);
@@ -48,4 +58,4 @@ function calculateChamfer({ size, angle, c, diameter, reference = "upper", datum
 }
 
 // 同一個純函式供瀏覽器與 Node 幾何測試使用，不需模擬 DOM。
-if (typeof module !== "undefined") module.exports = { ACE_CHAMFER_90, calculateChamfer };
+if (typeof module !== "undefined") module.exports = { ACE_CHAMFER_90, calculateChamfer, convertContactDiameter };

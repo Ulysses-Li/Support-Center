@@ -4,6 +4,7 @@ const fields = Object.fromEntries(["operation", "material", "insertSize", "angle
 const isoGroups = { carbonLow: "P", carbonHigh: "P", lowAlloy: "P", highAlloy: "P", stainless: "M", castIron: "K", nonFerrous: "N" };
 const operations = PRODUCT_PAGE_DATA.cuttingData.operations;
 let copyText = "";
+let previousContactReference = $("contactReference").value;
 
 // 用 SVG 原生幾何呈現局部直邊剖面；不以圖形比例推算數字，所有尺寸由純函式提供。
 function renderChamferDiagram(result) {
@@ -208,7 +209,21 @@ fields.operation.addEventListener("change", () => { refreshOptions(); resetValue
 fields.insertSize.addEventListener("change", () => { refreshOptions(); resetValues(); });
 [fields.material, fields.angle].forEach(field => field.addEventListener("change", () => resetValues({ resetDiameter: false })));
 [fields.diameter, fields.cuttingSpeed, fields.feedPerRev].forEach(field => field.addEventListener("input", renderResults));
-["chamferC", "contactReference", "zDatum"].forEach(id => $(id).addEventListener(id === "chamferC" ? "input" : "change", renderResults));
+["chamferC", "zDatum"].forEach(id => $(id).addEventListener(id === "chamferC" ? "input" : "change", renderResults));
+$("contactReference").addEventListener("change", () => {
+  const nextReference = $("contactReference").value;
+  const { operation, angle } = selection();
+  if (operation.id === "chamfering" && angle === "90") {
+    const diameter = convertContactDiameter({
+      diameter: Number(fields.diameter.value), c: Number($("chamferC").value),
+      from: previousContactReference, to: nextReference
+    });
+    // 先同步數字輸入，再由同一輪 render 更新滑桿、剖面、轉速進給與複製內容。
+    if (Number.isFinite(diameter)) fields.diameter.value = numberText(diameter, 10);
+  }
+  previousContactReference = nextReference;
+  renderResults();
+});
 $("contactDiameterRange").addEventListener("input", () => { fields.diameter.value = $("contactDiameterRange").value; renderResults(); });
 $("resetButton").addEventListener("click", () => resetValues());
 $("copyButton").addEventListener("click", async () => {
