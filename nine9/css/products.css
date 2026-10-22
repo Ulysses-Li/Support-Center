@@ -1346,30 +1346,31 @@ body {
   .catalog-intro {
     min-height: 108px;
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
     margin-bottom: 20px;
     padding: 19px 17px;
     border: 0;
   }
 
   .catalog-eyebrow {
-    max-width: 145px;
+    max-width: none;
     margin-bottom: 5px;
   }
 
   .catalog-intro h1 {
-    font-size: 40px;
+    font-size: clamp(32px, 8vw, 40px);
+    line-height: 1.1;
   }
 
-  /* 數量標籤固定在右上角，避免與 Products 標題互相擠壓。 */
+  /* 長標題改用自然換行；分類數量放在下方，避免手機上遮住文字。 */
   .family-count {
-    position: absolute;
-    top: 19px;
-    right: 17px;
-    max-width: calc(100% - 190px);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    position: static;
+    max-width: 100%;
+    overflow: visible;
+    white-space: normal;
   }
 
   /* 手機版使用單欄手風琴，左側橘線取代桌面雙色線。 */

@@ -59,7 +59,7 @@ const PRODUCT_FAMILIES = [
   },
 
   {
-    title: "NC Helix Drill",
+    title: "Helical Drilling",
     image: "../img/helix.png",
     href: "../Machining/NC_Helix_Drill/index.html",
     products: [

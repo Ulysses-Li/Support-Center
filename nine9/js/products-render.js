@@ -110,7 +110,7 @@ function renderProductsCards() {
                 <!-- 分類編號協助使用者快速辨識十二個加工家族。 -->
                 <span class="family-number">
 
-                  FAMILY ${String(index + 1).padStart(2, "0")}
+                  APPLICATION ${String(index + 1).padStart(2, "0")}
 
                 </span>
 
