@@ -45,7 +45,8 @@ const HELIX_DIAGRAMS = (() => {
     const { diameter, dc } = input;
     const progress = clampProgress(input.progress);
     const turns = finite(input.turns) && input.turns > 0 ? input.turns : 1;
-    const angle = Math.PI * 2 * ((turns * progress) % 1);
+    // SVG 的 Y 軸朝下，使用負角度讓俯視刀具中心依逆時針方向公轉。
+    const angle = -Math.PI * 2 * ((turns * progress) % 1);
     const cx = 250, cy = 145, holeRadius = 90;
     const radius = (diameter - dc) / 2, cutterRatio = dc / diameter;
     const orbitRadius = holeRadius * (1 - cutterRatio), cutterRadius = holeRadius * cutterRatio;
@@ -53,7 +54,7 @@ const HELIX_DIAGRAMS = (() => {
     // 只示意刀具中心公轉；刃口符號保持固定，不把公轉速度冒充主軸自轉。
     const cutterRotation = 0;
     const rightOrbit = cx + orbitRadius;
-    return frame(id, "Helical milling top view", `Hole diameter ${textNumber(diameter)} mm. Cutter diameter ${textNumber(dc)} mm. The cutter center follows a circular path with radius ${textNumber(radius)} mm.`, `${definitions(id)}
+    return frame(id, "Counterclockwise helical milling top view", `Hole diameter ${textNumber(diameter)} mm. Cutter diameter ${textNumber(dc)} mm. The cutter center follows a counterclockwise circular path with radius ${textNumber(radius)} mm.`, `${definitions(id)}
       <path d="M140 145a110 110 0 1 0 220 0a110 110 0 1 0-220 0M160 145a90 90 0 1 1 180 0a90 90 0 1 1-180 0" fill="url(#${id}Hatch)" fill-rule="evenodd" stroke="${color.line}"/>
       <circle cx="${cx}" cy="${cy}" r="${holeRadius}" fill="#f5fbff" stroke="${color.blue}" stroke-width="1.5"/>
       <path d="M160 55V25m180 30V25M160 29H340" fill="none" stroke="${color.blue}" stroke-width="1" marker-start="none"/>

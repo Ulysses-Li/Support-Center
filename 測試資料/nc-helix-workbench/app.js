@@ -64,7 +64,7 @@
     const diagramValues = {diameter: canShow ? values.diameter : NaN, dc: currentTool?.dc, depth: values.depth, actualPitch: canAnimate ? result.actualPitch : NaN, turns: canAnimate ? result.turns : NaN, progress: num("progress")};
     $("diagramCanvas").innerHTML = state.view === "top" ? HELIX_DIAGRAMS.renderTop(diagramValues) : HELIX_DIAGRAMS.renderSection(diagramValues);
     $("motionLegend").hidden = state.view === "top";
-    $("diagramCaption").textContent = state.view === "top" ? "D / Dc shown to scale. R is the center-path radius. Spindle rotation is not animated." : "Helical-motion schematic. Holder length and bottom finishing are not shown.";
+    $("diagramCaption").textContent = state.view === "top" ? "Center orbit · CCW (counterclockwise). D / Dc shown to scale; cutter orientation is schematic." : "Helical-motion schematic. Holder length and bottom finishing are not shown.";
     $("motionPosition").textContent = canAnimate ? `· Z ${textNumber(-values.depth * num("progress") / 100)} mm` : "";
     $("progress").disabled = !canAnimate;
     $("playButton").disabled = $("progress").disabled;
