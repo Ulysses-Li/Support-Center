@@ -18,13 +18,20 @@
     // Vc/grade 由該刀具原表取值，保留不同刀具尺寸的差異。
     return tool?.table?.[0]?.values?.[$("material").value];
   }
+  function presetSource(preset) {
+    if (!preset) return "Manual values; no catalog interval is available.";
+    return preset.kind === "estimated"
+      ? `Linear estimate between Ø${textNumber(preset.bounds[0])} and Ø${textNumber(preset.bounds[1])} mm catalog columns.`
+      : `Catalog Ø${textNumber(preset.diameter)} mm column.`;
+  }
   function applyPresets() {
     currentTool = selectedTool();
-    const row = currentTool && HELIX_CORE.getCatalogPresets(currentTool, $("material").value, num("holeDiameter"));
+    const row = currentTool && HELIX_CORE.getSuggestedPresets(currentTool, $("material").value, num("holeDiameter"));
     const values = catalogValue(currentTool);
     $("vc").value = values?.vc?.[currentTool?.series] ?? "";
-    $("fz").value = row?.fz ?? "";
-    $("pitch").value = row?.pitches?.[Number($("power").value)] ?? "";
+    // 保留足夠輸入精度，避免線性計算的浮點尾數直接出現在欄位。
+    $("fz").value = row ? textNumber(row.fz, 6) : "";
+    $("pitch").value = row ? textNumber(row.pitches[Number($("power").value)], 6) : "";
     state.custom = false;
   }
 
@@ -67,7 +74,7 @@
   function renderResults() {
     currentTool = selectedTool();
     const values = input(), mat = material(), catalog = catalogValue(currentTool);
-    const row = currentTool && HELIX_CORE.getCatalogPresets(currentTool, $("material").value, values.diameter);
+    const row = currentTool && HELIX_CORE.getSuggestedPresets(currentTool, $("material").value, values.diameter);
     const result = HELIX_CORE.calculate({...values, dc: currentTool?.dc, vc: num("vc"), fz: num("fz"), pitch: num("pitch"), teeth: num("teeth"), rampMax: currentTool?.rampMax, maxPitch: currentTool?.maxPitch, dmin: currentTool?.dmin, dmax: currentTool?.dmax, maxDepth: currentTool?.maxDepth});
     currentResult = result;
     const toolFits = currentTool && candidates.some(tool => tool.id === currentTool.id);
@@ -77,7 +84,8 @@
     $("copyFeedback").textContent = "";
     $("selectedPart").textContent = currentTool?.id || "Choose your cutter";
     $("selectedContext").textContent = currentTool ? `Cutter Ø${textNumber(currentTool.dc)} · ${mat?.label || ""} · ${catalog?.grade || ""}` : "Start with the hole requirements and select a listed cutter.";
-    $("resultStatus").textContent = valid ? "Live calculation" : "Check conditions";
+    $("resultStatus").textContent = valid ? row?.kind === "estimated" && !state.custom ? "Estimated setup" : "Live calculation" : "Check conditions";
+    $("resultStatus").dataset.estimated = String(valid && row?.kind === "estimated" && !state.custom);
     $("spindleResult").textContent = valid ? result.spindle.toLocaleString("en-US") : "—";
     $("feedResult").textContent = valid ? result.feed.toLocaleString("en-US", {maximumFractionDigits: 1}) : "—";
     $("mobileGeometry").textContent = toolFits ? `R ${textNumber(result.radius)} · Z ${textNumber(result.zTarget)} mm` : "Choose a matching cutter";
@@ -89,8 +97,11 @@
     $("turnsResult").textContent = toolFits ? textNumber(result.turns, 0) : "—";
     $("distributionNote").textContent = toolFits && result.turns ? `${textNumber(values.depth)} mm distributed over ${result.turns} complete ${result.turns === 1 ? "orbit" : "orbits"}.` : "Choose valid hole and Pitch values to see the helical motion.";
     $("rampResult").textContent = toolFits && result.rampAngle ? `${textNumber(result.rampAngle, 2)}° ramp` : "";
-    $("presetNote").textContent = !currentTool ? "Choose a cutter first." : row ? `${state.custom ? "Custom values" : "Catalog starting values"} · Ø${textNumber(row.diameter)} column` : state.custom && valid ? "Custom values · no catalog interpolation" : "No fz / Pitch entry for this diameter. Enter your setup values.";
+    const estimated = row?.kind === "estimated";
+    const referenceLabel = row ? estimated ? `Ø${textNumber(row.bounds[0])}–${textNumber(row.bounds[1])} mm` : `Ø${textNumber(row.diameter)} column` : "";
+    $("presetNote").textContent = !currentTool ? "Choose a cutter first." : row ? `${state.custom ? "Custom values" : estimated ? "Estimated starting values" : "Catalog starting values"} · ${referenceLabel}` : state.custom && valid ? "Custom values · manual setup" : "No catalog interval for this diameter. Enter your setup values.";
     $("presetNote").dataset.manual = String(state.custom || !row);
+    $("presetNote").dataset.estimated = String(estimated);
     $("restoreButton").disabled = !row;
     $("materialBadge").textContent = mat?.iso || "";
     $("materialBadge").style.backgroundColor = mat?.color || "#0067ad";
@@ -109,8 +120,8 @@
       $(id).setAttribute("aria-invalid", String(Boolean(condition)));
     }
     $("formulaText").textContent = "R = (D − Dc) / 2 · n = 1000 × Vc / (π × Dc) · F = n × fz × z. F uses the rounded spindle speed shown above.";
-    $("catalogText").textContent = `${HELIX_DATA.source.title}. Checked ${HELIX_DATA.source.checked}. ${row ? `fz / Pitch from the exact Ø${row.diameter} column.` : "No interpolation is applied between catalog diameters."} Active teeth z = ${textNumber(num("teeth"), 0)} must match your assembly.`;
-    copyText = valid ? ["NC Helix Drill | Single-hole setup", `Cutter: ${currentTool.id} | Dc ${currentTool.dc} mm`, `Insert: ${currentTool.insert} | Table grade: ${catalog?.grade}`, `Hole D ${values.diameter} mm | Tool-tip depth L ${values.depth} mm`, `Material: ${mat.label} | ${$("coolant").selectedOptions[0].textContent}`, `Vc ${num("vc")} m/min | fz ${num("fz")} mm/tooth | Active teeth ${num("teeth")}`, `Spindle ${result.spindle} rpm | Feed ${textNumber(result.feed, 2)} mm/min`, `Input P ${num("pitch")} mm/orbit | Actual P ${textNumber(result.actualPitch, 4)} mm/orbit | ${result.turns} complete orbits`, `Center-path R ${textNumber(result.radius)} mm | Tool-tip Z ${textNumber(result.zTarget)} mm (work surface Z0)`, `Ramp ${textNumber(result.rampAngle, 3)}°`, "Confirm holder reach, active teeth, bottom strategy and controller settings.", new URL(currentTool.sourceUrl, location.href).href].join("\n") : "";
+    $("catalogText").textContent = `${HELIX_DATA.source.title}. Checked ${HELIX_DATA.source.checked}. ${presetSource(row)} ${estimated ? "fz and Pitch are estimated starting values; verify them for your setup. " : ""}${state.custom ? "Input values have been adjusted. " : ""}Active teeth z = ${textNumber(num("teeth"), 0)} must match your assembly.`;
+    copyText = valid ? ["NC Helix Drill | Single-hole setup", `Cutter: ${currentTool.id} | Dc ${currentTool.dc} mm`, `Insert: ${currentTool.insert} | Table grade: ${catalog?.grade}`, `Hole D ${values.diameter} mm | Tool-tip depth L ${values.depth} mm`, `Material: ${mat.label} | ${$("coolant").selectedOptions[0].textContent}`, `Cutting-value basis: ${state.custom ? "Custom inputs. Reference: " : ""}${presetSource(row)}`, `Vc ${num("vc")} m/min | fz ${num("fz")} mm/tooth | Active teeth ${num("teeth")}`, `Spindle ${result.spindle} rpm | Feed ${textNumber(result.feed, 2)} mm/min`, `Input P ${num("pitch")} mm/orbit | Actual P ${textNumber(result.actualPitch, 4)} mm/orbit | ${result.turns} complete orbits`, `Center-path R ${textNumber(result.radius)} mm | Tool-tip Z ${textNumber(result.zTarget)} mm (work surface Z0)`, `Ramp ${textNumber(result.rampAngle, 3)}°`, "Confirm holder reach, active teeth, bottom strategy and controller settings.", new URL(currentTool.sourceUrl, location.href).href].join("\n") : "";
     renderDiagram();
   }
 

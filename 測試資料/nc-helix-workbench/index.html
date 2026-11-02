@@ -60,7 +60,7 @@
                 <div class="col-12 col-sm-4"><label class="form-label" for="fz">Feed per tooth <span>fz</span></label><div class="input-group"><input class="form-control" id="fz" type="number" min="0.001" step="0.01" inputmode="decimal"><span class="input-group-text">mm/tooth</span></div></div>
                 <div class="col-12 col-sm-4"><label class="form-label" for="pitch">Drop per orbit <span>P</span></label><div class="input-group"><input class="form-control" id="pitch" type="number" min="0.01" step="0.1" inputmode="decimal"><span class="input-group-text">mm</span></div></div>
               </div>
-              <div class="preset-row d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3"><span class="preset-note" id="presetNote"></span><button type="button" class="btn restore-link" id="restoreButton">Restore catalog values</button></div>
+              <div class="preset-row d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3"><span class="preset-note" id="presetNote" role="status"></span><button type="button" class="btn restore-link" id="restoreButton">Restore suggested values</button></div>
               <p class="field-hint mb-0">fz is in mm/tooth. Confirm the number of active teeth for your assembled cutter.</p>
             </fieldset>
             <div class="calculation-message" id="validationMessage" role="status" hidden></div>

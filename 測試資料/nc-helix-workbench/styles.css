@@ -52,10 +52,12 @@ body { color: var(--helix-ink); font: 16px Arial, "Microsoft JhengHei", sans-ser
 .empty-note { margin: 0; }
 .calculation-message { margin-top: 24px; }
 .preset-note { max-width: 330px; }
-.preset-note[data-manual="true"] { color: #986022; }
+.preset-note[data-manual="true"],.preset-note[data-estimated="true"] { color: #986022; }
 .results-panel { border-top: 3px solid var(--helix-blue); }
 .live-label { color: var(--helix-muted); font-size: 14px; white-space: nowrap; }
 .live-label::before { display: inline-block; content: ""; width: 6px; height: 6px; margin-right: 6px; vertical-align: 2px; background: var(--helix-blue); border-radius: 50%; }
+.live-label[data-estimated="true"] { color: #986022; }
+.live-label[data-estimated="true"]::before { background: #b97623; }
 .result-part { font-size: 23px; font-weight: 750; letter-spacing: -.03em; overflow-wrap: anywhere; }
 .result-context { color: var(--helix-muted); font-size: 14px; line-height: 1.5; }
 .speed-results,.geometry-results { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 17px; border-radius: 10px; }

@@ -1,5 +1,6 @@
 /* NC Helix 一般單孔樣板：幾何、選刀與轉速／進給共用核心。
- * 不替未列孔徑插值，不輸出 NC；Z0 為工件面，深度指刀尖的幾何位置。
+ * 原表查詢與明確標示的區間估算分開提供；不輸出 NC。
+ * Z0 為工件面，深度指刀尖的幾何位置。
  */
 const HELIX_CORE = (() => {
   "use strict";
@@ -28,12 +29,47 @@ const HELIX_CORE = (() => {
   function getCatalogPresets(tool, materialId, diameter) {
     const d = number(diameter);
     if (!positive(d) || !tool || !Array.isArray(tool.table)) return null;
-    // 僅命中原表明列孔徑；中間尺寸由使用者自行輸入切削條件。
+    // 原表查詢僅回傳明列孔徑；區間估算另由 getSuggestedPresets 處理。
     const row = tool.table.find(item => Math.abs(number(item.diameter) - d) <= EPSILON);
     const preset = row?.values?.[materialId];
     if (!preset || !positive(number(preset.fz)) || !Array.isArray(preset.pitches)
         || preset.pitches.length !== 3 || !preset.pitches.every(value => positive(number(value)))) return null;
     return { diameter: number(row.diameter), fz: number(preset.fz), pitches: preset.pitches.map(number) };
+  }
+
+  function getSuggestedPresets(tool, materialId, diameter) {
+    const d = number(diameter);
+    if (!positive(d) || !tool || !Array.isArray(tool.table) || !tool.table.length) return null;
+    // 若有刀具範圍資料，原表命中與區間估算都必須先符合範圍。
+    for (const key of ["dmin", "dmax", "dc"]) {
+      if (tool[key] !== undefined && !positive(number(tool[key]))) return null;
+    }
+    const min = number(tool.dmin), max = number(tool.dmax), dc = number(tool.dc);
+    if ((positive(min) && d < min - EPSILON) || (positive(max) && d > max + EPSILON)
+        || (positive(dc) && d <= dc) || (positive(min) && positive(max) && min > max)) return null;
+
+    // 先依全部原表節點排序，保留材料缺值節點，避免跨過缺資料的尺寸。
+    const rows = [...tool.table];
+    if (rows.some(row => !row || !positive(number(row.diameter)))) return null;
+    rows.sort((a, b) => number(a.diameter) - number(b.diameter));
+    if (rows.some((row, index) => index > 0 && number(row.diameter) - number(rows[index - 1].diameter) <= EPSILON)) return null;
+    const exact = rows.find(row => Math.abs(number(row.diameter) - d) <= EPSILON);
+    if (exact) {
+      const preset = getCatalogPresets(tool, materialId, d);
+      return preset ? { ...preset, kind: "catalog", bounds: [preset.diameter, preset.diameter] } : null;
+    }
+    const upperIndex = rows.findIndex(row => number(row.diameter) > d);
+    if (upperIndex <= 0) return null; // 不外推至原表首末節點以外。
+    const lower = getCatalogPresets(tool, materialId, rows[upperIndex - 1].diameter);
+    const upper = getCatalogPresets(tool, materialId, rows[upperIndex].diameter);
+    if (!lower || !upper) return null;
+
+    // 線性估算是本樣板的操作選擇，未宣稱官方核准此插值方法；顯示端必須保留 estimated 標示。
+    const ratio = (d - lower.diameter) / (upper.diameter - lower.diameter);
+    const fz = lower.fz + (upper.fz - lower.fz) * ratio;
+    const pitches = lower.pitches.map((value, index) => value + (upper.pitches[index] - value) * ratio);
+    if (!positive(fz) || !pitches.every(positive)) return null;
+    return { diameter: d, fz, pitches, kind: "estimated", bounds: [lower.diameter, upper.diameter] };
   }
 
   function calculate(input = {}) {
@@ -116,7 +152,7 @@ const HELIX_CORE = (() => {
     return result;
   }
 
-  return { getCandidates, getCatalogPresets, calculate };
+  return { getCandidates, getCatalogPresets, getSuggestedPresets, calculate };
 })();
 
 if (typeof module !== "undefined") module.exports = HELIX_CORE;

@@ -1,7 +1,7 @@
 /* 以獨立尺寸與型錄列驗證單孔幾何，不沿用舊程式的假設資料。 */
 const { test } = require("node:test");
 const assert = require("node:assert/strict");
-const { getCandidates, getCatalogPresets, calculate } = require("../core.js");
+const { getCandidates, getCatalogPresets, getSuggestedPresets, calculate } = require("../core.js");
 const input = { diameter: 20, depth: 20, dc: 13, pitch: 2, vc: 120, fz: .065, teeth: 2, rampMax: 20, dmin: 15, dmax: 25, maxDepth: 36 };
 const close = (actual, expected, tolerance = 1e-6) => assert.ok(Math.abs(actual - expected) <= tolerance, `${actual} != ${expected}`);
 
@@ -104,4 +104,87 @@ test("catalog presets only match explicitly listed sizes and return a detached p
   assert.equal(getCatalogPresets(tool, "carbon025", 20.01), null);
   assert.equal(getCatalogPresets(tool, "unknown", 20), null);
   assert.equal(getCatalogPresets(tool, "carbon025", ""), null);
+});
+
+// 故意使用未排序的節點，驗證只取真正相鄰兩列，且不修改原始資料。
+const estimateFixture = () => ({
+  dc: 13, dmin: 15, dmax: 25,
+  table: [
+    { diameter: 25, values: { carbon025: { fz: .09, pitches: [1.8, 2.4, 3] } } },
+    { diameter: 15, values: { carbon025: { fz: .035, pitches: [1.2, 1.6, 2] } } },
+    { diameter: 20, values: { carbon025: { fz: .065, pitches: [1.5, 2, 2.5] } } }
+  ]
+});
+
+test("Ø18 estimates between adjacent Ø15 and Ø20 rows while exact presets remain unchanged", () => {
+  const tool = estimateFixture();
+  const estimated = getSuggestedPresets(tool, "carbon025", 18);
+  assert.equal(estimated.kind, "estimated");
+  assert.equal(estimated.diameter, 18);
+  assert.deepEqual(estimated.bounds, [15, 20]);
+  close(estimated.fz, .053);
+  [1.38, 1.84, 2.3].forEach((value, index) => close(estimated.pitches[index], value));
+  assert.equal(getCatalogPresets(tool, "carbon025", 18), null);
+  assert.deepEqual(getSuggestedPresets(tool, "carbon025", 15), {
+    diameter: 15, fz: .035, pitches: [1.2, 1.6, 2], kind: "catalog", bounds: [15, 15]
+  });
+  assert.deepEqual(getSuggestedPresets(tool, "carbon025", 20), {
+    diameter: 20, fz: .065, pitches: [1.5, 2, 2.5], kind: "catalog", bounds: [20, 20]
+  });
+});
+
+test("suggestions reject extrapolation, invalid inputs and tool diameter/range violations", () => {
+  const tool = estimateFixture();
+  for (const d of [14.9, 25.1, "", " ", null, false, NaN, Infinity, -1, 0]) {
+    assert.equal(getSuggestedPresets(tool, "carbon025", d), null, `diameter=${String(d)}`);
+  }
+  assert.equal(getSuggestedPresets({ ...tool, dmin: 13, dmax: 30, dc: 11 }, "carbon025", 14), null);
+  assert.equal(getSuggestedPresets({ ...tool, dmin: 13, dmax: 30, dc: 11 }, "carbon025", 26), null);
+  assert.equal(getSuggestedPresets({ ...tool, dc: 18 }, "carbon025", 18), null);
+  assert.equal(getSuggestedPresets({ ...tool, dmin: 19 }, "carbon025", 18), null);
+  assert.equal(getSuggestedPresets({ ...tool, dmax: 17 }, "carbon025", 18), null);
+  for (const metadata of [{ dc: null }, { dmin: NaN }, { dmax: Infinity }, { dmin: 25, dmax: 15 }]) {
+    assert.equal(getSuggestedPresets({ ...tool, ...metadata }, "carbon025", 18), null);
+  }
+  assert.equal(getSuggestedPresets({}, "carbon025", 18), null);
+  assert.equal(getSuggestedPresets(null, "carbon025", 18), null);
+  assert.equal(getSuggestedPresets({ table: [] }, "carbon025", 18), null);
+});
+
+test("missing or invalid material rows stop estimates instead of being skipped", () => {
+  const tool = estimateFixture();
+  tool.table.find(row => row.diameter === 20).values = { otherMaterial: { fz: .08, pitches: [1, 2, 3] } };
+  for (const d of [18, 20, 22]) assert.equal(getSuggestedPresets(tool, "carbon025", d), null);
+  assert.equal(getSuggestedPresets(estimateFixture(), "unknown", 18), null);
+  for (const invalid of [{ fz: 0, pitches: [1, 2, 3] }, { fz: .1, pitches: [1, 2] }, { fz: .1, pitches: [1, -2, 3] }, { fz: Infinity, pitches: [1, 2, 3] }]) {
+    const damaged = estimateFixture();
+    damaged.table.find(row => row.diameter === 20).values.carbon025 = invalid;
+    assert.equal(getSuggestedPresets(damaged, "carbon025", 18), null);
+    assert.equal(getSuggestedPresets(damaged, "carbon025", 22), null);
+  }
+});
+
+test("suggestions preserve source order and nested arrays, including after returned values are edited", () => {
+  const tool = estimateFixture();
+  const before = JSON.stringify(tool);
+  const estimate = getSuggestedPresets(tool, "carbon025", 18);
+  estimate.pitches[0] = 999;
+  estimate.bounds[0] = 999;
+  const exact = getSuggestedPresets(tool, "carbon025", 20);
+  exact.pitches[0] = 999;
+  exact.bounds[0] = 999;
+  assert.equal(JSON.stringify(tool), before);
+  assert.equal(tool.table[0].diameter, 25);
+  close(getSuggestedPresets(tool, "carbon025", 18).pitches[0], 1.38);
+  assert.equal(getSuggestedPresets(tool, "carbon025", 20).pitches[0], 1.5);
+});
+
+test("Ø18 fixture agrees with the actual 012-1525 carbon025 source rows", () => {
+  const data = require("../data.js");
+  const tool = data.tools.find(item => item.id === "99321-012-1525");
+  const estimate = getSuggestedPresets(tool, "carbon025", 18);
+  assert.equal(estimate.kind, "estimated");
+  assert.deepEqual(estimate.bounds, [15, 20]);
+  close(estimate.fz, .053);
+  [1.38, 1.84, 2.3].forEach((value, index) => close(estimate.pitches[index], value));
 });
