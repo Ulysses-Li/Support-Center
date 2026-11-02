@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NC Helix Drill | Hole Setup Preview</title>
+  <link rel="icon" href="../../favicon.png">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../header/header.css">
+  <link rel="stylesheet" href="../../footer/footer.css">
+  <link rel="stylesheet" href="../../css/site-background.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./data.js" defer></script>
+  <script src="./core.js" defer></script>
+  <script src="./diagrams.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <div id="header-placeholder"></div>
+  <main class="helix-page flex-grow-1">
+    <div class="container helix-container">
+      <nav aria-label="Breadcrumb" class="mb-4"><ol class="breadcrumb mb-0"><li class="breadcrumb-item"><a href="../../CuttingData/index.html">Cutting Data</a></li><li class="breadcrumb-item active" aria-current="page">NC Helix Drill</li></ol></nav>
+      <header class="product-heading d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+        <div class="d-flex align-items-center gap-3"><div class="product-icon"><img src="../../img/helix.png" alt="" width="56" height="56"></div><div><p class="eyebrow mb-1">NC HELIX DRILL · HOLE SETUP</p><h1 class="mb-2">Build your hole setup.</h1><p class="heading-description mb-0">Choose a cutter. Understand the motion. Get your cutting values.</p></div></div>
+        <div class="d-flex flex-wrap align-items-center gap-3"><span class="preview-label">DESIGN PREVIEW</span><a class="btn source-link" id="sourceLink" target="_blank" rel="noopener">Source tables ↗</a></div>
+      </header>
+
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <form class="surface conditions-panel" id="setupForm" novalidate>
+            <div class="d-flex align-items-center justify-content-between gap-3 mb-3"><h2 class="panel-title mb-0">Machining conditions</h2><button type="button" class="btn reset-link" id="resetButton">Reset setup</button></div>
+            <div class="mode-switch mb-4" role="group" aria-label="Start your setup"><button type="button" data-mode="hole" aria-pressed="true">Find a cutter</button><button type="button" data-mode="tool" aria-pressed="false">I have a cutter</button></div>
+
+            <!-- 先定義孔需求，再篩選刀具；既有刀具模式保留不符合條件的說明。 -->
+            <fieldset class="condition-group"><legend><span class="step-number">01</span> Define the hole <span class="operation-label">Single hole</span></legend>
+              <div class="row g-3">
+                <div class="col-6"><label class="form-label" for="holeDiameter">Hole diameter <span>D</span></label><div class="input-group"><input class="form-control" id="holeDiameter" type="number" min="0.1" step="0.1" value="20" inputmode="decimal"><span class="input-group-text">mm</span></div></div>
+                <div class="col-6"><label class="form-label" for="holeDepth">Tool-tip depth <span>L</span></label><div class="input-group"><input class="form-control" id="holeDepth" type="number" min="0.1" step="0.1" value="20" inputmode="decimal"><span class="input-group-text">mm</span></div></div>
+                <div class="col-12 col-sm-7"><label class="form-label" for="material">Workpiece material</label><div class="material-control"><span class="material-badge" id="materialBadge" aria-hidden="true">P</span><select class="form-select" id="material"></select></div></div>
+                <div class="col-12 col-sm-5"><label class="form-label" for="coolant">Coolant available</label><select class="form-select" id="coolant"><option value="internal">Through coolant</option><option value="external">External coolant</option></select></div>
+              </div>
+              <p class="field-hint mb-0">Work surface Z0 → programmed tool-tip depth. Breakthrough travel is a separate setup decision.</p>
+            </fieldset>
+
+            <fieldset class="condition-group"><legend><span class="step-number">02</span> Choose a cutter <span class="match-count" id="candidateCount"></span></legend>
+              <div id="ownedToolField" class="mb-3" hidden><label class="form-label" for="ownedTool">Your cutter part number</label><select class="form-select" id="ownedTool"></select></div>
+              <div class="candidate-grid" id="candidateList"></div>
+              <p class="empty-note" id="candidateEmpty" hidden>No listed cutter fits this diameter, depth and coolant combination. Adjust the hole requirements.</p>
+              <div class="selected-tool-note mt-3" id="toolNote"></div>
+            </fieldset>
+
+            <fieldset class="condition-group mb-0"><legend><span class="step-number">03</span> Set cutting values</legend>
+              <div class="row g-3 align-items-end mb-3">
+                <div class="col-12 col-sm-7"><label class="form-label" for="power">Spindle power · selects catalog Pitch</label><select class="form-select" id="power"><option value="0">&lt; 12 kW · Lower Pitch</option><option value="1">12–20 kW · Medium Pitch</option><option value="2">&gt; 20 kW · Higher Pitch</option></select></div>
+                <div class="col-12 col-sm-5"><label class="form-label" for="teeth">Active teeth <span>z · confirm</span></label><input class="form-control" id="teeth" type="number" min="1" step="1" value="2"></div>
+              </div>
+              <div class="row g-3">
+                <div class="col-12 col-sm-4"><label class="form-label" for="vc">Cutting speed <span>Vc</span></label><div class="input-group"><input class="form-control" id="vc" type="number" min="1" step="1" inputmode="decimal"><span class="input-group-text">m/min</span></div></div>
+                <div class="col-12 col-sm-4"><label class="form-label" for="fz">Feed per tooth <span>fz</span></label><div class="input-group"><input class="form-control" id="fz" type="number" min="0.001" step="0.01" inputmode="decimal"><span class="input-group-text">mm/tooth</span></div></div>
+                <div class="col-12 col-sm-4"><label class="form-label" for="pitch">Drop per orbit <span>P</span></label><div class="input-group"><input class="form-control" id="pitch" type="number" min="0.01" step="0.1" inputmode="decimal"><span class="input-group-text">mm</span></div></div>
+              </div>
+              <div class="preset-row d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3"><span class="preset-note" id="presetNote"></span><button type="button" class="btn restore-link" id="restoreButton">Restore catalog values</button></div>
+              <p class="field-hint mb-0">fz is in mm/tooth. Confirm the number of active teeth for your assembled cutter.</p>
+            </fieldset>
+            <div class="calculation-message" id="validationMessage" role="status" hidden></div>
+          </form>
+          <p class="scope-note mt-3 mb-0">Catalog hole-depth limits are screening values. Confirm holder reach, overhang and coolant before use.</p>
+        </div>
+
+        <aside class="col-12 col-lg-5" aria-labelledby="resultTitle">
+          <section class="surface results-panel">
+            <div class="d-flex align-items-center justify-content-between gap-2 mb-3"><h2 id="resultTitle" class="panel-title mb-0">Your machining setup</h2><span class="live-label" id="resultStatus">Live calculation</span></div>
+            <p class="result-part mb-1" id="selectedPart">—</p><p class="result-context mb-3" id="selectedContext"></p>
+            <div class="speed-results"><div><span>Spindle speed</span><p><strong id="spindleResult">—</strong> <small>rpm</small></p></div><div><span>Feed rate</span><p><strong id="feedResult">—</strong> <small>mm/min</small></p></div></div>
+            <div class="geometry-results mt-3"><div><span>Center-path radius R</span><p><strong id="radiusResult">—</strong> <small>mm</small></p></div><div><span>Tool-tip target Z</span><p><strong id="zResult">—</strong> <small>mm</small></p></div></div>
+            <div class="orbit-summary mt-3"><div><span>Input P</span><strong id="inputPitchResult">—</strong></div><div><span>Actual P</span><strong id="actualPitchResult">—</strong></div><div><span>Orbits</span><strong id="turnsResult">—</strong></div></div>
+            <p class="distribution-note mt-2 mb-0" id="distributionNote"></p>
+
+            <!-- 兩個視圖共用同一份幾何；進度只改示意刀位，不改計算條件。 -->
+            <section class="motion-panel mt-4" aria-labelledby="motionTitle">
+              <div class="d-flex align-items-center justify-content-between gap-2 mb-2"><h3 class="diagram-heading mb-0" id="motionTitle">Understand the motion</h3><span class="ramp-label" id="rampResult"></span></div>
+              <div class="diagram-tabs" role="group" aria-label="Diagram view"><button type="button" data-view="top" aria-pressed="true">Top view</button><button type="button" data-view="section" aria-pressed="false">Helix section</button></div>
+              <div class="diagram-canvas" id="diagramCanvas"></div>
+              <div class="motion-legend" id="motionLegend" hidden><span><i class="legend-path"></i>Center path</span><span><i class="legend-tool"></i>Cutter</span></div>
+              <div class="d-flex align-items-center justify-content-between gap-2 mt-3"><label class="form-label mb-0" for="progress">Trace the path <span id="motionPosition"></span></label><button class="btn play-button" type="button" id="playButton" aria-pressed="false">Play path</button></div>
+              <input type="range" class="form-range mt-2 mb-0" id="progress" min="0" max="100" step="1" value="35">
+              <p class="diagram-caption mb-0" id="diagramCaption">Top view uses the selected diameter ratio.</p>
+            </section>
+
+            <button class="btn copy-button w-100 mt-4" id="copyButton" type="button">Copy setup</button><p id="copyFeedback" class="copy-feedback mt-2 mb-0" role="status"></p>
+            <details class="calculation-details mt-3"><summary>Calculation &amp; source</summary><div class="detail-body"><p id="formulaText"></p><p class="mb-2" id="catalogText"></p><p class="mb-0">The depth is distributed over complete orbits. This preview describes the helical entry; bottom finishing and controller-specific NC settings need a separate check.</p><div class="source-table-links mt-2" id="sourceTables"></div></div></details>
+            <a class="generator-link mt-3" href="../../NCProgram/NC_Helix/index.html" target="_blank" rel="noopener">Open NC Program generator ↗</a><p class="field-hint mb-0">Copy the setup above to use in the generator.</p>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <a class="mobile-summary d-lg-none" id="mobileSummary" href="#resultTitle"><span><strong id="mobileGeometry">—</strong><small id="mobileCutting">Choose a cutter</small></span><span>View results ↓</span></a>
+  <div id="footer-placeholder"></div>
+</body>
+</html>
