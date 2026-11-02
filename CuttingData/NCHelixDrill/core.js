@@ -1,4 +1,4 @@
-/* NC Helix 一般單孔樣板：幾何、選刀與轉速／進給共用核心。
+/* NC Helix 一般單孔設定：幾何、選刀與轉速／進給共用核心。
  * 原表查詢與明確標示的區間估算分開提供；不輸出 NC。
  * Z0 為工件面，深度指刀尖的幾何位置。
  */
@@ -64,7 +64,7 @@ const HELIX_CORE = (() => {
     const upper = getCatalogPresets(tool, materialId, rows[upperIndex].diameter);
     if (!lower || !upper) return null;
 
-    // 線性估算是本樣板的操作選擇，未宣稱官方核准此插值方法；顯示端必須保留 estimated 標示。
+    // 線性估算是本工具的操作選擇，未宣稱官方核准此插值方法；顯示端必須保留 estimated 標示。
     const ratio = (d - lower.diameter) / (upper.diameter - lower.diameter);
     const fz = lower.fz + (upper.fz - lower.fz) * ratio;
     const pitches = lower.pitches.map((value, index) => value + (upper.pitches[index] - value) * ratio);
@@ -110,7 +110,7 @@ const HELIX_CORE = (() => {
     if (positive(h) && positive(pitch)) {
       // 保持整圈並平均下降；同時回傳輸入 Pitch 對應的實際每圈下降量。
       const turns = Math.max(1, Math.ceil(h / pitch - 1e-10));
-      if (!Number.isFinite(turns) || turns > MAX_TURNS) error("Helix exceeds the 10,000-turn preview limit.");
+      if (!Number.isFinite(turns) || turns > MAX_TURNS) error("Helix exceeds the 10,000-orbit calculation limit.");
       else {
         result.turns = turns;
         result.actualPitch = h / turns;

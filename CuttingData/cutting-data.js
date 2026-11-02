@@ -177,13 +177,14 @@ const CUTTING_DATA_PRODUCTS = [
     name: "NC Helix Drill",
     category: "Hole Making",
     image: "../img/helix.png",
-    status: "Preparing",
-    href: "../Products/NCHelixDrill/index.html#cutting-data",
-    summary: "Helical drilling cutting data will connect tool size, hole size, and pitch values.",
+    status: "Available",
+    href: "./NCHelixDrill/index.html",
+    actionLabel: "Set Up Hole →",
+    summary: "Choose a cutter and calculate single-hole cutting values with interactive motion diagrams.",
     details: [
-      "Planned: Vc and feed ranges",
-      "Planned: P value guidance",
-      "Planned: hole diameter conversion"
+      "Hole and existing-cutter setup",
+      "Catalog presets and labeled intermediate-diameter estimates",
+      "RPM, feed, center-path radius, actual Pitch and tool-tip Z"
     ]
   },
   {

@@ -1,6 +1,6 @@
 # NC Helix Drill 單孔設定樣板
 
-本機預覽：`http://127.0.0.1:5500/測試資料/nc-helix-workbench/index.html`。
+本機預覽：`http://127.0.0.1:5500/測試資料/nc-helix-workbench/index.html`。本設計已套用至正式 `CuttingData/NCHelixDrill/`；本資料夾只保留 HTML 供比較。下列程式、資料、來源及測試路徑均以正式資料夾為準，完整維護說明見該資料夾 README。
 
 此版本提供「依孔需求選刀」及「我已有刀具」入口，搭配材料、冷卻、功率與可調整的切削條件，計算轉速／工作台進給、刀具中心軌道半徑、刀尖目標 Z、整圈數及實際每圈下降量。桌面共用雙欄工作表；手機改單欄並提供浮動摘要與結果跳轉。
 
@@ -24,10 +24,10 @@
 
 俯視刀具中心沿逆時針（CCW）方向公轉，播放與手動進度使用相同方向。動畫須按下 Play 才播放；背景分頁、改變條件及減少動畫偏好會停止播放。減少動畫模式以離散步進呈現。
 
-此為本機一般單孔樣板，尚未套用正式 Cutting Data。未提供階梯孔、預孔擴孔、底部精加工或控制器 NC 輸出。Open NC Program 僅開啟既有頁面，先以 Copy setup 傳遞摘要；不聲稱已自動帶入參數。既有正式 NC Helix 的切削表與刀路邏輯未在本次更動。
+此一般單孔設計已接上正式 Cutting Data 入口。未提供階梯孔、預孔擴孔、底部精加工或控制器 NC 輸出。Open NC Program 僅開啟既有頁面，先以 Copy setup 傳遞摘要；不聲稱已自動帶入參數。既有正式 NC Helix 的切削表與刀路邏輯未在本次更動。
 
 驗證：
 
 ```powershell
-node --test 測試資料/nc-helix-workbench/tests/core.test.js 測試資料/nc-helix-workbench/tests/data.test.js
+node --test CuttingData/NCHelixDrill/tests/core.test.js CuttingData/NCHelixDrill/tests/data.test.js
 ```

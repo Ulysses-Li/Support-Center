@@ -1,7 +1,10 @@
-/* NC Helix 一般單孔樣板：串接選刀、原表條件與同步示意，不改動正式 NC 產生器。 */
+/* NC Helix 一般單孔設定：串接選刀、原表條件與同步示意。 */
 (() => {
   "use strict";
   const $ = id => document.getElementById(id);
+  // 來源圖片以實際載入的腳本為基準，正式頁與舊樣板都讀取同一份站內資源。
+  const resourceBase = new URL("./", document.currentScript.src);
+  const sourceURL = relative => new URL(relative, resourceBase).href;
   const escapeHTML = value => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
   const num = id => $(id).value.trim() === "" ? NaN : Number($(id).value);
   const textNumber = (value, decimals = 3) => Number.isFinite(value) ? String(Number(value.toFixed(decimals))) : "—";
@@ -106,7 +109,7 @@
     $("materialBadge").textContent = mat?.iso || "";
     $("materialBadge").style.backgroundColor = mat?.color || "#0067ad";
     $("materialBadge").style.color = mat?.iso === "M" ? "#263b4d" : "#fff";
-    $("sourceLink").href = currentTool?.sourceUrl || HELIX_DATA.source.localUrl;
+    $("sourceLink").href = sourceURL(currentTool?.sourceUrl || HELIX_DATA.source.localUrl);
     const issues = [];
     if (!currentTool) issues.push("Choose a cutter that fits the hole diameter, depth and coolant.");
     else {
@@ -121,7 +124,7 @@
     }
     $("formulaText").textContent = "R = (D − Dc) / 2 · n = 1000 × Vc / (π × Dc) · F = n × fz × z. F uses the rounded spindle speed shown above.";
     $("catalogText").textContent = `${HELIX_DATA.source.title}. Checked ${HELIX_DATA.source.checked}. ${presetSource(row)} ${estimated ? "fz and Pitch are estimated starting values; verify them for your setup. " : ""}${state.custom ? "Input values have been adjusted. " : ""}Active teeth z = ${textNumber(num("teeth"), 0)} must match your assembly.`;
-    copyText = valid ? ["NC Helix Drill | Single-hole setup", `Cutter: ${currentTool.id} | Dc ${currentTool.dc} mm`, `Insert: ${currentTool.insert} | Table grade: ${catalog?.grade}`, `Hole D ${values.diameter} mm | Tool-tip depth L ${values.depth} mm`, `Material: ${mat.label} | ${$("coolant").selectedOptions[0].textContent}`, `Cutting-value basis: ${state.custom ? "Custom inputs. Reference: " : ""}${presetSource(row)}`, `Vc ${num("vc")} m/min | fz ${num("fz")} mm/tooth | Active teeth ${num("teeth")}`, `Spindle ${result.spindle} rpm | Feed ${textNumber(result.feed, 2)} mm/min`, `Input P ${num("pitch")} mm/orbit | Actual P ${textNumber(result.actualPitch, 4)} mm/orbit | ${result.turns} complete orbits`, `Center-path R ${textNumber(result.radius)} mm | Tool-tip Z ${textNumber(result.zTarget)} mm (work surface Z0)`, `Ramp ${textNumber(result.rampAngle, 3)}°`, "Confirm holder reach, active teeth, bottom strategy and controller settings.", new URL(currentTool.sourceUrl, location.href).href].join("\n") : "";
+    copyText = valid ? ["NC Helix Drill | Single-hole setup", `Cutter: ${currentTool.id} | Dc ${currentTool.dc} mm`, `Insert: ${currentTool.insert} | Table grade: ${catalog?.grade}`, `Hole D ${values.diameter} mm | Tool-tip depth L ${values.depth} mm`, `Material: ${mat.label} | ${$("coolant").selectedOptions[0].textContent}`, `Cutting-value basis: ${state.custom ? "Custom inputs. Reference: " : ""}${presetSource(row)}`, `Vc ${num("vc")} m/min | fz ${num("fz")} mm/tooth | Active teeth ${num("teeth")}`, `Spindle ${result.spindle} rpm | Feed ${textNumber(result.feed, 2)} mm/min`, `Input P ${num("pitch")} mm/orbit | Actual P ${textNumber(result.actualPitch, 4)} mm/orbit | ${result.turns} complete orbits`, `Center-path R ${textNumber(result.radius)} mm | Tool-tip Z ${textNumber(result.zTarget)} mm (work surface Z0)`, `Ramp ${textNumber(result.rampAngle, 3)}°`, "Confirm holder reach, active teeth, bottom strategy and controller settings.", sourceURL(currentTool.sourceUrl)].join("\n") : "";
     renderDiagram();
   }
 
@@ -143,7 +146,7 @@
 
   $("material").innerHTML = HELIX_DATA.materials.map(item => `<option value="${escapeHTML(item.id)}">${escapeHTML(item.label)}</option>`).join("");
   $("ownedTool").innerHTML = HELIX_DATA.tools.map(tool => `<option value="${escapeHTML(tool.id)}">${escapeHTML(tool.id)} · Ø${tool.dc}</option>`).join("");
-  $("sourceTables").innerHTML = [1, 2, 3].map(index => `<a href="./sources/cutting-data-${index}.jpg" target="_blank" rel="noopener">Table ${index} ↗</a>`).join("") + '<a href="./sources/formula.jpg" target="_blank" rel="noopener">Formula ↗</a>';
+  $("sourceTables").innerHTML = [1, 2, 3].map(index => `<a href="${escapeHTML(sourceURL(`./sources/cutting-data-${index}.jpg`))}" target="_blank" rel="noopener">Table ${index} ↗</a>`).join("") + `<a href="${escapeHTML(sourceURL("./sources/formula.jpg"))}" target="_blank" rel="noopener">Formula ↗</a>`;
   $("setupForm").addEventListener("submit", event => event.preventDefault());
   $("resetButton").addEventListener("click", reset);
   $("restoreButton").addEventListener("click", () => refresh({presets: true}));
