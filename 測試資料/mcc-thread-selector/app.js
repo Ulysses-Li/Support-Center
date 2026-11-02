@@ -3,6 +3,8 @@
   "use strict";
   const $ = id => document.getElementById(id);
   const selector = createMccSelector(MCC_QUICK_PICK);
+  // 由目前站點解析網址，讓預覽、正式網域與複製內容都指向同一份站內 PDF。
+  const sourceURL = new URL(MCC_QUICK_PICK.source.url, window.location.href);
   const escapeHTML = value => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
   const numberText = value => String(Number(value.toFixed(2)));
   const state = { mode: "thread", side: "internal", standard: "M", threadId: "", insertId: "R06005-05010", chosenInsert: "", threadQuery: "", insertQuery: "", reverseQuery: "", limit: 12 };
@@ -71,10 +73,12 @@
     $("selectedThread").textContent = `${side} thread · ${row.size}`;
     $("selectedDiameter").textContent = `Ø${numberText(insert.diameter)} mm`;
     $("selectedForm").textContent = `${standard.angle}° · ${standard.kind === "tapered" ? "Tapered" : "Parallel"}`;
-    $("rowSourceLink").href = `${MCC_QUICK_PICK.source.url}#page=${row.page}`;
+    const pageURL = new URL(sourceURL.href);
+    pageURL.hash = `page=${row.page}`;
+    $("rowSourceLink").href = pageURL.href;
     $("rowSourceLink").textContent = `Quick Pick · p. ${row.page} ↗`;
     applicationDiagram(insert);
-    copyText = [`MCC Thread Mill | Quick Pick selection`, `${side} thread: ${row.size}`, `Insert: ${insert.id} | ØD: ${numberText(insert.diameter)} mm`, `${standard.angle}° ${standard.kind} thread`, `Source: ${MCC_QUICK_PICK.source.title}, ${MCC_QUICK_PICK.source.revision}, p. ${row.page}`, `Holder fit, reach, machining depth and cutting conditions still need confirmation.`, MCC_QUICK_PICK.source.url].join("\n");
+    copyText = [`MCC Thread Mill | Quick Pick selection`, `${side} thread: ${row.size}`, `Insert: ${insert.id} | ØD: ${numberText(insert.diameter)} mm`, `${standard.angle}° ${standard.kind} thread`, `Source: ${MCC_QUICK_PICK.source.title}, ${MCC_QUICK_PICK.source.revision}, p. ${row.page}`, `Holder fit, reach, machining depth and cutting conditions still need confirmation.`, pageURL.href].join("\n");
   }
 
   function renderResults() {
@@ -143,7 +147,7 @@
     try { await navigator.clipboard.writeText(snapshot); if (copyText === snapshot) $("copyFeedback").textContent = "Selection copied."; }
     catch { $("copyFeedback").textContent = "Copy is unavailable. You can select the displayed values."; }
   });
-  $("sourceLink").href = MCC_QUICK_PICK.source.url;
+  $("sourceLink").href = sourceURL.href;
   $("sourceRevision").textContent = `${MCC_QUICK_PICK.source.revision.slice(0, 4)}.${MCC_QUICK_PICK.source.revision.slice(4)}`;
   $("sourceCount").textContent = `${MCC_QUICK_PICK.rows.length} thread entries · ${MCC_QUICK_PICK.inserts.length} insert models`;
   reset();

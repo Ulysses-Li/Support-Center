@@ -3,6 +3,9 @@
  */
 const { test } = require("node:test");
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+const crypto = require("node:crypto");
 const data = require("../data.js");
 const { createMccSelector, normalizeSearch } = require("../core.js");
 const selector = createMccSelector(data);
@@ -40,6 +43,26 @@ test("source revision, all eight thread families, both sides and six source page
   }
   assert.deepEqual(sorted(new Set(data.rows.map(row => row.page))), [1, 2, 3, 4, 5, 6]);
   assert.ok(data.rows.length > 100, "The source contains more than the small metric example tables.");
+});
+
+test("customer PDF source stays on site and its bytes match the recorded source checksum", () => {
+  // 對客連結必須是單一斜線開頭的站內路徑；外站網址僅保留於維護來源欄位。
+  assert.match(data.source.url, /^\/(?!\/)/, "Customer source link must be root-relative.");
+  const sourceUrl = new URL(data.source.url, "https://source-check.invalid");
+  assert.equal(sourceUrl.origin, "https://source-check.invalid");
+  assert.equal(sourceUrl.search, "");
+  assert.equal(sourceUrl.hash, "");
+  assert.equal(sourceUrl.pathname, "/Products/MCCThreadMill/downloads/Quick_Pick_for_MCC_Thread_insert.pdf");
+  assert.equal(data.source.originalUrl, "https://nine9.jic-tools.com.tw/upload_files/download/Quick_Pick_thread_type/Quick_Pick_for_MCC_Thread_insert.pdf");
+
+  const siteRoot = path.resolve(__dirname, "../../..");
+  const pdfPath = path.resolve(siteRoot, decodeURIComponent(sourceUrl.pathname).slice(1));
+  assert.ok(pdfPath.startsWith(`${siteRoot}${path.sep}`), "Source PDF must resolve inside this site.");
+  assert.ok(fs.existsSync(pdfPath), `Missing on-site source PDF: ${pdfPath}`);
+  assert.ok(fs.statSync(pdfPath).isFile(), "On-site source must be a file.");
+  assert.match(data.source.sha256, /^[a-f\d]{64}$/i, "Source checksum must be a SHA-256 value.");
+  const checksum = crypto.createHash("sha256").update(fs.readFileSync(pdfPath)).digest("hex");
+  assert.equal(checksum, data.source.sha256.toLowerCase(), "PDF bytes differ from the source used to build the selector.");
 });
 
 test("all source keys are unique, candidates are merged, and IDs resolve to positive catalog diameters", () => {

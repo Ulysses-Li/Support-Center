@@ -6,7 +6,8 @@
 const MCC_QUICK_PICK = {
   "source": {
     "title": "Quick Pick for MCC Thread Insert",
-    "url": "https://nine9.jic-tools.com.tw/upload_files/download/Quick_Pick_thread_type/Quick_Pick_for_MCC_Thread_insert.pdf",
+    "url": "/Products/MCCThreadMill/downloads/Quick_Pick_for_MCC_Thread_insert.pdf",
+    "originalUrl": "https://nine9.jic-tools.com.tw/upload_files/download/Quick_Pick_thread_type/Quick_Pick_for_MCC_Thread_insert.pdf",
     "revision": "202604",
     "pages": 6,
     "sha256": "9146998981fb80e83c72e3e8ebde1d839e36e1316b3a9694773b7929c16296e3"

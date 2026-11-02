@@ -11,7 +11,9 @@ import sys
 import pdfplumber
 
 
-SOURCE_URL = "https://nine9.jic-tools.com.tw/upload_files/download/Quick_Pick_thread_type/Quick_Pick_for_MCC_Thread_insert.pdf"
+# 客戶連結一律使用站內 PDF；原始官方網址僅保留作為維護溯源。
+SOURCE_URL = "/Products/MCCThreadMill/downloads/Quick_Pick_for_MCC_Thread_insert.pdf"
+ORIGINAL_URL = "https://nine9.jic-tools.com.tw/upload_files/download/Quick_Pick_thread_type/Quick_Pick_for_MCC_Thread_insert.pdf"
 STANDARDS = [
     {"id": "M", "label": "M · Metric coarse", "angle": 60, "kind": "parallel"},
     {"id": "MF", "label": "MF · Metric fine", "angle": 60, "kind": "parallel"},
@@ -116,7 +118,7 @@ def extract_data(source):
     if dict(table_blocks) != {1: 3, 2: 6, 3: 3, 4: 2, 5: 3, 6: 4}:
         raise ValueError(f"Unexpected table-block layout: {dict(table_blocks)!r}")
     data = {
-        "source": {"title": "Quick Pick for MCC Thread Insert", "url": SOURCE_URL, "revision": "202604",
+        "source": {"title": "Quick Pick for MCC Thread Insert", "url": SOURCE_URL, "originalUrl": ORIGINAL_URL, "revision": "202604",
                    "pages": 6, "sha256": hashlib.sha256(source.read_bytes()).hexdigest()},
         "standards": STANDARDS,
         "inserts": list(inserts.values()),

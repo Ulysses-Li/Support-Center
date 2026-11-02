@@ -6,6 +6,8 @@
 
 資料來源為 Nine9 官方 **Quick Pick for MCC Thread Insert，202604**：6 頁、273 個內／外牙規記錄、17 個刀片、476 組配對。原始來源網址、PDF SHA256 與每筆來源頁碼保留在 `data.js`。
 
+使用者下載的原始 PDF 存放於正式產品資源位置 `Products/MCCThreadMill/downloads/Quick_Pick_for_MCC_Thread_insert.pdf`。頁首、來源頁碼及複製摘要皆使用這份站內 PDF，不導向外部網站；`source.originalUrl` 僅供維護溯源。已確認下載檔案與抽取資料的來源 SHA256 完全一致。日後更新型錄時需同步更新站內 PDF、選型資料及來源版次。
+
 - `data.js`：型錄逐表抽取的唯一選型資料，不套用舊 NC 工具的螺距範圍推算。
 - `core.js`：無 DOM 的正反查核心；統一乘號、空白與等值小數寫法。
 - `app.js`：操作流程與共用頁首／頁尾載入。
