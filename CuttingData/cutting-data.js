@@ -106,13 +106,14 @@ const CUTTING_DATA_PRODUCTS = [
     name: "MCC Thread Mill",
     category: "Threading",
     image: "../img/threading.png",
-    status: "Preparing",
-    href: "../Products/MCCThreadMill/index.html#cutting-data",
-    summary: "Thread milling cutting data can be tied to the NC Program generator later.",
+    status: "Available",
+    href: "./MCCThreadMill/index.html",
+    actionLabel: "Select Insert →",
+    summary: "Find listed MCC inserts by thread, or look up thread sizes by insert.",
     details: [
-      "Planned: insert and material presets",
-      "Planned: cutting speed and feed per tooth",
-      "Planned: direct handoff to NC Program"
+      "Internal and external thread selection",
+      "Quick Pick 202604: 273 thread entries and 17 insert models",
+      "On-site PDF source pages and selection summary"
     ]
   },
   {
@@ -340,7 +341,7 @@ function renderProductCards() {
       <img src="${escapeHTML(product.image)}" alt="">
       <span>${escapeHTML(product.category)}</span>
       <strong>${escapeHTML(product.name)}</strong>
-      <em class="${available ? "is-available" : ""}">${available ? "Open Calculator →" : "Data being prepared"}</em>
+      <em class="${available ? "is-available" : ""}">${available ? escapeHTML(product.actionLabel || "Open Calculator →") : "Data being prepared"}</em>
     </${tag}>
   `;
   }).join("");
