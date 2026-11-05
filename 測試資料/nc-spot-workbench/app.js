@@ -5,7 +5,7 @@
   "use strict";
   const $ = id => document.getElementById(id);
   const data = NC_SPOT_DATA, core = NC_SPOT_CORE;
-  const controls = Object.fromEntries(["operation", "material", "series", "insert", "holder", "diameter", "vc", "feedPerRev", "chamferWidth", "contactReference", "datum", "referenceDiameter", "referenceDepth"].map(id => [id, $(id)]));
+  const controls = Object.fromEntries(["operation", "material", "angle", "series", "insert", "holder", "diameter", "vc", "feedPerRev", "chamferWidth", "contactReference", "datum", "referenceDiameter", "referenceDepth"].map(id => [id, $(id)]));
   const finite = core.finiteNumber;
   const format = (value, digits = 4) => Number.isFinite(value) ? Number(value.toFixed(digits)).toLocaleString("en-US", { maximumFractionDigits: digits }) : "—";
   const plain = (value, digits = 8) => Number.isFinite(value) ? String(Number(value.toFixed(digits))) : "";
@@ -28,10 +28,12 @@
     const holder = series?.holders.find(item => item.part === controls.holder.value);
     const operation = controls.operation.value;
     const feedRange = data.feedTables[series?.feedTable]?.[material?.id]?.[operation] ?? null;
-    return { series, material, insert, holder, operation, feedRange };
+    const manualInput = series?.manualInput === true;
+    const materialConfirmed = insert?.materialIds.includes(material?.id) === true;
+    return { series, material, insert, holder, operation, feedRange, manualInput, materialConfirmed };
   }
   function assemblyKey() {
-    return `${controls.series.value}|${controls.holder.value}|${controls.insert.value}`;
+    return `${selected().series.angle}|${controls.series.value}|${controls.holder.value}|${controls.insert.value}`;
   }
   function clearMeasuredReference() {
     // 換刀柄／刀片後，舊的 Dref/tref 不可沿用到新組裝。
@@ -45,25 +47,28 @@
   function refreshToolOptions({ preferRecommendation = false } = {}) {
     const operation = controls.operation.value;
     const previousSeries = controls.series.value;
-    const availableSeries = data.series.filter(item => item.operations.includes(operation));
-    fillOptions(controls.series, availableSeries.map(item => [item.id, item.label]), previousSeries || "nc10");
+    const operationSeries = data.series.filter(item => item.operations.includes(operation));
+    const angles = [...new Set(operationSeries.map(item => item.angle))].sort((a, b) => a - b);
+    const angleEntries = angles.length > 1 ? [["all", "All angles"], ...angles.map(value => [String(value), `${value}°`])] : angles.map(value => [String(value), `${value}°`]);
+    fillOptions(controls.angle, angleEntries, controls.angle.value || "all");
+    controls.angle.disabled = angles.length === 1;
+    const availableSeries = operationSeries.filter(item => controls.angle.value === "all" || item.angle === Number(controls.angle.value));
+    fillOptions(controls.series, availableSeries.map(item => [item.id, `${item.familyLabel} · Ø${plain(item.maxDiameter)} max`]), previousSeries || "nc10");
     const series = data.series.find(item => item.id === controls.series.value);
     const previousMaterial = controls.material.value;
-    const materials = data.materials.filter(item => {
-      const row = data.feedTables[series.feedTable][item.id];
-      return row?.[operation] && series.inserts.some(insert => insert.materialIds.includes(item.id));
-    });
+    // 保留材料與完整型號，不把找不到推薦牌號的刀具藏起來或偷偷換掉工件材質。
+    const materials = data.materials;
     fillOptions(controls.material, materials.map(item => [item.id, item.label]), previousMaterial || "carbonLow");
-    const inserts = series.inserts.filter(item => item.materialIds.includes(controls.material.value));
+    const inserts = series.inserts;
     const preferred = preferRecommendation ? series.recommendedByMaterial[controls.material.value] : controls.insert.value;
     fillOptions(controls.insert, inserts.map(item => [item.id, item.label]), preferred || series.recommendedByMaterial[controls.material.value]);
     fillOptions(controls.holder, series.holders.map(item => [item.part, `${item.part} · ${item.thread || `Ø${item.shankLabel || plain(item.shankDiameter)}`} · L ${plain(item.length)} mm`]), controls.holder.value);
     clearMeasuredReference();
   }
   function setCuttingPresets() {
-    const { material, feedRange } = selected();
-    controls.vc.value = material ? plain(midpoint(material.vc)) : "";
-    controls.feedPerRev.value = feedRange ? plain(midpoint(feedRange)) : "";
+    const { material, feedRange, manualInput, materialConfirmed } = selected();
+    controls.vc.value = material && !manualInput && materialConfirmed && feedRange ? plain(midpoint(material.vc)) : "";
+    controls.feedPerRev.value = feedRange && materialConfirmed ? plain(midpoint(feedRange)) : "";
   }
   function fitDiameter() {
     const { series, insert, operation } = selected();
@@ -78,7 +83,7 @@
   }
   function calculateSelection() {
     const selection = selected();
-    const { series, insert, material, feedRange, operation } = selection;
+    const { series, insert, material, feedRange, operation, manualInput, materialConfirmed } = selection;
     const referenceDiameter = finite(controls.referenceDiameter.value);
     const referenceDepth = finite(controls.referenceDepth.value);
     const measured = controls.datum.value === "measured";
@@ -92,11 +97,15 @@
       width: controls.chamferWidth.value, reference: controls.contactReference.value,
       datum: controls.datum.value, tipOffset, maxDiameter: insert.maxDiameter,
       minSpotDepth: insert.minSpotDepth, minClearance: series.minChamferClearance,
-      vcRange: material.vc, feedRange
+      vcRange: manualInput ? null : material.vc, feedRange
     });
-    if (!feedRange) {
+    if (!feedRange && !manualInput) {
       result.valid = false; result.cuttingValid = false;
       result.errors.push("No catalog feed is listed for this operation and material.");
+    }
+    if (!materialConfirmed) {
+      result.valid = false; result.cuttingValid = false;
+      result.errors.push("This insert / material match is not confirmed in the catalog data. Choose a listed material or a different insert.");
     }
     // Tmax 是實際工具深度限制，不能拿未知刀尖修正的理論尖點深度直接比較。
     if (measured && referenceValid && (referenceDepth > insert.maxDepth + 1e-9 || (result.actualDepth !== null && result.actualDepth > insert.maxDepth + 1e-9))) {
@@ -109,7 +118,7 @@
 
   function render() {
     const state = calculateSelection();
-    const { series, insert, holder, material, operation, feedRange, result } = state;
+    const { series, insert, holder, material, operation, feedRange, result, manualInput, materialConfirmed } = state;
     latestResult = result;
     const chamfer = operation === "chamfering", measured = controls.datum.value === "measured";
     const validGeometry = result.geometryValid;
@@ -123,12 +132,17 @@
     $("materialBadge").textContent = material.iso;
     $("materialBadge").dataset.iso = material.iso;
     $("angleTag").textContent = `${series.angle}°`;
-    $("toolHint").textContent = `Angle set by holder · ${holder.shank} · ${holder.shankLabel || (holder.shankDiameter ? `Ø${plain(holder.shankDiameter)} mm` : holder.thread)}`;
+    $("toolHint").textContent = `Matched insert + holder · ${holder.shank} · ${holder.shankLabel || (holder.shankDiameter ? `Ø${plain(holder.shankDiameter)} mm` : holder.thread)}`;
     const rating = data.ratingLabels[insert.materialRatings[material.id]];
-    $("gradeHint").textContent = `${rating} catalog match for this material.${material.id === "hardened" ? ` Check hardness < HRC ${insert.materialMaxHardness}.` : ""}`;
+    $("gradeHint").textContent = materialConfirmed ? `${rating ? `${rating} catalog match for this material.` : (series.materialCompatibilityNote || "Catalog-listed application.")}${material.id === "hardened" && insert.materialMaxHardness ? ` Check hardness < HRC ${insert.materialMaxHardness}.` : ""}` : `No confirmed ${material.label.toLowerCase()} match for this insert in the catalog data. ${series.materialCompatibilityNote || "Choose a listed material or another insert."}`;
+    $("toolSpecLink").href = sourceURL(series.pdfPage);
+    $("toolSpecLink").textContent = `View ${series.familyLabel} · catalog p. ${series.sourcePage} ↗`;
+    $("presetNotice").hidden = !manualInput;
+    $("presetNotice").textContent = "Manual cutting values: the supplied catalog has no dedicated P60 cutting table. Enter Vc and f from your established setup.";
+    $("presetNote").textContent = manualInput ? "This model uses your manual cutting values. No CT-family cutting range is substituted." : "Changing the model or material restores its available catalog cutting values. Dimensions stay editable.";
     $("diameterHint").textContent = chamfer ? (result.minD !== null && result.maxD !== null ? `Nominal contact range Ø${format(result.minD)}–${format(result.maxD)} mm` : `Catalog Dmax ${format(insert.maxDiameter)} mm`) : `Catalog Dmax ${format(insert.maxDiameter)} mm`;
-    $("vcHint").textContent = `${rangeLabel(material.vc)} m/min`;
-    $("feedHint").textContent = `${rangeLabel(feedRange)} mm/rev`;
+    $("vcHint").textContent = manualInput ? "Manual value · m/min" : `${rangeLabel(material.vc)} m/min`;
+    $("feedHint").textContent = manualInput ? "Manual value · mm/rev" : `${rangeLabel(feedRange)} mm/rev`;
     $("diameterError").textContent = result.geometryErrors.filter(text => /diameter|offset|clearance|depth|reach|contact/i.test(text)).join(" ");
     controls.diameter.classList.toggle("is-invalid", !validGeometry);
     controls.diameter.setAttribute("aria-invalid", String(!validGeometry));
@@ -170,40 +184,42 @@
     $("resultTmax").textContent = `${format(insert.maxDepth)} mm`;
     $("depthLabel").textContent = measured ? "Depth from measured reference" : "Nominal depth t";
     $("depthResult").textContent = validGeometry ? `${format(result.depth)} mm` : "—";
-    $("resultReference").textContent = measured ? "Z0 = work surface. Depth uses your measured assembly reference and the nominal holder angle." : "Depth / Z uses the theoretical point. Set a measured tool-length reference to relate Z to your assembled tool.";
+    $("resultReference").textContent = measured ? "Z0 = work surface. Depth uses your measured assembly reference and the nominal assembly angle." : "Depth / Z uses the theoretical point. Set a measured tool-length reference to relate Z to your assembled tool.";
     $("sectionTitle").textContent = chamfer ? "Chamfer section" : "Spotting section";
-    $("diagramAngleLabel").textContent = `${series.angle}° holder · ${measured ? "measured reference" : "nominal section"}`;
+    $("diagramAngleLabel").textContent = `${series.angle}° assembly · ${measured ? "measured reference" : "nominal section"}`;
     $("diagramCanvas").innerHTML = chamfer ? NC_SPOT_DIAGRAMS.renderChamfer(result) : NC_SPOT_DIAGRAMS.renderSpotting(result);
     $("diagramCaption").textContent = chamfer ? "Local straight-edge section. Dashed tool outline is nominal; insert offset, actual profile and holder clearance are not modeled. Maintain at least 1 mm actual tip clearance." : "D is measured at work surface Z0. Dashed edges show nominal geometry; the actual offset insert profile varies by grade. A measured reference applies only to the same tool assembly.";
     $("formulaText").textContent = `S = 1000 × Vc / (π × Dmax cut); F = S × f. ${chamfer ? `Maximum cutting diameter = upper-edge Ø${format(result.upperDiameter)} mm.` : "Dmax cut = spot diameter at Z0."} ${insert.indexableEdges} indexable edges do not multiply this mm/rev feed.`;
     $("geometryNote").textContent = `Nominal t = Dupper / [2 × tan(α / 2)]. ${measured ? `Measured correction Δz = ${format(result.tipOffset)} mm; Z = −(t − Δz).` : "Z = −t at the theoretical point. Catalog Tmax uses the actual insert; it is checked after a measured reference is supplied."} The model uses a straight face; it does not reproduce all grade-specific tip sections.`;
-    $("catalogScope").textContent = `Six verified families: NC06, NC08, NC10, NC14, V09 and V13. This preview covers 60° spotting and 90° spotting / local contour chamfering. Tool: printed p. ${series.sourcePage}; cutting data: p. ${series.cuttingSourcePage}.`;
-    $("catalogGradeNote").textContent = `Grade match: ${rating}. Cutting values are catalog mid-range starting values. ${insert.supportingEdgeFeedFactor ? "The conditional +50% supporting-edge feed is not included. " : ""}Holder length is overall length, not a verified usable reach.`;
-    $("dataSourceLink").href = sourceURL(series.cuttingPdfPage);
+    $("catalogScope").textContent = `${data.series.length} catalog model families. Angle follows the selected insert / holder combination. Tool: printed p. ${series.sourcePage}. ${manualInput ? "No dedicated P60 cutting table is listed in this source; cutting values are entered manually." : `Cutting data: p. ${series.cuttingSourcePage}.`}`;
+    $("catalogGradeNote").textContent = `${rating ? `Grade match: ${rating}. ` : ""}${manualInput ? "Cutting values are user-entered, not catalog recommendations. " : "Available cutting values start at catalog mid-range. "}${insert.supportingEdgeFeedFactor ? "The conditional +50% supporting-edge feed is not included. " : ""}Holder length is overall length, not a verified usable reach.`;
+    $("dataSourceLink").href = sourceURL(series.cuttingPdfPage || series.pdfPage);
+    $("dataSourceLink").textContent = manualInput ? "Open P60 specifications ↗" : "Open cutting table ↗";
     $("catalogLink").href = sourceURL();
     $("copyButton").disabled = !result.valid;
     $("copyFeedback").textContent = "";
     copyText = result.valid ? buildCopy(state) : "";
     updateURL();
   }
-  function buildCopy({ series, insert, holder, material, operation, result, referenceDiameter, referenceDepth }) {
+  function buildCopy({ series, insert, holder, material, operation, result, referenceDiameter, referenceDepth, manualInput }) {
     const lines = [
       `NC Spot Drill | ${operation === "spotting" ? "Spotting" : "Chamfering"}`,
       `Holder: ${holder.part} | Angle: ${series.angle}°`, `Insert: ${insert.part}`,
       `Material: ${material.label}`, `D: ${format(result.diameter)} mm | Vc: ${format(result.vc)} m/min | f: ${format(result.feedPerRev)} mm/rev`,
       `Spindle speed: ${format(result.spindle, 0)} rpm`, `Feed rate: ${format(result.feedRate, 1)} mm/min`,
-      `Maximum cutting diameter used for S: ${format(result.maxCuttingDiameter)} mm`
+      `Maximum cutting diameter used for S: ${format(result.maxCuttingDiameter)} mm`,
+      `Cutting values: ${manualInput ? "Manual user input; no dedicated P60 cutting recommendation in the supplied catalog" : "Catalog ranges / user adjustments"}`
     ];
     if (operation === "chamfering") lines.push(`Chamfer: C${format(result.width)} × 45° | Contact D at: ${result.reference}`, `Full geometry R: ${format(result.radius)} mm | diameter equivalent: ${format(result.compensationDiameter)} mm`, "R is from original contour toward free side, not CAM wear. G41/G42 depends on travel direction.");
     lines.push(`${result.isNominal ? "Nominal theoretical-point" : "Measured-reference"} depth: ${format(result.depth)} mm | Z: ${format(result.z)} mm`, "Z0 = work surface.");
     if (result.isNominal) lines.push("Depth / Z is nominal geometry, not an assembled-tool target. Add a measured reference for the same assembly.");
     else lines.push(`Measured reference: Dref ${format(referenceDiameter)} mm at depth ${format(referenceDepth)} mm | Δz ${format(result.tipOffset)} mm`);
-    lines.push("Nominal straight-face model; actual offset insert profile, holder clearance and lead-in/out are not verified.", `Source: ${data.source.version}; tool p. ${series.sourcePage}, cutting data p. ${series.cuttingSourcePage}`, sourceURL(series.cuttingPdfPage));
+    lines.push("Nominal straight-face model; actual offset insert profile, holder clearance and lead-in/out are not verified.", `Source: ${data.source.version}; tool p. ${series.sourcePage}${manualInput ? "; cutting values entered manually" : `, cutting data p. ${series.cuttingSourcePage}`}`, sourceURL(series.cuttingPdfPage || series.pdfPage));
     return lines.join("\n");
   }
   function updateURL() {
     const url = new URL(location.href);
-    for (const field of ["operation", "series", "material", "insert"]) url.searchParams.set(field, controls[field].value);
+    for (const field of ["operation", "angle", "series", "material", "insert"]) url.searchParams.set(field, controls[field].value);
     // 只保留選型；不在網址傳遞未經確認的機台對刀基準。
     history.replaceState(null, "", url);
   }
@@ -213,7 +229,7 @@
     if (kind !== "holder") setCuttingPresets();
     fitDiameter(); render();
   }
-  for (const key of ["operation", "material", "series", "insert", "holder"]) controls[key].addEventListener("change", () => onSelectionChange(key));
+  for (const key of ["operation", "material", "angle", "series", "insert", "holder"]) controls[key].addEventListener("change", () => onSelectionChange(key));
   controls.datum.addEventListener("change", () => {
     if (controls.datum.value === "measured") calibrationAssembly = assemblyKey();
     render();
@@ -260,8 +276,12 @@
   }
 
   const params = new URLSearchParams(location.search);
-  controls.operation.value = ["spotting", "chamfering"].includes(params.get("operation")) ? params.get("operation") : "spotting";
-  fillOptions(controls.series, data.series.map(item => [item.id, item.label]), params.get("series") || "nc10");
+  // 深連結先解析完整刀片料號；舊 nc10/nc14 等ID保持相容，不讓新角度篩選沖掉指定型號。
+  const initialSeries = data.series.find(item => item.inserts.some(insert => insert.id === params.get("insert"))) || data.series.find(item => item.id === params.get("series")) || data.series.find(item => item.angle === Number(params.get("angle"))) || data.series.find(item => item.id === "nc10");
+  const requestedOperation = ["spotting", "chamfering"].includes(params.get("operation")) ? params.get("operation") : "spotting";
+  controls.operation.value = initialSeries.operations.includes(requestedOperation) ? requestedOperation : "spotting";
+  fillOptions(controls.angle, [["all", "All angles"], ["60", "60°"], ["90", "90°"]], params.get("angle") === "all" ? "all" : String(initialSeries.angle));
+  fillOptions(controls.series, data.series.map(item => [item.id, item.label]), initialSeries.id);
   fillOptions(controls.material, data.materials.map(item => [item.id, item.label]), params.get("material") || "carbonLow");
   refreshToolOptions({ preferRecommendation: true });
   if ([...controls.insert.options].some(item => item.value === params.get("insert"))) controls.insert.value = params.get("insert");

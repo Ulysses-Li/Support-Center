@@ -6,6 +6,38 @@ const { createHash } = require('node:crypto');
 const data = require('../data.js');
 
 // 以型錄頁面的代表數據作獨立 fixture，避免只確認資料結構或重複實作公式。
+test('page 30: P60 uses the two listed holders and its own 60-degree specification', () => {
+  const p60 = data.series.find(item => item.id === 'p60');
+  assert.equal(p60.familyLabel, 'N9MT11T3P60');
+  assert.equal(p60.angle, 60);
+  assert.deepEqual(p60.operations, ['spotting']);
+  assert.deepEqual([p60.sourcePage, p60.pdfPage, p60.maxDiameter, p60.maxDepth], [30, 3, 5, 3]);
+  assert.deepEqual(p60.holders.map(item => [item.part, item.shankDiameter, item.length]), [
+    ['00-99616-14-12', 12, 100], ['00-99616-14', 16, 100]
+  ]);
+  assert.equal(p60.inserts.length, 1);
+  const insert = p60.inserts[0];
+  assert.deepEqual([insert.part, insert.code, insert.grade, insert.coating, insert.carbideGrade], ['N9MT11T3P60-NC40', '014204', 'NC40', 'TiN', 'P35']);
+  assert.deepEqual([insert.length, insert.thickness, insert.cornerRadius, insert.indexableEdges], [11, 3.97, .8, 2]);
+});
+
+test('P60 does not inherit CT cutting presets, material ratings or hardness/depth assumptions', () => {
+  const p60 = data.series.find(item => item.id === 'p60');
+  assert.equal(p60.feedTable, null);
+  assert.equal(p60.cuttingPresetAvailable, false);
+  assert.equal(p60.manualInput, true);
+  assert.equal(p60.cuttingSourcePage, null);
+  assert.equal(p60.cuttingPdfPage, null);
+  assert.equal(p60.maxHardness, null);
+  assert.deepEqual(p60.recommendedByMaterial, {});
+  const insert = p60.inserts[0];
+  assert.deepEqual(insert.materialIds, ['carbonLow', 'carbonHigh', 'lowAlloy', 'highAlloy', 'castIron']);
+  assert.deepEqual(insert.materialRatings, {});
+  assert.equal(insert.materialMaxHardness, null);
+  assert.equal(insert.minSpotDepth, null);
+  assert.equal(insert.tipCorrection, null);
+});
+
 test('page 33: NC06 and NC08 holder/insert pairs retain their distinct limits', () => {
   const nc06 = data.series.find(item => item.id === 'nc06');
   const nc08 = data.series.find(item => item.id === 'nc08');
@@ -75,13 +107,25 @@ test('grade recommendations select catalog-listed material pairings; supporting 
       assert.equal(insert.feedMultiplier, 1);
       assert.equal(insert.tipCorrection, null);
       if (insert.grade.startsWith('H-')) assert.equal(insert.supportingEdgeFeedFactor, 1.5);
-      if (['NC40', 'NC60'].includes(insert.grade)) assert.equal(insert.minSpotDepth, 1);
+      if (series.id !== 'p60' && ['NC40', 'NC60'].includes(insert.grade)) assert.equal(insert.minSpotDepth, 1);
       else assert.equal(insert.minSpotDepth, null);
     }
   }
   const nc14 = data.series.find(item => item.id === 'nc14');
   assert.equal(nc14.recommendedByMaterial.hardened, 'N9MT11T3CT-NC60');
   assert.equal(nc14.recommendedByMaterial.stainless, 'N9MT11T3CT-NC10');
+});
+
+test('model-first labels expose insert families while retaining existing URL IDs', () => {
+  const expected = { nc06: 'N9MT05T1CT', nc08: 'N9MT0602CT', nc10: 'N9MT0802', nc14: 'N9MT11T3CT / CT2T', v09: 'V9MT0802CT', v13: 'V9MT12T3CT' };
+  for (const [id, family] of Object.entries(expected)) {
+    const series = data.series.find(item => item.id === id);
+    assert.equal(series.familyLabel, family);
+    assert.ok(series.label.startsWith(family));
+    assert.equal(series.cuttingPresetAvailable, true);
+    assert.equal(series.manualInput, false);
+    for (const insert of series.inserts) assert.ok(insert.familyLabel);
+  }
 });
 
 test('the linked on-site catalog is the unchanged user-supplied PDF', () => {
