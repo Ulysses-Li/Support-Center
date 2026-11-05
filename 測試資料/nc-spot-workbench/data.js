@@ -98,6 +98,7 @@ const NC_SPOT_DATA = (() => {
       id: "p60", familyLabel: "N9MT11T3P60", label: "N9MT11T3P60 · 60° · Ø5 max", angle: 60, operations: ["spotting"],
       maxDiameter: 5, maxDepth: 3, sourcePage: 30, pdfPage: 3,
       feedTable: null, cuttingPresetAvailable: false, manualInput: true,
+      cuttingReference: { familyLabel: "N9MT0802 / N9MT11T3CT", sourcePdf: "./sources/NC-Spot-Drill-2025-2026-ENG.pdf", sourcePage: 53, pdfPage: 18, note: "NC40 reference table; P60 is not explicitly named in the table heading." },
       cuttingSourcePage: null, cuttingPdfPage: null, maxHardness: null,
       materialCompatibilityNote: "Catalog p. 30 lists unhardened steel and cast iron. It gives no numerical HRC limit or P60-specific cutting preset.",
       holders: [

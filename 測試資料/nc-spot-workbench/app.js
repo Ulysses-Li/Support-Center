@@ -181,16 +181,18 @@
     $("toolSpecLink").href = sourceURL(series.pdfPage);
     $("toolSpecLink").textContent = `View ${series.familyLabel} · catalog p. ${series.sourcePage} ↗`;
     $("presetNotice").hidden = !manualInput;
-    $("presetNotice").textContent = "Manual cutting values: no dedicated range has been confirmed for this model. Enter Vc and f from your established setup.";
+    $("presetNotice").textContent = series.cuttingReference ? `The catalog lists NC40 cutting values for ${series.cuttingReference.familyLabel} (p. ${series.cuttingReference.sourcePage}), but does not explicitly name P60. Vc and f stay manual until this applicability is confirmed.` : "Manual cutting values: no dedicated range has been confirmed for this model. Enter Vc and f from your established setup.";
     $("presetNote").textContent = isWsp ? "WSP uses its dedicated cutting table and catalog P formula. Choose the thread variant before setting Dreq." : manualInput ? "This model uses your manual cutting values. No other family's cutting range is substituted." : "Changing the model or material restores its available catalog cutting values. Dimensions stay editable.";
     $("diameterHint").textContent = isWsp ? `Dreq Ø${format(result.minDiameter)}–${format(result.maxDiameter)} mm · Dmax / Tmax checked together` : chamfer ? (result.minD !== null && result.maxD !== null ? `Local contact range Ø${format(result.minD)}–${format(result.maxD)} mm` : `Catalog Dmax ${format(insert.maxDiameter)} mm`) : `Catalog Ø${format(insert.minDiameter ?? series.minDiameter ?? 0)}–${format(insert.maxDiameter)} mm${!(insert.minDiameter ?? series.minDiameter) ? " · lower limit unconfirmed" : ""}`;
-    $("vcHint").textContent = manualInput ? "Manual value · m/min" : `${rangeLabel(vcRange)} m/min`;
-    $("feedHint").textContent = manualInput ? "Manual value · mm/rev" : `${rangeLabel(feedRange)} mm/rev`;
+    $("vcHint").textContent = manualInput ? "P60-specific range unconfirmed · m/min" : `${rangeLabel(vcRange)} m/min`;
+    $("feedHint").textContent = manualInput ? "P60-specific range unconfirmed · mm/rev" : `${rangeLabel(feedRange)} mm/rev`;
     $("diameterError").textContent = result.geometryErrors.filter(text => /diameter|offset|clearance|depth|reach|contact/i.test(text)).join(" ");
     controls.diameter.classList.toggle("is-invalid", !validGeometry);
     controls.diameter.setAttribute("aria-invalid", String(!validGeometry));
     for (const field of ["vc", "feedPerRev"]) {
-      const invalid = finite(controls[field].value) === null || Number(controls[field].value) <= 0;
+      // 缺少專用預設時，尚未輸入不是操作錯誤；輸入零或無效值才顯示紅框。
+      const emptyManualValue = manualInput && controls[field].value.trim() === "";
+      const invalid = !emptyManualValue && (finite(controls[field].value) === null || Number(controls[field].value) <= 0);
       controls[field].classList.toggle("is-invalid", invalid);
       controls[field].setAttribute("aria-invalid", String(invalid));
     }
@@ -214,7 +216,8 @@
     if (insert.supportingEdgeFeedFactor) practicalWarnings.push("Supporting-edge feed increases are not applied automatically.");
     if (insert.minSpotDepth && operation === "spotting") practicalWarnings.push("NC40 / NC60: keep at least 1 mm tip clearance as shown in the catalog.");
     if (chamfer && series.angle !== 90) practicalWarnings.push("Check the actual tip avoidance for this angle. The catalog's 1 mm clearance illustration is drawn for a 90° assembly.");
-    $("calculationMessage").textContent = [...result.errors, ...practicalWarnings].join(" ");
+    const visibleErrors = result.errors.filter(text => !(manualInput && ((controls.vc.value.trim() === "" && text === "Enter a positive cutting speed Vc.") || (controls.feedPerRev.value.trim() === "" && text === "Enter a positive feed per revolution f."))));
+    $("calculationMessage").textContent = [...visibleErrors, ...practicalWarnings].join(" ");
     $("rpm").textContent = $("mobileRpm").textContent = result.valid ? format(result.spindle, 0) : "—";
     $("feedRate").textContent = $("mobileFeed").textContent = result.valid ? format(result.feedRate, 1) : "—";
     $("compensationR").textContent = validGeometry ? format(result.radius) : "—";
@@ -240,10 +243,10 @@
       $("wspD1").textContent = `${format(result.d1)} mm`;
       $("wspP").textContent = `${format(result.p)} mm`;
     }
-    $("catalogScope").textContent = `${data.series.length} ordinary model families and ${wsp.data.variants.length} WSP thread variants. Tool: printed p. ${series.sourcePage}. ${manualInput ? "No dedicated cutting range is confirmed for this model; cutting values are entered manually." : `Cutting data: p. ${series.cuttingSourcePage}.`}`;
+    $("catalogScope").textContent = `${data.series.length} ordinary model families and ${wsp.data.variants.length} WSP thread variants. Tool: printed p. ${series.sourcePage}. ${series.cuttingReference ? `NC40 cutting reference: p. ${series.cuttingReference.sourcePage}, ${series.cuttingReference.familyLabel}; applicability to P60 is not explicitly confirmed.` : manualInput ? "No dedicated cutting range is confirmed for this model; cutting values are entered manually." : `Cutting data: p. ${series.cuttingSourcePage}.`}`;
     $("catalogGradeNote").textContent = `${rating ? `Grade match: ${rating}. ` : ""}${manualInput ? "Cutting values are user-entered, not catalog recommendations. " : "Available cutting values start at catalog mid-range. "}${insert.supportingEdgeFeedFactor ? "The conditional +50% supporting-edge feed is not included. " : ""}Holder length is overall length, not a verified usable reach.`;
-    $("dataSourceLink").href = manualInput ? sourceURL(series.pdfPage) : sourceURL(series.cuttingPdfPage, series.cuttingSourcePdf || data.source.pdf);
-    $("dataSourceLink").textContent = manualInput ? "Open model specifications ↗" : "Open cutting table ↗";
+    $("dataSourceLink").href = series.cuttingReference ? sourceURL(series.cuttingReference.pdfPage, series.cuttingReference.sourcePdf) : manualInput ? sourceURL(series.pdfPage) : sourceURL(series.cuttingPdfPage, series.cuttingSourcePdf || data.source.pdf);
+    $("dataSourceLink").textContent = series.cuttingReference ? "View NC40 / CT reference table · not P60-specific ↗" : manualInput ? "Open model specifications ↗" : "Open cutting table ↗";
     $("sourceEdition").textContent = `Specifications: ${series.sourceVersion || data.source.version}. ${isWsp ? "WSP formula: printed p. 54." : ""}`;
     $("diameterSourceLink").hidden = !series.minDiameterSource;
     if (series.minDiameterSource) $("diameterSourceLink").href = new URL(series.minDiameterSource, location.href).href;
