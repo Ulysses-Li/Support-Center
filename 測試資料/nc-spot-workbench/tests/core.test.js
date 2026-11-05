@@ -111,11 +111,24 @@ test("unknown diameter limits stay unknown and do not borrow a holder shank diam
   assert.equal(result.maxD, null);
 });
 
-test("unsupported chamfer angles are blocked without invalidating spotting angles", () => {
-  for (const angle of [60, 120, 142]) {
+test("point angles use their own W/H ratio without borrowing 90-degree C geometry", () => {
+  for (const angle of [60, 82, 90, 100, 120, 142]) {
     assert.equal(calculate({ ...base, angle }).geometryValid, true);
-    assert.equal(calculate({ ...base, operation: "chamfering", width: 0.5, angle }).geometryValid, false);
+    const chamfer = calculate({ ...base, operation: "chamfering", width: 0.5, angle });
+    assert.equal(chamfer.geometryValid, true);
+    close(chamfer.height, .5 / Math.tan(angle * Math.PI / 360));
   }
+});
+
+test("catalog Dmin constrains the complete cutting band, with an inclusive boundary", () => {
+  assert.equal(calculate({ ...base, diameter: 2.9, minDiameter: 3 }).geometryValid, false);
+  assert.equal(calculate({ ...base, diameter: 3, minDiameter: 3 }).geometryValid, true);
+  const input = { ...base, operation: "chamfering", width: .5, diameter: 3.9, minDiameter: 3 };
+  assert.equal(calculate(input).geometryValid, false);
+  const boundary = calculate({ ...input, diameter: 4 });
+  assert.equal(boundary.geometryValid, true);
+  assert.equal(boundary.minD, 4);
+  assert.equal(calculate({ ...base, minDiameter: -1 }).valid, false);
 });
 
 test("empty, nonfinite, nonpositive and non-numeric inputs never become usable values", () => {

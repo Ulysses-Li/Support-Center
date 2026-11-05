@@ -39,6 +39,8 @@ const NC_SPOT_CORE = (() => {
     const tipOffset = datum === "measured" ? finiteNumber(input.tipOffset) : 0;
     const hasMaxDiameter = input.maxDiameter !== undefined && input.maxDiameter !== null;
     const maxDiameter = hasMaxDiameter ? positiveNumber(input.maxDiameter) : null;
+    const hasMinDiameter = input.minDiameter !== undefined && input.minDiameter !== null;
+    const minDiameter = hasMinDiameter ? finiteNumber(input.minDiameter) : 0;
     const hasMinSpotDepth = input.minSpotDepth !== undefined && input.minSpotDepth !== null;
     const minSpotDepth = hasMinSpotDepth ? finiteNumber(input.minSpotDepth) : null;
     const minClearance = input.minClearance === undefined ? 1 : finiteNumber(input.minClearance);
@@ -52,10 +54,10 @@ const NC_SPOT_CORE = (() => {
     if (!["theoretical", "measured"].includes(datum)) geometryErrors.push("Select a valid tool-length reference.");
     if (datum === "measured" && tipOffset === null) geometryErrors.push("Enter a valid measured tool reference before using a calibrated Z target.");
     if (hasMaxDiameter && maxDiameter === null) geometryErrors.push("The selected maximum diameter must be positive.");
+    if (minDiameter === null || minDiameter < 0) geometryErrors.push("The selected minimum diameter must be zero or positive.");
     if (hasMinSpotDepth && (minSpotDepth === null || minSpotDepth < 0)) geometryErrors.push("The minimum spotting depth must be zero or positive.");
     if (operation === "chamfering") {
-      // 型錄 52 頁的 1 mm 刀尖避讓圖僅明示 90°；其他角度另行核對後再開放。
-      if (angle !== 90) geometryErrors.push("Chamfer geometry in this preview supports the catalog's 90° holder diagram only.");
+      // 不同角度共用直線錐面推導；是否為型錄支援用途由組裝資料限制，不能任意拼接刀柄。
       if (width === null) geometryErrors.push("Enter a positive chamfer width C.");
       if (position === undefined) geometryErrors.push("Select where contact D touches the chamfer.");
       if (minClearance === null || minClearance < 0) geometryErrors.push("The required tip clearance must be zero or positive.");
@@ -67,7 +69,7 @@ const NC_SPOT_CORE = (() => {
     let upperDiameter = operation === "spotting" ? diameter : null;
     let radius = null;
     let height = null;
-    let minD = null;
+    let minD = minDiameter;
     let maxD = maxDiameter;
     let theoreticalDepth = null;
     let depth = null;
@@ -79,7 +81,7 @@ const NC_SPOT_CORE = (() => {
       if (radius <= 0) geometryErrors.push("The contact position leaves no positive tool-center offset. Increase D or reduce C.");
       if (depthPerWidth !== null) height = width * depthPerWidth;
       if (depthPerWidth !== null && tipOffset !== null && minClearance !== null && minClearance >= 0) {
-        minD = Math.max(0, 2 * (minClearance + tipOffset) / depthPerWidth) + 2 * position * width;
+        minD = Math.max(minDiameter ?? 0, 2 * (minClearance + tipOffset) / depthPerWidth, 0) + 2 * position * width;
       }
       if (maxDiameter !== null) maxD = maxDiameter - 2 * (1 - position) * width;
     }
@@ -96,7 +98,7 @@ const NC_SPOT_CORE = (() => {
           }
         }
         if (operation === "spotting" && minSpotDepth !== null && minSpotDepth >= 0) {
-          minD = Math.max(0, 2 * (minSpotDepth + tipOffset) / depthPerWidth);
+          minD = Math.max(minDiameter ?? 0, 2 * (minSpotDepth + tipOffset) / depthPerWidth, 0);
           if (depth < minSpotDepth - EPSILON) geometryErrors.push(`This insert grade requires at least ${minSpotDepth} mm modeled spotting depth.`);
         }
       }
@@ -104,6 +106,9 @@ const NC_SPOT_CORE = (() => {
 
     if (maxDiameter !== null && upperDiameter !== null && upperDiameter > maxDiameter + EPSILON) {
       geometryErrors.push("The full cutting diameter exceeds the selected catalog maximum diameter.");
+    }
+    if (minDiameter !== null && (operation === "spotting" ? diameter : lowerDiameter) !== null && (operation === "spotting" ? diameter : lowerDiameter) < minDiameter - EPSILON) {
+      geometryErrors.push("The cutting band is below the selected catalog minimum diameter.");
     }
     if (maxD !== null && minD !== null && maxD < minD - EPSILON) {
       geometryErrors.push("No contact diameter fits both the chamfer width and the selected limits.");
@@ -136,7 +141,7 @@ const NC_SPOT_CORE = (() => {
       valid: geometryValid && cuttingValid, geometryValid, cuttingValid, errors, geometryErrors, cuttingErrors, warnings,
       operation, angle, diameter, vc, feedPerRev: feed, datum, isNominal, reference, position, tipOffset,
       width, height, depthPerWidth, radius, compensationDiameter: radius !== null ? 2 * radius : null,
-      lowerDiameter, upperDiameter, maxCuttingDiameter, maxDiameter, minD, maxD,
+      lowerDiameter, upperDiameter, maxCuttingDiameter, maxDiameter, minDiameter, minD, maxD,
       theoreticalDepth, depth, actualDepth: datum === "measured" ? depth : null,
       z: depth !== null && Number.isFinite(depth) ? -depth : null,
       requestedMinClearance: operation === "chamfering" ? minClearance : null,

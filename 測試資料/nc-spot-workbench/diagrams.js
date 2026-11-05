@@ -83,10 +83,13 @@ const NC_SPOT_DIAGRAMS = (() => {
   function renderChamfer(input) {
     const angle = angleOf(input || {});
     const required = [angle, input?.diameter, input?.depth, input?.theoreticalDepth, input?.width, input?.height, input?.upperDiameter, input?.lowerDiameter, input?.radius, input?.z];
-    if (!isGeometryValid(input) || !required.every(finite) || angle !== 90 || input.width <= 0 || input.height <= 0 || input.lowerDiameter <= 0 || input.radius <= 0 || input.depth <= 0 || input.theoreticalDepth <= 0 || !["upper", "middle", "lower"].includes(input.reference)) return placeholder("chamfering");
+    if (!isGeometryValid(input) || !required.every(finite) || angle <= 0 || angle >= 180 || input.width <= 0 || input.height <= 0 || input.lowerDiameter <= 0 || input.radius <= 0 || input.depth <= 0 || input.theoreticalDepth <= 0 || !["upper", "middle", "lower"].includes(input.reference)) return placeholder("chamfering");
     const measured = input.datum === "measured";
     if (measured && !finite(input.tipOffset)) return placeholder("chamfering");
     const prefix = "ncsChamfer", { width, height, radius, diameter, upperDiameter, lowerDiameter, theoreticalDepth, depth, z } = input;
+    const depthPerWidth = 1 / Math.tan(angle * Math.PI / 360);
+    const faceAngle = 90 - angle / 2;
+    const widthLabel = angle === 90 ? "C" : "W";
     const position = { upper: 1, middle: .5, lower: 0 }[input.reference];
     const scale = Math.min(435 / upperDiameter, 175 / Math.max(theoreticalDepth, depth, height), 90);
     if (!finite(scale) || scale <= 0) return placeholder("chamfering");
@@ -96,19 +99,19 @@ const NC_SPOT_DIAGRAMS = (() => {
     const leftRef = axis - diameter / 2 * scale, rightRef = axis + diameter / 2 * scale;
     const top = surface - 16;
     // 只多畫少量頂面上方錐面，保留同一 X/Z 比例，避免把刀柄畫成未經核對的形狀。
-    const topR = (theoreticalDepth * scale + surface - top);
+    const topR = (theoreticalDepth * scale + surface - top) / depthPerWidth;
     const contour = `M40 ${surface}H${n(upperX)}L${n(edge)} ${n(lowerY)}V335H40Z`;
     let content = `<path d="${contour}" fill="#edf3f7"/><path d="${contour}" fill="url(#${prefix}Hatch)" stroke="#a6bdcd"/>`;
     content += `<path d="M${n(axis - topR)} ${top}H${n(axis + topR)}L${n(axis)} ${n(tipY)}Z" fill="#0067ad0c" stroke="${blue}" stroke-width="2" stroke-dasharray="7 4"/>`;
     content += line(40, surface, 680, surface, 'stroke="#91aabd" stroke-dasharray="6 5"');
     content += line(edge, 105, edge, 350, 'stroke="#91aabd" stroke-dasharray="6 5"');
     content += line(axis, 45, axis, 350, `stroke="${blue}" stroke-dasharray="7 4"`);
-    content += text(axis, 31, "Tool center", "ncs-label", 'text-anchor="middle"');
+    content += text(axis, 31, `Tool center · ${number(angle)}°`, "ncs-label", 'text-anchor="middle"');
     content += text(40, 120, "Z0", "ncs-key ncs-blue");
     content += text(44, 301, "Material", "ncs-label ncs-helper");
     content += line(upperX, surface, edge, lowerY, `stroke="${orange}" stroke-width="5"`);
     content += line(upperX, surface - 5, upperX, 80, `stroke="${blue}"`) + line(edge, surface - 5, edge, 80, `stroke="${blue}"`);
-    content += dimension(prefix, upperX, 88, edge, 88) + text((upperX + edge) / 2, 72, `C ${number(width)}`, "ncs-key", 'text-anchor="middle"');
+    content += dimension(prefix, upperX, 88, edge, 88) + text((upperX + edge) / 2, 72, `${widthLabel} ${number(width)}`, "ncs-key", 'text-anchor="middle"');
     content += line(leftRef, referenceY, rightRef, referenceY, `stroke="${orange}" stroke-dasharray="5 4"`);
     content += `<circle cx="${n(leftRef)}" cy="${n(referenceY)}" r="5" fill="${orange}"/>`;
     content += text(rightRef + 10, referenceY - 9, `Ø${number(diameter)}`, "ncs-key ncs-contact");
@@ -125,9 +128,10 @@ const NC_SPOT_DIAGRAMS = (() => {
         content += text(582, (lowerY + datumY) / 2, `${number(input.tipClearance)} mm`, "ncs-note ncs-helper", `text-anchor="middle" transform="rotate(-90 582 ${n((lowerY + datumY) / 2)})"`);
       }
     }
-    content += text(40, 416, measured ? "Tip clearance: 1 mm min. · measured datum" : "Tip clearance: 1 mm min. · calibration needed", "ncs-note ncs-helper");
-    const description = `Nominal local straight-edge 90 degree chamfer section. Material is left of the original dashed XY contour, free side is right. C ${number(width)} millimeters; vertical height ${number(height)} millimeters. The selected contact diameter ${number(diameter)} millimeters meets the ${input.reference} edge. Upper and lower contact diameters are ${number(upperDiameter)} and ${number(lowerDiameter)} millimeters. R ${number(radius)} millimeters is the tool-center distance toward the free side from the original contour, not a hole-center path radius or wear offset. Z ${number(z)} millimeters uses ${measured ? "the measured tool-length datum" : "the theoretical point"}. Catalog requires at least 1 millimeter tip clearance; ${measured && finite(input.tipClearance) ? `modeled clearance ${number(input.tipClearance)} millimeters.` : "actual clearance is unverified without measured calibration."} This is nominal geometry, not the actual insert shape or collision verification.`;
-    return frame(prefix, "NC Spot Drill 90° nominal chamfer section", description, content);
+    const clearanceNote = angle === 90 ? (measured ? "Tip clearance: 1 mm min. · measured datum" : "Tip clearance: 1 mm min. · calibration needed") : `${number(angle)}° included · ${number(faceAngle)}° face · verify tip clearance`;
+    content += text(40, 416, clearanceNote, "ncs-note ncs-helper");
+    const description = `Nominal local straight-edge ${number(angle)} degree included-angle chamfer section, with a ${number(faceAngle)} degree face to the work surface. Material is left of the original dashed XY contour, free side is right. ${widthLabel} horizontal width ${number(width)} millimeters; vertical height H ${number(height)} millimeters. The selected contact diameter ${number(diameter)} millimeters meets the ${input.reference} edge. Upper and lower contact diameters are ${number(upperDiameter)} and ${number(lowerDiameter)} millimeters. R ${number(radius)} millimeters is the tool-center distance toward the free side from the original contour, not a hole-center path radius or wear offset. Z ${number(z)} millimeters uses ${measured ? "the measured tool-length datum" : "the theoretical point"}. ${angle === 90 ? "Catalog requires at least 1 millimeter tip clearance for the illustrated 90 degree setup;" : "Verify the tip-clearance requirement for the selected holder;"} ${measured && finite(input.tipClearance) ? `modeled clearance ${number(input.tipClearance)} millimeters.` : "actual clearance is unverified without measured calibration."} This is nominal geometry, not the actual insert shape or collision verification.`;
+    return frame(prefix, `NC Spot Drill ${number(angle)}° nominal chamfer section`, description, content);
   }
   return Object.freeze({ renderSpotting, renderChamfer });
 })();

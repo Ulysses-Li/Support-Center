@@ -21,6 +21,18 @@ body { color:var(--ink); font-family:Arial,"Microsoft JhengHei",sans-serif; font
 .panel-title { font-size:20px; font-weight:750; letter-spacing:-.02em; }
 .reset-link { min-height:44px; padding:6px 0 6px 12px; color:var(--blue); font-size:14px; font-weight:650; white-space:nowrap; }
 .reset-link:hover { color:var(--ink); text-decoration:underline; }
+.part-lookup { padding:16px; background:#f1f7fb; border-radius:10px; }
+.part-lookup .form-control { min-width:0; }
+.lookup-button { min-height:48px; min-width:66px; color:var(--blue); border:1px solid var(--blue); background:white; font-weight:650; }
+.lookup-button:hover { color:white; background:var(--blue); }
+.lookup-results { display:grid; gap:8px; }
+.lookup-choice { min-height:48px; padding:10px; border:1px solid var(--line); border-radius:6px; text-align:left; background:white; color:var(--ink); }
+.lookup-choice strong,.lookup-choice span { display:block; overflow-wrap:anywhere; }
+.lookup-choice strong { font-size:14px; }
+.lookup-choice span { font-size:14px; color:var(--muted); }
+.lookup-choice:hover { border-color:var(--blue); }
+.lookup-results:not(:empty) { margin-top:12px; }
+.wsp-setup { padding:12px 14px; background:#edf6fc; border-radius:8px; }
 .condition-group { min-width:0; margin:0 0 30px; padding:0; }
 .condition-group legend { float:none; display:flex; align-items:center; gap:10px; margin-bottom:16px; font-size:16px; font-weight:750; }
 .step-number { color:var(--blue); font-size:14px; font-variant-numeric:tabular-nums; }

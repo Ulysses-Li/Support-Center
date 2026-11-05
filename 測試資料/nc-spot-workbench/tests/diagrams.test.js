@@ -50,11 +50,24 @@ test("chamfer preserves the original-contour meaning of R and makes uncalibrated
   assert.match(svg, /at least 1 millimeter tip clearance/);
 });
 
-test("all contact references render, while unsupported angles and malformed references do not", () => {
+test("all contact references render, while malformed angles and references do not", () => {
   for (const reference of ["upper", "middle", "lower"]) assert.match(diagrams.renderChamfer({ ...chamfer, reference }), /90° nominal chamfer section/);
-  for (const input of [{ ...chamfer, angle: 60 }, { ...chamfer, reference: 'upper" onload="alert(1)' }, { ...chamfer, upperDiameter: Infinity }]) {
+  for (const input of [{ ...chamfer, angle: 180 }, { ...chamfer, reference: 'upper" onload="alert(1)' }, { ...chamfer, upperDiameter: Infinity }]) {
     const svg = diagrams.renderChamfer(input);
     assert.match(svg, /section unavailable/);
     assert.doesNotMatch(svg, /onload|NaN|Infinity|undefined/);
+  }
+});
+
+test("non-90-degree chamfers distinguish included angle, face angle, horizontal width and depth", () => {
+  for (const angle of [60, 82, 100, 120, 142]) {
+    const q = 1 / Math.tan(angle * Math.PI / 360);
+    const input = { ...chamfer, angle, height: .4 * q, theoreticalDepth: 3 * q, depth: 3 * q, z: -3 * q };
+    const svg = diagrams.renderChamfer(input);
+    assert.match(svg, new RegExp(`${angle}° nominal chamfer section`));
+    assert.match(svg, /W horizontal width/);
+    assert.match(svg, new RegExp(`${90 - angle / 2} degree face`));
+    assert.match(svg, /Verify the tip-clearance requirement for the selected holder/);
+    assert.doesNotMatch(svg, /NaN|Infinity|undefined/);
   }
 });

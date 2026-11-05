@@ -10,9 +10,17 @@
 | --- | --- | --- |
 | 3 | 30 | 60° N9MT11T3P60-NC40、014204、兩種相容刀柄、Dmax 5／Tmax 3；本頁只有規格與用途，沒有切削預設 |
 | 4 | 31 | 60° V9MT0802CT／V9MT12T3CT、V09／V13 刀柄、Dmax／Tmax、牌號 |
+| 5 | 32 | 82° V0820802／V08212T3、3/8 與 5/8 英制刀柄、各自 Dmax／Tmax |
 | 6 | 33 | 90° N9MT05T1CT／N9MT0602CT、NC06／NC08 刀柄 |
 | 7 | 34 | 90° N9MT0802、NC10 刀柄、個別刀片 4.5／4.7 mm Tmax |
+| 8 | 35 | N9MT0802 的兩種單套與四種入門包，映射原刀柄／刀片，未重複建立幾何 |
 | 9 | 36 | 90° N9MT11T3、NC14 刀柄、wiper／一般刃形差異 |
+| 10 | 37 | N9MT11T3 的四種單套與四種入門包，保留公／英制柄對應 |
+| 11 | 38 | 90° N9MT1704CT，NC2071／NC5071／NC9036，兩種公制刀柄 |
+| 12 | 39 | 90° 三角形 N9MT220408CT-NC40（3 個可轉用刃），以及 N9MT2506CT-NC2033／XP9000，公／英制刀柄 |
+| 13 | 40 | 100° N9MT11T3CT2T-H 三牌號與專用 00-99616-20-100，Dmax16／Tmax6.2 |
+| 14 | 41 | 142° V1420803／V1421604，採逐件表 Dmax15／30、Tmax2.5／5，不以標題32或柄徑代替 |
+| 15–16 | 42–43 | WSP 雙角度結構；由獨立 WSP 資料／模型管理，不混進普通錐面 series |
 | 17 | 52 | 刀具組合角度的直徑／深度圖、NC40／NC60 最小 1 mm 避讓、90° 倒角示意、S/F 公式 |
 | 18 | 53 | small／standard 組 Vc、每轉進給、牌號適用符號、H 刃條件性 +50% 說明 |
 | 19 | 54 | large 組 Vc、每轉進給、牌號適用符號；WSP 表僅閱讀、不納入此版 |
@@ -31,6 +39,33 @@
 - H 系列增進給 50% 只保存為 `supportingEdgeFeedFactor:1.5`，未自動施加。
 - 相同名稱的 hardened 列在 small／large 表為 `<HRC50`，standard 為 `<HRC56`；NC40 的個別牌號另有 `<HRC48` 說明。不能隱去這些差異。
 - 耐熱合金的 spotting 進給為 `–`，資料保存 `null`，不插補或用倒角值代替。
-- 60° 系列保留其型錄倒角切削範圍，但第一版只開放 spotting。90° 正面局部直邊倒角使用獨立模型，不涵蓋內角、整孔碰撞或 CAD/CAM 工具包絡。
-- 系列下拉以完整刀片族名稱顯示，原 `nc06`／`nc08`／`nc10`／`nc14`／`v09`／`v13` 網址 ID 保留；新增 `p60` 與 CT 系列明確分開。
-- 82°、100°、120°、142°、WSP、NC22/25/32 等系列不在此樣板範圍。特別是 120° 只有深度圖的線，沒有這份抽選型錄內的完整匹配表，不能自行補造刀柄／刀片。
+- 型錄明列倒角用途的普通型 60°／82°／90° 組合可做 spotting／chamfering。100°／120°／N9MT-142° 組合另以目前官方詳細頁明列的 spotting／chamfering 用途補充。P60 只開放已由該頁確定的 spotting；V1420803／1604 只做 spotting。倒角皆是局部名義／實測基準模型，不涵蓋內角、整孔碰撞或 CAD/CAM 工具包絡。
+- 系列下拉以完整刀片族名稱顯示，原 `nc06`／`nc08`／`nc10`／`nc14`／`v09`／`v13` 網址 ID 保留；新規格用獨立 ID，不能僅以相同刀柄或相同刀片名稱合併不同組裝角度。
+- large 組牌號矩陣另核對 NC9036（與 NC9076 同欄）、NC40、NC2033、XP9000。矩陣空白與用途文字明列材質分開：例如 N9MT2506-XP9000 的鈦材用途出自 p39，p54 沒有為鈦材畫 Best 符號；不得自行補符號。
+- 2026-11-05 以高解析度圖再次核對 p54：NC2071 的耐熱合金是 ○ Possible，NC5071 的淬硬鋼也是 ○ Possible，均記 1，沒有誤記為 ◎ Suit。
+
+## 普通型完整覆蓋與補充來源
+
+普通型 `series` 共 **17 個刀片／刀柄族、48 個刀片組裝選項、36 個刀柄選項**。同一實際刀片可出現在 90°／100°／120°／142° 不同組合，因此 48 是組裝選項數，不是互不重複的刀片料號數。另有 `catalogPackages` 的 **14 個單套／入門包料號**，每個明確連回 `familyId`、`insertId`、`holderPart`。單套未推定未標示的總刀片數；入門包依型錄記 6 片。
+
+`catalogCoverage` 按印刷頁盤點每個族、包裝、overview、WSP 與幾何／切削表，供全範圍驗收使用。p28–29 的 RC／SW 等是另章產品引用，不以普通 NC Spot Drill 錐面模型代替；完整主型錄 RC/R/LA 為 p44–51、N9MT080201W Engraving 為 p80，與本工具分開。
+
+### 120° 與 N9MT-142° 組合
+
+- 來源檔：本站 `NC-Spot-Drill-Legacy.pdf`，PDF 第 13 頁、印刷頁 **1-13**。這些規格不是使用者 19 頁抽選分冊的第 13 頁。
+- 原始官方 PDF：`https://nine9.jic-tools.com.tw/upload_files/products/pdf/Nine9_NC_Spot_Drill.pdf`；SHA256 為 `1659AFE62E9C9923D7992F277E0AC25361BB07731D4248FACAB28676AD8B40D1`。
+- 目前官方詳細頁：`https://nine9.jic-tools.com.tw/100nc-spot-drill.html`，2026-11-05 核對仍列出 100°／120°／142° 及三種 H 牌號。
+- `nc120`：`00-99616-20-120`／`00-99616-3/4-120`，Dmax17、Tmax4.76；`nc142`：`00-99616-20-142`／`00-99616-3/4-142`，Dmax18.5、Tmax3.16。兩者長度100，3/4 in 柄徑換算19.05 mm；英制 Dmax/Tmax 原值是四捨五入近似，不當作更精準的公制測量。
+- 舊 PDF 只列 H-NC40／H-NC9076；H-NC5071 有目前官方頁的明確佐證，資料以 `gradeSourceNote` 分開，不冒稱舊 PDF 已有三牌號。
+- 100° 的 Tmax 仍採使用者 p40 的 **6.2**，未用舊 PDF／網站的6.3覆蓋。V1420803／V1421604 與 N9MT CT2T-142 是兩個不同產品組合。
+- 規格的 `sourcePdf`、`sourcePage`、`pdfPage` 指向舊 PDF；切削的 `cuttingSourcePdf`、`cuttingSourcePage`、`cuttingPdfPage` 仍指向使用者分冊 p53/PDF18 的 N9MT11T3CT/H 進給表，避免跨檔誤導頁碼。
+
+### Dmin 最小加工直徑
+
+- `NC-Spot-Drill-System-2026-p15.png` 是完整官方主型錄 PDF 第15頁整頁渲染；封面實際版次 **2026 / N0.CAT.JIC EN.202608**，不是依 URL 中 2025-2026 字樣猜測版次。PNG SHA256：`9D0FF74FC11C99B8592724A85C5446CC95E0C13DBE37E91A2A961C1814D050F6`。
+- 由該表核對：V9MT0802＝1；V9MT12T3＝2；兩種 V082＝2；N9MT05T1／0602＝1；N9MT0802＝2；N9MT11T3-90°＝3；N9MT1704＝3；N9MT2204／2506 合併格＝4；N9MT11T3-100°＝3；兩種 V142＝2，單位均為 mm。
+- P60 的 Dmin2、100°／120°／N9MT-142° 群組 Dmin3 另由目前官方 Application System `https://nine9.jic-tools.com.tw/nc-spot-drill.htm` 核對。P60、120°、N9MT-142° 的 `minDiameterSource` 保持 `null`、另記 `minDiameterSourceUrl` 與核對日期，不能假稱出自上面的 p15 圖。
+- 官網 P60 Dmax6.2 與使用者單件表 Dmax5不同，本工具仍採較小的 **5**；Dmin2 明記官網來源。所有 Dmax/Tmax 均以選定單件細表為準，Dmin overview不覆蓋細規格。
+- WSP 的 overview Dmin3.3 不能套給每種刀片；WSP 必須採自己的 D1/P/Dmax/Tmax 獨立模型。
+
+其他來源比對記錄見 `legacy-notes.md`。本檔只維護普通型資料；WSP 的數據、公式與測試另由其模組管理。
