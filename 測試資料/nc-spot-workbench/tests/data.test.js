@@ -21,13 +21,23 @@ test('page 30: P60 uses the two listed holders and its own 60-degree specificati
   assert.deepEqual([insert.length, insert.thickness, insert.cornerRadius, insert.indexableEdges], [11, 3.97, .8, 2]);
 });
 
-test('P60 does not inherit CT cutting presets, material ratings or hardness/depth assumptions', () => {
+test('P60 uses the confirmed CT parent cutting reference without inheriting ratings or geometry', () => {
   const p60 = data.series.find(item => item.id === 'p60');
-  assert.equal(p60.feedTable, null);
-  assert.equal(p60.cuttingPresetAvailable, false);
-  assert.equal(p60.manualInput, true);
-  assert.equal(p60.cuttingSourcePage, null);
-  assert.equal(p60.cuttingPdfPage, null);
+  assert.equal(p60.feedTable, 'standard');
+  assert.equal(p60.cuttingPresetAvailable, true);
+  assert.equal(p60.manualInput, false);
+  assert.deepEqual([p60.cuttingSourcePage, p60.cuttingPdfPage], [53, 18]);
+  assert.equal(p60.cuttingReference.basis, 'user-confirmed-parent');
+  assert.equal(p60.cuttingReference.parentInsert, 'N9MT11T3CT-NC40');
+  const parent = data.series.find(item => item.id === 'nc14').inserts.find(item => item.part === p60.cuttingReference.parentInsert);
+  // 引用母型號的 NC40 適用材料與 P60 用途交集，不把其他牌號的高合金鋼或硬度限制搬進來。
+  assert.deepEqual(p60.cuttingReference.materialIds, ['carbonLow', 'carbonHigh', 'lowAlloy', 'castIron']);
+  for (const materialId of p60.cuttingReference.materialIds) {
+    assert.ok(parent.materialRatings[materialId] > 0);
+    assert.ok(p60.inserts[0].materialIds.includes(materialId));
+  }
+  assert.deepEqual(data.feedTables[p60.feedTable].carbonLow.spotting, [.05, .10]);
+  assert.deepEqual(data.materials.find(item => item.id === 'carbonLow').vc, [150, 320]);
   assert.equal(p60.maxHardness, null);
   assert.deepEqual(p60.recommendedByMaterial, {});
   const insert = p60.inserts[0];

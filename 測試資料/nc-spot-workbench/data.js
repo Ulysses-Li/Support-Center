@@ -97,15 +97,16 @@ const NC_SPOT_DATA = (() => {
     {
       id: "p60", familyLabel: "N9MT11T3P60", label: "N9MT11T3P60 · 60° · Ø5 max", angle: 60, operations: ["spotting"],
       maxDiameter: 5, maxDepth: 3, sourcePage: 30, pdfPage: 3,
-      feedTable: null, cuttingPresetAvailable: false, manualInput: true,
-      cuttingReference: { familyLabel: "N9MT0802 / N9MT11T3CT", sourcePdf: "./sources/NC-Spot-Drill-2025-2026-ENG.pdf", sourcePage: 53, pdfPage: 18, note: "NC40 reference table; P60 is not explicitly named in the table heading." },
-      cuttingSourcePage: null, cuttingPdfPage: null, maxHardness: null,
-      materialCompatibilityNote: "Catalog p. 30 lists unhardened steel and cast iron. It gives no numerical HRC limit or P60-specific cutting preset.",
+      feedTable: "standard", cuttingPresetAvailable: true, manualInput: false,
+      // 使用者確認 P60 由 N9MT11T3CT 改製；只引用同牌號切削起始值，幾何與材料評級仍獨立管理。
+      cuttingReference: { familyLabel: "N9MT0802 / N9MT11T3CT", parentInsert: "N9MT11T3CT-NC40", grade: "NC40", materialIds: ["carbonLow", "carbonHigh", "lowAlloy", "castIron"], basis: "user-confirmed-parent", confirmedOn: "2026-11-05", sourcePdf: "./sources/NC-Spot-Drill-2025-2026-ENG.pdf", sourcePage: 53, pdfPage: 18, note: "User confirmed P60 is reground from N9MT11T3CT. Use the NC40 CT table as reference starting values, not a dedicated P60 cutting table." },
+      maxHardness: null,
+      materialCompatibilityNote: "Catalog p. 30 lists unhardened steel and cast iron. CT reference values require a matching NC40 material entry.",
       holders: [
         { part: "00-99616-14-12", shankDiameter: 12, length: 100, shank: "Steel" },
         { part: "00-99616-14", shankDiameter: 16, length: 100, shank: "Steel" }
       ],
-      // P60 不在 p53 的 N9MT11T3CT 切削表內；單獨建規格，不呼叫 CT 牌號矩陣產生器。
+      // P60 單獨建規格，不呼叫 CT 牌號矩陣產生器，避免連帶繼承評級、硬度與最低深度。
       inserts: [{
         id: "N9MT11T3P60-NC40", part: "N9MT11T3P60-NC40", label: "N9MT11T3P60-NC40", familyLabel: "N9MT11T3P60",
         code: "014204", grade: "NC40", coating: "TiN", carbideGrade: "P35",
@@ -355,7 +356,8 @@ const NC_SPOT_DATA = (() => {
     item.cuttingSourcePage = item.feedTable ? (item.feedTable === "large" ? 54 : 53) : null;
     item.cuttingPdfPage = item.feedTable ? (item.feedTable === "large" ? 19 : 18) : null;
     item.cuttingSourcePdf = item.feedTable ? (item.cuttingSourcePdf || "./sources/NC-Spot-Drill-2025-2026-ENG.pdf") : null;
-    item.maxHardness = item.feedTable ? (item.feedTable === "standard" ? 56 : 50) : null;
+    // 切削表的共用硬度不可覆蓋已明示的個別型號限制（null 代表未確認）。
+    if (!Object.hasOwn(item, "maxHardness")) item.maxHardness = item.feedTable ? (item.feedTable === "standard" ? 56 : 50) : null;
     item.minChamferClearance = item.operations.includes("chamfering") ? 1 : null;
     item.minDiameter = systemMinDiameters[item.id] ?? null;
     if (item.minDiameter !== null) {
@@ -416,7 +418,7 @@ const NC_SPOT_DATA = (() => {
   // 逐印刷頁盤點。overview 的其他產品只做來源提示，沒有規格頁就不建立假型號。
   const catalogCoverage = [
     { sourcePages: [28, 29], pdfPages: [1, 2], kind: "overview", familyIds: [], status: "reference", note: "NC Spot Drill overview; RC, SW and other engraving references are separate product sections whose detailed specification pages are not included in this 19-page PDF." },
-    { sourcePages: [30], pdfPages: [3], kind: "ordinary", familyIds: ["p60"], status: "specifications-manual-cutting", note: "P60 has specifications but no matching cutting-data table in this PDF." },
+    { sourcePages: [30], pdfPages: [3], kind: "ordinary", familyIds: ["p60"], status: "specifications-parent-reference", note: "P60 specifications are on p. 30. The user-confirmed N9MT11T3CT regrind relationship permits NC40 CT reference starting values from p. 53; no dedicated P60 cutting table is claimed." },
     { sourcePages: [31], pdfPages: [4], kind: "ordinary", familyIds: ["v09", "v13"], status: "covered" },
     { sourcePages: [32], pdfPages: [5], kind: "ordinary", familyIds: ["v08208", "v08212"], status: "covered" },
     { sourcePages: [33], pdfPages: [6], kind: "ordinary", familyIds: ["nc06", "nc08"], status: "covered" },
@@ -429,7 +431,7 @@ const NC_SPOT_DATA = (() => {
     { sourcePages: [42, 43], pdfPages: [15, 16], kind: "wsp", familyIds: [], status: "separate-model", note: "WSP is managed by its independent dual-angle model and data, not by this ordinary-cone series list." },
     { sourcePages: [52], pdfPages: [17], kind: "geometry", familyIds: [], status: "reference", note: "120° appears in this excerpt only as a chart line; its assembly specifications are supplied separately by the official legacy PDF and current product page." },
     { sourcePages: ["1-13"], pdfPages: [13], kind: "legacy-ordinary", familyIds: ["nc120", "nc142"], status: "covered", sourcePdf: "./sources/NC-Spot-Drill-Legacy.pdf", note: "120° and N9MT CT2T-142° assemblies; H-NC5071 grade is additionally verified on the current official product page, not in the two-grade legacy PDF table." },
-    { sourcePages: [53, 54], pdfPages: [18, 19], kind: "cutting-data", familyIds: series.filter(item => item.cuttingPresetAvailable).map(item => item.id), status: "covered", note: "Three ordinary feed tables; WSP has its own table/model. Heat-resistant spotting feed is explicitly absent." }
+    { sourcePages: [53, 54], pdfPages: [18, 19], kind: "cutting-data", familyIds: series.filter(item => item.cuttingPresetAvailable).map(item => item.id), status: "covered", note: "Three ordinary feed tables; P60 uses a user-confirmed CT parent-family reference. WSP has its own table/model. Heat-resistant spotting feed is explicitly absent." }
   ];
 
   return {
@@ -445,7 +447,7 @@ const NC_SPOT_DATA = (() => {
     materials, series, feedTables, ratingLabels, catalogPackages, catalogCoverage,
     limitations: [
       "All 15 ordinary families in supplied catalog pp. 30–41 plus two legacy/current-page-confirmed 120° and N9MT-142° assemblies are represented; WSP uses a separate model.",
-      "N9MT11T3P60-NC40 has verified catalog specifications but no P60-specific cutting preset in the supplied PDF. Enter its cutting speed and feed manually.",
+      "N9MT11T3P60-NC40 uses NC40 CT reference starting values for matching materials, based on the user-confirmed N9MT11T3CT regrind origin. Its geometry, material ratings and hardness limits remain independent.",
       "The selected insert/holder combination determines the point angle. P60 and 90° CT inserts can share a holder; CT2T inserts in the 100° holder have different limits from the 90° assembly.",
       "NC Spot Drill inserts are offset from the holder centre. Nominal cone geometry does not reproduce every actual cutting profile.",
       "No ACE tip correction, minimum diameter, Cmax or depth table is reused.",

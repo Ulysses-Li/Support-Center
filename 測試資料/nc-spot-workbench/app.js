@@ -46,9 +46,11 @@
     const holder = series?.holders.find(item => item.part === controls.holder.value);
     const operation = controls.operation.value;
     const wspMaterial = series?.geometryMode === "wsp" ? wsp.data.materials.find(item => item.id === wspMaterialMap[material?.id]) : null;
-    const feedRange = wspMaterial?.feed ?? data.feedTables[series?.feedTable]?.[material?.id]?.[operation] ?? null;
+    // 改製參考只帶入母型號同牌號有標示、且 P60 本身也列出的材料，不擴大適用範圍。
+    const referenceAvailable = !series?.cuttingReference || (series.cuttingReference.grade === insert?.grade && series.cuttingReference.materialIds.includes(material?.id));
+    const feedRange = referenceAvailable ? (wspMaterial?.feed ?? data.feedTables[series?.feedTable]?.[material?.id]?.[operation] ?? null) : null;
     const vcRange = series?.geometryMode === "wsp" ? (wspMaterial?.vc ?? null) : material?.vc;
-    const manualInput = series?.manualInput === true;
+    const manualInput = series?.manualInput === true || !referenceAvailable;
     const materialConfirmed = insert?.materialIds.includes(material?.id) === true;
     return { series, material, insert, holder, operation, feedRange, vcRange, wspMaterial, manualInput, materialConfirmed };
   }
@@ -180,12 +182,12 @@
     $("gradeHint").textContent = materialConfirmed ? `${rating ? `${rating} catalog match for this material.` : (series.materialCompatibilityNote || "Catalog-listed application.")}${material.id === "hardened" && insert.materialMaxHardness ? ` Check hardness < HRC ${insert.materialMaxHardness}.` : ""}` : `No confirmed ${material.label.toLowerCase()} match for this insert in the catalog data. ${series.materialCompatibilityNote || "Choose a listed material or another insert."}`;
     $("toolSpecLink").href = sourceURL(series.pdfPage);
     $("toolSpecLink").textContent = `View ${series.familyLabel} · catalog p. ${series.sourcePage} ↗`;
-    $("presetNotice").hidden = !manualInput;
-    $("presetNotice").textContent = series.cuttingReference ? `The catalog lists NC40 cutting values for ${series.cuttingReference.familyLabel} (p. ${series.cuttingReference.sourcePage}), but does not explicitly name P60. Vc and f stay manual until this applicability is confirmed.` : "Manual cutting values: no dedicated range has been confirmed for this model. Enter Vc and f from your established setup.";
-    $("presetNote").textContent = isWsp ? "WSP uses its dedicated cutting table and catalog P formula. Choose the thread variant before setting Dreq." : manualInput ? "This model uses your manual cutting values. No other family's cutting range is substituted." : "Changing the model or material restores its available catalog cutting values. Dimensions stay editable.";
+    $("presetNotice").hidden = !manualInput && !series.cuttingReference;
+    $("presetNotice").textContent = series.cuttingReference ? manualInput ? "No matching NC40 CT reference entry for this material. Enter Vc and f from your established setup." : "P60 is reground from N9MT11T3CT. Starting Vc and f use the NC40 CT reference table; adjust them for your setup." : "Manual cutting values: no dedicated range has been confirmed for this model. Enter Vc and f from your established setup.";
+    $("presetNote").textContent = isWsp ? "WSP uses its dedicated cutting table and catalog P formula. Choose the thread variant before setting Dreq." : manualInput ? "This model uses your manual cutting values for this material." : series.cuttingReference ? "Changing the material restores available NC40 CT reference starting values. P60 dimensions stay editable." : "Changing the model or material restores its available catalog cutting values. Dimensions stay editable.";
     $("diameterHint").textContent = isWsp ? `Dreq Ø${format(result.minDiameter)}–${format(result.maxDiameter)} mm · Dmax / Tmax checked together` : chamfer ? (result.minD !== null && result.maxD !== null ? `Local contact range Ø${format(result.minD)}–${format(result.maxD)} mm` : `Catalog Dmax ${format(insert.maxDiameter)} mm`) : `Catalog Ø${format(insert.minDiameter ?? series.minDiameter ?? 0)}–${format(insert.maxDiameter)} mm${!(insert.minDiameter ?? series.minDiameter) ? " · lower limit unconfirmed" : ""}`;
-    $("vcHint").textContent = manualInput ? "P60-specific range unconfirmed · m/min" : `${rangeLabel(vcRange)} m/min`;
-    $("feedHint").textContent = manualInput ? "P60-specific range unconfirmed · mm/rev" : `${rangeLabel(feedRange)} mm/rev`;
+    $("vcHint").textContent = manualInput ? "Manual value · m/min" : `${rangeLabel(vcRange)} m/min${series.cuttingReference ? " · CT reference" : ""}`;
+    $("feedHint").textContent = manualInput ? "Manual value · mm/rev" : `${rangeLabel(feedRange)} mm/rev${series.cuttingReference ? " · CT reference" : ""}`;
     $("diameterError").textContent = result.geometryErrors.filter(text => /diameter|offset|clearance|depth|reach|contact/i.test(text)).join(" ");
     controls.diameter.classList.toggle("is-invalid", !validGeometry);
     controls.diameter.setAttribute("aria-invalid", String(!validGeometry));
@@ -243,8 +245,8 @@
       $("wspD1").textContent = `${format(result.d1)} mm`;
       $("wspP").textContent = `${format(result.p)} mm`;
     }
-    $("catalogScope").textContent = `${data.series.length} ordinary model families and ${wsp.data.variants.length} WSP thread variants. Tool: printed p. ${series.sourcePage}. ${series.cuttingReference ? `NC40 cutting reference: p. ${series.cuttingReference.sourcePage}, ${series.cuttingReference.familyLabel}; applicability to P60 is not explicitly confirmed.` : manualInput ? "No dedicated cutting range is confirmed for this model; cutting values are entered manually." : `Cutting data: p. ${series.cuttingSourcePage}.`}`;
-    $("catalogGradeNote").textContent = `${rating ? `Grade match: ${rating}. ` : ""}${manualInput ? "Cutting values are user-entered, not catalog recommendations. " : "Available cutting values start at catalog mid-range. "}${insert.supportingEdgeFeedFactor ? "The conditional +50% supporting-edge feed is not included. " : ""}Holder length is overall length, not a verified usable reach.`;
+    $("catalogScope").textContent = `${data.series.length} ordinary model families and ${wsp.data.variants.length} WSP thread variants. Tool: printed p. ${series.sourcePage}. ${series.cuttingReference ? `NC40 CT reference: p. ${series.cuttingReference.sourcePage}, ${series.cuttingReference.familyLabel}. P60's N9MT11T3CT regrind origin is user-confirmed; the table is not dedicated P60 data.` : manualInput ? "No dedicated cutting range is confirmed for this model; cutting values are entered manually." : `Cutting data: p. ${series.cuttingSourcePage}.`}`;
+    $("catalogGradeNote").textContent = `${rating ? `Grade match: ${rating}. ` : ""}${manualInput ? "Cutting values are user-entered, not catalog recommendations. " : series.cuttingReference ? "Reference starting values use the NC40 CT table mid-range. P60 retains its own geometry and material scope. " : "Available cutting values start at catalog mid-range. "}${insert.supportingEdgeFeedFactor ? "The conditional +50% supporting-edge feed is not included. " : ""}Holder length is overall length, not a verified usable reach.`;
     $("dataSourceLink").href = series.cuttingReference ? sourceURL(series.cuttingReference.pdfPage, series.cuttingReference.sourcePdf) : manualInput ? sourceURL(series.pdfPage) : sourceURL(series.cuttingPdfPage, series.cuttingSourcePdf || data.source.pdf);
     $("dataSourceLink").textContent = series.cuttingReference ? "View NC40 / CT reference table · not P60-specific ↗" : manualInput ? "Open model specifications ↗" : "Open cutting table ↗";
     $("sourceEdition").textContent = `Specifications: ${series.sourceVersion || data.source.version}. ${isWsp ? "WSP formula: printed p. 54." : ""}`;
@@ -263,14 +265,14 @@
       `Material: ${material.label}`, `D: ${format(result.diameter)} mm | Vc: ${format(result.vc)} m/min | f: ${format(result.feedPerRev)} mm/rev`,
       `Spindle speed: ${format(result.spindle, 0)} rpm`, `Feed rate: ${format(result.feedRate, 1)} mm/min`,
       `Maximum cutting diameter used for S: ${format(result.maxCuttingDiameter)} mm`,
-      `Cutting values: ${manualInput ? "Manual user input; no dedicated P60 cutting recommendation in the supplied catalog" : "Catalog ranges / user adjustments"}`
+      `Cutting values: ${manualInput ? "Manual user input; no confirmed reference range for this material" : series.cuttingReference ? `NC40 CT reference starting values / user adjustments; P60 reground from ${series.cuttingReference.parentInsert} (user-confirmed), not a dedicated P60 table` : "Catalog ranges / user adjustments"}`
     ];
     if (operation === "chamfering") lines.push(`Chamfer: ${series.angle === 90 ? "C" : "W"}${format(result.width)} × ${format(90 - series.angle / 2)}° | H ${format(result.height)} mm | Contact D at: ${result.reference}`, `Full geometry R: ${format(result.radius)} mm | diameter equivalent: ${format(result.compensationDiameter)} mm`, "R is from original contour toward free side, not CAM wear. G41/G42 depends on travel direction.");
     lines.push(`${result.isNominal ? "Nominal theoretical-point" : "Measured-reference"} depth: ${format(result.depth)} mm | Z: ${format(result.z)} mm`, "Z0 = work surface.");
     if (result.isNominal) lines.push("Depth / Z is nominal geometry, not an assembled-tool target. Add a measured reference for the same assembly.");
     else lines.push(`Measured reference: Dref ${format(referenceDiameter)} mm at depth ${format(referenceDepth)} mm | Δz ${format(result.tipOffset)} mm`);
     lines.push("Nominal straight-face model; actual offset insert profile, holder clearance and lead-in/out are not verified.", `Specifications: ${series.sourceVersion || data.source.version}; tool p. ${series.sourcePage}`, sourceURL(series.pdfPage));
-    lines.push(manualInput ? "Cutting values entered manually." : `Cutting data: ${data.source.version}, p. ${series.cuttingSourcePage}\n${sourceURL(series.cuttingPdfPage, series.cuttingSourcePdf || data.source.pdf)}`);
+    lines.push(manualInput ? "Cutting values entered manually." : `${series.cuttingReference ? "CT reference table" : "Cutting data"}: ${data.source.version}, p. ${series.cuttingSourcePage}\n${sourceURL(series.cuttingPdfPage, series.cuttingSourcePdf || data.source.pdf)}`);
     return lines.join("\n");
   }
   function buildWspCopy({ series, insert, holder, material, result }) {

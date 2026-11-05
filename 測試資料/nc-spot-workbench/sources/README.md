@@ -30,8 +30,9 @@
 - 每轉進給單位是 **mm/rev**，不是 mm/tooth。刀片可轉用的 2／4 刃數不乘入 `F=S×f`。
 - `N9MT11T3P60-NC40` 是 p30 的獨立 60° 全研磨刀片，**不是** p36 的 90° `N9MT11T3CT-NC40`。它相容 `00-99616-14-12`（Ø12×100）與 `00-99616-14`（Ø16×100），相同刀柄不代表相同加工角度或切削表。
 - P60 型錄料號 `014204`、TiN／P35、L11、S3.97、Re0.8、Dmax5、Tmax3、兩個可轉用刃口。用途文字為 unhardened steel／cast iron，無數值 HRC 上限。本樣板以一般碳鋼、合金鋼、鑄鐵作保守材質候選；未將不鏽鋼等材料自動判為最佳適用。
-- p53 的 standard 切削表明列 `N9MT0802 / N9MT11T3CT`，**沒有** `N9MT11T3P60`；不能借用該表的 Vc、f、Best／Suit／Possible 或 `<HRC48` 說明。P60 資料明示 `feedTable:null`、`cuttingPresetAvailable:false`、`manualInput:true`，切削條件需自行輸入並確認。
-- 2026-11-05 再核對官網 `60nc-spot-drill.html` 的 Cutting Data，連至共用頁 `cutting-formula.htm?related_pc=2`；其中 `NC_Spot_Drill2.jpg` 同樣以 `N9MT0802 / N9MT11T3CT` 為表頭。這能證明 P60 頁有連結通用 NC Spot Drill 資料，仍不能將其稱為 P60 專屬、已確認的預設。畫面提供站內 PDF 第18頁參考連結，清楚標示適用範圍待確認，不自動回填參數。
+- p53 的 standard 切削表明列 `N9MT0802 / N9MT11T3CT`，沒有 P60 專屬表頭。2026-11-05 使用者確認 **P60 由 N9MT11T3CT 改製**，因此以同牌號 NC40 的表格作參考起始值，記錄 `cuttingReference.basis:user-confirmed-parent`、母型號與確認日期；不是將改製關係冒稱為 PDF 原文。
+- P60 用途與 CT-NC40 矩陣的交集是 `carbonLow/carbonHigh/lowAlloy/castIron`，才自動帶入 Vc／f 中間值。例如低碳鋼 Vc150–320、f0.05–0.10，預設235／0.075。高合金鋼的 CT-NC40 欄未標示，P60 用途仍保留但切削值手動輸入。不鏽鋼等也不因通用表有資料就擴大 P60 用途。Best／Suit／Possible、`<HRC48`、CT 最低深度不隨參考值繼承。
+- 官網 `60nc-spot-drill.html` 的 Cutting Data 連至 `cutting-formula.htm?related_pc=2`，`NC_Spot_Drill2.jpg` 也以 CT 為表頭。畫面及複製內容明示 CT 參考起始值，連至站內 PDF 第18頁；P60 規格仍連到第3頁。
 - 刀片在刀柄中心外有偏移，刃口有 Re、wiper 等造型。型錄 Dmax／Tmax 是規格限制，**不是**可直接推出精準實體刀尖修正量的兩個座標。
 - `tipCorrection` 固定為 `null`；不能由 `Dmax/2*cot(α/2)−Tmax` 倒算，再冒充型錄或 ACE 的刀尖 ℓ。
 - CT 系列 NC40／NC60 的 spotting 圖有 Minimum 1 mm；倒角圖也要求 1 mm tip clearance。P60 的 p30 規格頁沒有這項最低深度標註，不能僅因牌號同為 NC40 就套入 CT wiper 模型；其 `minSpotDepth` 保持 `null`。幾何模型仍需明確基準。
