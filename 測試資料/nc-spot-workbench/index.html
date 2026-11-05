@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NC Spot Drill cutting conditions, spotting and chamfering section preview.">
+  <title>NC Spot Drill | Cutting Data Preview</title>
+  <link rel="icon" href="../../favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../header/header.css">
+  <link rel="stylesheet" href="../../footer/footer.css">
+  <link rel="stylesheet" href="../../css/site-background.css">
+  <link rel="stylesheet" href="./styles.css?v=20261105">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <div id="header-placeholder"></div>
+  <main class="calculator-page flex-grow-1">
+    <div class="container calculator-container">
+      <nav aria-label="Breadcrumb" class="mb-4"><ol class="breadcrumb mb-0"><li class="breadcrumb-item"><a href="../../CuttingData/index.html">Cutting Data</a></li><li class="breadcrumb-item active" aria-current="page">NC Spot Drill</li></ol></nav>
+      <header class="product-heading d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+        <div class="d-flex align-items-center gap-3">
+          <div class="product-icon"><img src="../../img/spotting.png" alt="" width="56" height="56"></div>
+          <div><p class="eyebrow mb-1">CUTTING DATA CALCULATOR</p><h1 class="mb-1">NC Spot Drill</h1><p class="heading-description mb-0">Choose your tool. Set the cut. Understand the geometry.</p></div>
+        </div>
+        <div class="d-flex flex-wrap align-items-center gap-3"><span class="preview-label">Design preview</span><a class="btn catalog-link" id="catalogLink" href="./sources/NC-Spot-Drill-2025-2026-ENG.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/><path d="M4.5 6.5h7v1h-7zm0 3h7v1h-7zm0 3h4v1h-4z"/></svg> Product catalog <span class="file-label">PDF</span></a></div>
+      </header>
+
+      <div class="row g-4 align-items-start">
+        <section class="col-12 col-lg-7" aria-labelledby="conditionsTitle">
+          <form class="surface conditions-panel" id="calculatorForm" novalidate>
+            <div class="d-flex align-items-center justify-content-between gap-3 mb-4"><h2 class="panel-title mb-0" id="conditionsTitle">Machining conditions</h2><button class="btn reset-link" type="button" id="resetButton">Reset values</button></div>
+            <!-- 共用同一份表單；角度跟隨刀柄，避免組出型錄沒有的刀柄刀片組合。 -->
+            <fieldset class="condition-group"><legend><span class="step-number">01</span> Application</legend><div class="row g-3">
+              <div class="col-12 col-sm-5"><label for="operation" class="form-label">Operation</label><select class="form-select" id="operation"><option value="spotting">Spotting</option><option value="chamfering">Chamfering · 90°</option></select></div>
+              <div class="col-12 col-sm-7"><label for="material" class="form-label">Workpiece material</label><div class="material-control"><span id="materialBadge" class="material-badge" aria-hidden="true">P</span><select class="form-select" id="material"></select></div></div>
+            </div></fieldset>
+            <fieldset class="condition-group"><legend><span class="step-number">02</span> Tool assembly</legend><div class="row g-3">
+              <div class="col-12 col-sm-7"><label for="series" class="form-label">Tool series</label><select class="form-select" id="series"></select></div>
+              <div class="col-12 col-sm-5"><label for="insert" class="form-label">Insert / grade</label><select class="form-select" id="insert"></select></div>
+              <div class="col-12"><label for="holder" class="form-label">Holder</label><select class="form-select" id="holder"></select></div>
+            </div><div class="assembly-note mt-3"><span class="angle-tag" id="angleTag">90°</span><p class="field-hint m-0" id="toolHint"></p></div><p class="field-hint" id="gradeHint"></p></fieldset>
+            <fieldset class="condition-group mb-0"><legend><span class="step-number">03</span> <span id="cuttingTitle">Cutting values</span></legend>
+              <div id="chamferInputs" hidden><p class="section-note">Follow the original contour. Choose the chamfer width and the point where your contact diameter meets the cut.</p><div class="row g-3 mb-3">
+                <div class="col-12 col-sm-5"><label for="chamferWidth" class="form-label">Chamfer size <span>C × 45°</span></label><div class="input-group"><input id="chamferWidth" class="form-control" type="number" min="0" step="0.1" inputmode="decimal" value="0.5"><span class="input-group-text">mm</span></div></div>
+                <div class="col-12 col-sm-7"><label for="contactReference" class="form-label">Contact diameter is at</label><select id="contactReference" class="form-select"><option value="upper">Upper edge · work surface Z0</option><option value="middle">Middle of chamfer</option><option value="lower">Lower edge · original contour</option></select></div>
+              </div><label for="diameterRange" class="form-label mb-0">Cutting position <span>· adjusts contact D below</span></label><input id="diameterRange" type="range" min="0" max="10" step="0.1" class="form-range mb-2" aria-label="Contact diameter position"></div>
+              <div class="row g-3">
+                <div class="col-12 col-sm-4"><label for="diameter" class="form-label"><span id="diameterLabel">Spot diameter</span> <span>D</span></label><div class="input-group"><input id="diameter" class="form-control" type="number" min="0" step="0.1" inputmode="decimal" value="6" aria-describedby="diameterHint diameterError"><span class="input-group-text">mm</span></div><p id="diameterHint" class="field-hint"></p><p id="diameterError" class="field-error"></p></div>
+                <div class="col-12 col-sm-4"><label for="vc" class="form-label">Cutting speed <span>Vc</span></label><div class="input-group"><input id="vc" class="form-control" type="number" min="0" step="1" inputmode="decimal" aria-describedby="vcHint"><span class="input-group-text">m/min</span></div><p id="vcHint" class="field-hint"></p></div>
+                <div class="col-12 col-sm-4"><label for="feedPerRev" class="form-label">Feed per rev. <span>f</span></label><div class="input-group"><input id="feedPerRev" class="form-control" type="number" min="0" step="0.01" inputmode="decimal" aria-describedby="feedHint"><span class="input-group-text">mm/rev</span></div><p id="feedHint" class="field-hint"></p></div>
+              </div>
+              <!-- 型錄未給通用刀尖修正；由同一組裝的實測點定義 Z，預設保留名義理論基準。 -->
+              <details class="reference-settings mt-4" id="referenceSettings"><summary><span>Tool-length reference</span><span id="referenceState" class="reference-state">Nominal geometry</span></summary><div class="pt-3">
+                <label for="datum" class="form-label">Depth / Z reference</label><select id="datum" class="form-select"><option value="theoretical">Theoretical point · nominal geometry</option><option value="measured">Use a measured diameter / depth reference</option></select>
+                <p class="field-hint" id="datumHint">The catalog shows different tip sections by insert grade. Add a measured reference to relate the section to your tool-length setting.</p>
+                <div id="measuredInputs" class="row g-3 mt-1" hidden><div class="col-12 col-sm-6"><label for="referenceDiameter" class="form-label">Measured spot diameter <span>Dref</span></label><div class="input-group"><input class="form-control" id="referenceDiameter" type="number" min="0" step="0.1" inputmode="decimal" aria-describedby="referenceError"><span class="input-group-text">mm</span></div></div><div class="col-12 col-sm-6"><label for="referenceDepth" class="form-label">Depth at that diameter <span>tref</span></label><div class="input-group"><input class="form-control" id="referenceDepth" type="number" min="0" step="0.01" inputmode="decimal" aria-describedby="referenceError"><span class="input-group-text">mm</span></div></div><p class="field-hint mt-2 mb-0">Use the same holder, insert and tool-length setting. Enter the positive depth below work surface Z0.</p><p class="field-error mt-1 mb-0" id="referenceError"></p></div>
+              </div></details>
+              <p class="calculation-message mb-0" id="calculationMessage" role="status"></p>
+            </fieldset>
+          </form>
+          <p class="preset-note mt-3 mb-0">Material, series or insert changes restore the catalog mid-range cutting values. Dimensions stay editable.</p>
+          <figure class="surface section-figure mt-4 mb-0" aria-labelledby="sectionTitle"><div class="d-flex flex-wrap align-items-start justify-content-between gap-2 mb-3"><h2 id="sectionTitle" class="panel-title mb-0">Spotting section</h2><span id="diagramAngleLabel" class="field-hint m-0"></span></div><div id="diagramCanvas"></div><figcaption id="diagramCaption" class="field-hint mb-0"></figcaption></figure>
+        </section>
+
+        <aside class="col-12 col-lg-5" aria-labelledby="resultTitle"><div class="surface result-panel">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4"><h2 id="resultTitle" class="panel-title mb-0">Cutting results</h2><span class="live-label"><span></span> Instant calculation</span></div>
+          <section id="chamferOutput" class="mb-4" hidden><p class="detail-label mb-2">Original contour · full geometry compensation</p><div class="geometry-values"><div><span class="output-label">Geometric offset R</span><div class="output-value"><strong id="compensationR">—</strong><span>mm</span></div></div><div><span class="output-label" id="zLabel">Nominal Z</span><div class="output-value"><strong id="zTarget">—</strong><span>mm</span></div></div></div><p class="field-hint" id="compensationHint"></p></section>
+          <div class="key-results" aria-live="polite" aria-atomic="true"><div><span class="output-label">Spindle speed</span><div class="output-value"><strong id="rpm">—</strong><span>rpm</span></div></div><div><span class="output-label">Feed rate</span><div class="output-value"><strong id="feedRate">—</strong><span>mm/min</span></div></div></div>
+          <div class="selected-insert mt-4"><span class="detail-label">Selected insert</span><strong id="insertModel">—</strong><p id="selectionSummary" class="mb-0"></p></div>
+          <dl class="result-specs row g-3 mt-1 mb-4"><div class="col-6"><dt>Holder angle</dt><dd id="resultAngle">—</dd></div><div class="col-6"><dt>Catalog Dmax</dt><dd id="resultDmax">—</dd></div><div class="col-6"><dt id="depthLabel">Nominal depth t</dt><dd id="depthResult">—</dd></div><div class="col-6"><dt>Catalog Tmax</dt><dd id="resultTmax">—</dd></div></dl>
+          <div class="reference-note mb-4"><span class="reference-dot" aria-hidden="true"></span><p id="resultReference" class="m-0"></p></div>
+          <button id="copyButton" type="button" class="btn copy-button w-100"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4 0a2 2 0 0 0-2 2v9h1V2a1 1 0 0 1 1-1h9V0z"/><path d="M6 3a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-1 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/></svg>Copy cutting data</button><p id="copyFeedback" class="copy-feedback mb-0" role="status"></p>
+          <details class="calculation-details mt-3"><summary>Calculation &amp; reference</summary><div class="pt-3"><p id="formulaText"></p><p id="geometryNote"></p><p class="mb-0" id="compensationNote" hidden>R is the tool-center distance from the original contour toward the free side. Apply full geometry compensation once. G41 / G42 depends on travel direction and material side; R is not a CAM wear value.</p></div></details>
+          <details class="calculation-details mt-3"><summary>Catalog data</summary><div class="pt-3"><p id="catalogScope"></p><p id="catalogGradeNote"></p><a id="dataSourceLink" href="./sources/NC-Spot-Drill-2025-2026-ENG.pdf#page=18" target="_blank" rel="noopener">Open cutting table ↗</a><p class="field-hint mb-0 mt-2">NC Spot Drill 2025–2026 · printed pp. 28–43, 52–54.</p></div></details>
+        </div></aside>
+      </div>
+    </div>
+  </main>
+  <a id="mobileSummary" class="mobile-summary" href="#resultTitle" aria-label="View cutting results"><span><small>Spindle speed</small><strong id="mobileRpm">—</strong><small>rpm</small></span><span><small>Feed rate</small><strong id="mobileFeed">—</strong><small>mm/min</small></span><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5A.5.5 0 0 0 8 12"/></svg></a>
+  <div id="footer-placeholder"></div>
+  <script src="./data.js?v=20261105"></script>
+  <script src="./core.js?v=20261105"></script>
+  <script src="./diagrams.js?v=20261105"></script>
+  <script src="./app.js?v=20261105"></script>
+</body>
+</html>
