@@ -2,6 +2,8 @@
 
 本機設計預覽，入口為 `index.html`。以專案根目錄啟動靜態 HTTP 服務後開啟 `/測試資料/thread-milling-simulator/index.html`。
 
+英文版使用 `index.html?lang=en`，中文版使用 `index.html?lang=zh`。頁面右上角可即時切換語言，保留已選規格、材料、輸入值與動畫進度。靜態文字、動態訊息、圖面與無障礙標籤統一由 `i18n.js` 管理。
+
 ## 資料與共用元件
 
 - 刀片、刀徑、配對與螺紋尺寸直接引用 `NCProgram/Thread_Milling/src/data/`。

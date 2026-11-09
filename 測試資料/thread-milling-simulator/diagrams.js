@@ -2,6 +2,7 @@
 window.ThreadDiagrams = (() => {
   const el = id => document.getElementById(id);
   const n = value => Number(value.toFixed(3));
+  const t = (key, values) => window.ThreadI18n ? window.ThreadI18n.t(key, values) : key;
   let state;
 
   // 配對圖示與動畫共用 MCC 刀片外形：窄頂、斜肩、中央凹槽、外擴刀齒與底部倒角。
@@ -80,7 +81,7 @@ window.ThreadDiagrams = (() => {
       <g id="axTool">${insertArtwork({ radius: cr, pitch: p.pitch * scaleAx, toothDepth: tooth * scaleAx, angle, prefix: 'ax-insert', shankHeight: 180 })}<circle r="1.8" fill="#f05a1a" stroke="#fff"/></g></g>
       <path d="M70 83V${n(axY(-p.depth) - 4)}" fill="none" stroke="#6e99b6" marker-start="url(#ax-arrow)" marker-end="url(#ax-arrow)"/>
       <text x="61" y="${n((79 + axY(-p.depth)) / 2)}" text-anchor="middle" transform="rotate(-90 61 ${n((79 + axY(-p.depth)) / 2)})" class="diagram-measure">${n(p.depth)} mm</text>
-      <text x="102" y="64" class="diagram-label">工件表面 Z0</text><text x="397" y="83" class="diagram-label">X</text><text x="245" y="37" class="diagram-label">Z+</text><text x="360" y="328" class="diagram-label">${motion.tapered ? '錐度 1:16' : '平行螺紋'}</text>`;
+      <text x="102" y="64" class="diagram-label">${t('工件表面 Z0')}</text><text x="397" y="83" class="diagram-label">X</text><text x="245" y="37" class="diagram-label">Z+</text><text x="360" y="328" class="diagram-label">${t(motion.tapered ? '錐度 1:16' : '平行螺紋')}</text>`;
 
     const major = p.od / 2 * scaleRd, minor = p.tapDrill / 2 * scaleRd, toolR = p.toolDiameter / 2 * scaleRd;
     const workpiece = `M105 42H375V312H105Z M${240 - minor},177a${minor},${minor} 0 1,0 ${2 * minor},0a${minor},${minor} 0 1,0 ${-2 * minor},0Z`;
@@ -94,7 +95,7 @@ window.ThreadDiagrams = (() => {
       <g id="rdTool"><circle r="${n(toolR)}" fill="#f6b782" fill-opacity=".52" stroke="#f05a1a" stroke-width="1.7"/><circle r="${n(toolR * .72)}" fill="none" stroke="#e88a4d" stroke-width="1" stroke-dasharray="5 4"/><path d="M-6 0H6M0-6V6" stroke="#c3571b" stroke-width="1.2"/><circle r="4" fill="#f05a1a" stroke="#fff" stroke-width="1.3"/></g>
       <path d="M${n(240 + arrowR * Math.cos(angle0))},${n(177 - arrowR * Math.sin(angle0))}A${n(arrowR)},${n(arrowR)} 0 0 ${dir < 0 ? 1 : 0} ${n(240 + arrowR * Math.cos(angle1))},${n(177 - arrowR * Math.sin(angle1))}" fill="none" stroke="#6e99b6" stroke-width="2" marker-end="url(#rd-arrow)"/>
       </g><text x="417" y="169" class="diagram-label">X+</text><text x="249" y="39" class="diagram-label">Y+</text>
-      <rect x="148" y="294" width="184" height="30" rx="15" fill="#f8fcff"/><text x="240" y="315" text-anchor="middle" class="diagram-measure">螺紋 Ø${n(p.od)}</text>`;
+      <rect x="148" y="294" width="184" height="30" rx="15" fill="#f8fcff"/><text x="240" y="315" text-anchor="middle" class="diagram-measure">${t('螺紋 Ø{diameter}', { diameter: n(p.od) })}</text>`;
   }
 
   function draw(time) {

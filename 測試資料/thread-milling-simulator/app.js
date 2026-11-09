@@ -1,6 +1,7 @@
 (() => {
   'use strict';
-  const NC = window.NCProgram, Core = window.ThreadMotion, Diagrams = window.ThreadDiagrams;
+  const NC = window.NCProgram, Core = window.ThreadMotion, Diagrams = window.ThreadDiagrams, I18n = window.ThreadI18n;
+  const t = I18n.t;
   const $ = id => document.getElementById(id);
   const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const fixed = (v, places = 3) => Number(v).toFixed(places);
@@ -12,7 +13,7 @@
   const numericFields = ['depth', 'vc', 'fz', 'teeth', 'centerX', 'centerY', 'safeZ', 'surfaceZ', 'toolNumber'];
 
   function option(value, label, selected) { return `<option value="${escapeHTML(value)}"${selected ? ' selected' : ''}>${escapeHTML(label)}</option>`; }
-  function setText(id, text) { $(id).textContent = text; }
+  function setText(id, text) { $(id).textContent = t(text); }
   function renderSelection() {
     const owned = state.selection === 'insert';
     $('ownedInsertField').hidden = !owned;
@@ -20,7 +21,7 @@
     $('ownedInsert').innerHTML = Object.values(NC.toolGroups).flat().map(item => option(item.v, `${item.v} · Ø${compact(NC.getDcFromTool(item.v))}`, item.v === state.insert)).join('');
     const allowed = Core.standards.filter(standard => Core.getSizes(standard.id, owned ? state.insert : null).length);
     if (!allowed.some(s => s.id === state.standard)) state.standard = allowed[0].id;
-    $('standardButtons').innerHTML = Core.standards.map(standard => `<button type="button" data-standard="${standard.id}" aria-pressed="${standard.id === state.standard}" title="${escapeHTML(standard.label)}"${allowed.includes(standard) ? '' : ' disabled'}>${standard.id}</button>`).join('');
+    $('standardButtons').innerHTML = Core.standards.map(standard => `<button type="button" data-standard="${standard.id}" aria-pressed="${standard.id === state.standard}" title="${escapeHTML(t(standard.label))}"${allowed.includes(standard) ? '' : ' disabled'}>${standard.id}</button>`).join('');
     const sizes = Core.getSizes(state.standard, owned ? state.insert : null);
     if (!sizes.includes(state.size)) state.size = sizes[0];
     $('threadSize').innerHTML = sizes.map(key => option(key, key.replace(/ x /g, ' × '), key === state.size)).join('');
@@ -28,10 +29,10 @@
     if (!inserts.some(item => item.v === state.insert)) state.insert = inserts[0].v;
     $('ownedInsert').value = state.insert;
     const shown = owned ? inserts.filter(item => item.v === state.insert) : inserts;
-    $('insertChoices').innerHTML = shown.map((item, index) => `<button type="button" class="insert-choice" data-insert="${escapeHTML(item.v)}" aria-pressed="${item.v === state.insert}">${Diagrams.insertIcon(index)}<span><strong>${escapeHTML(item.v)}</strong><small>刀徑 Ø${compact(NC.getDcFromTool(item.v))} mm</small></span><span class="selection-tick" aria-hidden="true">${item.v === state.insert ? '✓' : ''}</span></button>`).join('');
-    setText('insertCount', `${shown.length} 款${owned ? '已選刀片' : '可選'}`);
+    $('insertChoices').innerHTML = shown.map((item, index) => `<button type="button" class="insert-choice" data-insert="${escapeHTML(item.v)}" aria-pressed="${item.v === state.insert}">${Diagrams.insertIcon(index)}<span><strong>${escapeHTML(item.v)}</strong><small>${escapeHTML(t('刀徑 Ø{diameter} mm', { diameter: compact(NC.getDcFromTool(item.v)) }))}</small></span><span class="selection-tick" aria-hidden="true">${item.v === state.insert ? '✓' : ''}</span></button>`).join('');
+    setText('insertCount', t(owned ? '{count} 款已選刀片' : '{count} 款可選', { count: shown.length }));
     const standard = Core.standardFor(state.standard), data = NC.threadData[state.size];
-    setText('threadKind', `${standard.family.startsWith('tapered') ? '錐牙' : '平行牙'} · ${standard.angle}°`);
+    setText('threadKind', `${t(standard.family.startsWith('tapered') ? '錐牙' : '平行牙')} · ${standard.angle}°`);
     setText('majorValue', `${compact(data.MajorDiameter)} mm`);
     setText('pitchValue', `${compact(data.Pitch)} mm`);
     setText('fitHint', NC.getDcFromTool(state.insert) === data.TapDrillDiameter ? '刀徑等於資料表下孔徑，需確認實際進刀間隙。' : '依現有 Thread Milling 資料配對。');
@@ -47,7 +48,7 @@
     for (const id of numericFields) {
       if (!$(id).checkValidity() || $(id).value.trim() === '') {
         $(id).setAttribute('aria-invalid', 'true');
-        throw new Error(`請檢查「${document.querySelector(`label[for="${id}"]`).textContent}」的數值範圍。`);
+        throw new Error(t('請檢查「{field}」的數值範圍。', { field: document.querySelector(`label[for="${id}"]`).textContent }));
       }
     }
     const data = NC.threadData[state.size], standard = Core.standardFor(state.standard), toolDiameter = NC.getDcFromTool(state.insert);
@@ -66,7 +67,7 @@
       const content = line.startsWith('(') ? `<span class="nc-comment">${safe}</span>` : safe.replace(/\b([GM]\d+)/g, '<span class="nc-command">$1</span>').replace(/([XYZIJRFDH])(-?\d+(?:\.\d+)?)/g, '$1<span class="nc-number">$2</span>');
       return `<span class="code-line" data-line="${index + 1}">${content}</span>`;
     }).join('');
-    setText('lineCount', `${code.split('\n').length} 行`);
+    setText('lineCount', t('{count} 行', { count: code.split('\n').length }));
   }
 
   function rebuild() {
@@ -84,16 +85,16 @@
       setText('zDirection', motion.tapered ? '由上往下 · Z−' : '由下往上 · Z+');
       setText('drillValue', `Ø ${fixed(input.tapDrill, 2)} mm`);
       setText('depthValue', `${compact(input.depth)} mm`);
-      setText('turnsValue', `${compact(motion.turns)} 圈`);
-      setText('angleValue', `${Core.standardFor(state.standard).angle}° / ${motion.tapered ? '1:16' : '平行'}`);
+      setText('turnsValue', t('{count} 圈', { count: compact(motion.turns) }));
+      setText('angleValue', `${Core.standardFor(state.standard).angle}° / ${motion.tapered ? '1:16' : t('平行')}`);
       setText('rpmValue', Math.round(input.rpm).toLocaleString('en-US'));
       setText('feedValue', fixed(input.feed, 1));
-      setText('codeSummary', `${input.coordinate.workOffset} · T${input.toolNo} · ${motion.tapered ? 'G42 / G02' : 'G41 / G03'} · ${input.passPercents.length} 次加工`);
+      setText('codeSummary', `${input.coordinate.workOffset} · T${input.toolNo} · ${motion.tapered ? 'G42 / G02' : 'G41 / G03'} · ${t('{count} 次加工', { count: input.passPercents.length })}`);
       setText('copyStatus', '現有 NC 產生器輸出');
       const preset = NC.getMaterialPreset($('material').value);
       setText('presetHint', Number($('vc').value) === preset.vc && Number($('fz').value) === preset.fz ? '已帶入材料建議值；刃數沿用原頁預設 6，可調整。' : '目前使用自訂切削值；可還原材料建議值。');
       const end = motion.points.findLast(q => q.phase === 'cut');
-      setText('motionNote', `名義路徑示意；${motion.tapered ? '沿用現有錐牙每段 10° 的路徑' : '依現有產生器取完整圈數'}，螺旋終點 Z${fixed(end.z)}（相對工件表面）。播放速度獨立於加工時間。`);
+      setText('motionNote', t('名義路徑示意；{strategy}，螺旋終點 Z{z}（相對工件表面）。播放速度獨立於加工時間。', { strategy: t(motion.tapered ? '沿用現有錐牙每段 10° 的路徑' : '依現有產生器取完整圈數'), z: fixed(end.z) }));
       renderCode(code);
       Diagrams.prepare(motion, Core.standardFor(state.standard).angle);
       renderFrame(); syncPlayer(); schedule();
@@ -101,8 +102,8 @@
       state.motion = null; state.code = '';
       $('validationMessage').hidden = false; setText('validationMessage', error.message);
       ['playButton', 'replayButton', 'progress', 'copyCode', 'downloadCode'].forEach(id => $(id).disabled = true);
-      $('axialView').innerHTML = '<text x="240" y="175" text-anchor="middle" class="diagram-label">請先檢查加工設定</text>';
-      $('radialView').innerHTML = '<text x="240" y="175" text-anchor="middle" class="diagram-label">有效設定後顯示刀路</text>';
+      $('axialView').innerHTML = `<text x="240" y="175" text-anchor="middle" class="diagram-label">${escapeHTML(t('請先檢查加工設定'))}</text>`;
+      $('radialView').innerHTML = `<text x="240" y="175" text-anchor="middle" class="diagram-label">${escapeHTML(t('有效設定後顯示刀路'))}</text>`;
       ['selectedInsert', 'toolPitch', 'directionValue', 'zDirection', 'drillValue', 'depthValue', 'turnsValue', 'angleValue', 'rpmValue', 'feedValue', 'positionX', 'positionY', 'positionZ', 'turnPosition', 'passPosition'].forEach(id => setText(id, '—'));
       setText('ncCode', '請先修正加工設定，再產生程式。'); setText('lineCount', ''); setText('codeSummary', '設定待修正');
       setText('copyStatus', ''); setText('motionStatus', '設定待修正'); $('motionStatus').dataset.state = 'paused';
@@ -115,20 +116,20 @@
     const current = Diagrams.draw(state.time), p = state.motion.input;
     const progress = state.time / state.motion.duration;
     $('progress').value = Math.round(progress * 1000);
-    $('progress').setAttribute('aria-valuetext', `${Math.round(progress * 100)}%，${Core.phaseLabels[current.phase]}`);
+    $('progress').setAttribute('aria-valuetext', `${Math.round(progress * 100)}%, ${t(Core.phaseLabels[current.phase])}`);
     setText('progressValue', `${Math.round(progress * 100)}%`);
     setText('phaseLabel', state.time >= state.motion.duration ? '加工完成' : Core.phaseLabels[current.phase]);
     setText('positionX', fixed(current.x + p.coordinate.x));
     setText('positionY', fixed(current.y + p.coordinate.y));
     setText('positionZ', fixed(current.z + p.coordinate.zSurface));
     setText('turnPosition', `${fixed(current.turn, 1)} / ${compact(state.motion.turns)}`);
-    setText('passPosition', `第 ${current.pass} / ${p.passPercents.length} 次`);
+    setText('passPosition', t('第 {pass} / {total} 次', { pass: current.pass, total: p.passPercents.length }));
     phases.forEach(item => item.classList.toggle('active', item.dataset.phase === current.phase));
   }
   function syncPlayer() {
     const done = state.motion && state.time >= state.motion.duration;
     $('playButton').setAttribute('aria-pressed', String(state.playing));
-    $('playButton').querySelector('span').textContent = state.playing ? '暫停' : done ? '重播' : '播放';
+    $('playButton').querySelector('span').textContent = t(state.playing ? '暫停' : done ? '重播' : '播放');
     $('playButton').querySelector('svg').innerHTML = state.playing ? '<path d="M4 3h3v10H4zm5 0h3v10H9z"/>' : '<path d="M4 2.5v11l9-5.5z"/>';
     if (state.motion) { setText('motionStatus', state.playing ? '模擬播放中' : done ? '模擬完成' : '模擬已暫停'); $('motionStatus').dataset.state = state.playing ? 'playing' : 'paused'; }
   }
@@ -159,7 +160,11 @@
   $('threadSize').addEventListener('change', () => { state.size = $('threadSize').value; renderSelection(); setDepthPreset(); rebuild(); });
   $('ownedInsert').addEventListener('change', () => { state.insert = $('ownedInsert').value; renderSelection(); setDepthPreset(); rebuild(); });
   $('insertChoices').addEventListener('click', event => { const button = event.target.closest('[data-insert]'); if (!button) return; state.insert = button.dataset.insert; renderSelection(); rebuild(); });
-  $('material').innerHTML = Core.materials.map(material => option(material.id, material.label, material.id === 'Material01')).join('');
+  function renderMaterials() {
+    const selected = $('material').value || 'Material01';
+    $('material').innerHTML = Core.materials.map(material => option(material.id, t(material.label), material.id === selected)).join('');
+  }
+  renderMaterials();
   $('material').addEventListener('change', () => { restoreMaterial(); rebuild(); });
   $('restorePreset').addEventListener('click', () => { restoreMaterial(); rebuild(); });
   numericFields.forEach(id => $(id).addEventListener('input', rebuild));
@@ -182,5 +187,12 @@
   });
   document.addEventListener('visibilitychange', () => { state.lastFrame = null; if (document.hidden) { cancelAnimationFrame(state.request); state.request = null; } else schedule(); });
   reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) setPlaying(false); });
+  // 語言切換保留所有輸入、刀片、播放狀態與進度，只重新產生當前語言的文字與圖面標示。
+  $('languageToggle').addEventListener('click', () => {
+    const time = state.time;
+    I18n.setLanguage(I18n.language === 'en' ? 'zh' : 'en');
+    renderMaterials(); renderSelection(); rebuild();
+    if (state.motion) { state.time = Math.min(time, state.motion.duration); renderFrame(); syncPlayer(); }
+  });
   renderSelection(); setDepthPreset(); restoreMaterial(); rebuild();
 })();
