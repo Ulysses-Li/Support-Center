@@ -5,8 +5,9 @@
 ## 資料夾用途
 
 - `Thread_Milling/`：Thread Milling 專屬頁面、資料、運算程式、樣式與測試。
+- `Thread_Milling_V2/`：預設英文的同步雙視圖模擬器，與原版並列；共用原版資料與 NC 產生器。
 - `NC_Helix/`：NC Helix Drill 專屬頁面、資料、運算程式、樣式與測試。
-- `index.html`：相容舊網址的入口頁，目前會導向 Thread Milling。
+- `index.html`：NC Program 入口，提供 Thread Milling、Thread Milling V2.0 與 NC Helix。
 - `header/`：所有 NC Program 頁面共用的頁首元件與樣式。
 - `footer/`：所有 NC Program 頁面共用的頁尾元件與樣式。
 - `scripts/layout.js`：共用頁首頁尾載入器。

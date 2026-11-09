@@ -27,7 +27,7 @@ npm run dev
 - 產品內容資料：`Products/<產品名稱>/product-data.js`
 - 共用產品頁渲染：`js/render/product-resource-template-V1.0.js`
 - 全站共用圖片：`assets/images/`；瀏覽器圖示則直接放在專案根目錄
-- NC Program 首頁與兩套產生器：`NCProgram/`
+- NC Program 首頁與產生器（包含 Thread Milling V2.0 雙視圖模擬器）：`NCProgram/`
 - 完整架構與程式說明：[`docs/CODE_GUIDE.zh-TW.md`](docs/CODE_GUIDE.zh-TW.md)
 
 ## 版本檔案注意事項
@@ -40,6 +40,6 @@ node --test CuttingData/AceSpotDrill/tests/chamfer-geometry.test.js CuttingData/
 
 檔名含 `V2.0` 的產品版型目前只供 ACE Spot Drill 頁面使用；其他產品仍使用 V1.0。未被正式頁面引用的 `css/no/`、`js/data/no/`、`js/render/no/` 已移至 `等待移除/` 保留。
 
-`NCProgram/Thread_Milling/` 與 `NCProgram/NC_Helix/` 是目前首頁使用的正式工具；未加底線的舊版 `NCProgram/ThreadMilling/` 已不再使用。
+`NCProgram/Thread_Milling/`、`NCProgram/Thread_Milling_V2/` 與 `NCProgram/NC_Helix/` 是目前首頁使用的正式工具；V2.0 預設英文，與原版螺紋銑削並列。未加底線的舊版 `NCProgram/ThreadMilling/` 已不再使用。
 
 全站頁面（包含 NC Program）只引用根目錄的 `header/` 與 `footer/`；已解除引用的頁首頁尾副本集中保留在 `等待移除/`，方便確認後再清理。

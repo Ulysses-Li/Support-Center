@@ -28,9 +28,18 @@
 .method-icon { width: 76px; height: 76px; margin-bottom: 24px; display: inline-flex; align-items: center; justify-content: center; color: #fff; background: linear-gradient(145deg, #ff7138, var(--home-orange)); border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .28); font-size: 1.85rem; }
 .method-label { margin-bottom: 8px; color: var(--home-orange-dark); font-size: .82rem; font-weight: 800; letter-spacing: .04em; }
 .program-title { margin-bottom: 10px; font-size: clamp(1.7rem, 3vw, 2.25rem); line-height: 1.12; }
+/* 用意：新版入口與原版並列，以品牌色版本標記區分，兩者仍各有獨立網址。 */
+.program-version { padding: 6px 9px; color: #b83d0c; background: #fff0e7; border-radius: 6px; font-size: 14px; font-weight: 800; white-space: nowrap; }
+.program-card-v2 { border-top: 3px solid #f05a1a; }
+.program-card-v2 .method-icon { background: #0067ad; }
 .program-description { margin-bottom: 26px; color: #4a4d52; font-size: 1.08rem; line-height: 1.55; }
 .program-link { margin-top: auto; padding: 12px 17px; display: inline-flex; align-items: center; gap: 12px; border: 2px solid var(--home-ink); border-radius: 7px; font-weight: 800; transition: .2s ease; }
 .program-card:hover .program-link, .program-card:focus-visible .program-link { color: #fff; background: var(--home-ink); }
+
+@media (prefers-reduced-motion: reduce) {
+    .program-card, .program-link { transition: none; }
+    .program-card:hover, .program-card:focus-visible { transform: none; }
+}
 
 /* 用意：未開放分類使用較輕量的卡片，避免與可操作程式混淆。 */
 .category-card { min-height: 380px; height: 100%; padding: 28px; display: flex; flex-direction: column; align-items: flex-start; background: rgba(255, 255, 255, .9); border: 1px solid var(--home-line); border-radius: 10px; box-shadow: 0 7px 20px rgba(39, 79, 105, .055); }
