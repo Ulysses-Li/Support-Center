@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Nine9 NC Program generators for thread milling and helical interpolation drilling." />
+    <meta name="description" content="Nine9 NC Program generators for thread milling, the V2.0 synchronized toolpath simulator, and helical interpolation drilling." />
     <title>NC Program | Nine9</title>
     <!-- 全站共用的瀏覽器分頁圖示；版本參數用來更新瀏覽器快取。 -->
     <link rel="icon" type="image/png" href="/favicon.png?v=20260904">
@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="/header/header.css" />
   <link rel="stylesheet" href="/footer/footer.css" />
     <!-- 用意：首頁專屬樣式獨立管理，避免影響子程式頁面。 -->
-    <link rel="stylesheet" href="./home.css" />
+    <link rel="stylesheet" href="./home.css?v=20261109-thread-v2" />
 </head>
 <body class="nc-home d-flex flex-column min-vh-100">
     <div id="header-placeholder"></div>
@@ -39,7 +39,7 @@
                     <p class="section-note mb-0">Ready-to-use workflows.</p>
                 </div>
                 <div class="row g-4" aria-label="Available NC Program generators">
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-lg-4">
                         <a class="program-card" href="./Thread_Milling/index.html">
                             <span class="method-icon" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                             <span class="method-label">THREADING METHOD</span>
@@ -48,7 +48,17 @@
                             <span class="program-link">Open NC Program Generator <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                         </a>
                     </div>
-                    <div class="col-12 col-lg-6">
+                    <!-- V2.0 與原版並列，正式入口不引用測試資料；保留原版既有網址。 -->
+                    <div class="col-12 col-lg-4">
+                        <a class="program-card program-card-v2" href="./Thread_Milling_V2/index.html" aria-label="Thread Milling V2.0 toolpath simulator">
+                            <span class="method-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 16 16" fill="currentColor"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8"/><path d="M6.79 5.093a.5.5 0 0 0-.79.407v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/></svg></span>
+                            <span class="method-label">THREADING METHOD · MOTION SIMULATOR</span>
+                            <strong class="program-title d-flex flex-wrap align-items-center gap-2">Thread Milling <span class="program-version">V2.0</span></strong>
+                            <span class="program-description">Explore synchronized side and top views. Select your thread and insert, follow the cutting path, and preview NC code.</span>
+                            <span class="program-link">Open V2.0 Simulator <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793L9.146 3.354a.5.5 0 1 1 .708-.708l5 5a.5.5 0 0 1 0 .708l-5 5a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg></span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-lg-4">
                         <a class="program-card" href="./NC_Helix/index.html">
                             <span class="method-icon" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></span>
                             <span class="method-label">HOLE MAKING METHOD</span>
