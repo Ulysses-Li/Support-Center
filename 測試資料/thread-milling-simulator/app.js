@@ -10,7 +10,6 @@
   const phases = document.querySelectorAll('[data-phase]');
   const passes = { 1: [100], 2: [60, 100], 3: [50, 80, 100] };
   const numericFields = ['depth', 'vc', 'fz', 'teeth', 'centerX', 'centerY', 'safeZ', 'surfaceZ', 'toolNumber'];
-  const toolIcon = '<svg viewBox="0 0 44 44" aria-hidden="true"><path d="M15 5h14v9l8 17-4 7H11l-4-7 8-17Z" fill="#d3e3ee" stroke="#7798af"/><path d="M18 8h8v14h-8Z" fill="#879eaf"/><path d="m7 31 6-3 2 10h-4Zm30 0-6-3-2 10h4Z" fill="#f28a48" stroke="#dc601c"/></svg>';
 
   function option(value, label, selected) { return `<option value="${escapeHTML(value)}"${selected ? ' selected' : ''}>${escapeHTML(label)}</option>`; }
   function setText(id, text) { $(id).textContent = text; }
@@ -29,7 +28,7 @@
     if (!inserts.some(item => item.v === state.insert)) state.insert = inserts[0].v;
     $('ownedInsert').value = state.insert;
     const shown = owned ? inserts.filter(item => item.v === state.insert) : inserts;
-    $('insertChoices').innerHTML = shown.map(item => `<button type="button" class="insert-choice" data-insert="${escapeHTML(item.v)}" aria-pressed="${item.v === state.insert}">${toolIcon}<span><strong>${escapeHTML(item.v)}</strong><small>刀徑 Ø${compact(NC.getDcFromTool(item.v))} mm</small></span><span class="selection-tick" aria-hidden="true">${item.v === state.insert ? '✓' : ''}</span></button>`).join('');
+    $('insertChoices').innerHTML = shown.map((item, index) => `<button type="button" class="insert-choice" data-insert="${escapeHTML(item.v)}" aria-pressed="${item.v === state.insert}">${Diagrams.insertIcon(index)}<span><strong>${escapeHTML(item.v)}</strong><small>刀徑 Ø${compact(NC.getDcFromTool(item.v))} mm</small></span><span class="selection-tick" aria-hidden="true">${item.v === state.insert ? '✓' : ''}</span></button>`).join('');
     setText('insertCount', `${shown.length} 款${owned ? '已選刀片' : '可選'}`);
     const standard = Core.standardFor(state.standard), data = NC.threadData[state.size];
     setText('threadKind', `${standard.family.startsWith('tapered') ? '錐牙' : '平行牙'} · ${standard.angle}°`);

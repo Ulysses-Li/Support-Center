@@ -4,6 +4,43 @@ window.ThreadDiagrams = (() => {
   const n = value => Number(value.toFixed(3));
   let state;
 
+  // 配對圖示與動畫共用 MCC 刀片外形：窄頂、斜肩、中央凹槽、外擴刀齒與底部倒角。
+  // 原點維持在刀具底部，外側刀齒仍落在 ±radius，保留既有刀徑與刀位對應。
+  function insertArtwork({ radius: r, pitch, toothDepth, angle = 60, prefix, shankHeight = 0 }) {
+    const apex = -pitch / 2, top = apex - .76 * r, shoulderY = apex - .56 * r;
+    const root = r - toothDepth, shoulderX = Math.min(.67 * r, root * .95);
+    const topX = Math.min(.36 * r, shoulderX * .6), bottomX = Math.max(shoulderX * .9, root * .78);
+    const flat = pitch / 8, halfTooth = Math.min(.44 * pitch, flat / 2 + toothDepth * Math.tan(angle * Math.PI / 360));
+    const points = [[topX, top], [shoulderX, shoulderY], [root, apex - halfTooth], [r, apex - flat / 2], [r, apex + flat / 2], [root, apex + halfTooth], [bottomX, 0]];
+    const outline = points.concat(points.slice().reverse().map(([x, y]) => [-x, y]));
+    const polygon = coords => `M${coords.map(([x, y]) => `${n(x)},${n(y)}`).join(' L')}Z`;
+    const facet = sign => polygon([[sign * topX, top], [sign * shoulderX, shoulderY], [sign * root, apex - halfTooth], [sign * bottomX, 0], [sign * .49 * r, 0], [sign * .49 * r, apex - .13 * r], [sign * .35 * r, shoulderY]]);
+    const tooth = sign => polygon([[sign * root, apex - halfTooth], [sign * r, apex - flat / 2], [sign * r, apex + flat / 2], [sign * root, apex + halfTooth]]);
+    const pocketTop = top + .13 * r, pocketBottom = Math.min(-.07 * r, apex + .2 * r);
+    const shank = Math.max(topX, .44 * r);
+    return `<defs>
+      <linearGradient id="${prefix}-metal" x1="0" x2="1"><stop stop-color="#8195a4"/><stop offset=".25" stop-color="#b8c6d0"/><stop offset=".52" stop-color="#dce5eb"/><stop offset=".76" stop-color="#a9b9c5"/><stop offset="1" stop-color="#6e8697"/></linearGradient>
+      <linearGradient id="${prefix}-pocket" x1="0" x2="1"><stop stop-color="#526b7c"/><stop offset=".2" stop-color="#8197a7"/><stop offset=".75" stop-color="#9eafbb"/><stop offset="1" stop-color="#566e7f"/></linearGradient>
+      <linearGradient id="${prefix}-edge" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffc18b"/><stop offset=".5" stop-color="#f78b3e"/><stop offset="1" stop-color="#df5a16"/></linearGradient>
+    </defs>
+    ${shankHeight ? `<path data-tool-part="shank" d="M${n(-shank)},${n(top)}V${n(top - shankHeight)}H${n(shank)}V${n(top)}" fill="#dce7ee" fill-opacity=".4" stroke="#8faabd" stroke-width="1" stroke-dasharray="4 3"/>` : ''}
+    <g stroke-linejoin="round">
+      <path data-tool-part="body" d="${polygon(outline)}" fill="url(#${prefix}-metal)" stroke="#526c7f" stroke-width="1.4"/>
+      <path d="${facet(-1)}" fill="#536d7f" fill-opacity=".45" stroke="#6d8596" stroke-width=".7"/>
+      <path d="${facet(1)}" fill="#60798b" fill-opacity=".45" stroke="#6d8596" stroke-width=".7"/>
+      <path d="M${n(-topX)},${n(top)}H${n(topX)}L${n(shoulderX)},${n(shoulderY)}H${n(shoulderX - .14 * r)}L${n(topX - .1 * r)},${n(top + .1 * r)}H${n(-topX + .1 * r)}L${n(-shoulderX + .14 * r)},${n(shoulderY)}H${n(-shoulderX)}Z" fill="#d9e3e9" fill-opacity=".85" stroke="#7991a3" stroke-width=".7"/>
+      <path d="M${n(-.23 * r)},${n(pocketTop)}H${n(.23 * r)}V${n(pocketBottom)}L0,${n(pocketBottom + .08 * r)}L${n(-.23 * r)},${n(pocketBottom)}Z" fill="url(#${prefix}-pocket)" stroke="#536e81" stroke-width=".9"/>
+      <path d="M${n(-.16 * r)},${n(pocketTop + .04 * r)}V${n(pocketBottom - .04 * r)}M${n(.19 * r)},${n(pocketTop + .04 * r)}V${n(pocketBottom - .04 * r)}" fill="none" stroke="#d2dfe7" stroke-width=".8" opacity=".85"/>
+      <path d="M${n(-.34 * r)},${n(top + .13 * r)}V${n(shoulderY)}L${n(-.58 * r)},${n(apex)}V${n(-.08 * r)}M${n(.34 * r)},${n(top + .13 * r)}V${n(shoulderY)}L${n(.58 * r)},${n(apex)}V${n(-.08 * r)}" fill="none" stroke="#557387" stroke-width="1" stroke-dasharray="2 2" opacity=".65"/>
+      <path data-tool-part="teeth" d="${tooth(-1)} ${tooth(1)}" fill="url(#${prefix}-edge)" stroke="#d65b18" stroke-width="1"/>
+      <path d="M${n(-bottomX)},0H${n(bottomX)}" stroke="#526e80" stroke-width="1.2"/>
+    </g>`;
+  }
+
+  function insertIcon(index) {
+    return `<svg class="insert-artwork" viewBox="-31 -32 62 39" aria-hidden="true">${insertArtwork({ radius: 26, pitch: 10, toothDepth: 4, prefix: `insert-card-${index}`, shankHeight: 6 })}</svg>`;
+  }
+
   function grid(prefix) {
     return `<defs><pattern id="${prefix}-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#dceaf3" stroke-width=".6"/></pattern><pattern id="${prefix}-hatch" width="12" height="12" patternTransform="rotate(40)" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#e7f0f7"/><path d="M0 0V12" stroke="#b7cddd" stroke-width="1.2"/></pattern><linearGradient id="${prefix}-tool" x1="0" x2="1"><stop stop-color="#7c94a7"/><stop offset=".45" stop-color="#e5eef4"/><stop offset="1" stop-color="#8da3b3"/></linearGradient><marker id="${prefix}-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5 0 10Z" fill="#6e99b6"/></marker><clipPath id="${prefix}-clip"><rect x="24" y="24" width="432" height="306" rx="3"/></clipPath></defs><rect x="24" y="24" width="432" height="306" fill="url(#${prefix}-grid)"/>`;
   }
@@ -34,16 +71,13 @@ window.ThreadDiagrams = (() => {
       const outer = side === 'left' ? 100 : 376;
       return `M${outer},79 L${coords.join(' L')} L${outer},${n(axY(-bottom))} Z`;
     };
-    const cr = p.toolDiameter / 2 * scaleAx, shank = cr * .43, tip = Math.max(2, Math.min(p.pitch * scaleAx / 2, cr * .55));
+    const cr = p.toolDiameter / 2 * scaleAx;
     el('axialView').innerHTML = `${grid('ax')}
       <g clip-path="url(#ax-clip)"><path d="M238 28V323" stroke="#9ab7ca" stroke-dasharray="6 5"/><path d="${wall('left')} ${wall('right')}" fill="url(#ax-hatch)" stroke="#6b95b0" stroke-width="1.4"/>
       <path d="M90 79H386" stroke="#4d829f" stroke-width="1.1"/><path d="M90 ${n(axY(-p.depth))}H386" stroke="#a4becf" stroke-dasharray="4 5"/>
       <path d="${path(motion.points, projectAx)}" fill="none" stroke="#9fb8cb" stroke-width="1.1" stroke-dasharray="4 5" opacity=".6"/>
       <path id="axTravel" class="travel-path"/><path id="axCut" class="cut-path"/>
-      <g id="axTool"><path d="M${n(-shank)} -180H${n(shank)}V${n(-cr * .88)}H${n(-shank)}Z" fill="#dce7ee" fill-opacity=".65" stroke="#8faabd" stroke-dasharray="5 3"/>
-      <path d="M${n(-cr * .36)},${n(-cr * .95)}H${n(cr * .36)}L${n(cr * .7)},${n(-cr * .65)}L${n(cr * .85)},${n(-tip * 1.7)}L${n(cr)},${n(-tip)}L${n(cr * .8)},0H${n(-cr * .8)}L${n(-cr)},${n(-tip)}L${n(-cr * .85)},${n(-tip * 1.7)}L${n(-cr * .7)},${n(-cr * .65)}Z" fill="url(#ax-tool)" stroke="#58778d" stroke-width="1.4"/>
-      <path d="M${n(cr * .78)},${n(-tip * 1.7)}L${n(cr)},${n(-tip)}L${n(cr * .8)},0L${n(cr * .66)},${n(-tip)}Z M${n(-cr * .78)},${n(-tip * 1.7)}L${n(-cr)},${n(-tip)}L${n(-cr * .8)},0L${n(-cr * .66)},${n(-tip)}Z" fill="#f29355" stroke="#df5c18" stroke-width="1"/>
-      <path d="M${n(-cr * .24)},${n(-cr * .8)}H${n(cr * .24)}V${n(-tip * 1.5)}H${n(-cr * .24)}Z" fill="#728b9f" fill-opacity=".5"/><circle r="2.5" fill="#f05a1a" stroke="#fff"/></g></g>
+      <g id="axTool">${insertArtwork({ radius: cr, pitch: p.pitch * scaleAx, toothDepth: tooth * scaleAx, angle, prefix: 'ax-insert', shankHeight: 180 })}<circle r="1.8" fill="#f05a1a" stroke="#fff"/></g></g>
       <path d="M70 83V${n(axY(-p.depth) - 4)}" fill="none" stroke="#6e99b6" marker-start="url(#ax-arrow)" marker-end="url(#ax-arrow)"/>
       <text x="61" y="${n((79 + axY(-p.depth)) / 2)}" text-anchor="middle" transform="rotate(-90 61 ${n((79 + axY(-p.depth)) / 2)})" class="diagram-measure">${n(p.depth)} mm</text>
       <text x="102" y="64" class="diagram-label">工件表面 Z0</text><text x="397" y="83" class="diagram-label">X</text><text x="245" y="37" class="diagram-label">Z+</text><text x="360" y="328" class="diagram-label">${motion.tapered ? '錐度 1:16' : '平行螺紋'}</text>`;
@@ -89,5 +123,5 @@ window.ThreadDiagrams = (() => {
     el('rdTool').setAttribute('transform', `translate(${n(rdX(current.x))},${n(rdY(current.y))})`);
     return current;
   }
-  return { prepare, draw };
+  return { prepare, draw, insertIcon };
 })();
