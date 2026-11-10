@@ -15,7 +15,7 @@ const SPOTTING_PRODUCTS = [
     name: "ACE Spot Drill",
     image: "../../img/spotting.png",
     description: "High performance spotting and chamfering.",
-    href: "../../Products/AceSpotDrill/indexV2.0.html"
+    href: "../../CuttingData/AceSpotDrill/index.html?operation=spotting"
   },
 
   {
@@ -29,7 +29,7 @@ const SPOTTING_PRODUCTS = [
     name: "NC Spot Drill",
     image: "../../img/spotting.png",
     description: "Multi-function spotting tool.",
-    href: "../../Products/NCSpotDrill/index.html"
+    href: "../../CuttingData/NCSpotDrill/index.html?operation=spotting"
   }
 
 ];

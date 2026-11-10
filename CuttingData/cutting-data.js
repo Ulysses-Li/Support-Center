@@ -17,6 +17,21 @@ const CUTTING_DATA_PRODUCTS = [
       "Output: RPM, feed, spotting depth, chamfer compensation and Z"
     ]
   },
+  // Micro 與 ACE 同屬 Spotting；獨立列在前方，避免埋在刻字產品清單裡。
+  {
+    id: "micro-spot-drill",
+    name: "Micro Spot Drill",
+    category: "Micro Spotting",
+    image: "../img/spotting.png",
+    status: "Preparing",
+    href: "../Products/MicroSpotDrill/index.html#cutting-data",
+    summary: "Micro spotting with X060 inserts at 90°, 120° and 142°.",
+    details: [
+      "Catalog: Micro Spot Drill, printed pages 24–25",
+      "Material, angle and nominal spot-diameter selection",
+      "Dedicated RPM and mm/rev feed data; calculator in preparation"
+    ]
+  },
   {
     id: "chamfer-mill",
     name: "Chamfer Mill",
@@ -121,27 +136,13 @@ const CUTTING_DATA_PRODUCTS = [
     name: "NC Spot Drill",
     category: "Spotting / Chamfering",
     image: "../img/spotting.png",
-    status: "Preparing",
-    href: "../Products/NCSpotDrill/index.html#cutting-data",
-    summary: "Cutting data selector for NC Spot Drill is being prepared.",
+    status: "Available",
+    href: "./NCSpotDrill/index.html",
+    summary: "Select an NC Spot Drill assembly and calculate cutting conditions.",
     details: [
-      "Planned: product series selection",
-      "Planned: material presets",
-      "Planned: RPM and feed conversion"
-    ]
-  },
-  {
-    id: "micro-spot-drill",
-    name: "Micro Spot Drill",
-    category: "Engraving / Spotting",
-    image: "../img/engraving.png",
-    status: "Preparing",
-    href: "../Products/MicroSpotDrill/index.html#cutting-data",
-    summary: "Micro tool cutting data and feed conversion are planned.",
-    details: [
-      "Planned: tool size selection",
-      "Planned: material and coating presets",
-      "Planned: conservative starter values"
+      "Insert, grade and compatible holder selection",
+      "Material cutting values with source references",
+      "Spotting, contour chamfering and WSP geometry"
     ]
   },
   {

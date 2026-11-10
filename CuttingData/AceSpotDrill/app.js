@@ -370,6 +370,12 @@ refreshOptions();
 if (initialOperation.materials[initialParams.get("material")]) fields.material.value = initialParams.get("material");
 if (Object.hasOwn(selection().insert.angles, initialParams.get("angle"))) fields.angle.value = initialParams.get("angle");
 resetValues();
+// Spotting 選型頁帶入孔徑；超限保留輸入並由原計算器說明原因，不靜默換尺寸。
+const requestedDiameter = initialParams.get("diameter");
+if (requestedDiameter !== null && requestedDiameter.trim() !== "" && Number.isFinite(Number(requestedDiameter)) && Number(requestedDiameter) > 0) {
+  fields.diameter.value = String(Number(requestedDiameter));
+  renderResults();
+}
 
 // 沿用全站 Header／Footer，並補齊手機選單的語意狀態。
 async function loadLayout(part) {

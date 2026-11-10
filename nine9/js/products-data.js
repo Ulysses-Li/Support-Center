@@ -14,9 +14,9 @@ const PRODUCT_FAMILIES = [
     image: "../img/spotting.png",
     href: "../Machining/Spotting/index.html",
     products: [
-      { name: "ACE Spot Drill", href: "../Products/AceSpotDrill/indexV3.0.html" },
+      { name: "ACE Spot Drill", href: "../CuttingData/AceSpotDrill/index.html?operation=spotting" },
       { name: "Micro Spot Drill", href: "../Products/MicroSpotDrill/index.html" },
-      { name: "NC Spot Drill", href: "../Products/NCSpotDrill/index.html" }
+      { name: "NC Spot Drill", href: "../CuttingData/NCSpotDrill/index.html?operation=spotting" }
     ]
   },
 
