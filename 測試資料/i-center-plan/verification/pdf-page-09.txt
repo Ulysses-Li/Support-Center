@@ -1,0 +1,46 @@
+Performance
+Profit by making the right choice >> CT±0.025
+• High speed and feed rate reduce cutting time.
+• The unique design increases tool life and
+reduces change over time.
+CT CT
+2 cutting edges 2 cutting flutes design
+Comparison >>
+• Workpiece : Low carbon alloy steel, 850 N/mm2
+• Machine: VMC BT40 with internal coolant
+Diameter of tool : Ø3.15 mm
+Depth of drilling : 7.2 mm
+Comparison i-Center HSS Center Drill Solid Carbide
+( TiN Coating ) Center Drill
+Cutting speed m/min. 65 17 65
+Spindle speed r.p.m. 6570 1718 6570
+Feed rate f = mm/rev. 0.12 0.02 0.1
+Feed rate F= mm/min. 788.4 34.4 657
+Coolant Emulsion External / Internal External External
+Drilling time sec. 0.55 12.5 0.65
+Holes of drilling per edge 7000 700 5000
+Tool Ex: 200,000 holes, total drilling time
+i-Center 33 Hours
+HSS Center Drill 694 Hours
+i-Center
+Solid Carbide 36 Hours 33 Hours
+Center Drill
+0 100 200 300 400 500 600 700 Hour
+Tool Ex: 200,000 holes, total tool length setup time
+i-Center 29 min.
+HSS Center Drill 855 min.
+i-Center
+Solid Carbide 120 min. 29 min.
+Center Drill
+0 100 200 300 400 500 600 700 800 900 min.
+Surface finish >>
+i-Center Insert Material SCM440
+Vc 60 m/min.
+I9MT1603B0500 S 3800 r.p.m.
+f 0.1 mm/rev.
+NC2033
+F 380 mm/min.
+Ap 13.5 mm
+62 Nine9 Cutting Tool & Tool Holders
+i-Center
+2

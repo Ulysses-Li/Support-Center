@@ -1,0 +1,61 @@
+Square Shank 25 x 25 Right / Left Hand >>
+• For used on lathe, clamp by VDI and BMT holders.
+• Made of hardened alloy steel, HRC 40.
+• Other sizes are available on request.
+L1 150±0.1
+IC Code Parts No. L1 L2 Screw Key
+822022 00-99616-IC08-R2525MF
+*NS-25060
+08 8 3.25 NK-T7
+0.9 Nm
+822012 00-99616-IC08-L2525MF
+823022 00-99616-IC12-R2525MF
+NS-30072
+12 11 4.9 NK-T9
+2.0 Nm
+823012 00-99616-IC12-L2525MF
+824022 00-99616-IC16-R2525MF
+NS-35080
+16 13 4.9 NK-T15
+2.5 Nm
+824012 00-99616-IC16-L2525MF
+Double Flat Shank >> Non-Stock Item
+• Used on lathe.
+• Double flat shank design for tool holder with side lock flat.
+• 180° for insert at top, 90° for insert at front.
+2L
+IC
+52
+Ancient Now & Future
+Coolant
+Right Left
+Hand Hand Square Double
+25x25 Flat Shank
+L5
+IC Code Parts No. Type Ød L1 L2 L3 L4 L5 ØD Screw Key
+*NS-25060
+08 802004 00-99616-IC08-10S SL10-IC08S 10 30 18.5 6 9 9 12 NK-T7
+0.9 Nm
+NS-30072
+12 803004 00-99616-IC12-16S SL16-IC12S 16 48 30.5 9.33 14.5 14.5 21 NK-T9
+2.0 Nm
+NS-35080
+16 804004 00-99616-IC16-16S SL16-IC16S 16 48 37 9.33 14.5 14.5 27 NK-T15
+2.5 Nm
+NS-50125
+20 805004 00-99616-IC20-20S SL20-IC20S 20 50 51 12 18 18 32 NK-T20
+5.5 Nm
+NS-50125
+25 806004 00-99616-IC25-25S SL25-IC25S 25 56 56 13.57 23 23 43 NK-T20
+5.5 Nm
+*Torque screwdriver is recommended.
+4L
+L3
+CI
+L2 L1
+DØ dØ
+Holders of Indexable Center Drill
+*Torque screwdriver is recommended.
+60 Nine9 Cutting Tool & Tool Holders
+i-Center
+2

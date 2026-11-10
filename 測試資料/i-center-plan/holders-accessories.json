@@ -1,0 +1,2434 @@
+{
+  "schema_version": "1.0",
+  "language": "zh-TW",
+  "scope_zh_TW": "i-Center刀柄、中心高調整套筒及非A/B/R特殊刀片研究；僅本機型錄資料，不代表現售或庫存。",
+  "source_file": "sources/04_i-Center_p054-067.pdf",
+  "holders": [
+    {
+      "ic": "08",
+      "code": "802002",
+      "parts_no": "00-99616-IC08-10F",
+      "type": "BC10-IC08F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 30,
+        "L2": 18.5,
+        "D": 12,
+        "d": 10
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-25060",
+        "tightening_torque": {
+          "value": 0.9,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": true,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T7",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "08",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "10",
+        "value": 10,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "cylindrical",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "08",
+      "code": "812002",
+      "parts_no": "00-99616-IC08-3/8F",
+      "type": "BC3/8\"-IC08F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 30,
+        "L2": 18.5,
+        "D": 12
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-25060",
+        "tightening_torque": {
+          "value": 0.9,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": true,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T7",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "08",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "3/8\"",
+        "value": "3/8",
+        "unit": "inch",
+        "unit_status": "catalog_explicit"
+      },
+      "shank_style": "cylindrical",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "10",
+      "code": "801002",
+      "parts_no": "00-99616-IC10-12F",
+      "type": "SB12-IC10F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 45,
+        "L2": 24.5,
+        "D": 16,
+        "d": 12
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-25060",
+        "tightening_torque": {
+          "value": 0.9,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": true,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T7",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "10",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "12",
+        "value": 12,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "Weldon",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "12",
+      "code": "803002",
+      "parts_no": "00-99616-IC12-16F",
+      "type": "SB16-IC12F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 48,
+        "L2": 30.5,
+        "D": 21,
+        "d": 16
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-30072",
+        "tightening_torque": {
+          "value": 2.0,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T9",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "12",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "16",
+        "value": 16,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "Weldon",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "12",
+      "code": "813002",
+      "parts_no": "00-99616-IC12-5/8F",
+      "type": "SB5/8\"-IC12F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 48,
+        "L2": 30.5,
+        "D": 21
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-30072",
+        "tightening_torque": {
+          "value": 2.0,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T9",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "12",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "5/8\"",
+        "value": "5/8",
+        "unit": "inch",
+        "unit_status": "catalog_explicit"
+      },
+      "shank_style": "Weldon",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "16",
+      "code": "804002",
+      "parts_no": "00-99616-IC16-16F",
+      "type": "SB16-IC16F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 48,
+        "L2": 37,
+        "D": 27,
+        "d": 16
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-35080",
+        "tightening_torque": {
+          "value": 2.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T15",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "16",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "16",
+        "value": 16,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "Weldon",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "16",
+      "code": "814002",
+      "parts_no": "00-99616-IC16-5/8F",
+      "type": "SB5/8\"-IC16F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 48,
+        "L2": 37,
+        "D": 27
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-35080",
+        "tightening_torque": {
+          "value": 2.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T15",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "16",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "5/8\"",
+        "value": "5/8",
+        "unit": "inch",
+        "unit_status": "catalog_explicit"
+      },
+      "shank_style": "Weldon",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "20",
+      "code": "805002",
+      "parts_no": "00-99616-IC20-20F",
+      "type": "SB20-IC20F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 50,
+        "L2": 51,
+        "D": 32,
+        "d": 20
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-50125",
+        "tightening_torque": {
+          "value": 5.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T20",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "20",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "20",
+        "value": 20,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "Weldon",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "20",
+      "code": "815002",
+      "parts_no": "00-99616-IC20-3/4F",
+      "type": "SB3/4\"-IC20F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 50,
+        "L2": 51,
+        "D": 32
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-50125",
+        "tightening_torque": {
+          "value": 5.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T20",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "20",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "3/4\"",
+        "value": "3/4",
+        "unit": "inch",
+        "unit_status": "catalog_explicit"
+      },
+      "shank_style": "Weldon",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "25",
+      "code": "806002",
+      "parts_no": "00-99616-IC25-25F",
+      "type": "SB25-IC25F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 56,
+        "L2": 56,
+        "D": 43,
+        "d": 25
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-50125",
+        "tightening_torque": {
+          "value": 5.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T20",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "25",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "25",
+        "value": 25,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "Weldon",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "25",
+      "code": "816002",
+      "parts_no": "00-99616-IC25-1F",
+      "type": "SB 1\"-IC25F",
+      "holder_group": "standard_F",
+      "dimensions_mm": {
+        "L1": 56,
+        "L2": 56,
+        "D": 43
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-50125",
+        "tightening_torque": {
+          "value": 5.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T20",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "25",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Holder",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "1\"",
+        "value": "1",
+        "unit": "inch",
+        "unit_status": "catalog_explicit"
+      },
+      "shank_style": "Weldon",
+      "body_material_zh_TW": "硬化高合金鋼",
+      "hardness": {
+        "value": 53,
+        "unit": "HRC"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_icon"
+      },
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_page_header_icon",
+        "note_zh_TW": "頁首共用圖示標示；不是最高容許轉速。"
+      }
+    },
+    {
+      "ic": "08",
+      "code": "802003",
+      "parts_no": "00-99616-IC08-10B",
+      "type": "BC10-IC08B",
+      "holder_group": "prebalanced_cylindrical_B",
+      "dimensions_mm": {
+        "d": 10,
+        "d1": 22,
+        "L1": 30,
+        "L2": 33.5,
+        "L3": 19,
+        "D": 12
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-25060",
+        "tightening_torque": {
+          "value": 0.9,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": true,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T7",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "08",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Cylindrical Shank with Pre-balanced",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "10",
+        "value": 10,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "cylindrical",
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_section_explicit",
+        "note_zh_TW": "預平衡規格及基準轉速，並非最高容許轉速。"
+      },
+      "coolant": {
+        "internal": null,
+        "status": "not_individually_listed",
+        "note_zh_TW": "頁首有Coolant圖示，該小節未另標註每款供液性能。"
+      }
+    },
+    {
+      "ic": "12",
+      "code": "803003",
+      "parts_no": "00-99616-IC12-12B",
+      "type": "BC12-IC12B",
+      "holder_group": "prebalanced_cylindrical_B",
+      "dimensions_mm": {
+        "d": 12,
+        "d1": 34,
+        "L1": 48,
+        "L2": 51,
+        "L3": 30,
+        "D": 21
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-30072",
+        "tightening_torque": {
+          "value": 2.0,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T9",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "12",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Cylindrical Shank with Pre-balanced",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "12",
+        "value": 12,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "cylindrical",
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_section_explicit",
+        "note_zh_TW": "預平衡規格及基準轉速，並非最高容許轉速。"
+      },
+      "coolant": {
+        "internal": null,
+        "status": "not_individually_listed",
+        "note_zh_TW": "頁首有Coolant圖示，該小節未另標註每款供液性能。"
+      }
+    },
+    {
+      "ic": "16",
+      "code": "804003",
+      "parts_no": "00-99616-IC16-16B",
+      "type": "BC16-IC16B",
+      "holder_group": "prebalanced_cylindrical_B",
+      "dimensions_mm": {
+        "d": 16,
+        "d1": 39,
+        "L1": 48,
+        "L2": 67,
+        "L3": 37,
+        "D": 27
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-35080",
+        "tightening_torque": {
+          "value": 2.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T15",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "16",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Cylindrical Shank with Pre-balanced",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "16",
+        "value": 16,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "cylindrical",
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_section_explicit",
+        "note_zh_TW": "預平衡規格及基準轉速，並非最高容許轉速。"
+      },
+      "coolant": {
+        "internal": null,
+        "status": "not_individually_listed",
+        "note_zh_TW": "頁首有Coolant圖示，該小節未另標註每款供液性能。"
+      }
+    },
+    {
+      "ic": "20",
+      "code": "805003",
+      "parts_no": "00-99616-IC20-20B",
+      "type": "BC20-IC20B",
+      "holder_group": "prebalanced_cylindrical_B",
+      "dimensions_mm": {
+        "d": 20,
+        "d1": 49,
+        "L1": 50,
+        "L2": 86,
+        "L3": 51,
+        "D": 32
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-50125",
+        "tightening_torque": {
+          "value": 5.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T20",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "20",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Cylindrical Shank with Pre-balanced",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "20",
+        "value": 20,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "cylindrical",
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_section_explicit",
+        "note_zh_TW": "預平衡規格及基準轉速，並非最高容許轉速。"
+      },
+      "coolant": {
+        "internal": null,
+        "status": "not_individually_listed",
+        "note_zh_TW": "頁首有Coolant圖示，該小節未另標註每款供液性能。"
+      }
+    },
+    {
+      "ic": "25",
+      "code": "806003",
+      "parts_no": "00-99616-IC25-25B",
+      "type": "BC25-IC25B",
+      "holder_group": "prebalanced_cylindrical_B",
+      "dimensions_mm": {
+        "d": 25,
+        "d1": 59,
+        "L1": 56,
+        "L2": 99,
+        "L3": 56,
+        "D": 43
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-50125",
+        "tightening_torque": {
+          "value": 5.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T20",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "25",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 6,
+        "printed_page": 59,
+        "section": "Cylindrical Shank with Pre-balanced",
+        "visual_evidence": "verification/holders-page-06.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "25",
+        "value": 25,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "cylindrical",
+      "prebalance": {
+        "grade": "G6.3",
+        "reference_speed_rpm": 10000,
+        "status": "catalog_section_explicit",
+        "note_zh_TW": "預平衡規格及基準轉速，並非最高容許轉速。"
+      },
+      "coolant": {
+        "internal": null,
+        "status": "not_individually_listed",
+        "note_zh_TW": "頁首有Coolant圖示，該小節未另標註每款供液性能。"
+      }
+    },
+    {
+      "ic": "08",
+      "code": "822022",
+      "parts_no": "00-99616-IC08-R2525MF",
+      "type": null,
+      "holder_group": "square_25x25",
+      "dimensions_mm": {
+        "L1": 8,
+        "L2": 3.25
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": "right",
+      "screw": {
+        "parts_no": "NS-25060",
+        "tightening_torque": {
+          "value": 0.9,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": true,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T7",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "08",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Square Shank 25 x 25 Right / Left Hand",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_style": "square",
+      "shank_cross_section_mm": [
+        25,
+        25
+      ],
+      "overall_length_mm": {
+        "value": 150,
+        "tolerance_plus_minus": 0.1,
+        "status": "catalog_dimension_diagram"
+      },
+      "body_material_zh_TW": "硬化合金鋼",
+      "hardness": {
+        "value": 40,
+        "unit": "HRC"
+      },
+      "application_zh_TW": "車床，使用VDI與BMT刀座夾持；其他尺寸可依要求提供。",
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    },
+    {
+      "ic": "08",
+      "code": "822012",
+      "parts_no": "00-99616-IC08-L2525MF",
+      "type": null,
+      "holder_group": "square_25x25",
+      "dimensions_mm": {
+        "L1": 8,
+        "L2": 3.25
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": "left",
+      "screw": {
+        "parts_no": "NS-25060",
+        "tightening_torque": {
+          "value": 0.9,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": true,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T7",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "08",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Square Shank 25 x 25 Right / Left Hand",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_style": "square",
+      "shank_cross_section_mm": [
+        25,
+        25
+      ],
+      "overall_length_mm": {
+        "value": 150,
+        "tolerance_plus_minus": 0.1,
+        "status": "catalog_dimension_diagram"
+      },
+      "body_material_zh_TW": "硬化合金鋼",
+      "hardness": {
+        "value": 40,
+        "unit": "HRC"
+      },
+      "application_zh_TW": "車床，使用VDI與BMT刀座夾持；其他尺寸可依要求提供。",
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    },
+    {
+      "ic": "12",
+      "code": "823022",
+      "parts_no": "00-99616-IC12-R2525MF",
+      "type": null,
+      "holder_group": "square_25x25",
+      "dimensions_mm": {
+        "L1": 11,
+        "L2": 4.9
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": "right",
+      "screw": {
+        "parts_no": "NS-30072",
+        "tightening_torque": {
+          "value": 2.0,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T9",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "12",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Square Shank 25 x 25 Right / Left Hand",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_style": "square",
+      "shank_cross_section_mm": [
+        25,
+        25
+      ],
+      "overall_length_mm": {
+        "value": 150,
+        "tolerance_plus_minus": 0.1,
+        "status": "catalog_dimension_diagram"
+      },
+      "body_material_zh_TW": "硬化合金鋼",
+      "hardness": {
+        "value": 40,
+        "unit": "HRC"
+      },
+      "application_zh_TW": "車床，使用VDI與BMT刀座夾持；其他尺寸可依要求提供。",
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    },
+    {
+      "ic": "12",
+      "code": "823012",
+      "parts_no": "00-99616-IC12-L2525MF",
+      "type": null,
+      "holder_group": "square_25x25",
+      "dimensions_mm": {
+        "L1": 11,
+        "L2": 4.9
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": "left",
+      "screw": {
+        "parts_no": "NS-30072",
+        "tightening_torque": {
+          "value": 2.0,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T9",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "12",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Square Shank 25 x 25 Right / Left Hand",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_style": "square",
+      "shank_cross_section_mm": [
+        25,
+        25
+      ],
+      "overall_length_mm": {
+        "value": 150,
+        "tolerance_plus_minus": 0.1,
+        "status": "catalog_dimension_diagram"
+      },
+      "body_material_zh_TW": "硬化合金鋼",
+      "hardness": {
+        "value": 40,
+        "unit": "HRC"
+      },
+      "application_zh_TW": "車床，使用VDI與BMT刀座夾持；其他尺寸可依要求提供。",
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    },
+    {
+      "ic": "16",
+      "code": "824022",
+      "parts_no": "00-99616-IC16-R2525MF",
+      "type": null,
+      "holder_group": "square_25x25",
+      "dimensions_mm": {
+        "L1": 13,
+        "L2": 4.9
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": "right",
+      "screw": {
+        "parts_no": "NS-35080",
+        "tightening_torque": {
+          "value": 2.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T15",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "16",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Square Shank 25 x 25 Right / Left Hand",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_style": "square",
+      "shank_cross_section_mm": [
+        25,
+        25
+      ],
+      "overall_length_mm": {
+        "value": 150,
+        "tolerance_plus_minus": 0.1,
+        "status": "catalog_dimension_diagram"
+      },
+      "body_material_zh_TW": "硬化合金鋼",
+      "hardness": {
+        "value": 40,
+        "unit": "HRC"
+      },
+      "application_zh_TW": "車床，使用VDI與BMT刀座夾持；其他尺寸可依要求提供。",
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    },
+    {
+      "ic": "16",
+      "code": "824012",
+      "parts_no": "00-99616-IC16-L2525MF",
+      "type": null,
+      "holder_group": "square_25x25",
+      "dimensions_mm": {
+        "L1": 13,
+        "L2": 4.9
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": "left",
+      "screw": {
+        "parts_no": "NS-35080",
+        "tightening_torque": {
+          "value": 2.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T15",
+      "availability": {
+        "status": "not_listed",
+        "catalog_label": null
+      },
+      "compatibility": {
+        "interface_ic": "16",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Square Shank 25 x 25 Right / Left Hand",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_style": "square",
+      "shank_cross_section_mm": [
+        25,
+        25
+      ],
+      "overall_length_mm": {
+        "value": 150,
+        "tolerance_plus_minus": 0.1,
+        "status": "catalog_dimension_diagram"
+      },
+      "body_material_zh_TW": "硬化合金鋼",
+      "hardness": {
+        "value": 40,
+        "unit": "HRC"
+      },
+      "application_zh_TW": "車床，使用VDI與BMT刀座夾持；其他尺寸可依要求提供。",
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    },
+    {
+      "ic": "08",
+      "code": "802004",
+      "parts_no": "00-99616-IC08-10S",
+      "type": "SL10-IC08S",
+      "holder_group": "double_flat_S",
+      "dimensions_mm": {
+        "d": 10,
+        "L1": 30,
+        "L2": 18.5,
+        "L3": 6,
+        "L4": 9,
+        "L5": 9,
+        "D": 12
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-25060",
+        "tightening_torque": {
+          "value": 0.9,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": true,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T7",
+      "availability": {
+        "status": "catalog_non_stock",
+        "catalog_label": "Non-Stock Item"
+      },
+      "compatibility": {
+        "interface_ic": "08",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Double Flat Shank",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "10",
+        "value": 10,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "double_flat",
+      "application_zh_TW": "車床，適用具有側鎖平面的刀座。",
+      "mounting_orientation_degrees": {
+        "insert_at_top": 180,
+        "insert_at_front": 90,
+        "status": "catalog_transcribed",
+        "note_zh_TW": "為刀片安裝方位，非切削刃或中心孔角度。"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    },
+    {
+      "ic": "12",
+      "code": "803004",
+      "parts_no": "00-99616-IC12-16S",
+      "type": "SL16-IC12S",
+      "holder_group": "double_flat_S",
+      "dimensions_mm": {
+        "d": 16,
+        "L1": 48,
+        "L2": 30.5,
+        "L3": 9.33,
+        "L4": 14.5,
+        "L5": 14.5,
+        "D": 21
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-30072",
+        "tightening_torque": {
+          "value": 2.0,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T9",
+      "availability": {
+        "status": "catalog_non_stock",
+        "catalog_label": "Non-Stock Item"
+      },
+      "compatibility": {
+        "interface_ic": "12",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Double Flat Shank",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "16",
+        "value": 16,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "double_flat",
+      "application_zh_TW": "車床，適用具有側鎖平面的刀座。",
+      "mounting_orientation_degrees": {
+        "insert_at_top": 180,
+        "insert_at_front": 90,
+        "status": "catalog_transcribed",
+        "note_zh_TW": "為刀片安裝方位，非切削刃或中心孔角度。"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    },
+    {
+      "ic": "16",
+      "code": "804004",
+      "parts_no": "00-99616-IC16-16S",
+      "type": "SL16-IC16S",
+      "holder_group": "double_flat_S",
+      "dimensions_mm": {
+        "d": 16,
+        "L1": 48,
+        "L2": 37,
+        "L3": 9.33,
+        "L4": 14.5,
+        "L5": 14.5,
+        "D": 27
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-35080",
+        "tightening_torque": {
+          "value": 2.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T15",
+      "availability": {
+        "status": "catalog_non_stock",
+        "catalog_label": "Non-Stock Item"
+      },
+      "compatibility": {
+        "interface_ic": "16",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Double Flat Shank",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "16",
+        "value": 16,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "double_flat",
+      "application_zh_TW": "車床，適用具有側鎖平面的刀座。",
+      "mounting_orientation_degrees": {
+        "insert_at_top": 180,
+        "insert_at_front": 90,
+        "status": "catalog_transcribed",
+        "note_zh_TW": "為刀片安裝方位，非切削刃或中心孔角度。"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    },
+    {
+      "ic": "20",
+      "code": "805004",
+      "parts_no": "00-99616-IC20-20S",
+      "type": "SL20-IC20S",
+      "holder_group": "double_flat_S",
+      "dimensions_mm": {
+        "d": 20,
+        "L1": 50,
+        "L2": 51,
+        "L3": 12,
+        "L4": 18,
+        "L5": 18,
+        "D": 32
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-50125",
+        "tightening_torque": {
+          "value": 5.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T20",
+      "availability": {
+        "status": "catalog_non_stock",
+        "catalog_label": "Non-Stock Item"
+      },
+      "compatibility": {
+        "interface_ic": "20",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Double Flat Shank",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "20",
+        "value": 20,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "double_flat",
+      "application_zh_TW": "車床，適用具有側鎖平面的刀座。",
+      "mounting_orientation_degrees": {
+        "insert_at_top": 180,
+        "insert_at_front": 90,
+        "status": "catalog_transcribed",
+        "note_zh_TW": "為刀片安裝方位，非切削刃或中心孔角度。"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    },
+    {
+      "ic": "25",
+      "code": "806004",
+      "parts_no": "00-99616-IC25-25S",
+      "type": "SL25-IC25S",
+      "holder_group": "double_flat_S",
+      "dimensions_mm": {
+        "d": 25,
+        "L1": 56,
+        "L2": 56,
+        "L3": 13.57,
+        "L4": 23,
+        "L5": 23,
+        "D": 43
+      },
+      "dimension_units": {
+        "plain_numeric_dimensions": {
+          "unit": "mm",
+          "unit_status": "inferred_from_catalog_metric_context",
+          "note_zh_TW": "第59-60頁表頭未逐欄標示單位；無引號尺寸按本型錄公制尺寸脈絡整理為mm。原始數字未換算，待正式資料確認時可覆核單位。"
+        },
+        "inch_shank_diameter": {
+          "unit": "inch",
+          "unit_status": "catalog_explicit",
+          "note_zh_TW": "英制柄徑在原表以引號標示；保留分數，不自行改成公制。"
+        }
+      },
+      "hand": null,
+      "screw": {
+        "parts_no": "NS-50125",
+        "tightening_torque": {
+          "value": 5.5,
+          "unit": "N m",
+          "catalog_unit": "Nm"
+        },
+        "torque_screwdriver_recommended": false,
+        "recommendation_scope_zh_TW": "原表星號僅標於NS-25060；頁腳註解Torque screwdriver is recommended。"
+      },
+      "key": "NK-T20",
+      "availability": {
+        "status": "catalog_non_stock",
+        "catalog_label": "Non-Stock Item"
+      },
+      "compatibility": {
+        "interface_ic": "25",
+        "rule_status": "inferred_from_matching_catalog_IC",
+        "note_zh_TW": "刀片與刀柄相同IC作為相容配對依據；型錄未提供逐料號交叉對照。不可僅依d1相同判定相容。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 7,
+        "printed_page": 60,
+        "section": "Double Flat Shank",
+        "visual_evidence": "verification/holders-page-07.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "shank_diameter": {
+        "catalog_display": "25",
+        "value": 25,
+        "unit": "mm",
+        "unit_status": "inferred_from_catalog_metric_context"
+      },
+      "shank_style": "double_flat",
+      "application_zh_TW": "車床，適用具有側鎖平面的刀座。",
+      "mounting_orientation_degrees": {
+        "insert_at_top": 180,
+        "insert_at_front": 90,
+        "status": "catalog_transcribed",
+        "note_zh_TW": "為刀片安裝方位，非切削刃或中心孔角度。"
+      },
+      "coolant": {
+        "internal": true,
+        "status": "catalog_page_header_icon"
+      }
+    }
+  ],
+  "center_height_sleeves": [
+    {
+      "parts_no": "00-99600-320H",
+      "code": null,
+      "code_status": "not_listed",
+      "type": "SB32-IDER20",
+      "holder_interface": {
+        "outer_diameter": {
+          "value": 32,
+          "unit": "mm",
+          "tolerance_class": "h6"
+        },
+        "tool_diameter": {
+          "min": 3,
+          "max": 13,
+          "unit": "mm"
+        },
+        "ic": null,
+        "ic_status": "not_listed",
+        "note_zh_TW": "依夾持徑選刀柄/刀具，型錄未列可直接對應的i-Center料號。"
+      },
+      "dimensions": {
+        "clamping_body_length": {
+          "value": 80,
+          "unit": "mm"
+        },
+        "overall_length_range": {
+          "min": 150,
+          "max": 156,
+          "unit": "mm"
+        }
+      },
+      "features": {
+        "front_outer_diameter_mm": 34,
+        "collet": "ER20"
+      },
+      "center_height_adjustment": {
+        "plus_minus": 0.15,
+        "unit": "mm",
+        "catalog_inch_equivalent": 0.006
+      },
+      "axial_movement": {
+        "total": 6,
+        "unit": "mm",
+        "catalog_inch_equivalent": 0.236,
+        "diagram_half_travel_mm": 3
+      },
+      "coolant_slot": true,
+      "adjustment_and_tightening_key": {
+        "size": 4,
+        "unit": "mm",
+        "type": "hex"
+      },
+      "locking_set_screws": 2,
+      "application_zh_TW": "CNC車床中心高調整；適用中心鑽、NC定點鑽、鉸刀、絲攻。透過內套筒軸向推拉改變中心高。",
+      "machine_holder_context": {
+        "catalog_labels": [
+          "VDI 40",
+          "VDI 50 E2",
+          "other types internal turning tool holders"
+        ],
+        "status": "catalog_section_statement",
+        "note_zh_TW": "型錄未逐一把機台刀座與兩款外徑做配對，不保證任意組合直接可裝。"
+      },
+      "availability": {
+        "status": "not_listed"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 8,
+        "printed_page": 61,
+        "section": "Center Height Adjusting Sleeve",
+        "visual_evidence": "verification/holders-page-08.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "dimension_value_status": "catalog_transcribed_from_drawing_or_text",
+      "dimension_unit_policy": {
+        "unlabelled_drawing_dimensions": {
+          "unit": "mm",
+          "status": "inferred_from_catalog_metric_context"
+        },
+        "explicit_mm_captions": {
+          "status": "catalog_explicit",
+          "note_zh_TW": "圖說明印ø3~ø13mm或ø16mm、中心高±0.15mm與軸向6mm；其他未標單位的尺寸按同頁公制語境判讀。"
+        }
+      }
+    },
+    {
+      "parts_no": "00-99600-400H",
+      "code": null,
+      "code_status": "not_listed",
+      "type": "SB40-ID16",
+      "holder_interface": {
+        "outer_diameter": {
+          "value": 40,
+          "unit": "mm",
+          "tolerance_class": "h6"
+        },
+        "tool_diameter": {
+          "value": 16,
+          "unit": "mm"
+        },
+        "ic": null,
+        "ic_status": "not_listed",
+        "note_zh_TW": "依夾持徑選刀柄/刀具，型錄未列可直接對應的i-Center料號。"
+      },
+      "dimensions": {
+        "clamping_body_length": {
+          "value": 90,
+          "unit": "mm"
+        },
+        "overall_length_range": {
+          "min": 95,
+          "max": 101,
+          "unit": "mm"
+        }
+      },
+      "features": {
+        "dust_protection_wiper": true
+      },
+      "center_height_adjustment": {
+        "plus_minus": 0.15,
+        "unit": "mm",
+        "catalog_inch_equivalent": 0.006
+      },
+      "axial_movement": {
+        "total": 6,
+        "unit": "mm",
+        "catalog_inch_equivalent": 0.236,
+        "diagram_half_travel_mm": 3
+      },
+      "coolant_slot": true,
+      "adjustment_and_tightening_key": {
+        "size": 4,
+        "unit": "mm",
+        "type": "hex"
+      },
+      "locking_set_screws": 2,
+      "application_zh_TW": "CNC車床中心高調整；適用中心鑽、NC定點鑽、鉸刀、絲攻。透過內套筒軸向推拉改變中心高。",
+      "machine_holder_context": {
+        "catalog_labels": [
+          "VDI 40",
+          "VDI 50 E2",
+          "other types internal turning tool holders"
+        ],
+        "status": "catalog_section_statement",
+        "note_zh_TW": "型錄未逐一把機台刀座與兩款外徑做配對，不保證任意組合直接可裝。"
+      },
+      "availability": {
+        "status": "not_listed"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 8,
+        "printed_page": 61,
+        "section": "Center Height Adjusting Sleeve",
+        "visual_evidence": "verification/holders-page-08.png",
+        "status": "catalog_transcribed_visual_checked"
+      },
+      "dimension_value_status": "catalog_transcribed_from_drawing_or_text",
+      "dimension_unit_policy": {
+        "unlabelled_drawing_dimensions": {
+          "unit": "mm",
+          "status": "inferred_from_catalog_metric_context"
+        },
+        "explicit_mm_captions": {
+          "status": "catalog_explicit",
+          "note_zh_TW": "圖說明印ø3~ø13mm或ø16mm、中心高±0.15mm與軸向6mm；其他未標單位的尺寸按同頁公制語境判讀。"
+        }
+      }
+    }
+  ],
+  "other_inserts": [
+    {
+      "parts_no": "I9MT12T2M03-NC2033",
+      "code": null,
+      "code_status": "not_listed",
+      "form": "DIN332 Form D",
+      "application_zh_TW": "M3平底沉孔用刀片",
+      "grade_id": "NC2033",
+      "substrate_grade": "K20F",
+      "coating": "TiAlN",
+      "dimensions_mm": {
+        "d1": 3.4,
+        "d2": 4.4,
+        "d3": 6,
+        "d4": 8,
+        "L1": 3,
+        "L2": 4.04,
+        "L3": 5.04
+      },
+      "diagram_dimensions_mm": {
+        "S": 2.54,
+        "center_to_tip_axial_length": 12.5
+      },
+      "dimension_unit_status": "inferred_from_catalog_metric_context",
+      "diagram_angles_degrees": {
+        "internal_label_1": 90,
+        "internal_label_2": 90,
+        "tip_angle": 145
+      },
+      "angle_note_zh_TW": "90°/90°/145°按刀片圖標記抄錄；沒有把它們當成A/B/R中心孔角度。",
+      "ic": {
+        "value": "12",
+        "status": "inferred_from_parts_no_and_dimensions",
+        "note_zh_TW": "本列無IC欄；I9MT12T2料號與2.54厚度對應IC12系列，但正式相容性仍應確認。"
+      },
+      "availability": {
+        "status": "catalog_non_stock",
+        "catalog_label": "Non-Stock Item"
+      },
+      "cutting_data": {
+        "status": "not_listed_for_this_form",
+        "reference": null
+      },
+      "material_suitability": {
+        "status": "not_individually_listed",
+        "note_zh_TW": "本列僅給K20F/TiAlN；不可直接套用一般中心鑽切削表。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 10,
+        "printed_page": 63,
+        "section": "DIN332 Form D",
+        "visual_evidence": "verification/holders-page-10.png",
+        "status": "catalog_transcribed_visual_checked"
+      }
+    },
+    {
+      "parts_no": "I9MT12T2M04-NC2033",
+      "code": null,
+      "code_status": "not_listed",
+      "form": "DIN332 Form D",
+      "application_zh_TW": "M4平底沉孔用刀片",
+      "grade_id": "NC2033",
+      "substrate_grade": "K20F",
+      "coating": "TiAlN",
+      "dimensions_mm": {
+        "d1": 4.5,
+        "d2": 5.5,
+        "d3": 8,
+        "d4": 10,
+        "L1": 4,
+        "L2": 5.21,
+        "L3": 6.21
+      },
+      "diagram_dimensions_mm": {
+        "S": 2.54,
+        "center_to_tip_axial_length": 12.5
+      },
+      "dimension_unit_status": "inferred_from_catalog_metric_context",
+      "diagram_angles_degrees": {
+        "internal_label_1": 90,
+        "internal_label_2": 90,
+        "tip_angle": 145
+      },
+      "angle_note_zh_TW": "90°/90°/145°按刀片圖標記抄錄；沒有把它們當成A/B/R中心孔角度。",
+      "ic": {
+        "value": "12",
+        "status": "inferred_from_parts_no_and_dimensions",
+        "note_zh_TW": "本列無IC欄；I9MT12T2料號與2.54厚度對應IC12系列，但正式相容性仍應確認。"
+      },
+      "availability": {
+        "status": "catalog_non_stock",
+        "catalog_label": "Non-Stock Item"
+      },
+      "cutting_data": {
+        "status": "not_listed_for_this_form",
+        "reference": null
+      },
+      "material_suitability": {
+        "status": "not_individually_listed",
+        "note_zh_TW": "本列僅給K20F/TiAlN；不可直接套用一般中心鑽切削表。"
+      },
+      "source": {
+        "source_file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 10,
+        "printed_page": 63,
+        "section": "DIN332 Form D",
+        "visual_evidence": "verification/holders-page-10.png",
+        "status": "catalog_transcribed_visual_checked"
+      }
+    }
+  ],
+  "enquiry_form": {
+    "source": {
+      "source_file": "sources/04_i-Center_p054-067.pdf",
+      "pdf_page": 10,
+      "printed_page": 63,
+      "section": "i-Center Enquiry Form",
+      "visual_evidence": "verification/holders-page-10.png",
+      "status": "catalog_transcribed_visual_checked"
+    },
+    "purpose_zh_TW": "客製中心孔/刀柄詢問欄位與圖面公差範本；不是標準刀片每一尺寸的公差表。",
+    "required_context_zh_TW": [
+      "機台型式",
+      "最高主軸轉速r.p.m.",
+      "主軸馬達功率KW或HP",
+      "無/外部/內部冷卻及壓力bar(psi)",
+      "現行HSS或Solid Carbide刀具",
+      "現行切削速度m/min.或SFM",
+      "進給mm/rev.或inch/rev.",
+      "工件材料代碼",
+      "孔型R/A/B/C或附圖",
+      "表面粗糙度要求",
+      "公差要求",
+      "工件圖"
+    ],
+    "drawing_form_labels": [
+      "Type R",
+      "Type A",
+      "Type B",
+      "Type C",
+      "Other"
+    ],
+    "drawing_parameters": [
+      "A1",
+      "A2",
+      "A3",
+      "d1",
+      "d2",
+      "d3",
+      "L1",
+      "L2",
+      "L3",
+      "R",
+      "D1",
+      "L4"
+    ],
+    "template_tolerances": {
+      "A1": {
+        "status": "not_specified",
+        "catalog_display": "---"
+      },
+      "A2": {
+        "plus": 0,
+        "minus": 1,
+        "unit": "degree"
+      },
+      "A3": {
+        "plus_minus": 1,
+        "unit": "degree"
+      },
+      "d1": {
+        "plus_minus": 0.05,
+        "unit": "mm"
+      },
+      "d2": {
+        "plus_minus": 0.05,
+        "unit": "mm"
+      },
+      "d3": {
+        "status": "not_specified",
+        "catalog_display": "---"
+      },
+      "L1": {
+        "plus_minus": 0.05,
+        "unit": "mm"
+      },
+      "L2": {
+        "plus_minus": 0.05,
+        "unit": "mm"
+      },
+      "L3": {
+        "plus_minus": 0.05,
+        "unit": "mm"
+      },
+      "R": {
+        "plus_minus": 0.5,
+        "unit": "mm"
+      },
+      "D1": {
+        "tolerance_class": "h6"
+      },
+      "L4": {
+        "status": "not_specified",
+        "catalog_display": "---"
+      }
+    },
+    "tolerance_unit_status_zh_TW": "角度單位由原文明示°；長度表未另印mm，依公制圖面脈絡整理，不能當作所有商品的保證公差。"
+  },
+  "uncertainties": [
+    {
+      "id": "holder_units",
+      "status": "needs_unit_confirmation",
+      "note_zh_TW": "第59-60頁無逐欄mm標示；保留原數字並明確標記mm單位為型錄脈絡推定。"
+    },
+    {
+      "id": "same_IC_compatibility",
+      "status": "inferred",
+      "note_zh_TW": "IC欄是整理刀片/刀柄連結依據，但型錄未列逐料號互換表；不可由pilot d1單獨配刀柄。"
+    },
+    {
+      "id": "holder_B_vs_form_B",
+      "status": "catalog_naming_collision",
+      "note_zh_TW": "刀柄料號尾碼B代表此頁預平衡圓柄款，與DIN332 Form B或A+B孔型不相同。"
+    },
+    {
+      "id": "holder_R_L_vs_form_R",
+      "status": "catalog_naming_collision",
+      "note_zh_TW": "R2525MF/L2525MF的R/L為右手/左手方柄，與DIN332 Form R孔型不相同。"
+    },
+    {
+      "id": "stock",
+      "status": "not_listed_except_non_stock",
+      "note_zh_TW": "僅雙平面柄與Form D明示Non-Stock Item；其他品項不能據此判定現貨。"
+    },
+    {
+      "id": "special_D_IC",
+      "status": "needs_compatibility_confirmation",
+      "note_zh_TW": "Form D未列IC欄，IC12為料號/厚度推定，未併入已確認相容表。"
+    },
+    {
+      "id": "prebalance_speed",
+      "status": "interpretation_guard",
+      "note_zh_TW": "G6.3/10,000rpm為預平衡標示，未提供刀柄最高安全轉速；切削表有更高轉速時不能自動視為整組可用。"
+    }
+  ]
+}

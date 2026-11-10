@@ -1,0 +1,32 @@
+來源頁碼對照：i-Center 英文型錄拆分PDF
+
+來源：sources/04_i-Center_p054-067.pdf
+PDF頁碼採1起算；印刷頁 = PDF頁 + 53。
+
+PDF頁  印刷頁  可見內容及研究用途
+01     54      Center Drill / Features：雙刃雙槽、重複定位、刀長設定、內冷；6000rpm/600mm/min案例。
+02     55      Applications / Grades：R/A/A+B/ANSI孔形示意與範圍；NC2057/NC5074/NC2033。
+03     56      DIN332 Form R：20款刀片、尺寸/公差、R、鍍層/牌號、箱裝量、尺寸圖。
+04     57      DIN332 Form A+B：20款刀片、尺寸/公差、60°/120°圖、d3星號例外、箱裝量。
+05     58      DIN332 Form A 3款、ANSI 60° 8款、Measuring Master 5款；合併尺寸與英吋/mm對照。
+06     59      一般Holder 11款、Cylindrical Shank with Pre-balanced 5款；螺絲/扭矩/扳手。
+07     60      Square Shank 25x25左右6款、Double Flat Shank 5款；Non-Stock、尺寸圖、螺絲/扭矩/扳手。
+08     61      Center Height Adjusting Sleeve：2款套筒、尺寸/夾持徑、±0.15mm調整、使用原理。
+09     62      Performance：i-Center對照案例與SCM440表面粗度案例；非全系列通用建議。
+10     63      Enquiry Form：需求欄位、孔形圖及客製公差樣板；DIN332 Form D非庫存M3/M4刀片2款。
+11     64      Technical Standard：DIN332 R/A/B標準孔尺寸11列；R與B用途示意。
+12     65      i-Center Applications：應用例與特殊形狀可詢問。
+13     66      Technical Guide：中心偏差、Driving Tool、中心高套筒、內冷、A+B降速、裝夾圖、公式。
+14     67      Cutting Data：7材料x10欄=70筆條件、S/f/Vc、內外冷圖例、Air及≥5bar。
+
+整頁核對圖：verification/page-01.png至page-14.png。
+刀片高解析圖：verification/insert-page-03.png至insert-page-05.png。
+刀柄/附件高解析圖：verification/holders-page-06.png、07.png、08.png、10.png。
+細節圖：verification/cutting-coolant-header.png、cutting-performance.png、cutting-performance-roughness.png。
+文字：verification/pdf-page-01.txt至pdf-page-14.txt為一般擷取；visible-page-01.txt至14.txt為頁面邊界內擷取。
+文字層可能含被剪裁的相鄰版面內容，圖文歸屬以可見核對圖為準。
+
+57頁A+B「* Notice: The d3 size is different from DIN332 center hole.」須保留；不能只引用64頁標準表而隱藏例外。
+58頁DIN A、ANSI、Measuring Master為三份分表，不合併成同一尺寸序列。
+63頁詢問表的Type B不等同57頁產品分類原名A+B；其公差格是詢問樣板，不能套到所有標準刀片。
+64頁引用標準名稱依型錄原樣保留，沒有查核現行版本。

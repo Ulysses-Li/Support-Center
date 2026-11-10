@@ -1,0 +1,4358 @@
+{
+  "schema_version": "1.0",
+  "language": "zh-TW",
+  "scope": "本機i-Center型錄印刷62、66、67頁；未借用其他產品數據。",
+  "verification": {
+    "method": "pdfplumber文字擷取加Poppler整頁目視核對；p62粗度另以240dpi核對",
+    "images": [
+      "verification/page-09.png",
+      "verification/page-13.png",
+      "verification/page-14.png",
+      "verification/cutting-coolant-header.png",
+      "verification/cutting-performance.png",
+      "verification/cutting-performance-roughness.png"
+    ],
+    "notes": [
+      "Poppler回報原PDF若干未嵌入字型以Helvetica替代；已與文字層交叉核對。"
+    ]
+  },
+  "data_conventions": {
+    "catalog": "型錄明列或由其圖表直接轉錄。",
+    "derived": "由型錄公式或資料推導，與原數據分開。",
+    "unknown": "型錄未列或意義不明，以null或說明保留。",
+    "feed_sequence": "保留型錄以~分隔的二值或三值；三值中間值未見圖例定義，不指定為推薦值。",
+    "spindle_speed": "型錄以範圍列出，未提供唯一建議起始值。",
+    "coolant_legend": {
+      "●": "Best",
+      "○": "Possible",
+      "header_left": "內冷圖示",
+      "header_right": "外冷圖示",
+      "Air": "空氣；此字跨左右冷卻欄，未另分內外冷符號。"
+    },
+    "vc": "僅明列上限<，不當作固定速度。",
+    "units": {
+      "d1": "mm",
+      "S": "r.p.m.",
+      "f": "mm/rev.",
+      "Vc": "m/min.",
+      "F": "mm/min.",
+      "pressure": "bar"
+    }
+  },
+  "column_groups": [
+    {
+      "id": "small",
+      "title_as_printed": "Ø1~Ø3.15 (A2~A4)",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "上半表"
+      }
+    },
+    {
+      "id": "large",
+      "title_as_printed": "Ø4~Ø10 (A5~A10)",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "下半表"
+      }
+    }
+  ],
+  "columns": [
+    {
+      "id": "small-1",
+      "group": "small",
+      "ic": [
+        "08",
+        "10"
+      ],
+      "catalog_header": "Ø1~1.25",
+      "d1_mm": {
+        "kind": "range",
+        "min": 1,
+        "max": 1.25
+      },
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data 欄標題，d1 = pilot dia."
+      }
+    },
+    {
+      "id": "small-2",
+      "group": "small",
+      "ic": [
+        "08",
+        "10"
+      ],
+      "catalog_header": "Ø1.6~3.15",
+      "d1_mm": {
+        "kind": "range",
+        "min": 1.6,
+        "max": 3.15
+      },
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data 欄標題，d1 = pilot dia."
+      }
+    },
+    {
+      "id": "small-3",
+      "group": "small",
+      "ic": [
+        "12"
+      ],
+      "catalog_header": "Ø2 (A2)",
+      "d1_mm": {
+        "kind": "nominal",
+        "value": 2
+      },
+      "ansi_label_as_printed": "A2",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data 欄標題，d1 = pilot dia."
+      }
+    },
+    {
+      "id": "small-4",
+      "group": "small",
+      "ic": [
+        "12"
+      ],
+      "catalog_header": "Ø2.5 (A3)",
+      "d1_mm": {
+        "kind": "nominal",
+        "value": 2.5
+      },
+      "ansi_label_as_printed": "A3",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data 欄標題，d1 = pilot dia."
+      }
+    },
+    {
+      "id": "small-5",
+      "group": "small",
+      "ic": [
+        "12"
+      ],
+      "catalog_header": "Ø3.15 (A4)",
+      "d1_mm": {
+        "kind": "nominal",
+        "value": 3.15
+      },
+      "ansi_label_as_printed": "A4",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data 欄標題，d1 = pilot dia."
+      }
+    },
+    {
+      "id": "large-1",
+      "group": "large",
+      "ic": [
+        "16"
+      ],
+      "catalog_header": "Ø4 (A5)",
+      "d1_mm": {
+        "kind": "nominal",
+        "value": 4
+      },
+      "ansi_label_as_printed": "A5",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data 欄標題，d1 = pilot dia."
+      }
+    },
+    {
+      "id": "large-2",
+      "group": "large",
+      "ic": [
+        "16"
+      ],
+      "catalog_header": "Ø5 (A6)",
+      "d1_mm": {
+        "kind": "nominal",
+        "value": 5
+      },
+      "ansi_label_as_printed": "A6",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data 欄標題，d1 = pilot dia."
+      }
+    },
+    {
+      "id": "large-3",
+      "group": "large",
+      "ic": [
+        "20"
+      ],
+      "catalog_header": "Ø6.3 (A7)",
+      "d1_mm": {
+        "kind": "nominal",
+        "value": 6.3
+      },
+      "ansi_label_as_printed": "A7",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data 欄標題，d1 = pilot dia."
+      }
+    },
+    {
+      "id": "large-4",
+      "group": "large",
+      "ic": [
+        "20"
+      ],
+      "catalog_header": "Ø8 (A8)",
+      "d1_mm": {
+        "kind": "nominal",
+        "value": 8
+      },
+      "ansi_label_as_printed": "A8",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data 欄標題，d1 = pilot dia."
+      }
+    },
+    {
+      "id": "large-5",
+      "group": "large",
+      "ic": [
+        "25"
+      ],
+      "catalog_header": "Ø10 (A10)",
+      "d1_mm": {
+        "kind": "nominal",
+        "value": 10
+      },
+      "ansi_label_as_printed": "A10",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data 欄標題，d1 = pilot dia."
+      }
+    }
+  ],
+  "cutting_conditions": [
+    {
+      "id": "P-carbon-lt03-small-1",
+      "material_id": "P-carbon-lt03",
+      "material_name_en": "Carbon steel C<0.3%",
+      "material_name_zh_TW": "碳鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "small-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 80,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "2000~10000",
+        "min": 2000,
+        "max": 10000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.03~0.05",
+        "catalog_sequence": [
+          0.02,
+          0.03,
+          0.05
+        ],
+        "min": 0.02,
+        "max": 0.05,
+        "middle_value": 0.03,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Carbon steel C<0.3%／Ø1~1.25"
+      }
+    },
+    {
+      "id": "P-carbon-lt03-small-2",
+      "material_id": "P-carbon-lt03",
+      "material_name_en": "Carbon steel C<0.3%",
+      "material_name_zh_TW": "碳鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "small-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 80,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1600~8000",
+        "min": 1600,
+        "max": 8000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.03~0.05~0.06",
+        "catalog_sequence": [
+          0.03,
+          0.05,
+          0.06
+        ],
+        "min": 0.03,
+        "max": 0.06,
+        "middle_value": 0.05,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Carbon steel C<0.3%／Ø1.6~3.15"
+      }
+    },
+    {
+      "id": "P-carbon-lt03-small-3",
+      "material_id": "P-carbon-lt03",
+      "material_name_en": "Carbon steel C<0.3%",
+      "material_name_zh_TW": "碳鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "small-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 80,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1600~8000",
+        "min": 1600,
+        "max": 8000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.04~0.06~0.08",
+        "catalog_sequence": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "min": 0.04,
+        "max": 0.08,
+        "middle_value": 0.06,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Carbon steel C<0.3%／Ø2 (A2)"
+      }
+    },
+    {
+      "id": "P-carbon-lt03-small-4",
+      "material_id": "P-carbon-lt03",
+      "material_name_en": "Carbon steel C<0.3%",
+      "material_name_zh_TW": "碳鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "small-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 80,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1400~7000",
+        "min": 1400,
+        "max": 7000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.06~0.08~0.10",
+        "catalog_sequence": [
+          0.06,
+          0.08,
+          0.1
+        ],
+        "min": 0.06,
+        "max": 0.1,
+        "middle_value": 0.08,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Carbon steel C<0.3%／Ø2.5 (A3)"
+      }
+    },
+    {
+      "id": "P-carbon-lt03-small-5",
+      "material_id": "P-carbon-lt03",
+      "material_name_en": "Carbon steel C<0.3%",
+      "material_name_zh_TW": "碳鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "small-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 80,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1200~6000",
+        "min": 1200,
+        "max": 6000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.08~0.10~0.12",
+        "catalog_sequence": [
+          0.08,
+          0.1,
+          0.12
+        ],
+        "min": 0.08,
+        "max": 0.12,
+        "middle_value": 0.1,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Carbon steel C<0.3%／Ø3.15 (A4)"
+      }
+    },
+    {
+      "id": "P-carbon-gt03-small-1",
+      "material_id": "P-carbon-gt03",
+      "material_name_en": "Carbon steel C>0.3%",
+      "material_name_zh_TW": "碳鋼，C>0.3%",
+      "iso_group": "P",
+      "column_id": "small-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "2000~9000",
+        "min": 2000,
+        "max": 9000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.03~0.05",
+        "catalog_sequence": [
+          0.02,
+          0.03,
+          0.05
+        ],
+        "min": 0.02,
+        "max": 0.05,
+        "middle_value": 0.03,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Carbon steel C>0.3%／Ø1~1.25"
+      }
+    },
+    {
+      "id": "P-carbon-gt03-small-2",
+      "material_id": "P-carbon-gt03",
+      "material_name_en": "Carbon steel C>0.3%",
+      "material_name_zh_TW": "碳鋼，C>0.3%",
+      "iso_group": "P",
+      "column_id": "small-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1600~7200",
+        "min": 1600,
+        "max": 7200,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.03~0.04~0.05",
+        "catalog_sequence": [
+          0.03,
+          0.04,
+          0.05
+        ],
+        "min": 0.03,
+        "max": 0.05,
+        "middle_value": 0.04,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Carbon steel C>0.3%／Ø1.6~3.15"
+      }
+    },
+    {
+      "id": "P-carbon-gt03-small-3",
+      "material_id": "P-carbon-gt03",
+      "material_name_en": "Carbon steel C>0.3%",
+      "material_name_zh_TW": "碳鋼，C>0.3%",
+      "iso_group": "P",
+      "column_id": "small-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1600~7200",
+        "min": 1600,
+        "max": 7200,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.03~0.04~0.05",
+        "catalog_sequence": [
+          0.03,
+          0.04,
+          0.05
+        ],
+        "min": 0.03,
+        "max": 0.05,
+        "middle_value": 0.04,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Carbon steel C>0.3%／Ø2 (A2)"
+      }
+    },
+    {
+      "id": "P-carbon-gt03-small-4",
+      "material_id": "P-carbon-gt03",
+      "material_name_en": "Carbon steel C>0.3%",
+      "material_name_zh_TW": "碳鋼，C>0.3%",
+      "iso_group": "P",
+      "column_id": "small-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1400~6300",
+        "min": 1400,
+        "max": 6300,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.06~0.08~0.10",
+        "catalog_sequence": [
+          0.06,
+          0.08,
+          0.1
+        ],
+        "min": 0.06,
+        "max": 0.1,
+        "middle_value": 0.08,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Carbon steel C>0.3%／Ø2.5 (A3)"
+      }
+    },
+    {
+      "id": "P-carbon-gt03-small-5",
+      "material_id": "P-carbon-gt03",
+      "material_name_en": "Carbon steel C>0.3%",
+      "material_name_zh_TW": "碳鋼，C>0.3%",
+      "iso_group": "P",
+      "column_id": "small-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1200~5400",
+        "min": 1200,
+        "max": 5400,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.08~0.10~0.12",
+        "catalog_sequence": [
+          0.08,
+          0.1,
+          0.12
+        ],
+        "min": 0.08,
+        "max": 0.12,
+        "middle_value": 0.1,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Carbon steel C>0.3%／Ø3.15 (A4)"
+      }
+    },
+    {
+      "id": "P-low-alloy-lt03-small-1",
+      "material_id": "P-low-alloy-lt03",
+      "material_name_en": "Low alloy steel C<0.3%",
+      "material_name_zh_TW": "低合金鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "small-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 65,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "2000~8000",
+        "min": 2000,
+        "max": 8000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.01~0.02~0.04",
+        "catalog_sequence": [
+          0.01,
+          0.02,
+          0.04
+        ],
+        "min": 0.01,
+        "max": 0.04,
+        "middle_value": 0.02,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Low alloy steel C<0.3%／Ø1~1.25"
+      }
+    },
+    {
+      "id": "P-low-alloy-lt03-small-2",
+      "material_id": "P-low-alloy-lt03",
+      "material_name_en": "Low alloy steel C<0.3%",
+      "material_name_zh_TW": "低合金鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "small-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 65,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1600~6400",
+        "min": 1600,
+        "max": 6400,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.03~0.05",
+        "catalog_sequence": [
+          0.02,
+          0.03,
+          0.05
+        ],
+        "min": 0.02,
+        "max": 0.05,
+        "middle_value": 0.03,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Low alloy steel C<0.3%／Ø1.6~3.15"
+      }
+    },
+    {
+      "id": "P-low-alloy-lt03-small-3",
+      "material_id": "P-low-alloy-lt03",
+      "material_name_en": "Low alloy steel C<0.3%",
+      "material_name_zh_TW": "低合金鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "small-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 65,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1600~6400",
+        "min": 1600,
+        "max": 6400,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.03~0.05",
+        "catalog_sequence": [
+          0.02,
+          0.03,
+          0.05
+        ],
+        "min": 0.02,
+        "max": 0.05,
+        "middle_value": 0.03,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Low alloy steel C<0.3%／Ø2 (A2)"
+      }
+    },
+    {
+      "id": "P-low-alloy-lt03-small-4",
+      "material_id": "P-low-alloy-lt03",
+      "material_name_en": "Low alloy steel C<0.3%",
+      "material_name_zh_TW": "低合金鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "small-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 65,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1400~5600",
+        "min": 1400,
+        "max": 5600,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.04~0.06~0.08",
+        "catalog_sequence": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "min": 0.04,
+        "max": 0.08,
+        "middle_value": 0.06,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Low alloy steel C<0.3%／Ø2.5 (A3)"
+      }
+    },
+    {
+      "id": "P-low-alloy-lt03-small-5",
+      "material_id": "P-low-alloy-lt03",
+      "material_name_en": "Low alloy steel C<0.3%",
+      "material_name_zh_TW": "低合金鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "small-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 65,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1200~4800",
+        "min": 1200,
+        "max": 4800,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.06~0.08~0.10",
+        "catalog_sequence": [
+          0.06,
+          0.08,
+          0.1
+        ],
+        "min": 0.06,
+        "max": 0.1,
+        "middle_value": 0.08,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Low alloy steel C<0.3%／Ø3.15 (A4)"
+      }
+    },
+    {
+      "id": "P-high-alloy-small-1",
+      "material_id": "P-high-alloy",
+      "material_name_en": "High alloy steel",
+      "material_name_zh_TW": "高合金鋼",
+      "iso_group": "P",
+      "column_id": "small-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 60,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1000~6000",
+        "min": 1000,
+        "max": 6000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.01~0.02",
+        "catalog_sequence": [
+          0.01,
+          0.02
+        ],
+        "min": 0.01,
+        "max": 0.02,
+        "middle_value": null,
+        "middle_value_meaning": null,
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／High alloy steel／Ø1~1.25"
+      }
+    },
+    {
+      "id": "P-high-alloy-small-2",
+      "material_id": "P-high-alloy",
+      "material_name_en": "High alloy steel",
+      "material_name_zh_TW": "高合金鋼",
+      "iso_group": "P",
+      "column_id": "small-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 60,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "800~4800",
+        "min": 800,
+        "max": 4800,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.01~0.02~0.04",
+        "catalog_sequence": [
+          0.01,
+          0.02,
+          0.04
+        ],
+        "min": 0.01,
+        "max": 0.04,
+        "middle_value": 0.02,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／High alloy steel／Ø1.6~3.15"
+      }
+    },
+    {
+      "id": "P-high-alloy-small-3",
+      "material_id": "P-high-alloy",
+      "material_name_en": "High alloy steel",
+      "material_name_zh_TW": "高合金鋼",
+      "iso_group": "P",
+      "column_id": "small-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 60,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "800~4800",
+        "min": 800,
+        "max": 4800,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.01~0.02~0.04",
+        "catalog_sequence": [
+          0.01,
+          0.02,
+          0.04
+        ],
+        "min": 0.01,
+        "max": 0.04,
+        "middle_value": 0.02,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／High alloy steel／Ø2 (A2)"
+      }
+    },
+    {
+      "id": "P-high-alloy-small-4",
+      "material_id": "P-high-alloy",
+      "material_name_en": "High alloy steel",
+      "material_name_zh_TW": "高合金鋼",
+      "iso_group": "P",
+      "column_id": "small-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 60,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "700~4200",
+        "min": 700,
+        "max": 4200,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.04~0.06",
+        "catalog_sequence": [
+          0.02,
+          0.04,
+          0.06
+        ],
+        "min": 0.02,
+        "max": 0.06,
+        "middle_value": 0.04,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／High alloy steel／Ø2.5 (A3)"
+      }
+    },
+    {
+      "id": "P-high-alloy-small-5",
+      "material_id": "P-high-alloy",
+      "material_name_en": "High alloy steel",
+      "material_name_zh_TW": "高合金鋼",
+      "iso_group": "P",
+      "column_id": "small-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 60,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "600~3600",
+        "min": 600,
+        "max": 3600,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.04~0.06~0.08",
+        "catalog_sequence": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "min": 0.04,
+        "max": 0.08,
+        "middle_value": 0.06,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／High alloy steel／Ø3.15 (A4)"
+      }
+    },
+    {
+      "id": "M-stainless-small-1",
+      "material_id": "M-stainless",
+      "material_name_en": "Stainless steel",
+      "material_name_zh_TW": "不鏽鋼",
+      "iso_group": "M",
+      "column_id": "small-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 20,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1000~3000",
+        "min": 1000,
+        "max": 3000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.003~0.01",
+        "catalog_sequence": [
+          0.003,
+          0.01
+        ],
+        "min": 0.003,
+        "max": 0.01,
+        "middle_value": null,
+        "middle_value_meaning": null,
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": 5
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Stainless steel／Ø1~1.25"
+      }
+    },
+    {
+      "id": "M-stainless-small-2",
+      "material_id": "M-stainless",
+      "material_name_en": "Stainless steel",
+      "material_name_zh_TW": "不鏽鋼",
+      "iso_group": "M",
+      "column_id": "small-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 20,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "800~2400",
+        "min": 800,
+        "max": 2400,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.005~0.02",
+        "catalog_sequence": [
+          0.005,
+          0.02
+        ],
+        "min": 0.005,
+        "max": 0.02,
+        "middle_value": null,
+        "middle_value_meaning": null,
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": 5
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Stainless steel／Ø1.6~3.15"
+      }
+    },
+    {
+      "id": "M-stainless-small-3",
+      "material_id": "M-stainless",
+      "material_name_en": "Stainless steel",
+      "material_name_zh_TW": "不鏽鋼",
+      "iso_group": "M",
+      "column_id": "small-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 20,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "800~2400",
+        "min": 800,
+        "max": 2400,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.01~0.02",
+        "catalog_sequence": [
+          0.01,
+          0.02
+        ],
+        "min": 0.01,
+        "max": 0.02,
+        "middle_value": null,
+        "middle_value_meaning": null,
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": 5
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Stainless steel／Ø2 (A2)"
+      }
+    },
+    {
+      "id": "M-stainless-small-4",
+      "material_id": "M-stainless",
+      "material_name_en": "Stainless steel",
+      "material_name_zh_TW": "不鏽鋼",
+      "iso_group": "M",
+      "column_id": "small-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 20,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "700~2100",
+        "min": 700,
+        "max": 2100,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.01~0.02~0.03",
+        "catalog_sequence": [
+          0.01,
+          0.02,
+          0.03
+        ],
+        "min": 0.01,
+        "max": 0.03,
+        "middle_value": 0.02,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": 5
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Stainless steel／Ø2.5 (A3)"
+      }
+    },
+    {
+      "id": "M-stainless-small-5",
+      "material_id": "M-stainless",
+      "material_name_en": "Stainless steel",
+      "material_name_zh_TW": "不鏽鋼",
+      "iso_group": "M",
+      "column_id": "small-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 20,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "600~1800",
+        "min": 600,
+        "max": 1800,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.03~0.05",
+        "catalog_sequence": [
+          0.02,
+          0.03,
+          0.05
+        ],
+        "min": 0.02,
+        "max": 0.05,
+        "middle_value": 0.03,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": 5
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Stainless steel／Ø3.15 (A4)"
+      }
+    },
+    {
+      "id": "K-cast-iron-small-1",
+      "material_id": "K-cast-iron",
+      "material_name_en": "Cast Iron",
+      "material_name_zh_TW": "鑄鐵",
+      "iso_group": "K",
+      "column_id": "small-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "2000~9000",
+        "min": 2000,
+        "max": 9000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.01~0.02~0.04",
+        "catalog_sequence": [
+          0.01,
+          0.02,
+          0.04
+        ],
+        "min": 0.01,
+        "max": 0.04,
+        "middle_value": 0.02,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": null,
+        "external": null,
+        "air": "Air",
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Cast Iron／Ø1~1.25"
+      }
+    },
+    {
+      "id": "K-cast-iron-small-2",
+      "material_id": "K-cast-iron",
+      "material_name_en": "Cast Iron",
+      "material_name_zh_TW": "鑄鐵",
+      "iso_group": "K",
+      "column_id": "small-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1600~7200",
+        "min": 1600,
+        "max": 7200,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.04~0.06",
+        "catalog_sequence": [
+          0.02,
+          0.04,
+          0.06
+        ],
+        "min": 0.02,
+        "max": 0.06,
+        "middle_value": 0.04,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": null,
+        "external": null,
+        "air": "Air",
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Cast Iron／Ø1.6~3.15"
+      }
+    },
+    {
+      "id": "K-cast-iron-small-3",
+      "material_id": "K-cast-iron",
+      "material_name_en": "Cast Iron",
+      "material_name_zh_TW": "鑄鐵",
+      "iso_group": "K",
+      "column_id": "small-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1600~7200",
+        "min": 1600,
+        "max": 7200,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.04~0.06",
+        "catalog_sequence": [
+          0.02,
+          0.04,
+          0.06
+        ],
+        "min": 0.02,
+        "max": 0.06,
+        "middle_value": 0.04,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": null,
+        "external": null,
+        "air": "Air",
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Cast Iron／Ø2 (A2)"
+      }
+    },
+    {
+      "id": "K-cast-iron-small-4",
+      "material_id": "K-cast-iron",
+      "material_name_en": "Cast Iron",
+      "material_name_zh_TW": "鑄鐵",
+      "iso_group": "K",
+      "column_id": "small-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1400~6300",
+        "min": 1400,
+        "max": 6300,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.04~0.06~0.08",
+        "catalog_sequence": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "min": 0.04,
+        "max": 0.08,
+        "middle_value": 0.06,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": null,
+        "external": null,
+        "air": "Air",
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Cast Iron／Ø2.5 (A3)"
+      }
+    },
+    {
+      "id": "K-cast-iron-small-5",
+      "material_id": "K-cast-iron",
+      "material_name_en": "Cast Iron",
+      "material_name_zh_TW": "鑄鐵",
+      "iso_group": "K",
+      "column_id": "small-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1200~5400",
+        "min": 1200,
+        "max": 5400,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.06~0.08~0.10",
+        "catalog_sequence": [
+          0.06,
+          0.08,
+          0.1
+        ],
+        "min": 0.06,
+        "max": 0.1,
+        "middle_value": 0.08,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": null,
+        "external": null,
+        "air": "Air",
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Cast Iron／Ø3.15 (A4)"
+      }
+    },
+    {
+      "id": "N-nonferrous-small-1",
+      "material_id": "N-nonferrous",
+      "material_name_en": "Non-ferrous metal",
+      "material_name_zh_TW": "非鐵金屬",
+      "iso_group": "N",
+      "column_id": "small-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 200,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "6000~20000",
+        "min": 6000,
+        "max": 20000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.01~0.02~0.03",
+        "catalog_sequence": [
+          0.01,
+          0.02,
+          0.03
+        ],
+        "min": 0.01,
+        "max": 0.03,
+        "middle_value": 0.02,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Non-ferrous metal／Ø1~1.25"
+      }
+    },
+    {
+      "id": "N-nonferrous-small-2",
+      "material_id": "N-nonferrous",
+      "material_name_en": "Non-ferrous metal",
+      "material_name_zh_TW": "非鐵金屬",
+      "iso_group": "N",
+      "column_id": "small-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 200,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "4800~16000",
+        "min": 4800,
+        "max": 16000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.01~0.02~0.04",
+        "catalog_sequence": [
+          0.01,
+          0.02,
+          0.04
+        ],
+        "min": 0.01,
+        "max": 0.04,
+        "middle_value": 0.02,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Non-ferrous metal／Ø1.6~3.15"
+      }
+    },
+    {
+      "id": "N-nonferrous-small-3",
+      "material_id": "N-nonferrous",
+      "material_name_en": "Non-ferrous metal",
+      "material_name_zh_TW": "非鐵金屬",
+      "iso_group": "N",
+      "column_id": "small-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 200,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "4800~16000",
+        "min": 4800,
+        "max": 16000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.01~0.02~0.04",
+        "catalog_sequence": [
+          0.01,
+          0.02,
+          0.04
+        ],
+        "min": 0.01,
+        "max": 0.04,
+        "middle_value": 0.02,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Non-ferrous metal／Ø2 (A2)"
+      }
+    },
+    {
+      "id": "N-nonferrous-small-4",
+      "material_id": "N-nonferrous",
+      "material_name_en": "Non-ferrous metal",
+      "material_name_zh_TW": "非鐵金屬",
+      "iso_group": "N",
+      "column_id": "small-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 200,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "4200~14000",
+        "min": 4200,
+        "max": 14000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.03~0.05",
+        "catalog_sequence": [
+          0.02,
+          0.03,
+          0.05
+        ],
+        "min": 0.02,
+        "max": 0.05,
+        "middle_value": 0.03,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Non-ferrous metal／Ø2.5 (A3)"
+      }
+    },
+    {
+      "id": "N-nonferrous-small-5",
+      "material_id": "N-nonferrous",
+      "material_name_en": "Non-ferrous metal",
+      "material_name_zh_TW": "非鐵金屬",
+      "iso_group": "N",
+      "column_id": "small-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 200,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "3600~12000",
+        "min": 3600,
+        "max": 12000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.04~0.06",
+        "catalog_sequence": [
+          0.02,
+          0.04,
+          0.06
+        ],
+        "min": 0.02,
+        "max": 0.06,
+        "middle_value": 0.04,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data small表／Non-ferrous metal／Ø3.15 (A4)"
+      }
+    },
+    {
+      "id": "P-carbon-lt03-large-1",
+      "material_id": "P-carbon-lt03",
+      "material_name_en": "Carbon steel C<0.3%",
+      "material_name_zh_TW": "碳鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "large-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 80,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1000~5000",
+        "min": 1000,
+        "max": 5000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.08~0.12~0.14",
+        "catalog_sequence": [
+          0.08,
+          0.12,
+          0.14
+        ],
+        "min": 0.08,
+        "max": 0.14,
+        "middle_value": 0.12,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Carbon steel C<0.3%／Ø4 (A5)"
+      }
+    },
+    {
+      "id": "P-carbon-lt03-large-2",
+      "material_id": "P-carbon-lt03",
+      "material_name_en": "Carbon steel C<0.3%",
+      "material_name_zh_TW": "碳鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "large-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 80,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "900~4500",
+        "min": 900,
+        "max": 4500,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.10~0.12~0.16",
+        "catalog_sequence": [
+          0.1,
+          0.12,
+          0.16
+        ],
+        "min": 0.1,
+        "max": 0.16,
+        "middle_value": 0.12,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Carbon steel C<0.3%／Ø5 (A6)"
+      }
+    },
+    {
+      "id": "P-carbon-lt03-large-3",
+      "material_id": "P-carbon-lt03",
+      "material_name_en": "Carbon steel C<0.3%",
+      "material_name_zh_TW": "碳鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "large-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 80,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "800~4000",
+        "min": 800,
+        "max": 4000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.10~0.14~0.16",
+        "catalog_sequence": [
+          0.1,
+          0.14,
+          0.16
+        ],
+        "min": 0.1,
+        "max": 0.16,
+        "middle_value": 0.14,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Carbon steel C<0.3%／Ø6.3 (A7)"
+      }
+    },
+    {
+      "id": "P-carbon-lt03-large-4",
+      "material_id": "P-carbon-lt03",
+      "material_name_en": "Carbon steel C<0.3%",
+      "material_name_zh_TW": "碳鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "large-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 80,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "700~3500",
+        "min": 700,
+        "max": 3500,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.12~0.15~0.18",
+        "catalog_sequence": [
+          0.12,
+          0.15,
+          0.18
+        ],
+        "min": 0.12,
+        "max": 0.18,
+        "middle_value": 0.15,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Carbon steel C<0.3%／Ø8 (A8)"
+      }
+    },
+    {
+      "id": "P-carbon-lt03-large-5",
+      "material_id": "P-carbon-lt03",
+      "material_name_en": "Carbon steel C<0.3%",
+      "material_name_zh_TW": "碳鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "large-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 80,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "600~3000",
+        "min": 600,
+        "max": 3000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.14~0.18~0.20",
+        "catalog_sequence": [
+          0.14,
+          0.18,
+          0.2
+        ],
+        "min": 0.14,
+        "max": 0.2,
+        "middle_value": 0.18,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Carbon steel C<0.3%／Ø10 (A10)"
+      }
+    },
+    {
+      "id": "P-carbon-gt03-large-1",
+      "material_id": "P-carbon-gt03",
+      "material_name_en": "Carbon steel C>0.3%",
+      "material_name_zh_TW": "碳鋼，C>0.3%",
+      "iso_group": "P",
+      "column_id": "large-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1000~4500",
+        "min": 1000,
+        "max": 4500,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.08~0.12~0.14",
+        "catalog_sequence": [
+          0.08,
+          0.12,
+          0.14
+        ],
+        "min": 0.08,
+        "max": 0.14,
+        "middle_value": 0.12,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Carbon steel C>0.3%／Ø4 (A5)"
+      }
+    },
+    {
+      "id": "P-carbon-gt03-large-2",
+      "material_id": "P-carbon-gt03",
+      "material_name_en": "Carbon steel C>0.3%",
+      "material_name_zh_TW": "碳鋼，C>0.3%",
+      "iso_group": "P",
+      "column_id": "large-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "900~4050",
+        "min": 900,
+        "max": 4050,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.10~0.12~0.16",
+        "catalog_sequence": [
+          0.1,
+          0.12,
+          0.16
+        ],
+        "min": 0.1,
+        "max": 0.16,
+        "middle_value": 0.12,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Carbon steel C>0.3%／Ø5 (A6)"
+      }
+    },
+    {
+      "id": "P-carbon-gt03-large-3",
+      "material_id": "P-carbon-gt03",
+      "material_name_en": "Carbon steel C>0.3%",
+      "material_name_zh_TW": "碳鋼，C>0.3%",
+      "iso_group": "P",
+      "column_id": "large-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "800~3600",
+        "min": 800,
+        "max": 3600,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.10~0.14~0.16",
+        "catalog_sequence": [
+          0.1,
+          0.14,
+          0.16
+        ],
+        "min": 0.1,
+        "max": 0.16,
+        "middle_value": 0.14,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Carbon steel C>0.3%／Ø6.3 (A7)"
+      }
+    },
+    {
+      "id": "P-carbon-gt03-large-4",
+      "material_id": "P-carbon-gt03",
+      "material_name_en": "Carbon steel C>0.3%",
+      "material_name_zh_TW": "碳鋼，C>0.3%",
+      "iso_group": "P",
+      "column_id": "large-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "700~3150",
+        "min": 700,
+        "max": 3150,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.12~0.15~0.18",
+        "catalog_sequence": [
+          0.12,
+          0.15,
+          0.18
+        ],
+        "min": 0.12,
+        "max": 0.18,
+        "middle_value": 0.15,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Carbon steel C>0.3%／Ø8 (A8)"
+      }
+    },
+    {
+      "id": "P-carbon-gt03-large-5",
+      "material_id": "P-carbon-gt03",
+      "material_name_en": "Carbon steel C>0.3%",
+      "material_name_zh_TW": "碳鋼，C>0.3%",
+      "iso_group": "P",
+      "column_id": "large-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "600~2700",
+        "min": 600,
+        "max": 2700,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.14~0.18~0.20",
+        "catalog_sequence": [
+          0.14,
+          0.18,
+          0.2
+        ],
+        "min": 0.14,
+        "max": 0.2,
+        "middle_value": 0.18,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Carbon steel C>0.3%／Ø10 (A10)"
+      }
+    },
+    {
+      "id": "P-low-alloy-lt03-large-1",
+      "material_id": "P-low-alloy-lt03",
+      "material_name_en": "Low alloy steel C<0.3%",
+      "material_name_zh_TW": "低合金鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "large-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 65,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1000~4000",
+        "min": 1000,
+        "max": 4000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.06~0.08~0.10",
+        "catalog_sequence": [
+          0.06,
+          0.08,
+          0.1
+        ],
+        "min": 0.06,
+        "max": 0.1,
+        "middle_value": 0.08,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Low alloy steel C<0.3%／Ø4 (A5)"
+      }
+    },
+    {
+      "id": "P-low-alloy-lt03-large-2",
+      "material_id": "P-low-alloy-lt03",
+      "material_name_en": "Low alloy steel C<0.3%",
+      "material_name_zh_TW": "低合金鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "large-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 65,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "900~3600",
+        "min": 900,
+        "max": 3600,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.08~0.10~0.12",
+        "catalog_sequence": [
+          0.08,
+          0.1,
+          0.12
+        ],
+        "min": 0.08,
+        "max": 0.12,
+        "middle_value": 0.1,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Low alloy steel C<0.3%／Ø5 (A6)"
+      }
+    },
+    {
+      "id": "P-low-alloy-lt03-large-3",
+      "material_id": "P-low-alloy-lt03",
+      "material_name_en": "Low alloy steel C<0.3%",
+      "material_name_zh_TW": "低合金鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "large-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 65,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "800~3200",
+        "min": 800,
+        "max": 3200,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.08~0.12~0.14",
+        "catalog_sequence": [
+          0.08,
+          0.12,
+          0.14
+        ],
+        "min": 0.08,
+        "max": 0.14,
+        "middle_value": 0.12,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Low alloy steel C<0.3%／Ø6.3 (A7)"
+      }
+    },
+    {
+      "id": "P-low-alloy-lt03-large-4",
+      "material_id": "P-low-alloy-lt03",
+      "material_name_en": "Low alloy steel C<0.3%",
+      "material_name_zh_TW": "低合金鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "large-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 65,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "700~2800",
+        "min": 700,
+        "max": 2800,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.10~0.14~0.16",
+        "catalog_sequence": [
+          0.1,
+          0.14,
+          0.16
+        ],
+        "min": 0.1,
+        "max": 0.16,
+        "middle_value": 0.14,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Low alloy steel C<0.3%／Ø8 (A8)"
+      }
+    },
+    {
+      "id": "P-low-alloy-lt03-large-5",
+      "material_id": "P-low-alloy-lt03",
+      "material_name_en": "Low alloy steel C<0.3%",
+      "material_name_zh_TW": "低合金鋼，C<0.3%",
+      "iso_group": "P",
+      "column_id": "large-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 65,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "600~2400",
+        "min": 600,
+        "max": 2400,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.12~0.16~0.20",
+        "catalog_sequence": [
+          0.12,
+          0.16,
+          0.2
+        ],
+        "min": 0.12,
+        "max": 0.2,
+        "middle_value": 0.16,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Low alloy steel C<0.3%／Ø10 (A10)"
+      }
+    },
+    {
+      "id": "P-high-alloy-large-1",
+      "material_id": "P-high-alloy",
+      "material_name_en": "High alloy steel",
+      "material_name_zh_TW": "高合金鋼",
+      "iso_group": "P",
+      "column_id": "large-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 60,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "500~3000",
+        "min": 500,
+        "max": 3000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.04~0.06~0.08",
+        "catalog_sequence": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "min": 0.04,
+        "max": 0.08,
+        "middle_value": 0.06,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／High alloy steel／Ø4 (A5)"
+      }
+    },
+    {
+      "id": "P-high-alloy-large-2",
+      "material_id": "P-high-alloy",
+      "material_name_en": "High alloy steel",
+      "material_name_zh_TW": "高合金鋼",
+      "iso_group": "P",
+      "column_id": "large-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 60,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "450~2700",
+        "min": 450,
+        "max": 2700,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.06~0.08~0.10",
+        "catalog_sequence": [
+          0.06,
+          0.08,
+          0.1
+        ],
+        "min": 0.06,
+        "max": 0.1,
+        "middle_value": 0.08,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／High alloy steel／Ø5 (A6)"
+      }
+    },
+    {
+      "id": "P-high-alloy-large-3",
+      "material_id": "P-high-alloy",
+      "material_name_en": "High alloy steel",
+      "material_name_zh_TW": "高合金鋼",
+      "iso_group": "P",
+      "column_id": "large-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 60,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "400~2400",
+        "min": 400,
+        "max": 2400,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.08~0.10~0.12",
+        "catalog_sequence": [
+          0.08,
+          0.1,
+          0.12
+        ],
+        "min": 0.08,
+        "max": 0.12,
+        "middle_value": 0.1,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／High alloy steel／Ø6.3 (A7)"
+      }
+    },
+    {
+      "id": "P-high-alloy-large-4",
+      "material_id": "P-high-alloy",
+      "material_name_en": "High alloy steel",
+      "material_name_zh_TW": "高合金鋼",
+      "iso_group": "P",
+      "column_id": "large-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 60,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "350~2100",
+        "min": 350,
+        "max": 2100,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.10~0.14~0.16",
+        "catalog_sequence": [
+          0.1,
+          0.14,
+          0.16
+        ],
+        "min": 0.1,
+        "max": 0.16,
+        "middle_value": 0.14,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／High alloy steel／Ø8 (A8)"
+      }
+    },
+    {
+      "id": "P-high-alloy-large-5",
+      "material_id": "P-high-alloy",
+      "material_name_en": "High alloy steel",
+      "material_name_zh_TW": "高合金鋼",
+      "iso_group": "P",
+      "column_id": "large-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 60,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "300~1800",
+        "min": 300,
+        "max": 1800,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.10~0.14~0.16",
+        "catalog_sequence": [
+          0.1,
+          0.14,
+          0.16
+        ],
+        "min": 0.1,
+        "max": 0.16,
+        "middle_value": 0.14,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／High alloy steel／Ø10 (A10)"
+      }
+    },
+    {
+      "id": "M-stainless-large-1",
+      "material_id": "M-stainless",
+      "material_name_en": "Stainless steel",
+      "material_name_zh_TW": "不鏽鋼",
+      "iso_group": "M",
+      "column_id": "large-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 25,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "500~1500",
+        "min": 500,
+        "max": 1500,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.04~0.06",
+        "catalog_sequence": [
+          0.02,
+          0.04,
+          0.06
+        ],
+        "min": 0.02,
+        "max": 0.06,
+        "middle_value": 0.04,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": 5
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Stainless steel／Ø4 (A5)"
+      }
+    },
+    {
+      "id": "M-stainless-large-2",
+      "material_id": "M-stainless",
+      "material_name_en": "Stainless steel",
+      "material_name_zh_TW": "不鏽鋼",
+      "iso_group": "M",
+      "column_id": "large-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 25,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "450~1350",
+        "min": 450,
+        "max": 1350,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.04~0.06",
+        "catalog_sequence": [
+          0.02,
+          0.04,
+          0.06
+        ],
+        "min": 0.02,
+        "max": 0.06,
+        "middle_value": 0.04,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": 5
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Stainless steel／Ø5 (A6)"
+      }
+    },
+    {
+      "id": "M-stainless-large-3",
+      "material_id": "M-stainless",
+      "material_name_en": "Stainless steel",
+      "material_name_zh_TW": "不鏽鋼",
+      "iso_group": "M",
+      "column_id": "large-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 25,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "400~1200",
+        "min": 400,
+        "max": 1200,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.04~0.06~0.08",
+        "catalog_sequence": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "min": 0.04,
+        "max": 0.08,
+        "middle_value": 0.06,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": 5
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Stainless steel／Ø6.3 (A7)"
+      }
+    },
+    {
+      "id": "M-stainless-large-4",
+      "material_id": "M-stainless",
+      "material_name_en": "Stainless steel",
+      "material_name_zh_TW": "不鏽鋼",
+      "iso_group": "M",
+      "column_id": "large-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 25,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "350~1050",
+        "min": 350,
+        "max": 1050,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.04~0.06~0.08",
+        "catalog_sequence": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "min": 0.04,
+        "max": 0.08,
+        "middle_value": 0.06,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": 5
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Stainless steel／Ø8 (A8)"
+      }
+    },
+    {
+      "id": "M-stainless-large-5",
+      "material_id": "M-stainless",
+      "material_name_en": "Stainless steel",
+      "material_name_zh_TW": "不鏽鋼",
+      "iso_group": "M",
+      "column_id": "large-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 25,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "300~900",
+        "min": 300,
+        "max": 900,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.05~0.07~0.10",
+        "catalog_sequence": [
+          0.05,
+          0.07,
+          0.1
+        ],
+        "min": 0.05,
+        "max": 0.1,
+        "middle_value": 0.07,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": 5
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Stainless steel／Ø10 (A10)"
+      }
+    },
+    {
+      "id": "K-cast-iron-large-1",
+      "material_id": "K-cast-iron",
+      "material_name_en": "Cast Iron",
+      "material_name_zh_TW": "鑄鐵",
+      "iso_group": "K",
+      "column_id": "large-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1000~4500",
+        "min": 1000,
+        "max": 4500,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.06~0.08~0.10",
+        "catalog_sequence": [
+          0.06,
+          0.08,
+          0.1
+        ],
+        "min": 0.06,
+        "max": 0.1,
+        "middle_value": 0.08,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": null,
+        "external": null,
+        "air": "Air",
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Cast Iron／Ø4 (A5)"
+      }
+    },
+    {
+      "id": "K-cast-iron-large-2",
+      "material_id": "K-cast-iron",
+      "material_name_en": "Cast Iron",
+      "material_name_zh_TW": "鑄鐵",
+      "iso_group": "K",
+      "column_id": "large-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "900~4050",
+        "min": 900,
+        "max": 4050,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.08~0.10~0.12",
+        "catalog_sequence": [
+          0.08,
+          0.1,
+          0.12
+        ],
+        "min": 0.08,
+        "max": 0.12,
+        "middle_value": 0.1,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": null,
+        "external": null,
+        "air": "Air",
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Cast Iron／Ø5 (A6)"
+      }
+    },
+    {
+      "id": "K-cast-iron-large-3",
+      "material_id": "K-cast-iron",
+      "material_name_en": "Cast Iron",
+      "material_name_zh_TW": "鑄鐵",
+      "iso_group": "K",
+      "column_id": "large-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "800~3600",
+        "min": 800,
+        "max": 3600,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.08~0.12~0.14",
+        "catalog_sequence": [
+          0.08,
+          0.12,
+          0.14
+        ],
+        "min": 0.08,
+        "max": 0.14,
+        "middle_value": 0.12,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": null,
+        "external": null,
+        "air": "Air",
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Cast Iron／Ø6.3 (A7)"
+      }
+    },
+    {
+      "id": "K-cast-iron-large-4",
+      "material_id": "K-cast-iron",
+      "material_name_en": "Cast Iron",
+      "material_name_zh_TW": "鑄鐵",
+      "iso_group": "K",
+      "column_id": "large-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "700~3150",
+        "min": 700,
+        "max": 3150,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.10~0.14~0.16",
+        "catalog_sequence": [
+          0.1,
+          0.14,
+          0.16
+        ],
+        "min": 0.1,
+        "max": 0.16,
+        "middle_value": 0.14,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": null,
+        "external": null,
+        "air": "Air",
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Cast Iron／Ø8 (A8)"
+      }
+    },
+    {
+      "id": "K-cast-iron-large-5",
+      "material_id": "K-cast-iron",
+      "material_name_en": "Cast Iron",
+      "material_name_zh_TW": "鑄鐵",
+      "iso_group": "K",
+      "column_id": "large-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 70,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "600~2700",
+        "min": 600,
+        "max": 2700,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.12~0.16~0.18",
+        "catalog_sequence": [
+          0.12,
+          0.16,
+          0.18
+        ],
+        "min": 0.12,
+        "max": 0.18,
+        "middle_value": 0.16,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": null,
+        "external": null,
+        "air": "Air",
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Cast Iron／Ø10 (A10)"
+      }
+    },
+    {
+      "id": "N-nonferrous-large-1",
+      "material_id": "N-nonferrous",
+      "material_name_en": "Non-ferrous metal",
+      "material_name_zh_TW": "非鐵金屬",
+      "iso_group": "N",
+      "column_id": "large-1",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 200,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "3000~10000",
+        "min": 3000,
+        "max": 10000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.02~0.04~0.06",
+        "catalog_sequence": [
+          0.02,
+          0.04,
+          0.06
+        ],
+        "min": 0.02,
+        "max": 0.06,
+        "middle_value": 0.04,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Non-ferrous metal／Ø4 (A5)"
+      }
+    },
+    {
+      "id": "N-nonferrous-large-2",
+      "material_id": "N-nonferrous",
+      "material_name_en": "Non-ferrous metal",
+      "material_name_zh_TW": "非鐵金屬",
+      "iso_group": "N",
+      "column_id": "large-2",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 200,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "2700~9000",
+        "min": 2700,
+        "max": 9000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.04~0.06~0.08",
+        "catalog_sequence": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "min": 0.04,
+        "max": 0.08,
+        "middle_value": 0.06,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Non-ferrous metal／Ø5 (A6)"
+      }
+    },
+    {
+      "id": "N-nonferrous-large-3",
+      "material_id": "N-nonferrous",
+      "material_name_en": "Non-ferrous metal",
+      "material_name_zh_TW": "非鐵金屬",
+      "iso_group": "N",
+      "column_id": "large-3",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 200,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "2400~8000",
+        "min": 2400,
+        "max": 8000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.04~0.06~0.08",
+        "catalog_sequence": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "min": 0.04,
+        "max": 0.08,
+        "middle_value": 0.06,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Non-ferrous metal／Ø6.3 (A7)"
+      }
+    },
+    {
+      "id": "N-nonferrous-large-4",
+      "material_id": "N-nonferrous",
+      "material_name_en": "Non-ferrous metal",
+      "material_name_zh_TW": "非鐵金屬",
+      "iso_group": "N",
+      "column_id": "large-4",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 200,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "2100~7000",
+        "min": 2100,
+        "max": 7000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.06~0.08~0.10",
+        "catalog_sequence": [
+          0.06,
+          0.08,
+          0.1
+        ],
+        "min": 0.06,
+        "max": 0.1,
+        "middle_value": 0.08,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Non-ferrous metal／Ø8 (A8)"
+      }
+    },
+    {
+      "id": "N-nonferrous-large-5",
+      "material_id": "N-nonferrous",
+      "material_name_en": "Non-ferrous metal",
+      "material_name_zh_TW": "非鐵金屬",
+      "iso_group": "N",
+      "column_id": "large-5",
+      "vc_m_per_min": {
+        "operator": "<",
+        "value": 200,
+        "status": "catalog"
+      },
+      "spindle_speed_rpm": {
+        "raw": "1800~6000",
+        "min": 1800,
+        "max": 6000,
+        "status": "catalog"
+      },
+      "feed_mm_per_rev": {
+        "raw": "0.06~0.08~0.10",
+        "catalog_sequence": [
+          0.06,
+          0.08,
+          0.1
+        ],
+        "min": 0.06,
+        "max": 0.1,
+        "middle_value": 0.08,
+        "middle_value_meaning": "未列；不可直接命名為推薦值",
+        "recommended_value": null,
+        "status": "catalog"
+      },
+      "coolant": {
+        "internal": {
+          "mark": "●",
+          "legend": "Best"
+        },
+        "external": {
+          "mark": "○",
+          "legend": "Possible"
+        },
+        "air": null,
+        "pressure_bar_min": null
+      },
+      "grade_specificity": "not_stated",
+      "form_specificity": "not_stated",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data large表／Non-ferrous metal／Ø10 (A10)"
+      }
+    }
+  ],
+  "technical_rules": [
+    {
+      "id": "misalignment",
+      "statement": "中心偏移E必須<0.02 mm。",
+      "condition": {
+        "quantity": "E",
+        "operator": "<",
+        "value": 0.02,
+        "unit": "mm"
+      },
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "Center misalignment"
+      }
+    },
+    {
+      "id": "driving-tool",
+      "statement": "Driving Tool圖列低速：高速 = 1：3；圖左標工件低速、圖右刀具高速。",
+      "ratio": {
+        "low": 1,
+        "high": 3
+      },
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "Driving Tool"
+      }
+    },
+    {
+      "id": "height-sleeve",
+      "statement": "CNC車床刀塔中心偏移≥0.15 mm時，請使用中心高調整套筒，型錄引至p61。",
+      "threshold": {
+        "operator": ">=",
+        "value": 0.15,
+        "unit": "mm"
+      },
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "Center height adjusting sleeve"
+      }
+    },
+    {
+      "id": "internal-coolant",
+      "statement": "建議使用內冷。",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "Internal coolant"
+      }
+    },
+    {
+      "id": "ab-slowdown",
+      "statement": "DIN332 Form A+B加工達L2時，主軸轉速降低30%，每轉進給f（mm/rev.）保持相同。",
+      "form": "A+B",
+      "trigger_dimension": "L2",
+      "spindle_reduction_percent": 30,
+      "keep_constant": "f_mm_per_rev",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "DIN 332 Form A+B，L2/L3示意圖"
+      }
+    },
+    {
+      "id": "ab-slowdown-derived",
+      "statement": "降低30%可寫成S_after=0.70×S_before；若f不變，F_after亦為原F的0.70倍。此為公式推導，不是型錄另列的新切削條件。",
+      "formulas": [
+        "S_after = S_before * 0.70",
+        "F_after = F_before * 0.70 (f constant)"
+      ],
+      "status": "derived",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "由減速30%文字及F=S×f推導"
+      }
+    },
+    {
+      "id": "insert-clamping",
+      "statement": "型錄以1、2、3圖示說明裝夾刀片，並用紅色叉號排除兩種未正確入座狀態；鬆刀片另以1、2圖示示範。此頁未給夾緊扭矩數字，須另查刀柄表。",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "Clamping insert / Loosen insert 圖示"
+      }
+    }
+  ],
+  "formulas": [
+    {
+      "id": "metric-spindle",
+      "expression": "S = (Vc * 1000) / (pi * d1)",
+      "variables": {
+        "S": "r.p.m.",
+        "Vc": "m/min.",
+        "d1": "mm，pilot diameter"
+      },
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "Metric"
+      }
+    },
+    {
+      "id": "metric-feed",
+      "expression": "F = S * f",
+      "variables": {
+        "F": "mm/min.",
+        "S": "r.p.m.",
+        "f": "mm/rev."
+      },
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "Metric"
+      }
+    },
+    {
+      "id": "inch-spindle",
+      "expression": "S = (3.82 * SFM) / d1",
+      "variables": {
+        "S": "r.p.m.",
+        "SFM": "ft./min.",
+        "d1": "inch"
+      },
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "Inch"
+      }
+    },
+    {
+      "id": "inch-feed",
+      "expression": "F = IPR * r.p.m.",
+      "variables": {
+        "F": "inch/min.",
+        "IPR": "inch/rev."
+      },
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "Inch"
+      }
+    },
+    {
+      "id": "speed-conversion",
+      "expression": "SFM = Vc * 3.28",
+      "variables": {
+        "SFM": "ft./min.",
+        "Vc": "m/min."
+      },
+      "note": "3.28為型錄明列的近似係數。",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 13,
+        "printed_page": 66,
+        "detail": "Inch"
+      }
+    }
+  ],
+  "performance_examples": [
+    {
+      "id": "comparison-i-center-only",
+      "purpose": "型錄i-Center比較案例，並非全系列通用建議或保證",
+      "workpiece": "Low carbon alloy steel",
+      "workpiece_tensile_strength": {
+        "value": 850,
+        "unit": "N/mm2"
+      },
+      "machine": "VMC BT40 with internal coolant",
+      "tool_diameter_mm": 3.15,
+      "drilling_depth_mm": 7.2,
+      "product": "i-Center",
+      "insert_part_no": null,
+      "grade": null,
+      "form": null,
+      "vc_m_per_min": 65,
+      "spindle_speed_rpm": 6570,
+      "feed_mm_per_rev": 0.12,
+      "feed_mm_per_min": 788.4,
+      "coolant": "Emulsion; External / Internal",
+      "drilling_time_seconds": 0.55,
+      "holes_per_edge": 7000,
+      "example_total_holes": 200000,
+      "total_drilling_time_hours_as_printed": 33,
+      "total_tool_length_setup_time_minutes_as_printed": 29,
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 9,
+        "printed_page": 62,
+        "detail": "Comparison，僅轉錄i-Center欄；不採用HSS或整體硬質合金欄填值"
+      }
+    },
+    {
+      "id": "surface-finish",
+      "purpose": "型錄單一表面粗度案例，並非全材料／幾何通用值",
+      "insert_marking_as_printed": [
+        "I9MT1603B0500",
+        "NC2033"
+      ],
+      "workpiece": "SCM440",
+      "vc_m_per_min": 60,
+      "spindle_speed_rpm": 3800,
+      "feed_mm_per_rev": 0.1,
+      "feed_mm_per_min": 380,
+      "Ap_mm": 13.5,
+      "roughness": {
+        "Ra_um": 0.562,
+        "Rz_um": 3.26,
+        "Rmax_um": 3.61,
+        "status": "catalog"
+      },
+      "measurement_labels_as_printed": {
+        "instrument": "Perthometer M1",
+        "Lt": "5.600 mm",
+        "Ls Standard": "2.5 μm",
+        "Lc": "0.800 mm",
+        "RPc(0.5,-0.5)": "68 /c",
+        "R Profile Lc": "0.800 mm",
+        "VER": "2.50 μm"
+      },
+      "measurement_limitations": "粗度讀值由圖像轉錄；型錄未列量測位置、樣本數、批次變動或完整試驗程序，不可作驗收保證。",
+      "status": "catalog",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 9,
+        "printed_page": 62,
+        "detail": "Surface finish，表及下方粗度量測截圖"
+      }
+    }
+  ],
+  "data_gaps": [
+    {
+      "id": "feed-middle-meaning",
+      "status": "unknown",
+      "statement": "三值進給中的中間值沒有Best/Recommended等明示圖例，僅保留其位置，不作預設值。",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "全部f列"
+      }
+    },
+    {
+      "id": "d15-gap",
+      "status": "unknown",
+      "statement": "IC08/IC10切削表兩欄為Ø1~1.25及Ø1.6~3.15，IC10 d1=1.50刀片未明列適用欄，不以鄰近欄代填。",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "IC08/IC10欄標題"
+      }
+    },
+    {
+      "id": "ansi-header-conflict",
+      "status": "unknown",
+      "statement": "表頭將公制d1與(A2~A10)並列，但p58 ANSI刀片的實際d1與這些公制表頭部分不同：例如Ø2.5(A3)與#3 d1=2.78 mm、Ø4(A5)與#5 d1=4.76 mm。保留型錄對照文字，不建立精確尺寸等價或插值。",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "IC12~IC25表頭；參照p58 ANSI 60°表"
+      },
+      "related_sources": [
+        {
+          "file": "sources/04_i-Center_p054-067.pdf",
+          "pdf_page": 5,
+          "printed_page": 58,
+          "detail": "For ANSI 60° Center Hole表"
+        }
+      ]
+    },
+    {
+      "id": "grade-form-mapping",
+      "status": "unknown",
+      "statement": "p67未按NC5074/NC2057/NC2033或A/A+B/R分別列切削表；適用條件以IC及d1欄原樣保留。A+B另有p66達L2減速規則。",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Cutting Data整頁"
+      }
+    },
+    {
+      "id": "material-hardness",
+      "status": "unknown",
+      "statement": "p67未列材料硬度、熱處理狀態、精確材料標準；碳含量C=0.3%的等號邊界亦未涵蓋。",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Workpiece material"
+      }
+    },
+    {
+      "id": "no-grade-extra-materials",
+      "status": "unknown",
+      "statement": "表僅P/M/K/N及列明子分類，未列S/H等其他材料切削條件，不外推。",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "材料分類"
+      }
+    },
+    {
+      "id": "rpm-machine-limits",
+      "status": "unknown",
+      "statement": "表內最高轉速含20,000 rpm；刀柄另有G6.3/10,000 rpm預平衡資訊，p67未解釋超過10,000 rpm時的刀柄選擇或限制，不視為所有刀柄都可使用表內最高轉速。",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "Non-ferrous metal上半表轉速；刀柄p59另有平衡資訊"
+      },
+      "related_sources": [
+        {
+          "file": "sources/04_i-Center_p054-067.pdf",
+          "pdf_page": 6,
+          "printed_page": 59,
+          "detail": "刀柄Pre-balanced G6.3 / 10,000rpm標示"
+        }
+      ]
+    },
+    {
+      "id": "pressure",
+      "status": "unknown",
+      "statement": "不鏽鋼列標≥5 bar，其他材料未另列壓力值；冷卻液濃度、流量及噴嘴規格未列。",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "冷卻欄"
+      }
+    },
+    {
+      "id": "start-feed",
+      "status": "unknown",
+      "statement": "型錄未提供從範圍選擇唯一啟始轉速／進給值的公式，選刀介面應展示範圍並提示工程確認。",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 14,
+        "printed_page": 67,
+        "detail": "全部S/f列"
+      }
+    }
+  ]
+}

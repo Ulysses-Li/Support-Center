@@ -1,0 +1,39 @@
+Technical Guide
+Before you start, please pay attention the following conditions >>
+Center height
+Center misalignment Driving Tool
+adjusting sleeve
+When CNC lathe turret center is
+E must be < 0.02mm. low speed : high speed
+misaligned ≥ 0.15mm, please use
+1 : 3
+center height adjusting sleeve.
+(See page 61)
+low speed
+Workpiece Workpiece
+EE
+high speed
+Internal coolant DIN 332 Form A+B Clamping insert
+Internal coolant is Reduce 30% of Spindle speed
+1
+recommended. and keep same feed rate (mm/rev.)
+while depth L2 is reached.
+Loosen insert
+L2
+L3
+1 2
+Metric Inch
+d1 = diameter -mm d1 = diameter-inch
+S = Spindle Speed -r.p.m. S = Spindle Speed-r.p.m.
+Vc X 1000 (3.82xSFM)
+S = S=
+X d1 d1 Surface Speed-ft./min.
+Vc = Cutting Speed -m/min. SFM =
+Vc (m/min.) x 3.28
+F= IPRxr.p.m
+F = S x f
+f = mm/rev. f = IPR = inch/rev.
+F = mm/min. F = inch/min.
+66 Nine9 Cutting Tool & Tool Holders
+i-Center
+2

@@ -1,0 +1,70 @@
+Holder >>
+dø
+L2 L1
+DØ CI
+Coolant
+Pre-balanced
+Weldon G6.3
+Shank 10,000rpm
+• Made of hardened high alloy steel, HRC 53.
+• IC08 shank is cylindrical shank.
+Other shanks are weldon shank.
+IC Code Parts No. Type ød L1 L2 ØD Screw Key
+802002 00-99616-IC08-10F BC10-IC08F 10
+*NS-25060
+08 30 18.5 12 NK-T7
+0.9 Nm
+812002 00-99616-IC08-3/8F BC3/8"-IC08F 3/8"
+*NS-25060
+10 801002 00-99616-IC10-12F SB12-IC10F 12 45 24.5 16 NK-T7
+0.9 Nm
+803002 00-99616-IC12-16F SB16-IC12F 16
+NS-30072
+12 48 30.5 21 NK-T9
+2.0 Nm
+813002 00-99616-IC12-5/8F SB5/8"-IC12F 5/8"
+804002 00-99616-IC16-16F SB16-IC16F 16
+NS-35080
+16 48 37 27 NK-T15
+2.5 Nm
+814002 00-99616-IC16-5/8F SB5/8"-IC16F 5/8"
+805002 00-99616-IC20-20F SB20-IC20F 20
+NS-50125
+20 50 51 32 NK-T20
+5.5 Nm
+815002 00-99616-IC20-3/4F SB3/4"-IC20F 3/4"
+806002 00-99616-IC25-25F SB25-IC25F 25
+NS-50125
+25 56 56 43 NK-T20
+5.5 Nm
+816002 00-99616-IC25-1F SB 1"-IC25F 1"
+Cylindrical Shank with Pre-balanced >>
+• Pre-balanced holder enhance the stability of centering to get high accurate profile.
+• G6.3 / 10,000 r.p.m.
+IC Code Parts No. Type Ød Ød1 L1 L2 L3 ØD Screw Key
+*NS-25060
+08 802003 00-99616-IC08-10B BC10-IC08B 10 22 30 33.5 19 12 NK-T7
+0.9 Nm
+NS-30072
+12 803003 00-99616-IC12-12B BC12-IC12B 12 34 48 51 30 21 NK-T9
+2.0 Nm
+NS-35080
+16 804003 00-99616-IC16-16B BC16-IC16B 16 39 48 67 37 27 NK-T15
+2.5 Nm
+NS-50125
+20 805003 00-99616-IC20-20B BC20-IC20B 20 49 50 86 51 32 NK-T20
+5.5 Nm
+NS-50125
+25 806003 00-99616-IC25-25B BC25-IC25B 25 59 56 99 56 43 NK-T20
+5.5 Nm
+dØ 1dØ
+L3
+L2 L1
+DØ CI
+Holders of Indexable Center Drill
+IC08
+*Torque screwdriver is recommended.
+*Torque screwdriver is recommended.
+Nine9 Cutting Tool & Tool Holders 59
+i-Center
+2

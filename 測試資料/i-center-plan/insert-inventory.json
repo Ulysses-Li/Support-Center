@@ -1,0 +1,4891 @@
+{
+  "section": "insert_inventory",
+  "schema_version": "1.0",
+  "language": "zh-Hant",
+  "sources": [
+    {
+      "file": "sources/04_i-Center_p054-067.pdf",
+      "pdf_page": 3,
+      "printed_page": 56,
+      "section": "DIN332 Form R"
+    },
+    {
+      "file": "sources/04_i-Center_p054-067.pdf",
+      "pdf_page": 4,
+      "printed_page": 57,
+      "section": "DIN332 Form A+B"
+    },
+    {
+      "file": "sources/04_i-Center_p054-067.pdf",
+      "pdf_page": 5,
+      "printed_page": 58,
+      "section": "DIN332 Form A & ANSI 60° / Measuring Master"
+    }
+  ],
+  "counts": {
+    "DIN332 Form R": 20,
+    "DIN332 Form A+B": 20,
+    "DIN332 Form A": 3,
+    "ANSI 60°": 8,
+    "cutting_inserts_total": 51,
+    "measuring_masters": 5
+  },
+  "unit_policy_zh": "尺寸值按原表抄錄；ANSI英制與mm欄皆保留為型錄原值。未自動補上空白欄；只有目視確認的合併儲存格向下展開。DIN表未逐頁印單位，mm為同章公制語境判讀。",
+  "items": [
+    {
+      "id": "I9MT08T1R0100-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "08",
+      "order_code": "032211",
+      "parts_no": "I9MT08T1R0100-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 1,
+        "d2": 2.12,
+        "L1": 2.16,
+        "L2": 4.14,
+        "R": 2.8,
+        "S": 2.0,
+        "CT": 7.55
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT08T1R0125-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "08",
+      "order_code": "032212",
+      "parts_no": "I9MT08T1R0125-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 1.25,
+        "d2": 2.65,
+        "L1": 2.74,
+        "L2": 4.64,
+        "R": 3.5,
+        "S": 2.0,
+        "CT": 7.9
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT08T1R0160-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "08",
+      "order_code": "032213",
+      "parts_no": "I9MT08T1R0160-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 1.6,
+        "d2": 3.35,
+        "L1": 3.45,
+        "L2": 5.13,
+        "R": 4.5,
+        "S": 2.0,
+        "CT": 8.4
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT08T1R0200-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "08",
+      "order_code": "032214",
+      "parts_no": "I9MT08T1R0200-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 2,
+        "d2": 4.25,
+        "L1": 4.45,
+        "L2": 6.08,
+        "R": 5.65,
+        "S": 2.0,
+        "CT": 9.1
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT1003R0100-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "10",
+      "order_code": "031200",
+      "parts_no": "I9MT1003R0100-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 1,
+        "d2": 2.12,
+        "L1": 2.16,
+        "L2": 4.72,
+        "R": 2.8,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT1003R0125-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "10",
+      "order_code": "031201",
+      "parts_no": "I9MT1003R0125-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 1.25,
+        "d2": 2.65,
+        "L1": 2.74,
+        "L2": 5.22,
+        "R": 3.5,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT1003R0150-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "10",
+      "order_code": "031202",
+      "parts_no": "I9MT1003R0150-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 1.5,
+        "d2": 3.6,
+        "L1": 3.67,
+        "L2": 6.14,
+        "R": 5.0,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "非DIN332技術標準表所列的d1尺寸；已照本品項表錄入，不套用鄰近標準尺寸。"
+      ],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT1003R0160-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "10",
+      "order_code": "031203",
+      "parts_no": "I9MT1003R0160-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 1.6,
+        "d2": 3.35,
+        "L1": 3.45,
+        "L2": 5.32,
+        "R": 4.5,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT1003R0200-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "10",
+      "order_code": "031204",
+      "parts_no": "I9MT1003R0200-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 2,
+        "d2": 4.25,
+        "L1": 4.45,
+        "L2": 6.5,
+        "R": 5.65,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT1003R0250-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "10",
+      "order_code": "031205",
+      "parts_no": "I9MT1003R0250-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 2.5,
+        "d2": 5.3,
+        "L1": 5.59,
+        "L2": 7.66,
+        "R": 7.15,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT1003R0300-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "10",
+      "order_code": "031206",
+      "parts_no": "I9MT1003R0300-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 3,
+        "d2": 5.7,
+        "L1": 6.92,
+        "L2": 9.5,
+        "R": 10.0,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "非DIN332技術標準表所列的d1尺寸；已照本品項表錄入，不套用鄰近標準尺寸。"
+      ],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT1003R0315-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "10",
+      "order_code": "031207",
+      "parts_no": "I9MT1003R0315-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 3.15,
+        "d2": 6.7,
+        "L1": 7.21,
+        "L2": 8.93,
+        "R": 9,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT12T2R0200-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "12",
+      "order_code": "033201",
+      "parts_no": "I9MT12T2R0200-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 2,
+        "d2": 4.25,
+        "L1": 4.45,
+        "L2": 6.64,
+        "R": 5.65,
+        "S": 2.54,
+        "CT": 11.73
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "12",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT12T2R0250-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "12",
+      "order_code": "033202",
+      "parts_no": "I9MT12T2R0250-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 2.5,
+        "d2": 5.3,
+        "L1": 5.59,
+        "L2": 8.11,
+        "R": 7.15,
+        "S": 2.54,
+        "CT": 13
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "12",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT12T2R0315-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "12",
+      "order_code": "033203",
+      "parts_no": "I9MT12T2R0315-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 3.15,
+        "d2": 6.7,
+        "L1": 7.21,
+        "L2": 9.63,
+        "R": 9,
+        "S": 2.54,
+        "CT": 14
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "12",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT1603R0400-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "16",
+      "order_code": "034201",
+      "parts_no": "I9MT1603R0400-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 4,
+        "d2": 8.5,
+        "L1": 9.06,
+        "L2": 12.23,
+        "R": 11,
+        "S": 3.18,
+        "CT": 19.4
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 2,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "16",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT1603R0500-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "16",
+      "order_code": "034202",
+      "parts_no": "I9MT1603R0500-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 5,
+        "d2": 10.6,
+        "L1": 11.45,
+        "L2": 14.2,
+        "R": 14,
+        "S": 3.18,
+        "CT": 19.4
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 2,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "16",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT2004R0630-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "20",
+      "order_code": "035201",
+      "parts_no": "I9MT2004R0630-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 6.3,
+        "d2": 13.2,
+        "L1": 14.63,
+        "L2": 18.2,
+        "R": 18,
+        "S": 4.76,
+        "CT": 28.4
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.22,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 1,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "20",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT2004R0800-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "20",
+      "order_code": "035202",
+      "parts_no": "I9MT2004R0800-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 8,
+        "d2": 17,
+        "L1": 18.63,
+        "L2": 20.44,
+        "R": 22.5,
+        "S": 4.76,
+        "CT": 28.3
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.22,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 1,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "20",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT2506R1000-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form R",
+      "ic": "25",
+      "order_code": "036201",
+      "parts_no": "I9MT2506R1000-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 10,
+        "d2": 21.2,
+        "L1": 23.51,
+        "L2": 25.8,
+        "R": 28,
+        "S": 6.35,
+        "CT": 34.2
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.22,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 1,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "25",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 3,
+        "printed_page": 56,
+        "section": "DIN332 Form R"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖前端角標示；不可當成R孔為120度錐面",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-03.png"
+    },
+    {
+      "id": "I9MT08T1B0100-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "08",
+      "order_code": "032011",
+      "parts_no": "I9MT08T1B0100-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 1,
+        "d2": 2.12,
+        "d3": 3.15,
+        "L1": 1.3,
+        "L2": 2.21,
+        "L3": 2.51,
+        "S": 2.0,
+        "CT": 7.55
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT08T1B0125-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "08",
+      "order_code": "032012",
+      "parts_no": "I9MT08T1B0125-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 1.25,
+        "d2": 2.65,
+        "d3": 4,
+        "L1": 1.6,
+        "L2": 2.75,
+        "L3": 3.14,
+        "S": 2.0,
+        "CT": 7.9
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT08T1B0160-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "08",
+      "order_code": "032013",
+      "parts_no": "I9MT08T1B0160-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 1.6,
+        "d2": 3.35,
+        "d3": 5,
+        "L1": 2,
+        "L2": 3.46,
+        "L3": 3.93,
+        "S": 2.0,
+        "CT": 8.4
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT08T1B0200-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "08",
+      "order_code": "032014",
+      "parts_no": "I9MT08T1B0200-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 2,
+        "d2": 4.25,
+        "d3": 6.3,
+        "L1": 2.5,
+        "L2": 4.39,
+        "L3": 4.98,
+        "S": 2.0,
+        "CT": 9.1
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT1003B0100-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "10",
+      "order_code": "031000",
+      "parts_no": "I9MT1003B0100-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 1,
+        "d2": 2.12,
+        "d3": 3.15,
+        "L1": 1.3,
+        "L2": 2.21,
+        "L3": 2.51,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT1003B0125-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "10",
+      "order_code": "031001",
+      "parts_no": "I9MT1003B0125-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 1.25,
+        "d2": 2.65,
+        "d3": 4,
+        "L1": 1.6,
+        "L2": 2.75,
+        "L3": 3.14,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT1003B0150-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "10",
+      "order_code": "031002",
+      "parts_no": "I9MT1003B0150-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 1.5,
+        "d2": 3.18,
+        "d3": 4.5,
+        "L1": 2,
+        "L2": 3.45,
+        "L3": 3.84,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT1003B0160-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "10",
+      "order_code": "031003",
+      "parts_no": "I9MT1003B0160-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 1.6,
+        "d2": 3.35,
+        "d3": 5,
+        "L1": 2,
+        "L2": 3.46,
+        "L3": 3.93,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT1003B0200-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "10",
+      "order_code": "031004",
+      "parts_no": "I9MT1003B0200-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 2,
+        "d2": 4.25,
+        "d3": 6.3,
+        "L1": 2.5,
+        "L2": 4.39,
+        "L3": 4.98,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT1003B0250-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "10",
+      "order_code": "031005",
+      "parts_no": "I9MT1003B0250-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 2.5,
+        "d2": 5.3,
+        "d3": 8,
+        "L1": 3.1,
+        "L2": 5.53,
+        "L3": 6.28,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT1003B0300-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "10",
+      "order_code": "031006",
+      "parts_no": "I9MT1003B0300-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 3,
+        "d2": 6.46,
+        "d3": 9,
+        "L1": 4.1,
+        "L2": 7.1,
+        "L3": 7.83,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT1003B0315-NC2057",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "10",
+      "order_code": "031007",
+      "parts_no": "I9MT1003B0315-NC2057",
+      "grade_code": "NC2057",
+      "coating_catalog_table": "AlTiN+TiSiN",
+      "grade_catalog_table": "P35",
+      "dimensions": {
+        "d1": 3.15,
+        "d2": 6.7,
+        "d3": 10,
+        "L1": 3.9,
+        "L2": 6.9,
+        "L3": 7.85,
+        "S": 3.0,
+        "CT": 12.35
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT12T2B0200-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "12",
+      "order_code": "033001",
+      "parts_no": "I9MT12T2B0200-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 2,
+        "d2": 4.25,
+        "d3": 6.3,
+        "L1": 2.5,
+        "L2": 4.39,
+        "L3": 4.98,
+        "S": 2.54,
+        "CT": 11.73
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "12",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT12T2B0250-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "12",
+      "order_code": "033002",
+      "parts_no": "I9MT12T2B0250-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 2.5,
+        "d2": 5.3,
+        "d3": 8,
+        "L1": 3.1,
+        "L2": 5.53,
+        "L3": 6.28,
+        "S": 2.54,
+        "CT": 13
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "12",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT12T2B0315-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "12",
+      "order_code": "033003",
+      "parts_no": "I9MT12T2B0315-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 3.15,
+        "d2": 6.7,
+        "d3": 10,
+        "L1": 3.9,
+        "L2": 6.9,
+        "L3": 7.85,
+        "S": 2.54,
+        "CT": 14
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "12",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT1603B0400-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "16",
+      "order_code": "034001",
+      "parts_no": "I9MT1603B0400-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 4,
+        "d2": 8.5,
+        "d3": 12.5,
+        "L1": 5,
+        "L2": 8.9,
+        "L3": 10.03,
+        "S": 3.18,
+        "CT": 19.4
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 2,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "16",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT1603B0500-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "16",
+      "order_code": "034002",
+      "parts_no": "I9MT1603B0500-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 5,
+        "d2": 10.6,
+        "d3": 16,
+        "L1": 6.3,
+        "L2": 11.15,
+        "L3": 12.68,
+        "S": 3.18,
+        "CT": 19.4
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 2,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "16",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT2004B0630-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "20",
+      "order_code": "035001",
+      "parts_no": "I9MT2004B0630-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 6.3,
+        "d2": 13.2,
+        "d3": 18,
+        "L1": 8,
+        "L2": 13.98,
+        "L3": 15.33,
+        "S": 4.76,
+        "CT": 28.4
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.22,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 1,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "20",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": false,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT2004B0800-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "20",
+      "order_code": "035002",
+      "parts_no": "I9MT2004B0800-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 8,
+        "d2": 17,
+        "d3": 20,
+        "L1": 10.1,
+        "L2": 17.89,
+        "L3": 18.73,
+        "S": 4.76,
+        "CT": 28.3
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.22,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 1,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "20",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "d3有*註記：尺寸與DIN332中心孔不同。d1=8的d3=20；d1=10的d3=25。"
+      ],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": true,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT2506B1000-NC2033",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A+B",
+      "ic": "25",
+      "order_code": "036001",
+      "parts_no": "I9MT2506B1000-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 10,
+        "d2": 21.2,
+        "d3": 25,
+        "L1": 12.8,
+        "L2": 22.5,
+        "L3": 23.57,
+        "S": 6.35,
+        "CT": 34.2
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.22,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 1,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "25",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 4,
+        "printed_page": 57,
+        "section": "DIN332 Form A+B"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "d3有*註記：尺寸與DIN332中心孔不同。d1=8的d3=20；d1=10的d3=25。"
+      ],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "外側保護倒角之夾角／圖示前端夾角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "standard_deviation": {
+        "d3_differs_from_DIN332": true,
+        "origin": "catalog_asterisk_footnote"
+      },
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-04.png"
+    },
+    {
+      "id": "I9MT08T1A0200-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A",
+      "ic": "08",
+      "order_code": "032114",
+      "parts_no": "I9MT08T1A0200-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 2,
+        "d2": 4.25,
+        "d3": 8,
+        "L1": 2.15,
+        "L2": 4.1,
+        "L3": 7.35,
+        "S": 2,
+        "CT": 10.5
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.03,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "DIN332 Form A"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "d3=8、S=2.00、CT=10.5為跨三列合併儲存格；已逐列展開。",
+        "Form A中心孔圖為60°錐孔；刀片本身仍有d3及L3外側幾何，成孔應依工件要求與深度控制，不可只按外觀改分類。"
+      ],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖外側角標示；不要由此將成孔分類為Form B",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-05.png",
+      "notes_origin": [
+        "catalog_merged_cells",
+        "interpretation_of_catalog_geometry_and_center_hole_figure"
+      ]
+    },
+    {
+      "id": "I9MT08T1A0250-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A",
+      "ic": "08",
+      "order_code": "032115",
+      "parts_no": "I9MT08T1A0250-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 2.5,
+        "d2": 5.3,
+        "d3": 8,
+        "L1": 2.58,
+        "L2": 5.0,
+        "L3": 7.34,
+        "S": 2,
+        "CT": 10.5
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.03,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "DIN332 Form A"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "d3=8、S=2.00、CT=10.5為跨三列合併儲存格；已逐列展開。",
+        "Form A中心孔圖為60°錐孔；刀片本身仍有d3及L3外側幾何，成孔應依工件要求與深度控制，不可只按外觀改分類。"
+      ],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖外側角標示；不要由此將成孔分類為Form B",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-05.png",
+      "notes_origin": [
+        "catalog_merged_cells",
+        "interpretation_of_catalog_geometry_and_center_hole_figure"
+      ]
+    },
+    {
+      "id": "I9MT08T1A0315-NC5074",
+      "category": "cutting_insert",
+      "family": "DIN332 Form A",
+      "ic": "08",
+      "order_code": "032116",
+      "parts_no": "I9MT08T1A0315-NC5074",
+      "grade_code": "NC5074",
+      "coating_catalog_table": "Helica",
+      "grade_catalog_table": "P40",
+      "dimensions": {
+        "d1": 3.15,
+        "d2": 6.7,
+        "d3": 8,
+        "L1": 3.23,
+        "L2": 6.3,
+        "L3": 7.43,
+        "S": 2,
+        "CT": 10.5
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "contextual_interpretation_metric_table",
+      "unit_note_zh": "本頁DIN/量測規格表未另印通用單位；依同章公制尺寸圖與對照表判讀為mm，未做尺寸換算。ANSI各mm欄另有明確標頭。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.03,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "DIN332 Form A"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "d3=8、S=2.00、CT=10.5為跨三列合併儲存格；已逐列展開。",
+        "Form A中心孔圖為60°錐孔；刀片本身仍有d3及L3外側幾何，成孔應依工件要求與深度控制，不可只按外觀改分類。"
+      ],
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片尺寸圖外側角標示；不要由此將成孔分類為Form B",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-05.png",
+      "notes_origin": [
+        "catalog_merged_cells",
+        "interpretation_of_catalog_geometry_and_center_hole_figure"
+      ]
+    },
+    {
+      "id": "I9MT12T2A2-NC2033",
+      "category": "cutting_insert",
+      "family": "ANSI 60°",
+      "ic": "12",
+      "order_code": "033101",
+      "parts_no": "I9MT12T2A2-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 1.98,
+        "d2": 4.76,
+        "L1": 1.98,
+        "L2": 4.4,
+        "S": 2.54,
+        "CT": 12.6
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "catalog_mm_column_headers_and_inch_fraction_columns",
+      "unit_note_zh": "d1/d2/L1同時保留原表英制值與mm欄值；兩者均為型錄原值，並未自行重新換算。L2欄明示mm；S/CT依同表公制判讀。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "12",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "ANSI 60°"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "ANSI料號含A字母，但與DIN332 Form A三款分表，選型時應保留ANSI獨立規格分類。"
+      ],
+      "size_designation": "#2",
+      "inch_dimensions_catalog": {
+        "d1": "5/64",
+        "d2": "3/16",
+        "L1": "5/64",
+        "unit": "inch",
+        "origin": "catalog_table"
+      },
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片圖外側幾何角標示",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "catalog_explicit_mm_for_d1_d2_L1_L2_contextual_for_S_CT",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT12T2A3-NC2033",
+      "category": "cutting_insert",
+      "family": "ANSI 60°",
+      "ic": "12",
+      "order_code": "033102",
+      "parts_no": "I9MT12T2A3-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 2.78,
+        "d2": 6.35,
+        "L1": 2.78,
+        "L2": 5.9,
+        "S": 2.54,
+        "CT": 13.8
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "catalog_mm_column_headers_and_inch_fraction_columns",
+      "unit_note_zh": "d1/d2/L1同時保留原表英制值與mm欄值；兩者均為型錄原值，並未自行重新換算。L2欄明示mm；S/CT依同表公制判讀。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.14,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "12",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "ANSI 60°"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "ANSI料號含A字母，但與DIN332 Form A三款分表，選型時應保留ANSI獨立規格分類。"
+      ],
+      "size_designation": "#3",
+      "inch_dimensions_catalog": {
+        "d1": "7/64",
+        "d2": "1/4",
+        "L1": "7/64",
+        "unit": "inch",
+        "origin": "catalog_table"
+      },
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片圖外側幾何角標示",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "catalog_explicit_mm_for_d1_d2_L1_L2_contextual_for_S_CT",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT12T2A4-NC2033",
+      "category": "cutting_insert",
+      "family": "ANSI 60°",
+      "ic": "12",
+      "order_code": "033103",
+      "parts_no": "I9MT12T2A4-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 3.18,
+        "d2": 7.94,
+        "L1": 3.18,
+        "L2": 7.3,
+        "S": 2.54,
+        "CT": 14.25
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "catalog_mm_column_headers_and_inch_fraction_columns",
+      "unit_note_zh": "d1/d2/L1同時保留原表英制值與mm欄值；兩者均為型錄原值，並未自行重新換算。L2欄明示mm；S/CT依同表公制判讀。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 5,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "12",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "ANSI 60°"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "ANSI料號含A字母，但與DIN332 Form A三款分表，選型時應保留ANSI獨立規格分類。"
+      ],
+      "size_designation": "#4",
+      "inch_dimensions_catalog": {
+        "d1": "1/8",
+        "d2": "5/16",
+        "L1": "1/8",
+        "unit": "inch",
+        "origin": "catalog_table"
+      },
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片圖外側幾何角標示",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "catalog_explicit_mm_for_d1_d2_L1_L2_contextual_for_S_CT",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT1603A5-NC2033",
+      "category": "cutting_insert",
+      "family": "ANSI 60°",
+      "ic": "16",
+      "order_code": "034101",
+      "parts_no": "I9MT1603A5-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 4.76,
+        "d2": 11.11,
+        "L1": 4.76,
+        "L2": 10.3,
+        "S": 3.18,
+        "CT": 20
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "catalog_mm_column_headers_and_inch_fraction_columns",
+      "unit_note_zh": "d1/d2/L1同時保留原表英制值與mm欄值；兩者均為型錄原值，並未自行重新換算。L2欄明示mm；S/CT依同表公制判讀。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.18,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 2,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "16",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "ANSI 60°"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "ANSI料號含A字母，但與DIN332 Form A三款分表，選型時應保留ANSI獨立規格分類。"
+      ],
+      "size_designation": "#5",
+      "inch_dimensions_catalog": {
+        "d1": "3/16",
+        "d2": "7/16",
+        "L1": "3/16",
+        "unit": "inch",
+        "origin": "catalog_table"
+      },
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片圖外側幾何角標示",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "catalog_explicit_mm_for_d1_d2_L1_L2_contextual_for_S_CT",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT2004A6-NC2033",
+      "category": "cutting_insert",
+      "family": "ANSI 60°",
+      "ic": "20",
+      "order_code": "035101",
+      "parts_no": "I9MT2004A6-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 5.56,
+        "d2": 12.7,
+        "L1": 5.56,
+        "L2": 11.8,
+        "S": 4.76,
+        "CT": 27.75
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "catalog_mm_column_headers_and_inch_fraction_columns",
+      "unit_note_zh": "d1/d2/L1同時保留原表英制值與mm欄值；兩者均為型錄原值，並未自行重新換算。L2欄明示mm；S/CT依同表公制判讀。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.22,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 1,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "20",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "ANSI 60°"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "ANSI料號含A字母，但與DIN332 Form A三款分表，選型時應保留ANSI獨立規格分類。"
+      ],
+      "size_designation": "#6",
+      "inch_dimensions_catalog": {
+        "d1": "7/32",
+        "d2": "1/2",
+        "L1": "7/32",
+        "unit": "inch",
+        "origin": "catalog_table"
+      },
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片圖外側幾何角標示",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "catalog_explicit_mm_for_d1_d2_L1_L2_contextual_for_S_CT",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT2004A7-NC2033",
+      "category": "cutting_insert",
+      "family": "ANSI 60°",
+      "ic": "20",
+      "order_code": "035102",
+      "parts_no": "I9MT2004A7-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 6.35,
+        "d2": 15.88,
+        "L1": 6.35,
+        "L2": 14.6,
+        "S": 4.76,
+        "CT": 28.5
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "catalog_mm_column_headers_and_inch_fraction_columns",
+      "unit_note_zh": "d1/d2/L1同時保留原表英制值與mm欄值；兩者均為型錄原值，並未自行重新換算。L2欄明示mm；S/CT依同表公制判讀。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.22,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 1,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "20",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "ANSI 60°"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "ANSI料號含A字母，但與DIN332 Form A三款分表，選型時應保留ANSI獨立規格分類。"
+      ],
+      "size_designation": "#7",
+      "inch_dimensions_catalog": {
+        "d1": "1/4",
+        "d2": "5/8",
+        "L1": "1/4",
+        "unit": "inch",
+        "origin": "catalog_table"
+      },
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片圖外側幾何角標示",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "catalog_explicit_mm_for_d1_d2_L1_L2_contextual_for_S_CT",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT2004A8-NC2033",
+      "category": "cutting_insert",
+      "family": "ANSI 60°",
+      "ic": "20",
+      "order_code": "035103",
+      "parts_no": "I9MT2004A8-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 7.94,
+        "d2": 19.05,
+        "L1": 7.94,
+        "L2": 17.6,
+        "S": 4.76,
+        "CT": 29
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "catalog_mm_column_headers_and_inch_fraction_columns",
+      "unit_note_zh": "d1/d2/L1同時保留原表英制值與mm欄值；兩者均為型錄原值，並未自行重新換算。L2欄明示mm；S/CT依同表公制判讀。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.22,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 1,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "20",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "ANSI 60°"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "ANSI料號含A字母，但與DIN332 Form A三款分表，選型時應保留ANSI獨立規格分類。"
+      ],
+      "size_designation": "#8",
+      "inch_dimensions_catalog": {
+        "d1": "5/16",
+        "d2": "3/4",
+        "L1": "5/16",
+        "unit": "inch",
+        "origin": "catalog_table"
+      },
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片圖外側幾何角標示",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "catalog_explicit_mm_for_d1_d2_L1_L2_contextual_for_S_CT",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT2506A10-NC2033",
+      "category": "cutting_insert",
+      "family": "ANSI 60°",
+      "ic": "25",
+      "order_code": "036101",
+      "parts_no": "I9MT2506A10-NC2033",
+      "grade_code": "NC2033",
+      "coating_catalog_table": "TiAlN",
+      "grade_catalog_table": "K20F",
+      "dimensions": {
+        "d1": 9.53,
+        "d2": 25.0,
+        "L1": 9.53,
+        "L2": 22.9,
+        "S": 6.35,
+        "CT": 34.9
+      },
+      "dimension_unit": "mm",
+      "unit_origin": "catalog_mm_column_headers_and_inch_fraction_columns",
+      "unit_note_zh": "d1/d2/L1同時保留原表英制值與mm欄值；兩者均為型錄原值，並未自行重新換算。L2欄明示mm；S/CT依同表公制判讀。",
+      "dimensions_origin": "catalog_table",
+      "d1_tolerance_mm": {
+        "lower": 0,
+        "upper": 0.22,
+        "origin": "catalog_table_merged_cell"
+      },
+      "ct_tolerance_mm": {
+        "lower": -0.025,
+        "upper": 0.025,
+        "origin": "catalog_table_header"
+      },
+      "box_quantity": 1,
+      "box_quantity_origin": "catalog_table",
+      "cutting_flutes": 2,
+      "cutting_edges": 2,
+      "cutting_edge_source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 1,
+        "printed_page": 54,
+        "section": "Features"
+      },
+      "holder_compatibility": {
+        "matching_ic": "25",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder / Cylindrical Shank with Pre-balanced"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Square Shank / Double Flat Shank"
+          }
+        ],
+        "note_zh": "依刀片與刀柄表相同IC規格對應；型錄未逐筆列刀片料號對刀柄料號的相容矩陣，不可跨IC推定可用。"
+      },
+      "material_applicability_status": "not_listed_per_item_on_this_page",
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "ANSI 60°"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "notes_zh": [
+        "ANSI料號含A字母，但與DIN332 Form A三款分表，選型時應保留ANSI獨立規格分類。",
+        "d2英制欄印0.98 inch，mm欄印25.0；保留原表雙值，不以換算值取代。"
+      ],
+      "size_designation": "#10",
+      "inch_dimensions_catalog": {
+        "d1": "3/8",
+        "d2": "0.98",
+        "L1": "3/8",
+        "unit": "inch",
+        "origin": "catalog_table"
+      },
+      "angles_deg": [
+        {
+          "value": 60,
+          "meaning_zh": "主要中心孔錐角",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        },
+        {
+          "value": 120,
+          "meaning_zh": "刀片圖外側幾何角標示",
+          "origin": "catalog_drawing",
+          "meaning_origin": "interpretation_of_catalog_dimension_drawing"
+        }
+      ],
+      "unit_status": "catalog_explicit_mm_for_d1_d2_L1_L2_contextual_for_S_CT",
+      "figure_reference": "verification/insert-page-05.png"
+    }
+  ],
+  "measuring_masters": [
+    {
+      "id": "I9MT08T1-MM",
+      "category": "measuring_master",
+      "parts_no": "I9MT08T1-MM",
+      "ic": "08",
+      "order_code": null,
+      "order_code_status": "not_listed",
+      "dimensions": {
+        "d1": 1.9,
+        "L": 9,
+        "L1": 3
+      },
+      "dimension_unit": "mm",
+      "dimensions_origin": "catalog_table",
+      "unit_origin": "contextual_interpretation",
+      "grade_code": null,
+      "grade_status": "not_listed",
+      "coating": null,
+      "coating_status": "not_listed",
+      "measuring_tips": 1,
+      "concentricity_mm": {
+        "lower": -0.01,
+        "upper": 0.01,
+        "origin": "catalog_text"
+      },
+      "usage_zh": "用於車床對準工件主軸與刀具中心。",
+      "holder_compatibility": {
+        "matching_ic": "08",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Holder"
+          }
+        ],
+        "note_zh": "只依相同IC對應，未列逐料號矩陣。"
+      },
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "Measuring Master"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT1003-MM",
+      "category": "measuring_master",
+      "parts_no": "I9MT1003-MM",
+      "ic": "10",
+      "order_code": null,
+      "order_code_status": "not_listed",
+      "dimensions": {
+        "d1": 2.9,
+        "L": 11.5,
+        "L1": 5
+      },
+      "dimension_unit": "mm",
+      "dimensions_origin": "catalog_table",
+      "unit_origin": "contextual_interpretation",
+      "grade_code": null,
+      "grade_status": "not_listed",
+      "coating": null,
+      "coating_status": "not_listed",
+      "measuring_tips": 1,
+      "concentricity_mm": {
+        "lower": -0.01,
+        "upper": 0.01,
+        "origin": "catalog_text"
+      },
+      "usage_zh": "用於車床對準工件主軸與刀具中心。",
+      "holder_compatibility": {
+        "matching_ic": "10",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Holder"
+          }
+        ],
+        "note_zh": "只依相同IC對應，未列逐料號矩陣。"
+      },
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "Measuring Master"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT12T2-MM",
+      "category": "measuring_master",
+      "parts_no": "I9MT12T2-MM",
+      "ic": "12",
+      "order_code": null,
+      "order_code_status": "not_listed",
+      "dimensions": {
+        "d1": 2.3,
+        "L": 13.5,
+        "L1": 3.5
+      },
+      "dimension_unit": "mm",
+      "dimensions_origin": "catalog_table",
+      "unit_origin": "contextual_interpretation",
+      "grade_code": null,
+      "grade_status": "not_listed",
+      "coating": null,
+      "coating_status": "not_listed",
+      "measuring_tips": 1,
+      "concentricity_mm": {
+        "lower": -0.01,
+        "upper": 0.01,
+        "origin": "catalog_text"
+      },
+      "usage_zh": "用於車床對準工件主軸與刀具中心。",
+      "holder_compatibility": {
+        "matching_ic": "12",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Holder"
+          }
+        ],
+        "note_zh": "只依相同IC對應，未列逐料號矩陣。"
+      },
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "Measuring Master"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT1603-MM",
+      "category": "measuring_master",
+      "parts_no": "I9MT1603-MM",
+      "ic": "16",
+      "order_code": null,
+      "order_code_status": "not_listed",
+      "dimensions": {
+        "d1": 3,
+        "L": 19,
+        "L1": 5
+      },
+      "dimension_unit": "mm",
+      "dimensions_origin": "catalog_table",
+      "unit_origin": "contextual_interpretation",
+      "grade_code": null,
+      "grade_status": "not_listed",
+      "coating": null,
+      "coating_status": "not_listed",
+      "measuring_tips": 1,
+      "concentricity_mm": {
+        "lower": -0.01,
+        "upper": 0.01,
+        "origin": "catalog_text"
+      },
+      "usage_zh": "用於車床對準工件主軸與刀具中心。",
+      "holder_compatibility": {
+        "matching_ic": "16",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Holder"
+          }
+        ],
+        "note_zh": "只依相同IC對應，未列逐料號矩陣。"
+      },
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "Measuring Master"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-05.png"
+    },
+    {
+      "id": "I9MT2004-MM",
+      "category": "measuring_master",
+      "parts_no": "I9MT2004-MM",
+      "ic": "20",
+      "order_code": null,
+      "order_code_status": "not_listed",
+      "dimensions": {
+        "d1": 4.5,
+        "L": 26,
+        "L1": 8
+      },
+      "dimension_unit": "mm",
+      "dimensions_origin": "catalog_table",
+      "unit_origin": "contextual_interpretation",
+      "grade_code": null,
+      "grade_status": "not_listed",
+      "coating": null,
+      "coating_status": "not_listed",
+      "measuring_tips": 1,
+      "concentricity_mm": {
+        "lower": -0.01,
+        "upper": 0.01,
+        "origin": "catalog_text"
+      },
+      "usage_zh": "用於車床對準工件主軸與刀具中心。",
+      "holder_compatibility": {
+        "matching_ic": "20",
+        "origin": "inferred_from_catalog_shared_IC",
+        "source_pages": [
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 6,
+            "printed_page": 59,
+            "section": "Holder"
+          },
+          {
+            "file": "sources/04_i-Center_p054-067.pdf",
+            "pdf_page": 7,
+            "printed_page": 60,
+            "section": "Holder"
+          }
+        ],
+        "note_zh": "只依相同IC對應，未列逐料號矩陣。"
+      },
+      "source": {
+        "file": "sources/04_i-Center_p054-067.pdf",
+        "pdf_page": 5,
+        "printed_page": 58,
+        "section": "Measuring Master"
+      },
+      "verification": "text_extraction_and_visual_table_check",
+      "unit_status": "inferred_from_catalog_metric_context",
+      "figure_reference": "verification/insert-page-05.png"
+    }
+  ],
+  "uncertainties_zh": [
+    "此段頁面未列逐品項材料適用矩陣；應另連至54-55頁牌號說明與67頁材料切削資料，且不可把普遍材料分類等同所有刀片經過個別驗證。",
+    "相容性以IC同規格推導，型錄沒有逐刀片與逐刀柄料號的明文矩陣。",
+    "圖上120°同時出現在刀片外側／尖端角標示；型式分類應以表名與中心孔圖為準，不可把所有刀片統一視為120°成孔。"
+  ]
+}

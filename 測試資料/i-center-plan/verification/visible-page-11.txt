@@ -1,0 +1,42 @@
+Technical Standard
+ISO 2541-1972 / DIN332
+60° Center holes >>
+Form R center hole apply for >>
+60° Center of tail stock 90° Center of tail stock Center hole and center are misaligned
+Form B center hole apply for >>
+Avoid scar or distortion
+Burr Rough surface of workpiece
+while transportation
+1d
+t
+a
+2d
+1d
+b
+t
+a
+1d
+°06 2d °06 °021 3d
+t
+a
+2d DIN332 DIN332 DIN332
+Form R Form A Form B
+DIN332 Form R DIN332 Form A DIN332 Form B
+STD
+ISO 2541-1972 ISO 866-1975 ISO 2540 1973
+d1 d2 t a d2 t a d2 b d3 t a
+1 2.12 1.9 3 2.12 1.9 3 2.12 0.3 3.15 2.2 3.5
+1.25 2.65 2.3 4 2.65 2.3 4 2.65 0.4 4 2.7 4.5
+1.6 3.35 2.9 5 3.35 2.9 5 3.35 0.5 5 3.4 5.5
+2 4.25 3.7 6 4.25 3.7 6 4.25 0.6 6.3 4.3 6.6
+2.5 5.3 4.6 7 5.3 4.6 7 5.3 0.8 8 5.4 8.3
+3.15 6.7 5.8 9 6.7 5.9 9 6.7 0.9 10 6.8 10
+4 8.5 7.4 11 8.5 7.4 11 8.5 1.2 12.5 8.6 12.7
+5 10.6 9.2 14 10.6 9.2 14 10.6 1.6 16 10.8 15.6
+6.3 13.2 11.4 18 13.2 11.5 18 13.2 1.4 18 12.9 20
+8 17 14.7 22 17 14.8 22 17 1.6 22.4 16.4 25
+10 21.2 18.3 28 21.2 18.4 28 21.2 2 28 20.4 31
+* a: Minimum material will be cut. If the center hole will be removed after turning or grinding. (mm/inch)
+64 Nine9 Cutting Tool & Tool Holders
+i-Center
+2
