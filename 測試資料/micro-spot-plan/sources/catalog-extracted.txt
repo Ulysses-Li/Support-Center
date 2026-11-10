@@ -1,0 +1,100 @@
+===== PDF PAGE 1 =====
+Micro Spot Drill
+90° / 120° / 142°
+0.1 & 0.2mm
+It produces a consistent surface for micro drill successfully
+to enter the workpiece.
+P M K N H
+One Holder Supports The Entire
+X060 Series Insert.
+* Most of hole size in Swiss type lathe or
+small milling machine is between 0.2~1mm.
+Features
+Each Insert Has 2 Cutting Edges.
+• Micro spot drill geometries are designed to optimize rigidity and
+accuracy with a point angle to guide micro drill towards the hole's
+center line.
+• Carbide insert can stand very long tool life.
+• It produces a consistent surface for micro drill to enter the workpiece especially
+for round, angled or curved surfaces.
+Spotting + Drilling Without Spotting
+• Better position accuracy and • Resulted off-center drilling, poor
+diameter tolerance. hole quality and reduced tool life.
+24 Nine9 Cutting Tool & Tool Holders
+
+===== PDF PAGE 2 =====
+Micro
+Spot
+Drill
+NC2032: • For all kinds of steel from < HRC 40, carbon steel,
+alloy steel,and cast iron. 2
+NC2035: • ALDURA coating, reduces heat and tool wear.
+• For steel with heat treatment up to HRC 50.
+XP9001: • For non-ferrous metal, aluminum, brass, copper,
+Wmin
+plastic, acrylic.
+Nine9 Cutting Tool & Tool Holders 25
+xamT
+Micro Spot Drill 90°, 120° & 142°
+Wmax
+θ
+Re
+Dimensions
+Angle Code Parts No. Coating Grade Wmin. Wmax. Tmax.
+±0.5 L S Re
+01X0082 NC2032 TiAlN
+90° 01X0221 X060A90W010R NC2035 ALDURA K20F 0.02 0.1 1.1 0.5
+01X0220 XP9001 Uncoated
+01X0207 NC2032 TiAlN
+6 2.05
+90° 01X0208 * X060A90W020R NC2035 ALDURA K20F 0.04 0.2 2.2 1.0
+01X0209 XP9001 Uncoated
+S
+120° 01X0222 X060A120W010R NC2032 TiAlN K20F 0.02 0.1 2.53 0.7
+142° 01X0223 X060A142W010R NC2032 TiAlN K20F 0.02 0.1 2.42 0.4
+L
+*Torque screwdriver is recommended.
+dø
+90°
+0.1 and 0.2mm
+120°
+142°
+Micro Spot Drill
+Inserts >>
+90° / 120° / 142°
+It produces a consistent surface for micro drill successfully
+to enter the workpiece.
+P M K N H
+One Holder Supports The Entire
+X060 Series Insert.
+* X060A90W020R is also good for engraving.
+Holder >>
+* Most of hole size in Swiss type lathe or
+• One holder supports the entire X060 series of carbide inserts.
+small milling machine is between 0.2~1mm.
+• XL (100mm length) is only for AI, AI-alloy cutting, unbalanced <0.6gm. Ø6
+Ø8
+Code Parts No. Shank Ød L Screw Key
+Each Insert Has 2 Cutting Edges.
+69X001 00-99619-X060-06 Steel 6 40
+• Micro spot drill geometries are designed to optimize rigidity and
+69X002 00-99619-X060-06L Carbide 6
+accuracy with a point angle to guide micro drill towards the hole's 60
+center line. 69X003 00-99619-X060-06LS Steel 6 * N 0. S 9 - N 2 m 2044 NK-T7
+• Carbide insert can stand very long tool life. 69X004 00-99619-X060-06XL Carbide 6 100
+• It produces a consistent surface for micro drill to enter the workpiece especially 69X005 00-99619-X060-08 Steel 8 60
+for round, angled or curved surfaces.
+Cutting Data >>
+Spotting + Drilling Without Spotting
+f (mm/rev.)
+S
+Workpiece Material (r.p.m) X060A90W010R X060A90W020R X060A120W010R Grade of Insert
+X060A142W010R
+Carbon steel 0.002 ~ 0.012 0.002 ~ 0.015 0.002 ~ 0.015 NC2032
+P
+Alloy steel 0.002 ~ 0.010 0.002 ~ 0.010 0.002 ~ 0.010 NC2032,NC2035
+• Better position accuracy and • Resulted off-center drilling, poor M Stainless steel 8000 ~ 0.002 ~ 0.008 0.002 ~ 0.010 0.002 ~ 0.010 NC2032
+diameter tolerance. hole quality and reduced tool life.
+K Cast Iron 40000 0.002 ~ 0.010 0.002 ~ 0.010 0.002 ~ 0.010 NC2032
+N Non-ferrous metal 0.002 ~ 0.015 0.002 ~ 0.020 - XP9001
+H Hardened steel < HRC50 0.002 ~ 0.006 0.002 ~ 0.006 - NC2035

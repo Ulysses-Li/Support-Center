@@ -1,0 +1,1312 @@
+{
+  "schemaVersion": 1,
+  "status": "reviewed-catalog-nominal-research-contract",
+  "productId": "micro-spot-drill",
+  "operation": "spotting",
+  "availableAngles": [
+    90,
+    120,
+    142
+  ],
+  "source": {
+    "id": "micro-local-catalog-20261110",
+    "originalPath": "C:\\Users\\Louis\\Downloads\\02_Micro Spot Drill - NC Spot Drill_p024-041.pdf",
+    "localCopy": "sources/micro-spot-catalog-p24-25.pdf",
+    "sha256": "07a7eaebb014ef5cf8fe2b9b9407d6a23c4f362ad7b4fe0f6bb589ad72e0b7a3",
+    "pdfPageCount": 2,
+    "printedPages": [
+      24,
+      25
+    ],
+    "filenameScopeNote": "原檔名寫 p024-041；實際檔案只有 2 頁，印刷頁碼 24、25。不可宣稱已讀取 26-41 頁或 NC 段落。",
+    "extractionNote": "PDF 第 2 頁文字層混有第 24 頁重複內容；欄位、合併儲存格與數值均以頁面渲染核對。"
+  },
+  "materialIds": [
+    "carbonSteel",
+    "alloySteel",
+    "stainless",
+    "castIron",
+    "nonFerrous",
+    "hardenedSteel"
+  ],
+  "materialAliasesForIntegration": {
+    "carbonLow": "carbonSteel",
+    "carbonHigh": "carbonSteel",
+    "lowAlloy": "alloySteel",
+    "highAlloy": "alloySteel"
+  },
+  "aliasPolicy": "只映射材料名稱；ACE 的硬度細分、Vc/f/Q 等數值不可傳承。粗分類 P 可用來篩產品卡片，切削計算前須選碳鋼或合金鋼。",
+  "materialInsertRules": [
+    {
+      "material": "carbonSteel",
+      "isoGroup": "P",
+      "insert": "X060A90W010R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 1.1,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.5,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.012
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Carbon steel"
+        }
+      ]
+    },
+    {
+      "material": "carbonSteel",
+      "isoGroup": "P",
+      "insert": "X060A90W020R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.2,
+        "max": 2.2,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 1.0,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.015
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Carbon steel"
+        }
+      ]
+    },
+    {
+      "material": "carbonSteel",
+      "isoGroup": "P",
+      "insert": "X060A120W010R",
+      "angle": 120,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.53,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.7,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.015
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Carbon steel"
+        }
+      ]
+    },
+    {
+      "material": "carbonSteel",
+      "isoGroup": "P",
+      "insert": "X060A142W010R",
+      "angle": 142,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.42,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.4,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.015
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Carbon steel"
+        }
+      ]
+    },
+    {
+      "material": "alloySteel",
+      "isoGroup": "P",
+      "insert": "X060A90W010R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 1.1,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.5,
+      "grades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        },
+        "NC2035": {
+          "maxExclusive": 50,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Alloy steel"
+        }
+      ]
+    },
+    {
+      "material": "alloySteel",
+      "isoGroup": "P",
+      "insert": "X060A90W020R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.2,
+        "max": 2.2,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 1.0,
+      "grades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        },
+        "NC2035": {
+          "maxExclusive": 50,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Alloy steel"
+        }
+      ]
+    },
+    {
+      "material": "alloySteel",
+      "isoGroup": "P",
+      "insert": "X060A120W010R",
+      "angle": 120,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.53,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.7,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Alloy steel"
+        }
+      ]
+    },
+    {
+      "material": "alloySteel",
+      "isoGroup": "P",
+      "insert": "X060A142W010R",
+      "angle": 142,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.42,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.4,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Alloy steel"
+        }
+      ]
+    },
+    {
+      "material": "stainless",
+      "isoGroup": "M",
+      "insert": "X060A90W010R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 1.1,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.5,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.008
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Stainless steel"
+        }
+      ]
+    },
+    {
+      "material": "stainless",
+      "isoGroup": "M",
+      "insert": "X060A90W020R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.2,
+        "max": 2.2,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 1.0,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Stainless steel"
+        }
+      ]
+    },
+    {
+      "material": "stainless",
+      "isoGroup": "M",
+      "insert": "X060A120W010R",
+      "angle": 120,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.53,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.7,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Stainless steel"
+        }
+      ]
+    },
+    {
+      "material": "stainless",
+      "isoGroup": "M",
+      "insert": "X060A142W010R",
+      "angle": 142,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.42,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.4,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {
+        "NC2032": {
+          "maxExclusive": 40,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Stainless steel"
+        }
+      ]
+    },
+    {
+      "material": "castIron",
+      "isoGroup": "K",
+      "insert": "X060A90W010R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 1.1,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.5,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {},
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Cast Iron"
+        }
+      ]
+    },
+    {
+      "material": "castIron",
+      "isoGroup": "K",
+      "insert": "X060A90W020R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.2,
+        "max": 2.2,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 1.0,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {},
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Cast Iron"
+        }
+      ]
+    },
+    {
+      "material": "castIron",
+      "isoGroup": "K",
+      "insert": "X060A120W010R",
+      "angle": 120,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.53,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.7,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {},
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Cast Iron"
+        }
+      ]
+    },
+    {
+      "material": "castIron",
+      "isoGroup": "K",
+      "insert": "X060A142W010R",
+      "angle": 142,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.42,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.4,
+      "grades": [
+        "NC2032"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.01
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {},
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Cast Iron"
+        }
+      ]
+    },
+    {
+      "material": "nonFerrous",
+      "isoGroup": "N",
+      "insert": "X060A90W010R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 1.1,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.5,
+      "grades": [
+        "XP9001"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.015
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {},
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Non-ferrous metal"
+        }
+      ]
+    },
+    {
+      "material": "nonFerrous",
+      "isoGroup": "N",
+      "insert": "X060A90W020R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.2,
+        "max": 2.2,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 1.0,
+      "grades": [
+        "XP9001"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.02
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "hardnessByGrade": {},
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Non-ferrous metal"
+        }
+      ]
+    },
+    {
+      "material": "hardenedSteel",
+      "isoGroup": "H",
+      "insert": "X060A90W010R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 1.1,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 0.5,
+      "grades": [
+        "NC2035"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.006
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": {
+        "maxExclusive": 50
+      },
+      "hardnessByGrade": {
+        "NC2035": {
+          "maxExclusive": 50,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Hardened steel < HRC50"
+        }
+      ]
+    },
+    {
+      "material": "hardenedSteel",
+      "isoGroup": "H",
+      "insert": "X060A90W020R",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.2,
+        "max": 2.2,
+        "inclusive": true,
+        "mapping": {
+          "min": "Wmin",
+          "max": "Wmax"
+        },
+        "status": "catalog-nominal"
+      },
+      "TmaxMm": 1.0,
+      "grades": [
+        "NC2035"
+      ],
+      "feedMmPerRev": [
+        0.002,
+        0.006
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": {
+        "maxExclusive": 50
+      },
+      "hardnessByGrade": {
+        "NC2035": {
+          "maxExclusive": 50,
+          "unknownHardnessStatus": "conditional-match"
+        }
+      },
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions and available grades"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Cutting Data / Hardened steel < HRC50"
+        }
+      ]
+    }
+  ],
+  "summaryRanges": [
+    {
+      "material": "carbonSteel",
+      "isoGroup": "P",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.2,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "carbonSteel",
+      "isoGroup": "P",
+      "angle": 120,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.53,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "carbonSteel",
+      "isoGroup": "P",
+      "angle": 142,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.42,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "alloySteel",
+      "isoGroup": "P",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.2,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "alloySteel",
+      "isoGroup": "P",
+      "angle": 120,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.53,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "alloySteel",
+      "isoGroup": "P",
+      "angle": 142,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.42,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "stainless",
+      "isoGroup": "M",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.2,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "stainless",
+      "isoGroup": "M",
+      "angle": 120,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.53,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "stainless",
+      "isoGroup": "M",
+      "angle": 142,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.42,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "castIron",
+      "isoGroup": "K",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.2,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "castIron",
+      "isoGroup": "K",
+      "angle": 120,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.53,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "castIron",
+      "isoGroup": "K",
+      "angle": 142,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.42,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "nonFerrous",
+      "isoGroup": "N",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.2,
+        "inclusive": true
+      },
+      "grades": [
+        "XP9001"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    },
+    {
+      "material": "hardenedSteel",
+      "isoGroup": "H",
+      "angle": 90,
+      "diameterMm": {
+        "min": 0.1,
+        "max": 2.2,
+        "inclusive": true
+      },
+      "grades": [
+        "NC2035"
+      ],
+      "scope": "product-card summary only; resolve matching insert rule before calculating",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts + Cutting Data"
+      }
+    }
+  ],
+  "matchPolicy": {
+    "blankFilter": "空白代表尚未套用該條件；若填入直徑則須為有限正數。",
+    "join": "material AND angle AND nominal diameter; then material recommended grades INTERSECT actual insert variants",
+    "diameterBoundaries": "依十進位 mm 名義範圍包含兩端；不得先以忽略 Re 的公式重算上限。",
+    "diameterAtMinimum": "顯示名義邊界提示；此匹配不是已驗證正切深或可直接編程承諾。",
+    "hardness": "依 hardnessByGrade 核對：鋼類 NC2032 必須 <40；NC2035 的自動推薦先採 <50（原牌號說明 up to50 與 H 切削列 <50 的等號仍待確認）。未知硬度可列條件式候選，不顯示無條件適用。",
+    "unsupportedCell": "原表 '-' 表示沒有此型錄推薦，不能借用其他角度或其他產品數據。",
+    "holderRestriction": "全部 X060 刀片相容；06XL 只有確認為鋁或鋁合金才可選，N 粗分類不足以放行。",
+    "noMatch": "保留使用者材料/角度/D，顯示無匹配原因；不暗改 D、角度、材料。",
+    "unknownParameter": "白名單驗證並顯示無法套用的條件，不靜默替換為預設材料。",
+    "noPublishedTargetYet": "尚未建立正式 Micro 計算頁；此研究不更動任何上游連結。"
+  },
+  "proposedTarget": "CuttingData/MicroSpotDrill/index.html",
+  "proposedQuery": {
+    "operation": "spotting",
+    "material": "carbonSteel|alloySteel|stainless|castIron|nonFerrous|hardenedSteel",
+    "angle": "90|120|142",
+    "diameter": "positive finite mm",
+    "insert": "catalog model (optional)",
+    "grade": "NC2032|NC2035|XP9001 (optional)",
+    "holder": "catalog part number (optional)",
+    "source": "spotting"
+  },
+  "exampleQuery": "?operation=spotting&material=stainless&angle=120&diameter=0.5&source=spotting"
+}

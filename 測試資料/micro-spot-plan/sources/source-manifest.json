@@ -1,0 +1,40 @@
+{
+  "source": {
+    "id": "micro-local-catalog-20261110",
+    "originalPath": "C:\\Users\\Louis\\Downloads\\02_Micro Spot Drill - NC Spot Drill_p024-041.pdf",
+    "localCopy": "sources/micro-spot-catalog-p24-25.pdf",
+    "sha256": "07a7eaebb014ef5cf8fe2b9b9407d6a23c4f362ad7b4fe0f6bb589ad72e0b7a3",
+    "pdfPageCount": 2,
+    "printedPages": [
+      24,
+      25
+    ],
+    "filenameScopeNote": "原檔名寫 p024-041；實際檔案只有 2 頁，印刷頁碼 24、25。不可宣稱已讀取 26-41 頁或 NC 段落。",
+    "extractionNote": "PDF 第 2 頁文字層混有第 24 頁重複內容；欄位、合併儲存格與數值均以頁面渲染核對。"
+  },
+  "pageMap": [
+    {
+      "pdfPage": 1,
+      "printedPage": 24,
+      "render": "catalog-1.png",
+      "text": "page-01.txt",
+      "scope": "Features / applications / 2 cutting edges"
+    },
+    {
+      "pdfPage": 2,
+      "printedPage": 25,
+      "render": "catalog-2.png",
+      "text": "page-02.txt",
+      "scope": "Inserts / Holder / Cutting Data"
+    }
+  ],
+  "renderTool": "bundled Poppler pdftoppm, 160 dpi PNG",
+  "renderNotes": "Poppler reported font substitution warnings; complete pages visually inspected; independent p25 render checked.",
+  "readOnlyProjectReferences": [
+    "CuttingData/AceSpotDrill/index.html",
+    "CuttingData/AceSpotDrill/app.js",
+    "Products/MicroSpotDrill/product-data.js",
+    "Machining/Spotting/index.html"
+  ],
+  "referencePolicy": "專案檔案只供流程/現況研究；Micro 數值來源僅為本地指定PDF。"
+}

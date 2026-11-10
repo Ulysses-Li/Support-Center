@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Micro Spot Drill 研究與互動頁規劃</title><link rel="icon" href="../../favicon.png">
+<link rel="stylesheet" href="../../css/site-background.css"><link rel="stylesheet" href="./research.css"></head>
+<body><main class="report"><header><p class="eyebrow">NINE9 / RESEARCH / 2026-11-10</p>
+<h1>Micro Spot Drill<br><span>選刀與切削資料互動頁規劃</span></h1>
+<p class="lead">已核對 4 款刀片幾何、8 個刀片 SKU、5 支刀柄與 6 列材料切削條件。此為研究文件，尚未製作正式互動頁。</p>
+<nav aria-label="研究文件章節"><a href="#filters">篩選邊界</a><a href="#inventory">完整品項</a><a href="#cutting">切削資料</a><a href="#geometry">幾何／對刀</a><a href="#plan">頁面規劃</a><a href="#sources">來源與交付檔</a></nav>
+</header>
+<section class="surface"><h2>研究結論</h2><ul>
+<li>型錄直接提供 <strong>S = 8,000–40,000 rpm</strong>，主輸入應使用轉速與每轉進給；結果 <strong>Vf = S × f</strong>。來源：印刷 p25，Cutting Data。</li>
+<li>材料依 P／M／K／N／H 分組；<strong>N 與 H 只有 90° 的推薦</strong>，120°／142° 表格為「-」。來源：印刷 p25。</li>
+<li>孔徑篩選可把 <strong>Wmin／Wmax 映射為名義孔口 D 的邊界</strong>，需保留原欄名；本頁沒有可直接輸出的 CNC Z 對刀資料。</li>
+<li>原檔名雖寫 p024-041，實際只有 <strong>PDF 第 1、2 頁，即印刷 p24、p25</strong>，不包含 NC 章節。</li>
+</ul><p class="note">研究範圍：只保存到本資料夾；正式頁、Spotting 篩選器、NC 頁及既有 ACE 未提交修改均未更動，沒有發布。</p></section>
+
+<section id="filters" class="surface"><p class="eyebrow">01 / FILTER HANDOFF</p><h2>可供 Spotting 篩選器採用的邊界</h2>
+<p>條件以材料 AND 角度 AND 名義孔徑共同匹配。下表為產品卡片彙總，完整選刀須再取 <code>materialInsertRules</code> 的刀片／牌號交集。所有範圍均為 mm，包含表列兩端。來源：<a href="sources/catalog-2.png">印刷 p25，Inserts + Cutting Data</a>。</p><p class="table-hint">窄螢幕可左右捲動表格，查看完整欄位。</p><div class="table-wrap" tabindex="0" role="region" aria-label="研究資料表，可左右捲動"><table><thead><tr><th scope="col">材料</th><th scope="col">材料ID</th><th scope="col">90°：D(mm)／牌號</th><th scope="col">120°：D(mm)／牌號</th><th scope="col">142°：D(mm)／牌號</th></tr></thead><tbody><tr><td>P / 碳鋼</td><td>carbonSteel</td><td>0.1–2.2 / NC2032</td><td>0.1–2.53 / NC2032</td><td>0.1–2.42 / NC2032</td></tr><tr><td>P / 合金鋼</td><td>alloySteel</td><td>0.1–2.2 / NC2032, NC2035</td><td>0.1–2.53 / NC2032</td><td>0.1–2.42 / NC2032</td></tr><tr><td>M / 不鏽鋼</td><td>stainless</td><td>0.1–2.2 / NC2032</td><td>0.1–2.53 / NC2032</td><td>0.1–2.42 / NC2032</td></tr><tr><td>K / 鑄鐵</td><td>castIron</td><td>0.1–2.2 / NC2032</td><td>0.1–2.53 / NC2032</td><td>0.1–2.42 / NC2032</td></tr><tr><td>N / 非鐵材料</td><td>nonFerrous</td><td>0.1–2.2 / XP9001</td><td>—（無型錄推薦）</td><td>—（無型錄推薦）</td></tr><tr><td>H / 硬化鋼 &lt; HRC50</td><td>hardenedSteel</td><td>0.1–2.2 / NC2035</td><td>—（無型錄推薦）</td><td>—（無型錄推薦）</td></tr></tbody></table></div>
+<p class="note">D 等於 Wmin 時僅為名義邊界；正切深、孔口公差與對刀未驗證。H 必須 &lt; HRC50；牌號文字雖寫 up to HRC50，切削列不包含等號。NC2032 的鋼類條件為 &lt; HRC40。若硬度未知，候選需帶條件說明。</p>
+<p><a class="action" href="filter-contract.json">開啟篩選資料契約 JSON</a></p></section>
+
+<section id="inventory" class="surface"><p class="eyebrow">02 / CATALOG INVENTORY</p><h2>全部刀片與刀柄</h2>
+<p>來源：印刷 p25，Inserts 尺寸表。角度公差 ±0.5°；全部刀片共用 L = 6 mm、S = 2.05 mm。原表標示 Wmin、Wmax、Tmax；0.1／0.2 是刀尖寬規格，不能當成整個系列的最大孔徑。</p>
+<p class="table-hint">窄螢幕可左右捲動表格，查看完整欄位。</p><div class="table-wrap" tabindex="0" role="region" aria-label="研究資料表，可左右捲動"><table><thead><tr><th scope="col">型號</th><th scope="col">夾角</th><th scope="col">Re</th><th scope="col">Wmin → 篩選Dmin</th><th scope="col">Wmax → 篩選Dmax</th><th scope="col">Tmax</th></tr></thead><tbody><tr><td>X060A90W010R</td><td>90°</td><td>0.02</td><td>0.1</td><td>1.1</td><td>0.5</td></tr><tr><td>X060A90W020R</td><td>90°</td><td>0.04</td><td>0.2</td><td>2.2</td><td>1</td></tr><tr><td>X060A120W010R</td><td>120°</td><td>0.02</td><td>0.1</td><td>2.53</td><td>0.7</td></tr><tr><td>X060A142W010R</td><td>142°</td><td>0.02</td><td>0.1</td><td>2.42</td><td>0.4</td></tr></tbody></table></div><h3>8 個可訂購刀片品項</h3><p class="table-hint">窄螢幕可左右捲動表格，查看完整欄位。</p><div class="table-wrap" tabindex="0" role="region" aria-label="研究資料表，可左右捲動"><table><thead><tr><th scope="col">訂購碼</th><th scope="col">完整品項</th><th scope="col">塗層</th><th scope="col">原表基材</th></tr></thead><tbody><tr><td>01X0082</td><td>X060A90W010R NC2032</td><td>TiAlN</td><td>K20F</td></tr><tr><td>01X0221</td><td>X060A90W010R NC2035</td><td>ALDURA</td><td>K20F</td></tr><tr><td>01X0220</td><td>X060A90W010R XP9001</td><td>Uncoated</td><td>K20F</td></tr><tr><td>01X0207</td><td>X060A90W020R NC2032</td><td>TiAlN</td><td>K20F</td></tr><tr><td>01X0208</td><td>X060A90W020R NC2035</td><td>ALDURA</td><td>K20F</td></tr><tr><td>01X0209</td><td>X060A90W020R XP9001</td><td>Uncoated</td><td>K20F</td></tr><tr><td>01X0222</td><td>X060A120W010R NC2032</td><td>TiAlN</td><td>K20F</td></tr><tr><td>01X0223</td><td>X060A142W010R NC2032</td><td>TiAlN</td><td>K20F</td></tr></tbody></table></div>
+<p>NC2032：TiAlN；NC2035：ALDURA；XP9001：無塗層。各幾何的實際牌號供貨以表列 SKU 為準；120°／142° 不提供 NC2035 或 XP9001。每片 2 個可轉位切削刃（p24），不應把每轉進給乘以 2。p25 只明示 X060A90W020R 也適合 engraving，第一版仍固定 Spotting。</p>
+<h3>5 支相容刀柄</h3><p class="table-hint">窄螢幕可左右捲動表格，查看完整欄位。</p><div class="table-wrap" tabindex="0" role="region" aria-label="研究資料表，可左右捲動"><table><thead><tr><th scope="col">訂購碼</th><th scope="col">刀柄料號</th><th scope="col">柄材</th><th scope="col">Ød (mm)</th><th scope="col">L (mm)</th><th scope="col">附加限制</th></tr></thead><tbody><tr><td>69X001</td><td>00-99619-X060-06</td><td>Steel</td><td>6</td><td>40</td><td>本頁未列額外材料限制</td></tr><tr><td>69X002</td><td>00-99619-X060-06L</td><td>Carbide</td><td>6</td><td>60</td><td>本頁未列額外材料限制</td></tr><tr><td>69X003</td><td>00-99619-X060-06LS</td><td>Steel</td><td>6</td><td>60</td><td>本頁未列額外材料限制</td></tr><tr><td>69X004</td><td>00-99619-X060-06XL</td><td>Carbide</td><td>6</td><td>100</td><td>僅鋁／鋁合金；unbalanced &lt;0.6gm</td></tr><tr><td>69X005</td><td>00-99619-X060-08</td><td>Steel</td><td>8</td><td>60</td><td>本頁未列額外材料限制</td></tr></tbody></table></div>
+<p>全部支援 X060 系列。共用螺絲 <strong>NS-22044</strong>、鎖固扭矩 <strong>0.9 Nm</strong>、扳手 <strong>NK-T7</strong>；型錄建議扭力起子。XL 的 <code>unbalanced &lt;0.6gm</code> 保留原文單位，不推導額外轉速限制。來源：p25，Holder。</p></section>
+
+<section id="cutting" class="surface"><p class="eyebrow">03 / CUTTING DATA</p><h2>獨立使用 Micro 的切削條件</h2>
+<p>以下進給單位皆為 <strong>mm/rev</strong>，全部材料列共用 <strong>S = 8,000–40,000 rpm</strong>。120°／142° 共用同一進給欄；「-」代表沒有此型錄推薦，不是零進給。來源：p25，Cutting Data。</p><p class="table-hint">窄螢幕可左右捲動表格，查看完整欄位。</p><div class="table-wrap" tabindex="0" role="region" aria-label="研究資料表，可左右捲動"><table><thead><tr><th scope="col">ISO／材料</th><th scope="col">90W010R f</th><th scope="col">90W020R f</th><th scope="col">120／142W010R f</th><th scope="col">材料列推薦牌號</th></tr></thead><tbody><tr><td>P / 碳鋼</td><td>0.002 ~ 0.012</td><td>0.002 ~ 0.015</td><td>0.002 ~ 0.015</td><td>NC2032</td></tr><tr><td>P / 合金鋼</td><td>0.002 ~ 0.010</td><td>0.002 ~ 0.010</td><td>0.002 ~ 0.010</td><td>NC2032, NC2035</td></tr><tr><td>M / 不鏽鋼</td><td>0.002 ~ 0.008</td><td>0.002 ~ 0.010</td><td>0.002 ~ 0.010</td><td>NC2032</td></tr><tr><td>K / 鑄鐵</td><td>0.002 ~ 0.010</td><td>0.002 ~ 0.010</td><td>0.002 ~ 0.010</td><td>NC2032</td></tr><tr><td>N / 非鐵材料</td><td>0.002 ~ 0.015</td><td>0.002 ~ 0.020</td><td>-</td><td>XP9001</td></tr><tr><td>H / 硬化鋼 &lt; HRC50</td><td>0.002 ~ 0.006</td><td>0.002 ~ 0.006</td><td>-</td><td>NC2035</td></tr></tbody></table></div>
+<p class="note">材料列牌號必須與實際 SKU 取交集。例如合金鋼列雖含 NC2035，120°／142° 仍只能選 NC2032。非鐵細類依 XP9001 文字包括鋁、黃銅、銅、塑膠、壓克力；XL 的限制只放行鋁／鋁合金。</p>
+<div class="formula"><p><strong>Vf = S × f</strong><br>8,000 × 0.002 = 16 mm/min<br>40,000 × 0.020 = 800 mm/min（僅支援該 f 的材料／刀片組合）</p>
+<p><strong>可選換算：Vc = π × D × S ÷ 1,000</strong><br>此為換算值，不能標成型錄推薦 Vc。改 D 不應自動重新計算 S。型錄沒有 Micro 的 Q 或多段切深。</p></div></section>
+
+<section id="geometry" class="surface"><p class="eyebrow">04 / GEOMETRY AND DATUM</p><h2>先清楚顯示幾何，對刀計算留待圖面核實</h2>
+<p>p25 的 Re 圓角位於底部短平段與斜刃交界。可規劃同尺度剖面圖，顯示孔口 D、Wmin、Wmax、Tmax、Re 與夾角；圖應標記名義示意。</p>
+<p>研究近似 <code>t ≈ (D − Wmin) / [2 tan(θ/2)]</code> 忽略 Re，屬於研究者推導。120°／D = 2.53 時計得 t ≈ 0.70148 mm，略高表列 Tmax 0.7 mm；142°／D = 2.42 時計得 t ≈ 0.39942 mm，表列為 0.4 mm。因此不可用此近似反過來剔除型錄端點。</p>
+<p class="note">第一版顯示型錄尺寸與切削設定，不輸出 CNC Z、G 碼、尖端補正或啄鑽 Q。本來源尚未提供實際／理論尖點基準、刀長對刀方式、Re 精確補償、跳動允差或機台可用 Z。ACE 的 ℓ 與 NC 結構說明不適用於補足這些缺口。</p></section>
+
+<section id="plan" class="surface"><p class="eyebrow">05 / INTERACTION PLAN</p><h2>預定操作流程</h2>
+<ol class="workflow"><li><strong>加工條件</strong>材料／必要細類與硬度 → 夾角 → 目標孔口 D；從 Spotting 帶入時保留有效條件。</li>
+<li><strong>選刀與安裝</strong>匹配刀片／牌號 → 訂購碼 → 相容刀柄。尺寸、材質、長度與 XL 限制同區顯示。</li>
+<li><strong>切削設定</strong>直接輸入 S、f，可選填機台最高轉速；型錄範圍一直可見。</li>
+<li><strong>即時結果</strong>S、Vf、完整刀片／刀柄、材料條件、幾何尺寸及來源。有效條件可複製；不含機台 Z。</li>
+<li><strong>幾何說明</strong>名義剖面與對刀資料缺口；日後取得 Micro 專屬圖面再評估計算。</li></ol>
+<h3>桌面與手機配置</h3><p>沿用 ACE 的條件／選刀／結果架構與 Bootstrap 5.3.3。桌面左 7/12 條件、右 5/12 結果，左下放幾何圖。手機使用同一份表單及資料，單欄排列、精簡 S／Vf 結果條；完整結果仍在正文。共用根目錄 Header、Footer、背景與圖示，不建立副本。</p>
+<h3>必須明確處理的狀態</h3><p>待填條件、條件式匹配、有效、無匹配及無效輸入。不要暗改使用者 D／材料／角度；上游切換只保留仍有效選項。材料不支援的角度附原因；未知 URL 值顯示無法套用條件。無效時清除舊結果並停用有效推薦複製。</p>
+<p>D／f 使用 step = any 接受細微手動值；調整按鈕可用 D 每次 0.001 mm、f 每次 0.001 mm/rev。觸控至少 44px，動態訊息搭配 ARIA，幾何圖附文字說明，支援減少動畫。第一版顯示建議範圍，不宣稱單一最佳預設值。</p>
+<h3>實作與審查順序</h3><p>審查本研究 → 在獨立測試資料夾製作互動樣板 → 核對資料與手機／桌面操作 → 使用者確認 → 整理到正式資料與計算頁 → 串接 Spotting。研究檔不應被正式頁直接引用。</p>
+<p><a class="action" href="implementation-plan.txt">完整流程、狀態與 12 組驗收案例</a></p></section>
+
+<section class="surface"><h2>現有內容衝突與待補證據</h2><p><code>Products/MicroSpotDrill/product-data.js</code> 的 FAQ 含 56 HRC、多段切深、NC 非中心與支撐刃資訊；本 PDF p24–25 無法支持這些 Micro 推薦值。這次保留原檔，由後續獨立內容整頓處理。新選刀資料應獨立建模，不由 FAQ 自動推斷。</p>
+<p>正式開發前仍須確認：Micro 對刀／尖端圖面、Wmin 最小正切深與孔口定義、HRC50 等號、XL 不平衡原單位。既有未提交的 ACE 檔案與其他進行中的 Spotting／NC 工作不屬於此研究改動。</p></section>
+
+<section id="sources" class="surface"><p class="eyebrow">06 / EVIDENCE AND FILES</p><h2>可追溯來源與交付檔</h2>
+<p>原檔：<code>C:\Users\Louis\Downloads\02_Micro Spot Drill - NC Spot Drill_p024-041.pdf</code><br>SHA-256：<code class="hash">07a7eaebb014ef5cf8fe2b9b9407d6a23c4f362ad7b4fe0f6bb589ad72e0b7a3</code></p>
+<ul><li><a href="sources/micro-spot-catalog-p24-25.pdf">來源 PDF 本機副本</a>：PDF 第 1 頁＝印刷 p24（功能）；第 2 頁＝印刷 p25（全部品項、尺寸、刀柄與切削資料）。</li>
+<li><a href="sources/catalog-1.png">p24 完整頁渲染</a>、<a href="sources/catalog-2.png">p25 完整頁渲染</a>、<a href="sources/catalog-extracted.txt">擷取文字</a>；PDF p25 文字層有 p24 重複內容，視覺表格為核對依據。</li>
+<li><a href="research-data.json">完整結構化研究資料</a>：4 幾何／8 SKU／5 刀柄／6 材料／限制與來源。</li>
+<li><a href="filter-contract.json">上游篩選契約</a>：20 組材料×刀片規則、14 組材料×角度彙總。</li>
+<li><a href="implementation-plan.txt">完整實作規劃與驗收案例</a>、<a href="README.txt">檔案說明</a>、<a href="sources/source-manifest.json">來源清單</a>。</li></ul>
+<p class="note">本文件是可審查研究，不是正式發布頁面或實際切削／機台編程指令。所有切削數據僅來自本份 Micro 型錄，未套用 ACE 值。</p></section>
+<footer>Micro Spot Drill / 本機研究文件 / 2026-11-10</footer></main></body></html>

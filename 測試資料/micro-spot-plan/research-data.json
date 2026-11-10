@@ -1,0 +1,897 @@
+{
+  "schemaVersion": 1,
+  "status": "research-only-not-production-approved",
+  "productId": "micro-spot-drill",
+  "productName": "Micro Spot Drill",
+  "reviewDate": "2026-11-10",
+  "units": "mm unless specified",
+  "sourceFile": {
+    "id": "micro-local-catalog-20261110",
+    "originalPath": "C:\\Users\\Louis\\Downloads\\02_Micro Spot Drill - NC Spot Drill_p024-041.pdf",
+    "localCopy": "sources/micro-spot-catalog-p24-25.pdf",
+    "sha256": "07a7eaebb014ef5cf8fe2b9b9407d6a23c4f362ad7b4fe0f6bb589ad72e0b7a3",
+    "pdfPageCount": 2,
+    "printedPages": [
+      24,
+      25
+    ],
+    "filenameScopeNote": "原檔名寫 p024-041；實際檔案只有 2 頁，印刷頁碼 24、25。不可宣稱已讀取 26-41 頁或 NC 段落。",
+    "extractionNote": "PDF 第 2 頁文字層混有第 24 頁重複內容；欄位、合併儲存格與數值均以頁面渲染核對。"
+  },
+  "grades": [
+    {
+      "id": "NC2032",
+      "coating": "TiAlN",
+      "substrateGrade": "K20F",
+      "catalogScope": "For all kinds of steel from < HRC 40, carbon steel, alloy steel, and cast iron.",
+      "steelHardnessMaxExclusive": 40,
+      "note": "不鏽鋼適用直接以 Cutting Data 的 M 列為依據；鋼類同時保留 NC2032 的 <HRC40 牌號限制。",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts / grade descriptions"
+      }
+    },
+    {
+      "id": "NC2035",
+      "coating": "ALDURA",
+      "substrateGrade": "K20F",
+      "catalogScope": "For steel with heat treatment up to HRC 50.",
+      "steelHardnessAutoRecommendationMaxExclusive": 50,
+      "note": "牌號說明 up to HRC50；Cutting Data 的 H 列是 < HRC50。自動切削條件採較嚴格 <50，不含等號。",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts / grade descriptions"
+      }
+    },
+    {
+      "id": "XP9001",
+      "coating": "Uncoated",
+      "substrateGrade": "K20F",
+      "catalogScope": "Non-ferrous metal, aluminum, brass, copper, plastic, acrylic.",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Inserts / grade descriptions"
+      }
+    }
+  ],
+  "inserts": [
+    {
+      "id": "X060A90W010R",
+      "series": "X060",
+      "includedAngleDeg": 90,
+      "angleToleranceDeg": 0.5,
+      "Lmm": 6,
+      "Smm": 2.05,
+      "ReMm": 0.02,
+      "WminMm": 0.1,
+      "WmaxMm": 1.1,
+      "TmaxMm": 0.5,
+      "substrateGrade": "K20F",
+      "indexableCuttingEdges": 2,
+      "engravingExplicitlyMentioned": false,
+      "variants": [
+        {
+          "orderCode": "01X0082",
+          "gradeId": "NC2032",
+          "coating": "TiAlN",
+          "partNumber": "X060A90W010R NC2032",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Inserts / dimensions and order codes"
+          }
+        },
+        {
+          "orderCode": "01X0221",
+          "gradeId": "NC2035",
+          "coating": "ALDURA",
+          "partNumber": "X060A90W010R NC2035",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Inserts / dimensions and order codes"
+          }
+        },
+        {
+          "orderCode": "01X0220",
+          "gradeId": "XP9001",
+          "coating": "Uncoated",
+          "partNumber": "X060A90W010R XP9001",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Inserts / dimensions and order codes"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 1,
+          "printedPage": 24,
+          "section": "Features / 2 cutting edges"
+        }
+      ]
+    },
+    {
+      "id": "X060A90W020R",
+      "series": "X060",
+      "includedAngleDeg": 90,
+      "angleToleranceDeg": 0.5,
+      "Lmm": 6,
+      "Smm": 2.05,
+      "ReMm": 0.04,
+      "WminMm": 0.2,
+      "WmaxMm": 2.2,
+      "TmaxMm": 1.0,
+      "substrateGrade": "K20F",
+      "indexableCuttingEdges": 2,
+      "engravingExplicitlyMentioned": true,
+      "variants": [
+        {
+          "orderCode": "01X0207",
+          "gradeId": "NC2032",
+          "coating": "TiAlN",
+          "partNumber": "X060A90W020R NC2032",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Inserts / dimensions and order codes"
+          }
+        },
+        {
+          "orderCode": "01X0208",
+          "gradeId": "NC2035",
+          "coating": "ALDURA",
+          "partNumber": "X060A90W020R NC2035",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Inserts / dimensions and order codes"
+          }
+        },
+        {
+          "orderCode": "01X0209",
+          "gradeId": "XP9001",
+          "coating": "Uncoated",
+          "partNumber": "X060A90W020R XP9001",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Inserts / dimensions and order codes"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 1,
+          "printedPage": 24,
+          "section": "Features / 2 cutting edges"
+        }
+      ]
+    },
+    {
+      "id": "X060A120W010R",
+      "series": "X060",
+      "includedAngleDeg": 120,
+      "angleToleranceDeg": 0.5,
+      "Lmm": 6,
+      "Smm": 2.05,
+      "ReMm": 0.02,
+      "WminMm": 0.1,
+      "WmaxMm": 2.53,
+      "TmaxMm": 0.7,
+      "substrateGrade": "K20F",
+      "indexableCuttingEdges": 2,
+      "engravingExplicitlyMentioned": false,
+      "variants": [
+        {
+          "orderCode": "01X0222",
+          "gradeId": "NC2032",
+          "coating": "TiAlN",
+          "partNumber": "X060A120W010R NC2032",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Inserts / dimensions and order codes"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 1,
+          "printedPage": 24,
+          "section": "Features / 2 cutting edges"
+        }
+      ]
+    },
+    {
+      "id": "X060A142W010R",
+      "series": "X060",
+      "includedAngleDeg": 142,
+      "angleToleranceDeg": 0.5,
+      "Lmm": 6,
+      "Smm": 2.05,
+      "ReMm": 0.02,
+      "WminMm": 0.1,
+      "WmaxMm": 2.42,
+      "TmaxMm": 0.4,
+      "substrateGrade": "K20F",
+      "indexableCuttingEdges": 2,
+      "engravingExplicitlyMentioned": false,
+      "variants": [
+        {
+          "orderCode": "01X0223",
+          "gradeId": "NC2032",
+          "coating": "TiAlN",
+          "partNumber": "X060A142W010R NC2032",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Inserts / dimensions and order codes"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 2,
+          "printedPage": 25,
+          "section": "Inserts / dimensions"
+        },
+        {
+          "sourceId": "micro-local-catalog-20261110",
+          "pdfPage": 1,
+          "printedPage": 24,
+          "section": "Features / 2 cutting edges"
+        }
+      ]
+    }
+  ],
+  "holders": [
+    {
+      "orderCode": "69X001",
+      "partNumber": "00-99619-X060-06",
+      "shankMaterial": "Steel",
+      "shankDiameterMm": 6,
+      "lengthMm": 40,
+      "compatibleInsertSeries": "X060",
+      "screw": "NS-22044",
+      "torqueNm": 0.9,
+      "key": "NK-T7",
+      "torqueScrewdriverRecommended": true,
+      "workpieceRestriction": null,
+      "rawUnbalanceNote": null,
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Holder / table and notes"
+      }
+    },
+    {
+      "orderCode": "69X002",
+      "partNumber": "00-99619-X060-06L",
+      "shankMaterial": "Carbide",
+      "shankDiameterMm": 6,
+      "lengthMm": 60,
+      "compatibleInsertSeries": "X060",
+      "screw": "NS-22044",
+      "torqueNm": 0.9,
+      "key": "NK-T7",
+      "torqueScrewdriverRecommended": true,
+      "workpieceRestriction": null,
+      "rawUnbalanceNote": null,
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Holder / table and notes"
+      }
+    },
+    {
+      "orderCode": "69X003",
+      "partNumber": "00-99619-X060-06LS",
+      "shankMaterial": "Steel",
+      "shankDiameterMm": 6,
+      "lengthMm": 60,
+      "compatibleInsertSeries": "X060",
+      "screw": "NS-22044",
+      "torqueNm": 0.9,
+      "key": "NK-T7",
+      "torqueScrewdriverRecommended": true,
+      "workpieceRestriction": null,
+      "rawUnbalanceNote": null,
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Holder / table and notes"
+      }
+    },
+    {
+      "orderCode": "69X004",
+      "partNumber": "00-99619-X060-06XL",
+      "shankMaterial": "Carbide",
+      "shankDiameterMm": 6,
+      "lengthMm": 100,
+      "compatibleInsertSeries": "X060",
+      "screw": "NS-22044",
+      "torqueNm": 0.9,
+      "key": "NK-T7",
+      "torqueScrewdriverRecommended": true,
+      "workpieceRestriction": [
+        "aluminum",
+        "aluminumAlloy"
+      ],
+      "rawUnbalanceNote": "unbalanced <0.6gm",
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Holder / table and notes"
+      }
+    },
+    {
+      "orderCode": "69X005",
+      "partNumber": "00-99619-X060-08",
+      "shankMaterial": "Steel",
+      "shankDiameterMm": 8,
+      "lengthMm": 60,
+      "compatibleInsertSeries": "X060",
+      "screw": "NS-22044",
+      "torqueNm": 0.9,
+      "key": "NK-T7",
+      "torqueScrewdriverRecommended": true,
+      "workpieceRestriction": null,
+      "rawUnbalanceNote": null,
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Holder / table and notes"
+      }
+    }
+  ],
+  "materials": [
+    {
+      "id": "carbonSteel",
+      "isoGroup": "P",
+      "labelZh": "碳鋼",
+      "catalogLabel": "Carbon steel",
+      "recommendedGrades": [
+        "NC2032"
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "feedsByInsert": {
+        "X060A90W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.012
+          ],
+          "catalogCell": "0.002 ~ 0.012",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Carbon steel"
+          }
+        },
+        "X060A90W020R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.015
+          ],
+          "catalogCell": "0.002 ~ 0.015",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Carbon steel"
+          }
+        },
+        "X060A120W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.015
+          ],
+          "catalogCell": "0.002 ~ 0.015",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Carbon steel"
+          }
+        },
+        "X060A142W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.015
+          ],
+          "catalogCell": "0.002 ~ 0.015",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Carbon steel"
+          }
+        }
+      },
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Cutting Data / Carbon steel"
+      }
+    },
+    {
+      "id": "alloySteel",
+      "isoGroup": "P",
+      "labelZh": "合金鋼",
+      "catalogLabel": "Alloy steel",
+      "recommendedGrades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "feedsByInsert": {
+        "X060A90W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Alloy steel"
+          }
+        },
+        "X060A90W020R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Alloy steel"
+          }
+        },
+        "X060A120W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Alloy steel"
+          }
+        },
+        "X060A142W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Alloy steel"
+          }
+        }
+      },
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Cutting Data / Alloy steel"
+      }
+    },
+    {
+      "id": "stainless",
+      "isoGroup": "M",
+      "labelZh": "不鏽鋼",
+      "catalogLabel": "Stainless steel",
+      "recommendedGrades": [
+        "NC2032"
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "feedsByInsert": {
+        "X060A90W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.008
+          ],
+          "catalogCell": "0.002 ~ 0.008",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Stainless steel"
+          }
+        },
+        "X060A90W020R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Stainless steel"
+          }
+        },
+        "X060A120W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Stainless steel"
+          }
+        },
+        "X060A142W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Stainless steel"
+          }
+        }
+      },
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Cutting Data / Stainless steel"
+      }
+    },
+    {
+      "id": "castIron",
+      "isoGroup": "K",
+      "labelZh": "鑄鐵",
+      "catalogLabel": "Cast Iron",
+      "recommendedGrades": [
+        "NC2032"
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "feedsByInsert": {
+        "X060A90W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Cast Iron"
+          }
+        },
+        "X060A90W020R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Cast Iron"
+          }
+        },
+        "X060A120W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Cast Iron"
+          }
+        },
+        "X060A142W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.01
+          ],
+          "catalogCell": "0.002 ~ 0.010",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Cast Iron"
+          }
+        }
+      },
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Cutting Data / Cast Iron"
+      }
+    },
+    {
+      "id": "nonFerrous",
+      "isoGroup": "N",
+      "labelZh": "非鐵材料",
+      "catalogLabel": "Non-ferrous metal",
+      "recommendedGrades": [
+        "XP9001"
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": null,
+      "feedsByInsert": {
+        "X060A90W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.015
+          ],
+          "catalogCell": "0.002 ~ 0.015",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Non-ferrous metal"
+          }
+        },
+        "X060A90W020R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.02
+          ],
+          "catalogCell": "0.002 ~ 0.020",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Non-ferrous metal"
+          }
+        },
+        "X060A120W010R": {
+          "rangeMmPerRev": null,
+          "catalogCell": "-",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Non-ferrous metal"
+          }
+        },
+        "X060A142W010R": {
+          "rangeMmPerRev": null,
+          "catalogCell": "-",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Non-ferrous metal"
+          }
+        }
+      },
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Cutting Data / Non-ferrous metal"
+      }
+    },
+    {
+      "id": "hardenedSteel",
+      "isoGroup": "H",
+      "labelZh": "硬化鋼 < HRC50",
+      "catalogLabel": "Hardened steel < HRC50",
+      "recommendedGrades": [
+        "NC2035"
+      ],
+      "spindleRpm": {
+        "min": 8000,
+        "max": 40000
+      },
+      "hardnessHrc": {
+        "maxExclusive": 50
+      },
+      "feedsByInsert": {
+        "X060A90W010R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.006
+          ],
+          "catalogCell": "0.002 ~ 0.006",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Hardened steel < HRC50"
+          }
+        },
+        "X060A90W020R": {
+          "rangeMmPerRev": [
+            0.002,
+            0.006
+          ],
+          "catalogCell": "0.002 ~ 0.006",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Hardened steel < HRC50"
+          }
+        },
+        "X060A120W010R": {
+          "rangeMmPerRev": null,
+          "catalogCell": "-",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Hardened steel < HRC50"
+          }
+        },
+        "X060A142W010R": {
+          "rangeMmPerRev": null,
+          "catalogCell": "-",
+          "source": {
+            "sourceId": "micro-local-catalog-20261110",
+            "pdfPage": 2,
+            "printedPage": 25,
+            "section": "Cutting Data / Hardened steel < HRC50"
+          }
+        }
+      },
+      "source": {
+        "sourceId": "micro-local-catalog-20261110",
+        "pdfPage": 2,
+        "printedPage": 25,
+        "section": "Cutting Data / Hardened steel < HRC50"
+      }
+    }
+  ],
+  "geometryPolicy": {
+    "sourceDimensionNames": [
+      "Wmin",
+      "Wmax",
+      "Tmax",
+      "Re",
+      "L",
+      "S"
+    ],
+    "diameterMapping": "Spotting 孔口直徑 D 以 Wmin/Wmax 作名義篩選範圍；Dmin/Dmax 是篩選器衍生欄位，不是型錄原欄名。",
+    "nominalRangeInclusive": true,
+    "minimumBoundaryNote": "D = Wmin 是型錄名義下界；忽略 Re 的直線近似為零深度，不保證可加工的正切深。",
+    "approximateFormulaForResearchOnly": "t ≈ (D - Wmin) / (2 * tan(theta / 2))",
+    "formulaProvenance": "研究者依幾何推導，忽略 Re；並非型錄公式或已驗證的對刀關係。",
+    "roundingExamples": [
+      "120°、D=2.53：直線近似 t≈0.70148，與表列 Tmax=0.7 有取位差。",
+      "142°、D=2.42：直線近似 t≈0.39942，與表列 Tmax=0.4 有取位差。"
+    ],
+    "phaseOneOutputs": [
+      "catalog Wmin/Wmax/Tmax",
+      "S rpm",
+      "f mm/rev",
+      "Vf mm/min"
+    ],
+    "phaseOneBlockedOutputs": [
+      "CNC Z target",
+      "tool-tip correction",
+      "G-code",
+      "peck Q"
+    ],
+    "unverified": [
+      "實際刀尖與理論尖點基準",
+      "Re 精確輪廓補償",
+      "刀長對刀方式與軸向補正",
+      "跳動/偏心允差",
+      "傾斜或曲面局部幾何",
+      "啄鑽/分段切深、冷卻與單次切入策略"
+    ],
+    "source": {
+      "sourceId": "micro-local-catalog-20261110",
+      "pdfPage": 2,
+      "printedPage": 25,
+      "section": "Inserts / profile sketch and dimensions"
+    }
+  },
+  "calculationPolicy": {
+    "primaryInput": "S rpm",
+    "feedInput": "f mm/rev",
+    "feedRateFormula": "Vf = S * f",
+    "optionalDerivedCuttingSpeed": "Vc = pi * D * S / 1000; display as derived, not catalog recommendation",
+    "doNotMultiplyFeedByIndexableEdgeCount": true,
+    "noCatalogVcOrPeckQ": true,
+    "presetPolicy": "第一版建議不預填單一最佳值；先顯示型錄範圍。若後續採用中點等預設，須標註為介面起始值。",
+    "source": {
+      "sourceId": "micro-local-catalog-20261110",
+      "pdfPage": 2,
+      "printedPage": 25,
+      "section": "Cutting Data / S and f column headings"
+    }
+  },
+  "existingContentConflicts": [
+    {
+      "file": "Products/MicroSpotDrill/product-data.js",
+      "issue": "FAQ 說 up to 56 HRC，與本 PDF 的 < HRC50 不同。"
+    },
+    {
+      "file": "Products/MicroSpotDrill/product-data.js",
+      "issue": "FAQ 含多段切深、NC 偏心結構及支撐刃內容；本 PDF 沒有這些 Micro 推薦參數。不得用 FAQ 補資料缺口。"
+    }
+  ]
+}
