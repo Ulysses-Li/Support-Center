@@ -44,8 +44,7 @@ const PRODUCT_FAMILIES = [
     image: "../img/boring.png",
     href: "../Machining/Boring/index.html",
     products: [
-      { name: "NineBore Boring Tool", href: "../Products/NineBore/index.html" },
-      { name: "NineSwiss Modular Head Boring Tool", href: "../Products/NineSwissBoring/index.html" }
+      { name: "NineBore Boring Tool", href: "../Products/NineBore/index.html" }
     ]
   },
 
