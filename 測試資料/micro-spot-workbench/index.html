@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Micro Spot Drill | Cutting Data Preview</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../header/header.css"><link rel="stylesheet" href="../../footer/footer.css">
+  <link rel="stylesheet" href="../../css/site-background.css"><link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="../../css/material-select.css">
+  <link rel="icon" href="../../favicon.png"><link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <div id="header-placeholder"></div>
+  <main class="micro-page flex-grow-1">
+    <div class="container-xl">
+      <nav class="breadcrumb-line mb-4" aria-label="Breadcrumb"><a href="../spotting-finder/index.html">Spotting</a><span class="mx-2">/</span><span>Micro Spot Drill</span></nav>
+      <header class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+        <div class="d-flex align-items-center gap-3"><span class="product-icon"><img src="../../img/spotting.png" alt=""></span><div><p class="eyebrow mb-1">CUTTING DATA · X060 SERIES</p><h1 class="mb-1">Micro Spot Drill</h1><p class="lead-note mb-0">Choose your insert. Set your speed and feed.</p></div></div>
+        <div class="d-flex align-items-center flex-wrap gap-3"><span class="preview-label">Design preview</span><a class="catalog-link" href="../micro-spot-plan/sources/micro-spot-catalog-p24-25.pdf#page=2" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm5 1.5L12.5 5H10a1 1 0 0 1-1-1zM4 1h4v3a2 2 0 0 0 2 2h3v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"/></svg>Product catalog <span>PDF</span></a></div>
+      </header>
+      <div id="loadError" class="alert alert-danger" hidden></div>
+      <p id="loading" class="surface p-4" role="status">Loading Micro Spot Drill data…</p>
+      <div class="row g-4" id="workspace" hidden>
+        <section class="col-12 col-lg-7" aria-labelledby="conditionsTitle">
+          <form id="calculatorForm" class="surface condition-panel" novalidate>
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4"><h2 id="conditionsTitle" class="panel-title m-0">Machining conditions</h2><div class="d-flex gap-3"><button type="button" class="btn text-button" id="exampleButton">Load example</button><button type="button" class="btn text-button" id="resetButton">Reset</button></div></div>
+            <div id="exampleNote" class="example-note mb-4" hidden>Example setup · adjust the workpiece and cutting values for your job.</div>
+            <p id="urlMessage" class="notice error-notice" role="status" hidden></p>
+            <!-- 材料、角度與名義孔口使用同一份原始產品資料交集，不沿用 ACE 切削數字。 -->
+            <fieldset class="condition-group"><legend><span>01</span> Workpiece &amp; spot</legend>
+              <div class="row g-3">
+                <div class="col-12"><label for="material" class="form-label">Workpiece material</label><div class="iso-material-control"><span class="iso-material-badge" id="materialBadge" data-iso="" aria-hidden="true">—</span><select class="form-select" id="material"><option value="">Choose material</option></select></div><p class="field-error" id="materialError"></p></div>
+                <div class="col-12" id="subtypeGroup" hidden><label for="nonFerrousType" class="form-label">Non-ferrous material</label><select class="form-select" id="nonFerrousType"><option value="">General / not specified</option><option value="aluminum">Aluminum</option><option value="aluminumAlloy">Aluminum alloy</option><option value="brass">Brass</option><option value="copper">Copper</option><option value="plastic">Plastic</option><option value="acrylic">Acrylic</option></select><p class="field-help">The 100 mm XL holder is listed for aluminum and aluminum alloy only.</p></div>
+                <div class="col-12 col-sm-5"><label for="angle" class="form-label">Point angle</label><select class="form-select" id="angle"><option value="">Choose angle</option><option value="90">90°</option><option value="120">120°</option><option value="142">142°</option></select><p class="field-error" id="angleError"></p></div>
+                <div class="col-12 col-sm-7"><label for="diameter" class="form-label">Spot diameter <span>D</span></label><div class="input-group"><span class="input-group-text">Ø</span><input class="form-control" id="diameter" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 0.5" aria-describedby="diameterHint diameterError"><span class="input-group-text">mm</span></div><p id="diameterHint" class="field-help">Nominal spot opening at the work surface.</p><p class="field-error" id="diameterError"></p></div>
+              </div>
+            </fieldset>
+            <fieldset class="condition-group"><legend><span>02</span> Insert &amp; holder</legend>
+              <div id="matchingMessage" class="matching-message mb-3" role="status">Set the workpiece and spot diameter to see matching inserts.</div>
+              <label for="variant" class="form-label">Matching insert / grade</label><select class="form-select" id="variant"><option value="">Select an insert</option></select><p class="field-error" id="variantError"></p>
+              <div id="insertSummary" class="insert-summary mt-3" hidden></div>
+              <label for="holder" class="form-label mt-3">Compatible holder</label><select class="form-select" id="holder"><option value="">Select a holder</option></select><p class="field-error" id="holderError"></p><p class="field-help" id="holderHint">Holder L is overall length.</p>
+              <p id="selectionNotice" class="notice mt-3 mb-0" role="status" hidden></p>
+            </fieldset>
+            <fieldset class="condition-group"><legend><span>03</span> Speed &amp; feed</legend>
+              <div class="row g-3">
+                <div class="col-12"><label for="machineMaxRpm" class="form-label">Machine maximum speed <span>optional</span></label><div class="input-group"><input class="form-control" id="machineMaxRpm" type="number" min="0" step="100" inputmode="numeric" placeholder="Enter machine limit" aria-describedby="machineMaxRpmError"><span class="input-group-text">rpm</span></div><p class="field-error" id="machineMaxRpmError"></p></div>
+                <div class="col-12 col-sm-6"><label for="rpm" class="form-label">Spindle speed <span>S</span></label><div class="input-group"><input class="form-control" id="rpm" type="number" min="0" step="any" inputmode="numeric" aria-describedby="rpmHint rpmError"><span class="input-group-text">rpm</span></div><p id="rpmHint" class="field-help">Catalog 8,000–40,000 rpm</p><p class="field-error" id="rpmError"></p></div>
+                <div class="col-12 col-sm-6"><label for="feedPerRev" class="form-label">Feed per revolution <span>f</span></label><div class="input-group"><input class="form-control" id="feedPerRev" type="number" min="0" step="any" inputmode="decimal" aria-describedby="feedHint feedPerRevError"><span class="input-group-text">mm/rev</span></div><p id="feedHint" class="field-help">Select an insert to see its range.</p><p class="field-error" id="feedPerRevError"></p></div>
+              </div>
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3"><span class="field-help m-0" id="valueOrigin">Enter your speed and feed.</span><button class="btn midpoint-button" type="button" id="midpointButton" disabled>Use range midpoints</button></div>
+            </fieldset>
+            <!-- 名義平底模型與同組裝實測基準分開，不能借用 ACE 的刀尖修正量。 -->
+            <fieldset class="condition-group mb-0"><legend><span>04</span> Depth &amp; Z reference</legend>
+              <label for="geometryMode" class="form-label">Tool-length reference</label><select id="geometryMode" class="form-select" aria-describedby="datumHint"><option value="nominal">Nominal flat tip · touched off at surface Z0</option><option value="measured">Measured spot diameter / depth</option></select>
+              <p id="datumHint" class="field-help">Z0 is the work surface. Nominal depth uses an ideal straight face and catalog Wmin; Re is not modeled.</p>
+              <div class="row g-3 mt-1" id="measuredInputs" hidden>
+                <div class="col-12 col-sm-6"><label for="referenceDiameter" class="form-label">Measured spot diameter <span>Dref</span></label><div class="input-group"><input class="form-control" id="referenceDiameter" type="number" min="0" step="any" inputmode="decimal" aria-describedby="referenceDiameterError"><span class="input-group-text">mm</span></div><p class="field-error" id="referenceDiameterError"></p></div>
+                <div class="col-12 col-sm-6"><label for="referenceDepth" class="form-label">Depth at that diameter <span>tref</span></label><div class="input-group"><input class="form-control" id="referenceDepth" type="number" min="0" step="any" inputmode="decimal" aria-describedby="referenceDepthError"><span class="input-group-text">mm</span></div><p class="field-error" id="referenceDepthError"></p></div>
+              </div>
+              <p class="field-help" id="geometryFeedback"></p>
+            </fieldset>
+          </form>
+          <figure class="surface geometry-panel mt-4 mb-0" aria-labelledby="geometryTitle"><div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3"><h2 class="panel-title mb-0" id="geometryTitle">Spotting geometry</h2><span class="field-help m-0" id="diagramModeLabel">Nominal flat-tip model · mm</span></div><div id="diagramCanvas"></div><figcaption class="field-help mt-2 mb-0" id="geometryCaption">Depth and Z use the selected tool-length reference. The corner-radius transition Re is not reconstructed.</figcaption></figure>
+        </section>
+        <aside class="col-12 col-lg-5" aria-labelledby="resultTitle"><div class="surface result-panel">
+          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-4"><h2 class="panel-title m-0" id="resultTitle">Cutting setup</h2><span class="status-pill" id="setupStatus">Choose your setup</span></div>
+          <div class="depth-results mb-2" aria-live="polite" aria-atomic="true"><div><span id="depthLabel">Nominal depth t</span><p><strong id="resultDepth">—</strong><small>mm</small></p></div><div><span id="zLabel">Nominal Z</span><p><strong id="resultZ">—</strong><small>mm</small></p></div></div>
+          <p class="field-help mb-4" id="depthReference">Z0 = work surface · nominal flat-tip tool-length reference.</p>
+          <div class="key-results" aria-live="polite" aria-atomic="true"><div><span>Spindle speed</span><p><strong id="resultRpm">—</strong><small>rpm</small></p></div><div><span>Feed rate</span><p><strong id="resultFeed">—</strong><small>mm/min</small></p></div></div>
+          <p class="provisional-note" id="provisionalNote" hidden>Provisional setup · confirm the conditions below.</p>
+          <div class="selected-tool mt-4"><span class="detail-label">Selected insert</span><strong id="resultInsert">Choose a matching insert</strong><p id="resultGrade" class="m-0"></p></div>
+          <dl class="row g-3 result-specs mt-2 mb-4"><div class="col-6"><dt>Order code</dt><dd id="resultCode">—</dd></div><div class="col-6"><dt>Point angle</dt><dd id="resultAngle">—</dd></div><div class="col-6"><dt>Nominal Wmin–Wmax</dt><dd id="resultRange">—</dd></div><div class="col-6"><dt>Catalog Tmax</dt><dd id="resultTmax">—</dd></div><div class="col-12"><dt>Holder</dt><dd id="resultHolder">—</dd></div></dl>
+          <div id="setupIssues" class="notice mb-4" role="status" aria-live="polite">Choose a material, angle and spot diameter to start.</div>
+          <button class="btn copy-button w-100" type="button" id="copyButton" disabled>Copy cutting setup</button><p class="field-help mt-2 mb-0" id="copyFeedback" role="status"></p>
+          <details class="technical-details mt-4"><summary>Calculation &amp; reference</summary><div class="mt-3"><p><strong>Feed rate Vf = S × f</strong></p><p>The catalog specifies spindle speed directly in rpm. The two indexable cutting edges do not multiply the feed per revolution.</p><p id="conversionNote"></p><p id="geometryFormula" class="mb-0">Nominal t = (D − Wmin) / [2 × tan(α/2)]; Z = −t. Re is not modeled. A measured reference applies only to the same insert, holder and tool-length setting.</p></div></details>
+          <details class="technical-details mt-3"><summary>Assembly &amp; source</summary><div class="mt-3"><p id="assemblyNote">Select a holder for its assembly details.</p><p>Source: Micro Spot Drill, printed pp. 24–25. Cutting table and dimensions: p. 25.</p><a href="../micro-spot-plan/sources/micro-spot-catalog-p24-25.pdf#page=2" target="_blank" rel="noopener">Open on-site catalog →</a></div></details>
+        </div></aside>
+      </div>
+    </div>
+  </main>
+  <!-- 手機固定列共用右側結果：Z 必須保留目前的名義／實測基準，不沿用失效值。 -->
+  <a class="mobile-results" href="#resultTitle" id="mobileResults" hidden aria-label="View cutting setup">
+    <span class="mobile-metric"><span>S · rpm</span><strong id="mobileRpm">—</strong></span>
+    <span class="mobile-metric"><span>Vf · mm/min</span><strong id="mobileFeed">—</strong></span>
+    <span class="mobile-metric"><span id="mobileZLabel">Nominal Z · mm</span><strong id="mobileZ">—</strong></span>
+  </a>
+  <div id="footer-placeholder"></div>
+  <script src="./core.js"></script><script src="./diagrams.js"></script><script src="./app.js"></script>
+</body>
+</html>

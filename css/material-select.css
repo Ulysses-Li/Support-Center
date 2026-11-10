@@ -1,0 +1,10 @@
+/* 共用材料色標：沿用既有 ACE／NC 的分類視覺，文字字母與名稱同時保留。 */
+.iso-material-control{display:flex;min-width:0}
+.iso-material-badge{display:grid;place-items:center;flex:0 0 40px;min-height:46px;background:#e8eff4;color:#536d82;border-radius:6px 0 0 6px;font-size:14px;font-weight:750}
+.iso-material-control>.form-select{min-width:0;border-radius:0 6px 6px 0}
+.iso-material-badge[data-iso="P"]{background:#176bb3;color:#fff}
+.iso-material-badge[data-iso="M"]{background:#f3d649;color:#27394a}
+.iso-material-badge[data-iso="K"]{background:#c83d38;color:#fff}
+.iso-material-badge[data-iso="N"]{background:#298246;color:#fff}
+.iso-material-badge[data-iso="S"]{background:#8c6323;color:#fff}
+.iso-material-badge[data-iso="H"]{background:#69747f;color:#fff}

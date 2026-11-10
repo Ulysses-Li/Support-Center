@@ -7,12 +7,12 @@
   const smallScreen = matchMedia("(max-width:575.98px)");
   const products = [
     {id:"ace",name:"ACE Spot Drill",kicker:"REPLACEABLE INSERT",description:"Spotting with catalog-based depth and cutting data.",href:"../../CuttingData/AceSpotDrill/index.html"},
-    {id:"micro",name:"Micro Spot Drill",kicker:"MICRO SPOTTING",description:"Small spot diameters for precise drill positioning.",href:"../micro-spot-plan/index.html"},
+    {id:"micro",name:"Micro Spot Drill",kicker:"MICRO SPOTTING",description:"Small spot diameters for precise drill positioning.",href:"../micro-spot-workbench/index.html"},
     {id:"nc",name:"NC Spot Drill",kicker:"MULTI-FUNCTION",description:"Choose the insert, grade and compatible holder.",href:"../../CuttingData/NCSpotDrill/index.html"}
   ];
   let records = SPOTTING_SELECTOR.buildCandidates({aceData:PRODUCT_PAGE_DATA,aceGeometry:{getChamferGeometry,calculateSpotting},ncData:NC_SPOT_DATA});
   const materials = NC_SPOT_DATA.materials;
-  for (const item of materials) $("material").add(new Option(`${item.iso} · ${item.label}`, item.id));
+  for (const item of materials) $("material").add(new Option(item.label, item.id));
   for (const option of $("angle").options) if(option.value) option.textContent += "°";
   const params = new URLSearchParams(location.search);
   if (materials.some(item=>item.id===params.get("material"))) $("material").value=params.get("material");
@@ -27,17 +27,15 @@
   }
   function resultURL(product, record, diameter) {
     const url = new URL(product.href,location.href);
-    if(product.id!=="micro") {
-      url.searchParams.set("operation","spotting");
-      for(const [name,value] of Object.entries(record.selection)) url.searchParams.set(name,value);
-      if(diameter) url.searchParams.set("diameter",diameter);
-    }
+    url.searchParams.set("operation","spotting");
+    for(const [name,value] of Object.entries(record.selection)) url.searchParams.set(name,name==="material"&&product.id==="micro"?record.sourceMaterialId:value);
+    if(diameter) url.searchParams.set("diameter",diameter);
     return url.href;
   }
   function updateCard(card, product, options) {
     const record=options[Number(card.querySelector("select").value)]||options[0];
     card.querySelector(".setup-range").textContent=`${record.angle}° · Ø${number(record.minDiameter)}–${number(record.maxDiameter)} mm`;
-    card.querySelector(".setup-note").textContent=record.geometryNote + (product.id==="micro" ? " Calculator planning is in progress." : !record.cuttingAvailable ? " Cutting values need confirmation." : "");
+    card.querySelector(".setup-note").textContent=product.id==="micro" ? "Catalog nominal Wmin–Wmax selection. Open the prototype to set speed, feed and the depth / Z reference." : record.geometryNote + (!record.cuttingAvailable ? " Cutting values need confirmation." : "");
     card.querySelector("a.card-action").href=resultURL(product,record,filters().diameter);
   }
   // 保留原條件，用相同候選資料解釋原因；範圍有缺口時不可只顯示一個總最小／最大值。
@@ -86,6 +84,8 @@
   }
   function render() {
     const f=filters(), input=$("diameter"), invalid=input.validity.badInput || (input.value!==""&&(!Number.isFinite(Number(input.value))||Number(input.value)<=0));
+    const iso=materials.find(item=>item.id===f.material)?.iso||"";
+    $("materialBadge").dataset.iso=iso;$("materialBadge").textContent=iso||"All";
     input.classList.toggle("is-invalid",invalid);input.setAttribute("aria-invalid",String(invalid));$("diameterError").hidden=!invalid;
     const matches=invalid?[]:SPOTTING_SELECTOR.filterCandidates(records,f);
     const groups=products.map(product=>({product,options:uniqueSetups(matches.filter(item=>item.productId===product.id))})).filter(item=>item.options.length);
@@ -93,7 +93,7 @@
     $("criteria").textContent=[f.material?materials.find(item=>item.id===f.material).label:"All materials",f.angle?`${f.angle}°`:"All angles",f.diameter?`Ø${f.diameter} mm`:"Any spot diameter"].join("  ·  ");
     $("emptyState").hidden=Boolean(groups.length)||invalid;
     if(!groups.length&&!invalid) showNoMatch(f,SPOTTING_SELECTOR.explainNoMatch(records,f));
-    $("productResults").innerHTML=groups.map(({product,options})=>`<div class="col-12 col-lg-4"><details class="finder-card" ${smallScreen.matches?"":"open"} data-product="${escape(product.id)}"><summary id="summary-${product.id}" aria-controls="body-${product.id}" aria-expanded="${!smallScreen.matches}"><span class="product-icon"><img src="../../img/spotting.png" alt=""></span><span><span class="card-kicker">${escape(product.kicker)}</span><h3>${escape(product.name)}</h3></span><svg class="mobile-chevron" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg></summary><div class="card-body-content" id="body-${product.id}"><p class="product-note">${escape(product.description)}</p><span class="match-badge ${product.id==="micro"?"review":""}">${options.length} matching ${options.length===1?"setup":"setups"}${product.id==="micro"?" · catalog selection":""}</span><label class="model-label" for="setup-${product.id}">Matching tool / angle</label><select class="form-select setup-select" id="setup-${product.id}" aria-label="${escape(product.name)} matching setup">${options.map((record,index)=>`<option value="${index}">${escape(record.label)} · ${record.angle}°</option>`).join("")}</select><p class="setup-range"></p><p class="setup-note"></p><a class="card-action ${product.id==="micro"?"secondary":""}" href="${escape(product.href)}"><span>${product.id==="micro"?"View Micro catalog plan":"Get cutting data"}</span><span aria-hidden="true">→</span></a></div></details></div>`).join("");
+    $("productResults").innerHTML=groups.map(({product,options})=>`<div class="col-12 col-lg-4"><details class="finder-card" ${smallScreen.matches?"":"open"} data-product="${escape(product.id)}"><summary id="summary-${product.id}" aria-controls="body-${product.id}" aria-expanded="${!smallScreen.matches}"><span class="product-icon"><img src="../../img/spotting.png" alt=""></span><span><span class="card-kicker">${escape(product.kicker)}</span><h3>${escape(product.name)}</h3></span><svg class="mobile-chevron" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg></summary><div class="card-body-content" id="body-${product.id}"><p class="product-note">${escape(product.description)}</p><span class="match-badge ${product.id==="micro"?"review":""}">${options.length} matching ${options.length===1?"setup":"setups"}${product.id==="micro"?" · catalog selection":""}</span><label class="model-label" for="setup-${product.id}">Matching tool / angle</label><select class="form-select setup-select" id="setup-${product.id}" aria-label="${escape(product.name)} matching setup">${options.map((record,index)=>`<option value="${index}">${escape(record.label)} · ${record.angle}°</option>`).join("")}</select><p class="setup-range"></p><p class="setup-note"></p><a class="card-action ${product.id==="micro"?"secondary":""}" href="${escape(product.href)}"><span>${product.id==="micro"?"Try Micro calculator":"Get cutting data"}</span><span aria-hidden="true">→</span></a></div></details></div>`).join("");
     for(const {product,options} of groups) {
       const card=$("productResults").querySelector(`[data-product="${product.id}"]`);
       updateCard(card,product,options);
@@ -114,7 +114,7 @@
   // Micro 研究只供這個未確認樣板使用；套用正式頁時須先整理成正式產品資料。
   fetch("../micro-spot-plan/filter-contract.json").then(response=>{if(!response.ok)throw Error("Micro catalog not available");return response.json();}).then(data=>{
     records.push(...SPOTTING_SELECTOR.buildMicroCandidates(data));
-    $("microStatus").textContent="Micro: local catalog pp. 24–25. Wmin–Wmax are nominal selection limits. Steel grade hardness must be confirmed; calculator planning is separate.";render();
+    $("microStatus").textContent="Micro: local catalog pp. 24–25. Wmin–Wmax are nominal selection limits. The prototype checks insert / grade, spindle speed, feed and the selected depth / Z reference.";render();
   }).catch(()=>{$("microStatus").textContent="Micro catalog data could not be loaded. Results currently cover ACE and NC only.";});
   async function loadLayout(part){const response=await fetch(`../../${part}/${part}.html`);if(!response.ok)return;$(`${part}-placeholder`).innerHTML=await response.text();if(part==="header"){const button=$("mobileMenuBtn"),nav=$("topNav");if(!button||!nav)return;button.setAttribute("aria-controls","topNav");button.setAttribute("aria-expanded","false");button.addEventListener("click",()=>{const open=nav.classList.toggle("active");button.setAttribute("aria-expanded",String(open));button.setAttribute("aria-label",open?"Close Menu":"Open Menu");});}}
   Promise.all([loadLayout("header"),loadLayout("footer")]).catch(()=>{});
