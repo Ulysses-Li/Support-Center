@@ -262,6 +262,8 @@ function renderResults() {
   $("feedHint").textContent = `${feedRange[0]}–${feedRange[1]} mm/rev`;
   $("rpm").textContent = Number.isFinite(rpm) ? Math.round(rpm).toLocaleString("en-US") : "—";
   $("feedRate").textContent = numberText(feedRate, 1);
+  // 手機固定列直接讀同一份點鑽幾何結果；無效 D 清空 Z，避免殘留上一筆深度。
+  $("mobileZ").textContent = spotting?.valid ? numberText(spotting.z, 4) : "—";
   $("insertModel").textContent = model;
   $("selectionSummary").textContent = `${operation.label} · ${material.label} · ${angle}°`;
   $("grade").textContent = material.grade;

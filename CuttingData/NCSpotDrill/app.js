@@ -225,6 +225,10 @@
     $("compensationR").textContent = validGeometry ? format(result.radius) : "—";
     $("zTarget").textContent = validGeometry ? format(result.z) : "—";
     $("zLabel").textContent = measured ? "Z from measured reference" : "Nominal Z";
+    // 手機 Z 與剖面共用幾何結果；缺少有效參考或尺寸失效時不可沿用舊 Z。
+    $("mobileZ").textContent = $("zTarget").textContent;
+    $("mobileZLabel").textContent = isWsp ? "Z target" : measured ? "Measured Z" : "Nominal Z";
+    $("mobileSummary").setAttribute("aria-label",`View cutting results: spindle speed ${$("mobileRpm").textContent} rpm, feed rate ${$("mobileFeed").textContent} mm/min, ${$("mobileZLabel").textContent} ${$("mobileZ").textContent} mm.`);
     $("compensationHint").textContent = validGeometry ? `Radius R ${format(result.radius)} mm · diameter setting Ø${format(result.compensationDiameter)} mm` : "Check chamfer width, contact D and tool-length reference.";
     $("insertModel").textContent = insert.part;
     $("selectionSummary").textContent = `${holder.part} · ${material.label}`;

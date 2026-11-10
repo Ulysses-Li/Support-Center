@@ -80,7 +80,8 @@
       </div>
     </div>
   </main>
-  <a id="mobileSummary" class="mobile-summary" href="#resultTitle" aria-label="View cutting results"><span><small>Spindle speed</small><strong id="mobileRpm">—</strong><small>rpm</small></span><span><small>Feed rate</small><strong id="mobileFeed">—</strong><small>mm/min</small></span><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5A.5.5 0 0 0 8 12"/></svg></a>
+  <!-- 手機摘要與完整結果使用同一份計算值；Z 保留名義／實測基準。 -->
+  <a id="mobileSummary" class="mobile-summary" href="#resultTitle" aria-label="View cutting results"><span><small>Spindle speed</small><strong id="mobileRpm">—</strong><small>rpm</small></span><span><small>Feed rate</small><strong id="mobileFeed">—</strong><small>mm/min</small></span><span class="mobile-summary-z"><small id="mobileZLabel">Nominal Z</small><strong id="mobileZ">—</strong><span class="unit">mm</span></span></a>
   <div id="footer-placeholder"></div>
   <script src="./data.js?v=20261110"></script>
   <script src="./wsp.js?v=20261110"></script>
