@@ -22,7 +22,7 @@ const SPOTTING_PRODUCTS = [
     name: "Micro Spot Drill",
     image: "../../img/spotting.png",
     description: "Micro precision spotting application.",
-    href: "../../Products/MicroSpotDrill/index.html"
+    href: "../../CuttingData/MicroSpotDrill/index.html?operation=spotting"
   },
 
   {

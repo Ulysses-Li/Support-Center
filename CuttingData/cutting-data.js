@@ -23,13 +23,13 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Micro Spot Drill",
     category: "Micro Spotting",
     image: "../img/spotting.png",
-    status: "Preparing",
-    href: "../Products/MicroSpotDrill/index.html#cutting-data",
+    status: "Available",
+    href: "./MicroSpotDrill/index.html",
     summary: "Micro spotting with X060 inserts at 90°, 120° and 142°.",
     details: [
       "Catalog: Micro Spot Drill, printed pages 24–25",
       "Material, angle and nominal spot-diameter selection",
-      "Dedicated RPM and mm/rev feed data; calculator in preparation"
+      "Output: RPM, feed, nominal depth and measured-reference Z"
     ]
   },
   {
