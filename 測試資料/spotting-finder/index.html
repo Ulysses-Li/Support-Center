@@ -30,7 +30,13 @@
       <section aria-labelledby="resultsTitle">
         <div class="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-3"><div><p class="eyebrow mb-1">YOUR OPTIONS</p><h2 class="h4 fw-bold m-0" id="resultsTitle">Matching products</h2></div><p id="resultCount" class="result-count mb-0" role="status" aria-live="polite"></p></div>
         <p id="criteria" class="criteria mb-3"></p>
-        <div id="emptyState" class="empty-state text-center" hidden><h3 class="h5 fw-bold">No matching tool for these conditions.</h3><p>Try another point angle or diameter, or reset the filters.</p><button class="btn btn-outline-primary" id="resetEmpty" type="button">Reset filters</button></div>
+        <!-- 零結果先說明是哪個條件不符，再給該組材料／角度的真實範圍，不要求盲目重設。 -->
+        <div id="emptyState" class="empty-state text-center" role="status" aria-live="polite" aria-atomic="true" hidden>
+          <h3 class="h5 fw-bold" id="emptyTitle">No matching tool for these conditions.</h3>
+          <p id="emptyReason" class="empty-reason"></p>
+          <p id="emptyRanges" class="empty-ranges" hidden></p>
+          <div class="d-flex flex-wrap justify-content-center gap-3"><button class="btn btn-primary" id="clearUnmatched" type="button" hidden>Clear diameter</button><button class="btn btn-outline-primary" id="resetEmpty" type="button">Reset filters</button></div>
+        </div>
         <div class="row g-4" id="productResults"></div>
         <p class="field-help mt-4 mb-0">Selection checks material, angle and diameter together. Confirm tool grade, hardness and tool-length reference in the next step.</p>
       </section>

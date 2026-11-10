@@ -141,3 +141,80 @@ test('Micro catalog joins contain exactly four geometries and eight real insert/
   assert.equal(microFilter({ angle: 60, diameter: .5 }).length, 0);
   assert.ok(microRecords.every(item => item.cuttingAvailable === false));
 });
+
+const allRecords = [...records, ...microRecords];
+test('no-match explanation for stainless 90-degree / 35 mm reports the actual 32 mm maximum', () => {
+  const explanation = selector.explainNoMatch(allRecords, { material: 'stainless', angle: 90, diameter: 35 });
+  assert.equal(explanation.reason, 'diameter-too-large');
+  assert.equal(explanation.diameter, 35);
+  assert.equal(explanation.maxDiameter, 32);
+  assert.equal(explanation.minDiameter, .1);
+  assert.deepEqual(explanation.ranges, [{ minDiameter: .1, maxDiameter: 32, minDiameterInclusive: true, maxDiameterInclusive: true }]);
+});
+
+test('no-match upper limit is restricted to the chosen stainless 60-degree combinations', () => {
+  const explanation = selector.explainNoMatch(allRecords, { material: 'stainless', angle: 60, diameter: 35 });
+  assert.equal(explanation.reason, 'diameter-too-large');
+  assert.ok(Math.abs(explanation.maxDiameter - 18.198080484857) < 1e-12);
+  assert.equal(explanation.minDiameter, 1);
+  assert.equal(selector.explainNoMatch(allRecords, { material: 'stainless', angle: 60, diameter: 5 }), null);
+});
+
+test('a positive diameter below the smallest matching Micro insert reports too small', () => {
+  const explanation = selector.explainNoMatch(allRecords, { material: 'stainless', angle: 90, diameter: .05 });
+  assert.equal(explanation.reason, 'diameter-too-small');
+  assert.equal(explanation.minDiameter, .1);
+});
+
+test('a hole diameter inside a genuine interval gap is not advertised as available', () => {
+  const fixture = [
+    { materialId: 'stainless', angle: 90, minDiameter: 1, maxDiameter: 2 },
+    { materialId: 'stainless', angle: 90, minDiameter: 3, maxDiameter: 4 },
+    { materialId: 'carbonLow', angle: 60, minDiameter: .1, maxDiameter: 50 }
+  ];
+  const explanation = selector.explainNoMatch(fixture, { material: 'stainless', angle: 90, diameter: 2.5 });
+  assert.equal(explanation.reason, 'diameter-gap');
+  assert.deepEqual(explanation.ranges.map(range => [range.minDiameter, range.maxDiameter]), [[1, 2], [3, 4]]);
+  assert.equal(explanation.maxDiameter, 4);
+});
+
+test('unavailable material, angle and material-angle combination have separate reasons', () => {
+  const fixture = [
+    { materialId: 'stainless', angle: 90, minDiameter: 1, maxDiameter: 2 },
+    { materialId: 'carbonLow', angle: 60, minDiameter: 1, maxDiameter: 4 }
+  ];
+  assert.equal(selector.explainNoMatch(fixture, { material: 'titanium', diameter: 3 }).reason, 'material-unavailable');
+  assert.deepEqual(selector.explainNoMatch(fixture, { material: 'stainless', angle: 120 }), { reason: 'angle-unavailable', availableAngles: [90] });
+  assert.deepEqual(selector.explainNoMatch(fixture, { material: 'stainless', angle: 60 }), { reason: 'material-angle-unavailable', availableAngles: [90] });
+});
+
+test('exclusive ACE lower boundary remains exclusive in the explanation', () => {
+  const ace = records.find(item => item.productId === 'ace' && item.selection.size === 'SI06' && item.angle === 120 && item.materialId === 'stainless');
+  const explanation = selector.explainNoMatch([ace], { diameter: ace.minDiameter });
+  assert.equal(explanation.reason, 'boundary-invalid');
+  assert.equal(explanation.ranges[0].minDiameterInclusive, false);
+  assert.equal(selector.explainNoMatch([ace], { diameter: ace.minDiameter + .001 }), null);
+});
+
+test('range merging preserves open minima and excludes a shared point missing from both intervals', () => {
+  const fixture = [
+    { materialId: 'stainless', angle: 90, minDiameter: 1, maxDiameter: 2, minDiameterInclusive: false, maxDiameterInclusive: false },
+    { materialId: 'stainless', angle: 90, minDiameter: 2, maxDiameter: 4, minDiameterInclusive: false }
+  ];
+  const sharedPoint = selector.explainNoMatch(fixture, { diameter: 2 });
+  assert.equal(sharedPoint.reason, 'boundary-invalid');
+  assert.equal(sharedPoint.ranges.length, 2);
+  assert.equal(sharedPoint.ranges[0].minDiameterInclusive, false);
+  const overlap = selector.explainNoMatch([...fixture, { materialId: 'stainless', angle: 90, minDiameter: 1.5, maxDiameter: 3 }], { diameter: 1 });
+  assert.equal(overlap.ranges.length, 1);
+  assert.equal(overlap.ranges[0].minDiameterInclusive, false);
+  assert.equal(overlap.maxDiameter, 4);
+});
+
+test('valid matches and unrestricted filters return null while invalid inputs stay explicit', () => {
+  assert.equal(selector.explainNoMatch(allRecords, {}), null);
+  assert.equal(selector.explainNoMatch(allRecords, { material: 'stainless', angle: 90, diameter: .5 }), null);
+  assert.deepEqual(selector.explainNoMatch(allRecords, { diameter: 'abc' }), { reason: 'invalid-input', field: 'diameter' });
+  assert.deepEqual(selector.explainNoMatch(allRecords, { angle: -1 }), { reason: 'invalid-input', field: 'angle' });
+  assert.deepEqual(selector.explainNoMatch(allRecords, { material: true }), { reason: 'invalid-input', field: 'material' });
+});

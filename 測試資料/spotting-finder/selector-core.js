@@ -126,10 +126,68 @@ const SPOTTING_SELECTOR = (() => {
       if (!Number.isFinite(record.minDiameter) || !Number.isFinite(record.maxDiameter)
         || diameterFilter < record.minDiameter - EPSILON || diameterFilter > record.maxDiameter + EPSILON) return false;
       if (record.minDiameterInclusive === false && diameterFilter <= record.minDiameter) return false;
+      if (record.maxDiameterInclusive === false && diameterFilter >= record.maxDiameter) return false;
       return typeof record.diameterValidator !== "function" || record.diameterValidator(diameterFilter) === true;
     });
   }
-  return Object.freeze({ buildCandidates, buildMicroCandidates, filterCandidates });
+
+  // 合併真正重疊或銜接且包含接點的區間；保留開區間，避免把中間缺口冒稱可加工孔徑。
+  function mergedRanges(records) {
+    const intervals = records.filter(record => Number.isFinite(record.minDiameter)
+      && Number.isFinite(record.maxDiameter) && record.minDiameter <= record.maxDiameter)
+      .map(record => ({
+        minDiameter: record.minDiameter, maxDiameter: record.maxDiameter,
+        minDiameterInclusive: record.minDiameterInclusive !== false,
+        maxDiameterInclusive: record.maxDiameterInclusive !== false
+      }))
+      .sort((a, b) => a.minDiameter - b.minDiameter || Number(b.minDiameterInclusive) - Number(a.minDiameterInclusive));
+    const ranges = [];
+    for (const interval of intervals) {
+      const previous = ranges[ranges.length - 1];
+      const touchesIncludedPoint = previous && interval.minDiameter === previous.maxDiameter
+        && (previous.maxDiameterInclusive || interval.minDiameterInclusive);
+      if (!previous || (interval.minDiameter >= previous.maxDiameter && !touchesIncludedPoint)) {
+        ranges.push({ ...interval });
+        continue;
+      }
+      if (interval.minDiameter === previous.minDiameter) previous.minDiameterInclusive ||= interval.minDiameterInclusive;
+      if (interval.maxDiameter > previous.maxDiameter) {
+        previous.maxDiameter = interval.maxDiameter;
+        previous.maxDiameterInclusive = interval.maxDiameterInclusive;
+      } else if (interval.maxDiameter === previous.maxDiameter) previous.maxDiameterInclusive ||= interval.maxDiameterInclusive;
+    }
+    return ranges;
+  }
+
+  function explainNoMatch(records, { material, angle, diameter } = {}) {
+    if (!unrestricted(material) && typeof material !== "string") return { reason: "invalid-input", field: "material" };
+    if (!unrestricted(angle) && positiveNumber(angle) === null) return { reason: "invalid-input", field: "angle" };
+    if (!unrestricted(diameter) && positiveNumber(diameter) === null) return { reason: "invalid-input", field: "diameter" };
+    const source = records || [];
+    const filters = { material, angle, diameter };
+    if (filterCandidates(source, filters).length) return null;
+    const materialRows = filterCandidates(source, { material });
+    const angleRows = filterCandidates(source, { angle });
+    const availableAngles = [...new Set(materialRows.map(record => Number(record.angle)).filter(Number.isFinite))].sort((a, b) => a - b);
+    if (!unrestricted(material) && !materialRows.length) return { reason: "material-unavailable", availableAngles };
+    if (!unrestricted(angle) && !angleRows.length) return { reason: "angle-unavailable", availableAngles };
+    const eligibleRows = filterCandidates(source, { material, angle });
+    if (!eligibleRows.length) return { reason: "material-angle-unavailable", availableAngles };
+
+    // 孔徑上下限僅來自目前材料＋角度交集；不能借用其他角度／材質的較大產品。
+    const ranges = mergedRanges(eligibleRows);
+    const value = positiveNumber(diameter);
+    const details = { diameter: value, ranges };
+    if (!ranges.length) return { reason: "boundary-invalid", ...details };
+    const minDiameter = ranges[0].minDiameter;
+    const maxDiameter = ranges[ranges.length - 1].maxDiameter;
+    Object.assign(details, { minDiameter, maxDiameter });
+    if (value < minDiameter) return { reason: "diameter-too-small", ...details };
+    if (value > maxDiameter) return { reason: "diameter-too-large", ...details };
+    const withinClosedInterval = ranges.some(range => value >= range.minDiameter && value <= range.maxDiameter);
+    return { reason: withinClosedInterval ? "boundary-invalid" : "diameter-gap", ...details };
+  }
+  return Object.freeze({ buildCandidates, buildMicroCandidates, filterCandidates, explainNoMatch });
 })();
 
 if (typeof module !== "undefined") module.exports = SPOTTING_SELECTOR;
