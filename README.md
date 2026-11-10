@@ -25,6 +25,7 @@ npm run dev
 - 切削資料產品選擇：`CuttingData/index.html`；ACE 互動計算器：`CuttingData/AceSpotDrill/index.html`
 - 加工分類：`Machining/`
 - 產品內容資料：`Products/<產品名稱>/product-data.js`
+- 可持續新增的型錄 JSON 資料庫：[`data/catalog/README.md`](data/catalog/README.md)；主檔為 `data/catalog/nine9-catalog-2025-2026.json`
 - 共用產品頁渲染：`js/render/product-resource-template-V1.0.js`
 - 全站共用圖片：`assets/images/`；瀏覽器圖示則直接放在專案根目錄
 - NC Program 首頁與產生器（包含 Thread Milling V2.0 雙視圖模擬器）：`NCProgram/`

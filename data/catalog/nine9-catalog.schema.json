@@ -1,0 +1,1159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nine9:catalog:1.0.0",
+  "title": "Nine9 通用產品型錄資料庫 1.0.0",
+  "description": "文字缺值為空字串、數值缺值為 null、清單缺值為空陣列；自訂資料可放 extensions。",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "metadata",
+    "sources",
+    "categories",
+    "product_families",
+    "items",
+    "cutting_data",
+    "tables",
+    "identifier_index",
+    "technical_notes",
+    "pages",
+    "site_resources",
+    "quality_issues",
+    "templates"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "database_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "source_language": {
+          "type": "string"
+        },
+        "missing_value_policy": {
+          "type": "object"
+        },
+        "review_status_definitions": {
+          "type": "object"
+        },
+        "coverage": {
+          "type": "object"
+        },
+        "extension_policy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "database_version",
+        "title",
+        "created_at",
+        "updated_at",
+        "locale",
+        "source_language",
+        "missing_value_policy",
+        "review_status_definitions",
+        "coverage",
+        "extension_policy"
+      ],
+      "additionalProperties": true
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name_en": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name_zh_tw": {
+            "type": "string"
+          },
+          "icon_path": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name_en",
+          "name_zh_tw",
+          "icon_path",
+          "notes"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "product_families": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/family"
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/item"
+      }
+    },
+    "cutting_data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cutting_record"
+      }
+    },
+    "tables": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/table"
+      }
+    },
+    "identifier_index": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/source_ref"
+            }
+          },
+          "review_status": {
+            "enum": [
+              "source_checked",
+              "needs_review",
+              "text_index_only"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "item_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "id",
+          "source_refs",
+          "review_status",
+          "text",
+          "kind",
+          "item_ids"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "technical_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/source_ref"
+            }
+          },
+          "review_status": {
+            "enum": [
+              "source_checked",
+              "needs_review",
+              "text_index_only"
+            ]
+          },
+          "title_en": {
+            "type": "string"
+          },
+          "family_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "text": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "source_refs",
+          "review_status",
+          "title_en",
+          "family_ids",
+          "text",
+          "notes"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/source_ref"
+            }
+          },
+          "review_status": {
+            "enum": [
+              "source_checked",
+              "needs_review",
+              "text_index_only"
+            ]
+          },
+          "family_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "text": {
+            "type": "string"
+          },
+          "layout_text": {
+            "type": "string"
+          },
+          "contains_unmapped_glyphs": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "source_refs",
+          "review_status",
+          "family_ids",
+          "text",
+          "layout_text",
+          "contains_unmapped_glyphs"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "site_resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "family_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relative_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mapping_source": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "family_id",
+          "relative_path",
+          "mapping_source",
+          "notes"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "quality_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/source_ref"
+            }
+          },
+          "issue": {
+            "type": "string",
+            "minLength": 1
+          },
+          "review_status": {
+            "enum": [
+              "source_checked",
+              "needs_review",
+              "text_index_only"
+            ]
+          }
+        },
+        "required": [
+          "source_refs",
+          "issue",
+          "review_status"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "templates": {
+      "type": "object",
+      "required": [
+        "item",
+        "product_family",
+        "cutting_record",
+        "source",
+        "attribute",
+        "source_ref"
+      ]
+    }
+  },
+  "$defs": {
+    "source_ref": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pdf_page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "printed_page": {
+          "type": "string"
+        },
+        "table_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "pdf_page",
+        "printed_page",
+        "table_id"
+      ],
+      "additionalProperties": true
+    },
+    "range_value": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "max": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "raw_value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "min",
+        "max",
+        "unit",
+        "raw_value"
+      ],
+      "additionalProperties": true
+    },
+    "attribute": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "raw_value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "label",
+        "value",
+        "unit",
+        "raw_value"
+      ],
+      "additionalProperties": true
+    },
+    "item": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source_ref"
+          }
+        },
+        "review_status": {
+          "enum": [
+            "source_checked",
+            "needs_review",
+            "text_index_only"
+          ]
+        },
+        "part_number": {
+          "type": "string",
+          "minLength": 1
+        },
+        "order_code": {
+          "type": "string"
+        },
+        "item_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "family_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name_en": {
+          "type": "string"
+        },
+        "name_zh_tw": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "coating": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/attribute"
+          }
+        },
+        "image": {
+          "type": "string"
+        },
+        "product_url": {
+          "type": "string"
+        },
+        "price": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "currency": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "source_refs",
+        "review_status",
+        "part_number",
+        "order_code",
+        "item_type",
+        "family_id",
+        "name_en",
+        "name_zh_tw",
+        "description",
+        "grade",
+        "coating",
+        "attributes",
+        "image",
+        "product_url",
+        "price",
+        "currency",
+        "availability",
+        "notes",
+        "extensions"
+      ],
+      "additionalProperties": true
+    },
+    "family": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source_ref"
+          }
+        },
+        "review_status": {
+          "enum": [
+            "source_checked",
+            "needs_review",
+            "text_index_only"
+          ]
+        },
+        "name_en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name_zh_tw": {
+          "type": "string"
+        },
+        "category_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description_en": {
+          "type": "string"
+        },
+        "features_en": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "applications_en": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "series": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name_en": {
+                "type": "string"
+              },
+              "aliases": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/source_ref"
+                }
+              },
+              "notes": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name_en",
+              "aliases",
+              "source_refs",
+              "notes"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "image": {
+          "type": "string"
+        },
+        "product_url": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "source_refs",
+        "review_status",
+        "name_en",
+        "name_zh_tw",
+        "category_ids",
+        "aliases",
+        "description_en",
+        "features_en",
+        "applications_en",
+        "series",
+        "image",
+        "product_url",
+        "notes",
+        "extensions"
+      ],
+      "additionalProperties": true
+    },
+    "cutting_record": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source_ref"
+          }
+        },
+        "review_status": {
+          "enum": [
+            "source_checked",
+            "needs_review",
+            "text_index_only"
+          ]
+        },
+        "family_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "holder_part_numbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "insert_size": {
+          "type": "string"
+        },
+        "insert_base": {
+          "type": "string"
+        },
+        "point_angle_deg": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "hole_diameter_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "workpiece_material": {
+          "type": "string"
+        },
+        "iso_material_group": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "cutting_speed": {
+          "$ref": "#/$defs/range_value"
+        },
+        "feed_per_rev": {
+          "$ref": "#/$defs/range_value"
+        },
+        "peck_depth": {
+          "$ref": "#/$defs/range_value"
+        },
+        "cutting_speed_by_holder_series": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "holder_series": {
+                "type": "string"
+              },
+              "value": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "unit": {
+                "type": "string"
+              },
+              "raw_value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "holder_series",
+              "value",
+              "unit",
+              "raw_value"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "feed_per_tooth": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "unit": {
+              "type": "string"
+            },
+            "raw_value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value",
+            "unit",
+            "raw_value"
+          ],
+          "additionalProperties": true
+        },
+        "pitch": {
+          "type": "object",
+          "properties": {
+            "low": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "medium": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "high": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "unit": {
+              "type": "string"
+            },
+            "selection_conditions": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": [
+            "low",
+            "medium",
+            "high",
+            "unit",
+            "selection_conditions"
+          ],
+          "additionalProperties": true
+        },
+        "chamfer_max_width_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "feed_reduction_threshold_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "source_refs",
+        "review_status",
+        "family_id",
+        "operation",
+        "holder_part_numbers",
+        "insert_size",
+        "insert_base",
+        "point_angle_deg",
+        "hole_diameter_mm",
+        "workpiece_material",
+        "iso_material_group",
+        "grade",
+        "cutting_speed",
+        "feed_per_rev",
+        "peck_depth",
+        "cutting_speed_by_holder_series",
+        "feed_per_tooth",
+        "pitch",
+        "chamfer_max_width_mm",
+        "feed_reduction_threshold_mm",
+        "conditions",
+        "notes",
+        "extensions"
+      ],
+      "additionalProperties": true
+    },
+    "table": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source_ref"
+          }
+        },
+        "review_status": {
+          "enum": [
+            "source_checked",
+            "needs_review",
+            "text_index_only"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "item_specifications",
+            "cutting_data",
+            "compatibility",
+            "material_grades",
+            "technical_reference",
+            "packaging",
+            "accessories"
+          ]
+        },
+        "title_en": {
+          "type": "string"
+        },
+        "family_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "bbox": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "coordinate_system": {
+          "type": "string"
+        },
+        "header_row_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "minLength": 1
+              },
+              "label_raw": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "key",
+              "label_raw",
+              "unit"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "physical_cells": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/physical_cell"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "source_refs",
+        "review_status",
+        "kind",
+        "title_en",
+        "family_ids",
+        "bbox",
+        "coordinate_system",
+        "header_row_count",
+        "columns",
+        "rows",
+        "physical_cells",
+        "notes",
+        "extensions"
+      ],
+      "additionalProperties": true
+    },
+    "physical_cell": {
+      "type": "object",
+      "properties": {
+        "row": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "column": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "row_span": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "column_span": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "text": {
+          "type": "string"
+        },
+        "bbox": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "row",
+        "column",
+        "row_span",
+        "column_span",
+        "text",
+        "bbox"
+      ],
+      "additionalProperties": true
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edition": {
+          "type": "string"
+        },
+        "publication_code": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "original_local_path": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "byte_size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "page_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "language": {
+          "type": "string"
+        },
+        "copyright": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "source_type",
+        "title",
+        "edition",
+        "publication_code",
+        "filename",
+        "original_local_path",
+        "url",
+        "sha256",
+        "byte_size",
+        "page_count",
+        "language",
+        "copyright",
+        "notes"
+      ],
+      "additionalProperties": true
+    }
+  }
+}
