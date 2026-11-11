@@ -46,7 +46,7 @@ const CENTERING_PRODUCTS = [
     name: "i-Center Center Drill",
     image: "../../img/centering.png",
     description: "Center drilling and positioning tool.",
-    href: "../../Products/ICenter/index.html"
+    href: "../../Machining/Centering/index.html"
   }
 
 ];

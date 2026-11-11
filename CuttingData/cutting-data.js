@@ -93,13 +93,14 @@ const CUTTING_DATA_PRODUCTS = [
     name: "i-Center Center Drill",
     category: "Centering",
     image: "../img/centering.png",
-    status: "Preparing",
-    href: "../Products/ICenter/index.html#cutting-data",
-    summary: "Center drilling cutting data presets are being prepared.",
+    status: "Available",
+    href: "../Machining/Centering/index.html",
+    actionLabel: "Set Up Center Hole →",
+    summary: "Select an i-Center insert and holder, then set center-hole cutting conditions.",
     details: [
-      "Planned: center drill size selection",
-      "Planned: material presets",
-      "Planned: feed mode guidance"
+      "DIN A, A+B and R forms, with separate ANSI selection",
+      "Matching pilot diameter, fixed insert grade and same-IC holder",
+      "Output: median speed and feed recommendations, staged cutting and entered-depth Z"
     ]
   },
   {

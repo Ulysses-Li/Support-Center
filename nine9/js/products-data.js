@@ -25,7 +25,7 @@ const PRODUCT_FAMILIES = [
     image: "../img/centering.png",
     href: "../Machining/Centering/index.html",
     products: [
-      { name: "i-Center Center Drill", href: "../Products/ICenter/index.html" }
+      { name: "i-Center Center Drill", href: "../Machining/Centering/index.html" }
     ]
   },
 
