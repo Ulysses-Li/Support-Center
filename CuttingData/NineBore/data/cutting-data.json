@@ -1,0 +1,573 @@
+{
+  "schema_version": "1.0.0",
+  "scope_zh_tw": "NineBore 型錄印刷 p162 切削表；供正式選型頁依實體刀片與切削條件配對。",
+  "rows": [
+    {
+      "id": "carbon-regular",
+      "iso_group": "P",
+      "workpiece_material": "Carbon Steel",
+      "cutting_condition_or_surface_finish": "Regular cutting",
+      "cutting_speed": {
+        "catalog_sequence": [
+          120,
+          150,
+          200
+        ],
+        "unit": "m/min",
+        "status": "catalog"
+      },
+      "feed_per_revolution": {
+        "catalog_sequence": [
+          0.05,
+          0.07,
+          0.1
+        ],
+        "unit": "mm/rev",
+        "status": "catalog"
+      },
+      "radial_stock_ae": {
+        "by_insert_radius": [
+          {
+            "re_mm": 0.2,
+            "ae_mm": 0.05
+          },
+          {
+            "re_mm": 0.4,
+            "ae_mm": 0.1
+          }
+        ],
+        "status": "catalog"
+      },
+      "grade_candidates": [
+        "NC2033"
+      ],
+      "hardness_condition": null,
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "id": "carbon-interrupted",
+      "iso_group": "P",
+      "workpiece_material": "Carbon Steel",
+      "cutting_condition_or_surface_finish": "Interrupted cutting",
+      "cutting_speed": {
+        "catalog_sequence": [
+          100,
+          120,
+          140
+        ],
+        "unit": "m/min",
+        "status": "catalog"
+      },
+      "feed_per_revolution": {
+        "catalog_sequence": [
+          0.04,
+          0.05,
+          0.08
+        ],
+        "unit": "mm/rev",
+        "status": "catalog"
+      },
+      "radial_stock_ae": {
+        "by_insert_radius": [
+          {
+            "re_mm": 0.2,
+            "ae_mm": 0.05
+          },
+          {
+            "re_mm": 0.4,
+            "ae_mm": 0.1
+          }
+        ],
+        "status": "catalog"
+      },
+      "grade_candidates": [
+        "NC30"
+      ],
+      "hardness_condition": null,
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "id": "alloy-regular",
+      "iso_group": "P",
+      "workpiece_material": "Alloy Steel",
+      "cutting_condition_or_surface_finish": "Regular cutting",
+      "cutting_speed": {
+        "catalog_sequence": [
+          100,
+          120,
+          140
+        ],
+        "unit": "m/min",
+        "status": "catalog"
+      },
+      "feed_per_revolution": {
+        "catalog_sequence": [
+          0.05,
+          0.07,
+          0.1
+        ],
+        "unit": "mm/rev",
+        "status": "catalog"
+      },
+      "radial_stock_ae": {
+        "by_insert_radius": [
+          {
+            "re_mm": 0.2,
+            "ae_mm": 0.05
+          },
+          {
+            "re_mm": 0.4,
+            "ae_mm": 0.1
+          }
+        ],
+        "status": "catalog"
+      },
+      "grade_candidates": [
+        "NC2033"
+      ],
+      "hardness_condition": null,
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "id": "alloy-interrupted",
+      "iso_group": "P",
+      "workpiece_material": "Alloy Steel",
+      "cutting_condition_or_surface_finish": "Interrupted cutting",
+      "cutting_speed": {
+        "catalog_sequence": [
+          80,
+          100,
+          120
+        ],
+        "unit": "m/min",
+        "status": "catalog"
+      },
+      "feed_per_revolution": {
+        "catalog_sequence": [
+          0.04,
+          0.05,
+          0.08
+        ],
+        "unit": "mm/rev",
+        "status": "catalog"
+      },
+      "radial_stock_ae": {
+        "by_insert_radius": [
+          {
+            "re_mm": 0.2,
+            "ae_mm": 0.05
+          },
+          {
+            "re_mm": 0.4,
+            "ae_mm": 0.1
+          }
+        ],
+        "status": "catalog"
+      },
+      "grade_candidates": [
+        "NC30"
+      ],
+      "hardness_condition": null,
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "id": "stainless-regular",
+      "iso_group": "M",
+      "workpiece_material": "Stainless Steel",
+      "cutting_condition_or_surface_finish": "Regular cutting",
+      "cutting_speed": {
+        "catalog_sequence": [
+          80,
+          100,
+          120
+        ],
+        "unit": "m/min",
+        "status": "catalog"
+      },
+      "feed_per_revolution": {
+        "catalog_sequence": [
+          0.05,
+          0.07,
+          0.1
+        ],
+        "unit": "mm/rev",
+        "status": "catalog"
+      },
+      "radial_stock_ae": {
+        "by_insert_radius": [
+          {
+            "re_mm": 0.2,
+            "ae_mm": 0.05
+          },
+          {
+            "re_mm": 0.4,
+            "ae_mm": 0.1
+          }
+        ],
+        "status": "catalog"
+      },
+      "grade_candidates": [
+        "NC2033"
+      ],
+      "hardness_condition": null,
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "id": "stainless-interrupted",
+      "iso_group": "M",
+      "workpiece_material": "Stainless Steel",
+      "cutting_condition_or_surface_finish": "Interrupted cutting",
+      "cutting_speed": {
+        "catalog_sequence": [
+          70,
+          80,
+          100
+        ],
+        "unit": "m/min",
+        "status": "catalog"
+      },
+      "feed_per_revolution": {
+        "catalog_sequence": [
+          0.05,
+          0.07,
+          0.1
+        ],
+        "unit": "mm/rev",
+        "status": "catalog"
+      },
+      "radial_stock_ae": {
+        "by_insert_radius": [
+          {
+            "re_mm": 0.2,
+            "ae_mm": 0.05
+          },
+          {
+            "re_mm": 0.4,
+            "ae_mm": 0.1
+          }
+        ],
+        "status": "catalog"
+      },
+      "grade_candidates": [
+        "NC30"
+      ],
+      "hardness_condition": null,
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "id": "cast-iron-regular",
+      "iso_group": "K",
+      "workpiece_material": "Cast Iron",
+      "cutting_condition_or_surface_finish": "Regular cutting",
+      "cutting_speed": {
+        "catalog_sequence": [
+          80,
+          100,
+          120
+        ],
+        "unit": "m/min",
+        "status": "catalog"
+      },
+      "feed_per_revolution": {
+        "catalog_sequence": [
+          0.05,
+          0.07,
+          0.1
+        ],
+        "unit": "mm/rev",
+        "status": "catalog"
+      },
+      "radial_stock_ae": {
+        "by_insert_radius": [
+          {
+            "re_mm": 0.2,
+            "ae_mm": 0.05
+          },
+          {
+            "re_mm": 0.4,
+            "ae_mm": 0.1
+          }
+        ],
+        "status": "catalog"
+      },
+      "grade_candidates": [
+        "NC2032",
+        "NC30"
+      ],
+      "hardness_condition": null,
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "id": "nonferrous-regular",
+      "iso_group": "N",
+      "workpiece_material": "Non-ferrous metal",
+      "cutting_condition_or_surface_finish": "Regular cutting",
+      "cutting_speed": {
+        "catalog_sequence": [
+          150,
+          200,
+          300
+        ],
+        "unit": "m/min",
+        "status": "catalog"
+      },
+      "feed_per_revolution": {
+        "catalog_sequence": [
+          0.05,
+          0.07,
+          0.1
+        ],
+        "unit": "mm/rev",
+        "status": "catalog"
+      },
+      "radial_stock_ae": {
+        "by_insert_radius": [
+          {
+            "re_mm": 0.2,
+            "ae_mm": 0.05
+          },
+          {
+            "re_mm": 0.4,
+            "ae_mm": 0.1
+          }
+        ],
+        "status": "catalog"
+      },
+      "grade_candidates": [
+        "NC9036"
+      ],
+      "hardness_condition": null,
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "id": "nonferrous-mirror",
+      "iso_group": "N",
+      "workpiece_material": "Non-ferrous metal",
+      "cutting_condition_or_surface_finish": "Super mirror finish",
+      "cutting_speed": {
+        "catalog_sequence": [
+          150,
+          200,
+          300
+        ],
+        "unit": "m/min",
+        "status": "catalog"
+      },
+      "feed_per_revolution": {
+        "catalog_sequence": [
+          0.15,
+          0.2,
+          0.25
+        ],
+        "unit": "mm/rev",
+        "status": "catalog"
+      },
+      "radial_stock_ae": {
+        "value": 0.15,
+        "unit": "mm",
+        "applies_to": "merged Re columns in source table",
+        "radius_specific_mapping": null,
+        "status": "catalog",
+        "note_zh_tw": "原表兩個Re欄合併列0.15，不另推指定刀尖半徑。"
+      },
+      "grade_candidates": [
+        "XP9001"
+      ],
+      "hardness_condition": null,
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "id": "hardened-regular",
+      "iso_group": "H",
+      "workpiece_material": "Hardened Steel <HRC 50",
+      "cutting_condition_or_surface_finish": "Regular cutting",
+      "cutting_speed": {
+        "catalog_sequence": [
+          80,
+          100,
+          120
+        ],
+        "unit": "m/min",
+        "status": "catalog"
+      },
+      "feed_per_revolution": {
+        "catalog_sequence": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "unit": "mm/rev",
+        "status": "catalog"
+      },
+      "radial_stock_ae": {
+        "by_insert_radius": [
+          {
+            "re_mm": 0.2,
+            "ae_mm": 0.05
+          },
+          {
+            "re_mm": 0.4,
+            "ae_mm": 0.1
+          }
+        ],
+        "status": "catalog"
+      },
+      "grade_candidates": [
+        "NC30"
+      ],
+      "hardness_condition": {
+        "operator": "<",
+        "value": 50,
+        "unit": "HRC",
+        "status": "catalog"
+      },
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    }
+  ],
+  "formulas": [
+    {
+      "quantity": "spindle_speed",
+      "symbol": "S",
+      "expression": "Vc * 1000 / (PI * D)",
+      "unit": "rpm",
+      "status": "catalog",
+      "diameter_basis_zh_tw": "D為搪孔切削直徑，後續UI應對應客戶目標孔徑，不是刀柄或刀桿外徑。",
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "quantity": "feed_rate",
+      "symbol": "Vf",
+      "expression": "f * S",
+      "unit": "mm/min",
+      "status": "catalog",
+      "note_zh_tw": "f為每轉進給，不乘刃數。",
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Cutting Data",
+        "image": "verification/page-15.png"
+      }
+    }
+  ],
+  "grade_descriptions": [
+    {
+      "code": "NC30",
+      "catalog_description": "Universal grade for casting iron, carbon steel, alloy steel, stainless steel.",
+      "status": "catalog",
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Boring Tool Precisely Ground Inserts",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "code": "NC2032",
+      "catalog_description": "For high speed cutting of casting iron.",
+      "status": "catalog",
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Boring Tool Precisely Ground Inserts",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "code": "NC2033",
+      "catalog_description": "Good for carbon steel, alloy steel, stainless steel.",
+      "status": "catalog",
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Boring Tool Precisely Ground Inserts",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "code": "NC9036",
+      "catalog_description": "Long tool life. Good for Al, Al-alloy, Copper and non-ferrous metal.",
+      "status": "catalog",
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Boring Tool Precisely Ground Inserts",
+        "image": "verification/page-15.png"
+      }
+    },
+    {
+      "code": "XP9001",
+      "catalog_description": "Super finishing insert with special specified cutting width 0.15mm radius for high feed rate. Good for Al, Al-alloy and non-ferrous metal.",
+      "status": "catalog",
+      "source": {
+        "printed_page": 162,
+        "pdf_page": 15,
+        "section": "Boring Tool Precisely Ground Inserts",
+        "image": "verification/page-15.png"
+      }
+    }
+  ],
+  "interpretation_notes_zh_tw": [
+    "表格標題未將三值逐一命名為minimum/best/maximum，先保留原序列；未自動輸出建議轉速。",
+    "Ae欄由圖示標在孔壁與刀尖之間，為徑向切削餘量；若由預孔直徑換算，需另標導出公式 (D_target-D_prebore)/2。",
+    "圖表沒有為所有孔徑、刀桿伸出與夾持方式各列一套切削值，深孔不可沿用一般條件便宣告已驗證。",
+    "H材料列條件是HRC<50，並非支援任意淬硬鋼；本頁未列ISO S切削資料。",
+    "牌號文字與材料切削列分別保留；刀片幾何和牌號能否與某刀桿配對，需要product-inventory內明確配對。",
+    "P150及P157為加工案例，案例S/f不可冒充全部工件的推薦預設。",
+    "G6.3／10000 rpm為型錄預平衡參考，不能直接當成所有組裝的最高可用轉速。"
+  ]
+}

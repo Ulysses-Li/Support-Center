@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NineBore 原廠待確認清單｜2026-11-12</title>
+  <meta name="description" content="NineBore 刀片牌號、正式切削條件、訂購變體及組裝尺寸待確認清單，供原廠填覆與列印。">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../header/header.css">
+  <link rel="stylesheet" href="../../footer/footer.css">
+  <link rel="stylesheet" href="../../css/site-background.css">
+  <link rel="icon" href="../../favicon.png">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <style>
+    /* 本頁只調整待確認清單；共用導覽與技術背景沿用根目錄資源。 */
+    .mq-document{font-family:Arial,"Microsoft JhengHei",sans-serif}
+    .mq-page{--mq-orange:#f05a1a;--mq-blue:#0067ad;--mq-ink:#0c2237;color:var(--mq-ink);font-size:16px;line-height:1.75;padding:2rem 0 4rem}
+    .mq-page a{color:var(--mq-blue);text-underline-offset:.18em}
+    .mq-page h1,.mq-page h2,.mq-page h3{color:var(--mq-ink);font-weight:750;line-height:1.4}
+    .mq-page h1{font-size:clamp(1.8rem,4vw,2.7rem)}
+    .mq-page .mq-eyebrow{color:var(--mq-blue);font-size:14px;font-weight:750;letter-spacing:.08em}
+    .mq-page .mq-sheet{background:#fff;border:1px solid #dbe8f1;border-radius:18px;box-shadow:0 12px 36px #0c22370a;padding:clamp(1.2rem,3vw,2.25rem)}
+    .mq-page .mq-case{background:#eef7fc;border-left:4px solid var(--mq-orange);border-radius:8px;padding:1rem 1.25rem}
+    .mq-page .mq-case dt,.mq-page .mq-label{color:#476275;font-size:14px;font-weight:650}
+    .mq-page .mq-case dd{font-weight:750;margin-bottom:0}
+    .mq-page .mq-note{background:#fff4ec;border-left:4px solid var(--mq-orange);padding:1rem 1.25rem;border-radius:8px}
+    .mq-page .mq-question{padding-top:2rem;margin-top:2rem;border-top:1px solid #dbe8f1}
+    .mq-page .mq-number{font-size:14px;font-weight:800;color:var(--mq-blue);letter-spacing:.05em}
+    .mq-page .mq-priority{font-size:14px;font-weight:750;padding:.25rem .65rem;border-radius:30px;color:#a03d0d;background:#fff0e6;white-space:nowrap}
+    .mq-page .mq-priority-secondary{color:#005489;background:#e9f4fb}
+    .mq-page .mq-source{font-size:14px;color:#476275;margin-top:1rem}
+    .mq-page .mq-source a{display:inline-block;margin-right:.7rem}
+    .mq-page .mq-table{font-size:14px;line-height:1.55;vertical-align:middle;min-width:700px}
+    .mq-page .mq-table th{background:#edf5fa;color:var(--mq-ink);font-weight:750}
+    .mq-page .mq-table td,.mq-page .mq-table th{padding:.65rem;border-color:#d7e3eb}
+    .mq-page .mq-fill{min-height:2.8rem;background:#fafcfe;border:1px dashed #a9bfd0;border-radius:5px;padding:.5rem .65rem;overflow-wrap:anywhere;font-size:14px}
+    .mq-page .mq-fill-large{min-height:6rem}
+    .mq-page .mq-fill:empty::before{content:attr(data-placeholder);color:#738999;pointer-events:none}
+    .mq-page .mq-fill:focus{outline:3px solid #0067ad33;outline-offset:2px;border-color:var(--mq-blue)}
+    .mq-page .mq-print-button{background:var(--mq-orange);color:#fff;border-color:var(--mq-orange);font-size:16px;min-height:44px;font-weight:700;padding:.6rem 1rem}
+    .mq-page .mq-print-button:hover{background:#d84c12;border-color:#d84c12}
+    .mq-page .mq-back-button{font-size:16px;min-height:44px;color:var(--mq-blue);border:1px solid #aec9dc;padding:.6rem 1rem}
+    .mq-page .mq-keep{break-inside:avoid}
+    .mq-page .mq-question h2{font-size:1.35rem;margin-bottom:1rem}
+    .mq-page .mq-question h3{font-size:1rem;margin-top:1.2rem;margin-bottom:.5rem}
+    .mq-page .mq-overview ol{columns:2;column-gap:2rem;padding-left:1.4rem;margin-bottom:0}.mq-page .mq-overview li{break-inside:avoid;padding:.2rem 0}
+    .mq-page li+li{margin-top:.35rem}
+    @media(max-width:575.98px){.mq-page{padding-top:1rem}.mq-page .mq-sheet{border-radius:12px}.mq-page .mq-question{padding-top:1.5rem;margin-top:1.5rem}.mq-page .mq-overview ol{columns:1}}
+    /* 列印保留全部回覆與來源；不把可編輯區變成會裁切文字的固定高度欄位。 */
+    @page{size:A4;margin:14mm 12mm}
+    @media print{
+      html,body{background:#fff!important;color:#000!important}
+      #header-placeholder,#footer-placeholder,.mq-no-print{display:none!important}
+      .mq-page{padding:0;font-size:10.5pt;line-height:1.6}
+      .mq-page>.container-xl{max-width:none;width:100%;padding:0}
+      .mq-page .mq-sheet{padding:0;border:0;border-radius:0;box-shadow:none}
+      .mq-page h1{font-size:22pt}.mq-page .mq-question h2{font-size:14pt;break-after:avoid}
+      .mq-page h3,.mq-page .mq-source{break-after:avoid}
+      .mq-page .mq-question{margin-top:6mm;padding-top:6mm}
+      .mq-page .mq-table{min-width:0;width:100%;font-size:9.5pt}
+      .mq-page .mq-table td,.mq-page .mq-table th{padding:2mm}
+      .mq-page .table-responsive{overflow:visible}
+      .mq-page thead{display:table-header-group}.mq-page tr{break-inside:avoid}
+      .mq-page .mq-fill{background:#fff;min-height:10mm;border-color:#aab7c0;font-size:10pt}
+      .mq-page .mq-fill-large{min-height:19mm}
+      .mq-page .mq-fill:empty::before{color:#777}
+      .mq-page .mq-case,.mq-page .mq-note{break-inside:avoid;padding:3mm 4mm}
+      .mq-page .mq-source{font-size:9pt}
+      .mq-page a{color:#17486a;text-decoration:underline}
+      .mq-page .mq-priority,.mq-page .mq-eyebrow,.mq-page .mq-number{font-size:9.5pt}
+      .mq-page *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    }
+    @media(prefers-reduced-motion:reduce){.mq-page *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body class="mq-document d-flex flex-column min-vh-100">
+  <div id="header-placeholder"></div>
+  <main class="mq-page flex-grow-1" id="main-content">
+    <div class="container-xl">
+      <nav class="mq-no-print mb-4" aria-label="麵包屑"><a href="./index.html?lang=zh-TW">NineBore 選型工具</a><span class="mx-2" aria-hidden="true">/</span><span>原廠待確認清單</span></nav>
+      <div class="mq-sheet">
+        <header>
+          <p class="mq-eyebrow mb-2">NINEBORE · 原廠技術資料補充</p>
+          <h1>原廠待確認清單</h1>
+          <p class="mb-3">建立日期：<time datetime="2026-11-12">2026-11-12</time>　｜　範圍：刀片牌號與切削資料、99121 訂購變體、夾持及總成尺寸</p>
+          <p class="mq-note mb-4"><strong>本文件是問題與資料補充清單，非切削建議書。</strong><br>請原廠依實際刀片、材料及組裝條件填覆，並提供正式文件、版本／日期與頁碼。未列明的數值不視為零，也不以其他牌號或切削條件代替。</p>
+          <!-- 目前案例保留實際加工需求，讓原廠先處理小刀片一般切削資料的缺口。 -->
+          <section class="mq-case" aria-labelledby="case-title">
+            <h2 id="case-title" class="h5 mb-3">目前客戶案例</h2>
+            <dl class="row g-3 mb-0">
+              <div class="col-6 col-md-4"><dt>完工孔徑</dt><dd>Ø5 mm</dd></div>
+              <div class="col-6 col-md-4"><dt>要求搪孔深度</dt><dd>15 mm</dd></div>
+              <div class="col-6 col-md-4"><dt>工件材料</dt><dd>不鏽鋼 Stainless Steel</dd></div>
+              <div class="col-6 col-md-4"><dt>刀桿</dt><dd>00-99121-05</dd></div>
+              <div class="col-6 col-md-4"><dt>實體刀片／牌號</dt><dd>CCGT030102／NC30</dd></div>
+              <div class="col-6 col-md-4"><dt>預期切削條件</dt><dd>一般切削 Regular cutting</dd></div>
+            </dl>
+          </section>
+          <p class="mt-3 mb-2"><strong>本次不重問：</strong>99121 有 Ø13／Ø16／Ø20 後端柄徑選項已確認；CCFT060204、CCFW060204 適用 99101／99121 已有原廠系列頁佐證。以下只詢問尚缺的細項與正式數據。</p>
+          <p class="mq-no-print text-secondary mb-3">原廠可直接點選回覆區填寫，再列印或另存 PDF。輸入內容不會送出至任何服務，也不會自動儲存；請保留完成後的 PDF。</p>
+          <div class="d-flex flex-wrap gap-2 mq-no-print">
+            <button type="button" class="btn mq-print-button" id="print-questions">列印／另存 PDF</button>
+            <a class="btn mq-back-button" href="./index.html?lang=zh-TW">回到選型工具</a>
+            <a class="btn mq-back-button" href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf" target="_blank" rel="noopener">查看產品型錄</a>
+          </div>
+          <nav class="mq-overview mt-4" aria-labelledby="overview-title">
+            <h2 id="overview-title" class="h5">待確認問題一覽</h2>
+            <ol>
+              <li><a href="#question-01">小刀片 NC30 的一般切削數據</a></li>
+              <li><a href="#question-02">0602／NC30 的實體訂購料號</a></li>
+              <li><a href="#question-03">CCGH0602U 的牌號、版本與 Re</a></li>
+              <li><a href="#question-04">99121 三種柄徑與長度對照</a></li>
+              <li><a href="#question-05">直柄可用深度與最小夾持量</a></li>
+              <li><a href="#question-06">99151 轉接座插入量與總成伸出</a></li>
+              <li><a href="#question-07">總成轉速、內冷與 SB32 夾持</a></li>
+            </ol>
+          </nav>
+        </header>
+
+        <section class="mq-question" id="question-01" aria-labelledby="question-01-title">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 01／07 · 切削資料</span><span class="mq-priority">P1 優先：影響目前案例</span></div>
+          <h2 id="question-01-title">小刀片 NC30 的一般切削正式條件</h2>
+          <h3>已知資料</h3>
+          <p>p162 實體 CCGT030102／CCGT040102 列 NC30、NC9036，未列 NC2033；碳鋼、合金鋼、不鏽鋼的「一般切削」列卻指定 NC2033。NC30 的牌號說明包含這三類材料，但表內 NC30 數據對應「斷續切削」。<strong>缺的是小刀片 NC30 的一般切削條件，不是判定 NC30 不適合這些材料。</strong></p>
+          <h3>請原廠填覆</h3>
+          <p>請按實體刀片與材料提供一般切削的正式 Vc、每轉進給 f、徑向餘量 Ae，以及適用限制。若可直接沿用某列，請明確指出「哪一牌號／刀片可沿用哪一列」，並附原廠依據。</p>
+          <div class="table-responsive"><table class="table table-bordered mq-table mb-2">
+            <caption class="visually-hidden">小刀片 NC30 一般切削資料回填表，單位 Vc：m/min、f：mm/rev、Ae：mm。</caption>
+            <thead><tr><th scope="col">刀片／牌號</th><th scope="col">材料</th><th scope="col">Vc<br>m/min</th><th scope="col">f<br>mm/rev</th><th scope="col">Ae<br>mm</th><th scope="col">限制／正式來源</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">CCGT030102<br>NC30</th><td>碳鋼</td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 碳鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 碳鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 碳鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 碳鋼限制與正式來源"></div></td></tr>
+              <tr><th scope="row">CCGT030102<br>NC30</th><td>合金鋼</td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 合金鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 合金鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 合金鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 合金鋼限制與正式來源"></div></td></tr>
+              <tr><th scope="row">CCGT030102<br>NC30</th><td><strong>不鏽鋼</strong></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 不鏽鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 不鏽鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 不鏽鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 不鏽鋼限制與正式來源"></div></td></tr>
+              <tr><th scope="row">CCGT040102<br>NC30</th><td>碳鋼</td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 碳鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 碳鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 碳鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 碳鋼限制與正式來源"></div></td></tr>
+              <tr><th scope="row">CCGT040102<br>NC30</th><td>合金鋼</td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 合金鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 合金鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 合金鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 合金鋼限制與正式來源"></div></td></tr>
+              <tr><th scope="row">CCGT040102<br>NC30</th><td>不鏽鋼</td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 不鏽鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 不鏽鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 不鏽鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 不鏽鋼限制與正式來源"></div></td></tr>
+            </tbody>
+          </table></div>
+          <p class="small mb-2">請一併註明材料牌號／硬度、冷卻方式、Re、伸出／孔深限制；若以三個數值表示範圍，請定義各值的意義。現有表格未將三值逐一命名為最小／最佳／最大。</p>
+          <div class="mq-fill mq-fill-large" contenteditable="true" role="textbox" aria-multiline="true" aria-label="問題01補充回覆與正式依據" data-placeholder="補充回覆、文件名稱／版本／日期／頁碼或官方連結："></div>
+          <p class="mq-source">依據：<a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=15" target="_blank" rel="noopener">型錄 p162：實體刀片、牌號說明及 Cutting Data</a><a href="https://nine9.jic-tools.com.tw/Inserts-For-99101-121-111-146-151.html" target="_blank" rel="noopener">原廠系列刀片頁</a></p>
+        </section>
+
+        <section class="mq-question" id="question-02" aria-labelledby="question-02-title">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 02／07 · 實體料號</span><span class="mq-priority">P1 優先：缺可訂購刀片</span></div>
+          <h2 id="question-02-title">0602 尺寸使用 NC30 時，應訂購哪一片？</h2>
+          <h3>已知資料</h3>
+          <p>p162 的 0602 實體庫只有 CCGH0602U／XP9001、CCFT060204／NC2033 或 NC9036、CCFW060204／NC2032，未列 0602／NC30；但碳鋼、合金鋼、不鏽鋼斷續切削，以及 HRC &lt; 50 淬硬鋼一般切削都列 NC30。p151 系統頁另寫 CCGH060204，不能自行將它當作上述其他料號的別名。</p>
+          <h3>請原廠填覆</h3>
+          <ol class="ps-4"><li>逐一指定上述四種材料／條件可用的<strong>完整實體刀片料號、牌號及塗層</strong>；若沒有適用品項，請明列限制或正式替代方案。</li><li>補 Ic、S、Re、適用刀桿系列與接口、應使用的刀桿螺絲；若需訂製或已停產，請附訂購／替代對照。</li><li>指出 NC30 切削列究竟適用哪些實體刀片，不能僅提供牌號名稱。</li></ol>
+          <div class="mq-fill mq-fill-large" contenteditable="true" role="textbox" aria-multiline="true" aria-label="問題02實體料號與各材料條件回覆" data-placeholder="材料／切削條件 → 實體料號 → 牌號／塗層 → Ic／S／Re → 系列／接口／螺絲 → 正式依據："></div>
+          <p class="mq-source">依據：<a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=4" target="_blank" rel="noopener">型錄 p151：系統刀片名稱</a><a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=15" target="_blank" rel="noopener">型錄 p162：實體 0602 品項與 NC30 切削列</a></p>
+        </section>
+
+        <section class="mq-question" id="question-03" aria-labelledby="question-03-title">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 03／07 · 版本差異</span><span class="mq-priority mq-priority-secondary">P2：訂購與數據一致性</span></div>
+          <h2 id="question-03-title">CCGH0602U 的現行牌號、正式名稱及 Re</h2>
+          <h3>已知資料</h3>
+          <p>參考型錄 p162 列 CCGH0602U／XP9001／Uncoated，Re 為「—」。現行官網表格則列 CCGH0602U／DLC／NC9036，上方牌號說明另有 U-NC9036。舊 XP9001 的 0.15 mm 特殊切削寬度說明，不能直接當作此實體刀片的 Re。</p>
+          <h3>請原廠填覆</h3>
+          <ol class="ps-4"><li>提供現行完整訂購料號、牌號與塗層；說明 XP9001、NC9036、U-NC9036 的版本關係及是否可直接替代。</li><li>提供刀尖幾何圖，明列 Re、特殊切削寬度／刃形與 Ae 的定義及對照。</li><li>確認適材、表面要求、切削條件及適用刀桿；若新舊版本不同，請分列資料。</li></ol>
+          <div class="mq-fill mq-fill-large" contenteditable="true" role="textbox" aria-multiline="true" aria-label="問題03新舊料號牌號與Re回覆" data-placeholder="現行訂購資料／新舊對照／Re與刃形圖／切削資料／文件版本："></div>
+          <p class="mq-source">依據：<a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=15" target="_blank" rel="noopener">型錄 p162：CCGH0602U 與 XP9001</a><a href="https://nine9.jic-tools.com.tw/Inserts-For-99101-121-111-146-151.html" target="_blank" rel="noopener">現行官網：CCGH0602U／NC9036、U-NC9036 說明</a></p>
+        </section>
+
+        <section class="mq-question" id="question-04" aria-labelledby="question-04-title">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 04／07 · 訂購變體</span><span class="mq-priority mq-priority-secondary">P2：需完整型號對照</span></div>
+          <h2 id="question-04-title">99121 三種柄徑的訂購碼與 50（48）長度映射</h2>
+          <h3>已知資料</h3>
+          <p>Ø13／Ø16／Ø20 選項已確認，本題不再詢問是否有這些柄徑。p153 圖面標 Ø20（Ø13）及後柄軸向長度 50（48），各表列料號未給三種柄徑的訂購變體與長度對照。</p>
+          <h3>請原廠填覆</h3>
+          <p>請提供 00-99121-05～25 各規格的完整訂購對照，並優先填本案 00-99121-05。請將「後柄實體長度」和「最小有效夾持量」分開，說明不同柄徑是否改變 L、L1 或調整環位置。</p>
+          <div class="table-responsive"><table class="table table-bordered mq-table">
+            <thead><tr><th scope="col">已確認柄徑</th><th scope="col">99121-05 完整訂購碼</th><th scope="col">後柄長度／50（48）對應</th><th scope="col">適用型號與 L／L1 差異</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Ø13 mm</th><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="99121-05 Ø13完整訂購碼"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="99121 Ø13後柄長度與50或48對照"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="99121 Ø13適用型號與L L1差異"></div></td></tr>
+              <tr><th scope="row">Ø16 mm</th><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="99121-05 Ø16完整訂購碼"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="99121 Ø16後柄長度與50或48對照"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="99121 Ø16適用型號與L L1差異"></div></td></tr>
+              <tr><th scope="row">Ø20 mm</th><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="99121-05 Ø20完整訂購碼"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="99121 Ø20後柄長度與50或48對照"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="99121 Ø20適用型號與L L1差異"></div></td></tr>
+            </tbody>
+          </table></div>
+          <div class="mq-fill" contenteditable="true" role="textbox" aria-multiline="true" aria-label="問題04完整變體資料附件與來源" data-placeholder="完整對照表附件／圖號／版本／日期："></div>
+          <p class="mq-source">依據：<a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=6" target="_blank" rel="noopener">型錄 p153：99121 刀桿、Ø20（Ø13）與 50（48）</a>；Ø13／Ø16／Ø20 可選性已於 2026-11-12 確認。</p>
+        </section>
+
+        <section class="mq-question" id="question-05" aria-labelledby="question-05-title">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 05／07 · 直柄實際可用深度</span><span class="mq-priority">P1 優先：本案深度等於 L1</span></div>
+          <h2 id="question-05-title">前頸 L1、可用搪深與最小夾持量</h2>
+          <h3>已知資料</h3>
+          <p>p152／153 的 L1 是前頸圖示尺寸，未明文標成所有裝夾情況下的保證搪孔深度。00-99121-05 表列 L1＝15 mm、L＝54 mm；本案要求搪深同為 15 mm，需核對錐肩、調整環與工件入口的間隙，不能單憑深度等於 L1 就判定可用。</p>
+          <h3>請原廠填覆</h3>
+          <ol class="ps-4"><li>確認本案 Ø5 mm／深 15 mm 是否可加工；請註明入口條件、盲孔／通孔、底部及肩部間隙與所需預孔條件。</li><li>以圖面基準定義 L、L1、實際可用搪深與最大允許伸出，並提供 99101／99121 可用深度的判定方式。</li><li>分別列 Ø13／Ø16／Ø20 的最小有效夾持量、可夾持區域、側固位置及適用的一般刀柄要求；如不同型號不同，請分列。</li></ol>
+          <div class="mq-fill mq-fill-large" contenteditable="true" role="textbox" aria-multiline="true" aria-label="問題05實際可用深度與夾持量回覆" data-placeholder="本案可行條件／基準尺寸圖／最小夾持量／最大伸出／工件間隙／正式依據："></div>
+          <p class="mq-source">依據：<a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=5" target="_blank" rel="noopener">型錄 p152：99101</a><a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=6" target="_blank" rel="noopener">型錄 p153：99121-05，L1＝15、L＝54</a></p>
+        </section>
+
+        <section class="mq-question" id="question-06" aria-labelledby="question-06-title">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 06／07 · 深孔總成</span><span class="mq-priority mq-priority-secondary">P2：伸出與插入尺寸缺口</span></div>
+          <h2 id="question-06-title">99151 刀桿插入轉接座的要求與總成伸出</h2>
+          <h3>已知資料</h3>
+          <p>p158 列 00-99151A-06／08／10／11／15.5，轉接座 L 為前端至快換柄肩的尺寸，後方 42 mm 另標。p159 刀桿 L、L1 各有意義，不能把刀柄、轉接座、刀桿的 L 直接相加當作總成伸出或加工深度。</p>
+          <h3>請原廠填覆</h3>
+          <ol class="ps-4"><li>五款轉接座各自的最小／標準刀桿插入量、可調範圍、定位基準及固定要求。</li><li>以剖面或組裝圖標出機台端基準面、轉接座肩部、刀桿插入端及刀尖，定義總成伸出的計算方式與允許上限。</li><li>補齊影響肩部干涉的 Ød1：若 p159 空白格代表共用值或未定義，請逐項明示，避免自動沿用前一料號數值。</li></ol>
+          <div class="mq-fill mq-fill-large" contenteditable="true" role="textbox" aria-multiline="true" aria-label="問題06各轉接座插入量與總成伸出回覆" data-placeholder="轉接座料號 → 插入量／可調範圍 → 固定要求 → 伸出上限與基準圖 → Ød1對照 → 正式依據："></div>
+          <p class="mq-source">依據：<a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=7" target="_blank" rel="noopener">型錄 p154：機台端刀柄</a><a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=11" target="_blank" rel="noopener">型錄 p158：五款轉接座</a><a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=12" target="_blank" rel="noopener">型錄 p159：99151 刀桿 L／L1／Ød1</a></p>
+        </section>
+
+        <section class="mq-question" id="question-07" aria-labelledby="question-07-title">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 07／07 · 總成使用限制</span><span class="mq-priority mq-priority-secondary">P2：依實際組裝補資料</span></div>
+          <h2 id="question-07-title">總成最高轉速、內冷通路與 SB32 外接夾持</h2>
+          <h3>已知資料</h3>
+          <p>G6.3／10,000 rpm 是型錄平衡參考，未列成全部組裝共用的最高可用轉速。p153 僅說明 99121 自 Ø7 mm 起可按需訂製 H 型內冷，本案 Ø5 mm 未取得內冷支援證據；99151 刀桿與轉接座的逐項內冷狀態也未明列。SB32 是 Ø32 直柄接續介面，仍需外部機台刀柄夾持。</p>
+          <h3>請原廠填覆</h3>
+          <ol class="ps-4"><li>依刀柄＋轉接座＋刀桿＋伸出條件提供總成轉速上限及適用限制，並說明與平衡參考的關係。</li><li>列出可內冷的完整訂購碼、配套零件、通路、密封與供液要求；區分標準品、選配及不支援項目。</li><li>SB32 外接刀柄所需的最小夾持量、側固位置及限制；請勿以圖面後柄 60 mm 直接代替最小夾持量。</li></ol>
+          <div class="mq-fill mq-fill-large" contenteditable="true" role="textbox" aria-multiline="true" aria-label="問題07轉速內冷與SB32夾持回覆" data-placeholder="適用總成／轉速上限與條件／內冷訂購資料／SB32夾持要求／正式依據："></div>
+          <p class="mq-source">依據：<a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=4" target="_blank" rel="noopener">型錄 p151：G6.3／10,000 rpm</a><a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=6" target="_blank" rel="noopener">型錄 p153：99121 H 型內冷</a><a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=7" target="_blank" rel="noopener">型錄 p154：SB32</a><a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=11" target="_blank" rel="noopener">型錄 p158–159：99151 轉接座與刀桿</a></p>
+        </section>
+
+        <section class="mq-question mq-keep" aria-labelledby="reply-title">
+          <h2 id="reply-title">原廠回覆資訊</h2>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6"><p class="mq-label mb-1">回覆單位／人員</p><div class="mq-fill" contenteditable="true" role="textbox" aria-label="原廠回覆單位與人員"></div></div>
+            <div class="col-12 col-sm-6"><p class="mq-label mb-1">回覆日期／文件版本</p><div class="mq-fill" contenteditable="true" role="textbox" aria-label="原廠回覆日期與文件版本"></div></div>
+            <div class="col-12"><p class="mq-label mb-1">附件、圖號與尚待提供項目</p><div class="mq-fill" contenteditable="true" role="textbox" aria-multiline="true" aria-label="原廠附件圖號與尚待提供項目"></div></div>
+          </div>
+          <p class="mq-source mb-0">頁碼均為隨頁提供之 NineBore 型錄的印刷頁碼；連結已換算成 PDF 頁次。現行官網核對日期：2026-11-12。此清單不推定缺漏數值，不構成已驗證的完整加工組裝。</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="./locale.zh-TW.js"></script>
+  <script src="./locale.ui.js"></script>
+  <script>
+    // 僅觸發瀏覽器列印與載入共用頁首頁尾；沒有送出表單或外部資料寫入。
+    document.getElementById('print-questions').addEventListener('click', function () { window.print(); });
+    async function loadSharedLayout(part) {
+      const response = await fetch('../../' + part + '/' + part + '.html');
+      if (!response.ok) return;
+      document.getElementById(part + '-placeholder').innerHTML = await response.text();
+      NINEBORE_UI_LOCALE.apply(document.getElementById(part + '-placeholder'));
+      if (part !== 'header') return;
+      const button = document.getElementById('mobileMenuBtn');
+      const nav = document.getElementById('topNav');
+      if (!button || !nav) return;
+      button.textContent = '選單';
+      button.setAttribute('aria-controls', 'topNav');
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-label', '開啟選單');
+      button.addEventListener('click', function () {
+        const open = nav.classList.toggle('active');
+        button.setAttribute('aria-expanded', String(open));
+        button.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
+      });
+    }
+    Promise.allSettled([loadSharedLayout('header'), loadSharedLayout('footer')]);
+  </script>
+</body>
+</html>

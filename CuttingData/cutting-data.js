@@ -194,13 +194,14 @@ const CUTTING_DATA_PRODUCTS = [
     name: "NineBore Boring Tool",
     category: "Boring",
     image: "../img/boring.png",
-    status: "Preparing",
-    href: "../Products/NineBore/index.html#cutting-data",
-    summary: "Boring cutting data presets are being prepared.",
+    status: "Available",
+    href: "./NineBore/index.html",
+    actionLabel: "Set Up Boring →",
+    summary: "Choose a boring bar, match the clamping and insert, then calculate cutting conditions.",
     details: [
-      "Planned: boring diameter and allowance",
-      "Planned: material presets",
-      "Planned: feed per revolution guidance"
+      "99101 / 99121 straight shanks and 99146 / 99151 holder selection",
+      "Material-suitable insert grades and catalog dimension drawings",
+      "Output: spindle speed, feed per revolution and feed rate"
     ]
   },
   {

@@ -1,0 +1,1423 @@
+{
+  "schema_version": "1.0.0",
+  "title": "NineBore 夾持、轉接與組裝型錄資料",
+  "status": "型錄核對資料；供 NineBore 正式選型頁使用。",
+  "scope": "夾持刀柄、99151 轉接件、99146 套組與配對/長度語意；不重複完整刀桿清單",
+  "source_document": {
+    "path": "../sources/13_NineBore Boring Tool_p148-166.pdf",
+    "title": "NineBore Boring Tool",
+    "printed_page_range": [
+      148,
+      166
+    ],
+    "pdf_pages": 19,
+    "verification": "已對照 verification/page-xx.png 目視表格與圖面，visible-page-xx.txt 僅作輔助",
+    "page_number_rule": "pdf_page = printed_page - 147",
+    "verified_relevant_pages": [
+      150,
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      158,
+      159,
+      160,
+      161,
+      163,
+      164
+    ]
+  },
+  "field_schema": {
+    "partsNo": "原廠 Part No./Parts No. 的實際字串；套組與刀柄分開，不憑字尾產生新料號",
+    "type": "原廠 Type；來源沒有 Type 欄者填 null，原始內容另放 contents_original",
+    "dimensions_mm": "以原表欄名為 key，數值單位 mm。例 ØD、L、L1；圖面獨立尺寸另放 drawing_dimensions_mm",
+    "source": "來源物件 {printed_page:number,pdf_page:number}；可另有 sources 多來源",
+    "internal_coolant": "true/false/null；null 表示相關來源未明列，不能從 H 字尾或外觀推斷",
+    "confirmed_machining_depth_mm": "未由該零件的來源明列為加工深度時一律 null",
+    "evidence_kind": "catalog=型錄明列；catalog_drawing=圖面直接尺寸或結構；site_flow=本站流程；inference=推論；unconfirmed=待確認",
+    "catalog_fields_original": "保存原表字樣；'-' 表原表破折號，與 null 的未提供欄位有別",
+    "maximum_rpm": "null 表示本段資料沒有逐項最高轉速；不可用 G6.3@10000 自動填入"
+  },
+  "holder_common": {
+    "source": {
+      "printed_page": 154,
+      "pdf_page": 7
+    },
+    "applicable_series": [
+      "99146",
+      "99151"
+    ],
+    "common_pairing_source": {
+      "printed_page": 151,
+      "pdf_page": 4
+    },
+    "tool_side_interface": {
+      "description": "NineBore 快換介面；99146 刀桿直接裝入，99151 透過其專屬 adapter 裝入",
+      "drawing_dimensions_mm": {
+        "接入刀桿/adapter後端Ø": 20,
+        "接入刀桿/adapter後端長": 42
+      },
+      "sources": [
+        {
+          "printed_page": 155,
+          "pdf_page": 8
+        },
+        {
+          "printed_page": 156,
+          "pdf_page": 9
+        },
+        {
+          "printed_page": 158,
+          "pdf_page": 11
+        }
+      ],
+      "required_minimum_insertion_mm": null,
+      "note": "Ø20×42 為圖示快換柄段，非保證42mm最小夾持規範；不得以任意Ø20一般夾頭代替NineBore快換介面"
+    },
+    "internal_coolant": null,
+    "internal_coolant_note": "p154 刀柄表未明列逐款內冷；H 是這些刀柄料號的一部分，不能單憑字尾判為內冷",
+    "confirmed_machining_depth_mm": null,
+    "maximum_rpm": null,
+    "spare_parts": [
+      {
+        "partsNo": "NP-F0002",
+        "type": null,
+        "role": "M8 Screw / Spring Fingers",
+        "source": {
+          "printed_page": 154,
+          "pdf_page": 7
+        }
+      },
+      {
+        "partsNo": "NS-08060",
+        "type": null,
+        "role": "M8 Screw / Locking Screw",
+        "catalog_torque_Nm": 8,
+        "source": {
+          "printed_page": 154,
+          "pdf_page": 7
+        }
+      },
+      {
+        "partsNo": "NP-F0003",
+        "type": null,
+        "role": "M6 Screw / Spring Fingers",
+        "source": {
+          "printed_page": 154,
+          "pdf_page": 7
+        }
+      },
+      {
+        "partsNo": "NS-06045",
+        "type": null,
+        "role": "M6 Screw / Pre-load Screw",
+        "catalog_torque_Nm": 0.9,
+        "source": {
+          "printed_page": 154,
+          "pdf_page": 7
+        }
+      }
+    ]
+  },
+  "head_shanks": [
+    {
+      "partsNo": "00-99146-HSK63AH",
+      "type": "HSK63A-146-72",
+      "machine_interface": "HSK63A",
+      "interface_kind": "machine spindle interface listed in catalog",
+      "dimensions_mm": {
+        "ØD": 45,
+        "L": 72
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99146-HSK63AH",
+        "Type": "HSK63A-146-72",
+        "ØD": "45",
+        "L": "72.0",
+        "M": "-"
+      },
+      "drawing_dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 154,
+        "pdf_page": 7
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "L 是刀柄圖面的前端至機台介面基準長，並非加工深度"
+      ]
+    },
+    {
+      "partsNo": "00-99146-CAT40H",
+      "type": "CAT40-146-56",
+      "machine_interface": "CAT40",
+      "interface_kind": "machine spindle interface listed in catalog",
+      "dimensions_mm": {
+        "ØD": 45,
+        "L": 56.3
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99146-CAT40H",
+        "Type": "CAT40-146-56",
+        "ØD": "45",
+        "L": "56.3",
+        "M": "5/8\"-11"
+      },
+      "drawing_dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 154,
+        "pdf_page": 7
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "L 是刀柄圖面的前端至機台介面基準長，並非加工深度"
+      ]
+    },
+    {
+      "partsNo": "00-99146-BT30H",
+      "type": "BT30-146-51",
+      "machine_interface": "BT30",
+      "interface_kind": "machine spindle interface listed in catalog",
+      "dimensions_mm": {
+        "ØD": 45,
+        "L": 51.3
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99146-BT30H",
+        "Type": "BT30-146-51",
+        "ØD": "45",
+        "L": "51.3",
+        "M": "M12xP1.75"
+      },
+      "drawing_dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 154,
+        "pdf_page": 7
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "L 是刀柄圖面的前端至機台介面基準長，並非加工深度"
+      ]
+    },
+    {
+      "partsNo": "00-99146-BT40H",
+      "type": "BT40-146-56",
+      "machine_interface": "BT40",
+      "interface_kind": "machine spindle interface listed in catalog",
+      "dimensions_mm": {
+        "ØD": 45,
+        "L": 56.3
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99146-BT40H",
+        "Type": "BT40-146-56",
+        "ØD": "45",
+        "L": "56.3",
+        "M": "M16xP2.0"
+      },
+      "drawing_dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 154,
+        "pdf_page": 7
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "L 是刀柄圖面的前端至機台介面基準長，並非加工深度"
+      ]
+    },
+    {
+      "partsNo": "00-99146-BT50H",
+      "type": "BT50-146-77",
+      "machine_interface": "BT50",
+      "interface_kind": "machine spindle interface listed in catalog",
+      "dimensions_mm": {
+        "ØD": 45,
+        "L": 77.3
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99146-BT50H",
+        "Type": "BT50-146-77",
+        "ØD": "45",
+        "L": "77.3",
+        "M": "M24xP3.0"
+      },
+      "drawing_dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 154,
+        "pdf_page": 7
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "L 是刀柄圖面的前端至機台介面基準長，並非加工深度"
+      ]
+    },
+    {
+      "partsNo": "00-99146-SB32H",
+      "type": "SB32-146-31",
+      "machine_interface": "SB32",
+      "interface_kind": "Weldon straight shank; requires a compatible machine-side holder",
+      "dimensions_mm": {
+        "ØD": 45,
+        "L": 31.3
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99146-SB32H",
+        "Type": "SB32-146-31",
+        "ØD": "45",
+        "L": "31.3",
+        "M": "-"
+      },
+      "drawing_dimensions_mm": {
+        "60": 60,
+        "Ø32": 32
+      },
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 154,
+        "pdf_page": 7
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "p154 圖面另列 Ø32×60 直柄；p156 稱 Weldon Shank",
+        "L=31.3 是前端本體至直柄肩部的圖示長，60 為後端直柄長，兩者不是加工深度"
+      ]
+    }
+  ],
+  "adapters": [
+    {
+      "partsNo": "00-99151A-06",
+      "type": "C20-ID06",
+      "series": "99151",
+      "dimensions_mm": {
+        "ØD": 6,
+        "L": 52
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99151A-06",
+        "Type": "C20-ID06",
+        "ØD": "6",
+        "L": "52"
+      },
+      "drawing_dimensions_mm": {
+        "後端Ø20": 20,
+        "後端長42": 42
+      },
+      "adapter_front_length_mm": 52,
+      "accepts_boring_bar_shank_diameter_mm": 6,
+      "catalog_boring_bar_group_envelope": "Ø4.87 ~ Ø6.87 mm",
+      "envelope_note": "p158 系統圖的分組外包範圍，不表示組內所有中間孔徑都有實際品項；須逐支讀 product-inventory.json 的 ØD 區間",
+      "compatible_head_shank_partsNo": [
+        "00-99146-HSK63AH",
+        "00-99146-CAT40H",
+        "00-99146-BT30H",
+        "00-99146-BT40H",
+        "00-99146-BT50H",
+        "00-99146-SB32H"
+      ],
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 158,
+        "pdf_page": 11
+      },
+      "additional_sources": [
+        {
+          "printed_page": 151,
+          "pdf_page": 4
+        },
+        {
+          "printed_page": 159,
+          "pdf_page": 12
+        }
+      ],
+      "evidence_kind": "catalog",
+      "notes": [
+        "L 是 adapter 前端至快換柄段肩部的圖面長度，後端42mm另列；不可用L或L+42當搪孔深度",
+        "p159 的刀桿 Ød 必須與 adapter ØD 一致；不能把切削 ØD 當夾持柄徑",
+        "圖中沒有給刀桿插入 adapter 的必要/可調插入深度，實際組裝伸出需另確認"
+      ]
+    },
+    {
+      "partsNo": "00-99151A-08",
+      "type": "C20-ID08",
+      "series": "99151",
+      "dimensions_mm": {
+        "ØD": 8,
+        "L": 49
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99151A-08",
+        "Type": "C20-ID08",
+        "ØD": "8",
+        "L": "49"
+      },
+      "drawing_dimensions_mm": {
+        "後端Ø20": 20,
+        "後端長42": 42
+      },
+      "adapter_front_length_mm": 49,
+      "accepts_boring_bar_shank_diameter_mm": 8,
+      "catalog_boring_bar_group_envelope": "Ø6.87 ~ Ø8.87 mm",
+      "envelope_note": "p158 系統圖的分組外包範圍，不表示組內所有中間孔徑都有實際品項；須逐支讀 product-inventory.json 的 ØD 區間",
+      "compatible_head_shank_partsNo": [
+        "00-99146-HSK63AH",
+        "00-99146-CAT40H",
+        "00-99146-BT30H",
+        "00-99146-BT40H",
+        "00-99146-BT50H",
+        "00-99146-SB32H"
+      ],
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 158,
+        "pdf_page": 11
+      },
+      "additional_sources": [
+        {
+          "printed_page": 151,
+          "pdf_page": 4
+        },
+        {
+          "printed_page": 159,
+          "pdf_page": 12
+        }
+      ],
+      "evidence_kind": "catalog",
+      "notes": [
+        "L 是 adapter 前端至快換柄段肩部的圖面長度，後端42mm另列；不可用L或L+42當搪孔深度",
+        "p159 的刀桿 Ød 必須與 adapter ØD 一致；不能把切削 ØD 當夾持柄徑",
+        "圖中沒有給刀桿插入 adapter 的必要/可調插入深度，實際組裝伸出需另確認"
+      ]
+    },
+    {
+      "partsNo": "00-99151A-10",
+      "type": "C20-ID10",
+      "series": "99151",
+      "dimensions_mm": {
+        "ØD": 10,
+        "L": 42
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99151A-10",
+        "Type": "C20-ID10",
+        "ØD": "10",
+        "L": "42"
+      },
+      "drawing_dimensions_mm": {
+        "後端Ø20": 20,
+        "後端長42": 42
+      },
+      "adapter_front_length_mm": 42,
+      "accepts_boring_bar_shank_diameter_mm": 10,
+      "catalog_boring_bar_group_envelope": "Ø8.87 ~ Ø11.12 mm",
+      "envelope_note": "p158 系統圖的分組外包範圍，不表示組內所有中間孔徑都有實際品項；須逐支讀 product-inventory.json 的 ØD 區間",
+      "compatible_head_shank_partsNo": [
+        "00-99146-HSK63AH",
+        "00-99146-CAT40H",
+        "00-99146-BT30H",
+        "00-99146-BT40H",
+        "00-99146-BT50H",
+        "00-99146-SB32H"
+      ],
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 158,
+        "pdf_page": 11
+      },
+      "additional_sources": [
+        {
+          "printed_page": 151,
+          "pdf_page": 4
+        },
+        {
+          "printed_page": 159,
+          "pdf_page": 12
+        }
+      ],
+      "evidence_kind": "catalog",
+      "notes": [
+        "L 是 adapter 前端至快換柄段肩部的圖面長度，後端42mm另列；不可用L或L+42當搪孔深度",
+        "p159 的刀桿 Ød 必須與 adapter ØD 一致；不能把切削 ØD 當夾持柄徑",
+        "圖中沒有給刀桿插入 adapter 的必要/可調插入深度，實際組裝伸出需另確認"
+      ]
+    },
+    {
+      "partsNo": "00-99151A-11",
+      "type": "C20-ID11",
+      "series": "99151",
+      "dimensions_mm": {
+        "ØD": 11,
+        "L": 21.5
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99151A-11",
+        "Type": "C20-ID11",
+        "ØD": "11",
+        "L": "21.5"
+      },
+      "drawing_dimensions_mm": {
+        "後端Ø20": 20,
+        "後端長42": 42
+      },
+      "adapter_front_length_mm": 21.5,
+      "accepts_boring_bar_shank_diameter_mm": 11,
+      "catalog_boring_bar_group_envelope": "Ø11.87 ~ Ø14.12 mm",
+      "envelope_note": "p158 系統圖的分組外包範圍，不表示組內所有中間孔徑都有實際品項；須逐支讀 product-inventory.json 的 ØD 區間",
+      "compatible_head_shank_partsNo": [
+        "00-99146-HSK63AH",
+        "00-99146-CAT40H",
+        "00-99146-BT30H",
+        "00-99146-BT40H",
+        "00-99146-BT50H",
+        "00-99146-SB32H"
+      ],
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 158,
+        "pdf_page": 11
+      },
+      "additional_sources": [
+        {
+          "printed_page": 151,
+          "pdf_page": 4
+        },
+        {
+          "printed_page": 159,
+          "pdf_page": 12
+        }
+      ],
+      "evidence_kind": "catalog",
+      "notes": [
+        "L 是 adapter 前端至快換柄段肩部的圖面長度，後端42mm另列；不可用L或L+42當搪孔深度",
+        "p159 的刀桿 Ød 必須與 adapter ØD 一致；不能把切削 ØD 當夾持柄徑",
+        "圖中沒有給刀桿插入 adapter 的必要/可調插入深度，實際組裝伸出需另確認"
+      ]
+    },
+    {
+      "partsNo": "00-99151A-15.5",
+      "type": "C20-ID15.5",
+      "series": "99151",
+      "dimensions_mm": {
+        "ØD": 15.5,
+        "L": 21.5
+      },
+      "catalog_fields_original": {
+        "Part No.": "00-99151A-15.5",
+        "Type": "C20-ID15.5",
+        "ØD": "15.5",
+        "L": "21.5"
+      },
+      "drawing_dimensions_mm": {
+        "後端Ø20": 20,
+        "後端長42": 42
+      },
+      "adapter_front_length_mm": 21.5,
+      "accepts_boring_bar_shank_diameter_mm": 15.5,
+      "catalog_boring_bar_group_envelope": "Ø14.87 ~ Ø20.12 mm",
+      "envelope_note": "p158 系統圖的分組外包範圍，不表示組內所有中間孔徑都有實際品項；須逐支讀 product-inventory.json 的 ØD 區間",
+      "compatible_head_shank_partsNo": [
+        "00-99146-HSK63AH",
+        "00-99146-CAT40H",
+        "00-99146-BT30H",
+        "00-99146-BT40H",
+        "00-99146-BT50H",
+        "00-99146-SB32H"
+      ],
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 158,
+        "pdf_page": 11
+      },
+      "additional_sources": [
+        {
+          "printed_page": 151,
+          "pdf_page": 4
+        },
+        {
+          "printed_page": 159,
+          "pdf_page": 12
+        }
+      ],
+      "evidence_kind": "catalog",
+      "notes": [
+        "L 是 adapter 前端至快換柄段肩部的圖面長度，後端42mm另列；不可用L或L+42當搪孔深度",
+        "p159 的刀桿 Ød 必須與 adapter ØD 一致；不能把切削 ØD 當夾持柄徑",
+        "圖中沒有給刀桿插入 adapter 的必要/可調插入深度，實際組裝伸出需另確認"
+      ]
+    }
+  ],
+  "kits": [
+    {
+      "partsNo": "00-99146-SB32H-05SET",
+      "type": null,
+      "head_shank_partsNo": "00-99146-SB32H",
+      "contents_original": "SB32-146-31 Weldon Shank",
+      "contents": {
+        "boring_head_shank_qty": 1,
+        "boring_bar_qty": 5,
+        "boring_bar_choice_original": "Boring bar: any 5 pcs from Ø5~Ø50",
+        "boring_bar_family": "99146",
+        "key_qty_original": "3~5 pcs",
+        "plastic_box_qty": 1,
+        "insert_included": false,
+        "insert_note_original": "Insert is not included, please order seperately"
+      },
+      "dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 156,
+        "pdf_page": 9
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "套組選刀內容為99146頁內Ø5~Ø50刀桿；不可推定包含99151刀桿或adapter",
+        "相同刀柄以head_shank_partsNo連結；套組不是第7種刀柄",
+        "刀片須另訂；套組不能顯示成包含可加工的全部零件"
+      ]
+    },
+    {
+      "partsNo": "00-99146-BT30-05SET",
+      "type": null,
+      "head_shank_partsNo": "00-99146-BT30H",
+      "contents_original": "BT30H Boring head shank",
+      "contents": {
+        "boring_head_shank_qty": 1,
+        "boring_bar_qty": 5,
+        "boring_bar_choice_original": "Boring bar: any 5 pcs from Ø5~Ø50",
+        "boring_bar_family": "99146",
+        "key_qty_original": "3~5 pcs",
+        "plastic_box_qty": 1,
+        "insert_included": false,
+        "insert_note_original": "Insert is not included, please order seperately"
+      },
+      "dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 156,
+        "pdf_page": 9
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "套組選刀內容為99146頁內Ø5~Ø50刀桿；不可推定包含99151刀桿或adapter",
+        "相同刀柄以head_shank_partsNo連結；套組不是第7種刀柄",
+        "刀片須另訂；套組不能顯示成包含可加工的全部零件"
+      ]
+    },
+    {
+      "partsNo": "00-99146-BT40-05SET",
+      "type": null,
+      "head_shank_partsNo": "00-99146-BT40H",
+      "contents_original": "BT40H Boring head shank",
+      "contents": {
+        "boring_head_shank_qty": 1,
+        "boring_bar_qty": 5,
+        "boring_bar_choice_original": "Boring bar: any 5 pcs from Ø5~Ø50",
+        "boring_bar_family": "99146",
+        "key_qty_original": "3~5 pcs",
+        "plastic_box_qty": 1,
+        "insert_included": false,
+        "insert_note_original": "Insert is not included, please order seperately"
+      },
+      "dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 156,
+        "pdf_page": 9
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "套組選刀內容為99146頁內Ø5~Ø50刀桿；不可推定包含99151刀桿或adapter",
+        "相同刀柄以head_shank_partsNo連結；套組不是第7種刀柄",
+        "刀片須另訂；套組不能顯示成包含可加工的全部零件"
+      ]
+    },
+    {
+      "partsNo": "00-99146-BT50-05SET",
+      "type": null,
+      "head_shank_partsNo": "00-99146-BT50H",
+      "contents_original": "BT50H Boring head shank",
+      "contents": {
+        "boring_head_shank_qty": 1,
+        "boring_bar_qty": 5,
+        "boring_bar_choice_original": "Boring bar: any 5 pcs from Ø5~Ø50",
+        "boring_bar_family": "99146",
+        "key_qty_original": "3~5 pcs",
+        "plastic_box_qty": 1,
+        "insert_included": false,
+        "insert_note_original": "Insert is not included, please order seperately"
+      },
+      "dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 156,
+        "pdf_page": 9
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "BT50 boring head shank is packed in a separate box.",
+        "套組選刀內容為99146頁內Ø5~Ø50刀桿；不可推定包含99151刀桿或adapter",
+        "相同刀柄以head_shank_partsNo連結；套組不是第7種刀柄",
+        "刀片須另訂；套組不能顯示成包含可加工的全部零件"
+      ]
+    },
+    {
+      "partsNo": "00-99146-CAT40-05SET",
+      "type": null,
+      "head_shank_partsNo": "00-99146-CAT40H",
+      "contents_original": "CAT40H Boring head shank",
+      "contents": {
+        "boring_head_shank_qty": 1,
+        "boring_bar_qty": 5,
+        "boring_bar_choice_original": "Boring bar: any 5 pcs from Ø5~Ø50",
+        "boring_bar_family": "99146",
+        "key_qty_original": "3~5 pcs",
+        "plastic_box_qty": 1,
+        "insert_included": false,
+        "insert_note_original": "Insert is not included, please order seperately"
+      },
+      "dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 156,
+        "pdf_page": 9
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "套組選刀內容為99146頁內Ø5~Ø50刀桿；不可推定包含99151刀桿或adapter",
+        "相同刀柄以head_shank_partsNo連結；套組不是第7種刀柄",
+        "刀片須另訂；套組不能顯示成包含可加工的全部零件"
+      ]
+    },
+    {
+      "partsNo": "00-99146-HSK63A-05SET",
+      "type": null,
+      "head_shank_partsNo": "00-99146-HSK63AH",
+      "contents_original": "HSK63A Boring head shank",
+      "contents": {
+        "boring_head_shank_qty": 1,
+        "boring_bar_qty": 5,
+        "boring_bar_choice_original": "Boring bar: any 5 pcs from Ø5~Ø50",
+        "boring_bar_family": "99146",
+        "key_qty_original": "3~5 pcs",
+        "plastic_box_qty": 1,
+        "insert_included": false,
+        "insert_note_original": "Insert is not included, please order seperately"
+      },
+      "dimensions_mm": null,
+      "internal_coolant": null,
+      "confirmed_machining_depth_mm": null,
+      "maximum_rpm": null,
+      "source": {
+        "printed_page": 156,
+        "pdf_page": 9
+      },
+      "evidence_kind": "catalog",
+      "notes": [
+        "套組選刀內容為99146頁內Ø5~Ø50刀桿；不可推定包含99151刀桿或adapter",
+        "相同刀柄以head_shank_partsNo連結；套組不是第7種刀柄",
+        "刀片須另訂；套組不能顯示成包含可加工的全部零件"
+      ]
+    }
+  ],
+  "general_holder_routes": [
+    {
+      "series": "99101",
+      "holder_types_catalog": [
+        "Side lock holders",
+        "Hydraulic chucks",
+        "Spring collet chucks"
+      ],
+      "holder_partsNo": null,
+      "source": {
+        "printed_page": 151,
+        "pdf_page": 4
+      },
+      "drawing_source": {
+        "printed_page": 152,
+        "pdf_page": 5
+      },
+      "drawing_dimensions_mm": {
+        "直柄Ø20": 20,
+        "直柄長50": 50,
+        "調整本體長27": 27,
+        "本體外徑MAX30": 30
+      },
+      "confirmed_minimum_clamping_length_mm": null,
+      "confirmed_machining_depth_mm": null,
+      "internal_coolant": null,
+      "evidence_kind": "catalog",
+      "notes": [
+        "p152圖面L是刀尖至直柄前肩，後方50另列；不能把L直接寫成總長",
+        "現有刀柄須另核對可夾Ø20直柄、實際有效插入/夾持長度與干涉",
+        "一般刀柄清單未提供可下單的刀柄型號"
+      ]
+    },
+    {
+      "series": "99121",
+      "holder_types_catalog": [
+        "Side lock holders",
+        "Hydraulic chucks",
+        "Spring collet chucks"
+      ],
+      "holder_partsNo": null,
+      "source": {
+        "printed_page": 151,
+        "pdf_page": 4
+      },
+      "drawing_source": {
+        "printed_page": 153,
+        "pdf_page": 6
+      },
+      "drawing_dimensions_mm": {
+        "直柄Ø20": 20,
+        "括號直柄Ø13": 13,
+        "直柄長50": 50,
+        "括號直柄長48": 48,
+        "調整本體長27": 27,
+        "本體外徑MAX30": 30
+      },
+      "confirmed_minimum_clamping_length_mm": null,
+      "confirmed_machining_depth_mm": null,
+      "internal_coolant": null,
+      "evidence_kind": "catalog",
+      "unconfirmed": [
+        "圖面有Ø20（Ø13）與50（48），本頁未明列括號尺寸對應料號或選配規則；不得自動把Ø13套給特定99121刀桿"
+      ],
+      "notes": [
+        "表內Type均寫SB20，不能用括號Ø13自行生成SB13料號",
+        "圖面L是刀尖至直柄前肩，後方50（48）另列；不能把L直接寫成總長",
+        "現有刀柄需以實際刀桿確認柄徑與有效夾持長度"
+      ]
+    }
+  ],
+  "pairing_rules": [
+    {
+      "id": "general_straight_shank",
+      "evidence_kind": "catalog",
+      "series": [
+        "99101",
+        "99121"
+      ],
+      "chain": [
+        "相容機台端一般刀柄",
+        "99101或99121刀桿",
+        "各刀桿明列相容刀片"
+      ],
+      "sources": [
+        {
+          "printed_page": 151,
+          "pdf_page": 4
+        },
+        {
+          "printed_page": 152,
+          "pdf_page": 5
+        },
+        {
+          "printed_page": 153,
+          "pdf_page": 6
+        }
+      ],
+      "requirements": [
+        "一般刀柄僅列側固、油壓、彈簧筒夾3類",
+        "實際柄徑/有效夾持長度須核對圖面與現物；一般刀柄沒有型錄料號表"
+      ]
+    },
+    {
+      "id": "99146_quick_change",
+      "evidence_kind": "catalog",
+      "series": [
+        "99146"
+      ],
+      "chain": [
+        "6款之一的99146 head shank",
+        "99146快換刀桿",
+        "各刀桿明列相容刀片"
+      ],
+      "sources": [
+        {
+          "printed_page": 151,
+          "pdf_page": 4
+        },
+        {
+          "printed_page": 154,
+          "pdf_page": 7
+        },
+        {
+          "printed_page": 155,
+          "pdf_page": 8
+        },
+        {
+          "printed_page": 156,
+          "pdf_page": 9
+        }
+      ],
+      "requirements": [
+        "直接使用NineBore快換介面，不需要99151 adapter",
+        "Ø20只是介面圖示尺寸，不等於可直接換成一般Ø20夾頭"
+      ]
+    },
+    {
+      "id": "99151_adapter_required",
+      "evidence_kind": "catalog",
+      "series": [
+        "99151"
+      ],
+      "chain": [
+        "6款之一的99146 head shank",
+        "00-99151A-06/-08/-10/-11/-15.5 專屬adapter",
+        "與adapter ØD相同Ød的99151刀桿",
+        "各刀桿明列相容刀片"
+      ],
+      "sources": [
+        {
+          "printed_page": 151,
+          "pdf_page": 4
+        },
+        {
+          "printed_page": 154,
+          "pdf_page": 7
+        },
+        {
+          "printed_page": 158,
+          "pdf_page": 11
+        },
+        {
+          "printed_page": 159,
+          "pdf_page": 12
+        }
+      ],
+      "requirements": [
+        "刀桿Ød ∈ {6,8,10,11,15.5}，須逐值配同ØD的adapter",
+        "以料號與接口核對，不只比外徑",
+        "不能把99151刀桿直接當99146快換刀桿裝入head shank"
+      ]
+    },
+    {
+      "id": "sb32_requires_secondary_holder",
+      "evidence_kind": "catalog_drawing",
+      "series": [
+        "99146",
+        "99151"
+      ],
+      "head_shank_partsNo": "00-99146-SB32H",
+      "chain": [
+        "另備可接受Ø32 Weldon直柄的機台端刀柄",
+        "00-99146-SB32H",
+        "99146刀桿或99151 adapter+刀桿"
+      ],
+      "sources": [
+        {
+          "printed_page": 154,
+          "pdf_page": 7
+        },
+        {
+          "printed_page": 156,
+          "pdf_page": 9
+        }
+      ],
+      "requirements": [
+        "SB32是Ø32×60直柄介面；不能與BT/CAT/HSK同樣宣告可直接裝上主軸",
+        "機台端刀柄可夾長度/側固位置/干涉需另查其規格，型錄未列該外接刀柄料號"
+      ]
+    }
+  ],
+  "length_semantics": [
+    {
+      "id": "general_L",
+      "symbols": [
+        "L",
+        "L1",
+        "50",
+        "48"
+      ],
+      "series": [
+        "99101",
+        "99121"
+      ],
+      "sources": [
+        {
+          "printed_page": 152,
+          "pdf_page": 5
+        },
+        {
+          "printed_page": 153,
+          "pdf_page": 6
+        }
+      ],
+      "evidence_kind": "catalog_drawing",
+      "meaning": "L為刀尖至直柄前肩；L1為前端細徑加工/頸部的圖示長，後端直柄50或括號48另列。L不是整支總長。型錄本兩頁沒有以文字明列L1為Boring Depth，選型宜標成圖面L1並另外驗證干涉。",
+      "must_not": "把L當可加工深度，或把L1無條件當所有工件的保證深度"
+    },
+    {
+      "id": "head_shank_L",
+      "symbols": [
+        "L"
+      ],
+      "series": [
+        "99146",
+        "99151"
+      ],
+      "source": {
+        "printed_page": 154,
+        "pdf_page": 7
+      },
+      "evidence_kind": "catalog_drawing",
+      "meaning": "各head shank圖面由前端至其機台介面基準（SB32至直柄肩部）的長度；SB32後方另有60。",
+      "confirmed_machining_depth_mm": null,
+      "must_not": "把刀柄L當刀桿深度或不核對基準面就與所有L相加"
+    },
+    {
+      "id": "99146_L1",
+      "symbols": [
+        "L1"
+      ],
+      "series": [
+        "99146"
+      ],
+      "sources": [
+        {
+          "printed_page": 155,
+          "pdf_page": 8
+        },
+        {
+          "printed_page": 156,
+          "pdf_page": 9
+        }
+      ],
+      "evidence_kind": "catalog",
+      "meaning": "型錄明列 Boring Depth : L1, 2~3xD；實際品項的L1應優先於粗略倍徑敘述。",
+      "must_not": "用2~3×D取代實際L1，或把整個前段85/90mm當有效深度"
+    },
+    {
+      "id": "99146_male_stem",
+      "symbols": [
+        "85",
+        "90",
+        "L1",
+        "42",
+        "Ø20"
+      ],
+      "series": [
+        "99146"
+      ],
+      "sources": [
+        {
+          "printed_page": 155,
+          "pdf_page": 8
+        },
+        {
+          "printed_page": 156,
+          "pdf_page": 9
+        }
+      ],
+      "evidence_kind": "catalog_drawing",
+      "meaning": "p155 Ø5~Ø25 圖示前端至快換柄肩85、後端Ø20×42；p156 Ø26~Ø39前端90、後端42；Ø40~Ø50前端L1、後端42。42是接入head shank的快換柄段圖面長。",
+      "confirmed_machining_depth_mm": null,
+      "must_not": "把42稱為切削深度或最小插入量，或從相同Ø20推定可用任意夾頭"
+    },
+    {
+      "id": "adapter_L",
+      "symbols": [
+        "L",
+        "42",
+        "Ø20",
+        "ØD"
+      ],
+      "series": [
+        "99151"
+      ],
+      "source": {
+        "printed_page": 158,
+        "pdf_page": 11
+      },
+      "evidence_kind": "catalog_drawing",
+      "meaning": "adapter L=52/49/42/21.5/21.5，是前端至快換柄肩；後方Ø20×42另列。ØD為接收刀桿的孔/柄徑。",
+      "confirmed_machining_depth_mm": null,
+      "must_not": "將adapter L、L+42或其ØD當刀桿加工深度或加工孔徑"
+    },
+    {
+      "id": "99151_bar_L1",
+      "symbols": [
+        "L1",
+        "L",
+        "Ød",
+        "Ød1",
+        "ØD"
+      ],
+      "series": [
+        "99151"
+      ],
+      "source": {
+        "printed_page": 159,
+        "pdf_page": 12
+      },
+      "evidence_kind": "catalog",
+      "meaning": "型錄明列 Boring Depth : L1, 4~6xD。各刀桿L是整支長度，L1才是表列加工深度；Ød為adapter配合柄徑，Ød1為局部前端/頸部徑。",
+      "must_not": "以L、adapter長或6×D宣告可加工深度，或忽略Ød1/肩部/工件干涉"
+    },
+    {
+      "id": "assembled_projection",
+      "symbols": [
+        "head-shank L",
+        "adapter L",
+        "bar L",
+        "bar L1"
+      ],
+      "series": [
+        "99146",
+        "99151"
+      ],
+      "sources": [
+        {
+          "printed_page": 154,
+          "pdf_page": 7
+        },
+        {
+          "printed_page": 155,
+          "pdf_page": 8
+        },
+        {
+          "printed_page": 156,
+          "pdf_page": 9
+        },
+        {
+          "printed_page": 158,
+          "pdf_page": 11
+        },
+        {
+          "printed_page": 159,
+          "pdf_page": 12
+        }
+      ],
+      "evidence_kind": "unconfirmed",
+      "meaning": "本段未提供所有總成基準面、adapter內刀桿插入量及總成最大允許伸出；不產生可用深度/總長數值。需實際組裝量測或原廠確認。",
+      "confirmed_assembly_projection_mm": null,
+      "confirmed_machining_depth_mm": null,
+      "must_not": "把不同零件所有L直接相加後當可用加工深度"
+    }
+  ],
+  "coolant_rules": [
+    {
+      "series": [
+        "99101",
+        "99121"
+      ],
+      "sources": [
+        {
+          "printed_page": 152,
+          "pdf_page": 5
+        },
+        {
+          "printed_page": 153,
+          "pdf_page": 6
+        }
+      ],
+      "evidence_kind": "catalog",
+      "statement": "H type with internal coolant can be ordered on request from Dia. 7mm.",
+      "ordering_examples": [
+        "00-99101-07H",
+        "00-99121-07H"
+      ],
+      "scope": "刀桿依訂製H型選配，不能由一般刀柄路徑推導整條內冷鏈已通"
+    },
+    {
+      "series": [
+        "99146"
+      ],
+      "sources": [
+        {
+          "printed_page": 155,
+          "pdf_page": 8
+        },
+        {
+          "printed_page": 156,
+          "pdf_page": 9
+        }
+      ],
+      "evidence_kind": "catalog",
+      "statement": "H type with internal coolant can be ordered on request from Dia. 10mm.",
+      "ordering_examples": [
+        "00-99146-1000SH",
+        "00-99146-36AH"
+      ],
+      "scope": "刀桿H型可按需訂購；head shank料號本來的尾碼H不等同逐款內冷宣告"
+    },
+    {
+      "series": [
+        "99151"
+      ],
+      "sources": [
+        {
+          "printed_page": 158,
+          "pdf_page": 11
+        },
+        {
+          "printed_page": 159,
+          "pdf_page": 12
+        }
+      ],
+      "evidence_kind": "unconfirmed",
+      "statement": "本兩頁未明列99151刀桿或adapter內冷狀態，保留null；不從圖中線條推斷內冷"
+    }
+  ],
+  "assembly": {
+    "source": {
+      "printed_page": 160,
+      "pdf_page": 13
+    },
+    "evidence_kind": "catalog",
+    "applies_to": "圖示NineBore快換head-shank與可換刀桿；99151選型另遵守p158專屬adapter鏈",
+    "steps": [
+      {
+        "step": 1,
+        "action": "以4mm六角扳手鬆開M8 locking screw，勿將螺絲拆出"
+      },
+      {
+        "step": 2,
+        "action": "以3mm六角扳手鬆開M6 pre-load screw，勿將螺絲拆出"
+      },
+      {
+        "step": 3,
+        "action": "取出原刀桿並插入新刀桿"
+      },
+      {
+        "step": 4,
+        "action": "先鎖M6預壓螺絲",
+        "recommended_torque_Nm": {
+          "min": 0.9,
+          "max": 1
+        }
+      },
+      {
+        "step": 5,
+        "action": "使用刀具預調儀量測並調整所需搪孔直徑"
+      },
+      {
+        "step": 6,
+        "action": "最後鎖M8固定螺絲",
+        "recommended_torque_Nm": {
+          "min": 8,
+          "max": 9
+        }
+      }
+    ],
+    "table_torque_reference": {
+      "source": {
+        "printed_page": 154,
+        "pdf_page": 7
+      },
+      "M8_locking_screw_Nm": 8,
+      "M6_preload_screw_Nm": 0.9
+    },
+    "torque_note": "p154備品表標8.0/0.9Nm；p160組裝流程給8~9/0.9~1.0Nm，兩處原值分開保存，不製造規格衝突",
+    "adjustment_on_presetter": [
+      "鬆M8",
+      "將刀桿置中立位置",
+      "量測並比對目標孔徑",
+      "從adjusting driving hole向+增大或向-縮小",
+      "鎖緊M8"
+    ],
+    "adjustment_on_machine": [
+      "刀桿置中立位置",
+      "鎖緊M8",
+      "試搪約3~5mm深",
+      "量測孔徑",
+      "需修正時鬆M8並以adjusting driving hole調整",
+      "鎖緊M8"
+    ],
+    "notes": [
+      "試搪3~5mm是調整流程的試切深度，不是本系列可加工深度上限",
+      "不得把preload螺絲當成主要鎖緊螺絲"
+    ]
+  },
+  "balance_reference": {
+    "grade": "G6.3",
+    "reference_rpm": 10000,
+    "maximum_rpm": null,
+    "sources": [
+      {
+        "printed_page": 149,
+        "pdf_page": 2
+      },
+      {
+        "printed_page": 150,
+        "pdf_page": 3
+      },
+      {
+        "printed_page": 151,
+        "pdf_page": 4
+      },
+      {
+        "printed_page": 154,
+        "pdf_page": 7
+      }
+    ],
+    "evidence_kind": "catalog",
+    "catalog_meaning": "basic holder與boring bar預平衡，換不同孔徑刀桿或調整尺寸時維持平衡等級",
+    "interpretation": "10000rpm為該平衡等級的參考敘述，並未逐一提供全部可能組裝的普遍最高安全轉速",
+    "must_not": "將10000直接填入每個holder、adapter、99151組裝或機台的max_rpm"
+  },
+  "excluded_from_automatic_ninebore_pairing": [
+    {
+      "product": "Micro Adjustable Fine Boring Unit",
+      "source": {
+        "printed_page": 161,
+        "pdf_page": 14
+      },
+      "reason": "獨立微調單元，有自身Angular mounting 90°與安裝尺寸；型錄未列為99146快換替換刀桿",
+      "evidence_kind": "catalog"
+    },
+    {
+      "product": "Ergo tool length setter TP / Ergo Nut / pin",
+      "source": {
+        "printed_page": 163,
+        "pdf_page": 16
+      },
+      "reason": "附件頁工具長度設定產品；不是NineBore快換head shank或99151 adapter，沒有直接相容配對宣告",
+      "evidence_kind": "catalog"
+    },
+    {
+      "product": "00-99801 Extension Bar steel/solid-carbide",
+      "source": {
+        "printed_page": 164,
+        "pdf_page": 17
+      },
+      "reason": "頁首明列For ACE Spot Drill, NC Spot Drill, Chamfer Mill, NC Helix Drill, Power Mill；沒有NineBore",
+      "evidence_kind": "catalog",
+      "must_not": "因同為直柄、有內冷或總長較長就用來延伸NineBore"
+    },
+    {
+      "product": "DC Slim Chuck / DC-6E collet",
+      "source": {
+        "printed_page": 164,
+        "pdf_page": 17
+      },
+      "reason": "本頁展示另一套小徑系統，未明列NineBore相容；不列入已確認NineBore夾持鏈",
+      "evidence_kind": "unconfirmed"
+    }
+  ],
+  "clamping_question_flow": {
+    "evidence_kind": "site_flow",
+    "label": "客戶要怎麼夾持",
+    "primary_choices": [
+      {
+        "id": "existing_general",
+        "label": "使用現有一般夾持刀柄",
+        "next": [
+          "選側固/油壓/彈簧筒夾，或填已知刀柄料號",
+          "提供可夾柄徑與實際有效夾持/插入長度",
+          "匹配99101/99121實際直柄；99121括號Ø13先標待確認"
+        ],
+        "candidate_series": [
+          "99101",
+          "99121"
+        ]
+      },
+      {
+        "id": "existing_ninebore",
+        "label": "已有NineBore快換刀柄",
+        "next": [
+          "選/填6款已知head shank料號；未知則保留待確認",
+          "99146：直接配符合孔徑/深度的快換刀桿",
+          "99151：確認既有或需補的專屬adapter料號及刀桿Ød",
+          "若為SB32，核對外部Ø32機台端刀柄"
+        ],
+        "candidate_series": [
+          "99146",
+          "99151"
+        ]
+      },
+      {
+        "id": "purchase_holder",
+        "label": "需要選購相容的機台端刀柄",
+        "next": [
+          "選BT30/BT40/BT50/CAT40/HSK63A，或『透過Ø32 Weldon直柄連接』",
+          "若選Ø32 Weldon，另確認外部機台端刀柄規格，不能視為直接主軸選項",
+          "再選單買head shank或型錄05SET套組",
+          "依系列補齊刀桿、99151 adapter與另訂刀片"
+        ],
+        "candidate_series": [
+          "99146",
+          "99151"
+        ],
+        "notes": [
+          "05SET僅為99146頁列套組；不宣告提供99151整組",
+          "機台端選項不是6種同等的主軸錐度"
+        ]
+      },
+      {
+        "id": "unknown",
+        "label": "尚不確定",
+        "next": [
+          "保留幾何候選，將夾持顯示待確認",
+          "請客戶提供現有刀柄料號/機台主軸介面與柄徑/有效夾持尺寸",
+          "不自行選BT40或以外觀推定規格"
+        ],
+        "candidate_series": [
+          "99101",
+          "99121",
+          "99146",
+          "99151"
+        ]
+      }
+    ],
+    "output_states": [
+      "資料已確認可配",
+      "孔徑符合但伸出或夾持待確認",
+      "不符合"
+    ],
+    "problems_in_initial_draft": [
+      "『需要完整刀柄組』可能被理解為05SET含刀片與全部可加工零件，改為『需要選購相容的機台端刀柄』並在下一層分單柄/05SET。",
+      "一般刀柄路徑和已有NineBore路徑不完全等同客戶設備現況；同一客戶可能兩者都有，選項應代表此次使用意圖並允許切換。",
+      "SB32是Ø32 Weldon直柄，需要另有機台端刀柄，不能當BT/CAT/HSK同類主軸規格。",
+      "99121圖面Ø13括號值缺對應料號，不能自動開成已確認的每支刀桿柄徑選項。",
+      "已有99151 adapter的客戶應收實際adapter料號，避免重購或只比切削孔徑。",
+      "無已確認插入/夾持長度時不能只按相同柄徑宣告完全相容。",
+      "資料未明列冷卻或最高轉速時應保留null，不由H字尾或G6.3圖示補值。"
+    ]
+  },
+  "open_questions": [
+    "99121括號Ø13/48適用的實際料號或選配方式。",
+    "head shank、99151 adapter與各99151刀桿逐項內冷規格，以及整條組裝的供液通路。",
+    "各夾持端最小有效插入長、允許伸出/彎矩、總成基準面與99151刀桿插入adapter的規定。",
+    "SB32外接機台刀柄規格、有效夾持與側固位置。",
+    "各實際刀柄+adapter+刀桿+刀片總成及機台的允許最高轉速。"
+  ]
+}

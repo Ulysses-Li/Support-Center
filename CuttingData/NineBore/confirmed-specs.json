@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "series": {
+    "99121": {
+      "shank_diameters_mm": [20, 16, 13],
+      "status": "confirmed",
+      "source": {
+        "kind": "user_confirmation",
+        "date": "2026-11-12",
+        "statement_zh_tw": "這刀子有Ø20 Ø16 Ø13",
+        "scope_zh_tw": "99121可選後端夾持柄徑；未指定變體訂購料號、長度或最小夾持量。"
+      }
+    }
+  },
+  "grade_applicability": {
+    "status": "verified",
+    "source": {
+      "kind": "catalog",
+      "printed_page": 162,
+      "section": "Boring Tool Precisely Ground Inserts and Cutting Data",
+      "checked_date": "2026-11-12"
+    },
+    "by_grade": {
+      "NC30": ["Carbon Steel", "Alloy Steel", "Stainless Steel", "Cast Iron", "Hardened Steel <HRC 50"],
+      "NC2033": ["Carbon Steel", "Alloy Steel", "Stainless Steel"],
+      "NC2032": ["Cast Iron"],
+      "NC9036": ["Non-ferrous metal"],
+      "XP9001": ["Non-ferrous metal"]
+    }
+  },
+  "insert_compatibility": {
+    "status": "verified",
+    "source": {
+      "kind": "manufacturer_website",
+      "url": "https://nine9.jic-tools.com.tw/Inserts-For-99101-121-111-146-151.html",
+      "checked_date": "2026-11-12",
+      "title": "Boring Inserts For 99101/121/146/151",
+      "scope_zh_tw": "原廠系列刀片頁明列適用99101／99121；本次僅確認型錄p162有實體記錄的CCFT060204（NC2033／NC9036）與CCFW060204（NC2032），不擴及99146／99151或CCGH0602U。"
+    },
+    "rules": [
+      {
+        "series": ["99101", "99121"],
+        "interface_refs": ["cc0602_ns25045", "cc0602_ns25060"],
+        "part_no_catalog": "CCFT060204",
+        "grade_designations": ["NC2033", "NC9036"],
+        "Ic_mm": 6.35,
+        "S_mm": 2.38
+      },
+      {
+        "series": ["99101", "99121"],
+        "interface_refs": ["cc0602_ns25045", "cc0602_ns25060"],
+        "part_no_catalog": "CCFW060204",
+        "grade_designations": ["NC2032"],
+        "Ic_mm": 6.35,
+        "S_mm": 2.38
+      }
+    ]
+  }
+}

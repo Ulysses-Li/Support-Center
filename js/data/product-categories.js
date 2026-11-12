@@ -86,8 +86,8 @@ const BORING_PRODUCTS = [
   {
     name: "NineBore Boring Tool",
     image: "../../img/boring.png",
-    description: "Precision boring tool system.",
-    href: "../../Products/NineBore/index.html"
+    description: "Select a boring bar and insert, then calculate cutting conditions.",
+    href: "../../CuttingData/NineBore/index.html"
   },
 
   {

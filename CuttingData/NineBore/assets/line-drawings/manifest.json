@@ -1,0 +1,1324 @@
+{
+  "schema_version": "1.0.0",
+  "source_pdf": "./sources/13_NineBore Boring Tool_p148-166.pdf",
+  "source_note_zh_tw": "從本機原始型錄 PDF 直接用 Poppler pdftoppm 600dpi 裁切，未重製或去背；保留原稿灰色頁帶及產品渲染圖。crop 座標單位為指定 dpi 下、從 PDF 頁面左上起算的像素。file 為本資料夾內的 PNG 檔名。",
+  "drawings": [
+    {
+      "key": "99101",
+      "file": "99101-bar.png",
+      "printed_page": 152,
+      "pdf_page": 5,
+      "width_px": 1664,
+      "height_px": 589,
+      "crop": {
+        "dpi": 600,
+        "x": 2771,
+        "y": 2493,
+        "width": 1664,
+        "height": 589
+      },
+      "description_zh_tw": "99101 EMB 鏜刀型錄尺寸線圖；本頁系列共用外形。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 66,
+            "y": 61,
+            "width": 49,
+            "height": 84
+          },
+          "x": 90.5,
+          "y": 103,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 341,
+            "y": 286,
+            "width": 54,
+            "height": 47
+          },
+          "x": 368,
+          "y": 309.5,
+          "font_size": 46,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l",
+          "box": {
+            "x": 483,
+            "y": 445,
+            "width": 32,
+            "height": 47
+          },
+          "x": 499,
+          "y": 468.5,
+          "font_size": 46,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shankD",
+          "box": {
+            "x": 1402,
+            "y": 130,
+            "width": 49,
+            "height": 105
+          },
+          "x": 1426.5,
+          "y": 182.5,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 711,
+            "y": 370,
+            "width": 63,
+            "height": 47
+          },
+          "x": 742.5,
+          "y": 393.5,
+          "font_size": 46,
+          "rotate": 0,
+          "fill": "#ffffff",
+          "value": "27 mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1088,
+            "y": 455,
+            "width": 63,
+            "height": 48
+          },
+          "x": 1119.5,
+          "y": 479,
+          "font_size": 46,
+          "rotate": 0,
+          "fill": "#ffffff",
+          "value": "50 mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1511,
+            "y": 95,
+            "width": 48,
+            "height": 193
+          },
+          "x": 1535,
+          "y": 191.5,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#ffffff",
+          "value": "MAX Ø30 mm"
+        }
+      ]
+    },
+    {
+      "key": "99121",
+      "file": "99121-bar.png",
+      "printed_page": 153,
+      "pdf_page": 6,
+      "width_px": 1751,
+      "height_px": 605,
+      "crop": {
+        "dpi": 600,
+        "x": 2684,
+        "y": 2498,
+        "width": 1751,
+        "height": 605
+      },
+      "description_zh_tw": "99121 EMB 鏜刀型錄尺寸線圖；保留 Ø20（Ø13）、27、50（48）等原稿標註，Ø16 選項另有使用者確認依據。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 45,
+            "y": 79,
+            "width": 49,
+            "height": 84
+          },
+          "x": 69.5,
+          "y": 121,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 320,
+            "y": 304,
+            "width": 54,
+            "height": 47
+          },
+          "x": 347,
+          "y": 327.5,
+          "font_size": 46,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l",
+          "box": {
+            "x": 461,
+            "y": 463,
+            "width": 32,
+            "height": 47
+          },
+          "x": 477,
+          "y": 486.5,
+          "font_size": 46,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shankD",
+          "box": {
+            "x": 1391,
+            "y": 139,
+            "width": 112,
+            "height": 141
+          },
+          "x": 1447,
+          "y": 209.5,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 689,
+            "y": 388,
+            "width": 63,
+            "height": 47
+          },
+          "x": 720.5,
+          "y": 411.5,
+          "font_size": 46,
+          "rotate": 0,
+          "fill": "#ffffff",
+          "value": "27 mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1035,
+            "y": 473,
+            "width": 174,
+            "height": 54
+          },
+          "x": 1113,
+          "y": 497,
+          "font_size": 46,
+          "rotate": 0,
+          "fill": "#ffffff",
+          "value": "50 (48) mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1582,
+            "y": 113,
+            "width": 48,
+            "height": 192
+          },
+          "x": 1606,
+          "y": 209,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#ffffff",
+          "value": "MAX Ø30 mm"
+        }
+      ]
+    },
+    {
+      "key": "99146_S",
+      "file": "99146-bar-05-25.png",
+      "printed_page": 155,
+      "pdf_page": 8,
+      "width_px": 2089,
+      "height_px": 698,
+      "crop": {
+        "dpi": 600,
+        "x": 2176,
+        "y": 873,
+        "width": 2089,
+        "height": 698
+      },
+      "description_zh_tw": "99146 S 型，型錄 Ø5–Ø25.5 組尺寸線圖。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 71,
+            "y": 201,
+            "width": 46,
+            "height": 79
+          },
+          "x": 94,
+          "y": 240.5,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#d3d2d2"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 351,
+            "y": 418,
+            "width": 51,
+            "height": 44
+          },
+          "x": 376.5,
+          "y": 440,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#d3d2d2"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1934,
+            "y": 241,
+            "width": 46,
+            "height": 99
+          },
+          "x": 1957,
+          "y": 290.5,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#d3d2d2",
+          "value": "Ø20 mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 724,
+            "y": 558,
+            "width": 59,
+            "height": 45
+          },
+          "x": 753.5,
+          "y": 580.5,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#d3d2d2",
+          "value": "85 mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1590,
+            "y": 552,
+            "width": 61,
+            "height": 44
+          },
+          "x": 1620.5,
+          "y": 574,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#d3d2d2",
+          "value": "42 mm"
+        }
+      ]
+    },
+    {
+      "key": "99146_A_26_39",
+      "file": "99146-bar-26-39.png",
+      "printed_page": 156,
+      "pdf_page": 9,
+      "width_px": 1696,
+      "height_px": 660,
+      "crop": {
+        "dpi": 600,
+        "x": 676,
+        "y": 1004,
+        "width": 1696,
+        "height": 660
+      },
+      "description_zh_tw": "99146 A 型，型錄 Ø26–Ø39 組尺寸線圖。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 28,
+            "y": 227,
+            "width": 46,
+            "height": 78
+          },
+          "x": 51,
+          "y": 266,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#d3d2d2"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 462,
+            "y": 404,
+            "width": 50,
+            "height": 44
+          },
+          "x": 487,
+          "y": 426,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#d3d2d2"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1548,
+            "y": 194,
+            "width": 46,
+            "height": 98
+          },
+          "x": 1571,
+          "y": 243,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#d3d2d2",
+          "value": "Ø20 mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 575,
+            "y": 520,
+            "width": 60,
+            "height": 45
+          },
+          "x": 605,
+          "y": 542.5,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#d3d2d2",
+          "value": "90 mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1250,
+            "y": 515,
+            "width": 60,
+            "height": 44
+          },
+          "x": 1280,
+          "y": 537,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#d3d2d2",
+          "value": "42 mm"
+        }
+      ]
+    },
+    {
+      "key": "99146_A_40_50",
+      "file": "99146-bar-40-50.png",
+      "printed_page": 156,
+      "pdf_page": 9,
+      "width_px": 1505,
+      "height_px": 644,
+      "crop": {
+        "dpi": 600,
+        "x": 2989,
+        "y": 998,
+        "width": 1505,
+        "height": 644
+      },
+      "description_zh_tw": "99146 A 型，型錄 Ø40–Ø50 組尺寸線圖。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 67,
+            "y": 277,
+            "width": 46,
+            "height": 79
+          },
+          "x": 90,
+          "y": 316.5,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#d3d2d2"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 497,
+            "y": 485,
+            "width": 51,
+            "height": 44
+          },
+          "x": 522.5,
+          "y": 507,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#d3d2d2"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1335,
+            "y": 196,
+            "width": 46,
+            "height": 99
+          },
+          "x": 1358,
+          "y": 245.5,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#d3d2d2",
+          "value": "Ø20 mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1056,
+            "y": 479,
+            "width": 61,
+            "height": 44
+          },
+          "x": 1086.5,
+          "y": 501,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#d3d2d2",
+          "value": "42 mm"
+        }
+      ]
+    },
+    {
+      "key": "99151_d6",
+      "file": "99151-bar-shank06.png",
+      "printed_page": 159,
+      "pdf_page": 12,
+      "width_px": 1096,
+      "height_px": 404,
+      "crop": {
+        "dpi": 600,
+        "x": 3322,
+        "y": 1625,
+        "width": 1096,
+        "height": 404
+      },
+      "description_zh_tw": "99151 柄徑 Ø6，型錄 0500W–0675W 尺寸圖。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 80,
+            "y": 50,
+            "width": 46,
+            "height": 79
+          },
+          "x": 103,
+          "y": 89.5,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 306,
+            "y": 202,
+            "width": 51,
+            "height": 44
+          },
+          "x": 331.5,
+          "y": 224,
+          "font_size": 42,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l",
+          "box": {
+            "x": 533,
+            "y": 275,
+            "width": 30,
+            "height": 44
+          },
+          "x": 548,
+          "y": 297,
+          "font_size": 42,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shankD",
+          "box": {
+            "x": 913,
+            "y": 256,
+            "width": 46,
+            "height": 69
+          },
+          "x": 936,
+          "y": 290.5,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#ffffff"
+        }
+      ]
+    },
+    {
+      "key": "99151_d8",
+      "file": "99151-bar-shank08.png",
+      "printed_page": 159,
+      "pdf_page": 12,
+      "width_px": 1173,
+      "height_px": 420,
+      "crop": {
+        "dpi": 600,
+        "x": 3295,
+        "y": 2885,
+        "width": 1173,
+        "height": 420
+      },
+      "description_zh_tw": "99151 柄徑 Ø8，型錄 0700W–0875W 尺寸圖。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 44,
+            "y": 58,
+            "width": 46,
+            "height": 78
+          },
+          "x": 67,
+          "y": 97,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 313,
+            "y": 212,
+            "width": 51,
+            "height": 44
+          },
+          "x": 338.5,
+          "y": 234,
+          "font_size": 42,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l",
+          "box": {
+            "x": 555,
+            "y": 292,
+            "width": 30,
+            "height": 44
+          },
+          "x": 570,
+          "y": 314,
+          "font_size": 42,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shankD",
+          "box": {
+            "x": 1011,
+            "y": 262,
+            "width": 46,
+            "height": 69
+          },
+          "x": 1034,
+          "y": 296.5,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#ffffff"
+        }
+      ]
+    },
+    {
+      "key": "99151_d10",
+      "file": "99151-bar-shank10.png",
+      "printed_page": 159,
+      "pdf_page": 12,
+      "width_px": 1260,
+      "height_px": 436,
+      "crop": {
+        "dpi": 600,
+        "x": 3251,
+        "y": 4091,
+        "width": 1260,
+        "height": 436
+      },
+      "description_zh_tw": "99151 柄徑 Ø10，型錄 0900W–1100W 尺寸圖。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 54,
+            "y": 64,
+            "width": 46,
+            "height": 78
+          },
+          "x": 77,
+          "y": 103,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 313,
+            "y": 225,
+            "width": 51,
+            "height": 44
+          },
+          "x": 338.5,
+          "y": 247,
+          "font_size": 42,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l",
+          "box": {
+            "x": 555,
+            "y": 309,
+            "width": 30,
+            "height": 44
+          },
+          "x": 570,
+          "y": 331,
+          "font_size": 42,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shankD",
+          "box": {
+            "x": 1143,
+            "y": 265,
+            "width": 46,
+            "height": 69
+          },
+          "x": 1166,
+          "y": 299.5,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#ffffff"
+        }
+      ]
+    },
+    {
+      "key": "99151_d11_WS",
+      "file": "99151-bar-shank11.png",
+      "printed_page": 159,
+      "pdf_page": 12,
+      "width_px": 1358,
+      "height_px": 453,
+      "crop": {
+        "dpi": 600,
+        "x": 3196,
+        "y": 4985,
+        "width": 1358,
+        "height": 453
+      },
+      "description_zh_tw": "99151 柄徑 Ø11，型錄 1200WS–1400WS 尺寸圖；保留 Ød1 標註。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 37,
+            "y": 130,
+            "width": 43,
+            "height": 73
+          },
+          "x": 58.5,
+          "y": 166.5,
+          "font_size": 40,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 379,
+            "y": 285,
+            "width": 47,
+            "height": 41
+          },
+          "x": 402.5,
+          "y": 305.5,
+          "font_size": 40,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l",
+          "box": {
+            "x": 685,
+            "y": 363,
+            "width": 29,
+            "height": 41
+          },
+          "x": 699.5,
+          "y": 383.5,
+          "font_size": 40,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shankD",
+          "box": {
+            "x": 1253,
+            "y": 309,
+            "width": 43,
+            "height": 64
+          },
+          "x": 1274.5,
+          "y": 341,
+          "font_size": 40,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shoulderD",
+          "box": {
+            "x": 256,
+            "y": 42,
+            "width": 43,
+            "height": 84
+          },
+          "x": 277.5,
+          "y": 84,
+          "font_size": 40,
+          "rotate": -90,
+          "fill": "#ffffff"
+        }
+      ]
+    },
+    {
+      "key": "99151_1500W",
+      "file": "99151-bar-155-1500.png",
+      "printed_page": 159,
+      "pdf_page": 12,
+      "width_px": 1380,
+      "height_px": 507,
+      "crop": {
+        "dpi": 600,
+        "x": 3142,
+        "y": 5515,
+        "width": 1380,
+        "height": 507
+      },
+      "description_zh_tw": "99151 柄徑 Ø15.5，型錄 1500W 專用尺寸圖；保留 Ød1 標註。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 32,
+            "y": 146,
+            "width": 43,
+            "height": 82
+          },
+          "x": 53.5,
+          "y": 187,
+          "font_size": 40,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 329,
+            "y": 311,
+            "width": 48,
+            "height": 46
+          },
+          "x": 353,
+          "y": 334,
+          "font_size": 40,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l",
+          "box": {
+            "x": 687,
+            "y": 379,
+            "width": 29,
+            "height": 46
+          },
+          "x": 701.5,
+          "y": 402,
+          "font_size": 40,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shankD",
+          "box": {
+            "x": 1258,
+            "y": 390,
+            "width": 43,
+            "height": 73
+          },
+          "x": 1315,
+          "y": 399,
+          "font_size": 38,
+          "rotate": 90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shoulderD",
+          "box": {
+            "x": 344,
+            "y": 42,
+            "width": 43,
+            "height": 97
+          },
+          "x": 365.5,
+          "y": 90.5,
+          "font_size": 40,
+          "rotate": -90,
+          "fill": "#ffffff"
+        }
+      ]
+    },
+    {
+      "key": "99151_1600_2000W",
+      "file": "99151-bar-155-1600-2000.png",
+      "printed_page": 159,
+      "pdf_page": 12,
+      "width_px": 1418,
+      "height_px": 447,
+      "crop": {
+        "dpi": 600,
+        "x": 3142,
+        "y": 6164,
+        "width": 1418,
+        "height": 447
+      },
+      "description_zh_tw": "99151 柄徑 Ø15.5，型錄 1600W–2000W 尺寸圖。",
+      "kind": "bar",
+      "overlay_labels": [
+        {
+          "field": "diameter",
+          "box": {
+            "x": 63,
+            "y": 110,
+            "width": 43,
+            "height": 74
+          },
+          "x": 84.5,
+          "y": 147,
+          "font_size": 40,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l1",
+          "box": {
+            "x": 410,
+            "y": 268,
+            "width": 48,
+            "height": 41
+          },
+          "x": 434,
+          "y": 288.5,
+          "font_size": 40,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "l",
+          "box": {
+            "x": 721,
+            "y": 347,
+            "width": 29,
+            "height": 41
+          },
+          "x": 735.5,
+          "y": 367.5,
+          "font_size": 40,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shankD",
+          "box": {
+            "x": 1298,
+            "y": 292,
+            "width": 43,
+            "height": 64
+          },
+          "x": 1319.5,
+          "y": 324,
+          "font_size": 40,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "shoulderD",
+          "box": {
+            "x": 286,
+            "y": 21,
+            "width": 43,
+            "height": 85
+          },
+          "x": 307.5,
+          "y": 63.5,
+          "font_size": 40,
+          "rotate": -90,
+          "fill": "#ffffff"
+        }
+      ]
+    },
+    {
+      "key": "holder_HSK63A",
+      "file": "99146-holder-hsk63.png",
+      "printed_page": 154,
+      "pdf_page": 7,
+      "width_px": 1091,
+      "height_px": 693,
+      "crop": {
+        "dpi": 600,
+        "x": 1358,
+        "y": 2416,
+        "width": 1091,
+        "height": 693
+      },
+      "description_zh_tw": "99146 HSK63A 刀把型錄尺寸線圖。",
+      "kind": "holder",
+      "overlay_labels": [
+        {
+          "field": "holderD",
+          "box": {
+            "x": 43,
+            "y": 271,
+            "width": 45,
+            "height": 77
+          },
+          "x": 65.5,
+          "y": 309.5,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "holderL",
+          "box": {
+            "x": 469,
+            "y": 575,
+            "width": 29,
+            "height": 43
+          },
+          "x": 483.5,
+          "y": 596.5,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#ffffff"
+        }
+      ]
+    },
+    {
+      "key": "holder_CAT40",
+      "file": "99146-holder-cat40.png",
+      "printed_page": 154,
+      "pdf_page": 7,
+      "width_px": 1282,
+      "height_px": 682,
+      "crop": {
+        "dpi": 600,
+        "x": 3502,
+        "y": 2405,
+        "width": 1282,
+        "height": 682
+      },
+      "description_zh_tw": "99146 CAT40 刀把型錄尺寸線圖。",
+      "kind": "holder",
+      "overlay_labels": [
+        {
+          "field": "holderD",
+          "box": {
+            "x": 54,
+            "y": 263,
+            "width": 45,
+            "height": 77
+          },
+          "x": 76.5,
+          "y": 301.5,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "holderL",
+          "box": {
+            "x": 403,
+            "y": 555,
+            "width": 29,
+            "height": 43
+          },
+          "x": 417.5,
+          "y": 576.5,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "thread",
+          "box": {
+            "x": 1066,
+            "y": 72,
+            "width": 53,
+            "height": 55
+          },
+          "x": 1092.5,
+          "y": 99.5,
+          "font_size": 40,
+          "rotate": 0,
+          "fill": "#ffffff"
+        }
+      ]
+    },
+    {
+      "key": "holder_BT",
+      "file": "99146-holder-bt.png",
+      "printed_page": 154,
+      "pdf_page": 7,
+      "width_px": 1244,
+      "height_px": 693,
+      "crop": {
+        "dpi": 600,
+        "x": 1353,
+        "y": 3447,
+        "width": 1244,
+        "height": 693
+      },
+      "description_zh_tw": "99146 BT30／BT40／BT50 共用的 BT 刀把型錄尺寸線圖；L 與 M 依各料號表格。",
+      "kind": "holder",
+      "overlay_labels": [
+        {
+          "field": "holderD",
+          "box": {
+            "x": 50,
+            "y": 259,
+            "width": 45,
+            "height": 77
+          },
+          "x": 72.5,
+          "y": 297.5,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "holderL",
+          "box": {
+            "x": 411,
+            "y": 561,
+            "width": 29,
+            "height": 43
+          },
+          "x": 425.5,
+          "y": 582.5,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "thread",
+          "box": {
+            "x": 1035,
+            "y": 67,
+            "width": 53,
+            "height": 55
+          },
+          "x": 1061.5,
+          "y": 94.5,
+          "font_size": 40,
+          "rotate": 0,
+          "fill": "#ffffff"
+        }
+      ]
+    },
+    {
+      "key": "holder_SB32",
+      "file": "99146-holder-sb32.png",
+      "printed_page": 154,
+      "pdf_page": 7,
+      "width_px": 1091,
+      "height_px": 562,
+      "crop": {
+        "dpi": 600,
+        "x": 3502,
+        "y": 3507,
+        "width": 1091,
+        "height": 562
+      },
+      "description_zh_tw": "99146 SB32 刀把型錄尺寸線圖；保留 Ø32 與後段 60 標註。",
+      "kind": "holder",
+      "overlay_labels": [
+        {
+          "field": "holderD",
+          "box": {
+            "x": 56,
+            "y": 190,
+            "width": 45,
+            "height": 77
+          },
+          "x": 78.5,
+          "y": 228.5,
+          "font_size": 44,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "holderL",
+          "box": {
+            "x": 322,
+            "y": 436,
+            "width": 29,
+            "height": 43
+          },
+          "x": 336.5,
+          "y": 457.5,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 992,
+            "y": 178,
+            "width": 45,
+            "height": 97
+          },
+          "x": 1014.5,
+          "y": 226.5,
+          "font_size": 42,
+          "rotate": 90,
+          "fill": "#ffffff",
+          "value": "Ø32 mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 649,
+            "y": 436,
+            "width": 58,
+            "height": 44
+          },
+          "x": 678,
+          "y": 458,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#ffffff",
+          "value": "60 mm"
+        }
+      ]
+    },
+    {
+      "key": "adapter_99151",
+      "file": "99151-adapter.png",
+      "printed_page": 158,
+      "pdf_page": 11,
+      "width_px": 1522,
+      "height_px": 687,
+      "crop": {
+        "dpi": 600,
+        "x": 2858,
+        "y": 5018,
+        "width": 1522,
+        "height": 687
+      },
+      "description_zh_tw": "99151 專用轉接頭共用型錄尺寸線圖；ØD 與 L 依轉接頭料號表格。",
+      "kind": "adapter",
+      "overlay_labels": [
+        {
+          "field": "holderD",
+          "box": {
+            "x": 45,
+            "y": 236,
+            "width": 46,
+            "height": 77
+          },
+          "x": 68,
+          "y": 274.5,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "holderL",
+          "box": {
+            "x": 464,
+            "y": 552,
+            "width": 30,
+            "height": 44
+          },
+          "x": 479,
+          "y": 574,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#ffffff"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 1345,
+            "y": 218,
+            "width": 46,
+            "height": 98
+          },
+          "x": 1368,
+          "y": 267,
+          "font_size": 42,
+          "rotate": -90,
+          "fill": "#ffffff",
+          "value": "Ø20 mm"
+        },
+        {
+          "field": "constant",
+          "box": {
+            "x": 997,
+            "y": 552,
+            "width": 60,
+            "height": 44
+          },
+          "x": 1027,
+          "y": 574,
+          "font_size": 44,
+          "rotate": 0,
+          "fill": "#ffffff",
+          "value": "42 mm"
+        }
+      ]
+    }
+  ],
+  "overlay_note_zh_tw": "overlay_labels 的 box 為原 PNG 像素遮罩範圍；x／y 為替換文字中心。遮罩僅蓋原尺寸字形，保留尺寸線與箭頭。動態值由已選刀桿、刀把及轉接頭資料提供，缺值顯示 —；固定值不推算總成長度或未知變體對應。原圖適用範圍文字與微調刻度保持原樣。"
+}

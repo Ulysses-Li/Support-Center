@@ -1,0 +1,3208 @@
+{
+  "schema_version": "1.0.0",
+  "document_title": "NineBore product inventory - catalogue data",
+  "language": "zh-Hant",
+  "source": {
+    "file": "../sources/13_NineBore Boring Tool_p148-166.pdf",
+    "printed_pages": [
+      148,
+      166
+    ],
+    "pdf_page_count": 19
+  },
+  "source_refs": {
+    "p151": {
+      "printed_page": 151,
+      "pdf_page": 4,
+      "verification_png": "verification/page-04.png",
+      "visible_text": "verification/visible-page-04.txt"
+    },
+    "p152": {
+      "printed_page": 152,
+      "pdf_page": 5,
+      "verification_png": "verification/page-05.png",
+      "visible_text": "verification/visible-page-05.txt"
+    },
+    "p153": {
+      "printed_page": 153,
+      "pdf_page": 6,
+      "verification_png": "verification/page-06.png",
+      "visible_text": "verification/visible-page-06.txt"
+    },
+    "p155": {
+      "printed_page": 155,
+      "pdf_page": 8,
+      "verification_png": "verification/page-08.png",
+      "visible_text": "verification/visible-page-08.txt"
+    },
+    "p156": {
+      "printed_page": 156,
+      "pdf_page": 9,
+      "verification_png": "verification/page-09.png",
+      "visible_text": "verification/visible-page-09.txt"
+    },
+    "p159": {
+      "printed_page": 159,
+      "pdf_page": 12,
+      "verification_png": "verification/page-12.png",
+      "visible_text": "verification/visible-page-12.txt"
+    },
+    "p161": {
+      "printed_page": 161,
+      "pdf_page": 14,
+      "verification_png": "verification/page-14.png",
+      "visible_text": "verification/visible-page-14.txt"
+    },
+    "p162": {
+      "printed_page": 162,
+      "pdf_page": 15,
+      "verification_png": "verification/page-15.png",
+      "visible_text": "verification/visible-page-15.txt"
+    }
+  },
+  "scope": {
+    "included": [
+      "99101 boring bars",
+      "99121 boring bars",
+      "99146 S/A boring bars",
+      "99151 solid carbide deep-hole boring bars",
+      "p161 independently mounted fine boring units",
+      "p162 physical insert part numbers and listed grade/coating variants"
+    ],
+    "excluded_reference": {
+      "clamping-data.json": "holders, adapters, and six p156 05SET bundles",
+      "cutting-data.json": "p162 cutting conditions and five insert-grade descriptions"
+    },
+    "excluded_accessories_printed_pages": [
+      163,
+      164
+    ]
+  },
+  "selection_requirements": {
+    "ask_before_selection": [
+      "finished_hole_diameter_mm",
+      "boring_depth_mm",
+      "workpiece_material",
+      "available_clamping_interface"
+    ],
+    "diameter_rule": "Match individual catalogue intervals only. Series overview is summary and does not prove continuous coverage.",
+    "depth_rule": "Check L1, actual reach/clearance and clamping. Pages155/156/159 explicitly label L1 as boring depth; pages152/153 show a front-neck L1 geometry and require clearance confirmation. The meaning of L varies by drawing and must not be assumed to be usable depth or always overall length.",
+    "clamping_rule": "Confirm holder/adaptor compatibility using clamping-data.json before returning a complete assembly.",
+    "insert_rule": "Keep exact part numbers separate from catalogue family wildcards. Do not equate CCGH060204, CCGH0602U, CCFT060204, or CCFW060204 by similar spelling."
+  },
+  "value_conventions": {
+    "null": "not listed / catalogue dash / no unambiguous per-row mapping; never guessed",
+    "catalog": "direct catalogue table or diagram values; merged cells inherited only after PNG verification",
+    "derived": "nominal_D is decoded from catalogue part/type ordering code; coverage unions and gaps computed from listed row intervals",
+    "row_array_rule": "Each group declares columns. Defaults and source_ref apply to all rows in that group. Dimension units are mm unless stated.",
+    "total_L_rule": "99146 catalogue tables have no L column. L_mm_catalog is null; fixed drawing dimensions are preserved separately, without fabricating L.",
+    "torque_note": "Catalogue asterisk states that a torque screwdriver is recommended."
+  },
+  "series_overview": [
+    {
+      "series": "99101",
+      "source_ref": "p151",
+      "summary_only": true,
+      "D_range_mm_catalog": [
+        6.5,
+        25.5
+      ],
+      "adjustment_mm_catalog": [
+        -0.5,
+        0.5
+      ],
+      "division_mm_catalog": 0.03
+    },
+    {
+      "series": "99121",
+      "source_ref": "p151",
+      "summary_only": true,
+      "D_range_mm_catalog": [
+        4.9,
+        25.1
+      ],
+      "adjustment_mm_catalog": [
+        -0.1,
+        0.1
+      ],
+      "division_mm_catalog": 0.01
+    },
+    {
+      "series": "99146",
+      "source_ref": "p151",
+      "summary_only": true,
+      "D_range_mm_catalog": [
+        4.87,
+        50.12
+      ],
+      "adjustment_mm_catalog": [
+        -0.13,
+        0.12
+      ],
+      "division_mm_catalog": 0.01
+    },
+    {
+      "series": "99151",
+      "source_ref": "p151",
+      "summary_only": true,
+      "D_range_mm_catalog": [
+        4.87,
+        20.12
+      ],
+      "adjustment_mm_catalog": [
+        -0.13,
+        0.12
+      ],
+      "division_mm_catalog": 0.01
+    }
+  ],
+  "insert_interfaces": {
+    "cc030102_ns16030": {
+      "insert_family_catalog": "CC...030102",
+      "screw_catalog": "NS-16030",
+      "torque_Nm_catalog": 0.4,
+      "key_catalog": "NK-T6"
+    },
+    "cc040102_ns20036": {
+      "insert_family_catalog": "CC...040102",
+      "screw_catalog": "NS-20036",
+      "torque_Nm_catalog": 0.6,
+      "key_catalog": "NK-T6"
+    },
+    "cc0602_ns25045": {
+      "insert_family_catalog": "CC...0602...",
+      "screw_catalog": "NS-25045",
+      "torque_Nm_catalog": 0.9,
+      "key_catalog": "NK-T7"
+    },
+    "cc0602_ns25060": {
+      "insert_family_catalog": "CC...0602...",
+      "screw_catalog": "NS-25060",
+      "torque_Nm_catalog": 0.9,
+      "key_catalog": "NK-T7"
+    },
+    "ccgt030102_ns16030": {
+      "insert_family_catalog": "CCGT030102",
+      "screw_catalog": "NS-16030",
+      "torque_Nm_catalog": 0.4,
+      "key_catalog": "NK-T6"
+    },
+    "ccgt040102_ns20036": {
+      "insert_family_catalog": "CCGT040102",
+      "screw_catalog": "NS-20036",
+      "torque_Nm_catalog": 0.6,
+      "key_catalog": "NK-T6"
+    }
+  },
+  "boring_bar_groups": [
+    {
+      "id": "99101",
+      "series": "99101",
+      "name_catalog": "99101 EMB Boring Bars",
+      "source_ref": "p152",
+      "defaults": {
+        "unit": "mm",
+        "adjustment_min_mm_catalog": -0.5,
+        "adjustment_max_mm_catalog": 0.5,
+        "division_mm_catalog": 0.03,
+        "adjustment_source_ref": "p152",
+        "shank_material_catalog": null,
+        "shank_diameter_mm_catalog": 20,
+        "internal_coolant_request": {
+          "available_from_nominal_D_mm_catalog": 7,
+          "ordering_example_catalog": "00-99101-07H",
+          "is_standard_listed_sku": false
+        },
+        "other_sizes_on_request_catalog": true
+      },
+      "columns": [
+        "part_no_catalog",
+        "type_catalog",
+        "nominal_D_mm_derived",
+        "D_range_text_catalog",
+        "D_min_mm_catalog",
+        "D_max_mm_catalog",
+        "L1_mm_catalog",
+        "L_mm_catalog",
+        "insert_interface_ref"
+      ],
+      "rows": [
+        [
+          "00-99101-07",
+          "SB20-0721-03",
+          7,
+          "6.5-7.5",
+          6.5,
+          7.5,
+          21,
+          60,
+          "cc040102_ns20036"
+        ],
+        [
+          "00-99101-08",
+          "SB20-0824-03",
+          8,
+          "7.5-8.5",
+          7.5,
+          8.5,
+          24,
+          63,
+          "cc040102_ns20036"
+        ],
+        [
+          "00-99101-09",
+          "SB20-0927-03",
+          9,
+          "8.5-9.5",
+          8.5,
+          9.5,
+          27,
+          65,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99101-10",
+          "SB20-1030-03",
+          10,
+          "9.5-10.5",
+          9.5,
+          10.5,
+          30,
+          68,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99101-11",
+          "SB20-1133-03",
+          11,
+          "10.5-11.5",
+          10.5,
+          11.5,
+          33,
+          70,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99101-12",
+          "SB20-1236-03",
+          12,
+          "11.5-12.5",
+          11.5,
+          12.5,
+          36,
+          73,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99101-13",
+          "SB20-1339-03",
+          13,
+          "12.5-13.5",
+          12.5,
+          13.5,
+          39,
+          75,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99101-14",
+          "SB20-1442-03",
+          14,
+          "13.5-14.5",
+          13.5,
+          14.5,
+          42,
+          78,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99101-15",
+          "SB20-1545-03",
+          15,
+          "14.5-15.5",
+          14.5,
+          15.5,
+          45,
+          80,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99101-16",
+          "SB20-1648-03",
+          16,
+          "15.5-16.5",
+          15.5,
+          16.5,
+          48,
+          83,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99101-17",
+          "SB20-1751-03",
+          17,
+          "16.5-17.5",
+          16.5,
+          17.5,
+          51,
+          85,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99101-18",
+          "SB20-1850-03",
+          18,
+          "17.5-18.5",
+          17.5,
+          18.5,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99101-19",
+          "SB20-1950-03",
+          19,
+          "18.5-19.5",
+          18.5,
+          19.5,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99101-20",
+          "SB20-2050-03",
+          20,
+          "19.5-20.5",
+          19.5,
+          20.5,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99101-21",
+          "SB20-2150-03",
+          21,
+          "20.5-21.5",
+          20.5,
+          21.5,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99101-22",
+          "SB20-2250-03",
+          22,
+          "21.5-22.5",
+          21.5,
+          22.5,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99101-23",
+          "SB20-2350-03",
+          23,
+          "22.5-23.5",
+          22.5,
+          23.5,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99101-24",
+          "SB20-2450-03",
+          24,
+          "23.5-24.5",
+          23.5,
+          24.5,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99101-25",
+          "SB20-2550-03",
+          25,
+          "24.5-25.5",
+          24.5,
+          25.5,
+          50,
+          82,
+          "cc0602_ns25060"
+        ]
+      ]
+    },
+    {
+      "id": "99121",
+      "series": "99121",
+      "name_catalog": "99121 EMB Boring Bars",
+      "source_ref": "p153",
+      "defaults": {
+        "unit": "mm",
+        "adjustment_min_mm_catalog": -0.1,
+        "adjustment_max_mm_catalog": 0.1,
+        "division_mm_catalog": 0.01,
+        "adjustment_source_ref": "p153",
+        "shank_material_catalog": null,
+        "shank_diameter_mm_catalog": null,
+        "internal_coolant_request": {
+          "available_from_nominal_D_mm_catalog": 7,
+          "ordering_example_catalog": "00-99121-07H",
+          "is_standard_listed_sku": false
+        },
+        "other_sizes_on_request_catalog": true
+      },
+      "columns": [
+        "part_no_catalog",
+        "type_catalog",
+        "nominal_D_mm_derived",
+        "D_range_text_catalog",
+        "D_min_mm_catalog",
+        "D_max_mm_catalog",
+        "L1_mm_catalog",
+        "L_mm_catalog",
+        "insert_interface_ref"
+      ],
+      "rows": [
+        [
+          "00-99121-05",
+          "SB20-0515-01",
+          5,
+          "4.9-5.1",
+          4.9,
+          5.1,
+          15,
+          54,
+          "cc030102_ns16030"
+        ],
+        [
+          "00-99121-06",
+          "SB20-0618-01",
+          6,
+          "5.9-6.1",
+          5.9,
+          6.1,
+          18,
+          57,
+          "cc030102_ns16030"
+        ],
+        [
+          "00-99121-07",
+          "SB20-0721-01",
+          7,
+          "6.9-7.1",
+          6.9,
+          7.1,
+          21,
+          60,
+          "cc040102_ns20036"
+        ],
+        [
+          "00-99121-08",
+          "SB20-0824-01",
+          8,
+          "7.9-8.1",
+          7.9,
+          8.1,
+          24,
+          63,
+          "cc040102_ns20036"
+        ],
+        [
+          "00-99121-09",
+          "SB20-0927-01",
+          9,
+          "8.9-9.1",
+          8.9,
+          9.1,
+          27,
+          65,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99121-10",
+          "SB20-1030-01",
+          10,
+          "9.9-10.1",
+          9.9,
+          10.1,
+          30,
+          68,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99121-11",
+          "SB20-1133-01",
+          11,
+          "10.9-11.1",
+          10.9,
+          11.1,
+          33,
+          70,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99121-12",
+          "SB20-1236-01",
+          12,
+          "11.9-12.1",
+          11.9,
+          12.1,
+          36,
+          73,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99121-13",
+          "SB20-1339-01",
+          13,
+          "12.9-13.1",
+          12.9,
+          13.1,
+          39,
+          75,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99121-14",
+          "SB20-1442-01",
+          14,
+          "13.9-14.1",
+          13.9,
+          14.1,
+          42,
+          78,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99121-15",
+          "SB20-1545-01",
+          15,
+          "14.9-15.1",
+          14.9,
+          15.1,
+          45,
+          80,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99121-16",
+          "SB20-1648-01",
+          16,
+          "15.9-16.1",
+          15.9,
+          16.1,
+          48,
+          83,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99121-17",
+          "SB20-1751-01",
+          17,
+          "16.9-17.1",
+          16.9,
+          17.1,
+          51,
+          85,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99121-18",
+          "SB20-1850-01",
+          18,
+          "17.9-18.1",
+          17.9,
+          18.1,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99121-19",
+          "SB20-1950-01",
+          19,
+          "18.9-19.1",
+          18.9,
+          19.1,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99121-20",
+          "SB20-2050-01",
+          20,
+          "19.9-20.1",
+          19.9,
+          20.1,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99121-21",
+          "SB20-2150-01",
+          21,
+          "20.9-21.1",
+          20.9,
+          21.1,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99121-22",
+          "SB20-2250-01",
+          22,
+          "21.9-22.1",
+          21.9,
+          22.1,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99121-23",
+          "SB20-2350-01",
+          23,
+          "22.9-23.1",
+          22.9,
+          23.1,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99121-24",
+          "SB20-2450-01",
+          24,
+          "23.9-24.1",
+          23.9,
+          24.1,
+          50,
+          82,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99121-25",
+          "SB20-2550-01",
+          25,
+          "24.9-25.1",
+          24.9,
+          25.1,
+          50,
+          82,
+          "cc0602_ns25060"
+        ]
+      ]
+    },
+    {
+      "id": "99146_S",
+      "series": "99146",
+      "name_catalog": "99146 Quick Change High Speed EMB Boring Bar",
+      "source_ref": "p155",
+      "defaults": {
+        "unit": "mm",
+        "adjustment_min_mm_catalog": -0.13,
+        "adjustment_max_mm_catalog": 0.12,
+        "division_mm_catalog": 0.01,
+        "adjustment_source_ref": "p151",
+        "shank_material_catalog": "Alloy Steel Shank",
+        "shank_diameter_mm_catalog": 20,
+        "boring_depth_dimension_catalog": "L1",
+        "boring_depth_ratio_catalog": "2~3xD",
+        "internal_coolant_request": {
+          "available_from_nominal_D_mm_catalog": 10,
+          "ordering_example_catalog": "00-99146-1000SH",
+          "is_standard_listed_sku": false
+        },
+        "other_sizes_on_request_catalog": true
+      },
+      "diagram_dimensions_catalog": {
+        "unit": "mm",
+        "cutting_tip_to_shank_shoulder": 85,
+        "shank_axial_length": 42,
+        "table_total_L": null
+      },
+      "columns": [
+        "part_no_catalog",
+        "type_catalog",
+        "nominal_D_mm_derived",
+        "D_range_text_catalog",
+        "D_min_mm_catalog",
+        "D_max_mm_catalog",
+        "L1_mm_catalog",
+        "L_mm_catalog",
+        "insert_interface_ref"
+      ],
+      "rows": [
+        [
+          "00-99146-0500S",
+          "C20-0500-10L",
+          5,
+          "4.87~5.12",
+          4.87,
+          5.12,
+          10,
+          null,
+          "cc030102_ns16030"
+        ],
+        [
+          "00-99146-0600S",
+          "C20-0600-12L",
+          6,
+          "5.87~6.12",
+          5.87,
+          6.12,
+          12,
+          null,
+          "cc030102_ns16030"
+        ],
+        [
+          "00-99146-0700S",
+          "C20-0700-14L",
+          7,
+          "6.87~7.12",
+          6.87,
+          7.12,
+          14,
+          null,
+          "cc040102_ns20036"
+        ],
+        [
+          "00-99146-0800S",
+          "C20-0800-16L",
+          8,
+          "7.87~8.12",
+          7.87,
+          8.12,
+          16,
+          null,
+          "cc040102_ns20036"
+        ],
+        [
+          "00-99146-0900S",
+          "C20-0900-18L",
+          9,
+          "8.87~9.12",
+          8.87,
+          9.12,
+          18,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1000S",
+          "C20-1000-25L",
+          10,
+          "9.87~10.12",
+          9.87,
+          10.12,
+          25,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1025S",
+          "C20-1025-25L",
+          10.25,
+          "10.12~10.37",
+          10.12,
+          10.37,
+          25,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1050S",
+          "C20-1050-26L",
+          10.5,
+          "10.37~10.62",
+          10.37,
+          10.62,
+          26.25,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1075S",
+          "C20-1075-26L",
+          10.75,
+          "10.62~10.87",
+          10.62,
+          10.87,
+          26.25,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1100S",
+          "C20-1100-27L",
+          11,
+          "10.87~11.12",
+          10.87,
+          11.12,
+          27.5,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1125S",
+          "C20-1125-27L",
+          11.25,
+          "11.12~11.37",
+          11.12,
+          11.37,
+          27.5,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1150S",
+          "C20-1150-28L",
+          11.5,
+          "11.37~11.62",
+          11.37,
+          11.62,
+          28.75,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1175S",
+          "C20-1175-28L",
+          11.75,
+          "11.62~11.87",
+          11.62,
+          11.87,
+          28.75,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1200S",
+          "C20-1200-30L",
+          12,
+          "11.87~12.12",
+          11.87,
+          12.12,
+          30,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1225S",
+          "C20-1225-30L",
+          12.25,
+          "12.12~12.37",
+          12.12,
+          12.37,
+          30,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1250S",
+          "C20-1250-31L",
+          12.5,
+          "12.37~12.62",
+          12.37,
+          12.62,
+          31.25,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1275S",
+          "C20-1275-31L",
+          12.75,
+          "12.62~12.87",
+          12.62,
+          12.87,
+          31.25,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1300S",
+          "C20-1300-32L",
+          13,
+          "12.87~13.12",
+          12.87,
+          13.12,
+          32.5,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1325S",
+          "C20-1325-32L",
+          13.25,
+          "13.12~13.37",
+          13.12,
+          13.37,
+          32.5,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1350S",
+          "C20-1350-33L",
+          13.5,
+          "13.37~13.62",
+          13.37,
+          13.62,
+          33.75,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1375S",
+          "C20-1375-33L",
+          13.75,
+          "13.62~13.87",
+          13.62,
+          13.87,
+          33.75,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1400S",
+          "C20-1400-35L",
+          14,
+          "13.87~14.12",
+          13.87,
+          14.12,
+          35,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1425S",
+          "C20-1425-35L",
+          14.25,
+          "14.12~14.37",
+          14.12,
+          14.37,
+          35,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1450S",
+          "C20-1450-36L",
+          14.5,
+          "14.37~14.62",
+          14.37,
+          14.62,
+          36.25,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1475S",
+          "C20-1475-36L",
+          14.75,
+          "14.62~14.87",
+          14.62,
+          14.87,
+          36.25,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1500S",
+          "C20-1500-37L",
+          15,
+          "14.87~15.12",
+          14.87,
+          15.12,
+          37.5,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1525S",
+          "C20-1525-37L",
+          15.25,
+          "15.12~15.37",
+          15.12,
+          15.37,
+          37.5,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1550S",
+          "C20-1550-38L",
+          15.5,
+          "15.37~15.62",
+          15.37,
+          15.62,
+          38.75,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1575S",
+          "C20-1575-38L",
+          15.75,
+          "15.62~15.87",
+          15.62,
+          15.87,
+          38.75,
+          null,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99146-1600S",
+          "C20-1600-40L",
+          16,
+          "15.87~16.12",
+          15.87,
+          16.12,
+          40,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1625S",
+          "C20-1625-40L",
+          16.25,
+          "16.12~16.37",
+          16.12,
+          16.37,
+          40,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1650S",
+          "C20-1650-41L",
+          16.5,
+          "16.37~16.62",
+          16.37,
+          16.62,
+          41.25,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1675S",
+          "C20-1675-41L",
+          16.75,
+          "16.62~16.87",
+          16.62,
+          16.87,
+          41.25,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1700S",
+          "C20-1700-42L",
+          17,
+          "16.87~17.12",
+          16.87,
+          17.12,
+          42.5,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1725S",
+          "C20-1725-42L",
+          17.25,
+          "17.12~17.37",
+          17.12,
+          17.37,
+          42.5,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1750S",
+          "C20-1750-43L",
+          17.5,
+          "17.37~17.62",
+          17.37,
+          17.62,
+          43.75,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1775S",
+          "C20-1775-43L",
+          17.75,
+          "17.62~17.87",
+          17.62,
+          17.87,
+          43.75,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1800S",
+          "C20-1800-45L",
+          18,
+          "17.87~18.12",
+          17.87,
+          18.12,
+          45,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1825S",
+          "C20-1825-45L",
+          18.25,
+          "18.12~18.37",
+          18.12,
+          18.37,
+          45,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1850S",
+          "C20-1850-46L",
+          18.5,
+          "18.37~18.62",
+          18.37,
+          18.62,
+          46.25,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1875S",
+          "C20-1875-46L",
+          18.75,
+          "18.62~18.87",
+          18.62,
+          18.87,
+          46.25,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1900S",
+          "C20-1900-47L",
+          19,
+          "18.87~19.12",
+          18.87,
+          19.12,
+          47.5,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1925S",
+          "C20-1925-47L",
+          19.25,
+          "19.12~19.37",
+          19.12,
+          19.37,
+          47.5,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1950S",
+          "C20-1950-48L",
+          19.5,
+          "19.37~19.62",
+          19.37,
+          19.62,
+          48.75,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-1975S",
+          "C20-1975-48L",
+          19.75,
+          "19.62~19.87",
+          19.62,
+          19.87,
+          48.75,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2000S",
+          "C20-2000-50L",
+          20,
+          "19.87~20.12",
+          19.87,
+          20.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2025S",
+          "C20-2025-50L",
+          20.25,
+          "20.12~20.37",
+          20.12,
+          20.37,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2050S",
+          "C20-2050-50L",
+          20.5,
+          "20.37~20.62",
+          20.37,
+          20.62,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2075S",
+          "C20-2075-50L",
+          20.75,
+          "20.62~20.87",
+          20.62,
+          20.87,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2100S",
+          "C20-2100-50L",
+          21,
+          "20.87~21.12",
+          20.87,
+          21.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2125S",
+          "C20-2125-50L",
+          21.25,
+          "21.12~21.37",
+          21.12,
+          21.37,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2150S",
+          "C20-2150-50L",
+          21.5,
+          "21.37~21.62",
+          21.37,
+          21.62,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2175S",
+          "C20-2175-50L",
+          21.75,
+          "21.62~21.87",
+          21.62,
+          21.87,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2200S",
+          "C20-2200-50L",
+          22,
+          "21.87~22.12",
+          21.87,
+          22.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2225S",
+          "C20-2225-50L",
+          22.25,
+          "22.12~22.37",
+          22.12,
+          22.37,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2250S",
+          "C20-2250-50L",
+          22.5,
+          "22.37~22.62",
+          22.37,
+          22.62,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2275S",
+          "C20-2275-50L",
+          22.75,
+          "22.62~22.87",
+          22.62,
+          22.87,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2300S",
+          "C20-2300-50L",
+          23,
+          "22.87~23.12",
+          22.87,
+          23.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2325S",
+          "C20-2325-50L",
+          23.25,
+          "23.12~23.37",
+          23.12,
+          23.37,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2350S",
+          "C20-2350-50L",
+          23.5,
+          "23.37~23.62",
+          23.37,
+          23.62,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2375S",
+          "C20-2375-50L",
+          23.75,
+          "23.62~23.87",
+          23.62,
+          23.87,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2400S",
+          "C20-2400-50L",
+          24,
+          "23.87~24.12",
+          23.87,
+          24.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2425S",
+          "C20-2425-50L",
+          24.25,
+          "24.12~24.37",
+          24.12,
+          24.37,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2450S",
+          "C20-2450-50L",
+          24.5,
+          "24.37~24.62",
+          24.37,
+          24.62,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2475S",
+          "C20-2475-50L",
+          24.75,
+          "24.62~24.87",
+          24.62,
+          24.87,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2500S",
+          "C20-2500-50L",
+          25,
+          "24.87~25.12",
+          24.87,
+          25.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2525S",
+          "C20-2525-50L",
+          25.25,
+          "25.12~25.37",
+          25.12,
+          25.37,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-2550S",
+          "C20-2550-50L",
+          25.5,
+          "25.37~25.62",
+          25.37,
+          25.62,
+          50,
+          null,
+          "cc0602_ns25060"
+        ]
+      ]
+    },
+    {
+      "id": "99146_A",
+      "series": "99146",
+      "name_catalog": "99146 Quick Change High Speed EMB Boring Bar",
+      "source_ref": "p156",
+      "defaults": {
+        "unit": "mm",
+        "adjustment_min_mm_catalog": -0.13,
+        "adjustment_max_mm_catalog": 0.12,
+        "division_mm_catalog": 0.01,
+        "adjustment_source_ref": "p151",
+        "shank_material_catalog": "Alloy Steel Shank",
+        "shank_diameter_mm_catalog": 20,
+        "boring_depth_dimension_catalog": "L1",
+        "boring_depth_ratio_catalog": "2~3xD",
+        "internal_coolant_request": {
+          "available_from_nominal_D_mm_catalog": 10,
+          "ordering_example_catalog": "00-99146-36AH",
+          "is_standard_listed_sku": false
+        },
+        "other_sizes_on_request_catalog": true
+      },
+      "diagram_dimensions_catalog": {
+        "unit": "mm",
+        "nominal_D_26_to_39_cutting_tip_to_shank_shoulder": 90,
+        "shank_axial_length": 42,
+        "nominal_D_40_to_50_cutting_tip_to_shank_shoulder": null,
+        "table_total_L": null
+      },
+      "columns": [
+        "part_no_catalog",
+        "type_catalog",
+        "nominal_D_mm_derived",
+        "D_range_text_catalog",
+        "D_min_mm_catalog",
+        "D_max_mm_catalog",
+        "L1_mm_catalog",
+        "L_mm_catalog",
+        "insert_interface_ref"
+      ],
+      "rows": [
+        [
+          "00-99146-26A",
+          "C20-2600-50L",
+          26,
+          "25.87~26.12",
+          25.87,
+          26.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-27A",
+          "C20-2700-50L",
+          27,
+          "26.87~27.12",
+          26.87,
+          27.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-28A",
+          "C20-2800-50L",
+          28,
+          "27.87~28.12",
+          27.87,
+          28.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-29A",
+          "C20-2900-50L",
+          29,
+          "28.87~29.12",
+          28.87,
+          29.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-30A",
+          "C20-3000-50L",
+          30,
+          "29.87~30.12",
+          29.87,
+          30.12,
+          50,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-31A",
+          "C20-3100-70L",
+          31,
+          "30.87~31.12",
+          30.87,
+          31.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-32A",
+          "C20-3200-70L",
+          32,
+          "31.87~32.12",
+          31.87,
+          32.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-33A",
+          "C20-3300-70L",
+          33,
+          "32.87~33.12",
+          32.87,
+          33.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-34A",
+          "C20-3400-70L",
+          34,
+          "33.87~34.12",
+          33.87,
+          34.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-35A",
+          "C20-3500-70L",
+          35,
+          "34.87~35.12",
+          34.87,
+          35.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-36A",
+          "C20-3600-70L",
+          36,
+          "35.87~36.12",
+          35.87,
+          36.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-37A",
+          "C20-3700-70L",
+          37,
+          "36.87~37.12",
+          36.87,
+          37.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-38A",
+          "C20-3800-70L",
+          38,
+          "37.87~38.12",
+          37.87,
+          38.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-39A",
+          "C20-3900-70L",
+          39,
+          "38.87~39.12",
+          38.87,
+          39.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-40A",
+          "C20-4000-70L",
+          40,
+          "39.87-40.12",
+          39.87,
+          40.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-41A",
+          "C20-4100-70L",
+          41,
+          "40.87-41.12",
+          40.87,
+          41.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-42A",
+          "C20-4200-70L",
+          42,
+          "41.87-42.12",
+          41.87,
+          42.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-43A",
+          "C20-4300-70L",
+          43,
+          "42.87-43.12",
+          42.87,
+          43.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-44A",
+          "C20-4400-70L",
+          44,
+          "43.87-44.12",
+          43.87,
+          44.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-45A",
+          "C20-4500-70L",
+          45,
+          "44.87-45.12",
+          44.87,
+          45.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-46A",
+          "C20-4600-70L",
+          46,
+          "45.87-46.12",
+          45.87,
+          46.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-47A",
+          "C20-4700-70L",
+          47,
+          "46.87-47.12",
+          46.87,
+          47.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-48A",
+          "C20-4800-70L",
+          48,
+          "47.87-48.12",
+          47.87,
+          48.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-49A",
+          "C20-4900-70L",
+          49,
+          "48.87-49.12",
+          48.87,
+          49.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99146-50A",
+          "C20-5000-70L",
+          50,
+          "49.87-50.12",
+          49.87,
+          50.12,
+          70,
+          null,
+          "cc0602_ns25060"
+        ]
+      ]
+    },
+    {
+      "id": "99151",
+      "series": "99151",
+      "name_catalog": "99151 Deep hole boring 4~6XD",
+      "source_ref": "p159",
+      "defaults": {
+        "unit": "mm",
+        "adjustment_min_mm_catalog": -0.13,
+        "adjustment_max_mm_catalog": 0.12,
+        "division_mm_catalog": 0.01,
+        "adjustment_source_ref": "p151",
+        "shank_material_catalog": "Solid Carbide Shank",
+        "boring_depth_dimension_catalog": "L1",
+        "boring_depth_ratio_catalog": "4~6xD",
+        "catalog_dash_d1_means": "not specified / no d1 dimension shown; stored null",
+        "internal_coolant_request": null
+      },
+      "columns": [
+        "part_no_catalog",
+        "type_catalog",
+        "nominal_D_mm_derived",
+        "D_range_text_catalog",
+        "D_min_mm_catalog",
+        "D_max_mm_catalog",
+        "d_mm_catalog",
+        "d1_mm_catalog",
+        "L1_mm_catalog",
+        "L_mm_catalog",
+        "insert_interface_ref"
+      ],
+      "rows": [
+        [
+          "00-99151-0500W",
+          "C06-0500-20L",
+          5,
+          "4.87~5.12",
+          4.87,
+          5.12,
+          6,
+          null,
+          20,
+          70,
+          "ccgt030102_ns16030"
+        ],
+        [
+          "00-99151-0525W",
+          "C06-0525-20L",
+          5.25,
+          "5.12~5.37",
+          5.12,
+          5.37,
+          6,
+          null,
+          20,
+          70,
+          "ccgt030102_ns16030"
+        ],
+        [
+          "00-99151-0550W",
+          "C06-0550-22L",
+          5.5,
+          "5.37~5.62",
+          5.37,
+          5.62,
+          6,
+          null,
+          22,
+          70,
+          "ccgt030102_ns16030"
+        ],
+        [
+          "00-99151-0575W",
+          "C06-0575-22L",
+          5.75,
+          "5.62~5.87",
+          5.62,
+          5.87,
+          6,
+          null,
+          22,
+          70,
+          "ccgt030102_ns16030"
+        ],
+        [
+          "00-99151-0600W",
+          "C06-0600-24L",
+          6,
+          "5.87~6.12",
+          5.87,
+          6.12,
+          6,
+          null,
+          24,
+          70,
+          "ccgt030102_ns16030"
+        ],
+        [
+          "00-99151-0625W",
+          "C06-0625-24L",
+          6.25,
+          "6.12~6.37",
+          6.12,
+          6.37,
+          6,
+          null,
+          24,
+          70,
+          "ccgt030102_ns16030"
+        ],
+        [
+          "00-99151-0650W",
+          "C06-0650-26L",
+          6.5,
+          "6.37~6.62",
+          6.37,
+          6.62,
+          6,
+          null,
+          26,
+          70,
+          "ccgt030102_ns16030"
+        ],
+        [
+          "00-99151-0675W",
+          "C06-0675-26L",
+          6.75,
+          "6.62~6.87",
+          6.62,
+          6.87,
+          6,
+          null,
+          26,
+          70,
+          "ccgt030102_ns16030"
+        ],
+        [
+          "00-99151-0700W",
+          "C08-0700-28L",
+          7,
+          "6.87~7.12",
+          6.87,
+          7.12,
+          8,
+          null,
+          28,
+          85,
+          "ccgt040102_ns20036"
+        ],
+        [
+          "00-99151-0725W",
+          "C08-0725-28L",
+          7.25,
+          "7.12~7.37",
+          7.12,
+          7.37,
+          8,
+          null,
+          28,
+          85,
+          "ccgt040102_ns20036"
+        ],
+        [
+          "00-99151-0750W",
+          "C08-0750-30L",
+          7.5,
+          "7.37~7.62",
+          7.37,
+          7.62,
+          8,
+          null,
+          30,
+          85,
+          "ccgt040102_ns20036"
+        ],
+        [
+          "00-99151-0775W",
+          "C08-0775-30L",
+          7.75,
+          "7.62~7.87",
+          7.62,
+          7.87,
+          8,
+          null,
+          30,
+          85,
+          "ccgt040102_ns20036"
+        ],
+        [
+          "00-99151-0800W",
+          "C08-0800-32L",
+          8,
+          "7.87~8.12",
+          7.87,
+          8.12,
+          8,
+          null,
+          32,
+          85,
+          "ccgt040102_ns20036"
+        ],
+        [
+          "00-99151-0825W",
+          "C08-0825-32L",
+          8.25,
+          "8.12~8.37",
+          8.12,
+          8.37,
+          8,
+          null,
+          32,
+          85,
+          "ccgt040102_ns20036"
+        ],
+        [
+          "00-99151-0850W",
+          "C08-0850-34L",
+          8.5,
+          "8.37~8.62",
+          8.37,
+          8.62,
+          8,
+          null,
+          34,
+          85,
+          "ccgt040102_ns20036"
+        ],
+        [
+          "00-99151-0875W",
+          "C08-0875-34L",
+          8.75,
+          "8.62~8.87",
+          8.62,
+          8.87,
+          8,
+          null,
+          34,
+          85,
+          "ccgt040102_ns20036"
+        ],
+        [
+          "00-99151-0900W",
+          "C10-0900-36L",
+          9,
+          "8.87~9.12",
+          8.87,
+          9.12,
+          10,
+          null,
+          36,
+          110,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-0925W",
+          "C10-0925-36L",
+          9.25,
+          "9.12~9.37",
+          9.12,
+          9.37,
+          10,
+          null,
+          36,
+          110,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-0950W",
+          "C10-0950-38L",
+          9.5,
+          "9.37~9.62",
+          9.37,
+          9.62,
+          10,
+          null,
+          38,
+          110,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-0975W",
+          "C10-0975-38L",
+          9.75,
+          "9.62~9.87",
+          9.62,
+          9.87,
+          10,
+          null,
+          38,
+          110,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-1000W",
+          "C10-1000-40L",
+          10,
+          "9.87~10.12",
+          9.87,
+          10.12,
+          10,
+          null,
+          40,
+          110,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-1025W",
+          "C10-1025-40L",
+          10.25,
+          "10.12~10.37",
+          10.12,
+          10.37,
+          10,
+          null,
+          40,
+          110,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-1050W",
+          "C10-1050-42L",
+          10.5,
+          "10.37~10.62",
+          10.37,
+          10.62,
+          10,
+          null,
+          42,
+          110,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-1075W",
+          "C10-1075-42L",
+          10.75,
+          "10.62~10.87",
+          10.62,
+          10.87,
+          10,
+          null,
+          42,
+          110,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-1100W",
+          "C10-1100-44L",
+          11,
+          "10.87~11.12",
+          10.87,
+          11.12,
+          10,
+          null,
+          44,
+          110,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-1200WS",
+          "C11-1200-120L",
+          12,
+          "11.87~12.12",
+          11.87,
+          12.12,
+          11,
+          11,
+          70,
+          120,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-1300WS",
+          "C11-1300-120L",
+          13,
+          "12.87~13.12",
+          12.87,
+          13.12,
+          11,
+          null,
+          70,
+          120,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-1400WS",
+          "C11-1400-120L",
+          14,
+          "13.87~14.12",
+          13.87,
+          14.12,
+          11,
+          null,
+          70,
+          120,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-1500W",
+          "C15.5-1500-180L",
+          15,
+          "14.87~15.12",
+          14.87,
+          15.12,
+          15.5,
+          14,
+          90,
+          180,
+          "cc0602_ns25045"
+        ],
+        [
+          "00-99151-1600W",
+          "C15.5-1600-180L",
+          16,
+          "15.87~16.12",
+          15.87,
+          16.12,
+          15.5,
+          15,
+          90,
+          180,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99151-1700W",
+          "C15.5-1700-180L",
+          17,
+          "16.87~17.12",
+          16.87,
+          17.12,
+          15.5,
+          null,
+          100,
+          180,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99151-1800W",
+          "C15.5-1800-180L",
+          18,
+          "17.87~18.12",
+          17.87,
+          18.12,
+          15.5,
+          null,
+          100,
+          180,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99151-1900W",
+          "C15.5-1900-180L",
+          19,
+          "18.87~19.12",
+          18.87,
+          19.12,
+          15.5,
+          null,
+          100,
+          180,
+          "cc0602_ns25060"
+        ],
+        [
+          "00-99151-2000W",
+          "C15.5-2000-180L",
+          20,
+          "19.87~20.12",
+          19.87,
+          20.12,
+          15.5,
+          null,
+          100,
+          180,
+          "cc0602_ns25060"
+        ]
+      ]
+    }
+  ],
+  "fine_boring_units": {
+    "name_catalog": "Micro Adjustable Fine Boring Unit",
+    "source_ref": "p161",
+    "separate_installation_structure": true,
+    "is_99146_interchangeable_boring_bar": false,
+    "angular_mounting_degrees_catalog": 90,
+    "maximum_adjustment_range_mm_catalog": null,
+    "maximum_range_check_catalog": "Maximum range can be checked by end of spanner.",
+    "insert_types_catalog": [
+      "CCMT",
+      "CCMW",
+      "CCGH",
+      "CCGT",
+      "CCGX",
+      "TCMT",
+      "TCMW",
+      "TCGT",
+      "TCGX"
+    ],
+    "selection_policy": "Require dedicated mounting geometry and insert shape/size/radius confirmation; Dmin is a minimum dimension, not an upper coverage limit.",
+    "columns": [
+      "part_no_catalog",
+      "triangle_insert_size_catalog",
+      "diamond_insert_size_catalog",
+      "dmin_mm_catalog",
+      "Rmin_mm_catalog",
+      "R1max_mm_catalog",
+      "h2_mm_catalog",
+      "h3_mm_catalog",
+      "h4_mm_catalog",
+      "d1_mm_catalog",
+      "d2_H7_mm_catalog",
+      "d3_mm_catalog",
+      "d4_mm_catalog",
+      "G_catalog",
+      "l6_mm_catalog",
+      "l5_mm_catalog",
+      "l5_tolerance_plus_minus_mm_catalog"
+    ],
+    "rows": [
+      [
+        "3106",
+        null,
+        "06",
+        22,
+        2,
+        1.5,
+        11.5,
+        2.8,
+        1.6,
+        19,
+        16,
+        4.6,
+        3.2,
+        "M3",
+        10,
+        9.65,
+        0.02
+      ],
+      [
+        "3209",
+        "09",
+        null,
+        28.5,
+        2.8,
+        2.1,
+        15.5,
+        4,
+        1.6,
+        25,
+        20,
+        4.6,
+        3.2,
+        "M3",
+        10,
+        12.5,
+        0.02
+      ],
+      [
+        "3311",
+        "11",
+        null,
+        38,
+        4.8,
+        3.6,
+        24,
+        5,
+        1.8,
+        30,
+        22,
+        6.5,
+        4.3,
+        "M4",
+        15,
+        15.4,
+        0.02
+      ],
+      [
+        "3416",
+        "16",
+        null,
+        55,
+        8,
+        6,
+        33,
+        6.3,
+        null,
+        46,
+        32,
+        11.9,
+        5.4,
+        "M5",
+        20,
+        23,
+        0.02
+      ]
+    ],
+    "radius_variant_columns": [
+      "part_no_ref",
+      "insert_radius_mm_catalog",
+      "Dmin_mm_catalog",
+      "f_mm_catalog"
+    ],
+    "radius_variants": [
+      [
+        "3106",
+        0.2,
+        25.7,
+        0.4
+      ],
+      [
+        "3106",
+        0.4,
+        25.4,
+        0.4
+      ],
+      [
+        "3106",
+        0.8,
+        24.8,
+        0.45
+      ],
+      [
+        "3209",
+        0.2,
+        33.4,
+        0.95
+      ],
+      [
+        "3209",
+        0.4,
+        33.1,
+        1
+      ],
+      [
+        "3209",
+        0.8,
+        32.5,
+        1.1
+      ],
+      [
+        "3311",
+        0.2,
+        42.9,
+        1.15
+      ],
+      [
+        "3311",
+        0.4,
+        42.6,
+        1.2
+      ],
+      [
+        "3311",
+        0.8,
+        42,
+        1.3
+      ],
+      [
+        "3416",
+        0.2,
+        60.6,
+        1.3
+      ],
+      [
+        "3416",
+        0.4,
+        60,
+        1.4
+      ],
+      [
+        "3416",
+        1.2,
+        59.4,
+        1.5
+      ]
+    ]
+  },
+  "physical_inserts": {
+    "name_catalog": "Boring Tool Precisely Ground Inserts",
+    "source_ref": "p162",
+    "unit": "mm",
+    "ordering_code_concatenation_defined_catalog": false,
+    "columns": [
+      "part_no_catalog",
+      "substrate_grade_catalog",
+      "Ic_mm_catalog",
+      "S_mm_catalog",
+      "Re_mm_catalog",
+      "screw_catalog",
+      "torque_Nm_catalog",
+      "key_catalog"
+    ],
+    "rows": [
+      [
+        "CCGT030102",
+        "K20F",
+        3.5,
+        1.4,
+        0.2,
+        "NS-16030",
+        0.4,
+        "NK-T6"
+      ],
+      [
+        "CCGT040102",
+        "K20F",
+        4.3,
+        1.8,
+        0.2,
+        "NS-20036",
+        0.6,
+        "NK-T6"
+      ],
+      [
+        "CCGH0602U",
+        "K20F",
+        6.35,
+        2.38,
+        null,
+        "NS-25045",
+        0.9,
+        "NK-T7"
+      ],
+      [
+        "CCFT060204",
+        "K20F",
+        6.35,
+        2.38,
+        0.4,
+        "NS-25045",
+        0.9,
+        "NK-T7"
+      ],
+      [
+        "CCFW060204",
+        "K20F",
+        6.35,
+        2.38,
+        0.4,
+        "NS-25045",
+        0.9,
+        "NK-T7"
+      ]
+    ],
+    "grade_variant_columns": [
+      "part_no_ref",
+      "grade_designation_catalog",
+      "coating_catalog"
+    ],
+    "grade_variants": [
+      [
+        "CCGT030102",
+        "NC30",
+        "TiAlN"
+      ],
+      [
+        "CCGT030102",
+        "NC9036",
+        "DLC"
+      ],
+      [
+        "CCGT040102",
+        "NC30",
+        "TiAlN"
+      ],
+      [
+        "CCGT040102",
+        "NC9036",
+        "DLC"
+      ],
+      [
+        "CCGH0602U",
+        "XP9001",
+        "Uncoated"
+      ],
+      [
+        "CCFT060204",
+        "NC2033",
+        "TiAlN"
+      ],
+      [
+        "CCFT060204",
+        "NC9036",
+        "DLC"
+      ],
+      [
+        "CCFW060204",
+        "NC2032",
+        "AlTiN"
+      ]
+    ],
+    "notes": [
+      "CCGH0602U Re is a catalogue dash; stored null. Do not replace it with 0.4 or 0.15. The XP9001 special cutting-width description belongs to cutting-data.json.",
+      "Ic/S and screw/key on the 0602 rows are vertically merged catalogue cells, visually verified on p162.",
+      "AlTiN is transcribed from the visible page. Raw text extraction renders the lowercase l as uppercase I (AITiN)."
+    ]
+  },
+  "coverage_analysis": {
+    "99101": {
+      "derived_from": "union of individual catalog D_min/D_max rows; not the overview",
+      "covered_segments_mm_derived": [
+        [
+          6.5,
+          25.5
+        ]
+      ],
+      "gap_open_intervals_mm_derived": [],
+      "gap_endpoints_are_catalog_covered": true
+    },
+    "99121": {
+      "derived_from": "union of individual catalog D_min/D_max rows; not the overview",
+      "covered_segments_mm_derived": [
+        [
+          4.9,
+          5.1
+        ],
+        [
+          5.9,
+          6.1
+        ],
+        [
+          6.9,
+          7.1
+        ],
+        [
+          7.9,
+          8.1
+        ],
+        [
+          8.9,
+          9.1
+        ],
+        [
+          9.9,
+          10.1
+        ],
+        [
+          10.9,
+          11.1
+        ],
+        [
+          11.9,
+          12.1
+        ],
+        [
+          12.9,
+          13.1
+        ],
+        [
+          13.9,
+          14.1
+        ],
+        [
+          14.9,
+          15.1
+        ],
+        [
+          15.9,
+          16.1
+        ],
+        [
+          16.9,
+          17.1
+        ],
+        [
+          17.9,
+          18.1
+        ],
+        [
+          18.9,
+          19.1
+        ],
+        [
+          19.9,
+          20.1
+        ],
+        [
+          20.9,
+          21.1
+        ],
+        [
+          21.9,
+          22.1
+        ],
+        [
+          22.9,
+          23.1
+        ],
+        [
+          23.9,
+          24.1
+        ],
+        [
+          24.9,
+          25.1
+        ]
+      ],
+      "gap_open_intervals_mm_derived": [
+        [
+          5.1,
+          5.9
+        ],
+        [
+          6.1,
+          6.9
+        ],
+        [
+          7.1,
+          7.9
+        ],
+        [
+          8.1,
+          8.9
+        ],
+        [
+          9.1,
+          9.9
+        ],
+        [
+          10.1,
+          10.9
+        ],
+        [
+          11.1,
+          11.9
+        ],
+        [
+          12.1,
+          12.9
+        ],
+        [
+          13.1,
+          13.9
+        ],
+        [
+          14.1,
+          14.9
+        ],
+        [
+          15.1,
+          15.9
+        ],
+        [
+          16.1,
+          16.9
+        ],
+        [
+          17.1,
+          17.9
+        ],
+        [
+          18.1,
+          18.9
+        ],
+        [
+          19.1,
+          19.9
+        ],
+        [
+          20.1,
+          20.9
+        ],
+        [
+          21.1,
+          21.9
+        ],
+        [
+          22.1,
+          22.9
+        ],
+        [
+          23.1,
+          23.9
+        ],
+        [
+          24.1,
+          24.9
+        ]
+      ],
+      "gap_endpoints_are_catalog_covered": true
+    },
+    "99146": {
+      "derived_from": "union of individual catalog D_min/D_max rows; not the overview",
+      "covered_segments_mm_derived": [
+        [
+          4.87,
+          5.12
+        ],
+        [
+          5.87,
+          6.12
+        ],
+        [
+          6.87,
+          7.12
+        ],
+        [
+          7.87,
+          8.12
+        ],
+        [
+          8.87,
+          9.12
+        ],
+        [
+          9.87,
+          25.62
+        ],
+        [
+          25.87,
+          26.12
+        ],
+        [
+          26.87,
+          27.12
+        ],
+        [
+          27.87,
+          28.12
+        ],
+        [
+          28.87,
+          29.12
+        ],
+        [
+          29.87,
+          30.12
+        ],
+        [
+          30.87,
+          31.12
+        ],
+        [
+          31.87,
+          32.12
+        ],
+        [
+          32.87,
+          33.12
+        ],
+        [
+          33.87,
+          34.12
+        ],
+        [
+          34.87,
+          35.12
+        ],
+        [
+          35.87,
+          36.12
+        ],
+        [
+          36.87,
+          37.12
+        ],
+        [
+          37.87,
+          38.12
+        ],
+        [
+          38.87,
+          39.12
+        ],
+        [
+          39.87,
+          40.12
+        ],
+        [
+          40.87,
+          41.12
+        ],
+        [
+          41.87,
+          42.12
+        ],
+        [
+          42.87,
+          43.12
+        ],
+        [
+          43.87,
+          44.12
+        ],
+        [
+          44.87,
+          45.12
+        ],
+        [
+          45.87,
+          46.12
+        ],
+        [
+          46.87,
+          47.12
+        ],
+        [
+          47.87,
+          48.12
+        ],
+        [
+          48.87,
+          49.12
+        ],
+        [
+          49.87,
+          50.12
+        ]
+      ],
+      "gap_open_intervals_mm_derived": [
+        [
+          5.12,
+          5.87
+        ],
+        [
+          6.12,
+          6.87
+        ],
+        [
+          7.12,
+          7.87
+        ],
+        [
+          8.12,
+          8.87
+        ],
+        [
+          9.12,
+          9.87
+        ],
+        [
+          25.62,
+          25.87
+        ],
+        [
+          26.12,
+          26.87
+        ],
+        [
+          27.12,
+          27.87
+        ],
+        [
+          28.12,
+          28.87
+        ],
+        [
+          29.12,
+          29.87
+        ],
+        [
+          30.12,
+          30.87
+        ],
+        [
+          31.12,
+          31.87
+        ],
+        [
+          32.12,
+          32.87
+        ],
+        [
+          33.12,
+          33.87
+        ],
+        [
+          34.12,
+          34.87
+        ],
+        [
+          35.12,
+          35.87
+        ],
+        [
+          36.12,
+          36.87
+        ],
+        [
+          37.12,
+          37.87
+        ],
+        [
+          38.12,
+          38.87
+        ],
+        [
+          39.12,
+          39.87
+        ],
+        [
+          40.12,
+          40.87
+        ],
+        [
+          41.12,
+          41.87
+        ],
+        [
+          42.12,
+          42.87
+        ],
+        [
+          43.12,
+          43.87
+        ],
+        [
+          44.12,
+          44.87
+        ],
+        [
+          45.12,
+          45.87
+        ],
+        [
+          46.12,
+          46.87
+        ],
+        [
+          47.12,
+          47.87
+        ],
+        [
+          48.12,
+          48.87
+        ],
+        [
+          49.12,
+          49.87
+        ]
+      ],
+      "gap_endpoints_are_catalog_covered": true
+    },
+    "99151": {
+      "derived_from": "union of individual catalog D_min/D_max rows; not the overview",
+      "covered_segments_mm_derived": [
+        [
+          4.87,
+          11.12
+        ],
+        [
+          11.87,
+          12.12
+        ],
+        [
+          12.87,
+          13.12
+        ],
+        [
+          13.87,
+          14.12
+        ],
+        [
+          14.87,
+          15.12
+        ],
+        [
+          15.87,
+          16.12
+        ],
+        [
+          16.87,
+          17.12
+        ],
+        [
+          17.87,
+          18.12
+        ],
+        [
+          18.87,
+          19.12
+        ],
+        [
+          19.87,
+          20.12
+        ]
+      ],
+      "gap_open_intervals_mm_derived": [
+        [
+          11.12,
+          11.87
+        ],
+        [
+          12.12,
+          12.87
+        ],
+        [
+          13.12,
+          13.87
+        ],
+        [
+          14.12,
+          14.87
+        ],
+        [
+          15.12,
+          15.87
+        ],
+        [
+          16.12,
+          16.87
+        ],
+        [
+          17.12,
+          17.87
+        ],
+        [
+          18.12,
+          18.87
+        ],
+        [
+          19.12,
+          19.87
+        ]
+      ],
+      "gap_endpoints_are_catalog_covered": true
+    }
+  },
+  "critical_source_issues": [
+    {
+      "id": "insert_identifier_difference",
+      "sources": [
+        "p151",
+        "p162"
+      ],
+      "catalog_system_insert_names": [
+        "CCGT030102",
+        "CCGT040102",
+        "CCGH060204"
+      ],
+      "catalog_physical_insert_names": [
+        "CCGT030102",
+        "CCGT040102",
+        "CCGH0602U",
+        "CCFT060204",
+        "CCFW060204"
+      ],
+      "resolution": "Preserve strings separately. Manufacturer confirmation is required for 0602 specific-SKU substitution."
+    },
+    {
+      "id": "99146_heading_vs_row_endpoint",
+      "sources": [
+        "p155",
+        "p156"
+      ],
+      "catalog_heading": "Boring Bar Ø5~Ø25; drawing Ø5~Ø25.5",
+      "catalog_last_S_row": "00-99146-2550S: 25.37~25.62",
+      "resolution": "Use per-row 25.62 endpoint, not heading 25.5; retain gap before 26A starts at25.87."
+    },
+    {
+      "id": "99121_diagram_shank_mapping",
+      "sources": [
+        "p153"
+      ],
+      "catalog_diagram_diameter_labels": [
+        20,
+        13
+      ],
+      "catalog_diagram_shank_axial_labels": [
+        50,
+        48
+      ],
+      "resolution": "Parenthesized Ø13 and 48 have no explicit row mapping in this page; not assigned to individual rows."
+    },
+    {
+      "id": "99151_extraction_overlap",
+      "sources": [
+        "p159"
+      ],
+      "affected_parts": [
+        "00-99151-0600W",
+        "00-99151-1000W",
+        "00-99151-1025W"
+      ],
+      "resolution": "Removed overlapping drawing glyphs using visible PNG; catalogue ranges are5.87~6.12,9.87~10.12,10.12~10.37 respectively."
+    },
+    {
+      "id": "fine_unit_coverage",
+      "sources": [
+        "p161"
+      ],
+      "resolution": "Dmin varies with radius and is not Dmax; no maximum diameter interval fabricated. These units are a different mounting structure from99146 bars."
+    }
+  ],
+  "counts": {
+    "boring_bars_total": 167,
+    "boring_bars_by_series": {
+      "99101": 19,
+      "99121": 21,
+      "99146": 93,
+      "99151": 34
+    },
+    "fine_boring_unit_parts": 4,
+    "fine_boring_unit_radius_dimension_rows": 12,
+    "physical_insert_parts": 5,
+    "physical_insert_grade_variants": 8
+  }
+}

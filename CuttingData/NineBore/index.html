@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NineBore | Boring Setup</title>
+  <meta name="description" content="Start with the hole diameter, depth, material and clamping. Explore NineBore bars and set your cutting values.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../header/header.css"><link rel="stylesheet" href="../../footer/footer.css">
+  <link rel="stylesheet" href="../../css/site-background.css"><link rel="stylesheet" href="../../css/material-select.css"><link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="../../favicon.png"><link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div id="header-placeholder"></div>
+<main class="nb-page flex-grow-1"><div class="container-xl">
+  <nav class="breadcrumb-line" aria-label="Breadcrumb"><a href="../../nine9/products.html">Products by Application</a><span aria-hidden="true">/</span><span>NineBore</span></nav>
+  <header class="nb-heading row g-4 align-items-center">
+    <div class="col-12 col-lg-7"><p class="eyebrow mb-2">NINEBORE · BORING TOOL FINDER</p><h1>Start with your hole.</h1><p class="heading-note">Find the bar. Match the clamping.<br class="d-none d-sm-block"> Get the cutting values for your setup.</p><div class="d-flex flex-wrap align-items-center gap-3 mt-4"><a class="btn catalog-button" href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h5l3 3v10H4zM9 1.5v3h3M6 8h4M6 10h4"/></svg>Product catalog <small>PDF</small></a><a id="languageSwitch" class="btn secondary-button" href="?lang=zh-TW" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a class="btn secondary-button" href="./manufacturer-questions.html">View manufacturer questions ↗</a><span class="tool-note">Boring setup</span></div></div>
+    <div class="col-12 col-lg-5"><figure class="product-photo m-0"><img src="./assets/ninebore-tools.png" alt="NineBore quick-change holder and boring bars from the product catalog"><figcaption><span class="photo-dot"></span>NineBore · Straight-shank &amp; quick-change tools</figcaption></figure></div>
+  </header>
+  <p id="loading" class="surface p-4" role="status">Loading NineBore catalog…</p><p id="loadError" class="alert alert-danger" hidden></p>
+  <div id="workbench" hidden>
+    <!-- 第四項直接選型錄刀柄或直柄介面；直柄再問後端Ød，不把加工孔徑D當柄徑。 -->
+    <section class="surface filter-panel" aria-labelledby="filterTitle">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4"><div><p class="eyebrow mb-1">01 / DEFINE THE JOB</p><h2 id="filterTitle" class="panel-title m-0">What are you boring?</h2></div><div class="d-flex gap-3"><button class="btn text-button" id="exampleButton" type="button">Load example</button><button class="btn text-button" id="resetButton" type="button">Reset</button></div></div>
+      <form id="finderForm" novalidate>
+        <div class="row g-4">
+          <!-- 孔徑右側上下分格填上／下偏差；空白為未指定，不預填成實際公差。 -->
+          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="diameter"><span class="field-number">01</span> Finished hole diameter</label><div class="input-group diameter-tolerance-control"><span class="input-group-text">Ø</span><input id="diameter" class="form-control" type="number" step="any" min="0" inputmode="decimal" placeholder="Enter diameter" aria-describedby="diameterHint diameterToleranceHint"><div id="diameterToleranceStack" class="tolerance-stack" role="group" aria-label="Hole diameter tolerance"><label class="visually-hidden" for="toleranceUpper">Upper deviation</label><input id="toleranceUpper" class="tolerance-input" type="text" inputmode="decimal" placeholder="+0.05" autocomplete="off" spellcheck="false" aria-describedby="diameterToleranceHint"><label class="visually-hidden" for="toleranceLower">Lower deviation</label><input id="toleranceLower" class="tolerance-input" type="text" inputmode="decimal" placeholder="-0.02" autocomplete="off" spellcheck="false" aria-describedby="diameterToleranceHint"></div><span class="input-group-text">mm</span></div><p id="diameterHint" class="field-help">Your required finished diameter.</p><p id="diameterToleranceHint" class="field-help tolerance-hint" role="status" aria-live="polite">Tolerance optional · upper / lower</p></div>
+          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="depth"><span class="field-number">02</span> Boring depth</label><div class="input-group"><input id="depth" class="form-control" type="number" step="any" min="0" inputmode="decimal" placeholder="Enter depth" aria-describedby="depthHint"><span class="input-group-text">mm</span></div><p id="depthHint" class="field-help">Depth to bore below the work surface.</p></div>
+          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="material"><span class="field-number">03</span> Workpiece material</label><div class="iso-material-control"><span id="materialBadge" class="iso-material-badge" data-iso="" aria-hidden="true">—</span><select id="material" class="form-select"></select></div><p class="field-help">Used to match insert grade and cutting data.</p></div>
+          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="holderId"><span class="field-number">04</span> Holder / shank</label><select id="holderId" class="form-select" aria-describedby="holderHint" aria-controls="shankGroup"></select><p id="holderHint" class="field-help"></p></div>
+        </div>
+        <!-- 直柄補問獨立成一列，避免桌面只在第四欄堆高而留下大片空白。 -->
+        <div id="shankGroup" class="row g-3 align-items-center mt-2" hidden>
+          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="shankDiameter">Bar shank diameter <span>Ød</span></label><select id="shankDiameter" class="form-select" aria-describedby="shankHint"></select></div>
+          <!-- 依直柄搪刀的細頸、錐肩、調整環與後圓柱柄重繪；Ød只量後柄，不量最大環徑。 -->
+          <div class="col-12 col-sm-6 col-xl-5">
+            <figure class="shank-reference-figure m-0">
+              <svg id="shankReference" class="shank-reference" viewBox="0 0 520 158" role="img" aria-labelledby="shankReferenceTitle shankReferenceDescription">
+                <title id="shankReferenceTitle">Rear clamping shank Ød</title>
+                <desc id="shankReferenceDescription">Orange marks the rear cylindrical shank held by the chuck. Its diameter is separate from the cutting diameter. Schematic, not to scale.</desc>
+                <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+                  <!-- 刀尖與前頸、較粗調整環使用低彩度線條，橘色只聚焦後端夾持部位。 -->
+                  <path d="M35 82H116L153 56H254V132H153L116 106H35Z" fill="#edf3f7" stroke="#0c2237" stroke-width="2.2"/>
+                  <path d="M153 56V132M180 57V131M239 57V131M249 57V131" stroke="#698196" stroke-width="1.4"/>
+                  <path d="M160 67H175M160 76H169M160 85H175M160 94H169M160 103H175M160 112H169M160 121H175" stroke="#698196" stroke-width="1.2"/>
+                  <path d="M47 82C67 82 76 87 78 94C76 101 67 106 47 106" stroke="#698196" stroke-width="1.4"/>
+                  <path d="M35 84L56 81L59 103L36 106Z" fill="#f8e8c5" stroke="#0c2237" stroke-width="1.6"/>
+                  <circle cx="46.5" cy="94" r="3.2" stroke="#0c2237" stroke-width="1.5"/>
+                  <path d="M254 68H431Q437 68 437 74V114Q437 120 431 120H254Z" fill="#fff1e7" stroke="#f05a1a" stroke-width="2.5"/>
+                  <path d="M429 71V117" stroke="#f05a1a" stroke-opacity=".55" stroke-width="1.2"/>
+                  <path d="M17 94H450" stroke="#97b0c3" stroke-width="1.2" stroke-dasharray="12 5 2 5"/>
+                  <path d="M446 68H484M446 120H484M472 68V120" stroke="#f05a1a" stroke-width="1.5"/>
+                  <path d="M472 68L468 78H476ZM472 120L468 110H476Z" fill="#f05a1a" stroke="#f05a1a" stroke-width="1"/>
+                </g>
+                <text id="shankReferenceValue" x="505" y="43" text-anchor="end" fill="#b74613" font-size="25" font-weight="700">Ød</text>
+              </svg>
+              <figcaption class="shank-reference-caption"><span class="shank-reference-legend">Rear clamping section</span><span>Schematic · not to scale</span></figcaption>
+            </figure>
+          </div>
+          <div class="col-12 col-xl-4"><p id="shankHint" class="field-help m-0" role="status"></p><a class="field-help d-inline-block mt-2" href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=6" target="_blank" rel="noopener">View catalog shank drawing ↗</a></div>
+        </div>
+      </form>
+      <p id="inputIssues" class="notice mt-3 mb-0" role="status" hidden></p><p id="exampleNote" class="example-note mt-3 mb-0">Example job · adjust the four inputs to suit your workpiece.</p>
+    </section>
+    <div class="row g-4 results-workspace mt-1">
+      <div class="col-12 col-lg-7">
+        <section aria-labelledby="optionsTitle"><div class="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-3"><div><p class="eyebrow mb-1">02 / CHOOSE YOUR BAR</p><h2 id="optionsTitle" class="panel-title m-0">Your options</h2></div><span id="resultCount" class="result-count" role="status" aria-live="polite"></span></div><p id="criteria" class="criteria"></p><div id="emptyState" class="surface empty-state" hidden><span class="empty-icon" aria-hidden="true">Ø</span><h3 id="emptyTitle" class="h5 fw-bold"></h3><p id="emptyReason" class="m-0"></p></div><div id="candidateList" class="candidate-list" role="radiogroup" aria-label="Matching boring bars"></div></section>
+        <!-- 型錄外形搭配原生SVG尺寸覆寫，切換料號時直接在圖上顯示數字與單位。 -->
+        <figure class="surface geometry-panel mt-4" id="geometryFigure"><div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3"><h2 class="panel-title m-0">Your tool dimension drawing</h2><span class="quiet-label">Catalog outline</span></div><div id="diagramCanvas"></div><figcaption id="geometryCaption" class="field-help"></figcaption></figure>
+      </div>
+      <aside class="col-12 col-lg-5" aria-labelledby="setupTitle"><section class="surface setup-panel" id="setupPanel">
+        <div class="d-flex justify-content-between align-items-start gap-2 mb-3"><div><p class="eyebrow mb-1">YOUR BORING SETUP</p><h2 id="setupTitle" class="panel-title m-0">Select a boring bar</h2></div><span id="setupStatus" class="status-tag"></span></div>
+        <p id="selectedType" class="field-help mb-3"></p>
+        <!-- 將材料、柄徑與伸出各自說清楚，不再用一個「組合待確認」涵蓋全部原因。 -->
+        <dl id="selectionChecks" class="selection-checks"></dl>
+        <div class="key-results"><div><span>Spindle speed</span><p><strong id="resultRpm">—</strong><small>rpm</small></p></div><div><span>Feed rate</span><p><strong id="resultFeed">—</strong><small>mm/min</small></p></div></div>
+        <p id="referenceNote" class="reference-note mt-3 mb-0" role="status" hidden></p>
+        <a id="referenceQuestions" class="field-help d-inline-block mt-2" href="./manufacturer-questions.html" target="_blank" rel="noopener" hidden>View manufacturer questions ↗</a>
+        <div class="depth-facts"><div><span>Requested depth</span><strong id="resultDepth">—</strong></div><div><span id="l1Label">Catalog L1</span><strong id="resultL1">—</strong></div></div>
+        <div id="assemblyChain" class="assembly-chain mt-4"></div>
+        <!-- 刀片、每轉進給與來源切削列共用狀態；不按相似料號偷配0602。 -->
+        <div class="cutting-controls mt-4"><h3 class="section-title">Insert &amp; cutting values</h3><label for="insertId" class="form-label">Insert / grade</label><select id="insertId" class="form-select" aria-describedby="insertHint insertMaterialNotice"></select><p id="insertHint" class="field-help"></p><p id="insertMaterialNotice" class="notice mt-2 mb-0" role="status" hidden></p><label for="condition" class="form-label mt-3">Cutting condition</label><select id="condition" class="form-select"></select>
+          <div class="row g-3 mt-1"><div class="col-6"><label for="vc" class="form-label">Cutting speed <span>Vc</span></label><div class="input-group"><input id="vc" class="form-control" type="number" step="any" min="0" inputmode="decimal"><span class="input-group-text">m/min</span></div></div><div class="col-6"><label for="feed" class="form-label">Feed per rev. <span>f</span></label><div class="input-group"><input id="feed" class="form-control" type="number" step="any" min="0" inputmode="decimal"><span class="input-group-text">mm/rev</span></div></div></div>
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mt-3"><span id="valueOrigin" class="field-help m-0"></span><button id="medianButton" type="button" class="btn secondary-button">Use median values</button></div>
+          <details class="technical-details mt-3"><summary>Stock allowance &amp; machine limit</summary><div class="row g-3 mt-1"><div class="col-12"><label for="prebore" class="form-label">Pre-bored hole diameter <span>optional</span></label><div class="input-group"><span class="input-group-text">Ø</span><input id="prebore" class="form-control" type="number" step="any" min="0" inputmode="decimal" placeholder="Enter existing hole"><span class="input-group-text">mm</span></div><p id="aeResult" class="field-help"></p></div><div class="col-12"><label for="machineMaxRpm" class="form-label">Machine maximum speed <span>optional</span></label><div class="input-group"><input id="machineMaxRpm" class="form-control" type="number" step="100" min="0" inputmode="numeric" placeholder="Enter your machine limit"><span class="input-group-text">rpm</span></div></div></div></details>
+        </div>
+        <div id="setupIssues" class="notice mt-3" role="status" hidden></div><button id="copyButton" class="btn primary-button w-100 mt-4" type="button" disabled>Copy boring setup</button><p id="copyFeedback" class="field-help" role="status"></p>
+        <details class="technical-details mt-3"><summary>Calculation &amp; catalog reference</summary><p class="field-help">S = 1,000 × Vc / (π × finished D). Vf = S × f. Feed is per revolution.</p><p id="cuttingSource" class="field-help"></p><p class="field-help">Median values are adjustable site starting values. G6.3 at 10,000 rpm is a balance reference. Programmed Z and a machining cycle are not derived from the requested depth.</p><div class="d-flex flex-wrap gap-3 mt-3"><a id="barSource" target="_blank" rel="noopener">Bar dimensions ↗</a><a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=15" target="_blank" rel="noopener">Cutting table ↗</a></div></details>
+      </section></aside>
+    </div>
+  </div>
+</div></main>
+<a id="mobileSummary" class="mobile-summary" href="#setupTitle" aria-label="View boring setup" hidden><span><small>S · rpm</small><strong id="mobileRpm">—</strong></span><span><small>Vf · mm/min</small><strong id="mobileFeed">—</strong></span><span><small>Depth · mm</small><strong id="mobileDepth">—</strong></span><span aria-hidden="true">↑</span></a>
+<dialog id="dimensionDialog" class="dimension-dialog" aria-labelledby="dimensionDialogTitle"><div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3"><h2 id="dimensionDialogTitle" class="panel-title m-0"></h2><button id="closeDimensionDialog" type="button" class="btn secondary-button">Close drawing</button></div><div id="largeDrawingCanvas" class="large-drawing-canvas"></div><p class="field-help d-sm-none">Swipe sideways to view the full drawing.</p><p class="field-help mt-3">Dimensions in mm. The catalog outline is not to scale.</p></dialog>
+<div id="footer-placeholder"></div>
+<script src="./core.js"></script><script src="./diameter-tolerance.js"></script><script src="./catalog-drawings.js"></script><script src="./catalog-linework.js"></script><script src="./catalog-diagram.js"></script><script src="./locale.zh-TW.js"></script><script src="./locale.ui.js"></script><script src="./app.js"></script>
+</body>
+</html>
