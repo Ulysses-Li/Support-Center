@@ -23,6 +23,13 @@
 
   // 核心訊息與圖面固定字串集中管理；未列出的文字原樣回傳，避免誤翻產品資料。
   const MESSAGES = Object.freeze({
+    'Usable boring depth L1':'可加工深度 L1',
+    'confirmed_boring_depth':'已確認可加工深度',
+    'L1 is confirmed as usable boring depth, including its stated limit. Clamping requirements are checked separately.':'L1 已確認為可加工深度，包含標示的最大深度；夾持要求另行核對。',
+    'L1 is confirmed as usable boring depth, including its stated limit.':'L1 已確認為可加工深度，包含標示的最大深度。',
+    'Requested depth is within confirmed L1.':'需求深度符合已確認的 L1 可加工深度。',
+    'Depth exceeds confirmed L1.':'需求深度超過已確認的 L1 可加工深度。',
+    'Clamping requirements are checked separately.':'夾持要求另行核對。',
     'Standard supplied shank':'標準供應柄徑',
     'Specify a different shank when ordering.':'需於下單時額外告知。',
     'Confirmed rear shank lengths':'已確認的後柄長度',

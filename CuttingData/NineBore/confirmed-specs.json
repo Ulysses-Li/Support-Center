@@ -34,6 +34,18 @@
       }
     }
   },
+  "usable_depth": {
+    "status": "confirmed",
+    "dimension": "L1",
+    "series": ["99101", "99121"],
+    "includes_limit": true,
+    "source": {
+      "kind": "user_confirmation",
+      "date": "2026-11-18",
+      "statement_zh_tw": "L1就是可以做的；15mm就保證15mm可以做。",
+      "scope_zh_tw": "99101／99121 的 L1 即可加工深度，需求深度小於或等於 L1 均符合；不推定最小有效夾持量或99151總成尺寸。"
+    }
+  },
   "grade_applicability": {
     "status": "verified",
     "source": {

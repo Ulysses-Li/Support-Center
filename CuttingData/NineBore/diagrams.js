@@ -65,13 +65,17 @@
     const diameter = positiveNumber(input.diameter);
     const depth = positiveNumber(input.depth);
     const l1 = positiveNumber(bar.l1);
-    const depthKind = SERIES.depth.includes(series) ? 'boring-depth' : SERIES.general.includes(series) ? 'front-neck-geometry' : 'unconfirmed';
+    const confirmedDepth = SERIES.general.includes(series) && bar.depthKind === 'confirmed_boring_depth' && bar.depthDefinitionSource?.kind === 'user_confirmation';
+    const depthKind = confirmedDepth ? 'confirmed-boring-depth' : SERIES.depth.includes(series) ? 'boring-depth' : SERIES.general.includes(series) ? 'front-neck-geometry' : 'unconfirmed';
     let status = 'selection-needed';
     let noteLines = ['Select a bar to compare L1.'];
 
     if (hasBar && l1 === null) {
       status = 'unconfirmed';
       noteLines = ['L1 unavailable. Check the catalog.'];
+    } else if (hasBar && depthKind === 'confirmed-boring-depth') {
+      status = depth === null ? 'need-depth' : depth > l1 ? 'insufficient' : 'confirmed-depth';
+      noteLines = status === 'need-depth' ? ['Enter a positive depth to compare L1.'] : status === 'insufficient' ? ['Depth exceeds confirmed L1.'] : ['Requested depth is within confirmed L1.'];
     } else if (hasBar && depthKind === 'front-neck-geometry') {
       status = depth !== null && depth > l1 ? 'geometry-insufficient' : 'geometry-check';
       noteLines = status === 'geometry-insufficient' ? ['Depth exceeds front-neck L1.', 'Usable depth and clearance need checking.'] : ['L1 describes front-neck geometry.', 'Usable boring depth needs checking.'];
@@ -144,7 +148,7 @@
     ];
     if (state.hasBar) {
       pieces.push('Bar series: ' + state.series + '. Orange indicates the conceptual cutting location.');
-      pieces.push(state.depthKind === 'boring-depth' ? 'The catalog lists L1 as Boring Depth for this series.' : state.depthKind === 'front-neck-geometry' ? 'L1 is front-neck geometry, not a verified boring depth.' : 'The meaning of L1 for this bar needs confirmation.');
+      pieces.push(state.depthKind === 'confirmed-boring-depth' ? 'L1 is confirmed as usable boring depth, including its stated limit.' : state.depthKind === 'boring-depth' ? 'The catalog lists L1 as Boring Depth for this series.' : state.depthKind === 'front-neck-geometry' ? 'L1 is front-neck geometry, not a verified boring depth.' : 'The meaning of L1 for this bar needs confirmation.');
       if (state.l1 !== null) pieces.push('L1: ' + String(state.l1) + ' mm.');
       const minimum = positiveNumber(state.bar.minD);
       const maximum = positiveNumber(state.bar.maxD);
@@ -154,13 +158,13 @@
       pieces.push(state.series === '99151' ? '99151 assembly order: holder, dedicated adapter, bar. The adapter bore diameter must match the bar shank diameter.' : state.series === '99146' ? '99146 uses the NineBore quick-change holder directly; no 99151 adapter is required.' : 'A general straight-shank bar requires compatible clamping.');
       if (objectOrEmpty(state.input.holder).requiresExternal32 === true) pieces.push('SB32 requires a separate compatible Ø32 Weldon machine-side holder.');
     }
-    pieces.push(state.note, 'Do not add holder L, adapter L and bar L to calculate usable boring depth. Assembly projection and workpiece clearance need confirmation.');
+    pieces.push(state.note, state.depthKind === 'confirmed-boring-depth' ? 'Clamping requirements are checked separately.' : 'Do not add holder L, adapter L and bar L to calculate usable boring depth. Assembly projection and workpiece clearance need confirmation.');
     return pieces.join(' ');
   }
 
   function renderSection(options) {
     const state = sectionState(options);
-    const l1Label = !state.hasBar ? 'Hatching: workpiece · Dashed: original hole' : state.l1 === null ? 'L1: catalog value unconfirmed' : (state.depthKind === 'front-neck-geometry' ? 'Front-neck L1: ' : state.depthKind === 'boring-depth' ? 'Catalog L1: ' : 'L1: ') + millimetres(state.l1) + (state.depthKind === 'boring-depth' ? ' · Boring Depth' : state.depthKind === 'front-neck-geometry' ? ' · geometry' : ' · meaning unconfirmed');
+    const l1Label = !state.hasBar ? 'Hatching: workpiece · Dashed: original hole' : state.l1 === null ? 'L1: catalog value unconfirmed' : (state.depthKind === 'front-neck-geometry' ? 'Front-neck L1: ' : state.depthKind === 'boring-depth' || state.depthKind === 'confirmed-boring-depth' ? 'Catalog L1: ' : 'L1: ') + millimetres(state.l1) + (state.depthKind === 'boring-depth' || state.depthKind === 'confirmed-boring-depth' ? ' · Boring Depth' : state.depthKind === 'front-neck-geometry' ? ' · geometry' : ' · meaning unconfirmed');
     const warning = state.status === 'insufficient' || state.status === 'geometry-insufficient';
     const svgTitle = 'NineBore axial section schematic' + (state.hasBar ? ' · ' + state.series : '');
     // aria-label 同步 title/desc，不依賴 id，因此一個畫面可安全放入多張示意圖。

@@ -45,6 +45,11 @@
   }
 
   function normalize(inventory, clamping, cutting, confirmedSpecs = null) {
+    // 使用者已確認直柄L1包含端點的可加工深度；型錄原始尺寸與夾持檢查分別保留。
+    const usableDepth = confirmedSpecs?.usable_depth;
+    const confirmedDepthSeries = usableDepth?.status === 'confirmed' && usableDepth.source?.kind === 'user_confirmation' &&
+      usableDepth.dimension === 'L1' && usableDepth.includes_limit === true && Array.isArray(usableDepth.series) &&
+      usableDepth.series.every(series => ['99101', '99121'].includes(series)) ? usableDepth.series : [];
     // 99121 圖面括號尺寸未對應到個別料號；只提供來源中的待確認選項，不寫成實際柄徑。
     const shankIssue = (inventory.critical_source_issues || []).find(issue => issue.id === '99121_diagram_shank_mapping');
     const diagramShankOptions = unique((shankIssue?.catalog_diagram_diameter_labels || []).filter(value => Number.isFinite(value) && value > 0));
@@ -89,7 +94,8 @@
         sourcePage: inventory.source_refs[group.source_ref].printed_page,
         source: inventory.source_refs[group.source_ref],
         insertInterface: { ...insertInterface, ref: row.insert_interface_ref, family: insertInterface.insert_family_catalog },
-        depthKind: group.defaults.boring_depth_dimension_catalog === 'L1' ? 'catalog_boring_depth' : 'front_neck',
+        depthKind: confirmedDepthSeries.includes(group.series) ? 'confirmed_boring_depth' : group.defaults.boring_depth_dimension_catalog === 'L1' ? 'catalog_boring_depth' : 'front_neck',
+        depthDefinitionSource: confirmedDepthSeries.includes(group.series) ? { ...usableDepth.source } : null,
         adjustment: [raw.adjustment_min_mm_catalog, raw.adjustment_max_mm_catalog],
         division: raw.division_mm_catalog,
         raw

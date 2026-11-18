@@ -48,7 +48,7 @@
     match=key.match(/^([\d,.+eE-]+) mm depth$/);if(match)return `深度 ${match[1]} mm`;
     match=key.match(/^Shank Ø([\d,.+eE-]+) mm$/);if(match)return `柄徑 Ø${match[1]} mm`;
     match=key.match(/^Ø([\d,.+eE-]+) mm shank$/);if(match)return `柄徑 Ø${match[1]} mm`;
-    match=key.match(/^L1 (.+) \((catalog_boring_depth|front_neck)\)$/);if(match)return `L1 ${match[1]}（${labels[match[2]]}）`;
+    match=key.match(/^L1 (.+) \((catalog_boring_depth|front_neck|confirmed_boring_depth)\)$/);if(match)return `L1 ${match[1]}（${labels[match[2]]||messages.translate(match[2])}）`;
     const prefix=copyLabels.find(label=>key.startsWith(label+' '));
     if(prefix){const value=key.slice(prefix.length+1);return labels[prefix]+' '+(prefix==='Material:'?messages.material(value):prefix==='Values:'?segment(value):value);}
     return key;

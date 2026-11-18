@@ -97,8 +97,8 @@ test('99121 is the precision-first choice when both straight-bar series pass the
     assert.equal(result.candidates.find(candidate => candidate.bar.series === '99101').bar.division, 0.03);
     assert.ok(result.candidates.some(candidate => candidate.bar.series === '99101' && !candidate.precisionPreferred));
     assert.ok(result.candidates.every(candidate => candidate.bar.minD <= diameter && diameter <= candidate.bar.maxD && candidate.bar.l1 >= 15));
-    // 推薦不是完工公差或夾持的核准；前頸長與實際伸出仍為原有待確認狀態。
-    assert.ok(result.candidates.every(candidate => candidate.status === 'review' && candidate.depthStatus === 'review' && candidate.clampStatus === 'review'));
+    // L1 可加工深度已另行確認；推薦仍不代表完工公差或夾持要求已核准。
+    assert.ok(result.candidates.every(candidate => candidate.status === 'review' && candidate.depthStatus === 'confirmed' && candidate.clampStatus === 'review'));
   }
 });
 
@@ -188,14 +188,16 @@ test('confirmed 99121 options preserve every physical part and all catalog dimen
   assert.equal(new Set(confirmedModel.bars.map(item => item.id)).size, 167);
   for (const confirmed of confirmedModel.bars) {
     const original = model.bars.find(item => item.id === confirmed.id);
+    // 深度定義與其確認來源另存；比較實體型錄欄位時，只排除這兩個新增語意欄位。
+    const catalogComparable = { ...confirmed, depthKind: original.depthKind, depthDefinitionSource: original.depthDefinitionSource };
     if (confirmed.series === '99121') {
       assert.equal(confirmed.shankD, null);
       assert.deepEqual(confirmed.shankOptions, [20, 16, 13]);
       assert.equal(confirmed.shankOptionsConfirmed, true);
       assert.deepEqual(confirmed.shankOptionsSource, confirmedSpecs.series['99121'].source);
       // 柄徑與後柄長確認另行保存；原目錄的料號、L與L1仍逐項比對，不能推算新值。
-      assert.deepEqual({ ...confirmed, shankOptions: original.shankOptions, shankOptionsConfirmed: original.shankOptionsConfirmed, shankOptionsSource: original.shankOptionsSource, rearShankLengths: original.rearShankLengths }, original);
-    } else assert.deepEqual(confirmed, original);
+      assert.deepEqual({ ...catalogComparable, shankOptions: original.shankOptions, shankOptionsConfirmed: original.shankOptionsConfirmed, shankOptionsSource: original.shankOptionsSource, rearShankLengths: original.rearShankLengths }, original);
+    } else assert.deepEqual(catalogComparable, original);
   }
   assert.deepEqual(confirmedModel.holders, model.holders);
   assert.deepEqual(confirmedModel.adapters, model.adapters);
@@ -213,7 +215,7 @@ test('confirmed 99121 Ø20 Ø16 Ø13 selections verify shank only and keep the a
     assert.equal(candidate.selectedShankD, gripDiameter);
     assert.equal(candidate.bar.shankD, null);
     assert.equal(candidate.clampStatus, 'review');
-    assert.equal(candidate.depthStatus, 'review');
+    assert.equal(candidate.depthStatus, 'confirmed');
     assert.equal(candidate.status, 'review');
     assert.ok(!candidate.reviewNotes.some(note => note.includes('per-part mapping is unconfirmed')));
     assert.ok(candidate.reviewNotes.some(note => note.includes('minimum effective clamping length')));

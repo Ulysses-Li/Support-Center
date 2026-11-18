@@ -33,6 +33,8 @@
     const names=[...new Set((rows.length?rows:model.cuttingRows).map(row=>row.cutting_condition_or_surface_finish))];
     options(controls.condition,names.map(name=>({id:name,label:name})),previous);
   }
+  // 深度定義由已確認來源決定，候選卡片、尺寸與結果摘要共用同一個標題。
+  function depthLabel(bar) { return bar?.depthKind==='confirmed_boring_depth'?'Usable boring depth L1':bar?.depthKind==='front_neck'?'Front-neck L1':'Boring depth L1'; }
   function clampUI() {
     const holder=model.holders.find(item=>item.id===controls.holderId.value);
     $('shankGroup').hidden=!straightShank();controls.shankDiameter.disabled=!straightShank();
@@ -74,7 +76,7 @@
       const precisionBadge=candidate.precisionPreferred?`<div class="precision-recommendation"><span class="precision-preference">${esc(translate('Finer adjustment · recommended'))}</span><p>${esc(translate('Adjustment per division'))}${isChinese?'：':': '}99121 ${fmt(b.division)} ${esc(divisionUnit)}${isChinese?'；':'; '}99101 ${fmt(alternative?.bar.division)} ${esc(divisionUnit)}${isChinese?'。':'.'}</p></div>`:'';
       const actualShank=Number.isFinite(candidate.selectedShankD)?candidate.selectedShankD:b.shankD;
       const shankText=Number.isFinite(actualShank)?`Ø${fmt(actualShank)} mm`:b.shankOptionsConfirmed?(b.shankOptions||[]).map(size=>`Ø${fmt(size)}`).join(' / ')+' mm':findings.criteria.gripDiameter!==null?`Ø${fmt(findings.criteria.gripDiameter)} · confirm`:(b.shankOptions||[]).map(size=>`Ø${fmt(size)}`).join(' / ')+' · confirm';
-      return `<label class="tool-choice"><input type="radio" name="barChoice" id="barChoice${index}" value="${esc(candidate.id)}" ${candidate.id===selectedId?'checked':''}><div class="tool-card"><p class="tool-series">${esc(b.series)} · ${esc(seriesNames[b.series]||b.name)}</p><h3 class="tool-part">${esc(b.id)}</h3>${precisionBadge}<div class="tool-card-facts"><div><span>Adjustable hole Ø</span><strong>${fmt(b.minD)}–${fmt(b.maxD)} mm</strong></div><div><span>${b.depthKind==='front_neck'?'Front-neck L1':'Boring depth L1'}</span><strong>${fmt(b.l1)} mm</strong></div>${candidate.adapter||straightShank()?`<div><span>Bar shank Ød${candidate.shankStatus==='review'?' · unconfirmed':''}</span><strong>${esc(shankText)}</strong></div>`:''}</div>${straightShank()&&b.shankD===null&&!b.shankOptionsConfirmed?'<p class="field-help mt-3">Drawing option only · confirm the shank for this part number.</p>':''}<div class="tool-card-bottom"><span class="match-tag">Hole diameter fits</span><span class="tool-source">Catalog p. ${fmt(b.sourcePage,0)}</span></div></div></label>`;
+      return `<label class="tool-choice"><input type="radio" name="barChoice" id="barChoice${index}" value="${esc(candidate.id)}" ${candidate.id===selectedId?'checked':''}><div class="tool-card"><p class="tool-series">${esc(b.series)} · ${esc(seriesNames[b.series]||b.name)}</p><h3 class="tool-part">${esc(b.id)}</h3>${precisionBadge}<div class="tool-card-facts"><div><span>Adjustable hole Ø</span><strong>${fmt(b.minD)}–${fmt(b.maxD)} mm</strong></div><div><span>${depthLabel(b)}</span><strong>${fmt(b.l1)} mm</strong></div>${candidate.adapter||straightShank()?`<div><span>Bar shank Ød${candidate.shankStatus==='review'?' · unconfirmed':''}</span><strong>${esc(shankText)}</strong></div>`:''}</div>${straightShank()&&b.shankD===null&&!b.shankOptionsConfirmed?'<p class="field-help mt-3">Drawing option only · confirm the shank for this part number.</p>':''}<div class="tool-card-bottom"><span class="match-tag">Hole diameter fits</span><span class="tool-source">Catalog p. ${fmt(b.sourcePage,0)}</span></div></div></label>`;
     }).join('');
     $('exampleNote').hidden=!example;
     const oldInsert=restoreInsert||controls.insertId.value;
@@ -129,7 +131,7 @@
     const rearDimensions=hasRearLengths?{rearShankL:selected.selectedRearShankL}:{};
     const rearNote=hasRearLengths?`${translate('Confirmed rear shank lengths')}: ${Object.entries(b.rearShankLengths).map(([diameter,length])=>`Ø${fmt(Number(diameter))} → ${fmt(length)} mm`).join(' / ')}. ${translate('L and L1 follow the catalog.')}`:translate('99121 rear length 50 (48) mm is a shared catalog label; its shank-option mapping is not specified.');
     const facts=[
-      [b.depthKind==='front_neck'?'Front-neck L1':'Boring depth L1',`${fmt(b.l1)} mm`],
+      [depthLabel(b),`${fmt(b.l1)} mm`],
       [Number.isFinite(b.l)?'Catalog length L':'Adjustable hole Ø',Number.isFinite(b.l)?`${fmt(b.l)} mm`:`${fmt(b.minD)}–${fmt(b.maxD)} mm`],
       ['Selected bar shank Ød',Number.isFinite(shank)?`Ø${fmt(shank)} mm`:translate('Choose shank Ød')]
     ];
@@ -138,7 +140,7 @@
     if(selected.adapter){const adapterDrawing=drawings.resolve(drawingManifest,drawings.adapterKey(selected.adapter));if(adapterDrawing)components.push({entry:adapterDrawing,label:selected.adapter.partsNo,title:'Matching 99151 adapter',dimensions:selected.adapter.dimensions_mm});}
     const componentMarkup=components.length?`<details class="technical-details catalog-components mt-4"><summary>${esc(translate('Holder & adapter drawings'))}</summary><div class="catalog-component-list">${components.map(item=>`<section><p class="section-title mb-1">${esc(translate(item.title))}</p><p class="field-help mb-3">${esc(item.label)}</p>${catalogImage(item.entry,item.label,true,{holderD:item.dimensions?.['ØD'],holderL:item.dimensions?.L,thread:item.thread})}<p class="catalog-component-dimensions">${Object.entries(item.dimensions||{}).filter(([,value])=>Number.isFinite(value)).map(([label,value])=>`${esc(label)} ${fmt(value)} mm`).join(' · ')}</p></section>`).join('')}</div></details>`:'';
     $('diagramCanvas').innerHTML=`<p class="catalog-current-part">${esc(b.id)}</p>${catalogImage(entry,b.id,false,{diameter:Number(controls.diameter.value)||null,l1:b.l1,l:b.l,shankD:shank,shoulderD:b.shoulderD,...rearDimensions})}<p class="field-help mt-3">${esc(translate('Drawing dimensions update with your selected part and hole diameter.'))}</p><dl class="catalog-dimensions mt-3">${facts.map(([label,value])=>`<div><dt>${esc(translate(label))}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl>${b.series==='99121'?`<p class="field-help">${esc(rearNote)}</p>`:''}${componentMarkup}`;
-    $('geometryCaption').textContent=translate(b.depthKind==='front_neck'?'This L1 is the front-neck dimension. Actual reach and workpiece clearance still need confirmation.':'Catalog L1 is compared with your required depth. Assembly projection and workpiece clearance remain setup checks.');
+    $('geometryCaption').textContent=translate(b.depthKind==='confirmed_boring_depth'?'L1 is confirmed as usable boring depth, including its stated limit. Clamping requirements are checked separately.':b.depthKind==='front_neck'?'This L1 is the front-neck dimension. Actual reach and workpiece clearance still need confirmation.':'Catalog L1 is compared with your required depth. Assembly projection and workpiece clearance remain setup checks.');
   }
   // 放大的是本次數字已更新的同一張SVG，而非重新開啟仍帶L/L1代號的來源圖片。
   $('diagramCanvas').addEventListener('click',event=>{
@@ -167,7 +169,7 @@
     $('setupStatus').dataset.state=c.referenceMode?'reference':c.canCopy&&toleranceComplete?'ready':'review';
     $('resultRpm').textContent=$('mobileRpm').textContent=fmt(c.rpm,0);$('resultFeed').textContent=$('mobileFeed').textContent=fmt(c.feedRate,1);
     $('resultDepth').textContent=Number.isFinite(c.depth)?`${fmt(c.depth)} mm`:'—';$('mobileDepth').textContent=fmt(c.depth);
-    $('resultL1').textContent=b?`${fmt(b.l1)} mm`:'—';$('l1Label').textContent=b?.depthKind==='front_neck'?'Front-neck L1':'Boring depth L1';
+    $('resultL1').textContent=b?`${fmt(b.l1)} mm`:'—';$('l1Label').textContent=depthLabel(b);
     renderChecks();
     $('referenceNote').hidden=!c.referenceMode&&!c.conditionEquivalent;
     // 已確認的共用條件與舊試切參考分開說明；型錄來源仍顯示實際採用的斷續切削列。
@@ -205,7 +207,7 @@
     const material=translate(controls.material.value||'Material not set');
     const materialText=c.insert?`${material} → ${c.insert.grade}${c.conditionEquivalent?' · '+translate('User-confirmed shared cutting parameters'):c.referenceMode?' · '+translate('material suitable'):c.insert.gradeMatch?' · '+translate('Material grade matched'):''}`:material+' · '+translate('Choose an insert / grade');
     const shankText=straightShank() ? findings.criteria.gripDiameter===null?translate('Choose shank Ød'):Number.isFinite(b.shankD)?`Ø${fmt(b.shankD)} mm · ${translate('Catalog shank listed')}`:selected.shankStatus==='confirmed'?`Ø${fmt(selected.selectedShankD)} mm · ${translate('Available shank option')}`:`Ø${fmt(findings.criteria.gripDiameter)} mm · ${translate('Drawing option; confirm applicable part')}` : selected.holder?selected.holder.partsNo+(selected.holder.requiresExternal32?' · '+translate('External Ø32 chuck required'):''):translate('Choose a holder');
-    const reachText=c.depth===null?translate('Enter depth to compare reach'):b.depthKind==='front_neck'?translate('Front-neck dimension only; check actual projection'):selected.adapter?translate('Adapter insertion / projection to confirm'):translate('Requested depth within catalog L1');
+    const reachText=c.depth===null?translate('Enter depth to compare reach'):b.depthKind==='confirmed_boring_depth'?translate(c.depth<=b.l1?'Requested depth is within confirmed L1.':'Depth exceeds confirmed L1.'):b.depthKind==='front_neck'?translate('Front-neck dimension only; check actual projection'):selected.adapter?translate('Adapter insertion / projection to confirm'):translate('Requested depth within catalog L1');
     const checks=[['Material & insert',materialText],['Clamping / shank',shankText],['Reach check',reachText]];
     $('selectionChecks').innerHTML=checks.map(([label,value])=>`<div><dt>${esc(translate(label))}</dt><dd>${esc(value)}</dd></div>`).join('');
   }

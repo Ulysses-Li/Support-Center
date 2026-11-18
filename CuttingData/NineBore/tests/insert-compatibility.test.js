@@ -55,7 +55,7 @@ test('D20.1 carbon regular automatically uses physical CCFT NC2033 and its own c
   assert.equal(selected.criteria.material, input.material);
   assert.equal(selected.criteria.condition, input.condition);
   // 刀片證據不會同時核准一般刀柄、伸出或完整組裝。
-  assert.equal(selected.depthStatus, 'review');
+  assert.equal(selected.depthStatus, 'confirmed');
   assert.equal(selected.clampStatus, 'review');
   assert.equal(selected.status, 'review');
   assert.equal(result.canCopy, false);

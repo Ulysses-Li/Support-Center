@@ -143,7 +143,7 @@ test('rear-shank selection replaces only the 99121 50(48) label and leaves all o
   assert.ok(model.bars.filter(bar => bar.series !== '99121').every(bar => Object.keys(bar.rearShankLengths).length === 0));
 });
 
-test('confirmed rear physical length does not approve minimum clamping length or machining reach', () => {
+test('confirmed rear physical length does not approve minimum clamping length or the complete assembly', () => {
   const bar = model.bars.find(item => item.id === '00-99121-08');
   for (const diameter of [13, 16, 20]) {
     const values = inputFor(bar, diameter);
@@ -151,11 +151,11 @@ test('confirmed rear physical length does not approve minimum clamping length or
     const result = core.calculate(model, selected, values);
     assert.equal(selected.selectedRearShankL, expectedLengths[diameter]);
     assert.equal(selected.shankStatus, 'confirmed');
-    assert.equal(selected.depthStatus, 'review');
+    assert.equal(selected.depthStatus, 'confirmed');
     assert.equal(selected.clampStatus, 'review');
     assert.equal(selected.status, 'review');
     assert.ok(selected.reviewNotes.some(message => message.includes('minimum effective clamping length')));
-    assert.ok(selected.reviewNotes.some(message => message.includes('front-neck geometry')));
+    assert.ok(!selected.reviewNotes.some(message => message.includes('front-neck geometry')));
     assert.equal(result.canCopy, false);
     assert.equal(result.depth, values.depth);
   }
@@ -173,7 +173,7 @@ test('standard Ø20 ordering metadata requires explicit requests for Ø13/Ø16 w
   assert.equal(selected.selectedShankD, null);
   assert.equal(selected.selectedRearShankL, null);
   assert.equal(selected.shankStatus, 'unselected');
-  assert.equal(selected.depthStatus, 'review');
+  assert.equal(selected.depthStatus, 'confirmed');
   assert.equal(selected.clampStatus, 'review');
   assert.equal(selected.status, 'review');
   assert.ok(selected.criteria.missingFields.includes('gripDiameter'));
