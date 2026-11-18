@@ -1,0 +1,1544 @@
+{
+  "schema_version": 1,
+  "product": "Super Drill",
+  "reviewed_on": "2026-11-18",
+  "source_pdf": "sources/Super_Drill_p136-141.pdf",
+  "materials": [
+    {
+      "id": "carbon_low",
+      "iso": "P",
+      "label_zh": "碳鋼 C<0.3%",
+      "catalog_label": "Carbon steel C<0.3%",
+      "examples": [
+        "S25C",
+        "SS41"
+      ]
+    },
+    {
+      "id": "carbon_high",
+      "iso": "P",
+      "label_zh": "碳鋼 C>0.3%",
+      "catalog_label": "Carbon steel C>0.3%",
+      "examples": [
+        "S50C",
+        "P5"
+      ]
+    },
+    {
+      "id": "low_alloy_low",
+      "iso": "P",
+      "label_zh": "低合金鋼 C<0.3%",
+      "catalog_label": "Low alloy steel C<0.3%",
+      "examples": [
+        "SCM415"
+      ]
+    },
+    {
+      "id": "low_alloy_high",
+      "iso": "P",
+      "label_zh": "低合金鋼 C>0.3%",
+      "catalog_label": "Low alloy steel C>0.3%",
+      "examples": [
+        "SCM440"
+      ]
+    },
+    {
+      "id": "high_alloy",
+      "iso": "P",
+      "label_zh": "高合金鋼",
+      "catalog_label": "High alloy steel",
+      "examples": [
+        "SKD11"
+      ]
+    },
+    {
+      "id": "stainless",
+      "iso": "M",
+      "label_zh": "不鏽鋼",
+      "catalog_label": "Stainless steel",
+      "examples": [
+        "SUS304"
+      ]
+    },
+    {
+      "id": "cast_iron",
+      "iso": "K",
+      "label_zh": "鑄鐵",
+      "catalog_label": "Cast Iron",
+      "examples": [
+        "FC25"
+      ]
+    },
+    {
+      "id": "hardened_lt50",
+      "iso": "H",
+      "label_zh": "淬硬鋼 HRC<50",
+      "catalog_label": "Hardened steel < HRC50",
+      "examples": [
+        "SKD61"
+      ]
+    }
+  ],
+  "value_policy": {
+    "missing": "null preserves source dash/blank and must never become 0",
+    "source_ranges": "The cutting table prints two endpoints, not an optimum.",
+    "site_midpoint": "A future arithmetic midpoint may be a labeled adjustable site starting value; it is not a printed manufacturer optimum.",
+    "feed_unit": "mm/rev, not mm/tooth; do not multiply by inner/outer insert count.",
+    "material_boundary": "Source uses C<0.3% and C>0.3%; exactly C=0.3% is not assigned by the catalog.",
+    "feed_raw_format": "Two-decimal feed endpoints preserve the printed table convention; sequence preserves the printed endpoint order.",
+    "no_borrowing": "Never fill a missing product/material/grade/depth/diameter cell from another product, material, grade or condition."
+  },
+  "section": {
+    "source": {
+      "printed_page": 141,
+      "pdf_page": 6,
+      "original_pdf_page": 14
+    },
+    "diameter_bands": [
+      {
+        "id": "d10_12_5",
+        "heading_raw": "Dia.10~12.5",
+        "nominal_diameter_mm": [
+          10,
+          12.5
+        ],
+        "insert_family": "N9GX04T002"
+      },
+      {
+        "id": "d13_15_5",
+        "heading_raw": "Dia.13~15.5",
+        "nominal_diameter_mm": [
+          13,
+          15.5
+        ],
+        "insert_family": "N9GX05T103"
+      },
+      {
+        "id": "d16_19_5",
+        "heading_raw": "Dia.16~19.5",
+        "nominal_diameter_mm": [
+          16,
+          19.5
+        ],
+        "insert_family": "N9GX060204"
+      },
+      {
+        "id": "d20_24",
+        "heading_raw": "Dia.20~24",
+        "nominal_diameter_mm": [
+          20,
+          24
+        ],
+        "insert_family": "N9GX070304"
+      },
+      {
+        "id": "d25_30",
+        "heading_raw": "Dia.25~30",
+        "nominal_diameter_mm": [
+          25,
+          30
+        ],
+        "insert_family": "N9GX090308"
+      }
+    ],
+    "depth_classes": [
+      "T=3D",
+      "T=4D"
+    ],
+    "depth_class_policy": "Use selected 3D/4D tool family. A shallow requested hole does not upgrade a 4D body to 3D cutting values.",
+    "cutting_rows": [
+      {
+        "id": "sd-carbon_low-3d",
+        "material_id": "carbon_low",
+        "tool_depth_class_raw": "T=3D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "80~250",
+          "sequence": [
+            80,
+            250
+          ],
+          "min": 80,
+          "max": 250,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": {
+            "raw": "0.03~0.06",
+            "sequence": [
+              0.03,
+              0.06
+            ],
+            "min": 0.03,
+            "max": 0.06,
+            "unit": "mm/rev"
+          },
+          "d13_15_5": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d16_19_5": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-carbon_low-4d",
+        "material_id": "carbon_low",
+        "tool_depth_class_raw": "T=4D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "60~180",
+          "sequence": [
+            60,
+            180
+          ],
+          "min": 60,
+          "max": 180,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": null,
+          "d13_15_5": null,
+          "d16_19_5": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-carbon_high-3d",
+        "material_id": "carbon_high",
+        "tool_depth_class_raw": "T=3D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "80~300",
+          "sequence": [
+            80,
+            300
+          ],
+          "min": 80,
+          "max": 300,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d13_15_5": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d16_19_5": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.15",
+            "sequence": [
+              0.08,
+              0.15
+            ],
+            "min": 0.08,
+            "max": 0.15,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-carbon_high-4d",
+        "material_id": "carbon_high",
+        "tool_depth_class_raw": "T=4D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "60~150",
+          "sequence": [
+            60,
+            150
+          ],
+          "min": 60,
+          "max": 150,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": null,
+          "d13_15_5": null,
+          "d16_19_5": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.15",
+            "sequence": [
+              0.08,
+              0.15
+            ],
+            "min": 0.08,
+            "max": 0.15,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-low_alloy_low-3d",
+        "material_id": "low_alloy_low",
+        "tool_depth_class_raw": "T=3D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "80~250",
+          "sequence": [
+            80,
+            250
+          ],
+          "min": 80,
+          "max": 250,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d13_15_5": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d16_19_5": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-low_alloy_low-4d",
+        "material_id": "low_alloy_low",
+        "tool_depth_class_raw": "T=4D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "60~150",
+          "sequence": [
+            60,
+            150
+          ],
+          "min": 60,
+          "max": 150,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": null,
+          "d13_15_5": null,
+          "d16_19_5": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-low_alloy_high-3d",
+        "material_id": "low_alloy_high",
+        "tool_depth_class_raw": "T=3D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "80~250",
+          "sequence": [
+            80,
+            250
+          ],
+          "min": 80,
+          "max": 250,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d13_15_5": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d16_19_5": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.15",
+            "sequence": [
+              0.08,
+              0.15
+            ],
+            "min": 0.08,
+            "max": 0.15,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-low_alloy_high-4d",
+        "material_id": "low_alloy_high",
+        "tool_depth_class_raw": "T=4D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "60~150",
+          "sequence": [
+            60,
+            150
+          ],
+          "min": 60,
+          "max": 150,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": null,
+          "d13_15_5": null,
+          "d16_19_5": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.15",
+            "sequence": [
+              0.08,
+              0.15
+            ],
+            "min": 0.08,
+            "max": 0.15,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-high_alloy-3d",
+        "material_id": "high_alloy",
+        "tool_depth_class_raw": "T=3D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "60~150",
+          "sequence": [
+            60,
+            150
+          ],
+          "min": 60,
+          "max": 150,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": {
+            "raw": "0.03~0.06",
+            "sequence": [
+              0.03,
+              0.06
+            ],
+            "min": 0.03,
+            "max": 0.06,
+            "unit": "mm/rev"
+          },
+          "d13_15_5": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d16_19_5": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-high_alloy-4d",
+        "material_id": "high_alloy",
+        "tool_depth_class_raw": "T=4D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "50~100",
+          "sequence": [
+            50,
+            100
+          ],
+          "min": 50,
+          "max": 100,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": null,
+          "d13_15_5": null,
+          "d16_19_5": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-stainless-3d",
+        "material_id": "stainless",
+        "tool_depth_class_raw": "T=3D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "60~150",
+          "sequence": [
+            60,
+            150
+          ],
+          "min": 60,
+          "max": 150,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": {
+            "raw": "0.03~0.06",
+            "sequence": [
+              0.03,
+              0.06
+            ],
+            "min": 0.03,
+            "max": 0.06,
+            "unit": "mm/rev"
+          },
+          "d13_15_5": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d16_19_5": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-stainless-4d",
+        "material_id": "stainless",
+        "tool_depth_class_raw": "T=4D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "50~100",
+          "sequence": [
+            50,
+            100
+          ],
+          "min": 50,
+          "max": 100,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": null,
+          "d13_15_5": null,
+          "d16_19_5": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-cast_iron-3d",
+        "material_id": "cast_iron",
+        "tool_depth_class_raw": "T=3D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "80~120",
+          "sequence": [
+            80,
+            120
+          ],
+          "min": 80,
+          "max": 120,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d13_15_5": {
+            "raw": "0.06~0.08",
+            "sequence": [
+              0.06,
+              0.08
+            ],
+            "min": 0.06,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d16_19_5": {
+            "raw": "0.06~0.08",
+            "sequence": [
+              0.06,
+              0.08
+            ],
+            "min": 0.06,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-cast_iron-4d",
+        "material_id": "cast_iron",
+        "tool_depth_class_raw": "T=4D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "60~100",
+          "sequence": [
+            60,
+            100
+          ],
+          "min": 60,
+          "max": 100,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": null,
+          "d13_15_5": null,
+          "d16_19_5": {
+            "raw": "0.06~0.08",
+            "sequence": [
+              0.06,
+              0.08
+            ],
+            "min": 0.06,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-hardened_lt50-3d",
+        "material_id": "hardened_lt50",
+        "tool_depth_class_raw": "T=3D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "60~100",
+          "sequence": [
+            60,
+            100
+          ],
+          "min": 60,
+          "max": 100,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": {
+            "raw": "0.03~0.06",
+            "sequence": [
+              0.03,
+              0.06
+            ],
+            "min": 0.03,
+            "max": 0.06,
+            "unit": "mm/rev"
+          },
+          "d13_15_5": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d16_19_5": {
+            "raw": "0.05~0.08",
+            "sequence": [
+              0.05,
+              0.08
+            ],
+            "min": 0.05,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.08",
+            "sequence": [
+              0.06,
+              0.08
+            ],
+            "min": 0.06,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      },
+      {
+        "id": "sd-hardened_lt50-4d",
+        "material_id": "hardened_lt50",
+        "tool_depth_class_raw": "T=4D",
+        "insert_grade": "NC2032",
+        "vc": {
+          "raw": "40~80",
+          "sequence": [
+            40,
+            80
+          ],
+          "min": 40,
+          "max": 80,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d10_12_5": null,
+          "d13_15_5": null,
+          "d16_19_5": {
+            "raw": "0.05~0.08",
+            "sequence": [
+              0.05,
+              0.08
+            ],
+            "min": 0.05,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_24": {
+            "raw": "0.06~0.08",
+            "sequence": [
+              0.06,
+              0.08
+            ],
+            "min": 0.06,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d25_30": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      }
+    ],
+    "no_catalog_cutting_data": [
+      {
+        "iso": "N",
+        "status": "not listed in p141 cutting table"
+      },
+      {
+        "iso": "S",
+        "status": "not listed in p141 cutting table"
+      }
+    ],
+    "application_multipliers": [
+      {
+        "id": "regular_surface",
+        "catalog_application": "Regular Surface",
+        "vc_factor_raw_sequence": [
+          1
+        ],
+        "f_factor_raw_sequence": [
+          1
+        ],
+        "scope_note": "Super Drill application guidance on printed p140; percentages apply to Vc and f.",
+        "source": {
+          "printed_page": 140,
+          "pdf_page": 5,
+          "original_pdf_page": 13
+        }
+      },
+      {
+        "id": "cross_holes",
+        "catalog_application": "Cross Holes",
+        "vc_factor_raw_sequence": [
+          0.8
+        ],
+        "f_factor_raw_sequence": [
+          0.8
+        ],
+        "scope_note": "Super Drill application guidance on printed p140; percentages apply to Vc and f.",
+        "source": {
+          "printed_page": 140,
+          "pdf_page": 5,
+          "original_pdf_page": 13
+        }
+      },
+      {
+        "id": "stack_drilling",
+        "catalog_application": "Stack Drilling",
+        "vc_factor_raw_sequence": [
+          0.8,
+          0.7
+        ],
+        "f_factor_raw_sequence": [
+          0.8,
+          0.7
+        ],
+        "scope_note": "Super Drill application guidance on printed p140; percentages apply to Vc and f.",
+        "source": {
+          "printed_page": 140,
+          "pdf_page": 5,
+          "original_pdf_page": 13
+        }
+      },
+      {
+        "id": "round_offset",
+        "catalog_application": "Round Work Piece Offset Drilling",
+        "vc_factor_raw_sequence": [
+          0.8,
+          0.6
+        ],
+        "f_factor_raw_sequence": [
+          0.8,
+          0.6
+        ],
+        "scope_note": "Super Drill application guidance on printed p140; percentages apply to Vc and f.",
+        "source": {
+          "printed_page": 140,
+          "pdf_page": 5,
+          "original_pdf_page": 13
+        }
+      },
+      {
+        "id": "plunge",
+        "catalog_application": "Plunge Drilling",
+        "vc_factor_raw_sequence": [
+          0.8
+        ],
+        "f_factor_raw_sequence": [
+          0.8
+        ],
+        "scope_note": "Super Drill application guidance on printed p140; percentages apply to Vc and f.",
+        "source": {
+          "printed_page": 140,
+          "pdf_page": 5,
+          "original_pdf_page": 13
+        }
+      },
+      {
+        "id": "concave",
+        "catalog_application": "Concave Surfaces",
+        "vc_factor_raw_sequence": [
+          0.8
+        ],
+        "f_factor_raw_sequence": [
+          0.8
+        ],
+        "scope_note": "Super Drill application guidance on printed p140; percentages apply to Vc and f.",
+        "source": {
+          "printed_page": 140,
+          "pdf_page": 5,
+          "original_pdf_page": 13
+        }
+      },
+      {
+        "id": "angled",
+        "catalog_application": "Angled Surfaces",
+        "vc_factor_raw_sequence": [
+          0.8,
+          0.7
+        ],
+        "f_factor_raw_sequence": [
+          0.8,
+          0.7
+        ],
+        "scope_note": "Super Drill application guidance on printed p140; percentages apply to Vc and f.",
+        "source": {
+          "printed_page": 140,
+          "pdf_page": 5,
+          "original_pdf_page": 13
+        }
+      },
+      {
+        "id": "cone_offset",
+        "catalog_application": "Cone Work Piece Offset Drilling",
+        "vc_factor_raw_sequence": [
+          0.8,
+          0.7
+        ],
+        "f_factor_raw_sequence": [
+          0.8,
+          0.7
+        ],
+        "scope_note": "Super Drill application guidance on printed p140; percentages apply to Vc and f.",
+        "source": {
+          "printed_page": 140,
+          "pdf_page": 5,
+          "original_pdf_page": 13
+        }
+      }
+    ],
+    "application_policy": "Ranges remain ranges; an explicit user-selected factor is required for an interval. No automatic midpoint factor or multiplier stacking."
+  },
+  "operating_notes": [
+    {
+      "id": "lathe_misalignment",
+      "value": "Maximum drill-center misalignment +0.2mm/-0.5mm on CNC lathe.",
+      "meaning": "setup-center displacement; not hole tolerance and not a blanket ±D allowance",
+      "source": {
+        "printed_page": 141,
+        "pdf_page": 6,
+        "original_pdf_page": 14
+      }
+    },
+    {
+      "id": "angled_surface",
+      "value": "Catalog says possible to drill angled surfaces without pre-drilling. Use SD-specific application condition guidance, not an unconditional guarantee.",
+      "source": {
+        "printed_page": 136,
+        "pdf_page": 1,
+        "original_pdf_page": 9
+      }
+    },
+    {
+      "id": "internal_coolant",
+      "value": "Tool described as having internal coolant. No SD minimum pressure/flow given in this excerpt.",
+      "source": {
+        "printed_page": 136,
+        "pdf_page": 1,
+        "original_pdf_page": 9
+      }
+    }
+  ],
+  "common_calculation_plan": {
+    "metric_rpm": {
+      "expression": "S=1000*Vc/(pi*D)",
+      "inputs": {
+        "Vc": "m/min",
+        "D": "mm drill/effective cutting diameter"
+      },
+      "output": "rpm",
+      "source": {
+        "printed_page": 141,
+        "pdf_page": 6,
+        "original_pdf_page": 14
+      },
+      "scope_note": "Metric arithmetic applied after selecting the Super Drill material, body depth class and application factor."
+    },
+    "metric_feed": {
+      "expression": "F=S*f",
+      "inputs": {
+        "S": "rpm",
+        "f": "mm/rev"
+      },
+      "output": "mm/min",
+      "source": {
+        "printed_page": 141,
+        "pdf_page": 6,
+        "original_pdf_page": 14
+      }
+    },
+    "inch_catalog": {
+      "printed_expressions": [
+        "S=(3.82*SFM)/d",
+        "SFM=Vc(m/min)*3.28",
+        "f=IPR=inch/rev",
+        "F=IPM=RPM*f/25.4"
+      ],
+      "status": "source input-unit ambiguity: dividing by25.4 is appropriate for f in mm/rev, not f already in inch/rev",
+      "implementation_plan": "Start with metric. Separate f_mm_per_rev and f_in_per_rev explicitly; seek manufacturer clarification of printed inch box.",
+      "source": {
+        "printed_page": 141,
+        "pdf_page": 6,
+        "original_pdf_page": 14
+      }
+    },
+    "z_depth": {
+      "automatic_program_z": false,
+      "reason": "No sufficient insert-tip/outer-edge/bottom profile datum dimensions, blind-hole depth convention or through-hole breakthrough allowance are supplied. User depth is a requirement, not automatically a tool-tip Z."
+    }
+  },
+  "manufacturer_questions": [
+    {
+      "id": "bottom-profile",
+      "priority": "P1",
+      "title": "有效孔深、刀尖基準與孔底形狀",
+      "question": "請提供 Super Drill 各孔徑的內外刃軸向關係、盲孔底形、完整圓柱段深度及通孔貫穿餘量圖，並說明表列 T 與實際程式刀尖 Z 的關係。",
+      "sources": [
+        {
+          "printed_page": 138,
+          "pdf_page": 3,
+          "original_pdf_page": 11
+        },
+        {
+          "printed_page": 139,
+          "pdf_page": 4,
+          "original_pdf_page": 12
+        }
+      ]
+    },
+    {
+      "id": "coolant-clamping",
+      "priority": "P2",
+      "title": "最低夾持量與內冷供液條件",
+      "question": "請補各刀徑與深度的最低內冷壓力、建議流量、量測位置及最小夾持長度。L1 是後柄尺寸，不直接代表最低夾持量。",
+      "sources": [
+        {
+          "printed_page": 136,
+          "pdf_page": 1,
+          "original_pdf_page": 9
+        },
+        {
+          "printed_page": 138,
+          "pdf_page": 3,
+          "original_pdf_page": 11
+        }
+      ]
+    },
+    {
+      "id": "material-boundaries",
+      "priority": "P2",
+      "title": "材料邊界與未刊載材料的數據",
+      "question": "C 恰好 0.3% 如何分類？p140 的 up to HRC50 與 p141 的 HRC<50 是否包含 HRC50？請補非鐵與耐熱材料的實體刀片及正式切削表。",
+      "sources": [
+        {
+          "printed_page": 140,
+          "pdf_page": 5,
+          "original_pdf_page": 13
+        },
+        {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      ]
+    },
+    {
+      "id": "lathe-adjustment",
+      "priority": "P2",
+      "title": "車床偏心與徑向調整規則",
+      "question": "請說明表列 Radial Adjustment、Dmax 與 p141 中心偏差 +0.2／−0.5 mm 的共同適用條件、允許方向及可用深度／避讓限制。",
+      "sources": [
+        {
+          "printed_page": 138,
+          "pdf_page": 3,
+          "original_pdf_page": 11
+        },
+        {
+          "printed_page": 139,
+          "pdf_page": 4,
+          "original_pdf_page": 12
+        },
+        {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      ]
+    },
+    {
+      "id": "inch-formula",
+      "priority": "P2",
+      "title": "英制進給公式與輸入單位",
+      "question": "p141 英制框將 f 標為 inch/rev，進給公式卻又除 25.4。請確認正式公式及各輸入單位；目前僅自動輸出公制 S、F。",
+      "source": {
+        "printed_page": 141,
+        "pdf_page": 6,
+        "original_pdf_page": 14
+      }
+    },
+    {
+      "id": "order-format",
+      "priority": "P2",
+      "title": "完整刀片訂購格式",
+      "question": "型錄分開列出 N9GX 型號及 NC2032 牌號；若需要組合訂購料號，請提供正式格式，不自行拼接後綴。",
+      "source": {
+        "printed_page": 140,
+        "pdf_page": 5,
+        "original_pdf_page": 13
+      }
+    },
+    {
+      "id": "application-stages",
+      "priority": "P2",
+      "title": "工況倍率與分段進出刀",
+      "question": "請補工況倍率與車床偏心、入口／貫穿分段之間的適用順序、比例及距離，並確認是否允許疊加。型錄區間不擅自取中值。",
+      "sources": [
+        {
+          "printed_page": 140,
+          "pdf_page": 5,
+          "original_pdf_page": 13
+        },
+        {
+          "printed_page": 141,
+          "pdf_page": 6,
+          "original_pdf_page": 14
+        }
+      ]
+    }
+  ],
+  "catalog_scope": {
+    "standard_range": {
+      "3d_diameter_mm": [
+        10,
+        30
+      ],
+      "4d_diameter_mm": [
+        16,
+        30
+      ],
+      "scope": "Use actual listed SKU diameters, not continuous interpolation between catalog stock sizes.",
+      "source": {
+        "printed_page": 136,
+        "pdf_page": 1,
+        "original_pdf_page": 9
+      }
+    },
+    "finished_hole_quality": {
+      "numeric_diameter_straightness_roundness_guarantee": null,
+      "scope": "Catalog performance descriptions are not per-SKU numeric guarantees."
+    }
+  }
+}

@@ -1,0 +1,2012 @@
+{
+  "schema_version": "1.0",
+  "product": "Super Drill",
+  "catalog_family": "SD",
+  "reviewed_on": "2026-11-18",
+  "source_pdf": "sources/Super_Drill_p136-141.pdf",
+  "catalog_pages": [
+    136,
+    137,
+    138,
+    139,
+    140,
+    141
+  ],
+  "scope": "Catalog product dimensions and explicit insert/holder pairing. Cutting recommendations are recorded separately.",
+  "units": {
+    "length": "mm",
+    "diameter": "mm",
+    "torque": "Nm",
+    "feed": "mm/rev",
+    "speed": "m/min"
+  },
+  "summary": {
+    "standard_holder_count": 51,
+    "three_d_holder_count": 36,
+    "four_d_holder_count": 15,
+    "insert_model_count": 5,
+    "three_d_diameter_range_mm": [
+      10,
+      30
+    ],
+    "four_d_diameter_range_mm": [
+      16,
+      30
+    ],
+    "insert_grade": "NC2032",
+    "internal_coolant": true,
+    "same_insert_for_inner_and_outer": true,
+    "cutting_edges_per_insert": 4,
+    "feature_source": {
+      "catalog_page": 136,
+      "pdf_page": 1,
+      "local_pdf": "sources/Super_Drill_p136-141.pdf",
+      "original_pdf_page": 9
+    }
+  },
+  "dimension_definitions": {
+    "D": "Nominal drill diameter",
+    "T": "Catalog drilling depth, explicitly shown as T(3xD) or T(4xD). Use this field when screening requested drilling depth.",
+    "L": "Drawing dimension from drill tip to the front shoulder of the cylindrical shank; not the overall tool length and not the drilling-depth limit.",
+    "L1": "Rear cylindrical shank axial length; not usable drilling depth.",
+    "d": "Rear shank diameter",
+    "d1": "Collar / shoulder outside diameter",
+    "radial_adjustment": "Catalog radial adjustment for lathe setup. Listed as a positive magnitude, not an expressly symmetric +/- allowance.",
+    "Dmax": "Maximum diameter associated with the listed lathe radial adjustment. Do not automatically offer this as rotating-drill capacity."
+  },
+  "drawing_fixed_dimensions": {
+    "shoulder_axial_dimension_mm": 5,
+    "shank_diameter_upper_deviation_mm": -0.005,
+    "shank_diameter_lower_deviation_mm": -0.015,
+    "collar_diameter_tolerance_plus_minus_mm": 0.05,
+    "source": [
+      {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      },
+      {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    ]
+  },
+  "insert_size_groups": [
+    {
+      "diameter_range_mm": [
+        10,
+        12.5
+      ],
+      "insert_model": "N9GX04T002",
+      "grade": "NC2032"
+    },
+    {
+      "diameter_range_mm": [
+        13,
+        15.5
+      ],
+      "insert_model": "N9GX05T103",
+      "grade": "NC2032"
+    },
+    {
+      "diameter_range_mm": [
+        16,
+        19.5
+      ],
+      "insert_model": "N9GX060204",
+      "grade": "NC2032"
+    },
+    {
+      "diameter_range_mm": [
+        20,
+        24
+      ],
+      "insert_model": "N9GX070304",
+      "grade": "NC2032"
+    },
+    {
+      "diameter_range_mm": [
+        25,
+        30
+      ],
+      "insert_model": "N9GX090308",
+      "grade": "NC2032"
+    }
+  ],
+  "holders": [
+    {
+      "id": "00-99313-10",
+      "part_no": "00-99313-10",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 10.0,
+      "drilling_depth_T_mm": 30.0,
+      "length_L_mm": 49.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX04T002",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-18037",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.25,
+      "lathe_max_diameter_Dmax_mm": 10.5,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-10.3",
+      "part_no": "00-99313-10.3",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 10.3,
+      "drilling_depth_T_mm": 30.9,
+      "length_L_mm": 52.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX04T002",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-18037",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.25,
+      "lathe_max_diameter_Dmax_mm": 10.8,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-10.5",
+      "part_no": "00-99313-10.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 10.5,
+      "drilling_depth_T_mm": 31.5,
+      "length_L_mm": 52.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX04T002",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-18037",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.25,
+      "lathe_max_diameter_Dmax_mm": 11.0,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-11",
+      "part_no": "00-99313-11",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 11.0,
+      "drilling_depth_T_mm": 33.0,
+      "length_L_mm": 52.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX04T002",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-18037",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.2,
+      "lathe_max_diameter_Dmax_mm": 11.4,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-11.5",
+      "part_no": "00-99313-11.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 11.5,
+      "drilling_depth_T_mm": 34.5,
+      "length_L_mm": 55.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX04T002",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-18037",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.2,
+      "lathe_max_diameter_Dmax_mm": 11.9,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-12",
+      "part_no": "00-99313-12",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 12.0,
+      "drilling_depth_T_mm": 36.0,
+      "length_L_mm": 55.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX04T002",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-18037",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.15,
+      "lathe_max_diameter_Dmax_mm": 12.3,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-12.5",
+      "part_no": "00-99313-12.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 12.5,
+      "drilling_depth_T_mm": 37.5,
+      "length_L_mm": 58.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX04T002",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-18037",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.15,
+      "lathe_max_diameter_Dmax_mm": 12.8,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-13",
+      "part_no": "00-99313-13",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 13.0,
+      "drilling_depth_T_mm": 39.0,
+      "length_L_mm": 58.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX05T103",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-20045",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 13.6,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-13.5",
+      "part_no": "00-99313-13.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 13.5,
+      "drilling_depth_T_mm": 40.5,
+      "length_L_mm": 61.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX05T103",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-20045",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 14.1,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-14",
+      "part_no": "00-99313-14",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 14.0,
+      "drilling_depth_T_mm": 42.0,
+      "length_L_mm": 61.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX05T103",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-20045",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.25,
+      "lathe_max_diameter_Dmax_mm": 14.5,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-14.5",
+      "part_no": "00-99313-14.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 14.5,
+      "drilling_depth_T_mm": 43.5,
+      "length_L_mm": 64.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX05T103",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-20045",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.25,
+      "lathe_max_diameter_Dmax_mm": 15.0,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-15",
+      "part_no": "00-99313-15",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 15.0,
+      "drilling_depth_T_mm": 45.0,
+      "length_L_mm": 64.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX05T103",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-20045",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.2,
+      "lathe_max_diameter_Dmax_mm": 15.4,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-15.5",
+      "part_no": "00-99313-15.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 15.5,
+      "drilling_depth_T_mm": 46.5,
+      "length_L_mm": 67.0,
+      "shank_length_L1_mm": 49,
+      "shank_diameter_d_mm": 20,
+      "collar_diameter_d1_mm": 27,
+      "insert_model": "N9GX05T103",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-20045",
+      "insert_screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.2,
+      "lathe_max_diameter_Dmax_mm": 15.9,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-16",
+      "part_no": "00-99313-16",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 16.0,
+      "drilling_depth_T_mm": 48.0,
+      "length_L_mm": 74.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.4,
+      "lathe_max_diameter_Dmax_mm": 16.8,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-16.5",
+      "part_no": "00-99313-16.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 16.5,
+      "drilling_depth_T_mm": 49.5,
+      "length_L_mm": 76.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.4,
+      "lathe_max_diameter_Dmax_mm": 17.3,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-17",
+      "part_no": "00-99313-17",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 17.0,
+      "drilling_depth_T_mm": 51.0,
+      "length_L_mm": 76.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.35,
+      "lathe_max_diameter_Dmax_mm": 17.7,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-17.5",
+      "part_no": "00-99313-17.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 17.5,
+      "drilling_depth_T_mm": 52.5,
+      "length_L_mm": 78.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.35,
+      "lathe_max_diameter_Dmax_mm": 18.2,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-18",
+      "part_no": "00-99313-18",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 18.0,
+      "drilling_depth_T_mm": 54.0,
+      "length_L_mm": 78.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 18.6,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-18.5",
+      "part_no": "00-99313-18.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 18.5,
+      "drilling_depth_T_mm": 55.5,
+      "length_L_mm": 80.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 19.1,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-19",
+      "part_no": "00-99313-19",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 19.0,
+      "drilling_depth_T_mm": 57.0,
+      "length_L_mm": 80.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.25,
+      "lathe_max_diameter_Dmax_mm": 19.5,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-19.5",
+      "part_no": "00-99313-19.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 19.5,
+      "drilling_depth_T_mm": 58.5,
+      "length_L_mm": 85.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.25,
+      "lathe_max_diameter_Dmax_mm": 20.0,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-20",
+      "part_no": "00-99313-20",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 20.0,
+      "drilling_depth_T_mm": 60.0,
+      "length_L_mm": 85.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.5,
+      "lathe_max_diameter_Dmax_mm": 21.0,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-20.5",
+      "part_no": "00-99313-20.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 20.5,
+      "drilling_depth_T_mm": 61.5,
+      "length_L_mm": 87.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.5,
+      "lathe_max_diameter_Dmax_mm": 21.5,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-21",
+      "part_no": "00-99313-21",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 21.0,
+      "drilling_depth_T_mm": 63.0,
+      "length_L_mm": 87.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.45,
+      "lathe_max_diameter_Dmax_mm": 21.9,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-21.5",
+      "part_no": "00-99313-21.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 21.5,
+      "drilling_depth_T_mm": 64.5,
+      "length_L_mm": 88.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.45,
+      "lathe_max_diameter_Dmax_mm": 22.4,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-22",
+      "part_no": "00-99313-22",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 22.0,
+      "drilling_depth_T_mm": 66.0,
+      "length_L_mm": 88.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.4,
+      "lathe_max_diameter_Dmax_mm": 22.8,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-22.5",
+      "part_no": "00-99313-22.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 22.5,
+      "drilling_depth_T_mm": 67.5,
+      "length_L_mm": 90.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.4,
+      "lathe_max_diameter_Dmax_mm": 23.3,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-23",
+      "part_no": "00-99313-23",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 23.0,
+      "drilling_depth_T_mm": 69.0,
+      "length_L_mm": 90.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.35,
+      "lathe_max_diameter_Dmax_mm": 23.7,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-23.5",
+      "part_no": "00-99313-23.5",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 23.5,
+      "drilling_depth_T_mm": 70.5,
+      "length_L_mm": 92.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.35,
+      "lathe_max_diameter_Dmax_mm": 24.2,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-24",
+      "part_no": "00-99313-24",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 24.0,
+      "drilling_depth_T_mm": 72.0,
+      "length_L_mm": 92.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 24.6,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-25",
+      "part_no": "00-99313-25",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 25.0,
+      "drilling_depth_T_mm": 75.0,
+      "length_L_mm": 114.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.5,
+      "lathe_max_diameter_Dmax_mm": 26.0,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-26",
+      "part_no": "00-99313-26",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 26.0,
+      "drilling_depth_T_mm": 78.0,
+      "length_L_mm": 115.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.5,
+      "lathe_max_diameter_Dmax_mm": 27.0,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-27",
+      "part_no": "00-99313-27",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 27.0,
+      "drilling_depth_T_mm": 81.0,
+      "length_L_mm": 117.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.4,
+      "lathe_max_diameter_Dmax_mm": 27.8,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-28",
+      "part_no": "00-99313-28",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 28.0,
+      "drilling_depth_T_mm": 84.0,
+      "length_L_mm": 126.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.4,
+      "lathe_max_diameter_Dmax_mm": 28.8,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-29",
+      "part_no": "00-99313-29",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 29.0,
+      "drilling_depth_T_mm": 87.0,
+      "length_L_mm": 127.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 29.6,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99313-30",
+      "part_no": "00-99313-30",
+      "series": "99313",
+      "depth_ratio": 3,
+      "diameter_D_mm": 30.0,
+      "drilling_depth_T_mm": 90.0,
+      "length_L_mm": 130.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 30.6,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "00-99314-16",
+      "part_no": "00-99314-16",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 16.0,
+      "drilling_depth_T_mm": 64.0,
+      "length_L_mm": 90.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.4,
+      "lathe_max_diameter_Dmax_mm": 16.8,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-17",
+      "part_no": "00-99314-17",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 17.0,
+      "drilling_depth_T_mm": 68.0,
+      "length_L_mm": 93.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.35,
+      "lathe_max_diameter_Dmax_mm": 17.7,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-18",
+      "part_no": "00-99314-18",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 18.0,
+      "drilling_depth_T_mm": 72.0,
+      "length_L_mm": 96.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 18.6,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-19",
+      "part_no": "00-99314-19",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 19.0,
+      "drilling_depth_T_mm": 76.0,
+      "length_L_mm": 99.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX060204",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-22055",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.25,
+      "lathe_max_diameter_Dmax_mm": 19.5,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-20",
+      "part_no": "00-99314-20",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 20.0,
+      "drilling_depth_T_mm": 80.0,
+      "length_L_mm": 105.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.5,
+      "lathe_max_diameter_Dmax_mm": 21.0,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-21",
+      "part_no": "00-99314-21",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 21.0,
+      "drilling_depth_T_mm": 84.0,
+      "length_L_mm": 108.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.45,
+      "lathe_max_diameter_Dmax_mm": 21.9,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-22",
+      "part_no": "00-99314-22",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 22.0,
+      "drilling_depth_T_mm": 88.0,
+      "length_L_mm": 110.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.4,
+      "lathe_max_diameter_Dmax_mm": 22.8,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-23",
+      "part_no": "00-99314-23",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 23.0,
+      "drilling_depth_T_mm": 92.0,
+      "length_L_mm": 113.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.35,
+      "lathe_max_diameter_Dmax_mm": 23.7,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-24",
+      "part_no": "00-99314-24",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 24.0,
+      "drilling_depth_T_mm": 96.0,
+      "length_L_mm": 116.0,
+      "shank_length_L1_mm": 55,
+      "shank_diameter_d_mm": 25,
+      "collar_diameter_d1_mm": 31,
+      "insert_model": "N9GX070304",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-25060",
+      "insert_screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 24.6,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-25",
+      "part_no": "00-99314-25",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 25.0,
+      "drilling_depth_T_mm": 100.0,
+      "length_L_mm": 139.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.5,
+      "lathe_max_diameter_Dmax_mm": 26.0,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-26",
+      "part_no": "00-99314-26",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 26.0,
+      "drilling_depth_T_mm": 104.0,
+      "length_L_mm": 141.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.5,
+      "lathe_max_diameter_Dmax_mm": 27.0,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-27",
+      "part_no": "00-99314-27",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 27.0,
+      "drilling_depth_T_mm": 108.0,
+      "length_L_mm": 144.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.4,
+      "lathe_max_diameter_Dmax_mm": 27.8,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-28",
+      "part_no": "00-99314-28",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 28.0,
+      "drilling_depth_T_mm": 112.0,
+      "length_L_mm": 154.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.4,
+      "lathe_max_diameter_Dmax_mm": 28.8,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-29",
+      "part_no": "00-99314-29",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 29.0,
+      "drilling_depth_T_mm": 116.0,
+      "length_L_mm": 156.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 29.6,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "00-99314-30",
+      "part_no": "00-99314-30",
+      "series": "99314",
+      "depth_ratio": 4,
+      "diameter_D_mm": 30.0,
+      "drilling_depth_T_mm": 120.0,
+      "length_L_mm": 160.0,
+      "shank_length_L1_mm": 58,
+      "shank_diameter_d_mm": 32,
+      "collar_diameter_d1_mm": 43,
+      "insert_model": "N9GX090308",
+      "insert_grade": "NC2032",
+      "insert_positions": [
+        "inner",
+        "outer"
+      ],
+      "insert_screw": "NS-30072",
+      "insert_screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "lathe_radial_adjustment_mm": 0.3,
+      "lathe_max_diameter_Dmax_mm": 30.6,
+      "application_of_adjustment": "CNC lathe radial adjustment; not a universal diameter range for a rotating drill",
+      "merged_cells_evidence": "L1, d, d1 and insert/hardware are visually shared within the explicitly bounded insert-size group on this page",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    }
+  ],
+  "inserts": [
+    {
+      "id": "N9GX04T002|NC2032",
+      "part_no": "N9GX04T002",
+      "grade": "NC2032",
+      "coating": "AlTiN",
+      "iso_grade": "K20F",
+      "length_L_mm": 4.07,
+      "thickness_S_mm": 1.8,
+      "corner_radius_Re_mm": 0.2,
+      "cutting_edges_per_insert": 4,
+      "for_positions": [
+        "inner",
+        "outer"
+      ],
+      "screw": "NS-18037",
+      "screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "material_statement": "carbon steel, alloy steel, casting iron, stainless steel and hardened steel up to HRC 50",
+      "material_groups": [
+        "P",
+        "M",
+        "K",
+        "H"
+      ],
+      "hardness_upper_HRC_stated": 50,
+      "hardness_boundary_note": "p140 says up to HRC50; p141 cutting-data row says hardened steel <HRC50. Exact HRC50 applicability needs confirmation.",
+      "order_number_with_grade": null,
+      "source": {
+        "catalog_page": 140,
+        "pdf_page": 5,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 13
+      }
+    },
+    {
+      "id": "N9GX05T103|NC2032",
+      "part_no": "N9GX05T103",
+      "grade": "NC2032",
+      "coating": "AlTiN",
+      "iso_grade": "K20F",
+      "length_L_mm": 5.07,
+      "thickness_S_mm": 2.0,
+      "corner_radius_Re_mm": 0.3,
+      "cutting_edges_per_insert": 4,
+      "for_positions": [
+        "inner",
+        "outer"
+      ],
+      "screw": "NS-20045",
+      "screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_asterisk": true,
+      "material_statement": "carbon steel, alloy steel, casting iron, stainless steel and hardened steel up to HRC 50",
+      "material_groups": [
+        "P",
+        "M",
+        "K",
+        "H"
+      ],
+      "hardness_upper_HRC_stated": 50,
+      "hardness_boundary_note": "p140 says up to HRC50; p141 cutting-data row says hardened steel <HRC50. Exact HRC50 applicability needs confirmation.",
+      "order_number_with_grade": null,
+      "source": {
+        "catalog_page": 140,
+        "pdf_page": 5,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 13
+      }
+    },
+    {
+      "id": "N9GX060204|NC2032",
+      "part_no": "N9GX060204",
+      "grade": "NC2032",
+      "coating": "AlTiN",
+      "iso_grade": "K20F",
+      "length_L_mm": 6.35,
+      "thickness_S_mm": 2.38,
+      "corner_radius_Re_mm": 0.4,
+      "cutting_edges_per_insert": 4,
+      "for_positions": [
+        "inner",
+        "outer"
+      ],
+      "screw": "NS-22055",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "material_statement": "carbon steel, alloy steel, casting iron, stainless steel and hardened steel up to HRC 50",
+      "material_groups": [
+        "P",
+        "M",
+        "K",
+        "H"
+      ],
+      "hardness_upper_HRC_stated": 50,
+      "hardness_boundary_note": "p140 says up to HRC50; p141 cutting-data row says hardened steel <HRC50. Exact HRC50 applicability needs confirmation.",
+      "order_number_with_grade": null,
+      "source": {
+        "catalog_page": 140,
+        "pdf_page": 5,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 13
+      }
+    },
+    {
+      "id": "N9GX070304|NC2032",
+      "part_no": "N9GX070304",
+      "grade": "NC2032",
+      "coating": "AlTiN",
+      "iso_grade": "K20F",
+      "length_L_mm": 7.94,
+      "thickness_S_mm": 3.18,
+      "corner_radius_Re_mm": 0.4,
+      "cutting_edges_per_insert": 4,
+      "for_positions": [
+        "inner",
+        "outer"
+      ],
+      "screw": "NS-25060",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_asterisk": true,
+      "material_statement": "carbon steel, alloy steel, casting iron, stainless steel and hardened steel up to HRC 50",
+      "material_groups": [
+        "P",
+        "M",
+        "K",
+        "H"
+      ],
+      "hardness_upper_HRC_stated": 50,
+      "hardness_boundary_note": "p140 says up to HRC50; p141 cutting-data row says hardened steel <HRC50. Exact HRC50 applicability needs confirmation.",
+      "order_number_with_grade": null,
+      "source": {
+        "catalog_page": 140,
+        "pdf_page": 5,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 13
+      }
+    },
+    {
+      "id": "N9GX090308|NC2032",
+      "part_no": "N9GX090308",
+      "grade": "NC2032",
+      "coating": "AlTiN",
+      "iso_grade": "K20F",
+      "length_L_mm": 9.52,
+      "thickness_S_mm": 3.18,
+      "corner_radius_Re_mm": 0.8,
+      "cutting_edges_per_insert": 4,
+      "for_positions": [
+        "inner",
+        "outer"
+      ],
+      "screw": "NS-30072",
+      "screw_torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_asterisk": false,
+      "material_statement": "carbon steel, alloy steel, casting iron, stainless steel and hardened steel up to HRC 50",
+      "material_groups": [
+        "P",
+        "M",
+        "K",
+        "H"
+      ],
+      "hardness_upper_HRC_stated": 50,
+      "hardness_boundary_note": "p140 says up to HRC50; p141 cutting-data row says hardened steel <HRC50. Exact HRC50 applicability needs confirmation.",
+      "order_number_with_grade": null,
+      "source": {
+        "catalog_page": 140,
+        "pdf_page": 5,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 13
+      }
+    }
+  ],
+  "unconfirmed_fields": [
+    {
+      "id": "blind-hole-profile",
+      "question": "Need dimensioned bottom profiles for each holder/diameter and exact axial tool-length datum; p139 comparison images do not provide these dimensions.",
+      "source": {
+        "catalog_page": 139,
+        "pdf_page": 4,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 12
+      }
+    },
+    {
+      "id": "lathe-adjustment-rules",
+      "question": "Confirm permissible adjustment direction, Dmax use, required tool rotation/work rotation arrangement, and whether reduced usable depth / clearance applies when offsetting.",
+      "source": {
+        "catalog_page": 138,
+        "pdf_page": 3,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 11
+      }
+    },
+    {
+      "id": "hrc50-boundary",
+      "question": "Resolve up to HRC50 (p140) versus <HRC50 (p141).",
+      "source": [
+        {
+          "catalog_page": 140,
+          "pdf_page": 5,
+          "local_pdf": "sources/Super_Drill_p136-141.pdf",
+          "original_pdf_page": 13
+        },
+        {
+          "catalog_page": 141,
+          "pdf_page": 6,
+          "local_pdf": "sources/Super_Drill_p136-141.pdf",
+          "original_pdf_page": 14
+        }
+      ]
+    },
+    {
+      "id": "grade-ordering",
+      "question": "Catalog part and grade columns are separate. Confirm full ordering format if a combined SKU is required; do not invent a hyphenated catalog part.",
+      "source": {
+        "catalog_page": 140,
+        "pdf_page": 5,
+        "local_pdf": "sources/Super_Drill_p136-141.pdf",
+        "original_pdf_page": 13
+      }
+    }
+  ],
+  "implementation_notes": [
+    "First ask nominal hole diameter, requested depth, material, rotating-tool/lathe setup, coolant and machine-side shank acceptance.",
+    "For a rotating drill, match catalog D and screen requested depth against T; do not use L or L1 for this screen.",
+    "For a stationary lathe drill, keep nominal D and requested adjusted diameter separate, and explain radial adjustment/Dmax as a distinct setup.",
+    "Choose the corresponding N9GX model automatically from the selected holder; the same model is used for inner and outer positions.",
+    "Brand grade NC2032 is not a second independent choice when this catalog lists only that grade for every N9GX model.",
+    "Use feed per revolution for feed-rate conversion. Do not multiply by the inner/outer insert count or by the four indexable edges.",
+    "A catalog T screening result cannot by itself set programmed Z, breakthrough overtravel, blind-bottom clearance or tool-length correction."
+  ],
+  "verification": {
+    "method": "Verified original dimension and insert tables; package PDF pages 3–5 correspond to printed pages 138–140.",
+    "holder_part_numbers_unique": true,
+    "catalog_T_matches_depth_ratio": true,
+    "Dmax_matches_listed_radial_adjustment": true,
+    "merged_cell_values_visually_expanded": true
+  },
+  "pdf_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "original_pdf_pages": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ]
+}

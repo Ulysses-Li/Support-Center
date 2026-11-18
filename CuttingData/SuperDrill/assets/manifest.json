@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "source_pdf": "../sources/Super_Drill_p136-141.pdf",
+  "bbox_coordinate_system": "PDF points; [left, top, right, bottom], origin at page top-left",
+  "images": [
+    {
+      "file": "product.jpg",
+      "product": "Super Drill",
+      "printed_page": 136,
+      "pdf_page": 1,
+      "bbox": [
+        80,
+        326,
+        517,
+        516
+      ],
+      "output_pixels": [
+        910,
+        396
+      ],
+      "method": "Cropped the original embedded Im0 background photograph, converted from CMYK to RGB. The crop excludes catalog text and retains the complete product with its original background and shadow.",
+      "embedded_image_bbox": [
+        0.0001221,
+        0.000539,
+        603.840095,
+        858.9605044
+      ],
+      "embedded_image_pixel_crop": [
+        167,
+        679,
+        1077,
+        1075
+      ],
+      "alt_zh": "Super Drill 可轉位鑽頭，具有螺旋排屑槽與直柄夾持部位",
+      "original_pdf_page": 9
+    }
+  ],
+  "dynamic_linework": {
+    "renderer": "../diagrams.js",
+    "method": "Manually redrawn SVG linework, not a raster catalog-page image.",
+    "references": [
+      {
+        "family": "sd",
+        "printed_page": 138,
+        "pdf_page": 3,
+        "bbox": [
+          74,
+          97,
+          324,
+          184
+        ],
+        "original_pdf_page": 11
+      }
+    ],
+    "scale": "Schematic, not to scale. Text labels come from the selected normalized holder record.",
+    "dimension_notes": [
+      "SD L1 is rear shank length; T is catalog drilling depth.",
+      "The target hole diameter appears as a separate annotation and never overwrites nominal tool diameter D.",
+      "Missing dimensions appear as 未提供, never as zero or inferred length."
+    ]
+  }
+}

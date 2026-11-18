@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "product": "Super Power Drill",
+  "source_pdf": "../sources/Super_Power_Drill_p128-135.pdf",
+  "bbox_coordinate_system": "PDF points; [left, top, right, bottom], origin at page top-left",
+  "images": [
+    {
+      "file": "product.jpg",
+      "product": "Super Power Drill",
+      "printed_page": 128,
+      "pdf_page": 1,
+      "bbox": [
+        71.069017,
+        271.8930423,
+        582.5358735,
+        694.6561788
+      ],
+      "output_pixels": [
+        1066,
+        881
+      ],
+      "method": "Extracted original embedded CMYK image tiles Im0, Im1, Im2, Im3 and Im4, converted to RGB and reassembled by their PDF positions. This excludes the independent PDF text overlays; no tool geometry was retouched.",
+      "embedded_images": [
+        {
+          "name": "Im0",
+          "bbox": [
+            71.069017,
+            271.8930423,
+            276.0053311,
+            483.6023339
+          ]
+        },
+        {
+          "name": "Im1",
+          "bbox": [
+            275.5683667,
+            271.8930423,
+            480.2861986,
+            483.6023339
+          ]
+        },
+        {
+          "name": "Im2",
+          "bbox": [
+            479.8492342,
+            271.8930424,
+            582.5358735,
+            694.6561788
+          ]
+        },
+        {
+          "name": "Im3",
+          "bbox": [
+            71.069017,
+            483.1653695,
+            276.0053311,
+            694.6561788
+          ]
+        },
+        {
+          "name": "Im4",
+          "bbox": [
+            275.5683667,
+            483.1653695,
+            480.2861986,
+            694.6561788
+          ]
+        }
+      ],
+      "alt_zh": "Super Power Drill 深孔鑽頭，前端可見中心刀片與外刃刀片"
+    }
+  ],
+  "dynamic_linework": {
+    "renderer": "../diagrams.js",
+    "printed_page": 130,
+    "pdf_page": 3,
+    "scale": "Schematic, not to scale; dimension labels use the selected standard holder."
+  }
+}

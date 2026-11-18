@@ -1,0 +1,209 @@
+/* 鑽孔分類頁專屬樣式；產品計算器各自在產品目錄維護。 */
+:root{--dw-ink:#0c2237;--dw-blue:#0067ad;--dw-orange:#f05a1a;--dw-muted:#597389;--dw-line:#d6e4ee;--dw-soft:#edf6fc;--dw-radius:16px}
+.dw-page{color:var(--dw-ink);padding:0 0 22px;font-family:Arial,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:16px;line-height:1.65}
+.dw-container{max-width:1200px;padding-inline:24px}
+.dw-page a{color:var(--dw-blue);text-decoration:none}
+.dw-page a:hover{text-decoration:underline;text-underline-offset:4px}
+.dw-page button,.dw-page input,.dw-page select,.diagram-dialog button{font:inherit}
+.dw-page .btn,.diagram-dialog .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:12px;font-weight:700;font-size:14px;border-radius:7px;padding:10px 16px}
+.dw-page .btn:focus-visible,.dw-page a:focus-visible,.dw-page summary:focus-visible,.diagram-dialog button:focus-visible{outline:3px solid #64afe1;outline-offset:4px;box-shadow:none}
+.dw-page .btn-brand{background:var(--dw-orange);color:#fff;border-color:var(--dw-orange)}
+.dw-page .btn-brand:hover{background:#d84b10;border-color:#d84b10;color:#fff;text-decoration:none}
+.dw-page .btn-brand:disabled{background:#e5edf3;border-color:#e5edf3;color:#8298aa}
+.dw-page .btn-text{background:transparent;border:0;color:var(--dw-blue);padding-inline:10px}
+.dw-page .btn-text:hover{background:var(--dw-soft);text-decoration:none}
+.dw-page .btn-soft,.diagram-dialog .btn-soft{background:#f0f7fc;border:1px solid var(--dw-line);color:var(--dw-blue)}
+.dw-page .btn-soft:hover,.diagram-dialog .btn-soft:hover{background:#e3f1fa;border-color:#9bc8e6}
+.page-trail{font-size:14px;color:var(--dw-muted);padding-top:22px}
+.preview-label{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:#786651;white-space:nowrap}
+.preview-label>span{width:5px;height:5px;background:#cb9b55;border-radius:50%}
+.dw-hero{padding-block:33px 26px}
+.eyebrow{color:var(--dw-blue);font-size:12px;font-weight:800;letter-spacing:.11em;line-height:1.6;margin-bottom:12px}
+.dw-hero h1{max-width:720px;font-size:clamp(30px,3.1vw,45px);font-weight:800;line-height:1.32;letter-spacing:-.045em;margin:0 0 15px;text-wrap:balance}
+.hero-intro{max-width:620px;font-size:16px;line-height:1.9;color:var(--dw-muted);margin:0}
+.hero-actions{margin-top:23px}
+.catalog-link{min-height:44px;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700}
+.catalog-link span{font-size:11px;letter-spacing:.04em;color:var(--dw-muted);background:#e7eff4;padding:2px 5px;border-radius:3px}
+.hero-media{min-height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:16px;background:rgba(255,255,255,.45)}
+.hero-media img{width:100%;aspect-ratio:16/8;object-fit:contain;display:block;mix-blend-mode:multiply}
+.hero-media{flex-direction:column}
+.hero-image-caption{font-size:12px;letter-spacing:.02em;color:var(--dw-muted);padding:4px 12px 10px;text-align:center}
+.hero-pair{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:12px}
+.hero-pair figure{margin:0;min-width:0}
+.hero-pair img{width:100%;aspect-ratio:1.2;object-fit:contain}
+.hero-pair figcaption{font-size:12px;font-weight:700;color:var(--dw-muted);text-align:center;margin-top:3px}
+.view-tabs{display:flex;flex-wrap:wrap;align-items:center;gap:4px;padding-bottom:12px;border-bottom:1px solid var(--dw-line)}
+.view-tabs a{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 17px;border-radius:7px;font-size:14px;font-weight:700;color:var(--dw-muted)}
+.view-tabs a:hover{color:var(--dw-blue);background:#eaf4fb;text-decoration:none}
+.view-tabs a.is-active{background:var(--dw-ink);color:#fff}
+.view-tabs a:last-child{margin-left:auto}
+.data-status{font-size:14px;color:var(--dw-muted);margin:10px 0 16px;min-height:23px}
+.data-status:empty{display:none}
+.surface{background:#fff;border:1px solid var(--dw-line);border-radius:var(--dw-radius);box-shadow:0 8px 28px rgba(29,66,94,.035)}
+.job-panel{padding:26px 28px 16px;border-top:3px solid var(--dw-blue)}
+.section-heading{font-size:22px;line-height:1.45;letter-spacing:-.02em;font-weight:800}
+.form-label{display:flex;align-items:center;gap:7px;font-size:14px;line-height:1.5;font-weight:700;margin-bottom:10px;color:var(--dw-ink)}
+.field-index{font-size:12px;color:var(--dw-blue);font-weight:800;letter-spacing:.035em;margin-right:2px}
+.dw-page .form-control,.dw-page .form-select{border:1px solid #c7dce9;color:var(--dw-ink);background-color:#fff;border-radius:6px;min-height:48px;font-size:15px;padding:10px 12px;box-shadow:none}
+.dw-page .form-control::placeholder{color:#8ca0af;opacity:1;font-size:14px}
+.dw-page .form-control:focus,.dw-page .form-select:focus{border-color:#2e87c3;box-shadow:0 0 0 3px rgba(0,103,173,.12);position:relative;z-index:2}
+.dw-page .input-group-text{background:#f3f8fb;border:1px solid #c7dce9;border-radius:6px;color:var(--dw-muted);font-size:13px;padding-inline:10px}
+.main-control{height:90px}
+.dw-page .form-select.main-control{padding-right:33px;font-size:15px}
+.dw-page .main-control>.form-control{font-size:25px;min-width:0;font-weight:500}
+.diameter-control{display:flex;align-items:stretch;border:1px solid #c7dce9;border-radius:6px;overflow:hidden;background:white}
+.diameter-control:focus-within{border-color:#2e87c3;box-shadow:0 0 0 3px rgba(0,103,173,.12)}
+.diameter-control .diameter-symbol{display:flex;align-items:center;padding-left:11px;color:var(--dw-muted);font-size:15px}
+.dw-page .diameter-control>.form-control{width:0;flex:1 1 auto;border:0;border-radius:0;padding-inline:9px;box-shadow:none;font-size:25px}
+.tolerance-stack{width:66px;flex:0 0 66px;display:grid;grid-template-rows:1fr 1fr;border-left:1px solid var(--dw-line)}
+.tolerance-stack input{width:100%;min-height:44px;padding:5px 3px;border:0;background:#fbfdff;text-align:center;font-size:14px;color:var(--dw-blue);border-radius:0;outline-offset:-3px}
+.tolerance-stack input+label+input{border-top:1px solid var(--dw-line)}
+.tolerance-stack input::placeholder{color:#91a7b9;opacity:1}
+.tolerance-stack input:focus{outline:2px solid #2e87c3;position:relative;z-index:2;background:#fff}
+.control-unit{display:flex;align-items:center;padding-inline:9px;background:#f3f8fb;border-left:1px solid var(--dw-line);font-size:12px;color:var(--dw-muted)}
+.field-help{font-size:14px;line-height:1.65;color:var(--dw-muted);margin:8px 0 0}
+.optional-label{font-size:12px;color:var(--dw-muted);font-weight:400;margin-left:1px}
+.unit-muted{font-size:.9em;font-weight:400;color:var(--dw-muted)}
+.advanced-settings{border-top:1px solid #e7eff4}
+.advanced-settings>summary{min-height:48px;display:flex;align-items:center;gap:16px;list-style:none;cursor:pointer;font-size:14px;font-weight:700;color:var(--dw-blue)}
+.advanced-settings>summary::-webkit-details-marker{display:none}
+.advanced-settings>summary small{font-size:13px;font-weight:400;color:var(--dw-muted)}
+.advanced-settings>summary svg{margin-left:auto;transition:transform .18s ease}
+.advanced-settings[open]>summary svg{transform:rotate(180deg)}
+.result-workspace{margin-top:24px}
+.result-count{font-size:14px;line-height:1.6;font-weight:700;color:var(--dw-blue)}
+.result-summary{color:var(--dw-muted);font-size:14px;line-height:1.7;margin-bottom:18px}
+.tool-list{display:grid;gap:13px}
+.tool-family{font-size:12px;letter-spacing:.055em;line-height:1.6;font-weight:800;color:var(--dw-blue);padding-right:24px;margin-bottom:5px}
+.match-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;line-height:1.5;border-radius:4px;padding:3px 7px;background:#edf3f7;color:var(--dw-muted)}
+.match-tag.ready{color:#167451;background:#eaf7f0}
+.match-tag.review{color:#946114;background:#fff5e5}
+.match-tag.blocked{color:#a33d29;background:#fff0eb}
+.dw-page .btn-tool{background:#edf6fc;color:var(--dw-blue);border:1px solid #c9dfed;font-size:14px;min-height:44px;margin-top:17px}
+.dw-page .btn-tool:hover{background:#dceffa;text-decoration:none}
+.empty-state{padding:32px;text-align:center;color:var(--dw-muted)}
+.planning-footer{margin-top:30px;padding-block:18px 9px;border-top:1px solid var(--dw-line);font-size:14px;color:var(--dw-muted)}
+.planning-link{min-height:44px;display:inline-flex;align-items:center;gap:15px;font-size:14px;font-weight:700}
+[hidden]{display:none!important}
+@media(min-width:1400px){.dw-container{padding-inline:12px}}
+/* Hub 緊湊選型版：僅限 data-view=hub，不改兩個產品分頁既有版面。 */
+body[data-view=hub] .page-trail{padding-top:24px}
+body[data-view=hub] .finder-hub-heading{padding-block:24px 22px;min-height:140px}
+body[data-view=hub] .finder-hub-heading h1{font-size:44px;font-weight:800;line-height:1.2;letter-spacing:-.04em;color:var(--dw-ink)}
+body[data-view=hub] .finder-hub-heading h1 span{font-size:.84em;letter-spacing:-.035em;margin-left:5px}
+body[data-view=hub] .finder-hub-heading .eyebrow{font-size:12px;letter-spacing:.12em}
+body[data-view=hub] .finder-hub-heading .hero-intro{font-size:16px;line-height:1.65;max-width:760px}
+body[data-view=hub] .finder-heading-icon{flex:0 0 86px;width:86px;height:86px;display:grid;place-items:center;overflow:hidden;border-radius:19px;background:#e8f4fc}
+body[data-view=hub] .finder-heading-icon img{width:62px;height:62px;object-fit:contain;display:block;mix-blend-mode:multiply}
+body[data-view=hub] .view-tabs{padding-bottom:10px;gap:3px}
+body[data-view=hub] .view-tabs a{padding:8px 14px;min-height:44px;font-size:14px}
+body[data-view=hub] .data-status{margin:8px 0 13px;min-height:21px;font-size:14px}
+body[data-view=hub] .job-panel{padding:22px 25px 10px;border-radius:14px}
+body[data-view=hub] .job-panel>.d-flex{margin-bottom:19px!important}
+body[data-view=hub] .job-panel .section-heading{font-size:20px}
+body[data-view=hub] .job-main-fields .form-label{font-size:15px;margin-bottom:8px}
+body[data-view=hub] .job-main-fields .field-index{font-size:12px}
+body[data-view=hub] .job-main-fields .main-control{height:52px;min-height:52px}
+body[data-view=hub] .job-main-fields .main-control>.form-control{font-size:19px;font-weight:500;padding-block:8px;min-height:50px}
+body[data-view=hub] .job-main-fields .form-select.main-control{font-size:15px;padding-block:9px}
+body[data-view=hub] .diameter-control .diameter-symbol{font-size:15px;padding-left:10px}
+body[data-view=hub] .tolerance-stack{width:62px;flex-basis:62px;grid-template-rows:25px 25px}
+body[data-view=hub] .tolerance-stack input{height:25px;min-height:25px;padding:1px 3px;font-size:13px;line-height:1.4}
+body[data-view=hub] .control-unit{font-size:13px;padding-inline:8px}
+body[data-view=hub] .job-main-fields .field-help{font-size:13px;line-height:1.5;margin-top:7px}
+body[data-view=hub] .tolerance-summary{font-size:13px;line-height:1.5;margin-top:3px}
+body[data-view=hub] .advanced-settings{margin-top:14px!important}
+body[data-view=hub] .advanced-settings>summary{min-height:46px;font-size:14px;gap:12px}
+body[data-view=hub] .advanced-settings>summary small{font-size:13px}
+body[data-view=hub] .result-workspace{margin-top:20px}
+body[data-view=hub] .options-panel>.d-flex{margin-bottom:9px!important}
+body[data-view=hub] .options-panel .section-heading{font-size:24px}
+body[data-view=hub] .result-summary{margin-bottom:17px;font-size:14px}
+body[data-view=hub] .tool-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:23px}
+
+/* 家族卡片：橘藍細頂線、序號與分類圖示、型號下拉、摘要及固定底部入口。 */
+body[data-view=hub] .finder-family-card{position:relative;min-width:0;height:100%;display:flex;flex-direction:column;padding:25px 25px 24px;border:1px solid var(--dw-line);border-radius:14px;background:#fff;box-shadow:0 7px 24px rgba(12,34,55,.035);overflow:hidden;transition:border-color .18s,box-shadow .18s,transform .18s}
+body[data-view=hub] .finder-family-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--dw-orange) 28%,var(--dw-blue) 28%)}
+body[data-view=hub] .finder-family-card:hover{border-color:#a6c7dd;box-shadow:0 9px 26px rgba(12,34,55,.06);transform:translateY(-1px)}
+body[data-view=hub] .finder-card-heading{display:flex;align-items:center;gap:14px;margin-bottom:17px;min-width:0}
+body[data-view=hub] .finder-card-heading>div:not(.finder-family-icon){min-width:0}
+body[data-view=hub] .finder-card-heading .tool-family{padding-right:0;display:block;font-size:12px;letter-spacing:.08em;margin:0 0 4px}
+body[data-view=hub] .finder-card-heading h3{font-size:25px;font-weight:800;line-height:1.25;letter-spacing:-.035em;margin:0;overflow-wrap:anywhere}
+body[data-view=hub] .finder-card-heading p{font-size:14px;line-height:1.6;color:var(--dw-muted);margin:5px 0 0}
+body[data-view=hub] .finder-family-icon{width:60px;height:60px;flex:0 0 60px;display:grid;place-items:center;background:#eaf5fd;border:1px solid #d4e9f6;border-radius:12px}
+body[data-view=hub] .finder-family-icon img{width:43px;height:43px;object-fit:contain;display:block}
+body[data-view=hub] .finder-family-icon svg{width:39px;height:39px}
+body[data-view=hub] .finder-family-card .match-tag{font-size:13px;line-height:1.45;padding:5px 8px;align-self:flex-start;margin-bottom:15px}
+body[data-view=hub] .finder-family-card label{display:block;font-size:14px;color:var(--dw-muted);font-weight:500;margin:0 0 7px}
+body[data-view=hub] .family-setup-select{width:100%;min-height:48px;font-size:14px;padding-block:10px;margin:0}
+body[data-view=hub] .family-setup-select:disabled{background-color:#f2f6f9;color:#7b91a2}
+body[data-view=hub] .family-selected-spec{font-size:15px;font-weight:700;line-height:1.65;color:var(--dw-ink);margin:15px 0 5px;overflow-wrap:anywhere}
+body[data-view=hub] .family-selected-spec:empty{display:none}
+body[data-view=hub] .family-setup-meta{font-size:14px;line-height:1.7;color:var(--dw-blue);margin:3px 0 11px;font-variant-numeric:tabular-nums}
+body[data-view=hub] .family-setup-meta:empty{display:none}
+body[data-view=hub] .family-setup-meta>span{display:inline-block;margin-right:14px}
+body[data-view=hub] .family-setup-meta dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0}
+body[data-view=hub] .family-setup-meta dt{font-size:13px;font-weight:400;color:var(--dw-muted)}
+body[data-view=hub] .family-setup-meta dd{font-size:15px;font-weight:700;color:var(--dw-ink);margin:2px 0 0}
+body[data-view=hub] .family-note{font-size:14px;line-height:1.7;color:var(--dw-muted);margin:5px 0 20px;min-height:48px}
+body[data-view=hub] .family-note:empty{min-height:0;margin-bottom:16px}
+body[data-view=hub] a.finder-family-action{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;margin-top:auto;padding:11px 15px;border:1px solid var(--dw-orange);border-radius:7px;background:var(--dw-orange);color:#fff;font-size:15px;font-weight:700;text-decoration:none}
+body[data-view=hub] a.finder-family-action:hover{background:#d94c11;border-color:#d94c11;text-decoration:none}
+body[data-view=hub] a.finder-family-action.secondary{color:var(--dw-blue);background:#f0f8fd;border-color:#c7dcea}
+body[data-view=hub] a.finder-family-action.secondary:hover{background:#e4f2fb;border-color:#99c3df}
+body[data-view=hub] .planning-footer{margin-top:25px;padding-top:14px;gap:12px!important}
+body[data-view=hub] .planning-footer>p{margin-right:auto}
+body[data-view=hub] .planning-footer .catalog-link{margin-right:10px}
+
+@media(max-width:991.98px){
+  body[data-view=hub] .finder-hub-heading{padding-block:21px;min-height:130px}
+  body[data-view=hub] .finder-hub-heading h1{font-size:40px}
+  body[data-view=hub] .finder-family-card{padding:23px 21px}
+  body[data-view=hub] .finder-card-heading{gap:11px}
+  body[data-view=hub] .finder-card-heading h3{font-size:23px}
+  body[data-view=hub] .finder-family-icon{width:54px;height:54px;flex-basis:54px}
+  body[data-view=hub] .finder-family-icon img{width:39px;height:39px}
+}
+@media(max-width:575.98px){
+  body[data-view=hub] .page-trail{padding-top:20px;font-size:12px}
+  body[data-view=hub] .finder-hub-heading{align-items:flex-start!important;padding-block:22px 18px;gap:12px!important;min-height:0}
+  body[data-view=hub] .finder-hub-heading h1{font-size:33px;line-height:1.2;letter-spacing:-.045em}
+  body[data-view=hub] .finder-hub-heading .eyebrow{font-size:11px;letter-spacing:.08em}
+  body[data-view=hub] .finder-hub-heading .hero-intro{font-size:15px;max-width:260px;line-height:1.7}
+  body[data-view=hub] .finder-heading-icon{width:64px;height:64px;flex-basis:64px;border-radius:14px;margin-top:3px}
+  body[data-view=hub] .finder-heading-icon img{width:46px;height:46px}
+  body[data-view=hub] .view-tabs{gap:3px;padding-bottom:11px}
+  body[data-view=hub] .view-tabs a{min-height:44px;font-size:14px;padding:8px 6px}
+  body[data-view=hub] .job-panel{padding:20px 18px 9px}
+  body[data-view=hub] .job-panel>.d-flex{margin-bottom:17px!important;gap:6px!important}
+  body[data-view=hub] .job-panel .section-heading{font-size:19px}
+  body[data-view=hub] .job-panel .btn-text{padding-inline:6px;font-size:14px}
+  body[data-view=hub] .job-main-fields{--bs-gutter-y:16px}
+  body[data-view=hub] .job-main-fields .field-help{font-size:14px}
+  body[data-view=hub] .job-main-fields .diameter-control{height:90px;min-height:90px}
+  body[data-view=hub] .tolerance-stack{width:84px;flex-basis:84px;grid-template-rows:44px 44px}
+  body[data-view=hub] .tolerance-stack input{height:44px;min-height:44px;padding:5px 4px;font-size:15px}
+  body[data-view=hub] .job-main-fields .diameter-control>.form-control{font-size:25px}
+  body[data-view=hub] .job-main-fields .form-select.main-control{font-size:16px}
+  body[data-view=hub] .job-main-fields .main-control:not(.diameter-control)>.form-control{font-size:20px}
+  body[data-view=hub] .advanced-settings>summary{font-size:14px;padding-block:12px}
+  body[data-view=hub] .advanced-settings>summary small{font-size:12px}
+  body[data-view=hub] .result-workspace{margin-top:19px}
+  body[data-view=hub] .options-panel .section-heading{font-size:22px}
+  body[data-view=hub] .tool-list{grid-template-columns:1fr;gap:17px}
+  body[data-view=hub] .finder-family-card{padding:22px 20px 21px;border-radius:12px}
+  body[data-view=hub] .finder-card-heading{gap:12px;margin-bottom:17px}
+  body[data-view=hub] .finder-card-heading h3{font-size:24px}
+  body[data-view=hub] .finder-family-icon{width:54px;height:54px;flex-basis:54px}
+  body[data-view=hub] .family-setup-select{font-size:14px;min-height:48px}
+  body[data-view=hub] .family-note{min-height:0;margin-bottom:18px}
+  body[data-view=hub] .planning-footer{display:grid!important;grid-template-columns:1fr 1fr;gap:3px 12px!important;margin-top:24px;padding-top:17px}
+  body[data-view=hub] .planning-footer>p{grid-column:1/-1;margin-bottom:3px!important}
+  body[data-view=hub] .planning-link{justify-self:end;gap:7px}
+}
+@media(prefers-reduced-motion:reduce){body[data-view=hub] .finder-family-card{transition:none}body[data-view=hub] .finder-family-card:hover{transform:none}}
+.finder-family-action{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:auto}
+.family-catalog-link{display:inline-flex;align-items:center;min-height:44px;font-size:14px}
+@media(max-width:991.98px){.view-tabs a:last-child{margin-left:0}}
+@media(max-width:575.98px){.dw-container{padding-inline:18px}.view-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px}.advanced-settings>summary{flex-wrap:wrap}.advanced-settings>summary small{order:3;width:100%}.advanced-settings>summary svg{margin-left:auto}}
+@media(prefers-reduced-motion:reduce){.advanced-settings>summary svg{transition:none}html{scroll-behavior:auto}}

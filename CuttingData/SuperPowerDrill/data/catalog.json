@@ -1,0 +1,3673 @@
+{
+  "schema_version": 1,
+  "product": "Super Power Drill",
+  "series": "99307",
+  "scope": "Super Power Drill only: independently maintained catalog dimensions, physical inserts and explicit pairings from printed p128-135.",
+  "source_document": "sources/Super_Power_Drill_p128-135.pdf",
+  "catalog_pages": [
+    128,
+    135
+  ],
+  "pdf_pages": [
+    1,
+    8
+  ],
+  "reviewed_on": "2026-11-18",
+  "units": {
+    "length": "mm",
+    "torque": "Nm",
+    "diameter": "mm"
+  },
+  "catalog_summary": {
+    "standard_diameter_min_mm": 19,
+    "standard_diameter_max_mm": 40,
+    "standard_drilling_depth_T_min_mm": 100,
+    "standard_drilling_depth_T_max_mm": 350,
+    "holder_count": 81,
+    "nominal_marketing_depth_classes_as_printed": [
+      "5xD",
+      "10xD"
+    ],
+    "marketing_max_depth_ratio_as_printed": "Up To 12xD",
+    "catalog_D_tolerance_as_printed": "±0.2 mm (±0.0079 inch)",
+    "marketing_source": [
+      {
+        "catalog_page": 128,
+        "pdf_page": 1,
+        "original_pdf_page": 1
+      },
+      {
+        "catalog_page": 129,
+        "pdf_page": 2,
+        "original_pdf_page": 2
+      }
+    ],
+    "custom_orders": {
+      "max_diameter_mm": 50,
+      "max_drilling_depth_T_mm": 450,
+      "standard_sku_generated": false,
+      "source": {
+        "catalog_page": 128,
+        "pdf_page": 1,
+        "original_pdf_page": 1
+      }
+    }
+  },
+  "dimension_definitions": {
+    "D": "Diameter shown in the holder table, with catalog ±0.2 mm label. Do not silently replace with a user-required tolerance.",
+    "T": "Drilling-depth dimension T in the p130 drawing. Use this field for standard reach screening, not L or L1.",
+    "L": "Length L exactly as drawn in p130; not the rear-shank-inclusive assembled total.",
+    "L1": "Length L1 exactly as drawn in p130, ending at the front of the rear shank.",
+    "d1": "Collar diameter Ød1, separate from the common rear-shank diameter Ø32.",
+    "rear_shank": "p130 drawing shows Ø32 and an axial 58 mm. It does not provide a machine-side holder SKU or a minimum-clamping length."
+  },
+  "shared_shank": {
+    "diameter_mm": 32,
+    "axial_length_shown_mm": 58,
+    "machine_side_holder_sku": null,
+    "minimum_clamping_length_mm": null,
+    "source": {
+      "catalog_page": 130,
+      "pdf_page": 3,
+      "original_pdf_page": 3
+    }
+  },
+  "holders": [
+    {
+      "part_no": "00-99307-19100",
+      "diameter_mm": 19,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.748˝",
+      "drilling_depth_T_mm": 100,
+      "length_L_mm": 119,
+      "length_L1_mm": 134,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX04T002",
+        "quantity": 1,
+        "screw": "NS-18037",
+        "torque_Nm": 0.6,
+        "key": "NK-T6",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-19150",
+      "diameter_mm": 19,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.748˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 169,
+      "length_L1_mm": 184,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX04T002",
+        "quantity": 1,
+        "screw": "NS-18037",
+        "torque_Nm": 0.6,
+        "key": "NK-T6",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-19200",
+      "diameter_mm": 19,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.748˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 219,
+      "length_L1_mm": 239,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX04T002",
+        "quantity": 1,
+        "screw": "NS-18037",
+        "torque_Nm": 0.6,
+        "key": "NK-T6",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-20100",
+      "diameter_mm": 20,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.787˝",
+      "drilling_depth_T_mm": 100,
+      "length_L_mm": 120,
+      "length_L1_mm": 134,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX05T103",
+        "quantity": 1,
+        "screw": "NS-20045",
+        "torque_Nm": 0.6,
+        "key": "NK-T6",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-20150",
+      "diameter_mm": 20,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.787˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 170,
+      "length_L1_mm": 184,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX05T103",
+        "quantity": 1,
+        "screw": "NS-20045",
+        "torque_Nm": 0.6,
+        "key": "NK-T6",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-20200",
+      "diameter_mm": 20,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.787˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 220,
+      "length_L1_mm": 239,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX05T103",
+        "quantity": 1,
+        "screw": "NS-20045",
+        "torque_Nm": 0.6,
+        "key": "NK-T6",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-21100",
+      "diameter_mm": 21,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.827˝",
+      "drilling_depth_T_mm": 100,
+      "length_L_mm": 120,
+      "length_L1_mm": 134,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX05T103",
+        "quantity": 1,
+        "screw": "NS-20045",
+        "torque_Nm": 0.6,
+        "key": "NK-T6",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-21150",
+      "diameter_mm": 21,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.827˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 170,
+      "length_L1_mm": 184,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX05T103",
+        "quantity": 1,
+        "screw": "NS-20045",
+        "torque_Nm": 0.6,
+        "key": "NK-T6",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-21200",
+      "diameter_mm": 21,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.827˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 220,
+      "length_L1_mm": 239,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX05T103",
+        "quantity": 1,
+        "screw": "NS-20045",
+        "torque_Nm": 0.6,
+        "key": "NK-T6",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-22100",
+      "diameter_mm": 22,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.866˝",
+      "drilling_depth_T_mm": 100,
+      "length_L_mm": 125,
+      "length_L1_mm": 139,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-22150",
+      "diameter_mm": 22,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.866˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 175,
+      "length_L1_mm": 189,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-22200",
+      "diameter_mm": 22,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.866˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 225,
+      "length_L1_mm": 239,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-23100",
+      "diameter_mm": 23,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.905˝",
+      "drilling_depth_T_mm": 100,
+      "length_L_mm": 125,
+      "length_L1_mm": 139,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-23150",
+      "diameter_mm": 23,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.905˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 175,
+      "length_L1_mm": 189,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-23200",
+      "diameter_mm": 23,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.905˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 225,
+      "length_L1_mm": 239,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-24100",
+      "diameter_mm": 24,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.945˝",
+      "drilling_depth_T_mm": 100,
+      "length_L_mm": 126,
+      "length_L1_mm": 139,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-24150",
+      "diameter_mm": 24,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.945˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 176,
+      "length_L1_mm": 189,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-24200",
+      "diameter_mm": 24,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.945˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 226,
+      "length_L1_mm": 239,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-24250",
+      "diameter_mm": 24,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.945˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 276,
+      "length_L1_mm": 289,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-25100",
+      "diameter_mm": 25,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.984˝",
+      "drilling_depth_T_mm": 100,
+      "length_L_mm": 126,
+      "length_L1_mm": 139,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-25150",
+      "diameter_mm": 25,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.984˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 176,
+      "length_L1_mm": 189,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-25200",
+      "diameter_mm": 25,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.984˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 226,
+      "length_L1_mm": 239,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-25250",
+      "diameter_mm": 25,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "0.984˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 276,
+      "length_L1_mm": 289,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-26150",
+      "diameter_mm": 26,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.024˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 176,
+      "length_L1_mm": 189,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-26200",
+      "diameter_mm": 26,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.024˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 226,
+      "length_L1_mm": 239,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-26250",
+      "diameter_mm": 26,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.024˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 276,
+      "length_L1_mm": 289,
+      "collar_diameter_d1_mm": 39,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD6",
+        "quantity": 1,
+        "screw": "NS-35080",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 1,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-27150",
+      "diameter_mm": 27,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.630˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 181,
+      "length_L1_mm": 198,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Printed inch value 1.630 is inconsistent with 27 mm; retain metric D and request catalog correction."
+      ]
+    },
+    {
+      "part_no": "00-99307-27200",
+      "diameter_mm": 27,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.630˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 231,
+      "length_L1_mm": 248,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Printed inch value 1.630 is inconsistent with 27 mm; retain metric D and request catalog correction."
+      ]
+    },
+    {
+      "part_no": "00-99307-27250",
+      "diameter_mm": 27,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.630˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 281,
+      "length_L1_mm": 298,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Printed inch value 1.630 is inconsistent with 27 mm; retain metric D and request catalog correction."
+      ]
+    },
+    {
+      "part_no": "00-99307-28150",
+      "diameter_mm": 28,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.102˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 181,
+      "length_L1_mm": 198,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-28200",
+      "diameter_mm": 28,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.102˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 231,
+      "length_L1_mm": 248,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-28250",
+      "diameter_mm": 28,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.102˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 281,
+      "length_L1_mm": 298,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-29150",
+      "diameter_mm": 29,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.142˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 182,
+      "length_L1_mm": 198,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-29200",
+      "diameter_mm": 29,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.142˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 232,
+      "length_L1_mm": 248,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-29250",
+      "diameter_mm": 29,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.142˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 282,
+      "length_L1_mm": 298,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-29300",
+      "diameter_mm": 29,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.142˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 332,
+      "length_L1_mm": 348,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22062",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-30150",
+      "diameter_mm": 30,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.181˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 182,
+      "length_L1_mm": 198,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-30200",
+      "diameter_mm": 30,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.181˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 232,
+      "length_L1_mm": 248,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-30250",
+      "diameter_mm": 30,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.181˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 282,
+      "length_L1_mm": 298,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-30300",
+      "diameter_mm": 30,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.181˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 332,
+      "length_L1_mm": 348,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-31150",
+      "diameter_mm": 31,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.220˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 188,
+      "length_L1_mm": 198,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-31200",
+      "diameter_mm": 31,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.220˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 238,
+      "length_L1_mm": 248,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-31250",
+      "diameter_mm": 31,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.220˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 288,
+      "length_L1_mm": 298,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-31300",
+      "diameter_mm": 31,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.220˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 338,
+      "length_L1_mm": 348,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-32150",
+      "diameter_mm": 32,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.260˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 188,
+      "length_L1_mm": 203,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-32200",
+      "diameter_mm": 32,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.260˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 238,
+      "length_L1_mm": 253,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-32250",
+      "diameter_mm": 32,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.260˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 288,
+      "length_L1_mm": 303,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-32300",
+      "diameter_mm": 32,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.260˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 338,
+      "length_L1_mm": 353,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-33150",
+      "diameter_mm": 33,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.300˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 189,
+      "length_L1_mm": 203,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-33200",
+      "diameter_mm": 33,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.300˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 239,
+      "length_L1_mm": 253,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-33250",
+      "diameter_mm": 33,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.300˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 289,
+      "length_L1_mm": 303,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-33300",
+      "diameter_mm": 33,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.300˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 339,
+      "length_L1_mm": 353,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-34150",
+      "diameter_mm": 34,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.339˝",
+      "drilling_depth_T_mm": 150,
+      "length_L_mm": 189,
+      "length_L1_mm": 203,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-34200",
+      "diameter_mm": 34,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.339˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 239,
+      "length_L1_mm": 253,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-34250",
+      "diameter_mm": 34,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.339˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 289,
+      "length_L1_mm": 303,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-34300",
+      "diameter_mm": 34,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.339˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 339,
+      "length_L1_mm": 353,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-34350",
+      "diameter_mm": 34,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.339˝",
+      "drilling_depth_T_mm": 350,
+      "length_L_mm": 389,
+      "length_L1_mm": 403,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX060204",
+        "quantity": 2,
+        "screw": "NS-22055",
+        "torque_Nm": 0.9,
+        "key": "NK-T7",
+        "torque_screwdriver_recommended": true
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "Holder table specifies NS-22055 for N9GX060204; insert table p132 specifies NS-22062. Preserve holder-specific record; confirm screw."
+      ]
+    },
+    {
+      "part_no": "00-99307-35200",
+      "diameter_mm": 35,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.378˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 245,
+      "length_L1_mm": 258,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-35250",
+      "diameter_mm": 35,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.378˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 295,
+      "length_L1_mm": 308,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-35300",
+      "diameter_mm": 35,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.378˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 345,
+      "length_L1_mm": 358,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-35350",
+      "diameter_mm": 35,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.378˝",
+      "drilling_depth_T_mm": 350,
+      "length_L_mm": 395,
+      "length_L1_mm": 408,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-36200",
+      "diameter_mm": 36,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.417˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 245,
+      "length_L1_mm": 258,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-36250",
+      "diameter_mm": 36,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.417˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 295,
+      "length_L1_mm": 308,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-36300",
+      "diameter_mm": 36,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.417˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 345,
+      "length_L1_mm": 358,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-36350",
+      "diameter_mm": 36,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.417˝",
+      "drilling_depth_T_mm": 350,
+      "length_L_mm": 395,
+      "length_L1_mm": 408,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-37200",
+      "diameter_mm": 37,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.457˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 246,
+      "length_L1_mm": 258,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-37250",
+      "diameter_mm": 37,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.457˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 296,
+      "length_L1_mm": 308,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-37300",
+      "diameter_mm": 37,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.457˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 346,
+      "length_L1_mm": 358,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-37350",
+      "diameter_mm": 37,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.457˝",
+      "drilling_depth_T_mm": 350,
+      "length_L_mm": 396,
+      "length_L1_mm": 408,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-38200",
+      "diameter_mm": 38,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.496˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 246,
+      "length_L1_mm": 258,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-38250",
+      "diameter_mm": 38,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.496˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 296,
+      "length_L1_mm": 308,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-38300",
+      "diameter_mm": 38,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.496˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 346,
+      "length_L1_mm": 358,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-38350",
+      "diameter_mm": 38,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.496˝",
+      "drilling_depth_T_mm": 350,
+      "length_L_mm": 396,
+      "length_L1_mm": 408,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-39200",
+      "diameter_mm": 39,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.535˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 247,
+      "length_L1_mm": 258,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-39250",
+      "diameter_mm": 39,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.535˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 297,
+      "length_L1_mm": 308,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-39300",
+      "diameter_mm": 39,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.535˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 346,
+      "length_L1_mm": 358,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group.",
+      "review_notes": [
+        "L is printed 346 mm; neighbouring 39 mm rows suggest a pattern difference. Retain printed 346 and confirm."
+      ]
+    },
+    {
+      "part_no": "00-99307-39350",
+      "diameter_mm": 39,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.535˝",
+      "drilling_depth_T_mm": 350,
+      "length_L_mm": 397,
+      "length_L1_mm": 408,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-40200",
+      "diameter_mm": 40,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.575˝",
+      "drilling_depth_T_mm": 200,
+      "length_L_mm": 247,
+      "length_L1_mm": 258,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-40250",
+      "diameter_mm": 40,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.575˝",
+      "drilling_depth_T_mm": 250,
+      "length_L_mm": 297,
+      "length_L1_mm": 308,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-40300",
+      "diameter_mm": 40,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.575˝",
+      "drilling_depth_T_mm": 300,
+      "length_L_mm": 347,
+      "length_L1_mm": 358,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    },
+    {
+      "part_no": "00-99307-40350",
+      "diameter_mm": 40,
+      "catalog_diameter_tolerance_plus_minus_mm": 0.2,
+      "diameter_inch_as_printed": "1.575˝",
+      "drilling_depth_T_mm": 350,
+      "length_L_mm": 397,
+      "length_L1_mm": 408,
+      "collar_diameter_d1_mm": 43,
+      "shank_diameter_mm": 32,
+      "shank_length_as_drawn_mm": 58,
+      "center_pilot_insert": {
+        "part_no": "99307-CD8",
+        "quantity": 1,
+        "screw": "NS-35120",
+        "torque_Nm": 2.5,
+        "key": "NK-T15"
+      },
+      "periphery_insert_as_listed": {
+        "part_no": "N9GX090308",
+        "quantity": 2,
+        "screw": "NS-30072",
+        "torque_Nm": 2.0,
+        "key": "NK-T9",
+        "torque_screwdriver_recommended": false
+      },
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      },
+      "dimension_reference_source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      },
+      "merged_cell_basis": "Diameter, collar and assembly cells visually span adjacent rows; expanded only within the printed table group."
+    }
+  ],
+  "assembly_groups": [
+    {
+      "diameter_min_mm": 19,
+      "diameter_max_mm": 19,
+      "center_part_no": "99307-CD6",
+      "center_quantity": 1,
+      "periphery_part_no_as_holder_table": "N9GX04T002",
+      "periphery_quantity": 1,
+      "periphery_screw_as_holder_table": "NS-18037",
+      "torque_Nm": 0.6,
+      "key": "NK-T6",
+      "source": [
+        {
+          "catalog_page": 130,
+          "pdf_page": 3,
+          "original_pdf_page": 3
+        }
+      ]
+    },
+    {
+      "diameter_min_mm": 20,
+      "diameter_max_mm": 21,
+      "center_part_no": "99307-CD6",
+      "center_quantity": 1,
+      "periphery_part_no_as_holder_table": "N9GX05T103",
+      "periphery_quantity": 1,
+      "periphery_screw_as_holder_table": "NS-20045",
+      "torque_Nm": 0.6,
+      "key": "NK-T6",
+      "source": [
+        {
+          "catalog_page": 130,
+          "pdf_page": 3,
+          "original_pdf_page": 3
+        }
+      ]
+    },
+    {
+      "diameter_min_mm": 22,
+      "diameter_max_mm": 26,
+      "center_part_no": "99307-CD6",
+      "center_quantity": 1,
+      "periphery_part_no_as_holder_table": "N9GX060204",
+      "periphery_quantity": 1,
+      "periphery_screw_as_holder_table": "NS-22062",
+      "torque_Nm": 0.9,
+      "key": "NK-T7",
+      "source": [
+        {
+          "catalog_page": 130,
+          "pdf_page": 3,
+          "original_pdf_page": 3
+        }
+      ]
+    },
+    {
+      "diameter_min_mm": 27,
+      "diameter_max_mm": 29,
+      "center_part_no": "99307-CD8",
+      "center_quantity": 1,
+      "periphery_part_no_as_holder_table": "N9GX060204",
+      "periphery_quantity": 2,
+      "periphery_screw_as_holder_table": "NS-22062",
+      "torque_Nm": 0.9,
+      "key": "NK-T7",
+      "source": [
+        {
+          "catalog_page": 130,
+          "pdf_page": 3,
+          "original_pdf_page": 3
+        }
+      ]
+    },
+    {
+      "diameter_min_mm": 30,
+      "diameter_max_mm": 34,
+      "center_part_no": "99307-CD8",
+      "center_quantity": 1,
+      "periphery_part_no_as_holder_table": "N9GX060204",
+      "periphery_quantity": 2,
+      "periphery_screw_as_holder_table": "NS-22055",
+      "torque_Nm": 0.9,
+      "key": "NK-T7",
+      "source": [
+        {
+          "catalog_page": 131,
+          "pdf_page": 4,
+          "original_pdf_page": 4
+        }
+      ]
+    },
+    {
+      "diameter_min_mm": 35,
+      "diameter_max_mm": 40,
+      "center_part_no": "99307-CD8",
+      "center_quantity": 1,
+      "periphery_part_no_as_holder_table": "N9GX090308",
+      "periphery_quantity": 2,
+      "periphery_screw_as_holder_table": "NS-30072",
+      "torque_Nm": 2.0,
+      "key": "NK-T9",
+      "source": [
+        {
+          "catalog_page": 131,
+          "pdf_page": 4,
+          "original_pdf_page": 4
+        }
+      ]
+    }
+  ],
+  "center_pilot_inserts": [
+    {
+      "variant_id": "99307-CD6|NC2032",
+      "part_no_as_printed": "99307-CD6",
+      "grade": "NC2032",
+      "complete_order_code": null,
+      "complete_order_code_note": "Base part number and grade are printed in separate columns. No synthetic suffix has been added.",
+      "coating": "AlTiN",
+      "carbide_grade": "K20F",
+      "diameter_d_mm": 6,
+      "thickness_S_mm": 4,
+      "screw": "NS-35080",
+      "torque_Nm": 2.5,
+      "key": "NK-T15",
+      "cutting_edge_count": null,
+      "material_description_as_printed": "For carbon steel & alloy steel C<0.3% and stainless steel.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    },
+    {
+      "variant_id": "99307-CD6|NC40",
+      "part_no_as_printed": "99307-CD6",
+      "grade": "NC40",
+      "complete_order_code": null,
+      "complete_order_code_note": "Base part number and grade are printed in separate columns. No synthetic suffix has been added.",
+      "coating": "TiN",
+      "carbide_grade": "P35",
+      "diameter_d_mm": 6,
+      "thickness_S_mm": 4,
+      "screw": "NS-35080",
+      "torque_Nm": 2.5,
+      "key": "NK-T15",
+      "cutting_edge_count": null,
+      "material_description_as_printed": "For carbon steel & alloy steel C>0.3% and stainless steel.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    },
+    {
+      "variant_id": "99307-CD8|NC2032",
+      "part_no_as_printed": "99307-CD8",
+      "grade": "NC2032",
+      "complete_order_code": null,
+      "complete_order_code_note": "Base part number and grade are printed in separate columns. No synthetic suffix has been added.",
+      "coating": "AlTiN",
+      "carbide_grade": "K20F",
+      "diameter_d_mm": 8,
+      "thickness_S_mm": 6,
+      "screw": "NS-35120",
+      "torque_Nm": 2.5,
+      "key": "NK-T15",
+      "cutting_edge_count": null,
+      "material_description_as_printed": "For carbon steel & alloy steel C<0.3% and stainless steel.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    },
+    {
+      "variant_id": "99307-CD8|NC40",
+      "part_no_as_printed": "99307-CD8",
+      "grade": "NC40",
+      "complete_order_code": null,
+      "complete_order_code_note": "Base part number and grade are printed in separate columns. No synthetic suffix has been added.",
+      "coating": "TiN",
+      "carbide_grade": "P35",
+      "diameter_d_mm": 8,
+      "thickness_S_mm": 6,
+      "screw": "NS-35120",
+      "torque_Nm": 2.5,
+      "key": "NK-T15",
+      "cutting_edge_count": null,
+      "material_description_as_printed": "For carbon steel & alloy steel C>0.3% and stainless steel.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    }
+  ],
+  "periphery_inserts": [
+    {
+      "variant_id": "N9GX04T002|NC2032",
+      "part_no_as_printed": "N9GX04T002",
+      "grade": "NC2032",
+      "coating": "AlTiN",
+      "carbide_grade": "K20F",
+      "length_L_mm": 4.07,
+      "thickness_S_mm": 1.8,
+      "corner_radius_re_mm": 0.2,
+      "screw_as_insert_table": "NS-18037",
+      "torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_recommended": true,
+      "cutting_edge_count": 4,
+      "material_description_as_printed": "K20F grade, AlTiN coated, honed cutting edge for carbon steel, alloy steel, casting iron, stainless steel and hardened steel up to HRC 50.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    },
+    {
+      "variant_id": "N9GX05T103|NC2032",
+      "part_no_as_printed": "N9GX05T103",
+      "grade": "NC2032",
+      "coating": "AlTiN",
+      "carbide_grade": "K20F",
+      "length_L_mm": 5.07,
+      "thickness_S_mm": 2.0,
+      "corner_radius_re_mm": 0.3,
+      "screw_as_insert_table": "NS-20045",
+      "torque_Nm": 0.6,
+      "key": "NK-T6",
+      "torque_screwdriver_recommended": true,
+      "cutting_edge_count": 4,
+      "material_description_as_printed": "K20F grade, AlTiN coated, honed cutting edge for carbon steel, alloy steel, casting iron, stainless steel and hardened steel up to HRC 50.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    },
+    {
+      "variant_id": "N9GX060204|NC2032",
+      "part_no_as_printed": "N9GX060204",
+      "grade": "NC2032",
+      "coating": "AlTiN",
+      "carbide_grade": "K20F",
+      "length_L_mm": 6.35,
+      "thickness_S_mm": 2.38,
+      "corner_radius_re_mm": 0.4,
+      "screw_as_insert_table": "NS-22062",
+      "torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_recommended": true,
+      "cutting_edge_count": 4,
+      "material_description_as_printed": "K20F grade, AlTiN coated, honed cutting edge for carbon steel, alloy steel, casting iron, stainless steel and hardened steel up to HRC 50.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    },
+    {
+      "variant_id": "N9GX06020431|NC40",
+      "part_no_as_printed": "N9GX06020431",
+      "grade": "NC40",
+      "coating": "TiN",
+      "carbide_grade": "P35",
+      "length_L_mm": 6.35,
+      "thickness_S_mm": 2.38,
+      "corner_radius_re_mm": 0.4,
+      "screw_as_insert_table": "NS-22062",
+      "torque_Nm": 0.9,
+      "key": "NK-T7",
+      "torque_screwdriver_recommended": true,
+      "cutting_edge_count": 4,
+      "material_description_as_printed": "P35 grade, tougher insert with special chip breaker, TiN coated, for low carbon steel and stainless steel. Only available for insert N9GX06020431 and N9GX09030831.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    },
+    {
+      "variant_id": "N9GX090308|NC2032",
+      "part_no_as_printed": "N9GX090308",
+      "grade": "NC2032",
+      "coating": "AlTiN",
+      "carbide_grade": "K20F",
+      "length_L_mm": 9.52,
+      "thickness_S_mm": 3.18,
+      "corner_radius_re_mm": 0.8,
+      "screw_as_insert_table": "NS-30072",
+      "torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_recommended": false,
+      "cutting_edge_count": 4,
+      "material_description_as_printed": "K20F grade, AlTiN coated, honed cutting edge for carbon steel, alloy steel, casting iron, stainless steel and hardened steel up to HRC 50.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    },
+    {
+      "variant_id": "N9GX09030831|NC40",
+      "part_no_as_printed": "N9GX09030831",
+      "grade": "NC40",
+      "coating": "TiN",
+      "carbide_grade": "P35",
+      "length_L_mm": 9.52,
+      "thickness_S_mm": 3.18,
+      "corner_radius_re_mm": 0.8,
+      "screw_as_insert_table": "NS-30072",
+      "torque_Nm": 2.0,
+      "key": "NK-T9",
+      "torque_screwdriver_recommended": false,
+      "cutting_edge_count": 4,
+      "material_description_as_printed": "P35 grade, tougher insert with special chip breaker, TiN coated, for low carbon steel and stainless steel. Only available for insert N9GX06020431 and N9GX09030831.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    }
+  ],
+  "pairing_rules": {
+    "center_and_periphery_grades_are_separate": true,
+    "recommendation_source": "p135 cutting table specifies center/periphery grade pairs by material, depth band and diameter group; use those pairs rather than a global material-to-grade mapping.",
+    "nc40_periphery_parts_only": [
+      "N9GX06020431",
+      "N9GX09030831"
+    ],
+    "direct_substitution_for_standard_holder_listed_parts": {
+      "status": "not_explicitly_stated",
+      "note": "p132 NC40 parts have matching L/S/re with their NC2032 counterparts and share screw cells; holder tables p130–131 list only unsuffixed parts. p135 NC40+NC40 rows exist for the larger sizes. Obtain manufacturer confirmation of an explicit replacement map before treating suffixed parts as aliases.",
+      "source": [
+        {
+          "catalog_page": 130,
+          "pdf_page": 3,
+          "original_pdf_page": 3
+        },
+        {
+          "catalog_page": 131,
+          "pdf_page": 4,
+          "original_pdf_page": 4
+        },
+        {
+          "catalog_page": 132,
+          "pdf_page": 5,
+          "original_pdf_page": 5
+        },
+        {
+          "catalog_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      ]
+    }
+  },
+  "open_questions": [
+    {
+      "id": "SPD-01",
+      "issue": "N9GX060204 periphery screw differs by source/diameter group: NS-22055 for holder Ø30–34 on p131 vs NS-22062 on p132 and holder Ø22–29 on p130. Confirm exact assembly screw per holder.",
+      "source": [
+        {
+          "catalog_page": 130,
+          "pdf_page": 3,
+          "original_pdf_page": 3
+        },
+        {
+          "catalog_page": 131,
+          "pdf_page": 4,
+          "original_pdf_page": 4
+        },
+        {
+          "catalog_page": 132,
+          "pdf_page": 5,
+          "original_pdf_page": 5
+        }
+      ]
+    },
+    {
+      "id": "SPD-02",
+      "issue": "Printed Ø27 inch conversion is 1.630 inch. Metric 27 mm converts arithmetically to about 1.063 inch; keep original metric selector and request correction.",
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      }
+    },
+    {
+      "id": "SPD-03",
+      "issue": "00-99307-39300 lists L=346 mm. Preserve printed value and confirm whether an erratum is required.",
+      "source": {
+        "catalog_page": 131,
+        "pdf_page": 4,
+        "original_pdf_page": 4
+      }
+    },
+    {
+      "id": "SPD-04",
+      "issue": "Confirm complete order codes for CD6/CD8 grades; no concatenated grade suffix is printed.",
+      "source": {
+        "catalog_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    },
+    {
+      "id": "SPD-05",
+      "issue": "Confirm explicit NC40 periphery substitution map (N9GX06020431/N9GX09030831) for standard holder listed unsuffixed parts and applicable screws.",
+      "source": [
+        {
+          "catalog_page": 130,
+          "pdf_page": 3,
+          "original_pdf_page": 3
+        },
+        {
+          "catalog_page": 131,
+          "pdf_page": 4,
+          "original_pdf_page": 4
+        },
+        {
+          "catalog_page": 132,
+          "pdf_page": 5,
+          "original_pdf_page": 5
+        },
+        {
+          "catalog_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      ]
+    },
+    {
+      "id": "SPD-06",
+      "issue": "Confirm machine-side clamping selection/allowed overhang. Diagram rear shank Ø32 x 58 is not a stated minimum clamping requirement.",
+      "source": {
+        "catalog_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      }
+    }
+  ]
+}

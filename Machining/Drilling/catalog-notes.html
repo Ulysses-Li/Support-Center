@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>鑽孔型錄與資料說明｜Nine9 支援中心</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/site-background.css" rel="stylesheet"><link href="./styles.css" rel="stylesheet">
+  <link href="../../header/header.css" rel="stylesheet"><link href="../../footer/footer.css" rel="stylesheet">
+  <link rel="icon" href="../../favicon.png"><link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+</head>
+<body class="d-flex flex-column min-vh-100" data-view="hub">
+<div id="header-placeholder"></div>
+<main class="dw-page container-xl dw-container py-5 flex-grow-1" id="main-content">
+  <a class="planning-link" href="./index.html">← 回到鑽孔選型</a>
+  <p class="eyebrow mt-4 mb-2">NINE9 · DRILLING CATALOGS</p>
+  <h1 class="fw-bold mb-3">鑽孔型錄與資料說明</h1>
+  <p class="hero-intro mb-4">兩個產品分別維護型錄、刀體、切削資料與待確認問題。請依產品查看對應資料。</p>
+  <div class="row g-4">
+    <section class="col-12 col-md-6"><div class="surface p-4 h-100"><p class="eyebrow">SD · 3D／4D</p><h2 class="section-heading">Super Drill</h2><p>51 個標準刀體，型錄第 136–141 頁。內、外刃採同型刀片，依 3D／4D 列及工況配對切削條件。</p><a class="planning-link d-flex" href="../../CuttingData/SuperDrill/index.html">進入產品工具 →</a><a class="planning-link d-flex" href="../../CuttingData/SuperDrill/sources/Super_Drill_p136-141.pdf" target="_blank" rel="noopener">產品型錄 PDF ↗</a><a class="planning-link d-flex" href="../../CuttingData/SuperDrill/catalog-notes.html#questions">原廠待確認清單 →</a></div></section>
+    <section class="col-12 col-md-6"><div class="surface p-4 h-100"><p class="eyebrow">SPD · 中心導引＋外刃</p><h2 class="section-heading">Super Power Drill</h2><p>81 個標準刀體，型錄第 128–135 頁。中心刀片與外刃分開配對，內冷至少 10 bar；7D 分組依據仍待原廠確認。</p><a class="planning-link d-flex" href="../../CuttingData/SuperPowerDrill/index.html">進入產品工具 →</a><a class="planning-link d-flex" href="../../CuttingData/SuperPowerDrill/sources/Super_Power_Drill_p128-135.pdf" target="_blank" rel="noopener">產品型錄 PDF ↗</a><a class="planning-link d-flex" href="../../CuttingData/SuperPowerDrill/catalog-notes.html#questions">原廠待確認清單 →</a></div></section>
+  </div>
+  <p class="field-help mt-4">篩選依標稱孔徑、需求深度及柄徑比對實際料號。缺少材料切削資料時仍保留尺寸符合的產品，並在產品頁說明資料狀態。</p>
+</main>
+<div id="footer-placeholder"></div>
+<script>
+// 說明頁沿用全站頁首、頁尾，產品資料不在此複製。
+for (const [path, id] of [['../../header/header.html', 'header-placeholder'], ['../../footer/footer.html', 'footer-placeholder']]) {
+  fetch(path).then(response => { if (!response.ok) throw new Error('共用元件載入失敗'); return response.text(); }).then(markup => {
+    document.getElementById(id).innerHTML = markup;
+    if (id !== 'header-placeholder') return;
+    const button = document.getElementById('mobileMenuBtn'), nav = document.getElementById('topNav');
+    if (!button || !nav) return;
+    button.innerHTML = '<svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2 3h12v1H2zm0 4h12v1H2zm0 4h12v1H2z"/></svg>';
+    button.setAttribute('aria-controls', 'topNav'); button.setAttribute('aria-expanded', 'false'); button.setAttribute('aria-label', '開啟選單');
+    button.addEventListener('click', () => button.setAttribute('aria-expanded', String(nav.classList.toggle('active'))));
+  }).catch(error => console.warn(error.message));
+}
+</script>
+</body>
+</html>

@@ -251,13 +251,14 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Super Drill",
     category: "Drilling",
     image: "../img/drilling.png",
-    status: "Preparing",
-    href: "../Products/SuperDrill/index.html#cutting-data",
-    summary: "Super Drill cutting data presets are being prepared.",
+    status: "Available",
+    href: "./SuperDrill/index.html",
+    actionLabel: "Set Up Drilling →",
+    summary: "Choose a Super Drill holder and insert, then calculate drilling conditions.",
     details: [
-      "Planned: drill diameter selection",
-      "Planned: material presets",
-      "Planned: RPM and feed conversion"
+      "3D / 4D holder selection by diameter, depth and shank",
+      "Material cutting data and catalog dimension drawings",
+      "Output: spindle speed, feed per revolution and feed rate"
     ]
   },
   {
@@ -265,13 +266,14 @@ const CUTTING_DATA_PRODUCTS = [
     name: "Super Power Drill",
     category: "Drilling",
     image: "../img/drilling.png",
-    status: "Preparing",
-    href: "../Products/SuperPowerDrill/index.html#cutting-data",
-    summary: "Super Power Drill cutting data presets are being prepared.",
+    status: "Available",
+    href: "./SuperPowerDrill/index.html",
+    actionLabel: "Set Up Drilling →",
+    summary: "Choose a Super Power Drill holder and match center and periphery inserts for deep-hole drilling.",
     details: [
-      "Planned: drill size selection",
-      "Planned: material and coolant notes",
-      "Planned: starter cutting conditions"
+      "Holder selection by diameter, drilling depth and shank",
+      "Center and periphery grade matching with internal coolant checks",
+      "Output: spindle speed, feed per revolution and feed rate"
     ]
   },
   {

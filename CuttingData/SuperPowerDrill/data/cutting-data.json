@@ -1,0 +1,2010 @@
+{
+  "schema_version": 1,
+  "product": "Super Power Drill",
+  "reviewed_on": "2026-11-18",
+  "scope": "Super Power Drill printed p128-135 only; other product cutting data and application factors are excluded.",
+  "source_pdf": "sources/Super_Power_Drill_p128-135.pdf",
+  "value_policy": {
+    "missing": "null preserves source dash/blank and must never become 0",
+    "source_ranges": "The Super Power Drill cutting table prints two endpoints, not a manufacturer optimum.",
+    "site_midpoint": "The arithmetic midpoint is a labeled adjustable site starting value, not a printed manufacturer optimum.",
+    "feed_unit": "mm/rev, not mm/tooth; never multiply by center/periphery insert count",
+    "material_boundary": "Source uses C<0.3% and C>0.3%; exactly C=0.3% is not assigned by the catalog.",
+    "feed_raw_format": "Two-decimal feed endpoints preserve the printed table convention; sequence preserves the printed endpoint order.",
+    "no_borrowing": "Never fill a missing product/material/grade/depth/diameter cell from another product, material, grade or condition."
+  },
+  "materials": [
+    {
+      "id": "carbon_low",
+      "iso": "P",
+      "label_zh": "碳鋼 C<0.3%",
+      "catalog_label": "Carbon steel C<0.3%",
+      "examples": [
+        "S25C",
+        "SS41"
+      ]
+    },
+    {
+      "id": "carbon_high",
+      "iso": "P",
+      "label_zh": "碳鋼 C>0.3%",
+      "catalog_label": "Carbon steel C>0.3%",
+      "examples": [
+        "S50C",
+        "P5"
+      ]
+    },
+    {
+      "id": "low_alloy_low",
+      "iso": "P",
+      "label_zh": "低合金鋼 C<0.3%",
+      "catalog_label": "Low alloy steel C<0.3%",
+      "examples": [
+        "SCM415"
+      ]
+    },
+    {
+      "id": "low_alloy_high",
+      "iso": "P",
+      "label_zh": "低合金鋼 C>0.3%",
+      "catalog_label": "Low alloy steel C>0.3%",
+      "examples": [
+        "SCM440"
+      ]
+    },
+    {
+      "id": "high_alloy",
+      "iso": "P",
+      "label_zh": "高合金鋼",
+      "catalog_label": "High alloy steel",
+      "examples": [
+        "SKD11"
+      ]
+    },
+    {
+      "id": "stainless",
+      "iso": "M",
+      "label_zh": "不鏽鋼",
+      "catalog_label": "Stainless steel",
+      "examples": [
+        "SUS304"
+      ]
+    },
+    {
+      "id": "cast_iron",
+      "iso": "K",
+      "label_zh": "鑄鐵",
+      "catalog_label": "Cast Iron",
+      "examples": [
+        "FC25"
+      ]
+    },
+    {
+      "id": "hardened_lt50",
+      "iso": "H",
+      "label_zh": "淬硬鋼 HRC<50",
+      "catalog_label": "Hardened steel < HRC50",
+      "examples": [
+        "SKD61"
+      ]
+    }
+  ],
+  "section": {
+    "source": {
+      "printed_page": 135,
+      "pdf_page": 8,
+      "original_pdf_page": 8
+    },
+    "diameter_bands": [
+      {
+        "id": "d19",
+        "heading_raw": "Dia.19",
+        "nominal_diameter_mm": [
+          19,
+          19
+        ],
+        "periphery_family": "N9GX04T002"
+      },
+      {
+        "id": "d20_21",
+        "heading_raw": "Dia.20-21",
+        "nominal_diameter_mm": [
+          20,
+          21
+        ],
+        "periphery_family": "N9GX05T103"
+      },
+      {
+        "id": "d22_34",
+        "heading_raw": "Dia.22-34",
+        "nominal_diameter_mm": [
+          22,
+          34
+        ],
+        "periphery_family": "N9GX060204"
+      },
+      {
+        "id": "d35_40",
+        "heading_raw": "Dia.35-40",
+        "nominal_diameter_mm": [
+          35,
+          40
+        ],
+        "periphery_family": "N9GX090308"
+      }
+    ],
+    "depth_classes": [
+      {
+        "id": "lt7d",
+        "catalog_raw": "T<7D",
+        "operator": "<",
+        "ratio": 7
+      },
+      {
+        "id": "gt7d",
+        "catalog_raw": "T>7D",
+        "operator": ">",
+        "ratio": 7
+      }
+    ],
+    "depth_basis_status": "unresolved: source says T=Length/Dia.; confirm whether use actual requested hole depth or holder table T before implementation",
+    "exactly_7d_status": "not defined; do not silently change either inequality to <= or >=",
+    "cutting_rows": [
+      {
+        "id": "spd-carbon_low-nc2032-nc2032-lt7d",
+        "material_id": "carbon_low",
+        "depth_class_raw": "T<7D",
+        "center_grade": "NC2032",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "80~150",
+          "sequence": [
+            80,
+            150
+          ],
+          "min": 80,
+          "max": 150,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.03~0.07",
+            "sequence": [
+              0.03,
+              0.07
+            ],
+            "min": 0.03,
+            "max": 0.07,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-carbon_low-nc2032-nc2032-gt7d",
+        "material_id": "carbon_low",
+        "depth_class_raw": "T>7D",
+        "center_grade": "NC2032",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "60~120",
+          "sequence": [
+            60,
+            120
+          ],
+          "min": 60,
+          "max": 120,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.03~0.07",
+            "sequence": [
+              0.03,
+              0.07
+            ],
+            "min": 0.03,
+            "max": 0.07,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-carbon_low-nc40-nc40-lt7d",
+        "material_id": "carbon_low",
+        "depth_class_raw": "T<7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC40",
+        "vc": {
+          "raw": "80~130",
+          "sequence": [
+            80,
+            130
+          ],
+          "min": 80,
+          "max": 130,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": null,
+          "d20_21": null,
+          "d22_34": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-carbon_low-nc40-nc40-gt7d",
+        "material_id": "carbon_low",
+        "depth_class_raw": "T>7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC40",
+        "vc": {
+          "raw": "60~100",
+          "sequence": [
+            60,
+            100
+          ],
+          "min": 60,
+          "max": 100,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": null,
+          "d20_21": null,
+          "d22_34": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-carbon_high-nc40-nc2032-lt7d",
+        "material_id": "carbon_high",
+        "depth_class_raw": "T<7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "80~150",
+          "sequence": [
+            80,
+            150
+          ],
+          "min": 80,
+          "max": 150,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.15",
+            "sequence": [
+              0.08,
+              0.15
+            ],
+            "min": 0.08,
+            "max": 0.15,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-carbon_high-nc40-nc2032-gt7d",
+        "material_id": "carbon_high",
+        "depth_class_raw": "T>7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "60~120",
+          "sequence": [
+            60,
+            120
+          ],
+          "min": 60,
+          "max": 120,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.15",
+            "sequence": [
+              0.08,
+              0.15
+            ],
+            "min": 0.08,
+            "max": 0.15,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-low_alloy_low-nc2032-nc2032-lt7d",
+        "material_id": "low_alloy_low",
+        "depth_class_raw": "T<7D",
+        "center_grade": "NC2032",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "60~150",
+          "sequence": [
+            60,
+            150
+          ],
+          "min": 60,
+          "max": 150,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-low_alloy_low-nc2032-nc2032-gt7d",
+        "material_id": "low_alloy_low",
+        "depth_class_raw": "T>7D",
+        "center_grade": "NC2032",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "40~120",
+          "sequence": [
+            40,
+            120
+          ],
+          "min": 40,
+          "max": 120,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-low_alloy_high-nc40-nc2032-lt7d",
+        "material_id": "low_alloy_high",
+        "depth_class_raw": "T<7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "60~150",
+          "sequence": [
+            60,
+            150
+          ],
+          "min": 60,
+          "max": 150,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.15",
+            "sequence": [
+              0.08,
+              0.15
+            ],
+            "min": 0.08,
+            "max": 0.15,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-low_alloy_high-nc40-nc2032-gt7d",
+        "material_id": "low_alloy_high",
+        "depth_class_raw": "T>7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "40~120",
+          "sequence": [
+            40,
+            120
+          ],
+          "min": 40,
+          "max": 120,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.12",
+            "sequence": [
+              0.06,
+              0.12
+            ],
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.15",
+            "sequence": [
+              0.08,
+              0.15
+            ],
+            "min": 0.08,
+            "max": 0.15,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-high_alloy-nc40-nc2032-lt7d",
+        "material_id": "high_alloy",
+        "depth_class_raw": "T<7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "60~120",
+          "sequence": [
+            60,
+            120
+          ],
+          "min": 60,
+          "max": 120,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.03~0.07",
+            "sequence": [
+              0.03,
+              0.07
+            ],
+            "min": 0.03,
+            "max": 0.07,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-high_alloy-nc40-nc2032-gt7d",
+        "material_id": "high_alloy",
+        "depth_class_raw": "T>7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "40~100",
+          "sequence": [
+            40,
+            100
+          ],
+          "min": 40,
+          "max": 100,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.03~0.07",
+            "sequence": [
+              0.03,
+              0.07
+            ],
+            "min": 0.03,
+            "max": 0.07,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-stainless-nc2032-nc2032-lt7d",
+        "material_id": "stainless",
+        "depth_class_raw": "T<7D",
+        "center_grade": "NC2032",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "60~120",
+          "sequence": [
+            60,
+            120
+          ],
+          "min": 60,
+          "max": 120,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.03~0.06",
+            "sequence": [
+              0.03,
+              0.06
+            ],
+            "min": 0.03,
+            "max": 0.06,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.07",
+            "sequence": [
+              0.04,
+              0.07
+            ],
+            "min": 0.04,
+            "max": 0.07,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.05~0.08",
+            "sequence": [
+              0.05,
+              0.08
+            ],
+            "min": 0.05,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-stainless-nc2032-nc2032-gt7d",
+        "material_id": "stainless",
+        "depth_class_raw": "T>7D",
+        "center_grade": "NC2032",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "40~100",
+          "sequence": [
+            40,
+            100
+          ],
+          "min": 40,
+          "max": 100,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.03~0.06",
+            "sequence": [
+              0.03,
+              0.06
+            ],
+            "min": 0.03,
+            "max": 0.06,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.07",
+            "sequence": [
+              0.04,
+              0.07
+            ],
+            "min": 0.04,
+            "max": 0.07,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.05~0.08",
+            "sequence": [
+              0.05,
+              0.08
+            ],
+            "min": 0.05,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-stainless-nc40-nc40-lt7d",
+        "material_id": "stainless",
+        "depth_class_raw": "T<7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC40",
+        "vc": {
+          "raw": "60~120",
+          "sequence": [
+            60,
+            120
+          ],
+          "min": 60,
+          "max": 120,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": null,
+          "d20_21": null,
+          "d22_34": {
+            "raw": "0.05~0.08",
+            "sequence": [
+              0.05,
+              0.08
+            ],
+            "min": 0.05,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-stainless-nc40-nc40-gt7d",
+        "material_id": "stainless",
+        "depth_class_raw": "T>7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC40",
+        "vc": {
+          "raw": "40~100",
+          "sequence": [
+            40,
+            100
+          ],
+          "min": 40,
+          "max": 100,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": null,
+          "d20_21": null,
+          "d22_34": {
+            "raw": "0.05~0.08",
+            "sequence": [
+              0.05,
+              0.08
+            ],
+            "min": 0.05,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-cast_iron-nc40-nc2032-lt7d",
+        "material_id": "cast_iron",
+        "depth_class_raw": "T<7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "60~120",
+          "sequence": [
+            60,
+            120
+          ],
+          "min": 60,
+          "max": 120,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-cast_iron-nc40-nc2032-gt7d",
+        "material_id": "cast_iron",
+        "depth_class_raw": "T>7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "40~100",
+          "sequence": [
+            40,
+            100
+          ],
+          "min": 40,
+          "max": 100,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.04~0.08",
+            "sequence": [
+              0.04,
+              0.08
+            ],
+            "min": 0.04,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.10",
+            "sequence": [
+              0.04,
+              0.1
+            ],
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.08~0.12",
+            "sequence": [
+              0.08,
+              0.12
+            ],
+            "min": 0.08,
+            "max": 0.12,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-hardened_lt50-nc40-nc2032-lt7d",
+        "material_id": "hardened_lt50",
+        "depth_class_raw": "T<7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "50~80",
+          "sequence": [
+            50,
+            80
+          ],
+          "min": 50,
+          "max": 80,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.03~0.06",
+            "sequence": [
+              0.03,
+              0.06
+            ],
+            "min": 0.03,
+            "max": 0.06,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.07",
+            "sequence": [
+              0.04,
+              0.07
+            ],
+            "min": 0.04,
+            "max": 0.07,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.05~0.08",
+            "sequence": [
+              0.05,
+              0.08
+            ],
+            "min": 0.05,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      },
+      {
+        "id": "spd-hardened_lt50-nc40-nc2032-gt7d",
+        "material_id": "hardened_lt50",
+        "depth_class_raw": "T>7D",
+        "center_grade": "NC40",
+        "periphery_grade": "NC2032",
+        "vc": {
+          "raw": "40~60",
+          "sequence": [
+            40,
+            60
+          ],
+          "min": 40,
+          "max": 60,
+          "unit": "m/min"
+        },
+        "feed_per_revolution": {
+          "d19": {
+            "raw": "0.03~0.06",
+            "sequence": [
+              0.03,
+              0.06
+            ],
+            "min": 0.03,
+            "max": 0.06,
+            "unit": "mm/rev"
+          },
+          "d20_21": {
+            "raw": "0.04~0.07",
+            "sequence": [
+              0.04,
+              0.07
+            ],
+            "min": 0.04,
+            "max": 0.07,
+            "unit": "mm/rev"
+          },
+          "d22_34": {
+            "raw": "0.05~0.08",
+            "sequence": [
+              0.05,
+              0.08
+            ],
+            "min": 0.05,
+            "max": 0.08,
+            "unit": "mm/rev"
+          },
+          "d35_40": {
+            "raw": "0.06~0.10",
+            "sequence": [
+              0.06,
+              0.1
+            ],
+            "min": 0.06,
+            "max": 0.1,
+            "unit": "mm/rev"
+          }
+        },
+        "source": {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      }
+    ],
+    "no_catalog_cutting_data": [
+      {
+        "iso": "N",
+        "catalog_label": "Non-ferrous metal Ex.: A6061",
+        "status": "explicit blank rows on p135"
+      },
+      {
+        "iso": "S",
+        "status": "not listed in p135 cutting table"
+      }
+    ],
+    "grade_pairing_notes": [
+      {
+        "text": "Center CD6 and CD8 each list NC2032 and NC40 on p132; source separates base part and grade rather than printing every full grade-suffixed order code.",
+        "source": {
+          "printed_page": 132,
+          "pdf_page": 5,
+          "original_pdf_page": 5
+        }
+      },
+      {
+        "text": "NC40 periphery is physically listed only as N9GX06020431 and N9GX09030831; p135 has no NC40+NC40 feed values for diameters19-21.",
+        "source": {
+          "printed_page": 132,
+          "pdf_page": 5,
+          "original_pdf_page": 5
+        }
+      },
+      {
+        "text": "Dimensions match corresponding NC2032 periphery inserts, but direct holder interchangeability must be confirmed before asserting a complete validated assembly.",
+        "source": {
+          "printed_page": 132,
+          "pdf_page": 5,
+          "original_pdf_page": 5
+        }
+      },
+      {
+        "value": "CD6 and CD8 each list NC2032 and NC40 physical grade variants, so both center grades in p135 are physically listed. The catalog separates base part and grade; do not invent a complete ordering suffix.",
+        "source": {
+          "printed_page": 132,
+          "pdf_page": 5,
+          "original_pdf_page": 5
+        }
+      },
+      {
+        "value": "Periphery N9GX060204 screw is NS-22062 in p132 insert table, while p131 holder rows Dia.30-34 specify NS-22055. Keep both source values; obtain the manufacturer-approved mapping rather than silently overriding either.",
+        "sources": [
+          {
+            "printed_page": 131,
+            "pdf_page": 4,
+            "original_pdf_page": 4
+          },
+          {
+            "printed_page": 132,
+            "pdf_page": 5,
+            "original_pdf_page": 5
+          }
+        ]
+      }
+    ]
+  },
+  "operating_notes": [
+    {
+      "id": "misalignment",
+      "value": "E<0.05mm",
+      "meaning": "center/workpiece misalignment, not hole-diameter tolerance",
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    },
+    {
+      "id": "prohibited_applications",
+      "value": [
+        "stack drilling",
+        "angled surface drilling"
+      ],
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    },
+    {
+      "id": "spot_first",
+      "value": "Recommend a spot hole before drilling; see p133",
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    },
+    {
+      "id": "different_insert_roles",
+      "value": "Cutting speed relates to periphery inserts; feed depends on center pilot insert load.",
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    },
+    {
+      "id": "chip_based_feed",
+      "value": "Feed may be adjusted ±25% of recommended value based on chip shape; short chips are preferred.",
+      "automatic_multiplier": false,
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    },
+    {
+      "id": "load_monitoring",
+      "value": "When spindle load is15% higher than starting power consumption, index periphery to next edge and replace center pilot insert.",
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    },
+    {
+      "id": "horizontal_spindle",
+      "value": "Increase cutting speed and feed20% for horizontal-spindle machine.",
+      "automatic_multiplier": false,
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    },
+    {
+      "id": "multiplier_combination",
+      "value": "No cumulative/stacking rule for chip ±25%, horizontal +20%, application factors or range endpoints is printed.",
+      "automatic_multiplier": false,
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    }
+  ],
+  "coolant_reference": {
+    "spd_minimum_pressure_bar": 10,
+    "spd_printed_equivalent_psi": 150,
+    "spd_flow": "High volume is recommended.",
+    "source": {
+      "printed_page": 135,
+      "pdf_page": 8,
+      "original_pdf_page": 8
+    }
+  },
+  "calculation": {
+    "metric_rpm": {
+      "expression": "S=1000*Vc/(pi*D)",
+      "inputs": {
+        "Vc": "m/min",
+        "D": "mm"
+      },
+      "output": "rpm",
+      "basis": "Common metric mathematics; not attributed to a formula page in this product PDF."
+    },
+    "metric_feed": {
+      "expression": "F=S*f",
+      "inputs": {
+        "S": "rpm",
+        "f": "mm/rev"
+      },
+      "output": "mm/min",
+      "basis": "Unit conversion; do not multiply by insert quantity."
+    },
+    "automatic_program_z": false,
+    "z_reason": "Requested hole depth is not the actual tool-tip Z. Tip offset, bottom profile and breakthrough allowance are not sufficiently defined."
+  },
+  "power_reference": {
+    "source": {
+      "printed_page": 134,
+      "pdf_page": 7,
+      "original_pdf_page": 7
+    },
+    "kc_rows": [
+      {
+        "catalog_group": "1.10",
+        "iso": "P",
+        "catalog_description": "Carbon steel C<0.3%, free cutting steels",
+        "hardness_raw": "~125",
+        "hardness_unit": "HB",
+        "strength_raw": "500-850",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 1900,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "1.20",
+        "iso": "P",
+        "catalog_description": "Carbon steel C>0.3%",
+        "hardness_raw": "~150",
+        "hardness_unit": "HB",
+        "strength_raw": "850-1000",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 2100,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "1.30",
+        "iso": "P",
+        "catalog_description": "Low alloy steel C<0.3%",
+        "hardness_raw": "180",
+        "hardness_unit": "HB",
+        "strength_raw": "Up to 750",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 2100,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "1.40",
+        "iso": "P",
+        "catalog_description": "Low alloy steel C>0.3%",
+        "hardness_raw": "200",
+        "hardness_unit": "HB",
+        "strength_raw": "750-1200",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 2600,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "1.50",
+        "iso": "P",
+        "catalog_description": "High alloy steel",
+        "hardness_raw": "200",
+        "hardness_unit": "HB",
+        "strength_raw": "800-1200",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 2600,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "1.60",
+        "iso": "P",
+        "catalog_description": "Tool steel, harder steels for toughening. Martensitic stainless steels.",
+        "hardness_raw": "<230",
+        "hardness_unit": "HB",
+        "strength_raw": "850-1100",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 2200,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "1.70",
+        "iso": "P",
+        "catalog_description": "Casting steel",
+        "hardness_raw": null,
+        "hardness_unit": null,
+        "strength_raw": null,
+        "strength_unit": null,
+        "kc_n_mm2": 2900,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "2.10",
+        "iso": "M",
+        "catalog_description": "Free cutting Stainless steel; Austenitic stainless steels",
+        "hardness_raw": "200",
+        "hardness_unit": "HB",
+        "strength_raw": "490-700",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 2300,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "2.20",
+        "iso": "M",
+        "catalog_description": "Difficult Stainless steel; Austenitic stainless steels and duplex",
+        "hardness_raw": "175",
+        "hardness_unit": "HB",
+        "strength_raw": "650-850",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 2450,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "3.10",
+        "iso": "K",
+        "catalog_description": "Grey casting Iron",
+        "hardness_raw": "180",
+        "hardness_unit": "HB",
+        "strength_raw": "250-350",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 1100,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "3.20",
+        "iso": "K",
+        "catalog_description": "Malleable casting iron",
+        "hardness_raw": "230",
+        "hardness_unit": "HB",
+        "strength_raw": "Up to 600",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 1200,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "3.30",
+        "iso": "K",
+        "catalog_description": "Nodular casting iron",
+        "hardness_raw": "250",
+        "hardness_unit": "HB",
+        "strength_raw": "Up to 800",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 1800,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "4.10",
+        "iso": "N",
+        "catalog_description": "Al-alloys(Si<12%)",
+        "hardness_raw": "60",
+        "hardness_unit": "HB",
+        "strength_raw": "230-310",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 500,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "4.20",
+        "iso": "N",
+        "catalog_description": "Al-alloys(Si>12%)",
+        "hardness_raw": "75",
+        "hardness_unit": "HB",
+        "strength_raw": "150-200",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 750,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "4.30",
+        "iso": "N",
+        "catalog_description": "Non-ferrous materials, Zirconium, Magnesium, Copper alloys, etc.",
+        "hardness_raw": "100",
+        "hardness_unit": "HB",
+        "strength_raw": "150-200",
+        "strength_unit": "N/mm2",
+        "kc_n_mm2": 800,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "4.40",
+        "iso": "N",
+        "catalog_description": "Carbon and graphite composites, plastics, wood, rubbers, etc.",
+        "hardness_raw": null,
+        "hardness_unit": null,
+        "strength_raw": null,
+        "strength_unit": null,
+        "kc_n_mm2": null,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "5.10",
+        "iso": "S",
+        "catalog_description": "Nickel-based heat-resistant alloys",
+        "hardness_raw": "250",
+        "hardness_unit": "HB",
+        "strength_raw": null,
+        "strength_unit": null,
+        "kc_n_mm2": 3500,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "5.20",
+        "iso": "S",
+        "catalog_description": "Cobalt-based heat resistant alloys",
+        "hardness_raw": "350",
+        "hardness_unit": "HB",
+        "strength_raw": null,
+        "strength_unit": null,
+        "kc_n_mm2": 4150,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "5.30",
+        "iso": "S",
+        "catalog_description": "Iron-based heat resistant alloys",
+        "hardness_raw": "250",
+        "hardness_unit": "HB",
+        "strength_raw": null,
+        "strength_unit": null,
+        "kc_n_mm2": 3050,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "6.10",
+        "iso": "H",
+        "catalog_description": "Tool steels and hardened steels",
+        "hardness_raw": "55",
+        "hardness_unit": "HRC",
+        "strength_raw": null,
+        "strength_unit": null,
+        "kc_n_mm2": 4500,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      },
+      {
+        "catalog_group": "6.20",
+        "iso": "H",
+        "catalog_description": "Hardened cast iron",
+        "hardness_raw": null,
+        "hardness_unit": null,
+        "strength_raw": null,
+        "strength_unit": null,
+        "kc_n_mm2": null,
+        "source": {
+          "printed_page": 134,
+          "pdf_page": 7,
+          "original_pdf_page": 7
+        }
+      }
+    ],
+    "scope_note": "A material Kc entry is a load-calculation reference, not evidence that this drill or grade is suitable for that material. H55HRC Kc must not expand H<50 cutting scope.",
+    "printed_feed_force": {
+      "expression": "Ff=ap*f*Kc/2000",
+      "output_unit": "kN",
+      "status": "ap is not defined in this page legend; confirmation required before executable output"
+    },
+    "printed_torque": {
+      "expression": "Md=f*pi*D^2*Kc/4000",
+      "output_unit": "Nm",
+      "status": "Preserve printed formula; confirm applicable variable/unit convention and factory calculation example before relying on torque/power results."
+    },
+    "power_kw_formula": null,
+    "implementation_plan": "Catalog title mentions power but no explicit kW/efficiency formula is printed on p134. First version may show source Kc and formulas as references; machine-load guarantee or auto-pass based on motor kW requires confirmed formula/efficiency."
+  },
+  "supplementary_catalog_scope": {
+    "spd_standard_range": {
+      "diameter_mm": [
+        19,
+        40
+      ],
+      "printed_depth_labels": [
+        "5xD",
+        "10xD"
+      ],
+      "source": {
+        "printed_page": 128,
+        "pdf_page": 1,
+        "original_pdf_page": 1
+      }
+    },
+    "spd_marketing_depth": {
+      "raw": "Deep Hole Drilling Up To 12xD!",
+      "scope": "Marketing claim; actual selectable capacity remains the individual holder table T, not a blanket 12D for every standard SKU.",
+      "source": {
+        "printed_page": 128,
+        "pdf_page": 1,
+        "original_pdf_page": 1
+      }
+    },
+    "spd_custom_request": {
+      "maximum_diameter_mm": 50,
+      "maximum_depth_T_mm": 450,
+      "scope": "Custom on request only; not a standard available SKU or a promise that the two maxima are simultaneously achievable.",
+      "source": {
+        "printed_page": 128,
+        "pdf_page": 1,
+        "original_pdf_page": 1
+      }
+    },
+    "spd_table_diameter": {
+      "raw": "ØD ±0.2mm (±0.0079 inch)",
+      "scope": "Holder table heading; do not promote this to a guaranteed finished-hole tolerance or to a controlled radial-adjustment range.",
+      "source": {
+        "printed_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      }
+    },
+    "finished_hole_quality": {
+      "numeric_diameter_straightness_roundness_guarantee": null,
+      "scope": "General better finish/straightness/roundness claims and the p133 single roughness case are not per-SKU guarantees."
+    }
+  },
+  "manufacturer_questions": [
+    {
+      "id": "depth_class",
+      "question": "p135 的 T=Length/Dia. 應按需求孔深或刀體表列 T？恰好 7D 的邊界為何？",
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    },
+    {
+      "id": "bottom_profile",
+      "question": "請補中心尖與外刃軸向差、完整圓柱段深度、盲孔底形及貫穿餘量。",
+      "source": {
+        "printed_page": 130,
+        "pdf_page": 3,
+        "original_pdf_page": 3
+      }
+    },
+    {
+      "id": "nc40_pairing",
+      "question": "請確認 N9GX06020431／N9GX09030831 對標準刀體的完整替換與螺絲配對。",
+      "source": {
+        "printed_page": 132,
+        "pdf_page": 5,
+        "original_pdf_page": 5
+      }
+    },
+    {
+      "id": "screw",
+      "question": "Ø30–34 刀體表 NS-22055 與刀片表 NS-22062 應如何選用？",
+      "sources": [
+        {
+          "printed_page": 131,
+          "pdf_page": 4,
+          "original_pdf_page": 4
+        },
+        {
+          "printed_page": 132,
+          "pdf_page": 5,
+          "original_pdf_page": 5
+        }
+      ]
+    },
+    {
+      "id": "clamping_flow",
+      "question": "請補最小夾持長度、允許伸出與流量條件；58 mm 是尺寸而非最小夾持量。",
+      "sources": [
+        {
+          "printed_page": 130,
+          "pdf_page": 3,
+          "original_pdf_page": 3
+        },
+        {
+          "printed_page": 135,
+          "pdf_page": 8,
+          "original_pdf_page": 8
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "question": "請定義 p134 ap、Md 常數與單位、功率效率及計算案例；Kc 資料不代替切削表。",
+      "source": {
+        "printed_page": 134,
+        "pdf_page": 7,
+        "original_pdf_page": 7
+      }
+    },
+    {
+      "id": "materials",
+      "question": "請補 C=0.3%、HRC=50 的分類及 N／S 材料的刀片與切削值。",
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    },
+    {
+      "id": "entry_rules",
+      "question": "請補水平主軸 +20%、切屑 ±25% 是否可疊加，以及進刀、貫穿分段距離與比例。",
+      "source": {
+        "printed_page": 135,
+        "pdf_page": 8,
+        "original_pdf_page": 8
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "verified_date": "2026-11-18",
+  "scope": "localhost independent product packages",
+  "tests": {
+    "super_drill": 29,
+    "super_power_drill": 16,
+    "selector": 5,
+    "total": 50,
+    "failed": 0
+  },
+  "resources": "6 HTML files and 8 runtime JavaScript files validated",
+  "browser_checks": [
+    "Cutting Data cards open their own product URLs",
+    "SD 3D example: 2918 rpm / 233.4 mm/min",
+    "SD 4D example: 2122 rpm / 169.8 mm/min",
+    "SD own PDF dimension pages 3/4",
+    "SPD example: 1464 rpm / 117.1 mm/min",
+    "SPD 9 bar blocks manual calculation and copy",
+    "SPD exact 7D retains review note",
+    "Hub hides unmatched family and retains tool on material change",
+    "390px mobile: both product pages and hub fit, tolerance editable",
+    "Product return to hub preserves selected tool and tolerance"
+  ],
+  "legacy_archive": "測試資料/drilling-legacy-shared-20261118",
+  "published": false
+}
