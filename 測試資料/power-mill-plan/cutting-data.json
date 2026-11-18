@@ -1,0 +1,472 @@
+{
+  "schema_version": "1.0",
+  "status": "research_only_not_published",
+  "source_file": "sources/12_Power Mill_p142-147.pdf",
+  "conventions": {
+    "source_inheritance_zh": "每個 table 的 source 適用其所有 rows；source_row 由第一筆材質列起算。",
+    "range_format": "原型錄 ~ 範圍字串；未以中間值代替。",
+    "units": {
+      "Vc": "m/min",
+      "fz": "mm/tooth",
+      "Ap": "mm",
+      "Ae": "mm"
+    },
+    "null_zh": "未列示之樣本代碼為 null；不推測材料等級。"
+  },
+  "series_A": {
+    "source": {
+      "printed_page": 145,
+      "pdf_page": 4
+    },
+    "notes": [
+      {
+        "text": "Reduce the feed rate 30% from the below table for slotting operation.",
+        "applies_to": "series A / both insert-size tables",
+        "feed_reduction_percent": 30,
+        "remaining_feed_factor": "0.70"
+      },
+      {
+        "text": "Ramping angle should be under α°. (Please refer to holder specifications)",
+        "applies_to": "series A",
+        "limit": {
+          "operator": "<",
+          "field": "holder.ramp_angle_deg",
+          "unit": "degree"
+        },
+        "holder_source": {
+          "printed_page": 143,
+          "pdf_page": 2
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "a-cutting-6p5",
+        "series_id": "A",
+        "source": {
+          "printed_page": 145,
+          "pdf_page": 4,
+          "section": "Insert Size: 6.5mm (Holder Ø10~Ø17mm)"
+        },
+        "insert_size_mm": "6.5",
+        "holder_diameter_range_catalog": "Ø10~Ø17mm",
+        "operation_diagrams": [
+          {
+            "id": "diagram_1",
+            "position": "first Ap column after fz",
+            "dimensions": [
+              "Ap_mm"
+            ],
+            "operation_name": null,
+            "note_zh": "原表第一張工法示意圖，僅標 Ap；未印工法名稱，不自行命名。"
+          },
+          {
+            "id": "diagram_2",
+            "position": "second Ap column and following Ae column",
+            "dimensions": [
+              "Ap_mm",
+              "Ae_mm"
+            ],
+            "operation_name": null,
+            "note_zh": "原表第二張工法示意圖，同時標 Ap、Ae；與第一張圖分開。"
+          }
+        ],
+        "rows": [
+          {
+            "source_row": 1,
+            "iso_material_group": "P",
+            "work_material": "Carbon Steel",
+            "sample_code_JIS": "P5",
+            "Vc_m_per_min": "80~150",
+            "fz_mm_per_tooth": "0.03~0.07",
+            "diagram_1_Ap_mm": "1.5",
+            "diagram_2_Ap_mm": "4",
+            "diagram_2_Ae_mm": "1.5",
+            "insert_grades": [
+              "NC5072",
+              "NC2033"
+            ]
+          },
+          {
+            "source_row": 2,
+            "iso_material_group": "P",
+            "work_material": "Low alloy steel",
+            "sample_code_JIS": "SCM440",
+            "Vc_m_per_min": "80~150",
+            "fz_mm_per_tooth": "0.03~0.07",
+            "diagram_1_Ap_mm": "1.5",
+            "diagram_2_Ap_mm": "4",
+            "diagram_2_Ae_mm": "1",
+            "insert_grades": [
+              "NC5072",
+              "NC2033"
+            ]
+          },
+          {
+            "source_row": 3,
+            "iso_material_group": "P",
+            "work_material": "High alloy steel",
+            "sample_code_JIS": "SKD11",
+            "Vc_m_per_min": "60~120",
+            "fz_mm_per_tooth": "0.03~0.07",
+            "diagram_1_Ap_mm": "1",
+            "diagram_2_Ap_mm": "2.5",
+            "diagram_2_Ae_mm": "1",
+            "insert_grades": [
+              "NC5072",
+              "NC2033"
+            ]
+          },
+          {
+            "source_row": 4,
+            "iso_material_group": "M",
+            "work_material": "Stainless steel",
+            "sample_code_JIS": "SUS304",
+            "Vc_m_per_min": "60~120",
+            "fz_mm_per_tooth": "0.01~0.05",
+            "diagram_1_Ap_mm": "0.5",
+            "diagram_2_Ap_mm": "2",
+            "diagram_2_Ae_mm": "1",
+            "insert_grades": [
+              "NC5072",
+              "NC2033"
+            ]
+          },
+          {
+            "source_row": 5,
+            "iso_material_group": "K",
+            "work_material": "Cast Iron",
+            "sample_code_JIS": "FC25",
+            "Vc_m_per_min": "60~120",
+            "fz_mm_per_tooth": "0.03~0.07",
+            "diagram_1_Ap_mm": "1",
+            "diagram_2_Ap_mm": "2.5",
+            "diagram_2_Ae_mm": "1",
+            "insert_grades": [
+              "NC5072",
+              "NC2033"
+            ]
+          },
+          {
+            "source_row": 6,
+            "iso_material_group": "K",
+            "work_material": "Malleable Cast Iron",
+            "sample_code_JIS": null,
+            "Vc_m_per_min": "100~150",
+            "fz_mm_per_tooth": "0.03~0.07",
+            "diagram_1_Ap_mm": "1.5",
+            "diagram_2_Ap_mm": "4",
+            "diagram_2_Ae_mm": "1.5",
+            "insert_grades": [
+              "NC5072",
+              "NC2033"
+            ]
+          },
+          {
+            "source_row": 7,
+            "iso_material_group": "N",
+            "work_material": "Non-ferrous metal",
+            "sample_code_JIS": "A6061",
+            "Vc_m_per_min": "200~500",
+            "fz_mm_per_tooth": "0.03~0.07",
+            "diagram_1_Ap_mm": "2",
+            "diagram_2_Ap_mm": "4",
+            "diagram_2_Ae_mm": "2",
+            "insert_grades": [
+              "NC9031"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "a-cutting-10",
+        "series_id": "A",
+        "source": {
+          "printed_page": 145,
+          "pdf_page": 4,
+          "section": "Insert Size: 10mm (Holder Ø16~Ø25mm)"
+        },
+        "insert_size_mm": "10",
+        "holder_diameter_range_catalog": "Ø16~Ø25mm",
+        "operation_diagrams": [
+          {
+            "id": "diagram_1",
+            "position": "first Ap column after fz",
+            "dimensions": [
+              "Ap_mm"
+            ],
+            "operation_name": null,
+            "note_zh": "原表第一張工法示意圖，僅標 Ap；未印工法名稱，不自行命名。"
+          },
+          {
+            "id": "diagram_2",
+            "position": "second Ap column and following Ae column",
+            "dimensions": [
+              "Ap_mm",
+              "Ae_mm"
+            ],
+            "operation_name": null,
+            "note_zh": "原表第二張工法示意圖，同時標 Ap、Ae；與第一張圖分開。"
+          }
+        ],
+        "rows": [
+          {
+            "source_row": 1,
+            "iso_material_group": "P",
+            "work_material": "Carbon Steel",
+            "sample_code_JIS": "P5",
+            "Vc_m_per_min": "150~250",
+            "fz_mm_per_tooth": "0.08~0.15",
+            "diagram_1_Ap_mm": "3",
+            "diagram_2_Ap_mm": "8",
+            "diagram_2_Ae_mm": "3",
+            "insert_grades": [
+              "NC2032"
+            ]
+          },
+          {
+            "source_row": 2,
+            "iso_material_group": "P",
+            "work_material": "Low alloy steel",
+            "sample_code_JIS": "SCM440",
+            "Vc_m_per_min": "150~250",
+            "fz_mm_per_tooth": "0.08~0.15",
+            "diagram_1_Ap_mm": "3",
+            "diagram_2_Ap_mm": "8",
+            "diagram_2_Ae_mm": "2",
+            "insert_grades": [
+              "NC2032"
+            ]
+          },
+          {
+            "source_row": 3,
+            "iso_material_group": "P",
+            "work_material": "High alloy steel",
+            "sample_code_JIS": "SKD11",
+            "Vc_m_per_min": "120~200",
+            "fz_mm_per_tooth": "0.08~0.15",
+            "diagram_1_Ap_mm": "2",
+            "diagram_2_Ap_mm": "4",
+            "diagram_2_Ae_mm": "2",
+            "insert_grades": [
+              "NC2032"
+            ]
+          },
+          {
+            "source_row": 4,
+            "iso_material_group": "M",
+            "work_material": "Stainless Steel",
+            "sample_code_JIS": "SUS304",
+            "Vc_m_per_min": "80~120",
+            "fz_mm_per_tooth": "0.04~0.08",
+            "diagram_1_Ap_mm": "1",
+            "diagram_2_Ap_mm": "4",
+            "diagram_2_Ae_mm": "2",
+            "insert_grades": [
+              "NC2032"
+            ]
+          },
+          {
+            "source_row": 5,
+            "iso_material_group": "K",
+            "work_material": "Cast Iron",
+            "sample_code_JIS": "FC25",
+            "Vc_m_per_min": "120~200",
+            "fz_mm_per_tooth": "0.08~0.12",
+            "diagram_1_Ap_mm": "2",
+            "diagram_2_Ap_mm": "5",
+            "diagram_2_Ae_mm": "2",
+            "insert_grades": [
+              "NC2032"
+            ]
+          },
+          {
+            "source_row": 6,
+            "iso_material_group": "K",
+            "work_material": "Malleable Cast Iron",
+            "sample_code_JIS": null,
+            "Vc_m_per_min": "100~150",
+            "fz_mm_per_tooth": "0.06~0.10",
+            "diagram_1_Ap_mm": "3",
+            "diagram_2_Ap_mm": "8",
+            "diagram_2_Ae_mm": "3",
+            "insert_grades": [
+              "NC2032"
+            ]
+          },
+          {
+            "source_row": 7,
+            "iso_material_group": "N",
+            "work_material": "Non-ferrous metal",
+            "sample_code_JIS": "A6061",
+            "Vc_m_per_min": "200~500",
+            "fz_mm_per_tooth": "0.03~0.07",
+            "diagram_1_Ap_mm": "5",
+            "diagram_2_Ap_mm": "8",
+            "diagram_2_Ae_mm": "3",
+            "insert_grades": [
+              "NC9031"
+            ]
+          }
+        ]
+      }
+    ],
+    "surface_roughness_comparison": {
+      "source": {
+        "printed_page": 145,
+        "pdf_page": 4,
+        "section": "Surface Roughness Comparison"
+      },
+      "claim": "Nine9 A series shoulder face mill insert receive a better result of surface finish.",
+      "unit": "µm",
+      "metric_name": null,
+      "comparisons": [
+        {
+          "label": "Competitor B",
+          "value": "32"
+        },
+        {
+          "label": "Competitor A",
+          "value": "20.2"
+        },
+        {
+          "label": "Nine9",
+          "value": "14.5",
+          "insert_caption": "A9MT1035 NC2033"
+        }
+      ],
+      "vertical_positions_mm": [
+        "0",
+        "7",
+        "14",
+        "21",
+        "28"
+      ],
+      "test_conditions": null,
+      "note_zh": "圖未註明 Ra/Rz 或完整測試條件，不據此標成特定粗糙度指標。圖中 A9MT1035 NC2033 與 p144 尺寸10產品表的 NC2032 不同，保留圖說，不以此新增販售 SKU。"
+    }
+  },
+  "series_C": {
+    "source": {
+      "printed_page": 147,
+      "pdf_page": 6
+    },
+    "notes": [
+      {
+        "text": "Recommand Ae below 2.5mm.",
+        "applies_to": "series C",
+        "Ae_limit": {
+          "operator": "<",
+          "value": "2.5",
+          "unit": "mm"
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "c-cutting",
+        "series_id": "C",
+        "source": {
+          "printed_page": 147,
+          "pdf_page": 6,
+          "section": "Cutting Data"
+        },
+        "operation_diagram": {
+          "dimensions": [
+            "Ap_mm"
+          ],
+          "operation_name": null,
+          "note_zh": "原圖只有 Ap 標註；Ae 限制來自表上方註記。"
+        },
+        "rows": [
+          {
+            "source_row": 1,
+            "iso_material_group": "P",
+            "work_material": "Carbon Steel",
+            "sample_code_JIS": "P5",
+            "Vc_m_per_min": "150~300",
+            "fz_mm_per_tooth": "0.2~0.5",
+            "Ap_mm": "0.2~0.5",
+            "insert_grades": [
+              "NC30",
+              "NC2032"
+            ]
+          },
+          {
+            "source_row": 2,
+            "iso_material_group": "P",
+            "work_material": "Alloy Steel",
+            "sample_code_JIS": "SCM440",
+            "Vc_m_per_min": "120~250",
+            "fz_mm_per_tooth": "0.2~0.5",
+            "Ap_mm": "0.2~0.5",
+            "insert_grades": [
+              "NC30",
+              "NC2032"
+            ]
+          },
+          {
+            "source_row": 3,
+            "iso_material_group": "M",
+            "work_material": "Stanless Steel",
+            "work_material_normalized": "Stainless Steel",
+            "sample_code_JIS": "SUS304",
+            "Vc_m_per_min": "120~200",
+            "fz_mm_per_tooth": "0.2~0.4",
+            "Ap_mm": "0.2~0.4",
+            "insert_grades": [
+              "NC30",
+              "NC2032"
+            ]
+          },
+          {
+            "source_row": 4,
+            "iso_material_group": "H",
+            "work_material": "Hardened steel < HRC52",
+            "sample_code_JIS": "SKD61",
+            "hardness_limit": {
+              "operator": "<",
+              "value": "52",
+              "unit": "HRC"
+            },
+            "Vc_m_per_min": "100~150",
+            "fz_mm_per_tooth": "0.1~0.3",
+            "Ap_mm": "0.1~0.3",
+            "insert_grades": [
+              "NC2032"
+            ]
+          }
+        ]
+      }
+    ],
+    "note_zh": "C 系列只使用 p147 自有四列切削資料；未套用 A 系列 p145 表，也未自行套用其 slotting 減進給註記。"
+  },
+  "counts": {
+    "A_tables": 2,
+    "A_material_rows": 14,
+    "C_tables": 1,
+    "C_material_rows": 4,
+    "total_material_rows": 18
+  },
+  "unresolved": [
+    {
+      "id": "a-operation-diagram-names",
+      "source": {
+        "printed_page": 145,
+        "pdf_page": 4
+      },
+      "value": null,
+      "note_zh": "兩張工法圖未印名稱；保留 diagram_1、diagram_2 與各自 Ap/Ae。"
+    },
+    {
+      "id": "roughness-test-conditions",
+      "source": {
+        "printed_page": 145,
+        "pdf_page": 4
+      },
+      "value": null,
+      "note_zh": "比較圖未列完整工況與粗糙度指標；圖說 NC2033 與 p144 尺寸10表之 NC2032 應於正式製頁前確認。"
+    }
+  ],
+  "reviewed_on": "2026-11-18"
+}

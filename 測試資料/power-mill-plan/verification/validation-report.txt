@@ -1,0 +1,48 @@
+Power Mill 型錄資料複核報告
+複核日期：2026-11-18
+結果：PASS — 原始資料、候選交集、閱讀頁與路徑驗證通過。
+來源：sources/12_Power Mill_p142-147.pdf（PDF第1–6頁／印刷p142–147）
+SHA-256：7f4bb5f8ec9f9e7e2df8699c96b01adeabe4cc1a651f78471da8377c532898f8
+
+來源與數量
+PASS 使用者提供PDF與研究副本SHA-256完全相同。
+PASS 六頁原圖分由規格、切削及建置規劃三路複核。
+PASS 46刀體、46唯一完整料號、46 occurrence_id；Z皆為正整數。
+PASS A 23刀體（直柄11／Screw-Fit12）、C 23刀體（直柄4／Screw-Fit19）。
+PASS 14刀片料號／17料號牌號組合、4組刀片鎖固配件。
+PASS 3切削表、18原始材料列（7+7+4）。
+PASS 相對HEAD，product-data／cutting-data原始規格、註記及來源值完全未改；只增複核中繼資料。
+PASS 所有印刷頁／PDF頁對應正確。
+
+建置資料邊界
+PASS 四家族刀體數：A06 16、A10 7、C04 2、C05 21；共22材料／家族案例。
+PASS A Ø16的 A06/Z3 與 A10/Z2各自保留。
+PASS A06 NC2032保留為產品有列、切削條件缺漏，不借用其他牌號／家族。
+PASS C04淬硬鋼無NC2032實體交集；C05對應C9MT05T110H-NC2032。
+PASS A圖1Ap／圖2Ap／圖2Ae分欄保存；A開槽減30%且不擴大套用C。
+PASS C Ae < 2.5 mm、HRC < 52；外部p164仍未造出配對。
+NOTE 候選交集為來源資料核對，不代表唯一選型或完整工況推薦。
+
+閱讀頁與檔案
+PASS 7個JSON檔可解析。
+PASS HTML所有本機資源與下載目標存在；頁內錨點有效且id無重複。
+PASS inline JavaScript通過node --check。
+PASS 研究頁及4個核心JSON在本機伺服器HTTP 200。
+PASS 瀏覽器桌面閱讀頁及原生details展開正常，A直柄展開11列。
+PASS 390×844手機閱讀頁無水平溢出；共用選單可開關並同步aria-expanded。
+PASS 暫時viewport已還原；研究閱讀頁保留為本機交付。
+
+待確認項目
+OPEN A工法圖官方名稱、A06/NC2032工況。
+OPEN C04若需加工淬硬鋼，需有可配實體刀片與條件依據。
+OPEN p164延長桿、Screw-Fit接頭扭力、實際組裝伸出。
+OPEN 同Type不同完整料號的訂購與裝配差異。
+OPEN A9MT1035圖說NC2033與產品表NC2032差異、表面量測指標與完整試切條件。
+OPEN 鍍層I/l字形及正式名稱。
+
+複核檔案
+verification/specs-review-20261118.txt
+verification/cutting-review-20261118.txt
+build-plan.json（含來源事實／工程推論及六頁檢視記錄）
+
+範圍：僅本機型錄整理與建置準備，未建立選型計算器，未改正式頁、未發布。

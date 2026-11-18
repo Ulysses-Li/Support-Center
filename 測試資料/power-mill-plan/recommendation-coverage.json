@@ -1,0 +1,1531 @@
+{
+  "schema_version": "1.0",
+  "reviewed_on": "2026-11-18",
+  "kind": "derived_catalog_record_intersection_not_a_new_manufacturer_recommendation",
+  "source_files": [
+    "product-data.json",
+    "cutting-data.json"
+  ],
+  "rule_zh": "只將同系列／尺寸家族的切削表牌號，與該家族實體刀片表取交集。幾何、Re、夾持、工況及尺寸仍須另外檢查；未交集不等於材料不適用，也不借用其他家族的數據。",
+  "families": [
+    {
+      "id": "A06",
+      "holder_records": [
+        {
+          "part_no": "00-99802-BC10-10A06",
+          "D_mm": "10",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 1
+          }
+        },
+        {
+          "part_no": "00-99802-BC12-10A06",
+          "D_mm": "10",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 2
+          }
+        },
+        {
+          "part_no": "00-99802-BC12-11A06",
+          "D_mm": "11",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 3
+          }
+        },
+        {
+          "part_no": "00-99802-BC12-12A06",
+          "D_mm": "12",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 4
+          }
+        },
+        {
+          "part_no": "00-99802-BC16-13A06",
+          "D_mm": "13",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 5
+          }
+        },
+        {
+          "part_no": "00-99802-BC16-14A06",
+          "D_mm": "14",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 6
+          }
+        },
+        {
+          "part_no": "00-99802-BC16-15A06",
+          "D_mm": "15",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 7
+          }
+        },
+        {
+          "part_no": "00-99802-BC16-16A06",
+          "D_mm": "16",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 8
+          }
+        },
+        {
+          "part_no": "00-99805-M05-10A06",
+          "D_mm": "10",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 1
+          }
+        },
+        {
+          "part_no": "00-99805-M05-11A06",
+          "D_mm": "11",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 2
+          }
+        },
+        {
+          "part_no": "00-99805-M06-12A06",
+          "D_mm": "12",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 3
+          }
+        },
+        {
+          "part_no": "00-99805-M06-13A06",
+          "D_mm": "13",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 4
+          }
+        },
+        {
+          "part_no": "00-99805-M08-14A06",
+          "D_mm": "14",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 5
+          }
+        },
+        {
+          "part_no": "00-99805-M08-15A06",
+          "D_mm": "15",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 6
+          }
+        },
+        {
+          "part_no": "00-99805-M08-16A06",
+          "D_mm": "16",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 7
+          }
+        },
+        {
+          "part_no": "00-99805-M08-17A06",
+          "D_mm": "17",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 8
+          }
+        }
+      ],
+      "material_rows": [
+        {
+          "material_as_printed": "Carbon Steel",
+          "iso_material_group": "P",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 6.5mm (Holder Ø10~Ø17mm)",
+            "source_row": 1
+          },
+          "grades_as_printed": [
+            "NC5072",
+            "NC2033"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT060205",
+              "grade_code": "NC5072",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 1
+              }
+            },
+            {
+              "part_no": "A9GT060201H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.1",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 5
+              }
+            },
+            {
+              "part_no": "A9GT060202H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.2",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 6
+              }
+            },
+            {
+              "part_no": "A9GT060205H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 7
+              }
+            },
+            {
+              "part_no": "A9GT060210H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 8
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Low alloy steel",
+          "iso_material_group": "P",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 6.5mm (Holder Ø10~Ø17mm)",
+            "source_row": 2
+          },
+          "grades_as_printed": [
+            "NC5072",
+            "NC2033"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT060205",
+              "grade_code": "NC5072",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 1
+              }
+            },
+            {
+              "part_no": "A9GT060201H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.1",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 5
+              }
+            },
+            {
+              "part_no": "A9GT060202H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.2",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 6
+              }
+            },
+            {
+              "part_no": "A9GT060205H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 7
+              }
+            },
+            {
+              "part_no": "A9GT060210H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 8
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "High alloy steel",
+          "iso_material_group": "P",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 6.5mm (Holder Ø10~Ø17mm)",
+            "source_row": 3
+          },
+          "grades_as_printed": [
+            "NC5072",
+            "NC2033"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT060205",
+              "grade_code": "NC5072",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 1
+              }
+            },
+            {
+              "part_no": "A9GT060201H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.1",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 5
+              }
+            },
+            {
+              "part_no": "A9GT060202H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.2",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 6
+              }
+            },
+            {
+              "part_no": "A9GT060205H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 7
+              }
+            },
+            {
+              "part_no": "A9GT060210H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 8
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Stainless steel",
+          "iso_material_group": "M",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 6.5mm (Holder Ø10~Ø17mm)",
+            "source_row": 4
+          },
+          "grades_as_printed": [
+            "NC5072",
+            "NC2033"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT060205",
+              "grade_code": "NC5072",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 1
+              }
+            },
+            {
+              "part_no": "A9GT060201H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.1",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 5
+              }
+            },
+            {
+              "part_no": "A9GT060202H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.2",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 6
+              }
+            },
+            {
+              "part_no": "A9GT060205H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 7
+              }
+            },
+            {
+              "part_no": "A9GT060210H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 8
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Cast Iron",
+          "iso_material_group": "K",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 6.5mm (Holder Ø10~Ø17mm)",
+            "source_row": 5
+          },
+          "grades_as_printed": [
+            "NC5072",
+            "NC2033"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT060205",
+              "grade_code": "NC5072",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 1
+              }
+            },
+            {
+              "part_no": "A9GT060201H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.1",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 5
+              }
+            },
+            {
+              "part_no": "A9GT060202H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.2",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 6
+              }
+            },
+            {
+              "part_no": "A9GT060205H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 7
+              }
+            },
+            {
+              "part_no": "A9GT060210H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 8
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Malleable Cast Iron",
+          "iso_material_group": "K",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 6.5mm (Holder Ø10~Ø17mm)",
+            "source_row": 6
+          },
+          "grades_as_printed": [
+            "NC5072",
+            "NC2033"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT060205",
+              "grade_code": "NC5072",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 1
+              }
+            },
+            {
+              "part_no": "A9GT060201H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.1",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 5
+              }
+            },
+            {
+              "part_no": "A9GT060202H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.2",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 6
+              }
+            },
+            {
+              "part_no": "A9GT060205H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 7
+              }
+            },
+            {
+              "part_no": "A9GT060210H",
+              "grade_code": "NC2033",
+              "sku_as_printed": null,
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 8
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Non-ferrous metal",
+          "iso_material_group": "N",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 6.5mm (Holder Ø10~Ø17mm)",
+            "source_row": 7
+          },
+          "grades_as_printed": [
+            "NC9031"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9GT060201H",
+              "grade_code": "NC9031",
+              "sku_as_printed": null,
+              "Re_mm": "0.1",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 5
+              }
+            },
+            {
+              "part_no": "A9GT060202H",
+              "grade_code": "NC9031",
+              "sku_as_printed": null,
+              "Re_mm": "0.2",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 6
+              }
+            },
+            {
+              "part_no": "A9GT060205H",
+              "grade_code": "NC9031",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 06",
+                "source_row": 7
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        }
+      ],
+      "physical_grades_without_a_cutting_row": [
+        "NC2032"
+      ],
+      "materials_not_listed_in_this_table": "沒有材質列時不產生型錄自動推薦；牌號文案不能取代切削範圍。"
+    },
+    {
+      "id": "A10",
+      "holder_records": [
+        {
+          "part_no": "00-99802-BC16-16A10",
+          "D_mm": "16",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 9
+          }
+        },
+        {
+          "part_no": "00-99802-BC20-20A10",
+          "D_mm": "20",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 10
+          }
+        },
+        {
+          "part_no": "00-99802-BC25-25A10",
+          "D_mm": "25",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank",
+            "source_row": 11
+          }
+        },
+        {
+          "part_no": "00-99802-M08-16A10",
+          "D_mm": "16",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 9
+          }
+        },
+        {
+          "part_no": "00-99802-M10-20A10",
+          "D_mm": "20",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 10
+          }
+        },
+        {
+          "part_no": "00-99802-M12-25A10-3T",
+          "D_mm": "25",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 11
+          }
+        },
+        {
+          "part_no": "00-99805-M12-25A10",
+          "D_mm": "25",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type",
+            "source_row": 12
+          }
+        }
+      ],
+      "material_rows": [
+        {
+          "material_as_printed": "Carbon Steel",
+          "iso_material_group": "P",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 10mm (Holder Ø16~Ø25mm)",
+            "source_row": 1
+          },
+          "grades_as_printed": [
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT1035",
+              "grade_code": "NC2032",
+              "sku_as_printed": null,
+              "Re_mm": "0.4",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 10",
+                "source_row": 1
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Low alloy steel",
+          "iso_material_group": "P",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 10mm (Holder Ø16~Ø25mm)",
+            "source_row": 2
+          },
+          "grades_as_printed": [
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT1035",
+              "grade_code": "NC2032",
+              "sku_as_printed": null,
+              "Re_mm": "0.4",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 10",
+                "source_row": 1
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "High alloy steel",
+          "iso_material_group": "P",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 10mm (Holder Ø16~Ø25mm)",
+            "source_row": 3
+          },
+          "grades_as_printed": [
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT1035",
+              "grade_code": "NC2032",
+              "sku_as_printed": null,
+              "Re_mm": "0.4",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 10",
+                "source_row": 1
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Stainless Steel",
+          "iso_material_group": "M",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 10mm (Holder Ø16~Ø25mm)",
+            "source_row": 4
+          },
+          "grades_as_printed": [
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT1035",
+              "grade_code": "NC2032",
+              "sku_as_printed": null,
+              "Re_mm": "0.4",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 10",
+                "source_row": 1
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Cast Iron",
+          "iso_material_group": "K",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 10mm (Holder Ø16~Ø25mm)",
+            "source_row": 5
+          },
+          "grades_as_printed": [
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT1035",
+              "grade_code": "NC2032",
+              "sku_as_printed": null,
+              "Re_mm": "0.4",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 10",
+                "source_row": 1
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Malleable Cast Iron",
+          "iso_material_group": "K",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 10mm (Holder Ø16~Ø25mm)",
+            "source_row": 6
+          },
+          "grades_as_printed": [
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9MT1035",
+              "grade_code": "NC2032",
+              "sku_as_printed": null,
+              "Re_mm": "0.4",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 10",
+                "source_row": 1
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Non-ferrous metal",
+          "iso_material_group": "N",
+          "cutting_source": {
+            "printed_page": 145,
+            "pdf_page": 4,
+            "section": "Insert Size: 10mm (Holder Ø16~Ø25mm)",
+            "source_row": 7
+          },
+          "grades_as_printed": [
+            "NC9031"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "A9GT103505H",
+              "grade_code": "NC9031",
+              "sku_as_printed": null,
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 144,
+                "pdf_page": 3,
+                "section": "Insert / size 10",
+                "source_row": 2
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        }
+      ],
+      "physical_grades_without_a_cutting_row": [],
+      "materials_not_listed_in_this_table": "沒有材質列時不產生型錄自動推薦；牌號文案不能取代切削範圍。"
+    },
+    {
+      "id": "C04",
+      "holder_records": [
+        {
+          "part_no": "00-99802-M05-10C4",
+          "D_mm": "10",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 1
+          }
+        },
+        {
+          "part_no": "00-99802-M05-11C4",
+          "D_mm": "11",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 2
+          }
+        }
+      ],
+      "material_rows": [
+        {
+          "material_as_printed": "Carbon Steel",
+          "iso_material_group": "P",
+          "cutting_source": {
+            "printed_page": 147,
+            "pdf_page": 6,
+            "section": "Cutting Data",
+            "source_row": 1
+          },
+          "grades_as_printed": [
+            "NC30",
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "C9MT040105",
+              "grade_code": "NC30",
+              "sku_as_printed": "C9MT040105-NC30",
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 1
+              }
+            },
+            {
+              "part_no": "C9MT040110",
+              "grade_code": "NC30",
+              "sku_as_printed": "C9MT040110-NC30",
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 2
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Alloy Steel",
+          "iso_material_group": "P",
+          "cutting_source": {
+            "printed_page": 147,
+            "pdf_page": 6,
+            "section": "Cutting Data",
+            "source_row": 2
+          },
+          "grades_as_printed": [
+            "NC30",
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "C9MT040105",
+              "grade_code": "NC30",
+              "sku_as_printed": "C9MT040105-NC30",
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 1
+              }
+            },
+            {
+              "part_no": "C9MT040110",
+              "grade_code": "NC30",
+              "sku_as_printed": "C9MT040110-NC30",
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 2
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Stanless Steel",
+          "iso_material_group": "M",
+          "cutting_source": {
+            "printed_page": 147,
+            "pdf_page": 6,
+            "section": "Cutting Data",
+            "source_row": 3
+          },
+          "grades_as_printed": [
+            "NC30",
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "C9MT040105",
+              "grade_code": "NC30",
+              "sku_as_printed": "C9MT040105-NC30",
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 1
+              }
+            },
+            {
+              "part_no": "C9MT040110",
+              "grade_code": "NC30",
+              "sku_as_printed": "C9MT040110-NC30",
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 2
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Hardened steel < HRC52",
+          "iso_material_group": "H",
+          "cutting_source": {
+            "printed_page": 147,
+            "pdf_page": 6,
+            "section": "Cutting Data",
+            "source_row": 4
+          },
+          "grades_as_printed": [
+            "NC2032"
+          ],
+          "matching_physical_inserts": [],
+          "catalog_intersection_exists": false,
+          "note_zh": "該切削列需要的牌號，在此尺寸家族未列實體刀片，不能自動套用。"
+        }
+      ],
+      "physical_grades_without_a_cutting_row": [],
+      "materials_not_listed_in_this_table": "沒有材質列時不產生型錄自動推薦；牌號文案不能取代切削範圍。"
+    },
+    {
+      "id": "C05",
+      "holder_records": [
+        {
+          "part_no": "00-99802-BC12-12C5",
+          "D_mm": "12",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Cylindrical Shank",
+            "source_row": 1
+          }
+        },
+        {
+          "part_no": "00-99802-BC16-16C5",
+          "D_mm": "16",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Cylindrical Shank",
+            "source_row": 2
+          }
+        },
+        {
+          "part_no": "00-99802-BC20-20C5",
+          "D_mm": "20",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Cylindrical Shank",
+            "source_row": 3
+          }
+        },
+        {
+          "part_no": "00-99802-BC25-25C5",
+          "D_mm": "25",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Cylindrical Shank",
+            "source_row": 4
+          }
+        },
+        {
+          "part_no": "00-99802-M06-12C5",
+          "D_mm": "12",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 3
+          }
+        },
+        {
+          "part_no": "00-99802-M06-13C5",
+          "D_mm": "13",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 4
+          }
+        },
+        {
+          "part_no": "00-99802-M08-16C5",
+          "D_mm": "16",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 5
+          }
+        },
+        {
+          "part_no": "00-99802-M08-17C5",
+          "D_mm": "17",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 6
+          }
+        },
+        {
+          "part_no": "00-99802-M10-20C5",
+          "D_mm": "20",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 7
+          }
+        },
+        {
+          "part_no": "00-99802-M10-21C5",
+          "D_mm": "21",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 8
+          }
+        },
+        {
+          "part_no": "00-99802-M12-25C5",
+          "D_mm": "25",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 9
+          }
+        },
+        {
+          "part_no": "00-99802-M12-26C5",
+          "D_mm": "26",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 10
+          }
+        },
+        {
+          "part_no": "00-99805-M05-11C5",
+          "D_mm": "11",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 11
+          }
+        },
+        {
+          "part_no": "00-99805-M06-12C5",
+          "D_mm": "12",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 12
+          }
+        },
+        {
+          "part_no": "00-99805-M06-13C5",
+          "D_mm": "13",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 13
+          }
+        },
+        {
+          "part_no": "00-99805-M08-16C5",
+          "D_mm": "16",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 14
+          }
+        },
+        {
+          "part_no": "00-99805-M08-17C5",
+          "D_mm": "17",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 15
+          }
+        },
+        {
+          "part_no": "00-99805-M10-20C5",
+          "D_mm": "20",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 16
+          }
+        },
+        {
+          "part_no": "00-99805-M10-21C5",
+          "D_mm": "21",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 17
+          }
+        },
+        {
+          "part_no": "00-99805-M12-25C5",
+          "D_mm": "25",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 18
+          }
+        },
+        {
+          "part_no": "00-99805-M12-26C5",
+          "D_mm": "26",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type",
+            "source_row": 19
+          }
+        }
+      ],
+      "material_rows": [
+        {
+          "material_as_printed": "Carbon Steel",
+          "iso_material_group": "P",
+          "cutting_source": {
+            "printed_page": 147,
+            "pdf_page": 6,
+            "section": "Cutting Data",
+            "source_row": 1
+          },
+          "grades_as_printed": [
+            "NC30",
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "C9MT05T105",
+              "grade_code": "NC30",
+              "sku_as_printed": "C9MT05T105-NC30",
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 3
+              }
+            },
+            {
+              "part_no": "C9MT05T110H",
+              "grade_code": "NC2032",
+              "sku_as_printed": "C9MT05T110H-NC2032",
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 4
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Alloy Steel",
+          "iso_material_group": "P",
+          "cutting_source": {
+            "printed_page": 147,
+            "pdf_page": 6,
+            "section": "Cutting Data",
+            "source_row": 2
+          },
+          "grades_as_printed": [
+            "NC30",
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "C9MT05T105",
+              "grade_code": "NC30",
+              "sku_as_printed": "C9MT05T105-NC30",
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 3
+              }
+            },
+            {
+              "part_no": "C9MT05T110H",
+              "grade_code": "NC2032",
+              "sku_as_printed": "C9MT05T110H-NC2032",
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 4
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Stanless Steel",
+          "iso_material_group": "M",
+          "cutting_source": {
+            "printed_page": 147,
+            "pdf_page": 6,
+            "section": "Cutting Data",
+            "source_row": 3
+          },
+          "grades_as_printed": [
+            "NC30",
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "C9MT05T105",
+              "grade_code": "NC30",
+              "sku_as_printed": "C9MT05T105-NC30",
+              "Re_mm": "0.5",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 3
+              }
+            },
+            {
+              "part_no": "C9MT05T110H",
+              "grade_code": "NC2032",
+              "sku_as_printed": "C9MT05T110H-NC2032",
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 4
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        },
+        {
+          "material_as_printed": "Hardened steel < HRC52",
+          "iso_material_group": "H",
+          "cutting_source": {
+            "printed_page": 147,
+            "pdf_page": 6,
+            "section": "Cutting Data",
+            "source_row": 4
+          },
+          "grades_as_printed": [
+            "NC2032"
+          ],
+          "matching_physical_inserts": [
+            {
+              "part_no": "C9MT05T110H",
+              "grade_code": "NC2032",
+              "sku_as_printed": "C9MT05T110H-NC2032",
+              "Re_mm": "1.0",
+              "source": {
+                "printed_page": 147,
+                "pdf_page": 6,
+                "section": "Insert",
+                "source_row": 4
+              }
+            }
+          ],
+          "catalog_intersection_exists": true,
+          "note_zh": "已有實體候選，仍須篩選刀體、Re、夾持及加工條件。"
+        }
+      ],
+      "physical_grades_without_a_cutting_row": [],
+      "materials_not_listed_in_this_table": "沒有材質列時不產生型錄自動推薦；牌號文案不能取代切削範圍。"
+    }
+  ]
+}

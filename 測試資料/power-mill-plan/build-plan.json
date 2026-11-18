@@ -1,0 +1,781 @@
+{
+  "schema_version": "1.0",
+  "status": "research_and_build_preparation_only",
+  "title_zh": "Power Mill 建置前資料與選型相依規劃",
+  "prepared_on": "2026-11-18",
+  "scope_zh": "整理六頁型錄的資料使用方式與建置前問題，附公開研究閱讀頁供原廠確認；尚未建立產品選型／切削計算器，未修改正式產品頁。",
+  "source_files": [
+    "sources/12_Power Mill_p142-147.pdf",
+    "research-notes.txt",
+    "product-data.json",
+    "cutting-data.json",
+    "page-map.json"
+  ],
+  "source_pages": {
+    "p142": {
+      "printed_page": 142,
+      "pdf_page": 1,
+      "image": "verification/page-1.png",
+      "subject_zh": "系列總覽與應用圖"
+    },
+    "p143": {
+      "printed_page": 143,
+      "pdf_page": 2,
+      "image": "verification/page-2.png",
+      "subject_zh": "A 系列刀體"
+    },
+    "p144": {
+      "printed_page": 144,
+      "pdf_page": 3,
+      "image": "verification/page-3.png",
+      "subject_zh": "A 系列刀片與裝配"
+    },
+    "p145": {
+      "printed_page": 145,
+      "pdf_page": 4,
+      "image": "verification/page-4.png",
+      "subject_zh": "A 系列切削表、註記與表面品質圖"
+    },
+    "p146": {
+      "printed_page": 146,
+      "pdf_page": 5,
+      "image": "verification/page-5.png",
+      "subject_zh": "C 系列刀體"
+    },
+    "p147": {
+      "printed_page": 147,
+      "pdf_page": 6,
+      "image": "verification/page-6.png",
+      "subject_zh": "C 系列刀片、裝配與切削表"
+    }
+  },
+  "evidence_policy": {
+    "source_fact_zh": "verified_source_facts 僅記錄六頁型錄明示且已比對 PNG 的內容；source_refs 對應 source_pages。",
+    "engineering_inference_zh": "customer_intake、selection_dependencies、calculation_plan 與 recommendation_gates 是未來實作的工程規劃；basis_fact_ids 僅表示推論依據，不代表原廠已提供此選型流程。",
+    "unknown_zh": "未提供或尚未確認的值保留 null／待確認；不以 0、區間中點或任意預設值代替。",
+    "identity_zh": "刀體保留 occurrence_id、完整 part_no、type 與來源表列；不得只依 Type 或直徑去重。刀片沿用既有資料的 part_no、grade_code 或來源完整 sku，不創造原廠 SKU。"
+  },
+  "verified_source_facts": [
+    {
+      "id": "series-a-purpose",
+      "source_refs": [
+        "p142",
+        "p143"
+      ],
+      "fact_zh": "A 為 Shoulder Face Mills，90° 肩面銑削；總覽標示直徑 Ø10~Ø25 mm。此為系列總覽範圍，實際選項仍以刀體逐列規格為準。"
+    },
+    {
+      "id": "series-c-purpose",
+      "source_refs": [
+        "p142",
+        "p146",
+        "p147"
+      ],
+      "fact_zh": "C 為 Torus Radius Mills；文案有 corner finishing、ramp feed，以及模具 3D 曲面半精加工。總覽標示 Ø10~Ø26 mm；不能據此補出表內不存在的任意直徑。"
+    },
+    {
+      "id": "mount-and-model",
+      "source_refs": [
+        "p143",
+        "p146"
+      ],
+      "fact_zh": "A/C 各有圓柱柄及 Screw-Fit 刀體。圓柱柄列有 D、d h6、d1、L1、L、Z、α；Screw-Fit 列有 D、L、M、DPM、Z、α。C 表未列刀體 Ap。C Screw-Fit 上下段有相同 Type、不同完整料號與 L 的列，必須分開保存。"
+    },
+    {
+      "id": "a-size-map",
+      "source_refs": [
+        "p143",
+        "p144",
+        "p145"
+      ],
+      "fact_zh": "A 的 insert size 06 規格 L=6.5 mm，對應 a-cutting-6p5（表題 Holder Ø10~Ø17 mm）；size 10 的 L=10 mm，對應 a-cutting-10（表題 Holder Ø16~Ø25 mm）。刀體 A06 的表列 Ap=5 mm，A10 的表列 Ap=9 mm；這些刀體值與切削表的工況 Ap 欄位分開保存。"
+    },
+    {
+      "id": "a-operation-columns",
+      "source_refs": [
+        "p145"
+      ],
+      "fact_zh": "A 的兩張切削表各含兩幅未命名工法圖。diagram_1 只有 Ap；diagram_2 同時有 Ap、Ae。不得合併兩欄 Ap，也不得把圖自行命名成原廠未印出的工法。"
+    },
+    {
+      "id": "cutting-units-and-scope",
+      "source_refs": [
+        "p145",
+        "p147"
+      ],
+      "fact_zh": "兩系列切削表的 Vc 為 m/min、fz 為 mm/tooth。A 有兩張、每張七列材質資料；C 使用 p147 獨立四列資料，不能沿用 A 表。"
+    },
+    {
+      "id": "a-specific-notes",
+      "source_refs": [
+        "p143",
+        "p145"
+      ],
+      "fact_zh": "A 表註記 slotting 進給比表值減少 30%，即剩 70%；ramping angle 應小於所選刀體的 α°。此註記適用 A 的兩張表，不自行擴大到 C。"
+    },
+    {
+      "id": "c-specific-limits",
+      "source_refs": [
+        "p147"
+      ],
+      "fact_zh": "C 的 Ae 註記為 below 2.5 mm，保存為 Ae < 2.5 mm；淬硬鋼列為 HRC < 52，且該列僅列 NC2032。其餘三列為碳鋼、合金鋼、不鏽鋼。"
+    },
+    {
+      "id": "z-count",
+      "source_refs": [
+        "p143",
+        "p146"
+      ],
+      "fact_zh": "刀體表 Z 是刃數，不是機台 Z 軸。Z 必須從所選完整刀體列取得；例如 A Ø16 的 A06 刀體為 Z=3，而 A10 為 Z=2，不能只靠直徑決定。"
+    },
+    {
+      "id": "grade-compatibility",
+      "source_refs": [
+        "p143",
+        "p144",
+        "p145",
+        "p146",
+        "p147"
+      ],
+      "fact_zh": "刀體列有對應刀片類型，刀片表另列牌號與 Re。A06 存在 NC2032 刀片，但 p145 的 6.5 mm 鋼材等列列 NC5072/NC2033；不可把產品存在視為已有相同切削條件。C4 的兩款 C9MT04 刀片皆為 NC30；NC2032 只出現在 C9MT05T110H-NC2032。"
+    },
+    {
+      "id": "assembly-source",
+      "source_refs": [
+        "p144",
+        "p147"
+      ],
+      "fact_zh": "裝配螺絲、扳手與扭力依 A06、A10、C04、C05 四組分列，並有建議使用扭力起子的註記；不能套用跨組的螺絲或扭力。"
+    },
+    {
+      "id": "extension-unavailable",
+      "source_refs": [
+        "p143",
+        "p146"
+      ],
+      "fact_zh": "兩頁交叉引用 p164 extension bars；p164 不在本次六頁 PDF，沒有延長桿型號、尺寸或可確認的配對。"
+    },
+    {
+      "id": "unnamed-application-diagrams",
+      "source_refs": [
+        "p142"
+      ],
+      "fact_zh": "A/C 各五幅應用圖未逐一附文字名稱；目前只能按來源位置引用。"
+    },
+    {
+      "id": "roughness-and-coating-unresolved",
+      "source_refs": [
+        "p144",
+        "p145",
+        "p147"
+      ],
+      "fact_zh": "p145 品質圖未明示 Ra/Rz 或完整工況，圖說 A9MT1035 NC2033 與 p144 尺寸10表的 NC2032 不同。鍍層字形 TiAlN/TiAIN/AITiN 尚待確認；不得據此新增產品或承諾加工品質。"
+    }
+  ],
+  "customer_intake": {
+    "classification": "engineering_inference",
+    "label_zh": "未來先向客戶取得的欄位",
+    "note_zh": "這是需求訪談與選型資料欄位建議，未設定型錄未提供的機台、尺寸、硬度或工況允許範圍。",
+    "first_questions": [
+      {
+        "id": "existing_tool",
+        "label_zh": "已有刀具或從加工需求開始",
+        "ask_zh": "是否已有完整刀體料號、刀片料號與牌號？若有，先提供照片或完整標示。",
+        "required_for_zh": "精確定位產品與既有裝配",
+        "basis_fact_ids": [
+          "mount-and-model",
+          "grade-compatibility"
+        ]
+      },
+      {
+        "id": "workpiece_goal",
+        "label_zh": "工件圖形與加工目標",
+        "ask_zh": "要加工 90° 肩面、圓角／曲面，或其他部位？提供圖面、現有形狀、目標形狀與粗／半精／精加工需求。",
+        "required_for_zh": "A/C 系列初步分流",
+        "basis_fact_ids": [
+          "series-a-purpose",
+          "series-c-purpose",
+          "unnamed-application-diagrams"
+        ]
+      },
+      {
+        "id": "material",
+        "label_zh": "工件材質與實際硬度",
+        "ask_zh": "提供材質完整牌號、標準、熱處理狀態及實測／圖面硬度與單位，不只填鋼或不鏽鋼。",
+        "required_for_zh": "對照材質列、限制及刀片牌號",
+        "basis_fact_ids": [
+          "cutting-units-and-scope",
+          "c-specific-limits",
+          "grade-compatibility"
+        ]
+      },
+      {
+        "id": "machining_method",
+        "label_zh": "實際刀路與加工方式",
+        "ask_zh": "提供刀路或截面圖、是否滿槽、是否斜坡進刀，以及斜坡角度；A 表要另確認對應 diagram_1 或 diagram_2，未確認前保留待確認。",
+        "required_for_zh": "正確選取 Ap/Ae 欄與 A 專用修正註記",
+        "basis_fact_ids": [
+          "a-operation-columns",
+          "a-specific-notes"
+        ]
+      },
+      {
+        "id": "cutting_engagement",
+        "label_zh": "每刀切深與切寬",
+        "ask_zh": "每刀的軸向切深 Ap、徑向切寬 Ae 各是多少 mm？與總加工深度分開填，並說明是否沿刀路改變。",
+        "required_for_zh": "工況相容性與切削表對照",
+        "basis_fact_ids": [
+          "a-operation-columns",
+          "c-specific-limits"
+        ]
+      },
+      {
+        "id": "geometry_access",
+        "label_zh": "可用刀徑、圓角與伸出需求",
+        "ask_zh": "提供可用刀徑、工件圓角要求、加工深度、避空／干涉位置及所需伸出長度；是否一定需要延長桿？",
+        "required_for_zh": "篩選實際刀體列、刀片 Re 及缺少的延長桿資料",
+        "basis_fact_ids": [
+          "mount-and-model",
+          "grade-compatibility",
+          "extension-unavailable"
+        ]
+      },
+      {
+        "id": "holder_interface",
+        "label_zh": "機台與刀柄夾持方式",
+        "ask_zh": "使用圓柱柄還是 Screw-Fit？現有刀柄／延長桿的完整型號、夾持徑或 M 螺紋、可夾持長度與組裝圖為何？",
+        "required_for_zh": "確認介面、長度與裝配相容性",
+        "basis_fact_ids": [
+          "mount-and-model",
+          "assembly-source",
+          "extension-unavailable"
+        ]
+      },
+      {
+        "id": "machine_limits",
+        "label_zh": "機台轉速與進給能力",
+        "ask_zh": "提供可用主軸轉速範圍、工作進給上限、主軸功率／扭矩資料，以及任何刀柄或附件轉速限制。",
+        "required_for_zh": "RPM／Vf 算後檢核；型錄六頁未提供這些上限",
+        "basis_fact_ids": [
+          "cutting-units-and-scope",
+          "z-count"
+        ]
+      },
+      {
+        "id": "setup_conditions",
+        "label_zh": "實際加工條件與品質需求",
+        "ask_zh": "提供工件夾持、刀具伸出、冷卻／排屑方式、是否斷續切削，以及尺寸公差與表面品質目標；若有試切，提供目前 Vc、fz、RPM、Vf 及現象。",
+        "required_for_zh": "由工程人員確認區間內起始值與試切條件，不由頁面自行猜測",
+        "basis_fact_ids": [
+          "roughness-and-coating-unresolved",
+          "cutting-units-and-scope"
+        ]
+      }
+    ],
+    "manufacturer_questions": [
+      {
+        "id": "official_operation_names",
+        "label_zh": "確認 p142 應用圖與 p145 兩種工法圖的官方名稱與實際適用刀路",
+        "source_refs": [
+          "p142",
+          "p145"
+        ]
+      },
+      {
+        "id": "extension_bar_catalog",
+        "label_zh": "補 p164 延長桿規格與可驗證的刀體／延長桿配對",
+        "source_refs": [
+          "p143",
+          "p146"
+        ],
+        "missing_printed_page": 164
+      },
+      {
+        "id": "c_ramping_conditions",
+        "label_zh": "確認 C 系列斜坡進刀的完整限制與進給處理；不能直接複用 A 的註記",
+        "source_refs": [
+          "p145",
+          "p146",
+          "p147"
+        ]
+      },
+      {
+        "id": "grade_condition_gaps",
+        "label_zh": "確認產品有列但切削表未涵蓋的牌號／材質組合，及 C04 對淬硬鋼是否另有正式資料",
+        "source_refs": [
+          "p144",
+          "p145",
+          "p147"
+        ]
+      },
+      {
+        "id": "effective_cutting_diameter",
+        "label_zh": "確認 C 系列不同接觸條件的轉速計算直徑應採名義 D 或有效切削直徑，及適用方式",
+        "source_refs": [
+          "p146",
+          "p147"
+        ]
+      },
+      {
+        "id": "catalog_copy_confirmation",
+        "label_zh": "確認鍍層 I/l 字形、表面品質指標與試驗工況、NC2033/NC2032 圖說差異",
+        "source_refs": [
+          "p144",
+          "p145",
+          "p147"
+        ]
+      }
+    ]
+  },
+  "selection_dependencies": {
+    "classification": "engineering_inference",
+    "label_zh": "未來選型流程與資料相依",
+    "steps": [
+      {
+        "id": "resolve_start",
+        "label_zh": "確認起點",
+        "inputs": [
+          "existing_tool",
+          "workpiece_goal"
+        ],
+        "outputs": [
+          "known_holder_occurrence_id",
+          "candidate_series"
+        ],
+        "rule_zh": "已有完整料號時先定位該列，再核對需求；沒有料號時由工件需求初步分 A/C。需求未落入明示用途時先工程確認。",
+        "basis_fact_ids": [
+          "series-a-purpose",
+          "series-c-purpose",
+          "mount-and-model"
+        ]
+      },
+      {
+        "id": "select_holder",
+        "label_zh": "選刀體與夾持介面",
+        "depends_on": [
+          "resolve_start"
+        ],
+        "inputs": [
+          "candidate_series",
+          "geometry_access",
+          "holder_interface"
+        ],
+        "outputs": [
+          "holder_occurrence_id",
+          "holder_part_no",
+          "holder_D_mm",
+          "holder_Z",
+          "holder_insert_pattern",
+          "holder_ramp_angle_deg"
+        ],
+        "rule_zh": "從現有逐列資料篩選；圓柱柄核對 d h6、d1、L1、L，Screw-Fit 核對 M、DPM、L。不能只依 D 或 Type 選第一筆。需要延長桿時先列待確認，不代造 p164 配對。",
+        "basis_fact_ids": [
+          "mount-and-model",
+          "z-count",
+          "extension-unavailable"
+        ]
+      },
+      {
+        "id": "resolve_material",
+        "label_zh": "確認材料與表列範圍",
+        "depends_on": [
+          "resolve_start"
+        ],
+        "inputs": [
+          "candidate_series",
+          "material"
+        ],
+        "outputs": [
+          "matching_material_row",
+          "hardness_check"
+        ],
+        "rule_zh": "按材質牌號及硬度核對來源列；表內示例不視為任意牌號等價證明。C 淬硬鋼必須確認 HRC < 52，52 或以上不能當作符合。查無列或硬度未知時不給專屬推薦。",
+        "basis_fact_ids": [
+          "cutting-units-and-scope",
+          "c-specific-limits"
+        ]
+      },
+      {
+        "id": "select_insert",
+        "label_zh": "交集篩選刀片與牌號",
+        "depends_on": [
+          "select_holder",
+          "resolve_material"
+        ],
+        "inputs": [
+          "holder_insert_pattern",
+          "matching_material_row",
+          "geometry_access",
+          "setup_conditions"
+        ],
+        "outputs": [
+          "insert_identity",
+          "insert_grade_code",
+          "insert_Re_mm",
+          "assembly_id"
+        ],
+        "rule_zh": "候選必須同時符合刀體相容刀片、產品表存在的牌號、切削表該材質列列出的牌號及工件 Re 需求。沒有交集即回報目前資料不足；不能把 NC 牌號、ISO grade 與工件 ISO 材質群互相替代。",
+        "basis_fact_ids": [
+          "grade-compatibility",
+          "assembly-source"
+        ]
+      },
+      {
+        "id": "select_cutting_table",
+        "label_zh": "依系列與刀片尺寸分流",
+        "depends_on": [
+          "select_holder",
+          "select_insert",
+          "resolve_material"
+        ],
+        "inputs": [
+          "candidate_series",
+          "holder_insert_pattern",
+          "insert_identity",
+          "matching_material_row"
+        ],
+        "outputs": [
+          "cutting_table_id",
+          "source_material_row"
+        ],
+        "rule_zh": "A06 對 a-cutting-6p5，A10 對 a-cutting-10；C 對 c-cutting。A 表的名義直徑範圍重疊，不能只用直徑選表。",
+        "basis_fact_ids": [
+          "a-size-map",
+          "cutting-units-and-scope"
+        ]
+      },
+      {
+        "id": "check_operation",
+        "label_zh": "核對工法、Ap、Ae 與斜坡角度",
+        "depends_on": [
+          "select_cutting_table"
+        ],
+        "inputs": [
+          "machining_method",
+          "cutting_engagement",
+          "holder_ramp_angle_deg"
+        ],
+        "outputs": [
+          "operation_diagram_id",
+          "engagement_check",
+          "feed_factor",
+          "ramp_check"
+        ],
+        "rule_zh": "A 必須選定已確認的 diagram_1 或 diagram_2，再讀該圖的 Ap/Ae；未命名圖不能自動對應客戶刀路。切削表的工況值不等於可跨工法使用的普遍最大值。C 檢查其材料列 Ap 及 Ae < 2.5 mm，不填入 A 的刀體 Ap。A 滿槽進給因子為 0.70，A 斜坡角需 < 該刀體 α；C 未取得專屬斜坡規則時保留待確認。",
+        "basis_fact_ids": [
+          "a-operation-columns",
+          "a-specific-notes",
+          "a-size-map",
+          "c-specific-limits"
+        ]
+      },
+      {
+        "id": "prepare_calculation",
+        "label_zh": "計算轉速與每分鐘進給前確認輸入",
+        "depends_on": [
+          "select_cutting_table",
+          "check_operation"
+        ],
+        "inputs": [
+          "source_material_row",
+          "holder_Z",
+          "holder_D_mm",
+          "machine_limits",
+          "setup_conditions"
+        ],
+        "outputs": [
+          "confirmed_Vc",
+          "confirmed_fz",
+          "confirmed_calculation_diameter",
+          "calculation_ready"
+        ],
+        "rule_zh": "型錄區間可供查閱；區間內採哪個 Vc、fz 由客戶或工程人員確認，不自動取最大、最小或中點。刀體 Z 自資料列帶入且顯示為刃數。轉速計算直徑的使用前提須明示，C 的有效切削直徑未確認時不能以名義 D 的試算冒充完成推薦。",
+        "basis_fact_ids": [
+          "cutting-units-and-scope",
+          "z-count"
+        ]
+      }
+    ],
+    "invalidation_rules": [
+      {
+        "changed": "candidate_series",
+        "recheck": [
+          "holder",
+          "insert",
+          "material_row",
+          "cutting_table",
+          "operation",
+          "Ap",
+          "Ae",
+          "feed_factor",
+          "calculation"
+        ],
+        "label_zh": "換系列後重新核對所有系列相依值"
+      },
+      {
+        "changed": "holder_occurrence_id",
+        "recheck": [
+          "D",
+          "Z",
+          "mounting",
+          "insert_pattern",
+          "ramp_angle",
+          "assembly",
+          "calculation"
+        ],
+        "label_zh": "換刀體後不可保留舊刃數或裝配"
+      },
+      {
+        "changed": "material_or_hardness",
+        "recheck": [
+          "grade",
+          "material_row",
+          "Vc",
+          "fz",
+          "Ap",
+          "Ae",
+          "calculation"
+        ],
+        "label_zh": "換材料或硬度後重選條件"
+      },
+      {
+        "changed": "insert_or_grade",
+        "recheck": [
+          "compatibility",
+          "Re",
+          "cutting_table",
+          "material_row",
+          "assembly",
+          "calculation"
+        ],
+        "label_zh": "換刀片尺寸或牌號後重新核對"
+      },
+      {
+        "changed": "operation_or_engagement",
+        "recheck": [
+          "diagram",
+          "Ap",
+          "Ae",
+          "ramp_angle",
+          "feed_factor",
+          "calculation"
+        ],
+        "label_zh": "改刀路或切入量後重核工況"
+      }
+    ]
+  },
+  "calculation_plan": {
+    "classification": "engineering_inference",
+    "label_zh": "未來 RPM／Vf 試算規劃",
+    "source_scope_zh": "六頁型錄提供 Vc、fz 與刀體 D、Z，沒有印出以下換算公式；以下為通用銑削運動關係，不是原廠新增規格或完整工況推薦。",
+    "basis_fact_ids": [
+      "cutting-units-and-scope",
+      "z-count",
+      "a-specific-notes"
+    ],
+    "symbols": [
+      {
+        "id": "Vc",
+        "label_zh": "切削速度",
+        "unit": "m/min",
+        "source_zh": "已確認切削表／材質列，再確認採用值"
+      },
+      {
+        "id": "D_calc",
+        "label_zh": "確認用於計算的切削直徑",
+        "unit": "mm",
+        "source_zh": "刀體 D 與實際接觸條件；名義 D 和有效切削直徑不混稱"
+      },
+      {
+        "id": "n",
+        "label_zh": "主軸轉速 RPM",
+        "unit": "rev/min",
+        "source_zh": "由 Vc、D_calc 換算或輸入實際可用轉速"
+      },
+      {
+        "id": "fz",
+        "label_zh": "每刃進給",
+        "unit": "mm/tooth",
+        "source_zh": "已確認切削表／材質列，再確認採用值"
+      },
+      {
+        "id": "Z",
+        "label_zh": "刃數",
+        "unit": "tooth/rev",
+        "source_zh": "所選完整刀體列的 Z；不是機台 Z 軸，也不是 Ap"
+      },
+      {
+        "id": "Vf",
+        "label_zh": "每分鐘進給",
+        "unit": "mm/min",
+        "source_zh": "由 fz、Z、實際 n 換算"
+      }
+    ],
+    "formulas": [
+      {
+        "id": "rpm_from_vc",
+        "expression": "n = 1000 * Vc / (pi * D_calc)",
+        "label_zh": "切削速度換算主軸轉速",
+        "precondition_zh": "Vc > 0、D_calc > 0；直徑使用前提已確認。1000 用於公尺與毫米換算。"
+      },
+      {
+        "id": "feed_from_chipload",
+        "expression": "Vf_base = fz * Z * n",
+        "label_zh": "每刃進給換算每分鐘進給",
+        "precondition_zh": "fz > 0、Z 為所選刀體正整數、n 為實際採用轉速。不能使用 Vf = fz * n 而漏掉 Z。"
+      },
+      {
+        "id": "a_slotting_feed",
+        "expression": "Vf_slotting = 0.70 * Vf_base",
+        "equivalent_expression": "fz_slotting = 0.70 * fz_base; Vf_slotting = fz_slotting * Z * n",
+        "label_zh": "A 系列滿槽進給減少 30%",
+        "precondition_zh": "只在確認為 A 系列 slotting 時套用一次；Vf 與 fz 不可各乘 0.70 造成重複減量。0.70 不是減少到 30%，也不改寫 Vc。"
+      },
+      {
+        "id": "actual_values",
+        "expression": "Vc_actual = pi * D_calc * n_actual / 1000; fz_actual = Vf_actual / (Z * n_actual)",
+        "label_zh": "機台實際值回算",
+        "precondition_zh": "若機台限制或取整改變 n、Vf，需以實際值回算並重新核對；不得只裁切 RPM 而保留未更新的 Vf 或宣稱原條件仍成立。"
+      }
+    ],
+    "output_requirements_zh": [
+      "顯示完整刀體、刀片／牌號、資料來源頁與表列，並顯示計算輸入及單位。",
+      "保留型錄 Vc、fz 區間與使用者確認值的差別；未確認單值時只顯示來源區間。",
+      "若做純數學區間試算，必須標示未完成工況推薦；不能讓端點或中點自動成為建議設定。",
+      "顯示 Z 為刃數；欄位名稱不可只寫容易誤讀的 Z 軸。",
+      "機台轉速、進給、功率／扭矩、裝配與伸出條件尚未核對時，結果維持待確認。"
+    ]
+  },
+  "recommendation_gates": {
+    "classification": "engineering_inference",
+    "label_zh": "資料不足時不能預設推薦",
+    "items": [
+      {
+        "id": "missing_part_identity",
+        "condition_zh": "只有 Type 或直徑，無法分辨完整刀體列",
+        "response_zh": "列出來源候選與差異，取得完整料號／長度／介面後再選；不預設短版、長版或第一筆。",
+        "basis_fact_ids": [
+          "mount-and-model"
+        ]
+      },
+      {
+        "id": "unknown_workpiece_or_operation",
+        "condition_zh": "工件目標、刀路或 A 工法圖對應尚未確認",
+        "response_zh": "保留系列或工法待確認，不自行命名兩圖，不混用 Ap/Ae。",
+        "basis_fact_ids": [
+          "a-operation-columns",
+          "unnamed-application-diagrams"
+        ]
+      },
+      {
+        "id": "unsupported_material",
+        "condition_zh": "缺材質牌號、熱處理／硬度，或表內無可確認材質列",
+        "response_zh": "請工程確認或補原廠資料；不可把相近材質或另一系列的條件當成已驗證推薦。",
+        "basis_fact_ids": [
+          "cutting-units-and-scope",
+          "c-specific-limits"
+        ]
+      },
+      {
+        "id": "c04_hardened_grade_gap",
+        "condition_zh": "C04 刀體搭配淬硬鋼材料列",
+        "response_zh": "目前 C04 產品只有 NC30，而淬硬鋼列只列 NC2032；無可直接推薦的來源交集，不能捏造 C04-NC2032 或改用 NC30 條件。",
+        "basis_fact_ids": [
+          "grade-compatibility",
+          "c-specific-limits"
+        ]
+      },
+      {
+        "id": "a06_nc2032_cutting_gap",
+        "condition_zh": "選擇 A06 NC2032，但想套用 p145 6.5 mm 鋼材等列的條件",
+        "response_zh": "產品表有該牌號不表示已有該列切削條件；保留待確認，不沿用 NC5072/NC2033 的表值。",
+        "basis_fact_ids": [
+          "grade-compatibility"
+        ]
+      },
+      {
+        "id": "missing_engagement",
+        "condition_zh": "Ap、Ae、斜坡角度不明或超出對應來源條件",
+        "response_zh": "顯示缺項／不相符及來源；不任意外插、不以刀體 Ap 取代工況 Ap，C 不套 A 的限制或修正。",
+        "basis_fact_ids": [
+          "a-size-map",
+          "a-operation-columns",
+          "a-specific-notes",
+          "c-specific-limits"
+        ]
+      },
+      {
+        "id": "missing_extension_data",
+        "condition_zh": "需要延長桿卻尚未取得 p164 或相容性證據",
+        "response_zh": "只顯示缺頁與待確認；不補型號、長度、配對或使用限制。",
+        "basis_fact_ids": [
+          "extension-unavailable"
+        ]
+      },
+      {
+        "id": "unconfirmed_numeric_choice",
+        "condition_zh": "僅有型錄 Vc/fz 區間，或 Z、計算直徑、機台能力未確認",
+        "response_zh": "可查閱區間與公式，但不自動生成單一推薦 RPM/Vf；不將缺值改成 0。",
+        "basis_fact_ids": [
+          "cutting-units-and-scope",
+          "z-count"
+        ]
+      },
+      {
+        "id": "surface_quality_promise",
+        "condition_zh": "欲用 p145 品質圖承諾 Ra/Rz 或另立 A9MT1035 NC2033 販售品項",
+        "response_zh": "待原廠補指標、工況與正確牌號後再決定呈現方式；不能推得品質保證或新 SKU。",
+        "basis_fact_ids": [
+          "roughness-and-coating-unresolved"
+        ]
+      },
+      {
+        "id": "unconfirmed_coating",
+        "condition_zh": "欲統一 TiAlN/TiAIN/AITiN 為正式鍍層名稱",
+        "response_zh": "保留來源原字串及待確認，不以正規化猜測覆寫來源。",
+        "basis_fact_ids": [
+          "roughness-and-coating-unresolved"
+        ]
+      }
+    ]
+  },
+  "future_build_readiness": {
+    "classification": "engineering_inference",
+    "label_zh": "開始網站／樣板前的準備順序",
+    "tasks_zh": [
+      "先確認用途是產品查閱、候選篩選，或切削試算；三者所需完整度不同，查閱資料可先保留待確認項。",
+      "補齊官方工法名稱、p164、牌號工況缺口與計算直徑問題；未取得的資料保留缺口與來源。",
+      "與客戶確認訪談欄位與依賴流程，再以本機實際圖片與產品資料準備獨立樣板。",
+      "實作時沿用 product-data.json、cutting-data.json 與 page-map.json 為來源，不另手抄一份推薦規格；未來顯示名稱可調整，穩定 id 保留。",
+      "未確認的新設計只放根目錄測試資料下的獨立資料夾；取得樣板確認後才整理套用正式頁。此次研究不代表已授權發布。"
+    ],
+    "verification_cases_zh": [
+      "A Ø16 同時可能是 A06/Z3 或 A10/Z2，必須由完整刀體與刀片尺寸決定切削表及 Z。",
+      "C 同 Type 的 00-99802 與 00-99805 列要保持不同選項，不合併不同 L。",
+      "A diagram_1_Ap、diagram_2_Ap、diagram_2_Ae 不得在資料或畫面上展平成一個 Ap。",
+      "C Ae=2.5 mm 不符合嚴格小於；淬硬鋼 HRC=52 不符合 HRC<52。",
+      "A slotting 修正只套用一次且剩 70%；不能傳到 C。",
+      "C04 配淬硬鋼、A06 NC2032 缺專屬表值時應回報資料不足。",
+      "缺頁 p164、空白 Ap、未確認鍍層與粗糙度指標保持待確認，不新增產品或數值。",
+      "RPM／Vf 必須帶入所選刀體的 Z；改變刀體或實際轉速後重新計算。"
+    ]
+  },
+  "visual_review": {
+    "reviewed_images": [
+      "verification/page-1.png",
+      "verification/page-2.png",
+      "verification/page-3.png",
+      "verification/page-4.png",
+      "verification/page-5.png",
+      "verification/page-6.png"
+    ],
+    "key_checks_zh": [
+      "p142 系列用途、90°／R 標示與未命名應用圖。",
+      "p143 A 的 Ap、Z、α、刀片對應與 p164 參照。",
+      "p144 06 對應 L=6.5 mm、牌號／Parts No. 分欄與裝配分組。",
+      "p145 兩幅工法圖、兩個 Ap、第二圖 Ae、fz 單位、30% 與 under α 註記，以及品質圖缺口。",
+      "p146 C 未列刀體 Ap、Screw-Fit 上下段重複 Type 與完整料號／L 差異。",
+      "p147 C04/C05 刀片與牌號、C 專屬切削表、Ae below 2.5 mm 與 HRC<52。"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+
+
+
+
+
+          Cutting    Data
+
+         • Reduce the feed rate 30% from the below table for slotting operation.
+         • Ramping angle should be under α°. (Please refer to holder specifications)
+
+          Insert Size: 6.5mm (Holder Ø10~Ø17mm)  >>
+
+                           Sample
+                                    Vc       fz                       Grade of
+              Work Material Code
+                                  (m/min) (mm/tooth)          Ae       Insert
+                            (JIS)
+                                                   Ap(mm) Ap(mm) Ae(mm)
+                                                                      NC5072
+            Carbon Steel     P5    80~150  0.03~0.07 1.5    4     1.5
+                                                                      NC2033
+                                                                      NC5072
+          P Low alloy steel SCM440 80~150  0.03~0.07 1.5    4     1
+                                                                      NC2033
+                                                                      NC5072
+            High alloy steel SKD11 60~120  0.03~0.07 1     2.5    1
+                                                                      NC2033
+                                                                      NC5072
+          M Stainless steel SUS304 60~120  0.01~0.05 0.5    2     1
+                                                                      NC2033
+                                                                      NC5072
+            Cast Iron        FC25  60~120  0.03~0.07 1     2.5    1
+                                                                      NC2033
+          K
+                                                                      NC5072
+            Malleable Cast Iron   100~150  0.03~0.07 1.5    4     1.5
+                                                                      NC2033
+          N Non-ferrous metal A6061 200~500 0.03~0.07 2     4     2   NC9031
+          Insert Size: 10mm (Holder Ø16~Ø25mm)   >>
+                           Sample
+                                    Vc       fz                       Grade of
+              Work Material Code
+                                  (m/min) (mm/tooth)          Ae       Insert
+                            (JIS)
+                                                   Ap(mm) Ap(mm) Ae(mm)
+            Carbon Steel     P5   150~250  0.08~0.15 3      8     3   NC2032
+          P Low alloy steel SCM440 150~250 0.08~0.15 3      8     2   NC2032
+            High alloy steel SKD11 120~200 0.08~0.15 2      4     2   NC2032
+          M Stainless Steel SUS304 80~120  0.04~0.08 1      4     2   NC2032
+            Cast Iron        FC25 120~200  0.08~0.12 2      5     2   NC2032
+          K
+            Malleable Cast Iron   100~150  0.06~0.10 3      8     3   NC2032
+          N Non-ferrous metal A6061 200~500 0.03~0.07 5     8     3   NC9031
+          Surface Roughness Comparison
+          • Nine9 A series shoulder face mill insert receive a better result of surface finish.
+                                               28mm
+                                               21mm
+                                               14mm
+                                                7mm
+                                                0mm
+
+                           32µm    20.2µm  14.5µm
+                        Competitor B Competitor A Nine9
+                                           A9MT1035 NC2033
+                                                                              Power
+                                                                              Mill
+                                                                              9
+                                                         Nine9 Cutting Tool & Tool Holders 145

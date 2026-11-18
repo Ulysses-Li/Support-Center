@@ -1,0 +1,69 @@
+
+
+
+
+
+         C  Series    Torus    Radius     Mills
+
+
+                     Y                                          。
+                                               Dual Relief      7
+                                               Angle Insert
+
+                                                                    。
+                                                                    15
+                                                           Higher feed rate!
+               Re1.0                                     Higher wearing resistance!
+          X
+      Insert
+
+      • Submicron carbide inserts are fully ground.
+      • Special design milling cutter and ground insert for semi-finishing 3D surface
+       milling for mold industry.
+
+         NC30 : • Flat cutting edge design,
+              universal type for all kind of materials.
+
+       NC2032 : • High positive angle, special chip breaker design,
+              higher wearing resistance.
+              • Good for hardened material.
+                                                Dimensions
+            Parts No.  Coating Grade                       Screw   Key
+                                               L   S   Re
+       C9MT040105-NC30 AITiN K10F              4  1.59 0.5
+                                                           *NS-18037 NK-T6
+                                                           0.6Nm
+       C9MT040110-NC30 AITiN K10F              4  1.59 1.0
+       C9MT05T105-NC30 AITiN K10F              5   2.0 0.5
+                                                           *NS-20045 NK-T6
+                                                           0.6Nm
+       C9MT05T110H-NC2032 AITiN K20F           5   2.0 1.0
+                                                      *Torque screwdriver is recommended.
+
+
+
+
+      Cutting   Data
+
+      • Recommand Ae below 2.5mm.
+
+                       Sample Code  Vc         fz
+          Work Material                                         Grade of Insert
+                          (JIS)   (m/min)   (mm/tooth)
+                                                        Ap(mm)
+                                                                   NC30
+        Carbon Steel      P5      150~300    0.2~0.5    0.2~0.5
+                                                                   NC2032
+      P
+                                                                   NC30
+        Alloy Steel      SCM440   120~250    0.2~0.5    0.2~0.5
+                                                                   NC2032
+                                                                   NC30
+      M Stanless Steel   SUS304   120~200    0.2~0.4    0.2~0.4
+                                                                   NC2032
+      H Hardened steel < HRC52 SKD61 100~150 0.1~0.3    0.1~0.3    NC2032
+                                                       pA
+                                                         Nine9 Cutting Tool & Tool Holders 147
+                                                                              Power
+                                                                              Mill
+                                                                              9

@@ -1,0 +1,130 @@
+
+
+
+
+
+         C  Series    Torus    Radius     Mills
+
+
+
+
+
+
+
+
+
+                    L1
+                            L
+                                                                 α°
+
+            Cylindrical Shank >>
+                           L
+
+
+
+                 L1
+                          L
+
+                                         Ød
+               Part No.     Type    ØD       Ød1  α°   L1   L    Z   Insert type
+                                         h6
+           00-99802-BC12-12C5 BC12-12C5 12 12 10.5 8.0 30  100   2
+           00-99802-BC16-16C5 BC16-16C5 16 16 14.5 5.5 40  120   3  C9MT05T105
+           00-99802-BC20-20C5 BC20-20C5 20 20 18  4.0  50  130   3  C9MT05T110H
+           00-99802-BC25-25C5 BC25-25C5 25 25 23  3.0  60  150   4
+            Screw-Fit Type >>
+
+
+
+
+                  L2
+                          L
+              Part No.     Type    ØD  α°   L      M     DPM    Z    Insert type
+           00-99802-M05-10C4 M05-10C4 10 8  15  M5xP0.8  5.5         C9MT040105
+                                                                2
+           00-99802-M05-11C4 M05-11C4 11 6  15  M5xP0.8  5.5         C9MT040110
+           00-99802-M06-12C5 M06-12C5 12 8  25  M6xP1.0  6.5
+                                                                2
+           00-99802-M06-13C5 M06-13C5 13 7.5 25 M6xP1.0  6.5
+           00-99802-M08-16C5 M08-16C5 16 5.5 25 M8xP1.25 8.5
+           00-99802-M08-17C5 M08-17C5 17 5  25  M8xP1.25 8.5         C9MT05T105
+                                                                3
+           00-99802-M10-20C5 M10-20C5 20 4  30  M10xP1.5 10.5        C9MT05T110H
+           00-99802-M10-21C5 M10-21C5 21 3.5 30 M10xP1.5 10.5
+          00-99802-M12-25C5 M12-25C5 25 3   35  M12xP1.75 12.5
+                                                                4
+          00-99802-M12-26C5 M12-26C5 26 2.5 35  M12xP1.75 12.5
+          00-99805-M05-11C5 M05-11C5 11 10  13  M5xP0.8  5.5
+          00-99805-M06-12C5 M06-12C5 12 8   13  M6xP1.0  6.5    2
+          00-99805-M06-13C5 M06-13C5 13 7.5 13  M6xP1.0  6.5
+          00-99805-M08-16C5 M08-16C5 16 5.5 15  M8xP1.25 8.5
+                                                                     C9MT05T105
+          00-99805-M08-17C5 M08-17C5 17 5   15  M8xP1.25 8.5    3    C9MT05T110H
+          00-99805-M10-20C5 M10-20C5 20 4   15  M10xP1.5 10.5
+          00-99805-M10-21C5 M10-21C5 21 3.5 15  M10xP1.5 10.5
+          00-99805-M12-25C5 M12-25C5 25 3   20  M12xP1.75 12.5
+                                                                4
+          00-99805-M12-26C5 M12-26C5 26 2.5 20  M12xP1.75 12.5
+                                                           * Refer to page 164 for extension bars.
+           DØ
+           DØ
+              DØ
+                      DØ
+                                L
+                          ØD
+              2dØ
+                  1dØ
+                   DØ
+                    1dØ
+                   1dØ
+                      DØ
+                                       dØ
+                                        dØ
+                                         dØ
+                                  M
+                                    M
+                               MPD
+                                     M MPD
+                         Ap
+                         L
+                            L
+                             MPD
+              Ap
+         L1
+                  L
+                 L
+              L1
+       L1
+                L
+                          Ød
+       L2
+                L
+   DØ
+   2dØ
+       1dØ
+        DØ
+         1dØ
+         1dØ
+            DØ
+            DØ
+                               dØ
+                                dØ
+                                 dØ
+                         M
+                           M
+                      MPD
+                            M MPD
+               Ap
+               L
+                  L
+                    MPD
+            Features
+            • Good for corner finishing.
+            • Series C is developed for replacement of the other milling
+            cutters with ramp feed.
+  Ap
+   L1
+     146  Nine9 Cutting Tool & Tool Holders
+   Power
+   Mill
+  9

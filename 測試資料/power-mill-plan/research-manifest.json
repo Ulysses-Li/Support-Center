@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0.0",
+  "prepared_on": "2026-11-12",
+  "status": "research_complete_with_documented_open_items",
+  "source": {
+    "path": "sources/12_Power Mill_p142-147.pdf",
+    "sha256": "7f4bb5f8ec9f9e7e2df8699c96b01adeabe4cc1a651f78471da8377c532898f8",
+    "printed_pages": [
+      142,
+      147
+    ],
+    "pdf_page_count": 6
+  },
+  "initial_customer_questions": [
+    {
+      "id": "existing_tool",
+      "label_zh": "已有刀具或從加工需求開始",
+      "ask_zh": "是否已有完整刀體料號、刀片料號與牌號？若有，先提供照片或完整標示。",
+      "required_for_zh": "精確定位產品與既有裝配",
+      "basis_fact_ids": [
+        "mount-and-model",
+        "grade-compatibility"
+      ]
+    },
+    {
+      "id": "workpiece_goal",
+      "label_zh": "工件圖形與加工目標",
+      "ask_zh": "要加工 90° 肩面、圓角／曲面，或其他部位？提供圖面、現有形狀、目標形狀與粗／半精／精加工需求。",
+      "required_for_zh": "A/C 系列初步分流",
+      "basis_fact_ids": [
+        "series-a-purpose",
+        "series-c-purpose",
+        "unnamed-application-diagrams"
+      ]
+    },
+    {
+      "id": "material",
+      "label_zh": "工件材質與實際硬度",
+      "ask_zh": "提供材質完整牌號、標準、熱處理狀態及實測／圖面硬度與單位，不只填鋼或不鏽鋼。",
+      "required_for_zh": "對照材質列、限制及刀片牌號",
+      "basis_fact_ids": [
+        "cutting-units-and-scope",
+        "c-specific-limits",
+        "grade-compatibility"
+      ]
+    },
+    {
+      "id": "machining_method",
+      "label_zh": "實際刀路與加工方式",
+      "ask_zh": "提供刀路或截面圖、是否滿槽、是否斜坡進刀，以及斜坡角度；A 表要另確認對應 diagram_1 或 diagram_2，未確認前保留待確認。",
+      "required_for_zh": "正確選取 Ap/Ae 欄與 A 專用修正註記",
+      "basis_fact_ids": [
+        "a-operation-columns",
+        "a-specific-notes"
+      ]
+    },
+    {
+      "id": "cutting_engagement",
+      "label_zh": "每刀切深與切寬",
+      "ask_zh": "每刀的軸向切深 Ap、徑向切寬 Ae 各是多少 mm？與總加工深度分開填，並說明是否沿刀路改變。",
+      "required_for_zh": "工況相容性與切削表對照",
+      "basis_fact_ids": [
+        "a-operation-columns",
+        "c-specific-limits"
+      ]
+    },
+    {
+      "id": "geometry_access",
+      "label_zh": "可用刀徑、圓角與伸出需求",
+      "ask_zh": "提供可用刀徑、工件圓角要求、加工深度、避空／干涉位置及所需伸出長度；是否一定需要延長桿？",
+      "required_for_zh": "篩選實際刀體列、刀片 Re 及缺少的延長桿資料",
+      "basis_fact_ids": [
+        "mount-and-model",
+        "grade-compatibility",
+        "extension-unavailable"
+      ]
+    },
+    {
+      "id": "holder_interface",
+      "label_zh": "機台與刀柄夾持方式",
+      "ask_zh": "使用圓柱柄還是 Screw-Fit？現有刀柄／延長桿的完整型號、夾持徑或 M 螺紋、可夾持長度與組裝圖為何？",
+      "required_for_zh": "確認介面、長度與裝配相容性",
+      "basis_fact_ids": [
+        "mount-and-model",
+        "assembly-source",
+        "extension-unavailable"
+      ]
+    },
+    {
+      "id": "machine_limits",
+      "label_zh": "機台轉速與進給能力",
+      "ask_zh": "提供可用主軸轉速範圍、工作進給上限、主軸功率／扭矩資料，以及任何刀柄或附件轉速限制。",
+      "required_for_zh": "RPM／Vf 算後檢核；型錄六頁未提供這些上限",
+      "basis_fact_ids": [
+        "cutting-units-and-scope",
+        "z-count"
+      ]
+    },
+    {
+      "id": "setup_conditions",
+      "label_zh": "實際加工條件與品質需求",
+      "ask_zh": "提供工件夾持、刀具伸出、冷卻／排屑方式、是否斷續切削，以及尺寸公差與表面品質目標；若有試切，提供目前 Vc、fz、RPM、Vf 及現象。",
+      "required_for_zh": "由工程人員確認區間內起始值與試切條件，不由頁面自行猜測",
+      "basis_fact_ids": [
+        "roughness-and-coating-unresolved",
+        "cutting-units-and-scope"
+      ]
+    }
+  ],
+  "canonical_files": [
+    "index.html",
+    "README.md",
+    "product-data.json",
+    "cutting-data.json",
+    "recommendation-coverage.json",
+    "build-plan.json",
+    "research-notes.txt",
+    "page-map.json"
+  ],
+  "counts": {
+    "holder_rows": 46,
+    "A_holder_rows": 23,
+    "A_cylindrical": 11,
+    "A_screw_fit": 12,
+    "C_holder_rows": 23,
+    "C_cylindrical": 4,
+    "C_screw_fit": 19,
+    "insert_part_numbers": 14,
+    "A_insert_part_numbers": 10,
+    "C_insert_part_numbers": 4,
+    "insert_grade_variants": 17,
+    "A_insert_grade_variants": 13,
+    "C_insert_grade_variants": 4,
+    "assembly_groups": 4,
+    "cutting_tables": 3,
+    "cutting_material_rows": 18,
+    "derived_material_family_cases": 22
+  },
+  "website_changes": false,
+  "published": true,
+  "validation_report": "verification/validation-report.txt",
+  "note_zh_tw": "繁中型錄研究閱讀頁及來源附件已公開供原廠審閱；未套用正式產品頁。推薦鏈交集僅為來源資料核對，不代表完整工況推薦。",
+  "reviewed_on": "2026-11-18",
+  "review_files": [
+    "verification/specs-review-20261118.txt",
+    "verification/cutting-review-20261118.txt",
+    "build-plan.json:visual_review"
+  ],
+  "local_research_page": "index.html",
+  "public_url": "https://n9sp.cwli.dev/測試資料/power-mill-plan/index.html",
+  "publication": {
+    "requested_on": "2026-11-18",
+    "purpose_zh": "依使用者要求，公開研究整理頁供原廠確認；未建立或啟用正式產品計算器。",
+    "host": "GitHub Pages",
+    "formal_product_pages_changed": false
+  }
+}

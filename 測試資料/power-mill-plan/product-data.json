@@ -1,0 +1,1377 @@
+{
+  "schema_version": "1.0",
+  "status": "research_only_not_published",
+  "prepared_on": "2026-11-12",
+  "source_file": "sources/12_Power Mill_p142-147.pdf",
+  "scope": {
+    "pdf_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "printed_pages": [
+      142,
+      143,
+      144,
+      145,
+      146,
+      147
+    ],
+    "note_zh": "依同一來源 PDF、已備文字及六頁 PNG 逐頁複核；原始規格保持原值，另建本機繁中研究整理頁。"
+  },
+  "conventions": {
+    "source_inheritance_zh": "series、table、insert group 的 source 適用其所有子資料；source_row 表示該來源表從第一筆產品列起算。",
+    "numeric_values_zh": "尺寸、角度、切削值以原數字字串保留小數位；Z 為刃數整數。null 表示未提供或待確認，不能視為 0。",
+    "quote_policy_zh": "英文字串保留原型錄用語與可辨認錯字，不擅自修正文案。",
+    "units": {
+      "dimensions": "mm",
+      "angle": "degree",
+      "torque": "Nm"
+    }
+  },
+  "overview": {
+    "source": {
+      "printed_page": 142,
+      "pdf_page": 1
+    },
+    "title": "Power Mill",
+    "subtitle": "Indexable Milling Cutter 10mm",
+    "claim": "Patented dual relief angle insert!",
+    "material_class_icons": [
+      "P",
+      "K"
+    ],
+    "claims": [
+      "Higher Feed Rate.",
+      "Higher Wearing Resistance!",
+      "Fast Chip Removal!"
+    ],
+    "series": [
+      {
+        "id": "A",
+        "name": "Shoulder Face Mills",
+        "diameter_range_catalog": "Ø10 ~ Ø25mm",
+        "shoulder_angle_deg": "90"
+      },
+      {
+        "id": "C",
+        "name": "Torus Radius Mills",
+        "diameter_range_catalog": "Ø10 ~ Ø26mm",
+        "radius_symbol": "R"
+      }
+    ],
+    "application_diagrams": {
+      "count_per_series": 5,
+      "labels": null,
+      "note_zh": "應用圖未逐一印文字名稱；保留頁面位置供後續製圖或命名確認。"
+    }
+  },
+  "series": [
+    {
+      "id": "A",
+      "name": "Shoulder Face Mills",
+      "source": {
+        "printed_page": 143,
+        "pdf_page": 2
+      },
+      "features": [
+        "Strong insert with high positive geometry and helical cutting edges.",
+        "Shoulder mill with good cutting performance and cutting edge strength. which produce perfect 90° shoulders."
+      ],
+      "holder_tables": [
+        {
+          "id": "a-cylindrical",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Cylindrical Shank"
+          },
+          "mounting": "cylindrical_shank",
+          "fields": [
+            "part_no",
+            "type",
+            "D_mm",
+            "d_h6_mm",
+            "d1_mm",
+            "ramp_angle_deg",
+            "L1_mm",
+            "L_mm",
+            "Z",
+            "Ap_mm",
+            "insert_pattern"
+          ],
+          "shared": {
+            "dimensional_unit": "mm",
+            "angle_unit": "degree",
+            "d_tolerance": "h6",
+            "Z_meaning_zh": "刃數",
+            "ramp_limit_note": "p145: Ramping angle should be under α°."
+          },
+          "rows": [
+            {
+              "occurrence_id": "a-cylindrical-01",
+              "source_row": 1,
+              "part_no": "00-99802-BC10-10A06",
+              "type": "BC10-10A06-100",
+              "D_mm": "10",
+              "d_h6_mm": "10",
+              "d1_mm": "9.8",
+              "ramp_angle_deg": "5.0",
+              "L1_mm": "40",
+              "L_mm": "100",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-cylindrical-02",
+              "source_row": 2,
+              "part_no": "00-99802-BC12-10A06",
+              "type": "BC12-10A06-80",
+              "D_mm": "10",
+              "d_h6_mm": "12",
+              "d1_mm": "9.8",
+              "ramp_angle_deg": "5.0",
+              "L1_mm": "20",
+              "L_mm": "80",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-cylindrical-03",
+              "source_row": 3,
+              "part_no": "00-99802-BC12-11A06",
+              "type": "BC12-11A06-80",
+              "D_mm": "11",
+              "d_h6_mm": "12",
+              "d1_mm": "10.8",
+              "ramp_angle_deg": "4.5",
+              "L1_mm": "22",
+              "L_mm": "80",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-cylindrical-04",
+              "source_row": 4,
+              "part_no": "00-99802-BC12-12A06",
+              "type": "BC12-12A06-80",
+              "D_mm": "12",
+              "d_h6_mm": "12",
+              "d1_mm": "11.4",
+              "ramp_angle_deg": "4.0",
+              "L1_mm": "24",
+              "L_mm": "80",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-cylindrical-05",
+              "source_row": 5,
+              "part_no": "00-99802-BC16-13A06",
+              "type": "BC16-13A06-100",
+              "D_mm": "13",
+              "d_h6_mm": "16",
+              "d1_mm": "12.4",
+              "ramp_angle_deg": "3.5",
+              "L1_mm": "26",
+              "L_mm": "100",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-cylindrical-06",
+              "source_row": 6,
+              "part_no": "00-99802-BC16-14A06",
+              "type": "BC16-14A06-100",
+              "D_mm": "14",
+              "d_h6_mm": "16",
+              "d1_mm": "13.4",
+              "ramp_angle_deg": "3.0",
+              "L1_mm": "28",
+              "L_mm": "100",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-cylindrical-07",
+              "source_row": 7,
+              "part_no": "00-99802-BC16-15A06",
+              "type": "BC16-15A06-100",
+              "D_mm": "15",
+              "d_h6_mm": "16",
+              "d1_mm": "14.4",
+              "ramp_angle_deg": "2.5",
+              "L1_mm": "30",
+              "L_mm": "100",
+              "Z": 3,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-cylindrical-08",
+              "source_row": 8,
+              "part_no": "00-99802-BC16-16A06",
+              "type": "BC16-16A06-100",
+              "D_mm": "16",
+              "d_h6_mm": "16",
+              "d1_mm": "15.4",
+              "ramp_angle_deg": "2.0",
+              "L1_mm": "32",
+              "L_mm": "100",
+              "Z": 3,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-cylindrical-09",
+              "source_row": 9,
+              "part_no": "00-99802-BC16-16A10",
+              "type": "BC16-16A10-100",
+              "D_mm": "16",
+              "d_h6_mm": "16",
+              "d1_mm": "14.5",
+              "ramp_angle_deg": "2.5",
+              "L1_mm": "32",
+              "L_mm": "100",
+              "Z": 2,
+              "Ap_mm": "9",
+              "insert_pattern": "A9...1035..."
+            },
+            {
+              "occurrence_id": "a-cylindrical-10",
+              "source_row": 10,
+              "part_no": "00-99802-BC20-20A10",
+              "type": "BC20-20A10-120",
+              "D_mm": "20",
+              "d_h6_mm": "20",
+              "d1_mm": "18.5",
+              "ramp_angle_deg": "2.0",
+              "L1_mm": "40",
+              "L_mm": "120",
+              "Z": 3,
+              "Ap_mm": "9",
+              "insert_pattern": "A9...1035..."
+            },
+            {
+              "occurrence_id": "a-cylindrical-11",
+              "source_row": 11,
+              "part_no": "00-99802-BC25-25A10",
+              "type": "BC25-25A10-150",
+              "D_mm": "25",
+              "d_h6_mm": "25",
+              "d1_mm": "23.5",
+              "ramp_angle_deg": "1.3",
+              "L1_mm": "50",
+              "L_mm": "150",
+              "Z": 3,
+              "Ap_mm": "9",
+              "insert_pattern": "A9...1035..."
+            }
+          ]
+        },
+        {
+          "id": "a-screw-fit",
+          "source": {
+            "printed_page": 143,
+            "pdf_page": 2,
+            "section": "Screw-Fit Type"
+          },
+          "mounting": "screw_fit",
+          "fields": [
+            "part_no",
+            "type",
+            "D_mm",
+            "ramp_angle_deg",
+            "L_mm",
+            "M",
+            "DPM_mm",
+            "Z",
+            "Ap_mm",
+            "insert_pattern"
+          ],
+          "shared": {
+            "dimensional_unit": "mm",
+            "angle_unit": "degree",
+            "Z_meaning_zh": "刃數",
+            "DPM_note_zh": "原表欄名 DPM；示意圖也有 MPD/DPM 字樣，保留表頭，不推定為其他標準名稱。",
+            "extension_reference": "extension-bars-p164",
+            "ramp_limit_note": "p145: Ramping angle should be under α°."
+          },
+          "rows": [
+            {
+              "occurrence_id": "a-screw-fit-01",
+              "source_row": 1,
+              "part_no": "00-99805-M05-10A06",
+              "type": "M05-10A06",
+              "D_mm": "10",
+              "ramp_angle_deg": "5.0",
+              "L_mm": "13",
+              "M": "M5xP0.8",
+              "DPM_mm": "5.5",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-02",
+              "source_row": 2,
+              "part_no": "00-99805-M05-11A06",
+              "type": "M05-11A06",
+              "D_mm": "11",
+              "ramp_angle_deg": "4.5",
+              "L_mm": "13",
+              "M": "M5xP0.8",
+              "DPM_mm": "5.5",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-03",
+              "source_row": 3,
+              "part_no": "00-99805-M06-12A06",
+              "type": "M06-12A06",
+              "D_mm": "12",
+              "ramp_angle_deg": "4.0",
+              "L_mm": "13",
+              "M": "M6xP1.0",
+              "DPM_mm": "6.5",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-04",
+              "source_row": 4,
+              "part_no": "00-99805-M06-13A06",
+              "type": "M06-13A06",
+              "D_mm": "13",
+              "ramp_angle_deg": "3.5",
+              "L_mm": "13",
+              "M": "M6xP1.0",
+              "DPM_mm": "6.5",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-05",
+              "source_row": 5,
+              "part_no": "00-99805-M08-14A06",
+              "type": "M08-14A06",
+              "D_mm": "14",
+              "ramp_angle_deg": "3.0",
+              "L_mm": "13",
+              "M": "M8xP1.25",
+              "DPM_mm": "8.5",
+              "Z": 2,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-06",
+              "source_row": 6,
+              "part_no": "00-99805-M08-15A06",
+              "type": "M08-15A06",
+              "D_mm": "15",
+              "ramp_angle_deg": "2.5",
+              "L_mm": "15",
+              "M": "M8xP1.25",
+              "DPM_mm": "8.5",
+              "Z": 3,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-07",
+              "source_row": 7,
+              "part_no": "00-99805-M08-16A06",
+              "type": "M08-16A06",
+              "D_mm": "16",
+              "ramp_angle_deg": "2.0",
+              "L_mm": "15",
+              "M": "M8xP1.25",
+              "DPM_mm": "8.5",
+              "Z": 3,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-08",
+              "source_row": 8,
+              "part_no": "00-99805-M08-17A06",
+              "type": "M08-17A06",
+              "D_mm": "17",
+              "ramp_angle_deg": "1.5",
+              "L_mm": "15",
+              "M": "M8xP1.25",
+              "DPM_mm": "8.5",
+              "Z": 3,
+              "Ap_mm": "5",
+              "insert_pattern": "A9...0602..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-09",
+              "source_row": 9,
+              "part_no": "00-99802-M08-16A10",
+              "type": "M08-16A10",
+              "D_mm": "16",
+              "ramp_angle_deg": "2.5",
+              "L_mm": "25",
+              "M": "M8xP1.25",
+              "DPM_mm": "8.5",
+              "Z": 2,
+              "Ap_mm": "9",
+              "insert_pattern": "A9...1035..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-10",
+              "source_row": 10,
+              "part_no": "00-99802-M10-20A10",
+              "type": "M10-20A10",
+              "D_mm": "20",
+              "ramp_angle_deg": "2.0",
+              "L_mm": "30",
+              "M": "M10xP1.5",
+              "DPM_mm": "10.5",
+              "Z": 3,
+              "Ap_mm": "9",
+              "insert_pattern": "A9...1035..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-11",
+              "source_row": 11,
+              "part_no": "00-99802-M12-25A10-3T",
+              "type": "M12-25A10-3T",
+              "D_mm": "25",
+              "ramp_angle_deg": "1.3",
+              "L_mm": "35",
+              "M": "M12xP1.75",
+              "DPM_mm": "12.5",
+              "Z": 3,
+              "Ap_mm": "9",
+              "insert_pattern": "A9...1035..."
+            },
+            {
+              "occurrence_id": "a-screw-fit-12",
+              "source_row": 12,
+              "part_no": "00-99805-M12-25A10",
+              "type": "M12-25A10",
+              "D_mm": "25",
+              "ramp_angle_deg": "1.3",
+              "L_mm": "20",
+              "M": "M12xP1.75",
+              "DPM_mm": "12.5",
+              "Z": 3,
+              "Ap_mm": "9",
+              "insert_pattern": "A9...1035..."
+            }
+          ]
+        }
+      ],
+      "insert_tables": [
+        {
+          "id": "a-insert-06",
+          "source": {
+            "printed_page": 144,
+            "pdf_page": 3,
+            "section": "Insert / size 06"
+          },
+          "insert_size_catalog": "06",
+          "dimensional_unit": "mm",
+          "common_dimensions": {
+            "L_mm": "6.5",
+            "W_mm": "4",
+            "S_mm": "2.45",
+            "Ap_mm": "5"
+          },
+          "assembly_id": "assembly-a06",
+          "fields": [
+            "part_no",
+            "Re_mm",
+            "variants"
+          ],
+          "rows": [
+            {
+              "part_no": "A9MT060205",
+              "Re_mm": "0.5",
+              "variants": [
+                {
+                  "grade_code": "NC5072",
+                  "coating_catalog": "TiAlN",
+                  "iso_grade": "P40"
+                }
+              ],
+              "source_row": 1
+            },
+            {
+              "part_no": "A9GT060201U",
+              "Re_mm": "0.1",
+              "variants": [
+                {
+                  "grade_code": "NC2032",
+                  "coating_catalog": "TiAlN",
+                  "iso_grade": "K20F"
+                }
+              ],
+              "source_row": 2
+            },
+            {
+              "part_no": "A9GT060202U",
+              "Re_mm": "0.2",
+              "variants": [
+                {
+                  "grade_code": "NC2032",
+                  "coating_catalog": "TiAlN",
+                  "iso_grade": "K20F"
+                }
+              ],
+              "source_row": 3
+            },
+            {
+              "part_no": "A9GT060205U",
+              "Re_mm": "0.5",
+              "variants": [
+                {
+                  "grade_code": "NC2032",
+                  "coating_catalog": "TiAlN",
+                  "iso_grade": "K20F"
+                }
+              ],
+              "source_row": 4
+            },
+            {
+              "part_no": "A9GT060201H",
+              "Re_mm": "0.1",
+              "variants": [
+                {
+                  "grade_code": "NC2033",
+                  "coating_catalog": "TiAlN",
+                  "iso_grade": "K20F"
+                },
+                {
+                  "grade_code": "NC9031",
+                  "coating_catalog": "TiN",
+                  "iso_grade": "K20F"
+                }
+              ],
+              "source_row": 5
+            },
+            {
+              "part_no": "A9GT060202H",
+              "Re_mm": "0.2",
+              "variants": [
+                {
+                  "grade_code": "NC2033",
+                  "coating_catalog": "TiAIN",
+                  "coating_normalized": null,
+                  "coating_note_zh": "原文字層為 TiAIN；此處保留字形，不默認大小寫 I 為小寫 l。",
+                  "iso_grade": "K20F"
+                },
+                {
+                  "grade_code": "NC9031",
+                  "coating_catalog": "TiN",
+                  "iso_grade": "K20F"
+                }
+              ],
+              "source_row": 6
+            },
+            {
+              "part_no": "A9GT060205H",
+              "Re_mm": "0.5",
+              "variants": [
+                {
+                  "grade_code": "NC2033",
+                  "coating_catalog": "TiAIN",
+                  "coating_normalized": null,
+                  "coating_note_zh": "原文字層為 TiAIN；此處保留字形，不默認大小寫 I 為小寫 l。",
+                  "iso_grade": "K20F"
+                },
+                {
+                  "grade_code": "NC9031",
+                  "coating_catalog": "TiN",
+                  "iso_grade": "K20F"
+                }
+              ],
+              "source_row": 7
+            },
+            {
+              "part_no": "A9GT060210H",
+              "Re_mm": "1.0",
+              "variants": [
+                {
+                  "grade_code": "NC2033",
+                  "coating_catalog": "TiAIN",
+                  "coating_normalized": null,
+                  "coating_note_zh": "原文字層為 TiAIN；此處保留字形，不默認大小寫 I 為小寫 l。",
+                  "iso_grade": "K20F"
+                }
+              ],
+              "source_row": 8
+            }
+          ],
+          "sku_note_zh": "本表 Parts No. 與牌號分開列示；part_no + grade_code 可作資料鍵，不憑空建立原廠完整 SKU。"
+        },
+        {
+          "id": "a-insert-10",
+          "source": {
+            "printed_page": 144,
+            "pdf_page": 3,
+            "section": "Insert / size 10"
+          },
+          "insert_size_catalog": "10",
+          "dimensional_unit": "mm",
+          "common_dimensions": {
+            "L_mm": "10",
+            "W_mm": "6.6",
+            "S_mm": "3.5",
+            "Ap_mm": "9"
+          },
+          "assembly_id": "assembly-a10",
+          "rows": [
+            {
+              "part_no": "A9MT1035",
+              "Re_mm": "0.4",
+              "variants": [
+                {
+                  "grade_code": "NC2032",
+                  "coating_catalog": "TiAIN",
+                  "coating_normalized": null,
+                  "coating_note_zh": "原文字層為 TiAIN；未自行正規化字形。",
+                  "iso_grade": "K20F"
+                }
+              ],
+              "source_row": 1
+            },
+            {
+              "part_no": "A9GT103505H",
+              "Re_mm": "0.5",
+              "variants": [
+                {
+                  "grade_code": "NC9031",
+                  "coating_catalog": "TiN",
+                  "iso_grade": "K20F"
+                }
+              ],
+              "source_row": 2
+            }
+          ],
+          "sku_note_zh": "本表 Parts No. 與牌號分開列示；part_no + grade_code 可作資料鍵，不憑空建立原廠完整 SKU。"
+        }
+      ],
+      "insert_features": {
+        "source": {
+          "printed_page": 144,
+          "pdf_page": 3
+        },
+        "general": [
+          "U type insert is fully ground for reducing the cutting resistance during the cutting, best choice for long shank cutter.",
+          "H type with high positive rake angle, shape edge."
+        ],
+        "grade_notes": [
+          {
+            "grade_code": "NC5072",
+            "label": "NC5072",
+            "notes": [
+              "High rigidity, special edge honing, resistance of impact during milling operation.",
+              "Special chip breaker design for high removal rate.",
+              "P40 tougher grade for smooth cutting, good for all kinds of steel."
+            ]
+          },
+          {
+            "grade_code": "NC2032",
+            "label": "U-NC2032",
+            "notes": [
+              "High rigidity, special edge honing, resistance of impact during milling operation.",
+              "For all kinds of steel from < 50 HRC, carbon steel, alloy steel, cast iron, aluminum and non-ferrous metal."
+            ]
+          },
+          {
+            "grade_code": "NC2033",
+            "label": "H-NC2033",
+            "notes": [
+              "Sharp cutting edge and high positive rake angle, good for finishing milling and surface roughness.",
+              "Re 0.5 and Re1.0 for your option.",
+              "Sutiable for all kinds of steel."
+            ]
+          },
+          {
+            "grade_code": "NC9031",
+            "label": "H-NC9031",
+            "notes": [
+              "Sharp cutting edge and high positive rake angle, low friction coefficient for non-ferrous metal.",
+              "Good for Al, Al-alloy, Copper, Copper alloy and Non-Ferrous metal."
+            ]
+          },
+          {
+            "grade_code": "NC2032",
+            "label": "NC2032",
+            "scope": "size 10 description",
+            "notes": [
+              "High rigidity, special edge honing, resistance of impact during milling operation.",
+              "Special chip breaker design for high removal rate.",
+              "Good for hard cutting carbon steel and alloy steel."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "C",
+      "name": "Torus Radius Mills",
+      "source": {
+        "printed_page": 146,
+        "pdf_page": 5
+      },
+      "features": [
+        "Good for corner finishing.",
+        "Series C is developed for replacement of the other milling cutters with ramp feed."
+      ],
+      "holder_tables": [
+        {
+          "id": "c-cylindrical",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Cylindrical Shank"
+          },
+          "mounting": "cylindrical_shank",
+          "fields": [
+            "part_no",
+            "type",
+            "D_mm",
+            "d_h6_mm",
+            "d1_mm",
+            "ramp_angle_deg",
+            "L1_mm",
+            "L_mm",
+            "Z"
+          ],
+          "shared": {
+            "dimensional_unit": "mm",
+            "angle_unit": "degree",
+            "d_tolerance": "h6",
+            "Z_meaning_zh": "刃數",
+            "insert_types": [
+              "C9MT05T105",
+              "C9MT05T110H"
+            ],
+            "Ap_mm": null,
+            "note_zh": "此刀體表無 Ap 欄，未沿用 A 系列 Ap。"
+          },
+          "rows": [
+            {
+              "occurrence_id": "c-cylindrical-01",
+              "source_row": 1,
+              "part_no": "00-99802-BC12-12C5",
+              "type": "BC12-12C5",
+              "D_mm": "12",
+              "d_h6_mm": "12",
+              "d1_mm": "10.5",
+              "ramp_angle_deg": "8.0",
+              "L1_mm": "30",
+              "L_mm": "100",
+              "Z": 2
+            },
+            {
+              "occurrence_id": "c-cylindrical-02",
+              "source_row": 2,
+              "part_no": "00-99802-BC16-16C5",
+              "type": "BC16-16C5",
+              "D_mm": "16",
+              "d_h6_mm": "16",
+              "d1_mm": "14.5",
+              "ramp_angle_deg": "5.5",
+              "L1_mm": "40",
+              "L_mm": "120",
+              "Z": 3
+            },
+            {
+              "occurrence_id": "c-cylindrical-03",
+              "source_row": 3,
+              "part_no": "00-99802-BC20-20C5",
+              "type": "BC20-20C5",
+              "D_mm": "20",
+              "d_h6_mm": "20",
+              "d1_mm": "18",
+              "ramp_angle_deg": "4.0",
+              "L1_mm": "50",
+              "L_mm": "130",
+              "Z": 3
+            },
+            {
+              "occurrence_id": "c-cylindrical-04",
+              "source_row": 4,
+              "part_no": "00-99802-BC25-25C5",
+              "type": "BC25-25C5",
+              "D_mm": "25",
+              "d_h6_mm": "25",
+              "d1_mm": "23",
+              "ramp_angle_deg": "3.0",
+              "L1_mm": "60",
+              "L_mm": "150",
+              "Z": 4
+            }
+          ]
+        },
+        {
+          "id": "c-screw-fit",
+          "source": {
+            "printed_page": 146,
+            "pdf_page": 5,
+            "section": "Screw-Fit Type"
+          },
+          "mounting": "screw_fit",
+          "fields": [
+            "part_no",
+            "type",
+            "D_mm",
+            "ramp_angle_deg",
+            "L_mm",
+            "M",
+            "DPM_mm",
+            "Z",
+            "insert_group",
+            "table_segment"
+          ],
+          "shared": {
+            "dimensional_unit": "mm",
+            "angle_unit": "degree",
+            "Z_meaning_zh": "刃數",
+            "insert_groups": {
+              "C04": [
+                "C9MT040105",
+                "C9MT040110"
+              ],
+              "C05": [
+                "C9MT05T105",
+                "C9MT05T110H"
+              ]
+            },
+            "Ap_mm": null,
+            "extension_reference": "extension-bars-p164",
+            "note_zh": "upper_99802、lower_99805 為原表位置標識，並非新增的產品系列。C 表給 α°，未自行把 p145 A 系列減進給註記套用到 C 系列。"
+          },
+          "rows": [
+            {
+              "occurrence_id": "c-screw-fit-01",
+              "source_row": 1,
+              "part_no": "00-99802-M05-10C4",
+              "type": "M05-10C4",
+              "D_mm": "10",
+              "ramp_angle_deg": "8",
+              "L_mm": "15",
+              "M": "M5xP0.8",
+              "DPM_mm": "5.5",
+              "Z": 2,
+              "insert_group": "C04",
+              "table_segment": "upper_99802"
+            },
+            {
+              "occurrence_id": "c-screw-fit-02",
+              "source_row": 2,
+              "part_no": "00-99802-M05-11C4",
+              "type": "M05-11C4",
+              "D_mm": "11",
+              "ramp_angle_deg": "6",
+              "L_mm": "15",
+              "M": "M5xP0.8",
+              "DPM_mm": "5.5",
+              "Z": 2,
+              "insert_group": "C04",
+              "table_segment": "upper_99802"
+            },
+            {
+              "occurrence_id": "c-screw-fit-03",
+              "source_row": 3,
+              "part_no": "00-99802-M06-12C5",
+              "type": "M06-12C5",
+              "D_mm": "12",
+              "ramp_angle_deg": "8",
+              "L_mm": "25",
+              "M": "M6xP1.0",
+              "DPM_mm": "6.5",
+              "Z": 2,
+              "insert_group": "C05",
+              "table_segment": "upper_99802"
+            },
+            {
+              "occurrence_id": "c-screw-fit-04",
+              "source_row": 4,
+              "part_no": "00-99802-M06-13C5",
+              "type": "M06-13C5",
+              "D_mm": "13",
+              "ramp_angle_deg": "7.5",
+              "L_mm": "25",
+              "M": "M6xP1.0",
+              "DPM_mm": "6.5",
+              "Z": 2,
+              "insert_group": "C05",
+              "table_segment": "upper_99802"
+            },
+            {
+              "occurrence_id": "c-screw-fit-05",
+              "source_row": 5,
+              "part_no": "00-99802-M08-16C5",
+              "type": "M08-16C5",
+              "D_mm": "16",
+              "ramp_angle_deg": "5.5",
+              "L_mm": "25",
+              "M": "M8xP1.25",
+              "DPM_mm": "8.5",
+              "Z": 3,
+              "insert_group": "C05",
+              "table_segment": "upper_99802"
+            },
+            {
+              "occurrence_id": "c-screw-fit-06",
+              "source_row": 6,
+              "part_no": "00-99802-M08-17C5",
+              "type": "M08-17C5",
+              "D_mm": "17",
+              "ramp_angle_deg": "5",
+              "L_mm": "25",
+              "M": "M8xP1.25",
+              "DPM_mm": "8.5",
+              "Z": 3,
+              "insert_group": "C05",
+              "table_segment": "upper_99802"
+            },
+            {
+              "occurrence_id": "c-screw-fit-07",
+              "source_row": 7,
+              "part_no": "00-99802-M10-20C5",
+              "type": "M10-20C5",
+              "D_mm": "20",
+              "ramp_angle_deg": "4",
+              "L_mm": "30",
+              "M": "M10xP1.5",
+              "DPM_mm": "10.5",
+              "Z": 3,
+              "insert_group": "C05",
+              "table_segment": "upper_99802"
+            },
+            {
+              "occurrence_id": "c-screw-fit-08",
+              "source_row": 8,
+              "part_no": "00-99802-M10-21C5",
+              "type": "M10-21C5",
+              "D_mm": "21",
+              "ramp_angle_deg": "3.5",
+              "L_mm": "30",
+              "M": "M10xP1.5",
+              "DPM_mm": "10.5",
+              "Z": 3,
+              "insert_group": "C05",
+              "table_segment": "upper_99802"
+            },
+            {
+              "occurrence_id": "c-screw-fit-09",
+              "source_row": 9,
+              "part_no": "00-99802-M12-25C5",
+              "type": "M12-25C5",
+              "D_mm": "25",
+              "ramp_angle_deg": "3",
+              "L_mm": "35",
+              "M": "M12xP1.75",
+              "DPM_mm": "12.5",
+              "Z": 4,
+              "insert_group": "C05",
+              "table_segment": "upper_99802"
+            },
+            {
+              "occurrence_id": "c-screw-fit-10",
+              "source_row": 10,
+              "part_no": "00-99802-M12-26C5",
+              "type": "M12-26C5",
+              "D_mm": "26",
+              "ramp_angle_deg": "2.5",
+              "L_mm": "35",
+              "M": "M12xP1.75",
+              "DPM_mm": "12.5",
+              "Z": 4,
+              "insert_group": "C05",
+              "table_segment": "upper_99802"
+            },
+            {
+              "occurrence_id": "c-screw-fit-11",
+              "source_row": 11,
+              "part_no": "00-99805-M05-11C5",
+              "type": "M05-11C5",
+              "D_mm": "11",
+              "ramp_angle_deg": "10",
+              "L_mm": "13",
+              "M": "M5xP0.8",
+              "DPM_mm": "5.5",
+              "Z": 2,
+              "insert_group": "C05",
+              "table_segment": "lower_99805"
+            },
+            {
+              "occurrence_id": "c-screw-fit-12",
+              "source_row": 12,
+              "part_no": "00-99805-M06-12C5",
+              "type": "M06-12C5",
+              "D_mm": "12",
+              "ramp_angle_deg": "8",
+              "L_mm": "13",
+              "M": "M6xP1.0",
+              "DPM_mm": "6.5",
+              "Z": 2,
+              "insert_group": "C05",
+              "table_segment": "lower_99805"
+            },
+            {
+              "occurrence_id": "c-screw-fit-13",
+              "source_row": 13,
+              "part_no": "00-99805-M06-13C5",
+              "type": "M06-13C5",
+              "D_mm": "13",
+              "ramp_angle_deg": "7.5",
+              "L_mm": "13",
+              "M": "M6xP1.0",
+              "DPM_mm": "6.5",
+              "Z": 2,
+              "insert_group": "C05",
+              "table_segment": "lower_99805"
+            },
+            {
+              "occurrence_id": "c-screw-fit-14",
+              "source_row": 14,
+              "part_no": "00-99805-M08-16C5",
+              "type": "M08-16C5",
+              "D_mm": "16",
+              "ramp_angle_deg": "5.5",
+              "L_mm": "15",
+              "M": "M8xP1.25",
+              "DPM_mm": "8.5",
+              "Z": 3,
+              "insert_group": "C05",
+              "table_segment": "lower_99805"
+            },
+            {
+              "occurrence_id": "c-screw-fit-15",
+              "source_row": 15,
+              "part_no": "00-99805-M08-17C5",
+              "type": "M08-17C5",
+              "D_mm": "17",
+              "ramp_angle_deg": "5",
+              "L_mm": "15",
+              "M": "M8xP1.25",
+              "DPM_mm": "8.5",
+              "Z": 3,
+              "insert_group": "C05",
+              "table_segment": "lower_99805"
+            },
+            {
+              "occurrence_id": "c-screw-fit-16",
+              "source_row": 16,
+              "part_no": "00-99805-M10-20C5",
+              "type": "M10-20C5",
+              "D_mm": "20",
+              "ramp_angle_deg": "4",
+              "L_mm": "15",
+              "M": "M10xP1.5",
+              "DPM_mm": "10.5",
+              "Z": 3,
+              "insert_group": "C05",
+              "table_segment": "lower_99805"
+            },
+            {
+              "occurrence_id": "c-screw-fit-17",
+              "source_row": 17,
+              "part_no": "00-99805-M10-21C5",
+              "type": "M10-21C5",
+              "D_mm": "21",
+              "ramp_angle_deg": "3.5",
+              "L_mm": "15",
+              "M": "M10xP1.5",
+              "DPM_mm": "10.5",
+              "Z": 3,
+              "insert_group": "C05",
+              "table_segment": "lower_99805"
+            },
+            {
+              "occurrence_id": "c-screw-fit-18",
+              "source_row": 18,
+              "part_no": "00-99805-M12-25C5",
+              "type": "M12-25C5",
+              "D_mm": "25",
+              "ramp_angle_deg": "3",
+              "L_mm": "20",
+              "M": "M12xP1.75",
+              "DPM_mm": "12.5",
+              "Z": 4,
+              "insert_group": "C05",
+              "table_segment": "lower_99805"
+            },
+            {
+              "occurrence_id": "c-screw-fit-19",
+              "source_row": 19,
+              "part_no": "00-99805-M12-26C5",
+              "type": "M12-26C5",
+              "D_mm": "26",
+              "ramp_angle_deg": "2.5",
+              "L_mm": "20",
+              "M": "M12xP1.75",
+              "DPM_mm": "12.5",
+              "Z": 4,
+              "insert_group": "C05",
+              "table_segment": "lower_99805"
+            }
+          ]
+        }
+      ],
+      "insert_tables": [
+        {
+          "id": "c-inserts",
+          "source": {
+            "printed_page": 147,
+            "pdf_page": 6,
+            "section": "Insert"
+          },
+          "dimensional_unit": "mm",
+          "coating_catalog": "AITiN",
+          "coating_normalized": null,
+          "coating_note_zh": "原文字層為 AITiN；I/l 字形容易混淆，保留來源字形，尚未正規化為化學鍍層名稱。",
+          "rows": [
+            {
+              "sku": "C9MT040105-NC30",
+              "part_no": "C9MT040105",
+              "grade_code": "NC30",
+              "iso_grade": "K10F",
+              "L_mm": "4",
+              "S_mm": "1.59",
+              "Re_mm": "0.5",
+              "assembly_id": "assembly-c04",
+              "source_row": 1
+            },
+            {
+              "sku": "C9MT040110-NC30",
+              "part_no": "C9MT040110",
+              "grade_code": "NC30",
+              "iso_grade": "K10F",
+              "L_mm": "4",
+              "S_mm": "1.59",
+              "Re_mm": "1.0",
+              "assembly_id": "assembly-c04",
+              "source_row": 2
+            },
+            {
+              "sku": "C9MT05T105-NC30",
+              "part_no": "C9MT05T105",
+              "grade_code": "NC30",
+              "iso_grade": "K10F",
+              "L_mm": "5",
+              "S_mm": "2.0",
+              "Re_mm": "0.5",
+              "assembly_id": "assembly-c05",
+              "source_row": 3
+            },
+            {
+              "sku": "C9MT05T110H-NC2032",
+              "part_no": "C9MT05T110H",
+              "grade_code": "NC2032",
+              "iso_grade": "K20F",
+              "L_mm": "5",
+              "S_mm": "2.0",
+              "Re_mm": "1.0",
+              "assembly_id": "assembly-c05",
+              "source_row": 4
+            }
+          ],
+          "dimensions_not_listed": {
+            "W_mm": null,
+            "Ap_mm": null
+          },
+          "note_zh": "此表未提供 W 與 Ap；切削 Ap 範圍見 C 系列專屬 cutting-data。"
+        }
+      ],
+      "insert_features": {
+        "source": {
+          "printed_page": 147,
+          "pdf_page": 6
+        },
+        "general": [
+          "Submicron carbide inserts are fully ground.",
+          "Special design milling cutter and ground insert for semi-finishing 3D surface milling for mold industry."
+        ],
+        "dual_relief": {
+          "title": "Dual Relief Angle Insert",
+          "angles_deg": [
+            "7",
+            "15"
+          ],
+          "diagram_Re_mm": "1.0",
+          "diagram_axes": [
+            "X",
+            "Y"
+          ],
+          "claims": [
+            "Higher feed rate!",
+            "Higher wearing resistance!"
+          ]
+        },
+        "grade_notes": [
+          {
+            "grade_code": "NC30",
+            "notes": [
+              "Flat cutting edge design, universal type for all kind of materials."
+            ]
+          },
+          {
+            "grade_code": "NC2032",
+            "notes": [
+              "High positive angle, special chip breaker design, higher wearing resistance.",
+              "Good for hardened material."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "assembly-a06",
+      "source": {
+        "printed_page": 144,
+        "pdf_page": 3,
+        "section": "Insert / size 06 / Screw-Key"
+      },
+      "screw": "NS-18037",
+      "screw_catalog": "*NS-18037",
+      "torque_Nm": "0.6",
+      "key": "NK-T6",
+      "note": "Torque screwdriver is recommended."
+    },
+    {
+      "id": "assembly-a10",
+      "source": {
+        "printed_page": 144,
+        "pdf_page": 3,
+        "section": "Insert / size 10 / Screw-Key"
+      },
+      "screw": "NS-25060",
+      "screw_catalog": "*NS-25060",
+      "torque_Nm": "0.9",
+      "key": "NK-T7",
+      "note": "Torque screwdriver is recommended."
+    },
+    {
+      "id": "assembly-c04",
+      "source": {
+        "printed_page": 147,
+        "pdf_page": 6,
+        "section": "Insert / C9MT04 / Screw-Key"
+      },
+      "screw": "NS-18037",
+      "screw_catalog": "*NS-18037",
+      "torque_Nm": "0.6",
+      "key": "NK-T6",
+      "note": "Torque screwdriver is recommended."
+    },
+    {
+      "id": "assembly-c05",
+      "source": {
+        "printed_page": 147,
+        "pdf_page": 6,
+        "section": "Insert / C9MT05 / Screw-Key"
+      },
+      "screw": "NS-20045",
+      "screw_catalog": "*NS-20045",
+      "torque_Nm": "0.6",
+      "key": "NK-T6",
+      "note": "Torque screwdriver is recommended."
+    }
+  ],
+  "external_references": [
+    {
+      "id": "extension-bars-p164",
+      "printed_page": 164,
+      "pdf_page": null,
+      "mentioned_at": [
+        {
+          "printed_page": 143,
+          "pdf_page": 2
+        },
+        {
+          "printed_page": 146,
+          "pdf_page": 5
+        }
+      ],
+      "subject": "extension bars",
+      "status": "outside_provided_6_pages",
+      "resolved_file": null,
+      "resolved_products": null,
+      "note_zh": "僅保存型錄交叉引用；未載入 p164，未虛構延長桿料號或裝配配對。"
+    }
+  ],
+  "counts": {
+    "holder_rows": 46,
+    "A_holder_rows": 23,
+    "A_cylindrical": 11,
+    "A_screw_fit": 12,
+    "C_holder_rows": 23,
+    "C_cylindrical": 4,
+    "C_screw_fit": 19,
+    "insert_part_numbers": 14,
+    "A_insert_part_numbers": 10,
+    "C_insert_part_numbers": 4,
+    "insert_grade_variants": 17,
+    "A_insert_grade_variants": 13,
+    "C_insert_grade_variants": 4,
+    "assembly_groups": 4
+  },
+  "unresolved": [
+    {
+      "id": "coating-glyphs",
+      "source": [
+        {
+          "printed_page": 144,
+          "pdf_page": 3
+        },
+        {
+          "printed_page": 147,
+          "pdf_page": 6
+        }
+      ],
+      "field": "coating_catalog",
+      "value": null,
+      "note_zh": "TiAlN / TiAIN 與 AITiN 的 I/l 字形不全一致；資料保留所見文字，不自行做化學名稱合併。"
+    },
+    {
+      "id": "extension-match",
+      "source": [
+        {
+          "printed_page": 143,
+          "pdf_page": 2
+        },
+        {
+          "printed_page": 146,
+          "pdf_page": 5
+        }
+      ],
+      "value": null,
+      "note_zh": "p164 延長桿及其配對未在六頁來源中。"
+    },
+    {
+      "id": "application-labels",
+      "source": {
+        "printed_page": 142,
+        "pdf_page": 1
+      },
+      "value": null,
+      "note_zh": "應用圖未印文字標籤，待使用者確認命名或取得官方圖說。"
+    }
+  ],
+  "reviewed_on": "2026-11-18"
+}

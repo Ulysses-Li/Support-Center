@@ -1,0 +1,231 @@
+{
+  "schema_version": "1.0",
+  "status": "preparation_only",
+  "source_file": "sources/12_Power Mill_p142-147.pdf",
+  "total_pdf_pages": 6,
+  "printed_page_range": [
+    142,
+    147
+  ],
+  "pages": [
+    {
+      "printed_page": 142,
+      "pdf_page": 1,
+      "title": "Power Mill",
+      "sections": [
+        "產品概覽",
+        "A / C 系列應用與直徑範圍"
+      ],
+      "image": "verification/page-1.png",
+      "text": "verification/visible-page-01.txt",
+      "data_locations": [
+        "product-data.json:overview"
+      ],
+      "assets_to_prepare_later": [
+        "產品主視覺",
+        "A/C 系列應用示意圖"
+      ],
+      "note_zh": "標題為 Indexable Milling Cutter 10mm；A 系列也有 06 / 6.5mm 刀片資料，不以標題排除。"
+    },
+    {
+      "printed_page": 143,
+      "pdf_page": 2,
+      "title": "A Series Shoulder Face Mills",
+      "sections": [
+        "Features",
+        "Cylindrical Shank",
+        "Screw-Fit Type"
+      ],
+      "image": "verification/page-2.png",
+      "text": "verification/visible-page-02.txt",
+      "tables": [
+        {
+          "id": "a-cylindrical",
+          "data_rows": 11
+        },
+        {
+          "id": "a-screw-fit",
+          "data_rows": 12
+        }
+      ],
+      "data_locations": [
+        "product-data.json:series[A].holder_tables"
+      ],
+      "external_refs": [
+        164
+      ]
+    },
+    {
+      "printed_page": 144,
+      "pdf_page": 3,
+      "title": "A Series Shoulder Face Mills / Insert",
+      "sections": [
+        "Insert / geometry and grade notes",
+        "Insert size 06",
+        "Insert size 10",
+        "Screw / Key / torque"
+      ],
+      "image": "verification/page-3.png",
+      "text": "verification/visible-page-03.txt",
+      "tables": [
+        {
+          "id": "a-insert-06",
+          "part_numbers": 8,
+          "grade_variants": 11
+        },
+        {
+          "id": "a-insert-10",
+          "part_numbers": 2,
+          "grade_variants": 2
+        }
+      ],
+      "data_locations": [
+        "product-data.json:series[A].insert_tables",
+        "product-data.json:series[A].insert_features",
+        "product-data.json:assemblies[assembly-a06/assembly-a10]"
+      ]
+    },
+    {
+      "printed_page": 145,
+      "pdf_page": 4,
+      "title": "Cutting Data",
+      "sections": [
+        "A series 6.5mm cutting data",
+        "A series 10mm cutting data",
+        "Surface Roughness Comparison",
+        "slotting / ramping notes"
+      ],
+      "image": "verification/page-4.png",
+      "text": "verification/visible-page-04.txt",
+      "tables": [
+        {
+          "id": "a-cutting-6p5",
+          "material_rows": 7
+        },
+        {
+          "id": "a-cutting-10",
+          "material_rows": 7
+        }
+      ],
+      "data_locations": [
+        "cutting-data.json:series_A"
+      ],
+      "note_zh": "兩個不同工法圖各有 Ap；第二圖另有 Ae，不可展平成單一 Ap。"
+    },
+    {
+      "printed_page": 146,
+      "pdf_page": 5,
+      "title": "C Series Torus Radius Mills",
+      "sections": [
+        "Features",
+        "Cylindrical Shank",
+        "Screw-Fit Type"
+      ],
+      "image": "verification/page-5.png",
+      "text": "verification/visible-page-05.txt",
+      "tables": [
+        {
+          "id": "c-cylindrical",
+          "data_rows": 4
+        },
+        {
+          "id": "c-screw-fit",
+          "data_rows": 19,
+          "upper_99802_rows": 10,
+          "lower_99805_rows": 9
+        }
+      ],
+      "data_locations": [
+        "product-data.json:series[C].holder_tables"
+      ],
+      "external_refs": [
+        164
+      ],
+      "note_zh": "上下段 Type 有八組重複，完整料號前綴不同；L25 / L13 等長度不能合併或擇一。"
+    },
+    {
+      "printed_page": 147,
+      "pdf_page": 6,
+      "title": "C Series Torus Radius Mills / Insert / Cutting Data",
+      "sections": [
+        "Dual Relief Angle Insert",
+        "Insert",
+        "Screw / Key / torque",
+        "C series cutting data"
+      ],
+      "image": "verification/page-6.png",
+      "text": "verification/visible-page-06.txt",
+      "tables": [
+        {
+          "id": "c-inserts",
+          "part_numbers": 4,
+          "grade_variants": 4
+        },
+        {
+          "id": "c-cutting",
+          "material_rows": 4
+        }
+      ],
+      "data_locations": [
+        "product-data.json:series[C].insert_tables",
+        "product-data.json:series[C].insert_features",
+        "product-data.json:assemblies[assembly-c04/assembly-c05]",
+        "cutting-data.json:series_C"
+      ],
+      "note_zh": "Ae < 2.5mm；淬硬鋼 < 52HRC。"
+    }
+  ],
+  "future_content_plan_zh": [
+    {
+      "section": "系列總覽",
+      "data": "product-data.json:overview",
+      "sources": [
+        142
+      ]
+    },
+    {
+      "section": "A 系列刀體與刀片規格",
+      "data": "product-data.json:series[A]",
+      "sources": [
+        143,
+        144
+      ]
+    },
+    {
+      "section": "A 系列切削條件與使用註記",
+      "data": "cutting-data.json:series_A",
+      "sources": [
+        145
+      ]
+    },
+    {
+      "section": "C 系列刀體與刀片規格",
+      "data": "product-data.json:series[C]",
+      "sources": [
+        146,
+        147
+      ]
+    },
+    {
+      "section": "C 系列切削條件與使用註記",
+      "data": "cutting-data.json:series_C",
+      "sources": [
+        147
+      ]
+    },
+    {
+      "section": "裝配與延長桿",
+      "data": "product-data.json:assemblies / external_references",
+      "sources": [
+        143,
+        144,
+        146,
+        147
+      ],
+      "external_page": 164,
+      "status": "延長桿部分待補"
+    }
+  ],
+  "frontend_status_zh": "已建立並公開型錄研究整理頁 index.html 供原廠審閱；尚未建立產品選型／切削計算器，未修改正式產品頁。PNG 為來源驗證材料。",
+  "reviewed_on": "2026-11-18"
+}
