@@ -113,6 +113,10 @@
       grade: row.grade_designation_catalog,
       coating: row.coating_catalog
     }));
+    // 刀片用途只作說明，不因非ISO設計或表面用途而補猜Re、牌號或相容性。
+    const insertProfiles = Object.fromEntries(Object.entries(confirmedSpecs?.insert_profiles || {}).filter(([part, profile]) =>
+      part === 'CCGH0602U' && profile?.status === 'confirmed' && profile.source?.kind === 'user_confirmation' &&
+      profile.standard_iso === false && inserts.some(insert => insert.parts === part)));
     // 原廠系列刀片頁補足0602家族的實體配對；以獨立白名單保存，不將CCGH060204視為任何刀片的別名。
     // 規則還須逐一吻合實體品項、牌號、Ic與厚度；沒有可核對來源時維持原先的家族候選狀態。
     const compatibility = confirmedSpecs?.insert_compatibility;
@@ -157,7 +161,7 @@
       ) : {};
     const systemInsertNames = unique((inventory.critical_source_issues || []).flatMap(issue => issue.catalog_system_insert_names || []));
     return {
-      bars, holders, adapters, inserts, insertGeometries, materials, cuttingRows, systemInsertNames, verifiedInsertRules, gradeMaterials, confirmedConditionRules, unavailableInsertGrades,
+      bars, holders, adapters, inserts, insertGeometries, materials, cuttingRows, systemInsertNames, verifiedInsertRules, gradeMaterials, confirmedConditionRules, unavailableInsertGrades, insertProfiles,
       conditions: unique(cuttingRows.map(row => row.cutting_condition_or_surface_finish)),
       series: unique(bars.map(bar => bar.series)),
       grades: cutting.grade_descriptions || [],
