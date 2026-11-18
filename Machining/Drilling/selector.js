@@ -5,8 +5,8 @@
   else root.DrillingSelector = factory();
 }(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
-  const fields = ['diameter', 'toleranceUpper', 'toleranceLower', 'depth', 'material', 'machineMode', 'application', 'coolant', 'pressure', 'machineMax', 'spdDepthClass', 'applicationFactor'];
-  const defaults = { diameter: '', toleranceUpper: '', toleranceLower: '', depth: '', material: '', machineMode: 'rotating', application: 'regular_surface', coolant: 'unknown', pressure: '', machineMax: '', spdDepthClass: '', applicationFactor: '' };
+  const fields = ['diameter', 'toleranceUpper', 'toleranceLower', 'depth', 'material'];
+  const defaults = { diameter: '', toleranceUpper: '', toleranceLower: '', depth: '', material: '' };
   const products = {
     sd: { name: 'Super Drill', eyebrow: 'SD · 3D／4D', directory: 'CuttingData/SuperDrill/', pdf: 'Super_Drill_p136-141.pdf', note: '同型內、外刃刀片，依所選 3D／4D 刀體配對切削條件。' },
     spd: { name: 'Super Power Drill', eyebrow: 'SPD · 中心導引＋外刃', directory: 'CuttingData/SuperPowerDrill/', pdf: 'Super_Power_Drill_p128-135.pdf', note: '中心導引與外刃分開配對，供液至少需要 10 bar 內冷。' }
@@ -19,11 +19,11 @@
   }
 
   function currentJob(state) {
-    const job = { ...defaults, ...state };
-    ['diameter', 'depth', 'pressure', 'machineMax', 'applicationFactor'].forEach(key => { job[key] = number(job[key]); });
-    // 分類頁不以柄徑篩選；舊網址帶回的 shank 也不能形成隱藏限制。
-    job.shank = null;
-    return job;
+    const job = Object.fromEntries(fields.map(key => [key, state[key] ?? defaults[key]]));
+    ['diameter', 'depth'].forEach(key => { job[key] = number(job[key]); });
+    // 分類頁只收基本加工需求，舊網址的機台、內冷及柄徑不得形成隱藏篩選。
+    // 實際工況交由產品頁另行設定與核對，此處不假定使用者已有內冷供液。
+    return { ...job, machineMode: 'rotating', application: 'regular_surface', coolant: 'unknown', shank: null, pressure: null, machineMax: null, spdDepthClass: '', applicationFactor: null };
   }
 
   function queryFor(state) {

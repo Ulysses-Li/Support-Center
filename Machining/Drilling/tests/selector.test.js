@@ -107,15 +107,60 @@ test('未填完整孔徑深度不標推薦；切削材料尚未補齊不抹去�
   assert.deepEqual(result.map(group => [group.key, group.recommended]), [['sd', true], ['spd', false]]);
 });
 
-test('SPD斜面、疊板或內冷不足時保留尺寸候選，但不標為推薦', () => {
-  const state = { diameter: '24', depth: '36', material: 'carbon_low', coolant: 'yes', pressure: '20', spdDepthClass: 'lt7d' };
-  for (const overrides of [{ application: 'angled' }, { application: 'stack_drilling' }, { coolant: 'no' }, { pressure: '9' }]) {
-    const result = groups({ ...state, ...overrides });
-    const spd = result.find(group => group.key === 'spd');
-    assert.ok(spd, '尺寸符合的 SPD 家族仍顯示');
-    assert.ok(spd.matching.length > 0);
-    assert.equal(spd.chosen.eligibility, 'blocked');
-    assert.equal(spd.recommended, false);
+test('舊進階參數不再改變分類頁的幾何結果、最短推薦與可選系列', () => {
+  const summarize = result => result.map(group => ({
+    key: group.key,
+    tools: group.matching.map(row => row.tool.id),
+    shortest: group.shortest.tool.id,
+    chosen: group.chosen.tool.id,
+    eligibility: group.chosen.eligibility,
+    recommended: group.recommended,
+    canSelect: group.canSelect
+  }));
+  // 深36檢查SD優先；深100只剩SPD，舊斜面/無內冷也不能形成隱藏的進入限制。
+  for (const depth of ['36', '100']) {
+    const state = { diameter: '24', depth, material: 'carbon_low' };
+    const expected = summarize(groups(state));
+    for (const overrides of [
+      { application: 'angled' }, { application: 'stack_drilling' },
+      { coolant: 'no' }, { pressure: '9' }, { machineMode: 'lathe' },
+      { machineMax: '0' }, { applicationFactor: '999' }, { spdDepthClass: 'gt7d' },
+      { shank: '32', machineMode: 'invalid', application: 'angled', coolant: 'no', pressure: '0', machineMax: '-1', spdDepthClass: 'invalid', applicationFactor: 'invalid' }
+    ]) {
+      assert.deepEqual(summarize(groups({ ...state, ...overrides })), expected, `舊參數${JSON.stringify(overrides)} / 深${depth}`);
+    }
+  }
+});
+
+test('分類頁只還原五個需求欄位，舊進階網址不傳入core條件或產品CTA', () => {
+  const allowed = ['diameter', 'toleranceUpper', 'toleranceLower', 'depth', 'material'];
+  assert.deepEqual(Selector.fields, allowed);
+  assert.deepEqual(Object.keys(Selector.defaults), allowed);
+  const demand = { diameter: '24', toleranceUpper: '+0.05', toleranceLower: '-0.02', depth: '100', material: 'carbon_low' };
+  const legacy = {
+    ...demand, shank: '20', machineMode: 'lathe', application: 'angled', coolant: 'no',
+    pressure: '9', machineMax: '100', spdDepthClass: 'gt7d', applicationFactor: '75',
+    values: 'manual', vc: '80', feed: '0.1', unexpected: '不得還原'
+  };
+  const job = Selector.currentJob(legacy);
+  assert.equal(job.diameter, 24);
+  assert.equal(job.depth, 100);
+  assert.equal(job.material, demand.material);
+  assert.equal(job.machineMode, 'rotating');
+  assert.equal(job.application, 'regular_surface');
+  assert.equal(job.coolant, 'unknown');
+  for (const key of ['pressure', 'machineMax', 'applicationFactor', 'shank']) assert.equal(job[key], null);
+  for (const key of ['values', 'vc', 'feed', 'unexpected']) assert.equal(Object.hasOwn(job, key), false);
+  assert.notEqual(job.spdDepthClass, legacy.spdDepthClass);
+  assert.deepEqual(Object.fromEntries(Selector.queryFor(legacy)), demand);
+  // 網址還原白名單與CTA白名單相同；不存在的舊欄位不能被讀回狀態。
+  const query = new URLSearchParams(legacy);
+  const restored = { ...Selector.defaults };
+  Selector.fields.forEach(key => { if (query.has(key)) restored[key] = query.get(key); });
+  assert.deepEqual(restored, demand);
+  for (const group of groups(legacy)) {
+    const url = new URL(Selector.productUrl('https://n9sp.cwli.dev/', group.key, legacy, group.chosen.tool));
+    assert.deepEqual(Object.fromEntries(url.searchParams), { ...demand, tool: group.chosen.tool.id });
   }
 });
 
@@ -173,14 +218,12 @@ test('只能進入最短可用系列：Ø24深36與90選SD，100選SPD，退回3
   }
 });
 
-test('孔徑深度未完整或家族工況阻擋時不可選；全部blocked沒有可選系列', () => {
+test('孔徑深度未完整或產品API回報blocked時不可選；全部blocked沒有可選系列', () => {
   for (const state of [{}, { diameter: '24' }, { depth: '36' }]) {
     const result = groups(state);
     assert.ok(result.length > 0, '未完成需求仍可查看尺寸候選');
     assert.ok(result.every(group => group.canSelect === false && typeof group.selectionNote === 'string' && group.selectionNote.trim()));
   }
-  const blockedSpd = groups({ diameter: '24', depth: '36', application: 'angled' });
-  assert.deepEqual(blockedSpd.map(group => [group.key, group.canSelect]), [['sd', true], ['spd', false]]);
   const row = (id, T) => ({ tool: { id, T }, eligibility: 'blocked', notes: ['此加工條件不適用'] });
   const allBlocked = {
     sd: { catalog: {}, core: { filterTools: () => [row('blocked-sd', 72)] } },

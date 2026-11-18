@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../../header/header.css">
   <link rel="stylesheet" href="../../footer/footer.css">
   <link rel="stylesheet" href="../../css/site-background.css">
-  <link rel="stylesheet" href="./styles.css?v=20261118-standby">
+  <link rel="stylesheet" href="./styles.css?v=20261118-basic-job">
   <link rel="icon" href="../../favicon.png">
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 </head>
@@ -56,17 +56,6 @@
           <div class="col-12 col-md-4"><label class="form-label" for="depth"><span class="field-index">02</span>鑽孔深度</label><div class="input-group main-control"><input id="depth" name="depth" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="輸入深度" aria-describedby="depthHelp"><span class="input-group-text">mm</span></div><p id="depthHelp" class="field-help">從工件表面量起的需求深度。</p></div>
           <div class="col-12 col-md-4"><label class="form-label" for="material"><span class="field-index">03</span>工件材料</label><select id="material" name="material" class="form-select main-control" aria-describedby="materialHelp"><option value="">請選擇材料</option></select><p id="materialHelp" class="field-help">用來對應刀片牌號與切削數據。</p></div>
         </div>
-        <!-- 進階條件預設收合；需要時才補上機台、內冷與特殊入口。 -->
-        <details class="advanced-settings mt-3">
-          <summary><span>機台與加工條件</span><small>旋轉方式、內冷、特殊入口</small><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg></summary>
-          <div class="row g-3 pt-3 pb-1">
-            <div class="col-12 col-md-4"><label class="form-label" for="machineMode">旋轉方式</label><select id="machineMode" name="machineMode" class="form-select"><option value="rotating">刀具旋轉｜加工中心</option><option value="lathe">工件旋轉｜車床</option></select></div>
-            <div class="col-12 col-md-4"><label class="form-label" for="application">入口與工件形狀</label><select id="application" name="application" class="form-select"><option value="">一般平面</option></select></div>
-            <div class="col-12 col-md-4"><label class="form-label" for="coolant">機台內冷</label><select id="coolant" name="coolant" class="form-select"><option value="unknown">尚未確認</option><option value="yes">有內冷</option><option value="no">沒有內冷</option></select></div>
-            <div class="col-12 col-sm-6 col-md-4"><label class="form-label" for="pressure">內冷壓力 <span class="optional-label">選填</span></label><div class="input-group"><input id="pressure" name="pressure" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="實際供液壓力"><span class="input-group-text">bar</span></div></div>
-            <div class="col-12 col-sm-6 col-md-4"><label class="form-label" for="machineMax">機台最高轉速 <span class="optional-label">選填</span></label><div class="input-group"><input id="machineMax" name="machineMax" class="form-control" type="number" min="0" step="1" inputmode="numeric" placeholder="輸入機台上限"><span class="input-group-text">rpm</span></div></div>
-          </div>
-        </details>
       </form>
     </section>
 
@@ -88,7 +77,7 @@
 <!-- 分類頁只載入各產品核心 API；不載入產品 app、圖面或樣式。 -->
 <script src="../../CuttingData/SuperDrill/core.js" defer></script>
 <script src="../../CuttingData/SuperPowerDrill/core.js" defer></script>
-<script src="./selector.js?v=20261118-standby" defer></script>
-<script src="./app.js?v=20261118-standby" defer></script>
+<script src="./selector.js?v=20261118-basic-job" defer></script>
+<script src="./app.js?v=20261118-basic-job" defer></script>
 </body>
 </html>

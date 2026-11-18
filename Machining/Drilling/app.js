@@ -8,7 +8,6 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
   const number = Selector.number;
   const fmt = (value, decimals = 2) => Number.isFinite(value) ? value.toLocaleString('zh-TW', { maximumFractionDigits: decimals }) : '—';
-  const applications = { regular_surface: '一般平面', cross_holes: '交叉孔', stack_drilling: '疊板鑽孔', round_offset: '圓形工件偏心鑽孔', plunge: '插銑／下鑽', concave: '凹面', angled: '斜面', cone_offset: '錐形工件偏心鑽孔' };
   let packages, materials, state = { ...Selector.defaults };
   const selected = { sd: '', spd: '' };
 
@@ -36,7 +35,6 @@
     // 只合併相同材料 ID，不讓分類頁另存兩產品的切削資料副本。
     materials = [...new Map(Object.values(packages).flatMap(entry => entry.catalog.materials).map(material => [material.id, material])).values()];
     $('material').innerHTML = '<option value="">請選擇材料</option>' + materials.map(material => `<option value="${esc(material.id)}">${esc(material.iso)} · ${esc(material.label_zh)}</option>`).join('') + '<option value="non_ferrous">N · 非鐵金屬（本章未列切削值）</option><option value="heat_resistant">S · 耐熱合金（本章未列切削值）</option>';
-    $('application').innerHTML = Object.entries(applications).map(([id, label]) => `<option value="${id}">${esc(label)}</option>`).join('');
     const query = new URLSearchParams(location.search);
     Selector.fields.forEach(key => {
       if (query.has(key)) state[key] = query.get(key);
@@ -49,8 +47,6 @@
   function validation() {
     if (state.diameter !== '' && !(number(state.diameter) > 0)) return '請輸入大於 0 的完成孔徑。';
     if (state.depth !== '' && !(number(state.depth) > 0)) return '請輸入大於 0 的鑽孔深度。';
-    if (state.pressure !== '' && !(number(state.pressure) >= 0)) return '內冷壓力請填 0 或正數。';
-    if (state.machineMax !== '' && !(number(state.machineMax) > 0)) return '機台最高轉速請填正數。';
     const upper = number(state.toleranceUpper), lower = number(state.toleranceLower);
     if ((state.toleranceUpper !== '' && upper === null) || (state.toleranceLower !== '' && lower === null)) return '公差請填帶正負號的數字，例如 +0.05、−0.02。';
     if (upper !== null && lower !== null && lower > upper) return '下偏差不可大於上偏差，請檢查公差。';
@@ -66,7 +62,7 @@
     $('resultSummary').textContent = issue || [diameter > 0 ? `Ø${fmt(diameter, 4)} mm` : '孔徑未填', number(state.depth) > 0 ? `深 ${fmt(number(state.depth))} mm` : '深度未填', material].join(' · ');
     $('dataStatus').textContent = issue || (diameter > 0 && number(state.depth) > 0 ? '已依孔徑與深度篩選，優先推薦最短可用刀體。' : '先填孔徑與深度；材料可接著補齊。');
     const groups = issue ? [] : Selector.selectFamilies(packages, state, selected);
-    const filtering = ['diameter', 'depth', 'material', 'pressure'].some(key => state[key] !== '') || state.coolant !== 'unknown' || state.application !== 'regular_surface' || state.machineMode !== 'rotating';
+    const filtering = ['diameter', 'depth', 'material'].some(key => state[key] !== '');
     const preferred = groups.find(group => group.recommended);
     $('recommendationSummary').textContent = preferred ? `優先推薦 ${preferred.product.name}${preferred.chosen.tool.ratio ? ` ${preferred.chosen.tool.ratio}D` : ''} · ${preferred.chosen.tool.id}：可鑽深 T${fmt(preferred.chosen.tool.T)} mm，為符合需求的最短尺寸。` : '依型錄可鑽深 T 由短到長排列，優先選擇滿足需求深度的最短刀體。';
     $('resultCount').textContent = diameter > 0 && number(state.depth) > 0 ? `${groups.filter(group => group.canSelect).length} 個系列可選 · ${groups.reduce((sum, group) => sum + group.matching.length, 0)} 個刀體尺寸符合` : `${groups.length} 個鑽孔系列 · 先填孔徑與深度`;
@@ -98,7 +94,6 @@
         selected.sd = ''; selected.spd = '';
       }
       Selector.fields.forEach(key => { if ($(key)) state[key] = $(key).value; });
-      if (event.target.id === 'application') state.applicationFactor = '';
       render();
     });
     $('toolList').addEventListener('change', event => {
@@ -107,7 +102,7 @@
       render();
     });
     $('exampleButton').addEventListener('click', () => {
-      state = { ...Selector.defaults, diameter: '24', depth: '36', material: 'low_alloy_low', coolant: 'yes', pressure: '20' };
+      state = { ...Selector.defaults, diameter: '24', depth: '36', material: 'low_alloy_low' };
       Selector.fields.forEach(key => { if ($(key)) $(key).value = state[key]; });
       selected.sd = ''; selected.spd = ''; render();
     });
