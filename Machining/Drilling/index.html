@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../../header/header.css">
   <link rel="stylesheet" href="../../footer/footer.css">
   <link rel="stylesheet" href="../../css/site-background.css">
-  <link rel="stylesheet" href="./styles.css?v=20261118-basic-job">
+  <link rel="stylesheet" href="./styles.css?v=20261118-no-match">
   <link rel="icon" href="../../favicon.png">
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 </head>
@@ -67,7 +67,7 @@
           <p id="recommendationSummary" class="recommendation-summary" aria-live="polite">依型錄可鑽深 T 由短到長排列，優先選擇滿足需求深度的最短刀體。</p>
           <!-- 分類頁讀取兩個產品各自維護的規格資料，卡內下拉只決定帶入產品頁的刀體。 -->
           <div id="toolList" class="tool-list" aria-label="符合需求的鑽孔系列"></div>
-          <div id="emptyState" class="surface empty-state" hidden><span class="empty-symbol" aria-hidden="true">Ø</span><h3>試著調整加工條件</h3><p>目前沒有符合這組條件的標準刀具。</p></div>
+          <div id="emptyState" class="surface empty-state" hidden aria-live="polite"></div>
         </section>
     </div>
     <div class="planning-footer d-flex flex-wrap justify-content-between align-items-center gap-3"><p class="mb-0">每一組推薦，都能回到各產品型錄核對。</p><a class="planning-link" href="./catalog-notes.html">型錄與原廠待確認清單 <span aria-hidden="true">→</span></a></div>
@@ -77,7 +77,7 @@
 <!-- 分類頁只載入各產品核心 API；不載入產品 app、圖面或樣式。 -->
 <script src="../../CuttingData/SuperDrill/core.js" defer></script>
 <script src="../../CuttingData/SuperPowerDrill/core.js" defer></script>
-<script src="./selector.js?v=20261118-basic-job" defer></script>
-<script src="./app.js?v=20261118-basic-job" defer></script>
+<script src="./selector.js?v=20261118-no-match" defer></script>
+<script src="./app.js?v=20261118-no-match" defer></script>
 </body>
 </html>

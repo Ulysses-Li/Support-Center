@@ -262,6 +262,116 @@ test('舊網址spdTool指向有效長刀體也不能繞過最短系列限制', (
   assert.deepEqual(backTo36.filter(group => group.canSelect).map(group => group.key), ['sd']);
 });
 
+// 無結果說明必須根據實體刀體尺寸，不以範圍內插料號，也不把未知深度補成零。
+const explain = state => Selector.explainNoMatch(packages, { ...Selector.defaults, ...state });
+
+test('有幾何結果、未填需求或非法尺寸時，不產生無匹配診斷', () => {
+  for (const state of [
+    {}, { diameter: '', depth: '' }, { diameter: '10' },
+    { diameter: '10', depth: '30' }, { diameter: '24', depth: '250' },
+    { diameter: '40', depth: '350' }, { diameter: '10', depth: '20', material: 'non_ferrous' },
+    { diameter: '0', depth: '36' }, { diameter: '-10', depth: '36' },
+    { diameter: 'invalid', depth: '36' }, { diameter: '10', depth: '0' },
+    { diameter: '10', depth: '-1' }, { diameter: '10', depth: 'invalid' }
+  ]) assert.equal(explain(state), null, JSON.stringify(state));
+});
+
+test('Ø10深36說明SD最大T30不足6，SPD未列Ø10規格', () => {
+  const result = explain({ diameter: '10', depth: '36' });
+  for (const key of ['title', 'summary', 'guidance']) assert.ok(typeof result[key] === 'string' && result[key].trim(), key);
+  assert.match(result.title, /10/);
+  const sd = result.families.find(family => family.key === 'sd');
+  const spd = result.families.find(family => family.key === 'spd');
+  assert.equal(sd.name, 'Super Drill');
+  assert.equal(sd.reason, 'depth');
+  assert.equal(sd.maxDepth, 30);
+  assert.equal(sd.shortfall, 6);
+  assert.equal(sd.toolId, '00-99313-10');
+  assert.equal(sd.sourcePage, 138);
+  assert.match(sd.message, /30/);
+  assert.match(sd.message, /36/);
+  assert.equal(spd.name, 'Super Power Drill');
+  assert.equal(spd.reason, 'diameter');
+  assert.deepEqual(spd.diameterRange, [19, 40]);
+  assert.equal(spd.maxDepth, null);
+  assert.equal(spd.shortfall, null);
+  assert.equal(spd.toolId, null);
+  assert.ok(spd.message.trim());
+});
+
+test('Ø10.1未列標準名目刀徑，提供鄰近規格但不誤報深度不足', () => {
+  const result = explain({ diameter: '10.1', depth: '20' });
+  assert.match(result.title + result.summary, /10\.1/);
+  assert.equal(result.families.length, 2);
+  const sd = result.families.find(family => family.key === 'sd');
+  assert.deepEqual(sd.diameterRange, [10, 30]);
+  assert.deepEqual(sd.nearbyDiameters, [10, 10.3]);
+  for (const family of result.families) {
+    assert.equal(family.reason, 'diameter');
+    assert.equal(family.maxDepth, null);
+    assert.equal(family.shortfall, null);
+    assert.equal(family.toolId, null);
+  }
+});
+
+test('Ø24深251逐系列列出實體最長刀體，SD差155、SPD差1', () => {
+  const result = explain({ diameter: '24', depth: '251' });
+  assert.deepEqual(result.families.map(family => [family.key, family.reason, family.maxDepth, family.shortfall, family.toolId, family.sourcePage]), [
+    ['sd', 'depth', 96, 155, '00-99314-24', 139],
+    ['spd', 'depth', 250, 1, '00-99307-24250', 130]
+  ]);
+  assert.match(result.summary, /250/);
+  assert.match(result.summary, /251/);
+});
+
+test('Ø40深351區分SD孔徑不符與SPD鑽深不足，不借用別孔徑容量', () => {
+  const result = explain({ diameter: '40', depth: '351' });
+  const sd = result.families.find(family => family.key === 'sd');
+  const spd = result.families.find(family => family.key === 'spd');
+  assert.equal(sd.reason, 'diameter');
+  assert.deepEqual(sd.diameterRange, [10, 30]);
+  assert.equal(sd.maxDepth, null);
+  assert.equal(spd.reason, 'depth');
+  assert.equal(spd.maxDepth, 350);
+  assert.equal(spd.shortfall, 1);
+  assert.equal(spd.toolId, '00-99307-40350');
+  assert.equal(spd.sourcePage, 131);
+});
+
+test('未填孔徑且深351時，容量明確標為全系列而非每個刀徑', () => {
+  const result = explain({ depth: '351' });
+  assert.match(result.summary, /全系列/);
+  assert.deepEqual(result.families.map(family => [family.key, family.reason, family.maxDepth, family.shortfall]), [
+    ['sd', 'depth', 120, 231], ['spd', 'depth', 350, 1]
+  ]);
+  assert.equal(result.families.find(family => family.key === 'sd').toolId, '00-99314-30');
+});
+
+test('材料缺值、非鐵與舊機台參數不會改變孔徑深度無匹配原因', () => {
+  const state = { diameter: '10', depth: '36' };
+  const expected = explain(state);
+  for (const overrides of [
+    { material: '' }, { material: 'non_ferrous' }, { material: 'carbon_low' },
+    { shank: '32', machineMode: 'lathe', application: 'angled', coolant: 'no', pressure: '9', machineMax: 'invalid', spdDepthClass: 'gt7d', applicationFactor: '999' }
+  ]) assert.deepEqual(explain({ ...state, ...overrides }), expected, JSON.stringify(overrides));
+});
+
+test('刀體資料缺少時明示資料不足，不把未知容量與不足量補成0', () => {
+  const missing = Object.fromEntries(Object.entries(packages).map(([key, entry]) => [key, { ...entry, catalog: { ...entry.catalog, tools: [] } }]));
+  const result = Selector.explainNoMatch(missing, { ...Selector.defaults, diameter: '10', depth: '36' });
+  assert.equal(result.families.length, 2);
+  for (const family of result.families) {
+    assert.equal(family.reason, 'data');
+    assert.equal(family.maxDepth, null);
+    assert.equal(family.shortfall, null);
+    assert.equal(family.toolId, null);
+    assert.equal(family.sourcePage, null);
+    assert.equal(family.diameterRange, null);
+    assert.deepEqual(family.nearbyDiameters, []);
+    assert.ok(family.message.trim());
+  }
+});
+
 test('獨立產品不引用另一產品或舊共用bundle，分類頁不載入產品app/CSS', () => {
   for (const product of Object.values(Selector.products)) {
     const directory = path.join(root, product.directory);

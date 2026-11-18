@@ -62,6 +62,8 @@
     $('resultSummary').textContent = issue || [diameter > 0 ? `Ø${fmt(diameter, 4)} mm` : '孔徑未填', number(state.depth) > 0 ? `深 ${fmt(number(state.depth))} mm` : '深度未填', material].join(' · ');
     $('dataStatus').textContent = issue || (diameter > 0 && number(state.depth) > 0 ? '已依孔徑與深度篩選，優先推薦最短可用刀體。' : '先填孔徑與深度；材料可接著補齊。');
     const groups = issue ? [] : Selector.selectFamilies(packages, state, selected);
+    $('recommendationSummary').hidden = groups.length === 0;
+    if (!issue && groups.length === 0) $('dataStatus').textContent = '型錄中沒有同時符合需求的標準刀體，原因如下。';
     const filtering = ['diameter', 'depth', 'material'].some(key => state[key] !== '');
     const preferred = groups.find(group => group.recommended);
     $('recommendationSummary').textContent = preferred ? `優先推薦 ${preferred.product.name}${preferred.chosen.tool.ratio ? ` ${preferred.chosen.tool.ratio}D` : ''} · ${preferred.chosen.tool.id}：可鑽深 T${fmt(preferred.chosen.tool.T)} mm，為符合需求的最短尺寸。` : '依型錄可鑽深 T 由短到長排列，優先選擇滿足需求深度的最短刀體。';
@@ -79,7 +81,18 @@
       return `<article class="finder-family-card${recommended ? ' is-recommended' : ''}${!canSelect ? ' is-unavailable' : ''}"><div class="finder-card-heading"><span class="finder-family-icon"><img src="${new URL('img/drilling.png', siteRoot)}" alt=""></span><div><span class="tool-family">${esc(product.eyebrow)}</span><h3>${esc(product.name)}</h3>${recommended ? '<span class="recommendation-tag">最短尺寸・優先推薦</span>' : ''}</div></div><p class="family-note">${esc(product.note)}</p><span class="match-tag ${canSelect ? esc(status) : 'unavailable'}">${matching.length} 個${filtering ? '刀體尺寸符合' : '標準刀體'}${!canSelect ? '・暫不開放' : ''}</span><label class="form-label mt-3" for="hub-${key}-tool">符合條件的刀體</label><select class="form-select family-setup-select" id="hub-${key}-tool" data-family="${key}"${!canSelect ? ` disabled aria-describedby="hub-${key}-availability"` : ''}>${options}</select><p class="family-selected-spec">Ø${fmt(tool.D)} mm · 可鑽深 T${fmt(tool.T)} mm · 後柄 Ø${fmt(tool.shank)} mm</p><p class="family-setup-meta">${meta} · 型錄 p${tool.sourcePage}</p><p class="family-note" id="hub-${key}-availability">${esc(note)}</p><div class="finder-family-action">${action}<a class="family-catalog-link" href="${pdf}" target="_blank" rel="noopener">產品型錄 PDF ↗</a></div></article>`;
     }).join('');
     $('emptyState').hidden = groups.length > 0;
-    $('emptyState').textContent = issue || '目前沒有符合這組孔徑與深度的標準產品，請調整加工條件。';
+    const diagnosis = !issue && groups.length === 0 ? Selector.explainNoMatch(packages, state) : null;
+    $('emptyState').classList.toggle('no-match-explanation', Boolean(diagnosis));
+    if (diagnosis) {
+      // 數值與型錄頁碼皆由各系列實際料號產生；缺資料不補上推估值。
+      const reasons = diagnosis.families.map(item => {
+        const product = Selector.products[item.key];
+        const source = new URL(product.directory + 'sources/' + product.pdf, siteRoot);
+        if (item.sourcePage) source.hash = `page=${item.sourcePage - product.firstPage + 1}`;
+        return `<li class="col-12 col-md-6"><strong>${esc(item.name)}</strong><p class="mt-1 mb-0">${esc(item.message)}</p><a class="family-catalog-link" href="${esc(source.href)}" target="_blank" rel="noopener">${item.sourcePage ? `型錄 p${item.sourcePage}` : '產品型錄 PDF'} ↗</a></li>`;
+      }).join('');
+      $('emptyState').innerHTML = `<h3>${esc(diagnosis.title)}</h3><p class="no-match-summary">${esc(diagnosis.summary)}</p><ul class="row g-3 list-unstyled mt-1 mb-0">${reasons}</ul><p class="no-match-guidance">${esc(diagnosis.guidance)}</p>`;
+    } else $('emptyState').textContent = issue || '目前尚無可核對的標準配對資料，請查看產品型錄。';
     const query = Selector.queryFor(state);
     Object.entries(selected).forEach(([key, value]) => { if (value) query.set(`${key}Tool`, value); });
     history.replaceState(null, '', `${location.pathname}${query.size ? `?${query}` : ''}${location.hash}`);

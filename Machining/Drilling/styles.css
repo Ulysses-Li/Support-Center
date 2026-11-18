@@ -202,6 +202,14 @@ body[data-view=hub] .finder-family-card.is-unavailable{opacity:.8;filter:graysca
 body[data-view=hub] .finder-family-card.is-unavailable:hover{transform:none;border-color:var(--dw-line);box-shadow:0 7px 24px rgba(12,34,55,.035)}
 .finder-family-card.is-unavailable .btn:disabled{background:#e5edf3;color:#73899b;border-color:#d6e4ee;opacity:1}
 .match-tag.unavailable{color:#607589;background:#e7edf2}
+/* 無結果時直接說明標準孔徑或深度限制，並保留可核對的型錄來源。 */
+.empty-state.no-match-explanation{text-align:left;padding:24px 28px}
+.no-match-explanation h3{font-size:22px;line-height:1.5;margin-bottom:8px;color:var(--dw-ink);font-weight:800}
+.no-match-explanation p,.no-match-explanation li{font-size:15px;line-height:1.8}
+.no-match-explanation strong{color:var(--dw-ink)}
+.no-match-summary{color:var(--dw-ink);margin-bottom:16px!important}
+.no-match-guidance{margin:14px 0 0;color:var(--dw-blue)}
+@media(max-width:575.98px){.empty-state.no-match-explanation{padding:21px 20px}.no-match-explanation h3{font-size:20px}}
 @media(max-width:991.98px){.view-tabs a:last-child{margin-left:0}}
 @media(max-width:575.98px){.dw-container{padding-inline:18px}.view-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
