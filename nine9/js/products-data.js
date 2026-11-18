@@ -34,8 +34,9 @@ const PRODUCT_FAMILIES = [
     image: "../img/drilling.png",
     href: "../Machining/Drilling/index.html",
     products: [
-      { name: "Super Drill", href: "../Products/SuperDrill/index.html" },
-      { name: "Super Power Drill", href: "../Products/SuperPowerDrill/index.html" }
+      // 相關產品直接開啟與 Cutting Data 相同的鑽孔設定工具。
+      { name: "Super Drill", href: "../CuttingData/SuperDrill/index.html" },
+      { name: "Super Power Drill", href: "../CuttingData/SuperPowerDrill/index.html" }
     ]
   },
 
