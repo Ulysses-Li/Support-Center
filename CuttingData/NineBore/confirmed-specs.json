@@ -60,6 +60,18 @@
     }
   },
   "operating_features": {
+    "projection_and_depth": {
+      "status": "confirmed",
+      "projection_may_exceed_L1": true,
+      "requires_effective_clamping": true,
+      "boring_depth_limit": "L1",
+      "source": {
+        "kind": "user_confirmation",
+        "date": "2026-11-18",
+        "statement_zh_tw": "刀具伸出長度可超過L1；加工深度仍依L1",
+        "scope_zh_tw": "伸出長度與加工深度分別判斷：伸出可大於L1，但須有效夾持；加工深度仍以L1為限。不推算固定夾持量、伸出上限或最高轉速。"
+      }
+    },
     "center_coolant": {
       "status": "confirmed",
       "supply": "custom_order",

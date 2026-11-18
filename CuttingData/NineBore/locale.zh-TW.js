@@ -23,6 +23,7 @@
 
   // 核心訊息與圖面固定字串集中管理；未列出的文字原樣回傳，避免誤翻產品資料。
   const MESSAGES = Object.freeze({
+    'Tool projection may exceed L1 with effective clamping; boring depth remains limited to L1.':'刀具伸出長度可超過 L1，但須確保有效夾持；加工深度仍以 L1 為限。',
     'Median values are adjustable site starting values. Programmed Z and a machining cycle are not derived from the requested depth.':'建議值採型錄數列的中間值，可依現場調整。輸入的需求深度不會直接推算程式 Z 或加工循環。',
     'Dynamic balance: 99146 — G6.3 at 10,000 rpm reference; 99101 / 99121 — not dynamically balanced. This is not a maximum speed rating.':'動平衡：99146 為 G6.3／10,000 rpm 平衡參考；99101／99121 無動平衡。平衡參考轉速不代表最高使用轉速。',
     'Center coolant is custom-order. Contact us to discuss your requirements.':'中心出水須洽詢訂製，請聯絡我們說明需求。',
