@@ -61,7 +61,14 @@
     groups.sort((a, b) => a.shortest.tool.T - b.shortest.tool.T);
     const preferred = groups.find(group => group.shortest.eligibility !== 'blocked');
     const complete = job.diameter > 0 && job.depth > 0;
-    return groups.map(group => ({ ...group, recommended: complete && group === preferred && group.chosen.tool.id === group.shortest.tool.id }));
+    return groups.map(group => {
+      // 僅開放目前最短可用的系列；換成較長的手選刀體或舊網址都不能解鎖另一系列。
+      const canSelect = complete && group === preferred && group.chosen.eligibility !== 'blocked';
+      const selectionNote = !complete ? '請先填寫加工孔徑與鑽孔深度。'
+        : group.chosen.eligibility === 'blocked' || !preferred ? '目前機台與加工條件不適用，暫不開放選用。'
+          : !canSelect ? `${preferred.product.name} 已能滿足需求深度，先使用較短刀體；本系列暫不開放選用。` : '';
+      return { ...group, canSelect, selectionNote, recommended: canSelect && group.chosen.tool.id === group.shortest.tool.id };
+    });
   }
 
   return { fields, defaults, products, number, currentJob, queryFor, productUrl, selectFamilies };

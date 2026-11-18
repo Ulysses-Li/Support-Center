@@ -208,6 +208,11 @@ body[data-view=hub] .planning-footer .catalog-link{margin-right:10px}
 .recommendation-summary{font-size:14px;line-height:1.7;color:var(--dw-blue);margin:0 0 18px}
 body[data-view=hub] .finder-family-card.is-recommended{border-color:var(--dw-orange)}
 .recommendation-tag{display:inline-flex;padding:3px 8px;margin-top:8px;border-radius:4px;background:#fff1e8;color:#a64212;font-size:14px;font-weight:700}
+/* 非優先系列維持 80% 透明度的停用狀態，實際選單與按鈕也同步停用。 */
+body[data-view=hub] .finder-family-card.is-unavailable{opacity:.8;filter:grayscale(.8);background:#f4f7fa}
+body[data-view=hub] .finder-family-card.is-unavailable:hover{transform:none;border-color:var(--dw-line);box-shadow:0 7px 24px rgba(12,34,55,.035)}
+.finder-family-card.is-unavailable .btn:disabled{background:#e5edf3;color:#73899b;border-color:#d6e4ee;opacity:1}
+.match-tag.unavailable{color:#607589;background:#e7edf2}
 @media(max-width:991.98px){.view-tabs a:last-child{margin-left:0}}
 @media(max-width:575.98px){.dw-container{padding-inline:18px}.view-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px}.advanced-settings>summary{flex-wrap:wrap}.advanced-settings>summary small{order:3;width:100%}.advanced-settings>summary svg{margin-left:auto}}
 @media(prefers-reduced-motion:reduce){.advanced-settings>summary svg{transition:none}html{scroll-behavior:auto}}

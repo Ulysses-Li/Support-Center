@@ -69,15 +69,18 @@
     const filtering = ['diameter', 'depth', 'material', 'pressure'].some(key => state[key] !== '') || state.coolant !== 'unknown' || state.application !== 'regular_surface' || state.machineMode !== 'rotating';
     const preferred = groups.find(group => group.recommended);
     $('recommendationSummary').textContent = preferred ? `優先推薦 ${preferred.product.name}${preferred.chosen.tool.ratio ? ` ${preferred.chosen.tool.ratio}D` : ''} · ${preferred.chosen.tool.id}：可鑽深 T${fmt(preferred.chosen.tool.T)} mm，為符合需求的最短尺寸。` : '依型錄可鑽深 T 由短到長排列，優先選擇滿足需求深度的最短刀體。';
-    $('resultCount').textContent = `${groups.length} 個系列 · ${groups.reduce((sum, group) => sum + group.matching.length, 0)} 個刀體${filtering ? '尺寸符合' : '標準規格'}`;
-    $('toolList').innerHTML = groups.map(({ key, product, matching, chosen, shortest, recommended }) => {
+    $('resultCount').textContent = diameter > 0 && number(state.depth) > 0 ? `${groups.filter(group => group.canSelect).length} 個系列可選 · ${groups.reduce((sum, group) => sum + group.matching.length, 0)} 個刀體尺寸符合` : `${groups.length} 個鑽孔系列 · 先填孔徑與深度`;
+    $('toolList').innerHTML = groups.map(({ key, product, matching, chosen, shortest, recommended, canSelect, selectionNote }) => {
       const tool = chosen.tool;
       selected[key] = tool.id;
       const status = filtering ? chosen.eligibility : 'ready';
       const options = matching.map(({ tool: option }) => `<option value="${esc(option.id)}" ${option.id === tool.id ? 'selected' : ''}>${option.id === shortest.tool.id ? '最短尺寸 · ' : ''}${esc(option.id)} · Ø${fmt(option.D)}${option.ratio ? ` · ${option.ratio}D` : ''} · T${fmt(option.T)} · 柄Ø${fmt(option.shank)}</option>`).join('');
       const meta = tool.ratio ? `${tool.ratio}D · ${esc(tool.insertModel)} · NC2032` : `中心 ${esc(tool.centerModel)} ×${tool.centerQty}／外刃 ${esc(tool.peripheryModel)} ×${tool.peripheryQty}`;
       const pdf = new URL(product.directory + 'sources/' + product.pdf, siteRoot);
-      return `<article class="finder-family-card${recommended ? ' is-recommended' : ''}"><div class="finder-card-heading"><span class="finder-family-icon"><img src="${new URL('img/drilling.png', siteRoot)}" alt=""></span><div><span class="tool-family">${esc(product.eyebrow)}</span><h3>${esc(product.name)}</h3>${recommended ? '<span class="recommendation-tag">最短尺寸・優先推薦</span>' : ''}</div></div><p class="family-note">${esc(product.note)}</p><span class="match-tag ${esc(status)}">${matching.length} 個${filtering ? '刀體尺寸符合' : '標準刀體'}</span><label class="form-label mt-3" for="hub-${key}-tool">符合條件的刀體</label><select class="form-select family-setup-select" id="hub-${key}-tool" data-family="${key}">${options}</select><p class="family-selected-spec">Ø${fmt(tool.D)} mm · 可鑽深 T${fmt(tool.T)} mm · 後柄 Ø${fmt(tool.shank)} mm</p><p class="family-setup-meta">${meta} · 型錄 p${tool.sourcePage}</p><p class="family-note">${esc(filtering ? chosen.notes[0] || '尺寸與已填條件符合，進入產品頁取得切削設定。' : '可先選標準刀體，或填寫上方條件縮小範圍。')}</p><div class="finder-family-action"><a class="btn ${recommended ? 'btn-brand' : 'btn-tool'} m-0" href="${esc(Selector.productUrl(siteRoot, key, state, tool))}">${recommended ? '使用推薦刀體' : '帶入這支刀體'} <span aria-hidden="true">→</span></a><a class="family-catalog-link" href="${pdf}" target="_blank" rel="noopener">產品型錄 PDF ↗</a></div></article>`;
+      // 停用系列不輸出選型網址，並使用原生 disabled 控制，鍵盤操作也無法誤選。
+      const action = canSelect ? `<a class="btn ${recommended ? 'btn-brand' : 'btn-tool'} m-0" href="${esc(Selector.productUrl(siteRoot, key, state, tool))}">${recommended ? '使用推薦刀體' : '帶入這支刀體'} <span aria-hidden="true">→</span></a>` : `<button type="button" class="btn btn-tool m-0" disabled aria-describedby="hub-${key}-availability">暫不開放選用</button>`;
+      const note = selectionNote || (filtering ? chosen.notes[0] || '尺寸與已填條件符合，進入產品頁取得切削設定。' : '先填寫孔徑與深度，開始選型。');
+      return `<article class="finder-family-card${recommended ? ' is-recommended' : ''}${!canSelect ? ' is-unavailable' : ''}"><div class="finder-card-heading"><span class="finder-family-icon"><img src="${new URL('img/drilling.png', siteRoot)}" alt=""></span><div><span class="tool-family">${esc(product.eyebrow)}</span><h3>${esc(product.name)}</h3>${recommended ? '<span class="recommendation-tag">最短尺寸・優先推薦</span>' : ''}</div></div><p class="family-note">${esc(product.note)}</p><span class="match-tag ${canSelect ? esc(status) : 'unavailable'}">${matching.length} 個${filtering ? '刀體尺寸符合' : '標準刀體'}${!canSelect ? '・暫不開放' : ''}</span><label class="form-label mt-3" for="hub-${key}-tool">符合條件的刀體</label><select class="form-select family-setup-select" id="hub-${key}-tool" data-family="${key}"${!canSelect ? ` disabled aria-describedby="hub-${key}-availability"` : ''}>${options}</select><p class="family-selected-spec">Ø${fmt(tool.D)} mm · 可鑽深 T${fmt(tool.T)} mm · 後柄 Ø${fmt(tool.shank)} mm</p><p class="family-setup-meta">${meta} · 型錄 p${tool.sourcePage}</p><p class="family-note" id="hub-${key}-availability">${esc(note)}</p><div class="finder-family-action">${action}<a class="family-catalog-link" href="${pdf}" target="_blank" rel="noopener">產品型錄 PDF ↗</a></div></article>`;
     }).join('');
     $('emptyState').hidden = groups.length > 0;
     $('emptyState').textContent = issue || '目前沒有符合這組孔徑與深度的標準產品，請調整加工條件。';
@@ -99,7 +102,7 @@
       render();
     });
     $('toolList').addEventListener('change', event => {
-      if (!event.target.matches('.family-setup-select')) return;
+      if (!event.target.matches('.family-setup-select') || event.target.disabled) return;
       selected[event.target.dataset.family] = event.target.value;
       render();
     });

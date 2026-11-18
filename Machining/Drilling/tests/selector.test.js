@@ -156,6 +156,69 @@ test('家族排序以最短可用T為準，不依資料列順序或手選長度'
   assert.ok(Selector.selectFamilies(blocked, { ...Selector.defaults, diameter: '24', depth: '36' }).every(group => group.recommended === false));
 });
 
+test('只能進入最短可用系列：Ø24深36與90選SD，100選SPD，退回36恢復SD', () => {
+  const state = { diameter: '24', material: 'carbon_low', coolant: 'yes', pressure: '20', spdDepthClass: 'lt7d' };
+  for (const [depth, expected] of [
+    ['36', [['sd', true], ['spd', false]]],
+    ['90', [['sd', true], ['spd', false]]],
+    ['100', [['spd', true]]],
+    ['36', [['sd', true], ['spd', false]]]
+  ]) {
+    const result = groups({ ...state, depth });
+    assert.deepEqual(result.map(group => [group.key, group.canSelect]), expected, `depth=${depth}`);
+    for (const group of result) {
+      assert.equal(typeof group.selectionNote, 'string');
+      if (!group.canSelect) assert.ok(group.selectionNote.trim(), '不可選家族需說明原因');
+    }
+  }
+});
+
+test('孔徑深度未完整或家族工況阻擋時不可選；全部blocked沒有可選系列', () => {
+  for (const state of [{}, { diameter: '24' }, { depth: '36' }]) {
+    const result = groups(state);
+    assert.ok(result.length > 0, '未完成需求仍可查看尺寸候選');
+    assert.ok(result.every(group => group.canSelect === false && typeof group.selectionNote === 'string' && group.selectionNote.trim()));
+  }
+  const blockedSpd = groups({ diameter: '24', depth: '36', application: 'angled' });
+  assert.deepEqual(blockedSpd.map(group => [group.key, group.canSelect]), [['sd', true], ['spd', false]]);
+  const row = (id, T) => ({ tool: { id, T }, eligibility: 'blocked', notes: ['此加工條件不適用'] });
+  const allBlocked = {
+    sd: { catalog: {}, core: { filterTools: () => [row('blocked-sd', 72)] } },
+    spd: { catalog: {}, core: { filterTools: () => [row('blocked-spd', 100)] } }
+  };
+  const result = Selector.selectFamilies(allBlocked, { ...Selector.defaults, diameter: '24', depth: '36' });
+  assert.equal(result.length, 2);
+  assert.ok(result.every(group => group.canSelect === false && typeof group.selectionNote === 'string' && group.selectionNote.trim()));
+});
+
+test('最短家族手選較長規格仍可進入，但較長家族不能因手選解鎖', () => {
+  const state = { diameter: '24', depth: '36', coolant: 'yes', pressure: '20', spdDepthClass: 'lt7d' };
+  const selected = { sd: '00-99314-24', spd: '00-99307-24150' };
+  for (const material of ['', 'carbon_low', 'stainless', 'non_ferrous']) {
+    const result = groups({ ...state, material }, selected);
+    assert.deepEqual(result.map(group => group.chosen.tool.id), [selected.sd, selected.spd]);
+    assert.deepEqual(result.map(group => [group.key, group.canSelect]), [['sd', true], ['spd', false]]);
+    assert.ok(result.every(group => group.recommended === false), '可選系列與目前刀體是否最短推薦是不同判斷');
+  }
+});
+
+test('舊網址spdTool指向有效長刀體也不能繞過最短系列限制', () => {
+  const query = new URLSearchParams('diameter=24&depth=36&material=carbon_low&shank=32&spdTool=00-99307-24250');
+  const state = { ...Selector.defaults, ...Object.fromEntries(query) };
+  const selected = { spd: query.get('spdTool') };
+  const result = groups(state, selected);
+  const spd = result.find(group => group.key === 'spd');
+  assert.equal(spd.chosen.tool.id, '00-99307-24250', '舊料號有效，保留供查看而不暗中開放選取');
+  assert.equal(spd.canSelect, false);
+  assert.ok(spd.selectionNote.trim());
+  assert.deepEqual(result.filter(group => group.canSelect).map(group => group.key), ['sd']);
+  const at100 = groups({ ...state, depth: '100' }, selected);
+  assert.deepEqual(at100.map(group => [group.key, group.canSelect]), [['spd', true]]);
+  assert.equal(at100[0].chosen.tool.id, selected.spd);
+  const backTo36 = groups({ ...state, depth: '36' }, selected);
+  assert.deepEqual(backTo36.filter(group => group.canSelect).map(group => group.key), ['sd']);
+});
+
 test('獨立產品不引用另一產品或舊共用bundle，分類頁不載入產品app/CSS', () => {
   for (const product of Object.values(Selector.products)) {
     const directory = path.join(root, product.directory);
