@@ -84,6 +84,17 @@
 .tool-choice:has(input:focus-visible) .tool-card{outline:3px solid #64afe1;outline-offset:3px}
 .tool-family{font-size:12px;letter-spacing:.055em;line-height:1.6;font-weight:800;color:var(--dw-blue);padding-right:24px;margin-bottom:5px}
 .tool-card-title{display:block;font-size:20px;font-weight:800;line-height:1.4;margin:3px 28px 17px 0;overflow-wrap:anywhere;letter-spacing:-.02em}
+/* 推薦是產品建議，選取是 radio 狀態；兩者可同時呈現，也可分別落在不同卡片。 */
+.tool-card.is-recommended{position:relative;background:#fffaf5;border-color:#efb595;box-shadow:0 6px 22px rgba(131,69,28,.07)}
+.tool-card.is-recommended::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:4px;border-radius:0 3px 3px 0;background:var(--dw-orange);pointer-events:none}
+.tool-card.is-recommended.is-selected,.tool-choice:has(input:checked) .tool-card.is-recommended{border-color:var(--dw-orange);background:#fff8f2;box-shadow:0 0 0 1px var(--dw-orange),0 6px 22px rgba(131,69,28,.07)}
+.tool-card-status{min-width:0;padding-right:28px;margin-bottom:10px;line-height:1.5}
+.tool-card-status:empty{display:none!important}
+.tool-recommendation-badge{display:inline-flex;align-items:center;gap:7px;max-width:100%;padding:4px 10px;border-radius:5px;background:var(--dw-orange);color:var(--dw-ink);font-size:14px;font-weight:800;line-height:1.5;overflow-wrap:anywhere}
+.tool-recommendation-badge svg{width:16px;height:16px;flex:0 0 16px;fill:currentColor}
+.tool-selection-label{display:inline-flex;align-items:center;max-width:100%;color:var(--dw-blue);font-size:14px;font-weight:700;line-height:1.5;overflow-wrap:anywhere}
+.tool-card.is-recommended .tool-card-title{margin-bottom:8px}
+.tool-recommendation-reason{display:block;margin:0 0 18px;color:var(--dw-blue);font-size:14px;font-weight:500;line-height:1.65;overflow-wrap:anywhere}
 .tool-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0}
 .tool-facts>div{min-width:0}
 .tool-facts dt{font-size:14px;line-height:1.5;font-weight:400;color:var(--dw-muted);margin-bottom:4px}

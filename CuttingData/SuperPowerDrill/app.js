@@ -20,10 +20,12 @@
   const sourceHref = page => `${new URL('sources/Super_Power_Drill_p128-135.pdf', scriptRoot)}#page=${Number.isInteger(page) && page >= 128 && page <= 135 ? page - 127 : 1}`;
   const sourceLink = page => `<a href="${sourceHref(page)}" target="_blank" rel="noopener">型錄 p${page} ↗</a>`;
   const product = { name: 'Super Power Drill', eyebrow: 'SPD · 中心導引＋外刃', title: '長孔鑽削，先配好整組刀具。', intro: '從孔徑與深度找刀體，分開配對中心刀片、外刃及內冷條件。' };
+  // Bootstrap Icons 官方 hand-thumbs-up；MIT 授權見 assets/icons/bootstrap-icons-LICENSE.txt。
+  const recommendationIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16" aria-hidden="true" focusable="false">  <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2 2 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a10 10 0 0 0-.443.05 9.4 9.4 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a9 9 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.2 2.2 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.9.9 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/></svg>`;
   const applications = { regular_surface: '一般平面', cross_holes: '交叉孔', stack_drilling: '疊板鑽孔', round_offset: '圓形工件偏心鑽孔', plunge: '插銑／下鑽', concave: '凹面', angled: '斜面', cone_offset: '錐形工件偏心鑽孔' };
   const jobFields = ['diameter', 'toleranceUpper', 'toleranceLower', 'depth', 'material', 'shank', 'machineMode', 'application', 'coolant', 'pressure', 'machineMax'];
   const defaults = { diameter: '', toleranceUpper: '', toleranceLower: '', depth: '', material: '', shank: '', machineMode: 'rotating', application: 'regular_surface', coolant: 'unknown', pressure: '', machineMax: '' };
-  let catalog, state = { ...defaults }, selectedId = '', valuesMode = 'median', candidates = [], activeTool = null, activeCutting = null, activeCalculation = null;
+  let catalog, state = { ...defaults }, selectedId = '', recommendedToolId = '', valuesMode = 'median', candidates = [], activeTool = null, activeCutting = null, activeCalculation = null;
 
   async function fetchJson(name) {
     const response = await fetch(new URL(name, dataRoot));
@@ -160,7 +162,13 @@
   }
 
   function renderToolCards() {
-    $('toolList').innerHTML = candidates.map(({ tool, eligibility, notes }) => `<label class="tool-choice"><input type="radio" name="tool" value="${esc(tool.id)}" ${selectedId === tool.id ? 'checked' : ''}><span class="tool-card ${selectedId === tool.id ? 'is-selected' : ''}"><span class="tool-family">${esc(product.name)}</span><strong class="tool-card-title">${esc(tool.id)}</strong><dl class="tool-facts"><div><dt>標準孔徑</dt><dd>Ø${fmt(tool.D)} mm</dd></div><div><dt>鑽孔深度 T</dt><dd>${fmt(tool.T)} mm</dd></div><div><dt>後端柄徑</dt><dd>Ø${fmt(tool.shank)} mm</dd></div></dl><span class="tool-bottom"><span class="match-tag ${eligibility}">${eligibility === 'blocked' ? '工況不適用' : eligibility === 'review' ? '尺寸符合・條件待補' : '尺寸與條件符合'}</span><span class="unit-muted">型錄 p${tool.sourcePage}</span></span>${eligibility === 'blocked' && notes[0] ? `<span class="cutting-note">${esc(notes[0])}</span>` : ''}</span></label>`).join('');
+    $('toolList').innerHTML = candidates.map(({ tool, eligibility, notes }) => {
+      const recommended = tool.id === recommendedToolId;
+      const selected = tool.id === selectedId;
+      const status = recommended || selected ? `<span class="tool-card-status d-flex flex-wrap align-items-center gap-2">${recommended ? `<span class="tool-recommendation-badge">${recommendationIcon}<span>${esc(t('優先推薦'))}</span></span>` : ''}${selected ? `<span class="tool-selection-label">${esc(t('目前選取'))}</span>` : ''}</span>` : '';
+      const reason = recommended ? `<span class="tool-recommendation-reason">${esc(t('具型錄切削資料、符合需求的最短刀體。'))}<br>${esc(t('需求深度'))} ${fmt(number(state.depth))} mm · T ${fmt(tool.T)} mm</span>` : '';
+      return `<label class="tool-choice"><input type="radio" name="tool" value="${esc(tool.id)}" ${selected ? 'checked' : ''}><span class="tool-card${selected ? ' is-selected' : ''}${recommended ? ' is-recommended' : ''}" data-tool-id="${esc(tool.id)}"${recommended ? ' data-recommended="true"' : ''}>${status}<span class="tool-family">${esc(product.name)}</span><strong class="tool-card-title">${esc(tool.id)}</strong>${reason}<dl class="tool-facts"><div><dt>標準孔徑</dt><dd>Ø${fmt(tool.D)} mm</dd></div><div><dt>鑽孔深度 T</dt><dd>${fmt(tool.T)} mm</dd></div><div><dt>後端柄徑</dt><dd>Ø${fmt(tool.shank)} mm</dd></div></dl><span class="tool-bottom"><span class="match-tag ${eligibility}">${eligibility === 'blocked' ? '工況不適用' : eligibility === 'review' ? '尺寸符合・條件待補' : '尺寸與條件符合'}</span><span class="unit-muted">型錄 p${tool.sourcePage}</span></span>${eligibility === 'blocked' && notes[0] ? `<span class="cutting-note">${esc(notes[0])}</span>` : ''}</span></label>`;
+    }).join('');
   }
 
   function clearSelection(message) {
@@ -269,6 +277,7 @@
     $('vc').disabled = materialSupport.supported !== true;
     $('feed').disabled = materialSupport.supported !== true;
     candidates = issue ? [] : Core.filterTools(catalog, currentJob());
+    recommendedToolId = '';
     const summary = [number(state.diameter) > 0 ? `Ø${fmt(number(state.diameter), 4)} mm` : '孔徑未填', number(state.depth) > 0 ? `深 ${fmt(number(state.depth))} mm` : '深度未填', materialLabel(), number(state.shank) ? `後柄 Ø${fmt(number(state.shank))} mm` : '後柄不限'].join(' · ');
     $('resultSummary').textContent = materialReason || issue || summary;
     $('dataStatus').textContent = materialReason || issue || (complete ? '已依輸入條件篩選標準規格。' : '先填孔徑與深度；材料、柄徑可接著補齊。');
@@ -291,8 +300,17 @@
       clearSelection(issue || '孔徑與深度填好後，會在這裡配對標準刀體。');
     } else {
       candidates.sort((a, b) => a.tool.T - b.tool.T || a.tool.id.localeCompare(b.tool.id));
+      // 推薦與手選分開：只在有型錄切削範圍的適用候選中，優先標示最短 T。
+      // 使用者手填的 Vc／f 不參與推薦資格，工況提醒仍依核心原有狀態顯示。
+      if (materialSupport.supported === true) {
+        recommendedToolId = candidates.find(candidate => {
+          if (candidate.eligibility === 'blocked') return false;
+          const cutting = Core.selectCutting(catalog, candidate.tool, currentJob());
+          return cutting.status !== 'blocked' && cutting.vcRange && cutting.feedRange;
+        })?.tool.id || '';
+      }
       if (!candidates.some(candidate => candidate.tool.id === selectedId)) {
-        selectedId = (candidates.find(candidate => candidate.eligibility !== 'blocked') || candidates[0])?.tool.id || '';
+        selectedId = recommendedToolId || (candidates.find(candidate => candidate.eligibility !== 'blocked') || candidates[0])?.tool.id || '';
         valuesMode = 'median';
       }
       $('resultCount').textContent = `${candidates.length} 個刀體尺寸符合`;

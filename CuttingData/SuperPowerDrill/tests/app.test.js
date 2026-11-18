@@ -83,6 +83,21 @@ async function load(search = '', defaultLang = 'zh-TW', transformData = null) {
   };
 }
 
+// 以實際卡片輸出核對推薦與手選狀態，避免把勾選中的長刀體誤認成推薦。
+function toolCards(app) {
+  return [...app.nodes.toolList.innerHTML.matchAll(/<label\b[^>]*class="tool-choice"[^>]*>([\s\S]*?)<\/label>/g)].map(([, markup]) => {
+    const card = [...markup.matchAll(/<span\b[^>]*class="([^"]*)"[^>]*>/g)].find(match => match[1].split(/\s+/).includes('tool-card'));
+    assert.ok(card, 'card surface');
+    const id = markup.match(/\bdata-tool-id=["']([^"']+)["']/)?.[1];
+    assert.ok(id, 'stable tool identity');
+    const classes = card[1].split(/\s+/);
+    const recommended = /\bdata-recommended=["']true["']/.test(markup);
+    assert.equal(classes.includes('is-recommended'), recommended, id);
+    const reason = markup.match(/<span\b[^>]*class="tool-recommendation-reason"[^>]*>([\s\S]*?)<\/span>/)?.[1] || '';
+    return { id, recommended, selected: classes.includes('is-selected'), markup, reason, text: markup.replace(/<[^>]*>/g, ' ') };
+  });
+}
+
 test('自有資料載入與範例能完成選型，網址回傳自身與 hub', async () => {
   const app = await load();
   assert.deepEqual(app.requested.filter(url => url.endsWith('.json')).sort(), ['/CuttingData/SuperPowerDrill/data/catalog.json', '/CuttingData/SuperPowerDrill/data/cutting-data.json']);
@@ -279,4 +294,104 @@ test('英／繁中下拉只提供 8 種已支持材料，舊 N/S/未知材料不
       assert.equal(legacy.nodes.rpmResult.textContent, '—');
     }
   }
+});
+
+test('最短T200只有一張推薦卡，手選T350不會移動推薦或掩蓋目前選取狀態', async () => {
+  const app = await load('?diameter=35&depth=150&material=carbon_high&shank=32&coolant=yes&pressure=20');
+  let cards = toolCards(app);
+  assert.deepEqual(cards.filter(card => card.recommended).map(card => card.id), ['00-99307-35200']);
+  assert.deepEqual(cards.filter(card => card.selected).map(card => card.id), ['00-99307-35200']);
+  const first = cards.find(card => card.recommended);
+  assert.match(first.text, /優先推薦/);
+  assert.match(first.reason, /最短刀體/);
+  assert.match(first.reason, /需求深度[^<]*150\s*mm/);
+  assert.match(first.reason, /T\s*200\s*mm/);
+  app.choose('00-99307-35350');
+  cards = toolCards(app);
+  assert.deepEqual(cards.filter(card => card.recommended).map(card => card.id), ['00-99307-35200']);
+  assert.deepEqual(cards.filter(card => card.selected).map(card => card.id), ['00-99307-35350']);
+  assert.match(cards.find(card => card.selected).text, /目前選取/);
+  assert.equal(app.nodes.selectedId.textContent, '00-99307-35350');
+  assert.equal(app.nodes.vc.value, '90');
+});
+
+test('需求深度245或205皆推薦T250，失效的T200手選會回到可用的最短刀體', async () => {
+  const app = await load('?diameter=35&depth=150&material=carbon_high&shank=32&coolant=yes&pressure=20');
+  app.input('depth', '245');
+  let cards = toolCards(app);
+  assert.deepEqual(cards.filter(card => card.recommended).map(card => card.id), ['00-99307-35250']);
+  assert.equal(app.nodes.selectedId.textContent, '00-99307-35250');
+  assert.match(cards.find(card => card.recommended).reason, /245\s*mm.*T\s*250\s*mm/);
+  app.input('depth', '205');
+  cards = toolCards(app);
+  assert.deepEqual(cards.filter(card => card.recommended).map(card => card.id), ['00-99307-35250']);
+  assert.equal(app.nodes.selectedId.textContent, '00-99307-35250');
+  assert.match(cards.find(card => card.recommended).reason, /205\s*mm.*T\s*250\s*mm/);
+});
+
+test('不適材、未填尺寸、未選材料及禁用工況不出推薦，原工況警告仍保留', async () => {
+  const base = { diameter: '35', depth: '150', material: 'carbon_high', shank: '32', coolant: 'yes', pressure: '20' };
+  for (const override of [
+    { material: 'non_ferrous' }, { material: 'heat_resistant' }, { material: 'unknown_material' },
+    { diameter: '' }, { depth: '' }, { material: '' }, { pressure: '9' }, { application: 'angled' }
+  ]) {
+    const app = await load('?' + new URLSearchParams({ ...base, ...override }));
+    assert.deepEqual(toolCards(app).filter(card => card.recommended), [], JSON.stringify(override));
+    assert.doesNotMatch(app.nodes.toolList.innerHTML, /tool-recommendation-badge|tool-recommendation-reason/);
+    if (override.pressure || override.application) {
+      assert.ok(toolCards(app).length);
+      assert.match(app.nodes.toolList.innerHTML, /match-tag blocked/);
+      assert.match(app.nodes.toolList.innerHTML, override.pressure ? /10 bar/ : /斜面/);
+    }
+  }
+});
+
+test('只有手動Vc/f而缺少型錄進給列不能推薦；內冷待確認仍保留原review提醒', async () => {
+  const manual = await load('?diameter=35&depth=150&material=carbon_high&coolant=yes&pressure=20&tool=00-99307-35200&values=manual&vc=90&feed=0.115', 'zh-TW', (data, name) => {
+    if (name === 'cutting-data.json') {
+      for (const row of data.section.cutting_rows.filter(row => row.material_id === 'carbon_high')) row.feed_per_revolution.d35_40 = null;
+    }
+    return data;
+  });
+  assert.ok(toolCards(manual).length);
+  assert.equal(manual.nodes.vc.value, '90');
+  assert.equal(manual.nodes.feed.value, '0.115');
+  assert.deepEqual(toolCards(manual).filter(card => card.recommended), []);
+  const unconfirmed = await load('?diameter=35&depth=150&material=carbon_high&coolant=unknown');
+  const recommended = toolCards(unconfirmed).filter(card => card.recommended);
+  assert.deepEqual(recommended.map(card => card.id), ['00-99307-35200']);
+  assert.match(recommended[0].markup, /match-tag review/);
+  assert.match(unconfirmed.nodes.recommendationNotes.innerHTML, /10 bar/);
+});
+
+test('英文推薦與選取文案不混入中文，理由保留需求深度及刀體T', async () => {
+  const app = await load('?lang=en&diameter=35&depth=150&material=carbon_high&coolant=yes&pressure=20&tool=00-99307-35350', null);
+  const cards = toolCards(app), recommended = cards.filter(card => card.recommended);
+  assert.deepEqual(recommended.map(card => card.id), ['00-99307-35200']);
+  assert.match(recommended[0].text, /Recommended/);
+  assert.match(recommended[0].reason, /Shortest.*catalog cutting data/i);
+  assert.match(recommended[0].reason, /Required depth[^<]*150\s*mm.*T\s*200\s*mm/i);
+  assert.match(cards.find(card => card.selected).text, /Selected/);
+  assert.doesNotMatch(app.nodes.toolList.innerHTML, /[\u3400-\u9fff]/);
+});
+
+test('短刀體缺少切削列時預設選推薦T250，明示有效T200仍保留手選且不改推薦', async () => {
+  const query = '?diameter=35&depth=150&material=carbon_high&coolant=yes&pressure=20';
+  const missingShortFeed = (data, name) => {
+    if (name === 'cutting-data.json') {
+      for (const row of data.section.cutting_rows.filter(row => row.material_id === 'carbon_high' && row.depth_class_raw === 'T<7D')) row.feed_per_revolution.d35_40 = null;
+    }
+    return data;
+  };
+  const automatic = await load(query, 'zh-TW', missingShortFeed);
+  assert.equal(automatic.nodes.selectedId.textContent, '00-99307-35250');
+  assert.deepEqual(toolCards(automatic).filter(card => card.recommended).map(card => card.id), ['00-99307-35250']);
+  assert.equal(automatic.nodes.vc.value, '90');
+  assert.equal(automatic.nodes.feed.value, '0.115');
+  const explicit = await load(query + '&tool=00-99307-35200', 'zh-TW', missingShortFeed);
+  assert.equal(explicit.nodes.selectedId.textContent, '00-99307-35200');
+  assert.deepEqual(toolCards(explicit).filter(card => card.selected).map(card => card.id), ['00-99307-35200']);
+  assert.deepEqual(toolCards(explicit).filter(card => card.recommended).map(card => card.id), ['00-99307-35250']);
+  assert.equal(explicit.nodes.vc.value, '');
+  assert.equal(explicit.nodes.feed.value, '');
 });

@@ -2,6 +2,9 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.SuperPowerDrillLocale=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
 const entries={
+  "優先推薦": "Recommended",
+  "目前選取": "Selected",
+  "具型錄切削資料、符合需求的最短刀體。": "Shortest matching body with catalog cutting data.",
   "自動深度分組（T ÷ D）": "Automatic depth class (T ÷ D)",
   "待選刀體": "Select a drill body",
   "依所選刀體的型錄鑽孔深度 T 與標準孔徑 D 自動計算。": "Calculated from the selected body's catalog drilling depth T and nominal diameter D.",
