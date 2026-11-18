@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>鑽孔選型｜Nine9 支援中心</title>
-  <meta name="description" content="依孔徑、深度、材料與夾持柄徑，探索 Nine9 Super Drill 與 Super Power Drill 的標準規格及切削設定。">
+  <meta name="description" content="依孔徑、深度與材料，優先找到符合需求的最短 Nine9 Super Drill 或 Super Power Drill 刀體。">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../header/header.css">
   <link rel="stylesheet" href="../../footer/footer.css">
   <link rel="stylesheet" href="../../css/site-background.css">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=20261118-shortest">
   <link rel="icon" href="../../favicon.png">
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 </head>
@@ -43,7 +43,7 @@
       <form id="jobForm" novalidate>
         <div class="row g-3 g-lg-4 job-main-fields">
           <!-- 上下公差與名目孔徑分開儲存；空白代表未指定，不預設為零。 -->
-          <div class="col-12 col-sm-6 col-lg-3">
+          <div class="col-12 col-md-4">
             <label class="form-label" for="diameter"><span class="field-index">01</span>加工孔徑</label>
             <div class="diameter-control main-control">
               <span class="diameter-symbol" aria-hidden="true">Ø</span><input id="diameter" name="diameter" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="20" aria-describedby="diameterHelp">
@@ -53,9 +53,8 @@
               </div><span class="control-unit">mm</span>
             </div><p id="diameterHelp" class="field-help">完工孔徑；右側公差可選填。</p><p id="toleranceSummary" class="field-help tolerance-summary">公差選填：上偏差／下偏差，單位 mm。</p>
           </div>
-          <div class="col-12 col-sm-6 col-lg-3"><label class="form-label" for="depth"><span class="field-index">02</span>鑽孔深度</label><div class="input-group main-control"><input id="depth" name="depth" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="輸入深度" aria-describedby="depthHelp"><span class="input-group-text">mm</span></div><p id="depthHelp" class="field-help">從工件表面量起的需求深度。</p></div>
-          <div class="col-12 col-sm-6 col-lg-3"><label class="form-label" for="material"><span class="field-index">03</span>工件材料</label><select id="material" name="material" class="form-select main-control" aria-describedby="materialHelp"><option value="">請選擇材料</option></select><p id="materialHelp" class="field-help">用來對應刀片牌號與切削數據。</p></div>
-          <div class="col-12 col-sm-6 col-lg-3"><label class="form-label" for="shank"><span class="field-index">04</span>夾持柄徑 <span class="unit-muted">Ød</span></label><select id="shank" name="shank" class="form-select main-control" aria-describedby="shankHelp"><option value="">全部標準柄徑</option></select><p id="shankHelp" class="field-help">刀具後端的夾持直徑。</p></div>
+          <div class="col-12 col-md-4"><label class="form-label" for="depth"><span class="field-index">02</span>鑽孔深度</label><div class="input-group main-control"><input id="depth" name="depth" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="輸入深度" aria-describedby="depthHelp"><span class="input-group-text">mm</span></div><p id="depthHelp" class="field-help">從工件表面量起的需求深度。</p></div>
+          <div class="col-12 col-md-4"><label class="form-label" for="material"><span class="field-index">03</span>工件材料</label><select id="material" name="material" class="form-select main-control" aria-describedby="materialHelp"><option value="">請選擇材料</option></select><p id="materialHelp" class="field-help">用來對應刀片牌號與切削數據。</p></div>
         </div>
         <!-- 進階條件預設收合；需要時才補上機台、內冷與特殊入口。 -->
         <details class="advanced-settings mt-3">
@@ -76,6 +75,7 @@
         <section class="options-panel" aria-labelledby="optionsTitle">
           <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-2"><div><p class="eyebrow mb-1">YOUR OPTIONS</p><h2 id="optionsTitle" class="section-heading mb-0">選擇鑽孔系列</h2></div><span id="resultCount" class="result-count" role="status"></span></div>
           <p id="resultSummary" class="result-summary">選擇加工需求，開始比對標準規格。</p>
+          <p id="recommendationSummary" class="recommendation-summary" aria-live="polite">依型錄可鑽深 T 由短到長排列，優先選擇滿足需求深度的最短刀體。</p>
           <!-- 分類頁讀取兩個產品各自維護的規格資料，卡內下拉只決定帶入產品頁的刀體。 -->
           <div id="toolList" class="tool-list" aria-label="符合需求的鑽孔系列"></div>
           <div id="emptyState" class="surface empty-state" hidden><span class="empty-symbol" aria-hidden="true">Ø</span><h3>試著調整加工條件</h3><p>目前沒有符合這組條件的標準刀具。</p></div>
@@ -88,7 +88,7 @@
 <!-- 分類頁只載入各產品核心 API；不載入產品 app、圖面或樣式。 -->
 <script src="../../CuttingData/SuperDrill/core.js" defer></script>
 <script src="../../CuttingData/SuperPowerDrill/core.js" defer></script>
-<script src="./selector.js" defer></script>
-<script src="./app.js" defer></script>
+<script src="./selector.js?v=20261118-shortest" defer></script>
+<script src="./app.js?v=20261118-shortest" defer></script>
 </body>
 </html>

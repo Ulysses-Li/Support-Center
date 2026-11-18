@@ -5,8 +5,8 @@
   else root.DrillingSelector = factory();
 }(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
-  const fields = ['diameter', 'toleranceUpper', 'toleranceLower', 'depth', 'material', 'shank', 'machineMode', 'application', 'coolant', 'pressure', 'machineMax', 'spdDepthClass', 'applicationFactor'];
-  const defaults = { diameter: '', toleranceUpper: '', toleranceLower: '', depth: '', material: '', shank: '', machineMode: 'rotating', application: 'regular_surface', coolant: 'unknown', pressure: '', machineMax: '', spdDepthClass: '', applicationFactor: '' };
+  const fields = ['diameter', 'toleranceUpper', 'toleranceLower', 'depth', 'material', 'machineMode', 'application', 'coolant', 'pressure', 'machineMax', 'spdDepthClass', 'applicationFactor'];
+  const defaults = { diameter: '', toleranceUpper: '', toleranceLower: '', depth: '', material: '', machineMode: 'rotating', application: 'regular_surface', coolant: 'unknown', pressure: '', machineMax: '', spdDepthClass: '', applicationFactor: '' };
   const products = {
     sd: { name: 'Super Drill', eyebrow: 'SD · 3D／4D', directory: 'CuttingData/SuperDrill/', pdf: 'Super_Drill_p136-141.pdf', note: '同型內、外刃刀片，依所選 3D／4D 刀體配對切削條件。' },
     spd: { name: 'Super Power Drill', eyebrow: 'SPD · 中心導引＋外刃', directory: 'CuttingData/SuperPowerDrill/', pdf: 'Super_Power_Drill_p128-135.pdf', note: '中心導引與外刃分開配對，供液至少需要 10 bar 內冷。' }
@@ -20,7 +20,9 @@
 
   function currentJob(state) {
     const job = { ...defaults, ...state };
-    ['diameter', 'depth', 'shank', 'pressure', 'machineMax', 'applicationFactor'].forEach(key => { job[key] = number(job[key]); });
+    ['diameter', 'depth', 'pressure', 'machineMax', 'applicationFactor'].forEach(key => { job[key] = number(job[key]); });
+    // 分類頁不以柄徑篩選；舊網址帶回的 shank 也不能形成隱藏限制。
+    job.shank = null;
     return job;
   }
 
@@ -45,16 +47,21 @@
     return url.href;
   }
 
-  function selectFamilies(packages, state, selected) {
+  function selectFamilies(packages, state, selected = {}) {
     const job = currentJob(state);
-    return Object.entries(products).flatMap(([key, product]) => {
+    const groups = Object.entries(products).flatMap(([key, product]) => {
       const entry = packages[key];
       if (!entry) return [];
       const matching = entry.core.filterTools(entry.catalog, job).slice().sort((a, b) => a.tool.T - b.tool.T || a.tool.id.localeCompare(b.tool.id));
       if (!matching.length) return [];
       const chosen = matching.find(row => row.tool.id === selected[key]) || matching[0];
-      return [{ key, product, matching, chosen }];
+      return [{ key, product, matching, chosen, shortest: matching[0] }];
     });
+    // T 是各系列共同刊載的可鑽深度。先滿足需求，再依 T 由短到長；不跨系列混比定義不同的 L／L1。
+    groups.sort((a, b) => a.shortest.tool.T - b.shortest.tool.T);
+    const preferred = groups.find(group => group.shortest.eligibility !== 'blocked');
+    const complete = job.diameter > 0 && job.depth > 0;
+    return groups.map(group => ({ ...group, recommended: complete && group === preferred && group.chosen.tool.id === group.shortest.tool.id }));
   }
 
   return { fields, defaults, products, number, currentJob, queryFor, productUrl, selectFamilies };
