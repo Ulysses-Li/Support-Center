@@ -10,12 +10,12 @@ const source = read('catalog.json');
 const cutting = read('cutting-data.json');
 const catalog = Core.normalizeCatalog(source, cutting);
 const tool = id => catalog.tools.find(item => item.id === id);
-const state = extra => ({ diameter: 20, depth: 100, material: 'carbon_low', shank: 32, machineMode: 'rotating', application: 'regular_surface', coolant: 'yes', pressure: 10, spdDepthClass: 'lt7d', ...extra });
+const state = extra => ({ lang: 'zh-TW', diameter: 20, depth: 100, material: 'carbon_low', shank: 32, machineMode: 'rotating', application: 'regular_surface', coolant: 'yes', pressure: 10, spdDepthClass: 'lt7d', ...extra });
 
 test('獨立 CommonJS 與瀏覽器 API 使用相同純函式介面', () => {
-  const context = {};
+  const context = { SuperPowerDrillLocale: require('../locale.js') };
   vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../core.js'), 'utf8'), context);
-  assert.deepEqual(Object.keys(context.SuperPowerDrillCore), ['normalizeCatalog', 'filterTools', 'selectCutting', 'calculate']);
+  assert.deepEqual(Object.keys(context.SuperPowerDrillCore), ['normalizeCatalog', 'getMaterialSupport', 'filterTools', 'selectCutting', 'calculate']);
   assert.ok(Object.isFrozen(Core));
   assert.equal(context.DrillingCore, undefined);
 });
@@ -48,12 +48,40 @@ test('另一產品工具與外來料號被拒絕，不能取得本產品切削�
 
 test('尺寸按名目 D、可鑽深 T 與柄徑精確配對，不用 L 或公差擴張', () => {
   assert.equal(Core.filterTools(catalog, {}).length, 81);
-  assert.equal(Core.filterTools(catalog, { material: 'non_ferrous' }).length, 81);
+  assert.equal(Core.filterTools(catalog, { material: 'non_ferrous' }).length, 0);
   assert.equal(Core.filterTools(catalog, state({ diameter: 20.1 })).length, 0);
   assert.equal(Core.filterTools(catalog, state({ diameter: 20, depth: 200 })).length, 1);
   assert.equal(Core.filterTools(catalog, state({ diameter: 20, depth: 200.01 })).length, 0);
   assert.equal(Core.filterTools(catalog, state({ shank: 25 })).length, 0);
   for (const value of [0, -1, Infinity, 'bad']) assert.equal(Core.filterTools(catalog, state({ depth: value })).length, 0);
+});
+
+test('材料支持只看自身切削表；未選、已支持與未列配對的材料明確區分', () => {
+  for (const material of [undefined, null, '', ' ']) {
+    assert.deepEqual(Core.getMaterialSupport(catalog, material, 'zh-TW'), { supported: null, sourcePage: null, note: '' });
+  }
+  assert.deepEqual(Core.getMaterialSupport(catalog, 'carbon_low', 'zh-TW'), { supported: true, sourcePage: 135, note: '' });
+  assert.deepEqual(Core.getMaterialSupport(catalog, 'non_ferrous', 'zh-TW'), { supported: false, sourcePage: 135, note: '本系列不建議用於非鐵金屬' });
+  for (const material of ['heat_resistant', 'unknown-material']) {
+    assert.deepEqual(Core.getMaterialSupport(catalog, material, 'zh-TW'), { supported: false, sourcePage: 135, note: '型錄未列此材料適用配對，不提供推薦' });
+  }
+  const foreignOnly = { ...catalog, cutting: { ...cutting, section: { ...cutting.section, cutting_rows: [] }, other_product: { cutting_rows: [{ material_id: 'carbon_low' }] } } };
+  assert.equal(Core.getMaterialSupport(foreignOnly, 'carbon_low').supported, false);
+});
+
+test('不支持的材質不列刀體，手動模式同樣回 blocked 與空切削值', () => {
+  for (const material of ['non_ferrous', 'heat_resistant', 'unknown-material']) {
+    const input = state({ material, valuesMode: 'manual', vc: 100, feed: .08 });
+    assert.deepEqual(Core.filterTools(catalog, input), []);
+    const result = Core.selectCutting(catalog, tool('00-99307-20100'), input);
+    assert.equal(result.status, 'blocked');
+    assert.equal(result.materialSupported, false);
+    assert.equal(result.vcRange, null);
+    assert.equal(result.feedRange, null);
+    assert.ok(result.notes.includes(Core.getMaterialSupport(catalog, material, 'zh-TW').note));
+  }
+  assert.equal(Core.filterTools(catalog, { material: '' }).length, 81);
+  assert.equal(Core.selectCutting(catalog, tool('00-99307-20100'), state()).materialSupported, true);
 });
 
 test('8 類材料分別選中心牌號，外刃維持已列 NC2032 實體配對', () => {

@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>鑽孔選型｜Nine9 支援中心</title>
-  <meta name="description" content="依孔徑、深度與材料，優先找到符合需求的最短 Nine9 Super Drill 或 Super Power Drill 刀體。">
+  <title data-zh="鑽孔選型｜Nine9 支援中心">Drilling Tool Finder | Nine9 Support Center</title>
+  <meta name="description" content="Find the shortest suitable Nine9 Super Drill or Super Power Drill body for your hole diameter, depth and material." data-zh-content="依孔徑、深度與材料，優先找到符合需求的最短 Nine9 Super Drill 或 Super Power Drill 刀體。">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../header/header.css">
   <link rel="stylesheet" href="../../footer/footer.css">
   <link rel="stylesheet" href="../../css/site-background.css">
-  <link rel="stylesheet" href="./styles.css?v=20261118-no-match">
+  <link rel="stylesheet" href="./styles.css?v=20261118-en-primary">
   <link rel="icon" href="../../favicon.png">
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 </head>
@@ -18,43 +18,44 @@
 <main class="dw-page flex-grow-1" id="main-content">
   <div class="container-xl dw-container">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 page-trail">
-      <nav aria-label="目前位置"><a href="../../nine9/products.html">依加工用途找產品</a><span class="mx-2" aria-hidden="true">/</span><span>鑽孔 Drilling</span></nav>
+      <nav aria-label="Breadcrumb" data-zh-label="目前位置"><a href="../../nine9/products.html" data-zh="依加工用途找產品">Products by Application</a><span class="mx-2" aria-hidden="true">/</span><span data-zh="鑽孔 Drilling">Drilling</span></nav>
+      <a id="languageSwitch" class="btn btn-tool" href="?lang=zh-TW" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
     </div>
     <!-- Hub 參考 Spotting 的緊湊選型頁：小分類圖示與短標題，產品照片留在產品分頁。 -->
     <header class="finder-hub-heading d-flex align-items-center justify-content-between gap-3">
       <div>
         <p id="pageEyebrow" class="eyebrow mb-2">NINE9 · TOOL FINDER</p>
-        <h1 id="pageTitle" class="mb-2">鑽孔 <span lang="en">Drilling</span></h1>
-        <p id="pageIntro" class="hero-intro m-0">從孔徑、深度與材料，找到適合的鑽孔系列。</p>
+        <h1 id="pageTitle" class="mb-2" data-zh="鑽孔 Drilling">Drilling</h1>
+        <p id="pageIntro" class="hero-intro m-0" data-zh="從孔徑、深度與材料，找到適合的鑽孔系列。">Find a drill family for your hole diameter, depth and workpiece material.</p>
       </div>
       <div id="heroImage" class="finder-heading-icon" aria-hidden="true"><img src="../../img/drilling.png" alt=""></div>
     </header>
     <!-- 產品入口僅保留於下方結果卡片，避免看起來仍是同一頁的切換分頁。 -->
-    <nav class="view-tabs" aria-label="鑽孔資料導覽">
-      <a href="/Machining/Drilling/index.html" data-hub-link class="is-active" aria-current="page">鑽孔選型</a><a href="./catalog-notes.html">型錄與資料說明 <span aria-hidden="true">↗</span></a>
+    <nav class="view-tabs" aria-label="Drilling resources" data-zh-label="鑽孔資料導覽">
+      <a href="/Machining/Drilling/index.html" data-hub-link data-language-link class="is-active" aria-current="page" data-zh="鑽孔選型">Drilling finder</a><a data-language-link href="./catalog-notes.html" data-zh="型錄與資料說明 ">Catalog & data notes <span aria-hidden="true">↗</span></a>
     </nav>
-    <p id="dataStatus" class="data-status" role="status">正在載入型錄資料…</p>
+    <p id="dataStatus" class="data-status" role="status" data-zh="正在載入型錄資料…">Loading catalog data…</p>
 
     <section class="surface job-panel" aria-labelledby="filterTitle">
       <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
-        <div><h2 id="filterTitle" class="section-heading mb-0">設定加工需求</h2></div>
-        <div class="d-flex gap-2"><button id="exampleButton" type="button" class="btn btn-text">載入範例</button><button id="resetButton" type="button" class="btn btn-text">重設</button></div>
+        <div><h2 id="filterTitle" class="section-heading mb-0" data-zh="設定加工需求">Define your job</h2></div>
+        <div class="d-flex gap-2"><button id="exampleButton" type="button" class="btn btn-text" data-zh="載入範例">Load example</button><button id="resetButton" type="button" class="btn btn-text" data-zh="重設">Reset</button></div>
       </div>
       <form id="jobForm" novalidate>
         <div class="row g-3 g-lg-4 job-main-fields">
           <!-- 上下公差與名目孔徑分開儲存；空白代表未指定，不預設為零。 -->
           <div class="col-12 col-md-4">
-            <label class="form-label" for="diameter"><span class="field-index">01</span>加工孔徑</label>
+            <label class="form-label" for="diameter"><span class="field-index">01</span><span data-zh="加工孔徑">Hole diameter</span></label>
             <div class="diameter-control main-control">
               <span class="diameter-symbol" aria-hidden="true">Ø</span><input id="diameter" name="diameter" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="20" aria-describedby="diameterHelp">
-              <div class="tolerance-stack" role="group" aria-label="孔徑上下公差">
-                <label class="visually-hidden" for="toleranceUpper">孔徑上偏差，mm</label><input id="toleranceUpper" name="toleranceUpper" type="text" inputmode="decimal" placeholder="+0.05" autocomplete="off" spellcheck="false">
-                <label class="visually-hidden" for="toleranceLower">孔徑下偏差，mm</label><input id="toleranceLower" name="toleranceLower" type="text" inputmode="decimal" placeholder="−0.02" autocomplete="off" spellcheck="false">
+              <div class="tolerance-stack" role="group" aria-label="Hole diameter tolerances" data-zh-label="孔徑上下公差">
+                <label class="visually-hidden" for="toleranceUpper" data-zh="孔徑上偏差，mm">Upper diameter deviation, mm</label><input id="toleranceUpper" name="toleranceUpper" type="text" inputmode="decimal" placeholder="+0.05" autocomplete="off" spellcheck="false">
+                <label class="visually-hidden" for="toleranceLower" data-zh="孔徑下偏差，mm">Lower diameter deviation, mm</label><input id="toleranceLower" name="toleranceLower" type="text" inputmode="decimal" placeholder="−0.02" autocomplete="off" spellcheck="false">
               </div><span class="control-unit">mm</span>
-            </div><p id="diameterHelp" class="field-help">完工孔徑；右側公差可選填。</p><p id="toleranceSummary" class="field-help tolerance-summary">公差選填：上偏差／下偏差，單位 mm。</p>
+            </div><p id="diameterHelp" class="field-help" data-zh="完工孔徑；右側公差可選填。">Finished hole diameter. Tolerance deviations are optional.</p><p id="toleranceSummary" class="field-help tolerance-summary" data-zh="公差選填：上偏差／下偏差，單位 mm。">Optional tolerance: upper / lower deviation in mm.</p>
           </div>
-          <div class="col-12 col-md-4"><label class="form-label" for="depth"><span class="field-index">02</span>鑽孔深度</label><div class="input-group main-control"><input id="depth" name="depth" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="輸入深度" aria-describedby="depthHelp"><span class="input-group-text">mm</span></div><p id="depthHelp" class="field-help">從工件表面量起的需求深度。</p></div>
-          <div class="col-12 col-md-4"><label class="form-label" for="material"><span class="field-index">03</span>工件材料</label><select id="material" name="material" class="form-select main-control" aria-describedby="materialHelp"><option value="">請選擇材料</option></select><p id="materialHelp" class="field-help">用來對應刀片牌號與切削數據。</p></div>
+          <div class="col-12 col-md-4"><label class="form-label" for="depth"><span class="field-index">02</span><span data-zh="鑽孔深度">Drilling depth</span></label><div class="input-group main-control"><input id="depth" name="depth" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="Enter depth" data-zh-placeholder="輸入深度" aria-describedby="depthHelp"><span class="input-group-text">mm</span></div><p id="depthHelp" class="field-help" data-zh="從工件表面量起的需求深度。">Required depth measured from the workpiece surface.</p></div>
+          <div class="col-12 col-md-4"><label class="form-label" for="material"><span class="field-index">03</span><span data-zh="工件材料">Workpiece material</span></label><select id="material" name="material" class="form-select main-control" aria-describedby="materialHelp"><option value="" data-zh="請選擇材料">Select material</option></select><p id="materialHelp" class="field-help" data-zh="依材料適用性篩選刀具與切削資料。">Filters tools and cutting data by material suitability.</p></div>
         </div>
       </form>
     </section>
@@ -62,22 +63,24 @@
 
     <div class="result-workspace">
         <section class="options-panel" aria-labelledby="optionsTitle">
-          <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-2"><div><p class="eyebrow mb-1">YOUR OPTIONS</p><h2 id="optionsTitle" class="section-heading mb-0">選擇鑽孔系列</h2></div><span id="resultCount" class="result-count" role="status"></span></div>
-          <p id="resultSummary" class="result-summary">選擇加工需求，開始比對標準規格。</p>
-          <p id="recommendationSummary" class="recommendation-summary" aria-live="polite">依型錄可鑽深 T 由短到長排列，優先選擇滿足需求深度的最短刀體。</p>
+          <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-2"><div><p class="eyebrow mb-1">YOUR OPTIONS</p><h2 id="optionsTitle" class="section-heading mb-0" data-zh="選擇鑽孔系列">Choose your drill family</h2></div><span id="resultCount" class="result-count" role="status"></span></div>
+          <p id="resultSummary" class="result-summary" data-zh="選擇加工需求，開始比對標準規格。">Enter your job requirements to compare standard bodies.</p>
+          <p id="recommendationSummary" class="recommendation-summary" aria-live="polite" data-zh="依型錄可鑽深 T 由短到長排列，優先選擇滿足需求深度的最短刀體。">Bodies are sorted by catalog drilling depth T. Choose the shortest body that meets your required depth.</p>
           <!-- 分類頁讀取兩個產品各自維護的規格資料，卡內下拉只決定帶入產品頁的刀體。 -->
-          <div id="toolList" class="tool-list" aria-label="符合需求的鑽孔系列"></div>
+          <div id="toolList" class="tool-list" aria-label="Matching drill families" data-zh-label="符合需求的鑽孔系列"></div>
           <div id="emptyState" class="surface empty-state" hidden aria-live="polite"></div>
         </section>
     </div>
-    <div class="planning-footer d-flex flex-wrap justify-content-between align-items-center gap-3"><p class="mb-0">每一組推薦，都能回到各產品型錄核對。</p><a class="planning-link" href="./catalog-notes.html">型錄與原廠待確認清單 <span aria-hidden="true">→</span></a></div>
+    <div class="planning-footer d-flex flex-wrap justify-content-between align-items-center gap-3"><p class="mb-0" data-zh="每一組推薦，都能回到各產品型錄核對。">Every recommendation can be checked against its product catalog.</p><a class="planning-link" data-language-link href="./catalog-notes.html" data-zh="型錄與原廠待確認清單 ">Catalogs & manufacturer questions <span aria-hidden="true">→</span></a></div>
   </div>
 </main>
 <div id="footer-placeholder"></div>
 <!-- 分類頁只載入各產品核心 API；不載入產品 app、圖面或樣式。 -->
-<script src="../../CuttingData/SuperDrill/core.js" defer></script>
-<script src="../../CuttingData/SuperPowerDrill/core.js" defer></script>
-<script src="./selector.js?v=20261118-no-match" defer></script>
-<script src="./app.js?v=20261118-no-match" defer></script>
+<script src="../../CuttingData/SuperDrill/locale.js?v=20261118-en-primary" defer></script>
+<script src="../../CuttingData/SuperPowerDrill/locale.js?v=20261118-en-primary" defer></script>
+<script src="../../CuttingData/SuperDrill/core.js?v=20261118-en-primary" defer></script>
+<script src="../../CuttingData/SuperPowerDrill/core.js?v=20261118-en-primary" defer></script>
+<script src="./selector.js?v=20261118-en-primary" defer></script>
+<script src="./app.js?v=20261118-en-primary" defer></script>
 </body>
 </html>

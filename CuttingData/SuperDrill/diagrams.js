@@ -4,10 +4,10 @@
  */
 (function (root, factory) {
   "use strict";
-  var api = factory();
+  var api = factory(typeof module === 'object' && module.exports ? require('./locale.js') : root.SuperDrillLocale);
   if (typeof module === "object" && module.exports) module.exports = api;
   else root.SuperDrillDiagrams = api;
-})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+})(typeof globalThis !== "undefined" ? globalThis : this, function (Locale) {
   "use strict";
   var serial = 0;
   var ink = "#0c2237", blue = "#0067ad", orange = "#f05a1a";
@@ -141,5 +141,5 @@
     body += label(450, 340, name + ' · 尺寸單位 mm · 非比例示意', "dd-caption", ' text-anchor="middle"');
     return frame(id, family, name + ' 尺寸圖待選擇', '選擇料號後顯示實際型錄尺寸，目前未提供尺寸數值。', body);
   }
-  return Object.freeze({ renderTool: renderTool, renderEmpty: renderEmpty });
+  return Object.freeze({ renderTool: function (tool, options) { return Locale.markup(renderTool(tool, options), options && options.lang); }, renderEmpty: function (lang) { return Locale.markup(renderEmpty(), lang); } });
 });

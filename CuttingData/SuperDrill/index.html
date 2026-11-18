@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Super Drill 鑽孔設定｜Nine9 支援中心</title>
-  <meta name="description" content="依孔徑、深度、材料與夾持柄徑選擇 Super Drill 3D／4D 刀體，查看刀片、轉速、進給及實際尺寸。">
+  <title>Super Drill Setup | Nine9 Support Center</title>
+  <meta name="description" content="Select Super Drill 3D/4D bodies by diameter, depth, material and shank. View inserts, speed, feed and actual dimensions.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../header/header.css">
   <link rel="stylesheet" href="../../footer/footer.css">
@@ -18,57 +18,57 @@
 <main class="dw-page flex-grow-1" id="main-content">
   <div class="container-xl dw-container">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 page-trail">
-      <nav aria-label="目前位置"><a href="../index.html">切削數據</a><span class="mx-2" aria-hidden="true">/</span><span>Super Drill</span></nav>
+      <nav aria-label="Current location"><a href="../index.html">Cutting Data</a><span class="mx-2" aria-hidden="true">/</span><span>Super Drill</span></nav><a id="languageToggle" class="btn btn-soft" href="?lang=zh-TW" data-no-translate>繁體中文</a>
     </div>
     <!-- 產品照片與尺寸資料由本產品目錄獨立維護。 -->
     <header class="dw-hero row g-4 align-items-center">
       <div class="col-12 col-lg-7">
         <p id="pageEyebrow" class="eyebrow">SUPER DRILL · 99313 / 99314</p>
-        <h1 id="pageTitle">把每一個孔，鑽得更有效率。</h1>
-        <p id="pageIntro" class="hero-intro">從 Ø10–30 mm、3D / 4D 標準規格開始，選好刀體與加工條件，查看刀片、轉速及每轉進給。</p>
+        <h1 id="pageTitle">Make every hole more efficient.</h1>
+        <p id="pageIntro" class="hero-intro">Start with standard Ø10–30 mm, 3D/4D bodies. Choose the body and conditions to view inserts, speed and feed per revolution.</p>
         <div class="d-flex flex-wrap align-items-center gap-3 hero-actions">
-          <a href="#jobForm" class="btn btn-brand">開始選型 <span aria-hidden="true">→</span></a>
-          <a id="catalogLink" href="./sources/Super_Drill_p136-141.pdf" class="catalog-link" target="_blank" rel="noopener">產品型錄 <span>PDF</span></a>
+          <a href="#jobForm" class="btn btn-brand">Start selection <span aria-hidden="true">→</span></a>
+          <a id="catalogLink" href="./sources/Super_Drill_p136-141.pdf" class="catalog-link" target="_blank" rel="noopener">Product catalog <span>PDF</span></a>
         </div>
       </div>
-      <div class="col-12 col-lg-5"><div id="heroImage" class="hero-media" aria-label="Nine9 鑽孔產品照片"></div></div>
+      <div class="col-12 col-lg-5"><div id="heroImage" class="hero-media" aria-label="Nine9 drilling product photograph"></div></div>
     </header>
-    <nav class="view-tabs" aria-label="Super Drill 導覽">
-      <a href="/Machining/Drilling/index.html" data-hub-link>回鑽孔選型</a><a href="/CuttingData/index.html">切削數據</a><a href="./catalog-notes.html">型錄與資料說明 ↗</a>
+    <nav class="view-tabs" aria-label="Super Drill navigation">
+      <a href="/Machining/Drilling/index.html" data-hub-link>Back to drilling selection</a><a href="/CuttingData/index.html">Cutting Data</a><a href="./catalog-notes.html" data-notes-link>Catalog and data notes ↗</a>
     </nav>
-    <p id="dataStatus" class="data-status" role="status">正在載入型錄資料…</p>
+    <p id="dataStatus" class="data-status" role="status">Loading catalog data…</p>
 
     <section class="surface job-panel" aria-labelledby="filterTitle">
       <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
-        <div><p class="eyebrow mb-1">01 / DEFINE THE JOB</p><h2 id="filterTitle" class="section-heading mb-0">先告訴我們，你要鑽什麼孔？</h2></div>
-        <div class="d-flex gap-2"><button id="exampleButton" type="button" class="btn btn-text">載入範例</button><button id="resetButton" type="button" class="btn btn-text">重設</button></div>
+        <div><p class="eyebrow mb-1">01 / DEFINE THE JOB</p><h2 id="filterTitle" class="section-heading mb-0">What hole are you drilling?</h2></div>
+        <div class="d-flex gap-2"><button id="exampleButton" type="button" class="btn btn-text">Load example</button><button id="resetButton" type="button" class="btn btn-text">Reset</button></div>
       </div>
       <form id="jobForm" novalidate>
         <div class="row g-3 g-xl-4 job-main-fields">
           <!-- 上下公差與名目孔徑分開儲存；空白代表未指定，不預設為零。 -->
           <div class="col-12 col-sm-6 col-xl-3">
-            <label class="form-label" for="diameter"><span class="field-index">01</span>加工孔徑</label>
+            <label class="form-label" for="diameter"><span class="field-index">01</span>Finished hole diameter</label>
             <div class="diameter-control main-control">
               <span class="diameter-symbol" aria-hidden="true">Ø</span><input id="diameter" name="diameter" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="20" aria-describedby="diameterHelp">
-              <div class="tolerance-stack" role="group" aria-label="孔徑上下公差">
-                <label class="visually-hidden" for="toleranceUpper">孔徑上偏差，mm</label><input id="toleranceUpper" name="toleranceUpper" type="text" inputmode="decimal" placeholder="+0.05" autocomplete="off" spellcheck="false">
-                <label class="visually-hidden" for="toleranceLower">孔徑下偏差，mm</label><input id="toleranceLower" name="toleranceLower" type="text" inputmode="decimal" placeholder="−0.02" autocomplete="off" spellcheck="false">
+              <div class="tolerance-stack" role="group" aria-label="Hole diameter tolerances">
+                <label class="visually-hidden" for="toleranceUpper">Upper diameter deviation, mm</label><input id="toleranceUpper" name="toleranceUpper" type="text" inputmode="decimal" placeholder="+0.05" autocomplete="off" spellcheck="false">
+                <label class="visually-hidden" for="toleranceLower">Lower diameter deviation, mm</label><input id="toleranceLower" name="toleranceLower" type="text" inputmode="decimal" placeholder="−0.02" autocomplete="off" spellcheck="false">
               </div><span class="control-unit">mm</span>
-            </div><p id="diameterHelp" class="field-help">完工孔徑；右側公差可選填。</p><p id="toleranceSummary" class="field-help tolerance-summary">公差選填：上偏差／下偏差，單位 mm。</p>
+            </div><p id="diameterHelp" class="field-help">Finished diameter; optional tolerances on the right.</p><p id="toleranceSummary" class="field-help tolerance-summary">Optional tolerance: upper / lower deviation in mm.</p>
           </div>
-          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="depth"><span class="field-index">02</span>鑽孔深度</label><div class="input-group main-control"><input id="depth" name="depth" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="輸入深度" aria-describedby="depthHelp"><span class="input-group-text">mm</span></div><p id="depthHelp" class="field-help">從工件表面量起的需求深度。</p></div>
-          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="material"><span class="field-index">03</span>工件材料</label><select id="material" name="material" class="form-select main-control" aria-describedby="materialHelp"><option value="">請選擇材料</option></select><p id="materialHelp" class="field-help">用來對應刀片牌號與切削數據。</p></div>
-          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="shank"><span class="field-index">04</span>夾持柄徑 <span class="unit-muted">Ød</span></label><select id="shank" name="shank" class="form-select main-control" aria-describedby="shankHelp"><option value="">全部標準柄徑</option></select><p id="shankHelp" class="field-help">刀具後端的夾持直徑。</p></div>
+          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="depth"><span class="field-index">02</span>Drilling depth</label><div class="input-group main-control"><input id="depth" name="depth" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="Enter depth" aria-describedby="depthHelp"><span class="input-group-text">mm</span></div><p id="depthHelp" class="field-help">Required depth measured from the workpiece surface.</p></div>
+          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="material"><span class="field-index">03</span>Workpiece material</label><select id="material" name="material" class="form-select main-control" aria-describedby="materialHelp"><option value="">Select material</option></select><p id="materialHelp" class="field-help">Used to match insert grade and cutting data.</p></div>
+          <div class="col-12 col-sm-6 col-xl-3"><label class="form-label" for="shank"><span class="field-index">04</span>Clamping shank diameter <span class="unit-muted">Ød</span></label><select id="shank" name="shank" class="form-select main-control" aria-describedby="shankHelp"><option value="">All standard shank diameters</option></select><p id="shankHelp" class="field-help">Clamping diameter at the rear of the tool.</p></div>
         </div>
         <!-- 進階條件預設收合；需要時才補上機台、內冷與特殊入口。 -->
         <details class="advanced-settings mt-3">
-          <summary><span>機台與加工條件</span><small>旋轉方式、內冷、特殊入口</small><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg></summary>
+          <summary><span>Machine and cutting conditions</span><small>Rotation, through coolant and entry conditions</small><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg></summary>
           <div class="row g-3 pt-3 pb-1">
-            <div class="col-12 col-md-4"><label class="form-label" for="machineMode">旋轉方式</label><select id="machineMode" name="machineMode" class="form-select"><option value="rotating">刀具旋轉｜加工中心</option><option value="lathe">工件旋轉｜車床</option></select></div>
-            <div class="col-12 col-md-4"><label class="form-label" for="application">入口與工件形狀</label><select id="application" name="application" class="form-select"><option value="">一般平面</option></select></div>
-            <div class="col-12 col-md-4"><label class="form-label" for="coolant">機台內冷</label><select id="coolant" name="coolant" class="form-select"><option value="unknown">尚未確認</option><option value="yes">有內冷</option><option value="no">沒有內冷</option></select></div>
-            <div class="col-12 col-sm-6 col-md-4"><label class="form-label" for="pressure">內冷壓力 <span class="optional-label">選填</span></label><div class="input-group"><input id="pressure" name="pressure" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="實際供液壓力"><span class="input-group-text">bar</span></div></div>
-            <div class="col-12 col-sm-6 col-md-4"><label class="form-label" for="machineMax">機台最高轉速 <span class="optional-label">選填</span></label><div class="input-group"><input id="machineMax" name="machineMax" class="form-control" type="number" min="0" step="1" inputmode="numeric" placeholder="輸入機台上限"><span class="input-group-text">rpm</span></div></div>
+            <div class="col-12 col-md-4"><label class="form-label" for="machineMode">Rotation mode</label><select id="machineMode" name="machineMode" class="form-select"><option value="rotating">Rotating tool | Machining center</option><option value="lathe">Rotating workpiece | Lathe</option></select></div>
+            <div class="col-12 col-md-4"><label class="form-label" for="application">Entry and workpiece shape</label><select id="application" name="application" class="form-select"><option value="">Regular surface</option></select></div>
+            <div class="col-12 col-md-4"><label class="form-label" for="coolant">Machine through coolant</label><select id="coolant" name="coolant" class="form-select"><option value="unknown">Not yet confirmed</option><option value="yes">Through coolant available</option><option value="no">No through coolant</option></select></div>
+            <div class="col-12 col-sm-6 col-md-4"><label class="form-label" for="pressure">Through-coolant pressure <span class="optional-label">Optional</span></label><div class="input-group"><input id="pressure" name="pressure" class="form-control" type="number" min="0" step="any" inputmode="decimal" placeholder="Actual coolant pressure"><span class="input-group-text">bar</span></div></div>
+            <div class="col-12 col-sm-6 col-md-4"><label class="form-label" for="machineMax">Machine maximum speed <span class="optional-label">Optional</span></label><div class="input-group"><input id="machineMax" name="machineMax" class="form-control" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter machine limit"><span class="input-group-text">rpm</span></div></div>
           </div>
         </details>
       </form>
@@ -77,50 +77,51 @@
     <div id="resultsLayout" class="row g-4 result-workspace">
       <div id="toolColumn" class="col-12 col-lg-7">
         <section class="options-panel" aria-labelledby="optionsTitle">
-          <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-2"><div><p class="eyebrow mb-1">02 / FIND YOUR DRILL</p><h2 id="optionsTitle" class="section-heading mb-0">符合需求的刀具</h2></div><span id="resultCount" class="result-count" role="status"></span></div>
-          <p id="resultSummary" class="result-summary">選擇加工需求，開始比對標準規格。</p>
-          <div id="toolList" class="tool-list" role="radiogroup" aria-label="符合需求的鑽孔刀具"></div>
-          <div id="emptyState" class="surface empty-state" hidden><span class="empty-symbol" aria-hidden="true">Ø</span><h3>試著調整加工條件</h3><p>目前沒有符合這組條件的標準刀具。</p></div>
+          <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-2"><div><p class="eyebrow mb-1">02 / FIND YOUR DRILL</p><h2 id="optionsTitle" class="section-heading mb-0">Matching tools</h2></div><span id="resultCount" class="result-count" role="status"></span></div>
+          <p id="resultSummary" class="result-summary">Enter your job requirements to compare standard bodies.</p>
+          <div id="toolList" class="tool-list" role="radiogroup" aria-label="Matching drilling tools"></div>
+          <div id="emptyState" class="surface empty-state" hidden><span class="empty-symbol" aria-hidden="true">Ø</span><h3>Try adjusting the job conditions</h3><p>No standard tool matches these conditions.</p></div>
         </section>
         <section id="diagramPanel" class="surface diagram-panel mt-4" aria-labelledby="diagramTitle">
-          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3"><div><p class="eyebrow mb-1">TOOL DIMENSIONS</p><h2 id="diagramTitle" class="section-heading mb-0">看清楚你的刀具尺寸</h2></div><button id="zoomDiagram" type="button" class="btn btn-text" aria-haspopup="dialog" aria-controls="diagramDialog">放大尺寸圖 ↗</button></div>
-          <div id="diagramCanvas" class="diagram-canvas"><p class="diagram-placeholder">選定刀具後，這裡會顯示實際尺寸與單位。</p></div>
-          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mt-3"><span class="field-help m-0">尺寸單位 mm；外形為非等比例示意。</span><a id="diagramSource" href="./sources/Super_Drill_p136-141.pdf" class="source-link" target="_blank" rel="noopener">查看型錄原圖 ↗</a></div>
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3"><div><p class="eyebrow mb-1">TOOL DIMENSIONS</p><h2 id="diagramTitle" class="section-heading mb-0">Understand your tool dimensions</h2></div><button id="zoomDiagram" type="button" class="btn btn-text" aria-haspopup="dialog" aria-controls="diagramDialog">Enlarge drawing ↗</button></div>
+          <div id="diagramCanvas" class="diagram-canvas"><p class="diagram-placeholder">Select a tool to view its actual dimensions and units.</p></div>
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mt-3"><span class="field-help m-0">Dimensions in mm; schematic, not to scale.</span><a id="diagramSource" href="./sources/Super_Drill_p136-141.pdf" class="source-link" target="_blank" rel="noopener">View catalog drawing ↗</a></div>
         </section>
       </div>
       <aside id="setupColumn" class="col-12 col-lg-5" aria-labelledby="selectedId">
         <section id="selectedPanel" class="surface selected-panel">
-          <div class="d-flex justify-content-between align-items-start gap-3 mb-2"><p id="selectedFamily" class="eyebrow mb-0">YOUR DRILLING SETUP</p><span id="selectedStatus" class="match-tag review">等待選型</span></div>
-          <h2 id="selectedId" class="selected-title">你的鑽孔設定</h2>
-          <div id="assemblySummary" class="assembly-summary"><p class="field-help">從左側選擇刀具，查看組裝與切削條件。</p></div>
+          <div class="d-flex justify-content-between align-items-start gap-3 mb-2"><p id="selectedFamily" class="eyebrow mb-0">YOUR DRILLING SETUP</p><span id="selectedStatus" class="match-tag review">Waiting for selection</span></div>
+          <h2 id="selectedId" class="selected-title">Your drilling setup</h2>
+          <div id="assemblySummary" class="assembly-summary"><p class="field-help">Select a tool on the left to view assembly and cutting conditions.</p></div>
           <div id="cuttingSettings" class="cutting-section">
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3"><h3 class="subsection-heading m-0">切削起始值</h3><button id="medianButton" type="button" class="btn btn-soft">使用範圍中間值</button></div>
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3"><h3 class="subsection-heading m-0">Starting cutting values</h3><button id="medianButton" type="button" class="btn btn-soft">Use range midpoints</button></div>
 
-            <div id="factorGroup" class="mb-3" hidden><label class="form-label" for="applicationFactor">SD 工況修正係數</label><div class="input-group"><input id="applicationFactor" name="applicationFactor" form="jobForm" class="form-control" type="number" min="0" max="100" step="any" inputmode="decimal" placeholder="依工況指定"><span class="input-group-text">%</span></div><p id="factorHint" class="field-help"></p></div>
+            <div id="factorGroup" class="mb-3" hidden><label class="form-label" for="applicationFactor">SD application factor</label><div class="input-group"><input id="applicationFactor" name="applicationFactor" form="jobForm" class="form-control" type="number" min="0" max="100" step="any" inputmode="decimal" placeholder="Select for this application"><span class="input-group-text">%</span></div><p id="factorHint" class="field-help"></p></div>
             <div class="row g-3">
-              <div class="col-12 col-sm-6"><label class="form-label" for="vc">切削速度 <span class="unit-muted">Vc</span></label><div class="input-group"><input id="vc" name="vc" class="form-control" type="number" min="0" step="any" inputmode="decimal" aria-describedby="vcRange"><span class="input-group-text">m/min</span></div><p id="vcRange" class="range-values">型錄範圍 —</p></div>
-              <div class="col-12 col-sm-6"><label class="form-label" for="feed">每轉進給 <span class="unit-muted">f</span></label><div class="input-group"><input id="feed" name="feed" class="form-control" type="number" min="0" step="any" inputmode="decimal" aria-describedby="feedRange"><span class="input-group-text">mm/rev</span></div><p id="feedRange" class="range-values">型錄範圍 —</p></div>
+              <div class="col-12 col-sm-6"><label class="form-label" for="vc">Cutting speed <span class="unit-muted">Vc</span></label><div class="input-group"><input id="vc" name="vc" class="form-control" type="number" min="0" step="any" inputmode="decimal" aria-describedby="vcRange"><span class="input-group-text">m/min</span></div><p id="vcRange" class="range-values">Catalog range —</p></div>
+              <div class="col-12 col-sm-6"><label class="form-label" for="feed">Feed per revolution <span class="unit-muted">f</span></label><div class="input-group"><input id="feed" name="feed" class="form-control" type="number" min="0" step="any" inputmode="decimal" aria-describedby="feedRange"><span class="input-group-text">mm/rev</span></div><p id="feedRange" class="range-values">Catalog range —</p></div>
             </div>
-            <div class="key-results mt-3" aria-live="polite"><div><span>主軸轉速</span><p><strong id="rpmResult">—</strong><small>rpm</small></p></div><div><span>每分鐘進給</span><p><strong id="feedResult">—</strong><small>mm/min</small></p></div></div>
+            <div class="key-results mt-3" aria-live="polite"><div><span>Spindle speed</span><p><strong id="rpmResult">—</strong><small>rpm</small></p></div><div><span>Feed rate</span><p><strong id="feedResult">—</strong><small>mm/min</small></p></div></div>
             <p id="machineLimitNote" class="field-help mt-2 mb-0"></p>
             <div id="recommendationNotes" class="recommendation-notes mt-3"></div>
           </div>
-          <button id="copyButton" type="button" class="btn btn-brand w-100 mt-4" disabled>複製這組加工設定 <span aria-hidden="true">→</span></button><p id="copyStatus" class="copy-status" role="status"></p>
-          <details class="source-details mt-3"><summary>計算方式與資料來源</summary><p class="field-help mt-3">S = 1000 × Vc ÷ (π × D)；F = S × f。f 為每轉進給，不乘刀片數。</p><p id="cuttingSource" class="field-help mb-0">選定刀具與材料後，顯示對應的型錄頁碼。</p></details>
+          <button id="copyButton" type="button" class="btn btn-brand w-100 mt-4" disabled>Copy machining setup <span aria-hidden="true">→</span></button><p id="copyStatus" class="copy-status" role="status"></p>
+          <details class="source-details mt-3"><summary>Calculation and catalog source</summary><p class="field-help mt-3">S = 1000 × Vc / (π × D); F = S × f. Feed is per revolution; do not multiply by insert count.</p><p id="cuttingSource" class="field-help mb-0">Select a tool and material to see the catalog reference.</p></details>
         </section>
       </aside>
     </div>
-    <div class="planning-footer d-flex flex-wrap justify-content-between align-items-center gap-3"><p class="mb-0">每一組推薦，都能回到型錄核對。</p><a class="planning-link" href="./catalog-notes.html#questions" target="_blank" rel="noopener">原廠待確認清單 <span aria-hidden="true">→</span></a></div>
+    <div class="planning-footer d-flex flex-wrap justify-content-between align-items-center gap-3"><p class="mb-0">Every recommendation links back to the catalog.</p><a class="planning-link" href="./catalog-notes.html#questions" data-notes-link target="_blank" rel="noopener">Manufacturer questions <span aria-hidden="true">→</span></a></div>
   </div>
 </main>
 <!-- 原生 dialog 保留鍵盤操作與模態語意，圖面由相同資料放大。 -->
 <dialog id="diagramDialog" class="diagram-dialog" aria-labelledby="dialogTitle">
-  <div class="d-flex justify-content-between align-items-start gap-3 mb-3"><div><p class="eyebrow mb-1">TOOL DIMENSIONS</p><h2 id="dialogTitle" class="section-heading mb-0">刀具尺寸圖</h2></div><button id="closeDiagram" type="button" class="btn btn-soft">關閉 <span aria-hidden="true">×</span></button></div>
-  <div id="dialogCanvas" class="dialog-canvas"></div><p class="field-help mt-3 mb-0">尺寸單位 mm；外形為非等比例示意。</p>
+  <div class="d-flex justify-content-between align-items-start gap-3 mb-3"><div><p class="eyebrow mb-1">TOOL DIMENSIONS</p><h2 id="dialogTitle" class="section-heading mb-0">Tool dimensions</h2></div><button id="closeDiagram" type="button" class="btn btn-soft">Close <span aria-hidden="true">×</span></button></div>
+  <div id="dialogCanvas" class="dialog-canvas"></div><p class="field-help mt-3 mb-0">Dimensions in mm; schematic, not to scale.</p>
 </dialog>
 <div id="footer-placeholder"></div>
-<script src="./core.js" defer></script>
-<script src="./diagrams.js" defer></script>
-<script src="./app.js" defer></script>
+<script src="./locale.js?v=locale-2" defer></script>
+<script src="./core.js?v=locale-2" defer></script>
+<script src="./diagrams.js?v=locale-2" defer></script>
+<script src="./app.js?v=locale-2" defer></script>
 </body>
 </html>

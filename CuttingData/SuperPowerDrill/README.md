@@ -4,6 +4,7 @@
 
 ## 檔案責任
 
+- `locale.js`：本套件獨立的英／繁中詞庫與指定 DOM 範圍翻譯，不使用全域 observer。
 - `app.js`：本產品表單、上下公差、URL 狀態、組裝摘要、複製及尺寸圖 dialog。
 - `core.js`：純函式選型、中心／外刃切削列、工況檢查與公制 S／F。
 - `diagrams.js`：p130 原型外形的動態 SVG；L1 為前段，後柄 58 mm，T 為型錄鑽深。
@@ -20,22 +21,29 @@
 
 ```js
 const catalog = Core.normalizeCatalog(catalogJSON, cuttingJSON);
+const support = Core.getMaterialSupport(catalog, materialId, lang); // {supported: null|boolean, sourcePage, note}
 const matches = Core.filterTools(catalog, state); // [{tool, eligibility, notes, ...}]
 const cutting = Core.selectCutting(catalog, tool, state);
 const result = Core.calculate({D, vc, feed, machineMax});
 ```
 
-正規化工具固定 `family: 'spd'`、`ratio: null`，保留 `id,D,T,L,L1,shank,d1,raw,sourcePage,insertModel,centerModel,peripheryModel,centerQty,peripheryQty`。另一產品的工具會被拒絕。分類入口可以只載核心與兩份 JSON，不需要本產品 app 或 CSS。
+正規化工具固定 `family: 'spd'`、`ratio: null`，保留 `id,D,T,L,L1,shank,d1,raw,sourcePage,insertModel,centerModel,peripheryModel,centerQty,peripheryQty`。另一產品的工具會被拒絕。分類入口可以只載核心與兩份 JSON，不需要本產品 app 或 CSS。`getMaterialSupport` 只檢查本產品 `cutting.section.cutting_rows` 的 `material_id`；未選材料回 `supported:null`，有對應列回 `true`，無對應列回 `false`。`selectCutting` 同步回傳 `materialSupported`；不適用時為 `blocked` 且切速／進給為空，`filterTools` 直接回空陣列。
 
 圖形 API 為 `window.SuperPowerDrillDiagrams`（亦支援 CommonJS），提供 `renderTool(tool,{diameter})`、`renderEmpty()`。外部文字會跳脫；圖中名目 D 與客戶目標孔徑分開標示。
 
+## 語言
+
+無 `lang` 或 `lang=en` 預設英文；`lang=zh-TW` 為繁中檢閱。初始 HTML 為英文，產品與資料說明頁都有明顯切換按鈕，切換保留孔徑、公差、深度、材料、料號、切削值與其他狀態。返回分類頁或資料說明也保留 `lang`。
+
+瀏覽器需依序載入自身 `locale.js`、`core.js`、`diagrams.js`、`app.js`。分類入口使用本核心時也先載入 `locale.js`；CommonJS 會自行 require 本地詞庫。核心提示使用 `state.lang`，`getMaterialSupport(catalog,id,lang)` 第三參數可選，省略為英文。圖形使用 `{lang}` 選項；複製文字與所有狀態同步語言。`SuperPowerDrillLocale.renderScoped` 僅用於自己的主內容及尺寸 dialog，不處理全站或其他產品 DOM。
+
 ## 狀態與數值規則
 
-URL 保留 `diameter,toleranceUpper,toleranceLower,depth,material,shank,machineMode,application,coolant,pressure,machineMax,spdDepthClass,tool,values,vc,feed`；也接受舊的 `bar` 料號參數。`spdDepthClass` 須手選 `lt7d` 或 `gt7d`。恰好 7D 保留提醒，不改成包含等號。
+URL 保留 `lang,diameter,toleranceUpper,toleranceLower,depth,material,shank,machineMode,application,coolant,pressure,machineMax,spdDepthClass,tool,values,vc,feed`；也接受舊的 `bar` 料號參數。`spdDepthClass` 須手選 `lt7d` 或 `gt7d`。恰好 7D 保留提醒，不改成包含等號。
 
 中心牌號依材料列選 NC2032／NC40，外刃先用已明確列入刀體的 NC2032。NC40 外刃尾碼 31 的直接替換關係尚待原廠確認，20 列來源仍完整保留，空格不補成零。無內冷、壓力低於 10 bar、斜面或疊板會停止計算；未確認壓力或非標準工況保留條件提醒。水平主軸與切屑修正不自動疊加。
 
-S=1000×Vc/(π×D)，F=S×f。這是通用公制數學，不引用其他章節作本產品 PDF 依據；每轉進給不乘刀片數。型錄範圍中值是網站可調起始值。手動試算會清楚標明非型錄推薦；需求孔深不直接生成 Z。
+S=1000×Vc/(π×D)，F=S×f。這是通用公制數學，不引用其他章節作本產品 PDF 依據；每轉進給不乘刀片數。型錄範圍中值是網站可調起始值。非鐵金屬明確標示「本系列不建議用於非鐵金屬」；耐熱合金與未知且無適用列的材料不提供推薦，也不能手動填 Vc／f 繞過。未知材料的舊網址會保留原材料 ID 並顯示無適用配對，不會靜默清成未選。只有已支持材料缺少其他設定時可用原有手動試算，並清楚標明非型錄推薦；需求孔深不直接生成 Z。
 
 ## 驗證
 

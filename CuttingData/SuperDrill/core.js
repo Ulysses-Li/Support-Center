@@ -1,9 +1,9 @@
 /* Super Drill 純函式核心：僅接受本產品資料，不補齊型錄空白。 */
 (function (root, factory) {
   'use strict';
-  if (typeof module === 'object' && module.exports) module.exports = factory();
-  else root.SuperDrillCore = factory();
-}(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  if (typeof module === 'object' && module.exports) module.exports = factory(require('./locale.js'));
+  else root.SuperDrillCore = factory(root.SuperDrillLocale);
+}(typeof globalThis !== 'undefined' ? globalThis : this, function (Locale) {
   'use strict';
   var EPSILON = 1e-8;
   var ORDER = { ready: 0, review: 1, missing: 2, blocked: 3 };
@@ -27,6 +27,15 @@
         centerQty: positions.indexOf('inner') !== -1 ? 1 : null, peripheryQty: positions.indexOf('outer') !== -1 ? 1 : null };
     });
     return { tools: tools, materials: (cutting.materials || []).map(function (m) { return Object.assign({}, m); }), raw: product, cutting: cutting };
+  }
+
+  // 材料適用性只依本產品的切削資料列；未選材料與明確不支援必須分開。
+  function getMaterialSupport(catalog, materialId) {
+    if (blank(materialId)) return { supported: null, sourcePage: null, note: '請先選擇工件材料。' };
+    var section = catalog && catalog.cutting ? catalog.cutting.section || {} : {};
+    var row = (section.cutting_rows || []).find(function (item) { return item.material_id === materialId; });
+    if (row) return { supported: true, sourcePage: page(row.source) || page(section.source), note: '型錄已列此材料的適用切削資料。' };
+    return { supported: false, sourcePage: page(section.source), note: materialId === 'non_ferrous' ? '本系列不建議用於非鐵金屬' : '型錄未列此材料適用配對，不提供推薦' };
   }
 
   function geometry(tool, state, result) {
@@ -74,14 +83,17 @@
   function selectCutting(catalog, tool, state) {
     state = state || {};
     var r = { status: 'ready', vcRange: null, feedRange: null, baseVcRange: null, baseFeedRange: null, centerGrade: null, peripheryGrade: null, insertGrade: null,
-      centerModel: tool ? tool.centerModel : null, peripheryModel: tool ? tool.peripheryModel : null, sourcePage: null, sourcePdfPage: null, notes: [],
+      centerModel: tool ? tool.centerModel : null, peripheryModel: tool ? tool.peripheryModel : null, sourcePage: null, sourcePdfPage: null, materialSupported: null, notes: [],
       applicationFactorRange: [1, 1], feedApplicationFactorRange: [1, 1], applicationFactor: 1, feedApplicationFactor: 1, applicationSourcePage: null, depthClass: null, diameterBand: null, rowId: null, vcMedian: null, feedMedian: null };
     if (tool && tool.family !== 'sd') { note(r, 'blocked', '此核心只接受 Super Drill 刀體。'); return r; }
     if (!catalog || !catalog.cutting || !catalog.cutting.section || !tool) { note(r, 'missing', '請先選擇有型錄資料的 Super Drill 刀體。'); return r; }
     var section = catalog.cutting.section;
     r.sourcePage = page(section.source); r.sourcePdfPage = section.source ? section.source.pdf_page : null;
+    var support = getMaterialSupport(catalog, state.material);
+    r.materialSupported = support.supported;
+    if (support.supported === false) { note(r, 'blocked', support.note); return r; }
     geometry(tool, state, r);
-    if (!state.material) { note(r, 'missing', '請先選擇工件材料。'); return r; }
+    if (support.supported === null) { note(r, 'missing', support.note); return r; }
     var band = (section.diameter_bands || []).find(function (x) { var limits = x.nominal_diameter_mm || []; return tool.D !== null && tool.D >= limits[0] - EPSILON && tool.D <= limits[1] + EPSILON; });
     if (!band) { note(r, 'missing', '此標稱孔徑未列出對應的切削資料欄。'); return r; }
     r.diameterBand = band.id;
@@ -106,6 +118,7 @@
   function filterTools(catalog, state) {
     state = state || {};
     if (!catalog || !Array.isArray(catalog.tools) || ['diameter', 'depth', 'shank'].some(function (key) { return !blank(state[key]) && positive(state[key]) === null; })) return [];
+    if (getMaterialSupport(catalog, state.material).supported === false) return [];
     var d = positive(state.diameter), t = positive(state.depth), shank = positive(state.shank);
     return catalog.tools.filter(function (tool) { return tool.family === 'sd' && (d === null || equal(d, tool.D)) && (t === null || (tool.T !== null && t <= tool.T + EPSILON)) && (shank === null || equal(shank, tool.shank)); }).map(function (tool) {
       var cutting = selectCutting(catalog, tool, state);
@@ -122,5 +135,12 @@
     // f 為每轉進給，與內外刃片數及可轉刃數無關。
     return { rpm: rpm, feedRate: rate, rpmUncapped: uncapped, capped: max !== null && uncapped > max };
   }
-  return { normalizeCatalog: normalizeCatalog, filterTools: filterTools, selectCutting: selectCutting, calculate: calculate };
+  function localizeResult(result, lang) { result.notes = result.notes.map(function (message) { return Locale.text(message, lang); }); return result; }
+  return {
+    normalizeCatalog: normalizeCatalog,
+    getMaterialSupport: function (catalog, materialId, lang) { var result = getMaterialSupport(catalog, materialId); result.note = Locale.text(result.note, lang); return result; },
+    filterTools: function (catalog, state) { return filterTools(catalog, state).map(function (candidate) { candidate.notes = candidate.notes.map(function (message) { return Locale.text(message, state && state.lang); }); return candidate; }); },
+    selectCutting: function (catalog, tool, state) { return localizeResult(selectCutting(catalog, tool, state), state && state.lang); },
+    calculate: calculate
+  };
 }));

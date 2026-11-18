@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const core=require('../core.js');
+const core=require('../core.js'),Locale=require('../locale.js');
 const read=name=>JSON.parse(fs.readFileSync(path.join(__dirname,'../data',name),'utf8'));
 const product=read('catalog.json'),cutting=read('cutting-data.json');
 const catalog=core.normalizeCatalog(product,cutting);
@@ -11,13 +11,13 @@ test('CommonJS 與瀏覽器全域使用相同的純函式介面', () => {
   const context = { window: {} };
   context.globalThis = context.window;
   vm.runInNewContext(fs.readFileSync(path.resolve(__dirname, '../core.js'), 'utf8'), context);
-  assert.deepEqual(Object.keys(context.window.SuperDrillCore), ['normalizeCatalog', 'filterTools', 'selectCutting', 'calculate']);
+  assert.deepEqual(Object.keys(context.window.SuperDrillCore), ['normalizeCatalog', 'getMaterialSupport', 'filterTools', 'selectCutting', 'calculate']);
 });
 
 
-test('空白條件保留全部，材料缺值不隱藏幾何；輸入錯誤不等於全部', () => {
+test('未選材料保留幾何；不支援材料及錯誤尺寸不等於全部', () => {
   assert.equal(core.filterTools(catalog, {}).length, 51);
-  assert.equal(core.filterTools(catalog, { material: 'non_ferrous' }).length, 51);
+  assert.equal(core.filterTools(catalog, { material: 'non_ferrous' }).length, 0);
   assert.ok(core.filterTools(catalog, {}).every(item => item.eligibility === 'review'));
   for (const bad of [0, -1, 'abc', Infinity]) {
     assert.deepEqual(core.filterTools(catalog, { diameter: bad }), []);
@@ -55,22 +55,31 @@ test('SD 選 4D 刀體，即使淺孔也維持 4D 切削列', () => {
 });
 
 
-test('型錄未列的材料回 missing，幾何候選仍保留且不借用數據', () => {
-  const state = sdState({ material: 'non_ferrous' });
-  const result = core.selectCutting(catalog, tool('00-99313-20'), state);
-  assert.equal(result.status, 'missing');
-  assert.equal(result.vcRange, null);
-  assert.equal(result.feedRange, null);
-  const candidates = core.filterTools(catalog, state, { family: 'sd' });
-  assert.equal(candidates.length, 2);
-  assert.ok(candidates.every(item => item.eligibility === 'review'));
+test('材料支援只依自身資料列，N/S及未知材料一律不推薦', () => {
+  assert.deepEqual(core.getMaterialSupport(catalog, ''), { supported: null, sourcePage: null, note: 'Select a workpiece material first.' });
+  assert.equal(core.getMaterialSupport(catalog, 'carbon_low').supported, true);
+  assert.equal(core.getMaterialSupport(catalog, 'carbon_low').sourcePage, 141);
+  for (const material of ['non_ferrous', 'heat_resistant', 'unknown_material', 'toString', '__proto__']) {
+    const state = sdState({ material, valuesMode: 'manual', vc: 100, feed: 0.06 });
+    const support = core.getMaterialSupport(catalog, material);
+    assert.equal(support.supported, false); assert.equal(support.sourcePage, 141);
+    assert.equal(support.note, Locale.text(material === 'non_ferrous' ? '本系列不建議用於非鐵金屬' : '型錄未列此材料適用配對，不提供推薦'));
+    const result = core.selectCutting(catalog, tool('00-99313-20'), state);
+    assert.equal(result.status, 'blocked'); assert.equal(result.materialSupported, false);
+    assert.equal(result.vcRange, null); assert.equal(result.feedRange, null);
+    assert.equal(result.baseVcRange, null); assert.equal(result.baseFeedRange, null);
+    assert.deepEqual(result.notes, [support.note]); assert.deepEqual(core.filterTools(catalog, state), []);
+  }
+  // 材料選單本身不等於有適用資料列。
+  const emptyRows = core.normalizeCatalog(product, { ...cutting, section: { ...cutting.section, cutting_rows: [] } });
+  assert.equal(core.getMaterialSupport(emptyRows, 'carbon_low').supported, false);
 });
-
 
 test('SD 型錄空白進給維持 missing，不把橫線當 0 或借用鄰欄', () => {
   const artificial = Object.assign({}, tool('00-99313-10'), { ratio: 4 });
   const result = core.selectCutting(catalog, artificial, sdState({ diameter: 10, depth: 20 }));
   assert.equal(result.status, 'missing');
+  assert.equal(result.materialSupported, true);
   assert.equal(result.baseFeedRange, null);
   assert.equal(result.vcRange, null);
 });
@@ -174,4 +183,13 @@ test('選表篩選不修改輸入型錄與狀態',()=>{
  const before=JSON.stringify({product,cutting});const state=Object.freeze(sdState());
  core.filterTools(catalog,state);core.selectCutting(catalog,tool('00-99313-20'),state);
  assert.equal(JSON.stringify({product,cutting}),before);
+});
+
+test('core messages default to English and accept an explicit Traditional Chinese language',()=>{
+ const en=core.selectCutting(catalog,tool('00-99313-20'),sdState({material:'non_ferrous'}));
+ const zh=core.selectCutting(catalog,tool('00-99313-20'),sdState({material:'non_ferrous',lang:'zh-TW'}));
+ assert.equal(en.notes[0],'This series is not recommended for non-ferrous metals');assert.equal(zh.notes[0],'本系列不建議用於非鐵金屬');assert.equal(en.status,zh.status);
+ for(const state of [{diameter:-1},{depth:100},{shank:32},{machineMode:'lathe'},{coolant:'no'},{application:'stack_drilling'}]){
+  const result=core.selectCutting(catalog,tool('00-99313-20'),sdState(state));assert.doesNotMatch(result.notes.join(' '),/[\u3400-\u9fff]/);
+ }
 });

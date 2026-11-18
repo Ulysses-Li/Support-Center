@@ -4,6 +4,8 @@
   const scriptRoot = new URL('.', document.currentScript.src);
   const dataRoot = new URL('data/', scriptRoot);
   const siteRoot = new URL('../../', scriptRoot);
+  const Locale = window.SuperDrillLocale;
+  const lang = Locale.normalize(new URLSearchParams(location.search).get('lang'));
   const Core = window.SuperDrillCore;
   const Diagrams = window.SuperDrillDiagrams;
   const $ = id => document.getElementById(id);
@@ -31,6 +33,7 @@
     const response = await fetch(new URL(path, siteRoot));
     if (!response.ok) throw new Error('共用元件載入失敗');
     $(target).innerHTML = await response.text();
+    Locale.apply($(target), lang);
     if (target !== 'header-placeholder') return;
     const button = $('mobileMenuBtn'), nav = $('topNav');
     if (!button || !nav) return;
@@ -45,12 +48,15 @@
   }
 
   function configurePage() {
+    document.documentElement.lang = lang === 'zh-TW' ? 'zh-Hant' : 'en';
+    document.title = Locale.text('Super Drill 鑽孔設定｜Nine9 支援中心', lang);
+    Locale.apply(document.querySelector?.('meta[name="description"]'), lang);
     $('pageEyebrow').textContent = 'SUPER DRILL · 99313 / 99314';
     $('pageTitle').textContent = '從孔徑開始，選好你的鑽頭。';
     $('pageIntro').textContent = '選標準刀徑與鑽孔深度，配對刀片，再取得轉速與進給。';
     $('heroImage').innerHTML = `<img src="${new URL('assets/product.jpg', scriptRoot)}" alt="Super Drill 型錄實際產品圖"><span class="hero-image-caption">Ø10–30 mm · 3D／4D</span>`;
     $('catalogLink').href = sourceHref(136);
-    $('material').innerHTML = '<option value="">請選擇材料</option>' + catalog.materials.map(m => `<option value="${esc(m.id)}">${esc(m.iso)} · ${esc(m.label_zh)}</option>`).join('') + '<option value="non_ferrous">N · 非鐵金屬（本章未列切削值）</option><option value="heat_resistant">S · 耐熱合金（本章未列切削值）</option>';
+    $('material').innerHTML = '<option value="">請選擇材料</option>' + catalog.materials.map(m => `<option value="${esc(m.id)}">${esc(m.iso)} · ${esc(m.label_zh)}</option>`).join('') + '<option value="non_ferrous">N · 非鐵金屬（本系列不建議）</option><option value="heat_resistant">S · 耐熱合金（無適用配對）</option>';
     $('shank').innerHTML = '<option value="">不限／尚未確認</option>' + [20, 25, 32].map(v => `<option value="${v}">Ø${v} mm</option>`).join('');
     $('application').innerHTML = Object.entries(applications).map(([id, label]) => `<option value="${id}">${esc(label)}</option>`).join('');
     $('factorGroup').hidden = true;
@@ -59,6 +65,13 @@
 
   function restoreUrl() {
     const query = new URLSearchParams(location.search);
+    // 舊連結的未知材料保留真實需求，不可被 select 靜默清空後重新推薦。
+    const requestedMaterial = query.get('material');
+    if (requestedMaterial && !Array.from($('material').options).some(option => option.value === requestedMaterial)) {
+      const option = document.createElement('option');
+      option.value = requestedMaterial; option.textContent = '型錄未列材料（不提供推薦）';
+      $('material').add(option);
+    }
     jobFields.forEach(key => {
       if (query.has(key)) state[key] = query.get(key);
       if ($(key)) $(key).value = state[key];
@@ -73,6 +86,7 @@
 
   function queryFor(toolId = '') {
     const query = new URLSearchParams();
+    query.set('lang', lang);
     jobFields.forEach(key => {
       const value = state[key];
       if (value !== '' && value !== undefined && value !== defaults[key]) query.set(key, String(value));
@@ -89,6 +103,11 @@
   function updateUrl() {
     const query = queryFor(selectedId);
     history.replaceState(null, '', `${location.pathname}${query.size ? `?${query}` : ''}${location.hash}`);
+    const switchQuery = queryFor(selectedId); switchQuery.set('lang', lang === 'en' ? 'zh-TW' : 'en');
+    $('languageToggle').href = `${location.pathname}?${switchQuery}${location.hash}`;
+    $('languageToggle').textContent = lang === 'en' ? '繁體中文' : 'English';
+    $('languageToggle').setAttribute('aria-label', lang === 'en' ? 'Switch to Traditional Chinese' : '切換英文');
+    document.querySelectorAll('[data-notes-link]').forEach(link => { const url = new URL('catalog-notes.html', scriptRoot); url.search = queryFor(selectedId).toString(); url.hash = new URL(link.href).hash; link.href = url.href; });
     document.querySelectorAll('[data-hub-link]').forEach(link => {
       const url = new URL('Machining/Drilling/index.html', siteRoot);
       const job = queryFor();
@@ -98,12 +117,15 @@
   }
 
   function currentJob() {
-    return { ...state, diameter: number(state.diameter), depth: number(state.depth), shank: number(state.shank), pressure: number(state.pressure), machineMax: number(state.machineMax), applicationFactor: number(state.applicationFactor), valuesMode };
+    return { ...state, lang, diameter: number(state.diameter), depth: number(state.depth), shank: number(state.shank), pressure: number(state.pressure), machineMax: number(state.machineMax), applicationFactor: number(state.applicationFactor), valuesMode };
   }
 
   function rangeText(value, unit) { return value ? `${fmt(value[0], 4)}–${fmt(value[1], 4)} ${unit}` : '尚無可套用範圍'; }
 
-  function materialLabel() { return catalog.materials.find(material => material.id === state.material)?.label_zh || ({ non_ferrous: '非鐵金屬', heat_resistant: '耐熱合金' }[state.material]) || '材料未選'; }
+  function materialLabel() {
+    const listed = catalog.materials.find(material => material.id === state.material);
+    return listed?.label_zh || (state.material === 'non_ferrous' ? '非鐵金屬' : state.material === 'heat_resistant' ? '耐熱合金' : state.material ? '型錄未列材料' : '材料未選');
+  }
 
   function validation() {
     if (state.diameter !== '' && !(number(state.diameter) > 0)) return '請輸入大於 0 的完成孔徑。';
@@ -143,7 +165,7 @@
     $('rpmResult').textContent = '—'; $('feedResult').textContent = '—';
     $('machineLimitNote').textContent = '';
     $('copyButton').disabled = true; $('medianButton').disabled = true;
-    $('diagramCanvas').innerHTML = Diagrams.renderEmpty() || '<p>選定料號後，顯示實際尺寸。</p>';
+    $('diagramCanvas').innerHTML = Diagrams.renderEmpty(lang) || '<p>選定料號後，顯示實際尺寸。</p>';
     $('diagramTitle').textContent = '選定刀體，查看尺寸';
     $('diagramSource').href = sourceHref(138);
     $('zoomDiagram').disabled = true;
@@ -197,37 +219,46 @@
       $('feed').value = hasRanges ? String(Number(((cutting.feedRange[0] + cutting.feedRange[1]) / 2).toFixed(5))) : '';
     }
     $('diagramTitle').textContent = `${tool.id} · 尺寸圖`;
-    $('diagramCanvas').innerHTML = Diagrams.renderTool(tool, { diameter: number(state.diameter) }) || '';
+    $('diagramCanvas').innerHTML = Diagrams.renderTool(tool, { diameter: number(state.diameter), lang }) || '';
     $('diagramSource').href = sourceHref(tool.sourcePage);
     $('zoomDiagram').disabled = false;
     renderCalculation();
   }
 
   function renderCalculation() {
-    const blocked = !activeTool || activeCutting?.status === 'blocked' || Boolean(validation());
+    const blocked = !activeTool || activeCutting?.status === 'blocked' || Core.getMaterialSupport(catalog, state.material, lang).supported !== true || Boolean(validation());
     activeCalculation = blocked ? null : Core.calculate({ D: activeTool.D, vc: number($('vc').value), feed: number($('feed').value), machineMax: number(state.machineMax) });
     const manualOnly = valuesMode === 'manual' && !(activeCutting?.vcRange && activeCutting?.feedRange);
     $('rpmResult').textContent = activeCalculation ? fmt(activeCalculation.rpm, 0) : '—';
     $('feedResult').textContent = activeCalculation ? fmt(activeCalculation.feedRate, 1) : '—';
     const outside = activeCutting?.vcRange && number($('vc').value) > 0 && (number($('vc').value) < activeCutting.vcRange[0] || number($('vc').value) > activeCutting.vcRange[1]);
     const outsideFeed = activeCutting?.feedRange && number($('feed').value) > 0 && (number($('feed').value) < activeCutting.feedRange[0] || number($('feed').value) > activeCutting.feedRange[1]);
-    $('machineLimitNote').textContent = activeCalculation ? [activeCalculation.capped ? `已依機台最高 ${fmt(number(state.machineMax), 0)} rpm 限速，進給同步更新。` : '', valuesMode === 'median' ? '網站起始中值・可調整；未乘刀片數。' : manualOnly ? '手動試算，非型錄推薦；材料或切削條件尚未完整。' : '使用你輸入的切速與每轉進給。', outside || outsideFeed ? '手動值超出該列範圍，請核對。' : ''].filter(Boolean).join(' ') : blocked ? '目前工況不適用，請先調整上方條件。' : '選好切削條件或手動填入正數 Vc 與 f，可計算轉速及進給。';
+    $('machineLimitNote').textContent = activeCalculation ? [activeCalculation.capped ? `已依機台最高 ${fmt(number(state.machineMax), 0)} rpm 限速，進給同步更新。` : '', valuesMode === 'median' ? '網站起始中值・可調整；未乘刀片數。' : manualOnly ? '手動試算，非型錄推薦；所選適用材料的切削條件尚未完整。' : '使用你輸入的切速與每轉進給。', outside || outsideFeed ? '手動值超出該列範圍，請核對。' : ''].filter(Boolean).join(' ') : blocked ? '目前材料或工況不適用，請先調整上方條件。' : '選好切削條件或手動填入正數 Vc 與 f，可計算轉速及進給。';
     if (activeCalculation && manualOnly) {
       $('selectedStatus').textContent = '手動試算・非型錄推薦';
       $('selectedStatus').className = 'match-tag review';
     }
     $('copyButton').disabled = !activeCalculation;
+    translatePage();
   }
 
   function render() {
     showTolerance();
     const issue = validation();
     const complete = number(state.diameter) > 0 && number(state.depth) > 0;
+    const support = Core.getMaterialSupport(catalog, state.material, lang);
+    const unsupportedMaterial = support.supported === false;
+    $('vc').disabled = unsupportedMaterial; $('feed').disabled = unsupportedMaterial;
     candidates = issue ? [] : Core.filterTools(catalog, currentJob());
     $('resultSummary').textContent = issue || [number(state.diameter) > 0 ? `Ø${fmt(number(state.diameter), 4)} mm` : '孔徑未填', number(state.depth) > 0 ? `深 ${fmt(number(state.depth))} mm` : '深度未填', materialLabel(), number(state.shank) ? `後柄 Ø${fmt(number(state.shank))} mm` : '後柄不限'].join(' · ');
-    $('dataStatus').textContent = issue || (complete ? '已依輸入條件篩選標準規格。' : '先填孔徑與深度；材料、柄徑可接著補齊。');
+    $('dataStatus').textContent = issue || (unsupportedMaterial ? support.note : complete ? '已依輸入條件篩選標準規格。' : '先填孔徑與深度；材料、柄徑可接著補齊。');
     $('copyStatus').textContent = '';
-    if (!complete || issue) {
+    if (unsupportedMaterial && !issue) {
+      $('resultCount').textContent = '沒有適用此材料的推薦'; $('toolList').innerHTML = '';
+      $('emptyState').hidden = false; $('emptyState').textContent = support.note;
+      clearSelection(support.note);
+      $('selectedStatus').textContent = '材料不適用'; $('selectedStatus').className = 'match-tag blocked';
+    } else if (!complete || issue) {
       $('resultCount').textContent = '等待孔徑與深度'; $('toolList').innerHTML = '';
       $('emptyState').hidden = false;
       $('emptyState').textContent = issue || '先輸入孔徑與深度，或載入範例看看。';
@@ -242,7 +273,10 @@
       renderToolCards(); renderSelected();
     }
     updateUrl();
+    translatePage();
   }
+
+  function translatePage() { Locale.apply($('main-content'), lang); Locale.apply($('diagramDialog'), lang); }
 
   function bindEvents() {
     $('jobForm').addEventListener('submit', event => event.preventDefault());
@@ -277,7 +311,7 @@
       if (!activeTool || !activeCalculation) return;
       const text = [
         'Super Drill 鑽孔設定',
-        `取值方式：${valuesMode === 'median' ? '網站起始中值，可調整' : !(activeCutting.vcRange && activeCutting.feedRange) ? '手動試算，非型錄推薦；材料或切削條件尚未完整' : '使用者手動設定'}`,
+        `取值方式：${valuesMode === 'median' ? '網站起始中值，可調整' : !(activeCutting.vcRange && activeCutting.feedRange) ? '手動試算，非型錄推薦；所選適用材料的切削條件尚未完整' : '使用者手動設定'}`,
         `完成孔徑 Ø${state.diameter} mm；上偏差 ${state.toleranceUpper || '未填'} mm；下偏差 ${state.toleranceLower || '未填'} mm`,
         `需求深度 ${state.depth} mm；材料 ${materialLabel()}；${applications[state.application]}`,
         `刀體 ${activeTool.id}；表列 T${activeTool.T} mm；後柄 Ø${activeTool.shank} mm`,
@@ -289,13 +323,14 @@
         '需求深度不等於程式刀尖 Z；此頁不自動產生程式深度。',
         $('recommendationNotes').innerText.trim()
       ].filter(Boolean).join('\n');
-      try { await navigator.clipboard.writeText(text); $('copyStatus').textContent = '已複製選型與切削設定。'; }
+      try { await navigator.clipboard.writeText(Locale.text(text, lang)); $('copyStatus').textContent = '已複製選型與切削設定。'; }
       catch { $('copyStatus').textContent = '瀏覽器未允許複製，請選取右側設定內容。'; }
+      translatePage();
     });
     $('zoomDiagram').addEventListener('click', () => {
       if (!activeTool) return;
       $('dialogTitle').textContent = activeTool.id;
-      $('dialogCanvas').innerHTML = Diagrams.renderTool(activeTool, { diameter: number(state.diameter) });
+      $('dialogCanvas').innerHTML = Diagrams.renderTool(activeTool, { diameter: number(state.diameter), lang });
       $('diagramDialog').showModal();
     });
     $('closeDiagram').addEventListener('click', () => $('diagramDialog').close());
@@ -306,5 +341,5 @@
   Promise.all(['catalog.json', 'cutting-data.json'].map(fetchJson)).then(([product, cutting]) => {
     catalog = Core.normalizeCatalog(product, cutting);
     configurePage(); restoreUrl(); bindEvents(); render();
-  }).catch(error => { $('dataStatus').textContent = `${error.message}。請透過網站開啟頁面。`; console.error(error); });
+  }).catch(error => { $('dataStatus').textContent = `${error.message}。請透過網站開啟頁面。`; Locale.apply($('dataStatus'), lang); console.error(error); });
 })();

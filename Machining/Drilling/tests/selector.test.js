@@ -12,6 +12,8 @@ const packages = Object.fromEntries(Object.entries(Selector.products).map(([key,
   return [key, { core, catalog: core.normalizeCatalog(read('catalog.json'), read('cutting-data.json')) }];
 }));
 const groups = (state, selected = {}) => Selector.selectFamilies(packages, { ...Selector.defaults, ...state }, selected);
+// 尺寸排序等測試的假產品 API：未選材料是未知，其餘材料在該假產品中明確支持。
+const stubMaterialSupport = (_catalog, materialId) => ({ supported: materialId ? true : null, sourcePage: null, note: '' });
 
 test('分類入口讀取兩個獨立核心及各自完整規格', () => {
   assert.notEqual(packages.sd.core, packages.spd.core);
@@ -20,17 +22,18 @@ test('分類入口讀取兩個獨立核心及各自完整規格', () => {
   assert.ok(packages.spd.catalog.tools.every(tool => tool.family === 'spd'));
 });
 
-test('沒有符合規格的家族完全隱藏，缺少材料切削值仍保留幾何結果', () => {
+test('不符合尺寸或材料的家族隱藏，材料尚未選擇仍可查看尺寸', () => {
   const state = { diameter: '10', depth: '20', material: 'carbon_low' };
   assert.deepEqual(groups(state).map(group => [group.key, group.matching.length]), [['sd', 1]]);
   assert.equal(groups({ ...state, depth: '31' }).length, 0);
-  assert.deepEqual(groups({ ...state, material: 'non_ferrous' }).map(group => group.key), ['sd']);
+  assert.deepEqual(groups({ ...state, material: 'non_ferrous' }), []);
+  assert.deepEqual(groups({ ...state, material: '' }).map(group => group.key), ['sd']);
 });
 
 test('指定4D刀體在材料變更後保留，失效料號才改選', () => {
   const state = { diameter: '20', depth: '20' };
   const selected = { sd: '00-99314-20' };
-  for (const material of ['', 'stainless', 'non_ferrous']) {
+  for (const material of ['', 'carbon_low', 'stainless']) {
     assert.equal(groups({ ...state, material }, selected)[0].chosen.tool.id, selected.sd);
   }
   assert.equal(groups({ ...state, diameter: '18' }, selected)[0].chosen.tool.D, 18);
@@ -97,7 +100,7 @@ test('加深至90改用SD 4D T96，加深至100只保留SPD T100', () => {
   ]);
 });
 
-test('未填完整孔徑深度不標推薦；切削材料尚未補齊不抹去最短尺寸建議', () => {
+test('未填完整孔徑深度不標推薦；材料未選仍保留最短尺寸建議', () => {
   for (const state of [{}, { diameter: '24' }, { depth: '36' }]) {
     assert.ok(groups(state).every(group => group.recommended === false));
   }
@@ -167,7 +170,7 @@ test('分類頁只還原五個需求欄位，舊進階網址不傳入core條件�
 test('手選較長刀體在材料變更後保留，但不能冒稱最短推薦', () => {
   const state = { diameter: '24', depth: '36', coolant: 'yes', pressure: '20', spdDepthClass: 'lt7d' };
   const selected = { sd: '00-99314-24', spd: '00-99307-24150' };
-  for (const material of ['', 'carbon_low', 'stainless', 'non_ferrous']) {
+  for (const material of ['', 'carbon_low', 'stainless']) {
     const result = groups({ ...state, material }, selected);
     assert.deepEqual(result.map(group => group.chosen.tool.id), [selected.sd, selected.spd]);
     assert.deepEqual(result.map(group => group.shortest.tool.id), ['00-99313-24', '00-99307-24100']);
@@ -183,8 +186,8 @@ test('家族排序以最短可用T為準，不依資料列順序或手選長度'
   // 用不同最短長度的產品API回傳檢查排序，避免目前實體規格恰好總是SD較短掩蓋錯誤。
   const row = (id, T) => ({ tool: { id, T }, eligibility: 'ready', notes: [] });
   const custom = {
-    sd: { catalog: {}, core: { filterTools: () => [row('sd-long', 180), row('sd-short', 120)] } },
-    spd: { catalog: {}, core: { filterTools: () => [row('spd-long', 250), row('spd-short', 100)] } }
+    sd: { catalog: {}, core: { getMaterialSupport: stubMaterialSupport, filterTools: () => [row('sd-long', 180), row('sd-short', 120)] } },
+    spd: { catalog: {}, core: { getMaterialSupport: stubMaterialSupport, filterTools: () => [row('spd-long', 250), row('spd-short', 100)] } }
   };
   const result = Selector.selectFamilies(custom, { ...Selector.defaults, diameter: '24', depth: '36' }, { spd: 'spd-long' });
   assert.deepEqual(result.map(group => group.key), ['spd', 'sd']);
@@ -196,7 +199,7 @@ test('家族排序以最短可用T為準，不依資料列順序或手選長度'
   assert.deepEqual(defaults.map(group => [group.key, group.recommended]), [['spd', true], ['sd', false]]);
   const blocked = Object.fromEntries(Object.entries(custom).map(([key, entry]) => [key, {
     catalog: entry.catalog,
-    core: { filterTools: () => entry.core.filterTools().map(candidate => ({ ...candidate, eligibility: 'blocked' })) }
+    core: { getMaterialSupport: stubMaterialSupport, filterTools: () => entry.core.filterTools().map(candidate => ({ ...candidate, eligibility: 'blocked' })) }
   }]));
   assert.ok(Selector.selectFamilies(blocked, { ...Selector.defaults, diameter: '24', depth: '36' }).every(group => group.recommended === false));
 });
@@ -226,8 +229,8 @@ test('孔徑深度未完整或產品API回報blocked時不可選；全部blocked
   }
   const row = (id, T) => ({ tool: { id, T }, eligibility: 'blocked', notes: ['此加工條件不適用'] });
   const allBlocked = {
-    sd: { catalog: {}, core: { filterTools: () => [row('blocked-sd', 72)] } },
-    spd: { catalog: {}, core: { filterTools: () => [row('blocked-spd', 100)] } }
+    sd: { catalog: {}, core: { getMaterialSupport: stubMaterialSupport, filterTools: () => [row('blocked-sd', 72)] } },
+    spd: { catalog: {}, core: { getMaterialSupport: stubMaterialSupport, filterTools: () => [row('blocked-spd', 100)] } }
   };
   const result = Selector.selectFamilies(allBlocked, { ...Selector.defaults, diameter: '24', depth: '36' });
   assert.equal(result.length, 2);
@@ -237,7 +240,7 @@ test('孔徑深度未完整或產品API回報blocked時不可選；全部blocked
 test('最短家族手選較長規格仍可進入，但較長家族不能因手選解鎖', () => {
   const state = { diameter: '24', depth: '36', coolant: 'yes', pressure: '20', spdDepthClass: 'lt7d' };
   const selected = { sd: '00-99314-24', spd: '00-99307-24150' };
-  for (const material of ['', 'carbon_low', 'stainless', 'non_ferrous']) {
+  for (const material of ['', 'carbon_low', 'stainless']) {
     const result = groups({ ...state, material }, selected);
     assert.deepEqual(result.map(group => group.chosen.tool.id), [selected.sd, selected.spd]);
     assert.deepEqual(result.map(group => [group.key, group.canSelect]), [['sd', true], ['spd', false]]);
@@ -265,11 +268,89 @@ test('舊網址spdTool指向有效長刀體也不能繞過最短系列限制', (
 // 無結果說明必須根據實體刀體尺寸，不以範圍內插料號，也不把未知深度補成零。
 const explain = state => Selector.explainNoMatch(packages, { ...Selector.defaults, ...state });
 
+test('非鐵材料不推薦或選用，切回碳鋼／不鏽鋼恢復原先手選尺寸', () => {
+  const state = { diameter: '24', depth: '36' };
+  const selected = { sd: '00-99314-24', spd: '00-99307-24150' };
+  for (const material of ['carbon_low', 'non_ferrous', 'stainless', 'non_ferrous', 'carbon_low']) {
+    const result = groups({ ...state, material }, selected);
+    if (material === 'non_ferrous') {
+      assert.deepEqual(result, [], '已選未支持材料時不能繼續顯示幾何推薦或選用入口');
+    } else {
+      assert.deepEqual(result.map(group => group.chosen.tool.id), [selected.sd, selected.spd]);
+      assert.deepEqual(result.map(group => [group.key, group.canSelect]), [['sd', true], ['spd', false]]);
+      assert.ok(result.every(group => group.recommended === false), '保留長刀體手選，不冒稱最短推薦');
+    }
+  }
+  assert.equal(groups(state).length, 2, '材料未選與材料不支持不同，前者仍可查看尺寸');
+});
+
+test('只選未支持材料也先說明材料原因，空白或僅支持材料仍等待尺寸', () => {
+  const result = explain({ material: 'non_ferrous' });
+  assert.ok(result, '材料已不適用，不應要求先填孔徑與深度才說明');
+  assert.match(result.title, /非鐵/);
+  assert.equal(result.families.length, 2);
+  assert.ok(result.families.every(family => family.reason === 'material'));
+  assert.equal(explain({}), null);
+  assert.equal(explain({ material: 'carbon_low' }), null);
+});
+
+test('Ø19深200選N、S或未知材料優先說明材料，不把SD的T76誤報為主要原因', () => {
+  const sdTools = packages.sd.catalog.tools.filter(tool => tool.D === 19);
+  assert.equal(Math.max(...sdTools.map(tool => tool.T)), 76);
+  assert.equal(sdTools.find(tool => tool.T === 76).id, '00-99314-19');
+  assert.equal(sdTools.find(tool => tool.T === 76).sourcePage, 139);
+  assert.deepEqual(groups({ diameter: '19', depth: '200' }).map(group => group.key), ['spd']);
+  for (const material of ['non_ferrous', 'heat_resistant', 'unknown_material']) {
+    const state = { diameter: '19', depth: '200', material };
+    assert.deepEqual(groups(state, { spd: '00-99307-19200' }), [], material);
+    const result = explain(state);
+    assert.ok(result);
+    const materialTitle = { non_ferrous: /非鐵金屬/, heat_resistant: /耐熱合金/, unknown_material: /材料|材質/ }[material];
+    assert.match(result.title, materialTitle, '無結果標題需指出所選材料，而不是只說尺寸不符');
+    assert.doesNotMatch(result.title, /深度不足/);
+    assert.equal(result.families.length, 2);
+    for (const family of result.families) {
+      assert.equal(family.reason, 'material');
+      assert.equal(family.maxDepth, null);
+      assert.equal(family.shortfall, null);
+      assert.equal(family.toolId, null);
+      assert.equal(family.sourcePage, family.key === 'sd' ? 141 : 135);
+      assert.equal(family.message, packages[family.key].core.getMaterialSupport(packages[family.key].catalog, material, 'zh-TW').note);
+      assert.match(family.message, /材料|材質|非鐵金屬|耐熱合金/);
+      assert.match(family.message, /未|不/);
+    }
+  }
+});
+
+test('每個家族依自己的材料支持API判斷，不能借另一產品的支持資格', () => {
+  const row = (id, T) => ({ tool: { id, T }, eligibility: 'ready', notes: [] });
+  const custom = {
+    sd: { catalog: {}, core: {
+      getMaterialSupport: () => ({ supported: false, sourcePage: 141, note: '本產品未刊載此材料，不推薦。' }),
+      filterTools: () => [row('shorter-but-unsupported', 72)]
+    } },
+    spd: { catalog: {}, core: {
+      getMaterialSupport: () => ({ supported: true, sourcePage: 135, note: '' }),
+      filterTools: () => [row('supported-spd', 100)]
+    } }
+  };
+  const result = Selector.selectFamilies(custom, { ...Selector.defaults, diameter: '24', depth: '36', material: 'one_product_material' });
+  assert.deepEqual(result.map(group => [group.key, group.canSelect, group.recommended]), [['spd', true, true]]);
+});
+
+test('已支持材料仍使用實體刀體診斷：Ø19深201的SD差125、SPD差1', () => {
+  const result = explain({ diameter: '19', depth: '201', material: 'carbon_low' });
+  assert.deepEqual(result.families.map(family => [family.key, family.reason, family.maxDepth, family.shortfall, family.toolId, family.sourcePage]), [
+    ['sd', 'depth', 76, 125, '00-99314-19', 139],
+    ['spd', 'depth', 200, 1, '00-99307-19200', 130]
+  ]);
+});
+
 test('有幾何結果、未填需求或非法尺寸時，不產生無匹配診斷', () => {
   for (const state of [
     {}, { diameter: '', depth: '' }, { diameter: '10' },
     { diameter: '10', depth: '30' }, { diameter: '24', depth: '250' },
-    { diameter: '40', depth: '350' }, { diameter: '10', depth: '20', material: 'non_ferrous' },
+    { diameter: '40', depth: '350' },
     { diameter: '0', depth: '36' }, { diameter: '-10', depth: '36' },
     { diameter: 'invalid', depth: '36' }, { diameter: '10', depth: '0' },
     { diameter: '10', depth: '-1' }, { diameter: '10', depth: 'invalid' }
@@ -347,11 +428,11 @@ test('未填孔徑且深351時，容量明確標為全系列而非每個刀徑',
   assert.equal(result.families.find(family => family.key === 'sd').toolId, '00-99314-30');
 });
 
-test('材料缺值、非鐵與舊機台參數不會改變孔徑深度無匹配原因', () => {
+test('材料未選、已支持材料與舊機台參數不改變尺寸無匹配原因', () => {
   const state = { diameter: '10', depth: '36' };
   const expected = explain(state);
   for (const overrides of [
-    { material: '' }, { material: 'non_ferrous' }, { material: 'carbon_low' },
+    { material: '' }, { material: 'carbon_low' }, { material: 'stainless' },
     { shank: '32', machineMode: 'lathe', application: 'angled', coolant: 'no', pressure: '9', machineMax: 'invalid', spdDepthClass: 'gt7d', applicationFactor: '999' }
   ]) assert.deepEqual(explain({ ...state, ...overrides }), expected, JSON.stringify(overrides));
 });
@@ -369,6 +450,116 @@ test('刀體資料缺少時明示資料不足，不把未知容量與不足量�
     assert.equal(family.diameterRange, null);
     assert.deepEqual(family.nearbyDiameters, []);
     assert.ok(family.message.trim());
+  }
+});
+
+test('英文系列描述與選用原因保持同一套最短推薦規則，且不改寫預設繁中文案', () => {
+  const state = { ...Selector.defaults, diameter: '24', depth: '36', material: 'carbon_low' };
+  const zh = Selector.selectFamilies(packages, state);
+  const en = Selector.selectFamilies(packages, state, {}, 'en');
+  const decisions = result => result.map(group => [group.key, group.chosen.tool.id, group.shortest.tool.id, group.canSelect, group.recommended]);
+  assert.deepEqual(decisions(en), decisions(zh));
+  assert.deepEqual(en.map(group => [group.key, group.canSelect, group.recommended]), [['sd', true, true], ['spd', false, false]]);
+  for (const group of en) {
+    assert.doesNotMatch(group.product.eyebrow + group.product.note + group.selectionNote, /[\u3400-\u9fff]/);
+    assert.ok(group.product.note.trim());
+  }
+  assert.match(en[1].selectionNote, /Super Drill.*shorter/);
+  assert.match(en[1].product.note, /10 bar/);
+  assert.match(Selector.selectFamilies(packages, state)[1].selectionNote, /較短/);
+  assert.match(Selector.products.spd.note, /中心/);
+  const incomplete = Selector.selectFamilies(packages, { ...Selector.defaults, diameter: '24' }, {}, 'en');
+  assert.ok(incomplete.every(group => !group.canSelect && /diameter.*depth/.test(group.selectionNote)));
+});
+
+test('英文尺寸診斷涵蓋刀徑、深度與全系列範圍，數值與型錄來源不變', () => {
+  for (const state of [
+    { diameter: '10', depth: '36' }, { diameter: '10.1', depth: '20' },
+    { diameter: '24', depth: '251' }, { diameter: '40', depth: '351' }, { depth: '351' }
+  ]) {
+    const full = { ...Selector.defaults, ...state };
+    const zh = Selector.explainNoMatch(packages, full);
+    const en = Selector.explainNoMatch(packages, full, 'en');
+    assert.deepEqual(en.families.map(({ message, ...facts }) => facts), zh.families.map(({ message, ...facts }) => facts));
+    const copy = [en.title, en.summary, en.guidance, ...en.families.map(family => family.message)].join(' ');
+    assert.doesNotMatch(copy, /[\u3400-\u9fff]/);
+    assert.ok(en.title && en.summary && en.guidance);
+  }
+  const deep = Selector.explainNoMatch(packages, { ...Selector.defaults, depth: '351' }, 'en');
+  assert.match(deep.summary, /across both series/);
+  assert.match(deep.guidance, /Enter the diameter/);
+  const nominal = Selector.explainNoMatch(packages, { ...Selector.defaults, diameter: '10.1', depth: '20' }, 'en');
+  assert.match(nominal.families.find(family => family.key === 'sd').message, /10\.3/);
+  assert.match(nominal.guidance, /diameter must be maintained/);
+});
+
+test('英文未支持材料診斷優先於尺寸，僅選材料時也給明確英文原因', () => {
+  for (const [material, label] of [['non_ferrous', /non-ferrous/i], ['heat_resistant', /heat-resistant/i], ['unknown_material', /selected material/i]]) {
+    const state = { ...Selector.defaults, material };
+    assert.deepEqual(Selector.selectFamilies(packages, state, {}, 'en'), []);
+    const result = Selector.explainNoMatch(packages, state, 'en');
+    assert.match(result.title, label);
+    assert.doesNotMatch([result.title, result.summary, result.guidance, ...result.families.map(family => family.message)].join(' '), /[\u3400-\u9fff]/);
+    assert.deepEqual(result.families.map(family => [family.key, family.reason, family.maxDepth, family.shortfall, family.toolId, family.sourcePage]), [
+      ['sd', 'material', null, null, null, 141], ['spd', 'material', null, null, null, 135]
+    ]);
+  }
+});
+
+test('英文資料不足與舊版繁中材料API回覆亦不混入中文，來源缺值保留null', () => {
+  const missing = Object.fromEntries(Object.entries(packages).map(([key, entry]) => [key, { ...entry, catalog: { ...entry.catalog, tools: [] } }]));
+  const result = Selector.explainNoMatch(missing, { ...Selector.defaults, diameter: '10', depth: '36' }, 'en');
+  assert.ok(result.families.every(family => family.reason === 'data' && family.maxDepth === null && family.sourcePage === null));
+  assert.doesNotMatch([result.title, result.summary, result.guidance, ...result.families.map(family => family.message)].join(' '), /[\u3400-\u9fff]/);
+  const legacy = { sd: { catalog: { tools: [] }, core: { getMaterialSupport: () => ({ supported: false, sourcePage: 141, note: '本產品沒有適用此材料的推薦。' }), filterTools: () => [] } } };
+  const material = Selector.explainNoMatch(legacy, { ...Selector.defaults, material: 'non_ferrous' }, 'en');
+  const sd = material.families.find(family => family.key === 'sd');
+  assert.equal(sd.sourcePage, 141);
+  assert.match(sd.message, /recommended.*non-ferrous/i);
+  assert.doesNotMatch(sd.message, /[\u3400-\u9fff]/);
+});
+
+test('語言明確傳入各產品材料API及篩選狀態，不影響五個加工需求欄位', () => {
+  const calls = [];
+  const custom = { sd: { catalog: {}, core: {
+    getMaterialSupport: (_catalog, id, language) => { calls.push(['material', id, language]); return { supported: true, sourcePage: 141, note: '' }; },
+    filterTools: (_catalog, job) => { calls.push(['filter', job.lang]); return [{ tool: { id: 'sd', T: 72 }, eligibility: 'ready', notes: [] }]; }
+  } } };
+  const state = { ...Selector.defaults, diameter: '24', depth: '36', material: 'carbon_low', lang: 'zh-TW' };
+  Selector.selectFamilies(custom, state, {}, 'en');
+  assert.deepEqual(calls, [['material', 'carbon_low', 'en'], ['filter', 'en']]);
+  calls.length = 0;
+  Selector.selectFamilies(custom, state);
+  assert.deepEqual(calls, [['material', 'carbon_low', 'zh-TW'], ['filter', 'zh-TW']]);
+  assert.deepEqual(Selector.fields, ['diameter', 'toleranceUpper', 'toleranceLower', 'depth', 'material']);
+});
+
+test('產品CTA保留有效語言，明示語言優先，舊進階欄位仍不傳遞', () => {
+  const state = { ...Selector.defaults, diameter: '24', depth: '36', material: 'carbon_low', lang: 'en', pressure: '9', application: 'angled' };
+  const tool = packages.sd.catalog.tools.find(item => item.id === '00-99313-24');
+  const en = new URL(Selector.productUrl('https://n9sp.cwli.dev/', 'sd', state, tool));
+  assert.equal(en.searchParams.get('lang'), 'en');
+  assert.equal(en.searchParams.get('tool'), tool.id);
+  assert.equal(en.searchParams.has('pressure'), false);
+  assert.equal(en.searchParams.has('application'), false);
+  const zh = new URL(Selector.productUrl('https://n9sp.cwli.dev/', 'sd', state, tool, 'zh-TW'));
+  assert.equal(zh.searchParams.get('lang'), 'zh-TW');
+  const invalid = new URL(Selector.productUrl('https://n9sp.cwli.dev/', 'sd', { ...state, lang: 'invalid' }, tool));
+  assert.equal(invalid.searchParams.has('lang'), false);
+});
+
+test('未知材料使用原型屬性名稱時，雙語診斷仍為材料說明而非function或object', () => {
+  for (const material of ['toString', '__proto__', 'constructor', 'hasOwnProperty']) {
+    for (const language of ['en', 'zh-TW']) {
+      const state = { ...Selector.defaults, material };
+      assert.deepEqual(Selector.selectFamilies(packages, state, {}, language), []);
+      const result = Selector.explainNoMatch(packages, state, language);
+      const copy = [result.title, result.summary, result.guidance, ...result.families.map(family => family.message)].join(' ');
+      assert.ok(result.families.every(family => family.reason === 'material'));
+      assert.doesNotMatch(copy, /function|\[object|native code/);
+      assert.match(result.title, language === 'en' ? /selected material/i : /所選材料/);
+      if (language === 'en') assert.doesNotMatch(copy, /[\u3400-\u9fff]/);
+    }
   }
 });
 

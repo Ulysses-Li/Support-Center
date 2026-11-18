@@ -2,11 +2,11 @@
 (function (root, factory) {
   'use strict';
   if (typeof module === 'object' && module.exports) {
-    module.exports = factory();
+    module.exports = factory(require('./locale.js'));
   } else {
-    root.SuperPowerDrillCore = factory();
+    root.SuperPowerDrillCore = factory(root.SuperPowerDrillLocale);
   }
-}(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+}(typeof globalThis !== 'undefined' ? globalThis : this, function (Locale) {
   'use strict';
 
   // 核心只處理資料與數學；不讀取 DOM、不寫入原始型錄，也不自動補齊缺值。
@@ -79,6 +79,22 @@
     return { tools: tools, materials: (cutting.materials || []).map(function (m) { return Object.assign({}, m); }), product: product, cutting: cutting };
   }
 
+  // 材料適用性只看本產品自己的切削列；未選材料與明確不適用分開處理。
+  function getMaterialSupport(catalog, materialId, lang) {
+    if (blank(materialId)) return { supported: null, sourcePage: null, note: '' };
+    var section = catalog && catalog.cutting ? catalog.cutting.section || {} : {};
+    var rows = Array.isArray(section.cutting_rows) ? section.cutting_rows : [];
+    var supported = rows.some(function (row) { return row.material_id === materialId; });
+    var page = positive(sourcePage(section.source));
+    if (supported) return { supported: true, sourcePage: page, note: '' };
+    var nonFerrous = materialId === 'non_ferrous' || materialId === 'N';
+    return {
+      supported: false,
+      sourcePage: page,
+      note: Locale.translate(nonFerrous ? '本系列不建議用於非鐵金屬' : '型錄未列此材料適用配對，不提供推薦', lang)
+    };
+  }
+
   function checkGeometry(tool, state, result) {
     ['diameter', 'depth', 'shank'].forEach(function (key) {
       if (!blank(state[key]) && positive(state[key]) === null) {
@@ -130,6 +146,11 @@
     }
   }
 
+  function localizeResult(result, lang) {
+    result.notes = result.notes.map(function (note) { return Locale.translate(note, lang); });
+    return result;
+  }
+
   function selectCutting(catalog, tool, state) {
     state = state || {};
     var result = {
@@ -142,6 +163,7 @@
       peripheryGrade: null,
       centerModel: tool ? tool.centerModel : null,
       peripheryModel: tool ? tool.peripheryModel : null,
+      materialSupported: null,
       sourcePage: null,
       notes: [],
       depthClass: null,
@@ -152,15 +174,21 @@
     };
     if (!catalog || !catalog.cutting || !Array.isArray(catalog.tools) || !tool || tool.family !== 'spd' || !catalog.tools.some(function (entry) { return entry.id === tool.id && entry.family === 'spd'; })) {
       addNote(result, 'missing', '請先選擇有型錄資料的刀體。');
-      return result;
+      return localizeResult(result, state.lang);
     }
     var section = catalog.cutting.section || {};
     result.sourcePage = sourcePage(section.source);
+    var materialSupport = getMaterialSupport(catalog, state.material, state.lang);
+    result.materialSupported = materialSupport.supported;
+    if (materialSupport.supported === false) {
+      addNote(result, 'blocked', materialSupport.note);
+      return localizeResult(result, state.lang);
+    }
     checkGeometry(tool, state, result);
     checkOperatingConditions(catalog, tool, state, result);
     if (!state.material) {
       addNote(result, 'missing', '請先選擇工件材料。');
-      return result;
+      return localizeResult(result, state.lang);
     }
     var band = (section.diameter_bands || []).find(function (item) {
       var limits = item.nominal_diameter_mm || [];
@@ -168,7 +196,7 @@
     });
     if (!band) {
       addNote(result, 'missing', '此標稱孔徑未列出對應的切削資料欄。');
-      return result;
+      return localizeResult(result, state.lang);
     }
     result.diameterBand = band.id;
     var materialRows = (section.cutting_rows || []).filter(function (row) {
@@ -176,7 +204,7 @@
     });
     if (!materialRows.length) {
       addNote(result, 'missing', '此系列型錄未刊載所選材料的切速與進給，不借用其他材料數據。');
-      return result;
+      return localizeResult(result, state.lang);
     }
     var row;
     if (state.spdDepthClass !== 'lt7d' && state.spdDepthClass !== 'gt7d') {
@@ -185,7 +213,7 @@
       if (depthWithoutClass !== null && tool.D !== null && equal(depthWithoutClass / tool.D, 7)) {
         addNote(result, 'review', '需求深度恰為 7D，型錄未定義等號邊界，請原廠確認。');
       }
-      return result;
+      return localizeResult(result, state.lang);
     }
     result.depthClass = state.spdDepthClass === 'lt7d' ? 'T<7D' : 'T>7D';
     // 採型錄既有的外周 NC2032 配對；中心牌號仍依材料列分別決定。
@@ -199,7 +227,7 @@
     }
     if (!row) {
       addNote(result, 'missing', '沒有對應材料、刀體分區與已列實體刀片的切削資料列。');
-      return result;
+      return localizeResult(result, state.lang);
     }
     result.rowId = row.id || null;
     result.sourcePage = sourcePage(row.source) || result.sourcePage;
@@ -230,12 +258,13 @@
     }
     if (result.vcRange) result.vcMedian = (result.vcRange[0] + result.vcRange[1]) / 2;
     if (result.feedRange) result.feedMedian = (result.feedRange[0] + result.feedRange[1]) / 2;
-    return result;
+    return localizeResult(result, state.lang);
   }
 
   function filterTools(catalog, state) {
     state = state || {};
     if (!catalog || !Array.isArray(catalog.tools)) return [];
+    if (getMaterialSupport(catalog, state.material, state.lang).supported === false) return [];
     // 空白代表尚未限制條件；非空白的錯誤數值不能偷偷變成「全部」。
     if (['diameter', 'depth', 'shank'].some(function (key) {
       return !blank(state[key]) && positive(state[key]) === null;
@@ -277,5 +306,5 @@
     return { rpm: rpm, feedRate: feedRate, rpmUncapped: rpmUncapped, capped: machineMax !== null && rpmUncapped > machineMax };
   }
 
-  return Object.freeze({ normalizeCatalog: normalizeCatalog, filterTools: filterTools, selectCutting: selectCutting, calculate: calculate });
+  return Object.freeze({ normalizeCatalog: normalizeCatalog, getMaterialSupport: getMaterialSupport, filterTools: filterTools, selectCutting: selectCutting, calculate: calculate });
 }));

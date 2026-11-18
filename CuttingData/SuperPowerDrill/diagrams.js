@@ -4,10 +4,10 @@
  */
 (function (root, factory) {
   "use strict";
-  var api = factory();
+  var api = factory(typeof module === 'object' && module.exports ? require('./locale.js') : root.SuperPowerDrillLocale);
   if (typeof module === "object" && module.exports) module.exports = api;
   else root.SuperPowerDrillDiagrams = api;
-})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+})(typeof globalThis !== "undefined" ? globalThis : this, function (Locale) {
   "use strict";
   var serial = 0;
   var ink = "#0c2237", blue = "#0067ad", orange = "#f05a1a";
@@ -89,8 +89,8 @@
     '.dd-tool-diagram .dd-empty-label{fill:#526e83;font-size:23px;font-weight:600}' +
     '</style>';
 
-  function frame(id, family, title, description, body) {
-    return '<svg xmlns="http://www.w3.org/2000/svg" class="dd-tool-diagram" viewBox="0 0 900 420" role="img" aria-labelledby="' + id + '-title ' + id + '-desc" data-family="' + family + '"><title id="' + id + '-title">' + escape(title) + '</title><desc id="' + id + '-desc">' + escape(description) + '</desc>' + styles + definitions(id) + body + '</svg>';
+  function frame(id, family, title, description, body, lang) {
+    return Locale.translateMarkup('<svg xmlns="http://www.w3.org/2000/svg" class="dd-tool-diagram" viewBox="0 0 900 420" role="img" aria-labelledby="' + id + '-title ' + id + '-desc" data-family="' + family + '"><title id="' + id + '-title">' + escape(title) + '</title><desc id="' + id + '-desc">' + escape(description) + '</desc>' + styles + definitions(id) + body + '</svg>', lang);
   }
   function toolSpd(id, tool) {
     var content = '<g class="dd-tool dd-tool-spd">';
@@ -116,7 +116,7 @@
     return content;
   }
   function renderTool(tool, options) {
-    if (!tool || tool.family !== "spd") return renderEmpty();
+    if (!tool || tool.family !== "spd") return renderEmpty(options);
     options = options || {};
     var id = "drilling-diagram-" + (++serial);
     var family = "spd";
@@ -131,9 +131,10 @@
     body += toolSpd(id, tool);
     body += label(35, 397, (target !== null ? '目標孔徑 ' + mm(target, true) + '　·　' : '') + '非比例示意 · 尺寸單位 mm', "dd-caption");
     body += label(865, 397, 'L1 = 前段尺寸', "dd-caption", ' text-anchor="end"');
-    return frame(id, family, title, description, body);
+    return frame(id, family, title, description, body, options.lang);
   }
-  function renderEmpty() {
+  function renderEmpty(options) {
+    options = options || {};
     var family = "spd";
     var id = "drilling-diagram-" + (++serial);
     var name = "Super Power Drill";
@@ -141,7 +142,7 @@
     body += '<g opacity=".28">' + path('M160 166H555L585 144H612V248H585L555 226H160Z', "dd-metal", ' fill="#d2e1ec"') + shank(id, 612, 766, 159, 233) + path('M171 177C300 178 347 225 449 212S548 178 562 177', "dd-flute-edge") + path('M145 196H783', "dd-axis") + '</g>';
     body += label(450, 305, '選擇刀桿後，顯示實際尺寸圖', "dd-empty-label", ' text-anchor="middle"');
     body += label(450, 340, name + ' · 尺寸單位 mm · 非比例示意', "dd-caption", ' text-anchor="middle"');
-    return frame(id, family, name + ' 尺寸圖待選擇', '選擇料號後顯示實際型錄尺寸，目前未提供尺寸數值。', body);
+    return frame(id, family, name + ' 尺寸圖待選擇', '選擇料號後顯示實際型錄尺寸，目前未提供尺寸數值。', body, options.lang);
   }
   return Object.freeze({ renderTool: renderTool, renderEmpty: renderEmpty });
 });

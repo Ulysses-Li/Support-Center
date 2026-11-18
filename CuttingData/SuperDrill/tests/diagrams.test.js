@@ -23,7 +23,7 @@ test("SD exposes all numeric dimensions and defines L1 as rear shank", () => {
   assert.match(svg, /viewBox="0 0 900 420"/);
   assert.match(svg, /role="img" aria-labelledby=/);
   assert.match(svg, /<title[^>]*>Super Drill · 00-99313-10/);
-  for (const text of ["Ø10 mm", "可鑽深 T 30 mm", "L 49 mm", "L1 後柄 49 mm", "Ø20 mm", "Ø27 mm", "目標孔徑 Ø10.2 mm", "非比例示意", "L1 = 後柄長度"]) assert.ok(svg.includes(text), text);
+  for (const text of ["Ø10 mm", "Drilling depth T 30 mm", "L 49 mm", "L1 rear shank 49 mm", "Ø20 mm", "Ø27 mm", "Target diameter Ø10.2 mm", "Schematic · not to scale", "L1 = rear shank length"]) assert.ok(svg.includes(text), text);
   assert.equal((svg.match(/class="dd-insert /g) || []).length, 2);
   assert.match(svg, /dd-helical-flute/);
   assert.doesNotMatch(svg, /dd-center-pilot|<image|<script|href=/);
@@ -33,7 +33,7 @@ test("SD exposes all numeric dimensions and defines L1 as rear shank", () => {
 test("untrusted labels are escaped and invalid dimensions do not become zero", () => {
   const svg = diagrams.renderTool({ ...sd, id: '<img onerror="alert(1)">', D: '<script>', T: null, L: Infinity, L1: -1, shank: {}, d1: NaN, sourcePage: '138\" onload=\"bad' }, { diameter: '<svg onload="bad">' });
   assert.match(svg, /&lt;img onerror=&quot;alert\(1\)&quot;&gt;/);
-  assert.match(svg, /L1 後柄 未提供/);
+  assert.match(svg, /L1 rear shank Not provided/);
   assert.doesNotMatch(svg, /<img|<script|<svg onload|NaN|Infinity|undefined|0 mm|onload=/);
   assert.match(svg, /data-dimension="T"/);
 });
@@ -55,7 +55,13 @@ test("duplicate tool views use independent SVG definition ids", () => {
 test("selection placeholder supplies no invented numeric dimensions", () => {
   for (const input of [null, undefined, {}, { family: "other" }]) {
     const svg = diagrams.renderTool(input);
-    assert.match(svg, /選擇刀桿後，顯示實際尺寸圖/);
+    assert.match(svg, /Select a body to view actual dimensions/);
     assert.doesNotMatch(svg, /data-dimension=|Ø\d|NaN|undefined/);
   }
+});
+
+test('dimension text is English by default and Chinese on request without changing numbers',()=>{
+ const en=diagrams.renderTool(sd),zh=diagrams.renderTool(sd,{lang:'zh-TW'});
+ assert.doesNotMatch(en,/[\u3400-\u9fff]/);assert.match(zh,/L1 後柄 49 mm/);assert.match(zh,/可鑽深 T 30 mm/);
+ for(const value of ['Ø10 mm','30 mm','49 mm','Ø20 mm']){assert.ok(en.includes(value));assert.ok(zh.includes(value));}
 });
