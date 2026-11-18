@@ -25,7 +25,8 @@
   const MESSAGES = Object.freeze({
     'Median values are adjustable site starting values. Programmed Z and a machining cycle are not derived from the requested depth.':'建議值採型錄數列的中間值，可依現場調整。輸入的需求深度不會直接推算程式 Z 或加工循環。',
     'Dynamic balance: 99146 — G6.3 at 10,000 rpm reference; 99101 / 99121 — not dynamically balanced. This is not a maximum speed rating.':'動平衡：99146 為 G6.3／10,000 rpm 平衡參考；99101／99121 無動平衡。平衡參考轉速不代表最高使用轉速。',
-    'Center coolant is custom-order; confirm configuration and coolant path before ordering.':'中心出水屬於訂製，下單前請確認適用配置與出水通路。',
+    'Center coolant is custom-order. Contact us to discuss your requirements.':'中心出水須洽詢訂製，請聯絡我們說明需求。',
+    'For SB32, engage the full shank where possible. This is a preference; actual effective clamping determines the setup.':'SB32 建議在可行情況下盡量夾入完整柄部；這是建議，實際以有效夾持為準。',
     'Bar overall length L':'刀桿總長 L',
     'Designed boring depth L1':'設計可加工深度 L1',
     'L is the bar overall length. L1 is the designed boring depth.':'L 為刀桿總長，L1 為設計可加工深度。',

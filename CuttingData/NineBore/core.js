@@ -312,7 +312,11 @@
       reviewNotes.push('The catalog does not list a minimum effective clamping length for general holders. Check actual insertion and interference.');
     } else if (criteria.clamping === 'purchase_holder' || criteria.clamping === 'existing_ninebore') {
       if (!holder) reviewNotes.push('No catalog NineBore holder part number is selected. Confirm the machine-side connection.');
-      else if (holder.requiresExternal32) reviewNotes.push('SB32 is a Ø32×60 Weldon straight shank. Confirm an external machine holder that grips Ø32; SB32 is not a direct spindle taper.');
+      else if (holder.requiresExternal32) {
+        reviewNotes.push('SB32 is a Ø32×60 Weldon straight shank. Confirm an external machine holder that grips Ø32; SB32 is not a direct spindle taper.');
+        // 全柄夾入是建議，不以後柄60mm建立固定的最小有效夾持量。
+        reviewNotes.push('For SB32, engage the full shank where possible. This is a preference; actual effective clamping determines the setup.');
+      }
       else clampStatus = 'confirmed';
       if (bar.series === '99151') {
         if (!adapter) {

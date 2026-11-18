@@ -63,11 +63,24 @@
     "center_coolant": {
       "status": "confirmed",
       "supply": "custom_order",
+      "ordering_route": "contact_supplier",
       "source": {
         "kind": "user_confirmation",
         "date": "2026-11-18",
         "statement_zh_tw": "中心出水屬於訂製的",
-        "scope_zh_tw": "確認中心出水的供應方式為訂製；各型號可訂製的配置、通路與配套仍依實際需求確認，不視為標準配備。"
+        "clarification_zh_tw": "中心出水需要來詢問。",
+        "scope_zh_tw": "中心出水須洽詢訂製，依客戶實際需求確認適用配置；不作為標準配備或要求先建立全型號訂製表。"
+      }
+    },
+    "sb32_clamping": {
+      "status": "confirmed",
+      "preferred_engagement": "full_shank_when_possible",
+      "is_absolute_requirement": false,
+      "source": {
+        "kind": "user_confirmation",
+        "date": "2026-11-18",
+        "statement_zh_tw": "最好的話整個柄都要進去，這不是絕對的。",
+        "scope_zh_tw": "SB32建議在可行情況下盡量夾入完整柄部；實際以有效夾持為準，不指定固定最小夾持量，也不將60mm設為強制值。"
       }
     },
     "dynamic_balance": {
