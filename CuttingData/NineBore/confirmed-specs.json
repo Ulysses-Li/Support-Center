@@ -58,15 +58,16 @@
     "CCGH0602U": {
       "status": "confirmed",
       "standard_iso": false,
-      "confirmed_materials_zh_tw": ["鋁", "銅"],
+      "confirmed_materials_zh_tw": ["鋁", "銅", "塑膠等非金屬材料"],
       "surface_application_zh_tw": "適用於要求精細加工表面的場合；未提供量化粗糙度數值。",
       "other_materials_source_term_zh_tw": "非金屬材料",
-      "other_materials_status": "clarification_pending",
+      "other_materials_status": "confirmed",
       "source": {
         "kind": "user_confirmation",
         "date": "2026-11-18",
         "statement_zh_tw": "CCGH0602U 並非標準 ISO，所以沒有這資料。主要給鋁、銅及非金屬材料，要求精細加工表面時適用。",
-        "scope_zh_tw": "確認非 ISO 設計與用途；不推導 Re、Ra、牌號別名、刀桿相容性或新增外銷品項。非金屬一詞另待釐清。"
+        "clarification_zh_tw": "包含塑膠等非金屬",
+        "scope_zh_tw": "確認非 ISO 設計與鋁、銅、塑膠等非金屬材料的精細表面加工用途；不推導切削參數、Re、Ra、牌號別名、刀桿相容性或新增外銷品項。"
       }
     }
   },

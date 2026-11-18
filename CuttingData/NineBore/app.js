@@ -175,7 +175,7 @@
     $('insertHint').textContent=c.insert?`${c.insert.coating} · ${c.insert.matchEvidence==='manufacturer_series_and_p162_part'?'Manufacturer-listed compatible insert':c.insert.exactGeometry?'Listed insert geometry':'Family shown in catalog; confirm the exact insert'}${c.conditionEquivalent?' · User-confirmed shared cutting parameters':c.insert.gradeMatch?' · Grade matches this cutting row':c.referenceMode?' · Material match / trial reference':''}`:selected?.cuttingStatus==='geometry_review'?'The catalog lists a 0602 family. Choose the actual insert to review the setup; its exact pairing needs confirmation.':selected?'Choose a listed insert / grade to set cutting values.':'';
     $('medianButton').disabled=!c.recommendation;
     if(selected?.cuttingStatus==='unavailable')$('insertHint').textContent='NC30 is not offered for size 0602. Automatic cutting values are unavailable for this material and cutting condition.';
-    if(model.insertProfiles[c.insert?.parts])$('insertHint').textContent+=' · Non-ISO insert for fine surface finishing on aluminium and copper.';
+    if(model.insertProfiles[c.insert?.parts])$('insertHint').textContent+=' · Non-ISO insert for fine surface finishing on aluminium, copper and non-metallic materials such as plastics.';
     $('medianButton').textContent=c.referenceMode?'Restore reference values':'Use median values';
     $('valueOrigin').textContent=origin==='median'&&c.recommendation?(c.conditionEquivalent?'User-confirmed parameters · median':c.referenceMode?'Trial reference · catalog middle values':'Site median · adjustable'):origin==='manual'?'Your cutting values':'Enter cutting values';
     const cut=c.usedCuttingRow||c.cuttingRow;
