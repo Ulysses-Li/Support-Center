@@ -168,16 +168,18 @@
     $('referenceNote').hidden=!c.referenceMode&&!c.conditionEquivalent;
     // 已確認的共用條件與舊試切參考分開說明；型錄來源仍顯示實際採用的斷續切削列。
     $('referenceNote').textContent=c.conditionEquivalent?`${translate('User-confirmed shared cutting parameters')} · ${c.conditionConfirmation.date}\n${translate('Regular and interrupted cutting use the same parameters for this material and NC30.')}${origin==='manual'?'\n'+translate('The displayed cutting values are your manual inputs.'):''}`:c.referenceMode?`${c.insert.parts} / NC30${isChinese?'：':': '}${translate('Suitable for the selected material.')}\n${translate('The regular-cutting table specifies')} ${c.cuttingRow.grade_candidates.join(' / ')}${isChinese?'；':'; '}${translate('this insert does not have that listed grade.')}\n${translate(origin==='manual'?'The displayed cutting values are your manual inputs.':'Shown values use the same-material NC30 interrupted-cutting row as a trial reference. Regular-cutting values are listed for manufacturer confirmation.')}`:'';
-    $('referenceQuestions').hidden=!selected||!!c.recommendation&&!c.referenceMode;
+    $('referenceQuestions').hidden=!selected||selected.cuttingStatus==='unavailable'||!!c.recommendation&&!c.referenceMode;
     $('insertMaterialNotice').hidden=!rejectedInsert;
     $('insertMaterialNotice').textContent=rejectedInsert?`${translate('This grade is not listed for the selected material:')} ${rejectedInsert.grade}${isChinese?'。 ':'. '}${translate('Choose an applicable grade from the insert list.')}`:'';
     assembly();
     $('insertHint').textContent=c.insert?`${c.insert.coating} · ${c.insert.matchEvidence==='manufacturer_series_and_p162_part'?'Manufacturer-listed compatible insert':c.insert.exactGeometry?'Listed insert geometry':'Family shown in catalog; confirm the exact insert'}${c.conditionEquivalent?' · User-confirmed shared cutting parameters':c.insert.gradeMatch?' · Grade matches this cutting row':c.referenceMode?' · Material match / trial reference':''}`:selected?.cuttingStatus==='geometry_review'?'The catalog lists a 0602 family. Choose the actual insert to review the setup; its exact pairing needs confirmation.':selected?'Choose a listed insert / grade to set cutting values.':'';
     $('medianButton').disabled=!c.recommendation;
+    if(selected?.cuttingStatus==='unavailable')$('insertHint').textContent='NC30 is not offered for size 0602. Automatic cutting values are unavailable for this material and cutting condition.';
     $('medianButton').textContent=c.referenceMode?'Restore reference values':'Use median values';
     $('valueOrigin').textContent=origin==='median'&&c.recommendation?(c.conditionEquivalent?'User-confirmed parameters · median':c.referenceMode?'Trial reference · catalog middle values':'Site median · adjustable'):origin==='manual'?'Your cutting values':'Enter cutting values';
     const cut=c.usedCuttingRow||c.cuttingRow;
     $('cuttingSource').textContent=cut?`${cut.workpiece_material} · ${cut.cutting_condition_or_surface_finish}. Listed Vc: ${cut.cutting_speed.catalog_sequence.join(' / ')} m/min; f: ${cut.feed_per_revolution.catalog_sequence.join(' / ')} mm/rev. Catalog p. 162.`:'No confirmed cutting row for this material and condition. Manual values remain separate from catalog recommendations.';
+    if(selected?.cuttingStatus==='unavailable')$('cuttingSource').textContent='NC30 is not offered for size 0602. Automatic cutting values are unavailable for this material and cutting condition.';
     $('aeResult').textContent=c.ae!==null?`Radial Ae ${(fmt(c.ae))} mm${c.aeLimit!==null?` · table value ${fmt(c.aeLimit)} mm for this Re`:''}.`:'Ae = (finished D − pre-bored D) / 2.';
     const messages=selected?[...new Set([...c.errors,...c.warnings.filter(text=>!text.includes('user-entered cutting values')&&!text.includes('manually entered cutting'))])]:[];
     $('setupIssues').hidden=!messages.length;

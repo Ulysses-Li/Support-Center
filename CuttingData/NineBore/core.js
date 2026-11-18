@@ -18,6 +18,7 @@
   const REFERENCE_WARNING = 'Reference values use the same material with NC30 under interrupted cutting; they are not catalog recommendations for the selected regular-cutting condition.';
   const EPSILON = 1e-9;
   const INSERT_COMPATIBILITY_SOURCE = 'https://nine9.jic-tools.com.tw/Inserts-For-99101-121-111-146-151.html';
+  const UNAVAILABLE_0602_NC30 = 'NC30 is not offered for size 0602. Automatic cutting values are unavailable for this material and cutting condition.';
   // 舊版CCGH0602U／XP9001與現行原廠頁牌號不同，本次僅採已逐項一致的兩個實體品項。
   const VERIFIED_INSERT_GRADES = Object.freeze({
     CCFT060204: Object.freeze(['NC2033', 'NC9036']),
@@ -125,6 +126,13 @@
           rule.grade_designations.includes(insert.grade) && insert.raw.Ic_mm_catalog === rule.Ic_mm && insert.raw.S_mm_catalog === rule.S_mm)
       ).map(rule => ({ ...rule, series: [...rule.series], interface_refs: [...rule.interface_refs], grade_designations: [...rule.grade_designations], source: { ...compatibility.source } })) : [];
     const cuttingRows = (cutting.rows || []).map(row => ({ ...row }));
+    // 已確認沒有的品項與缺資料分開記錄；0602／NC30 不再視為等待補料號的候選。
+    const unavailable = confirmedSpecs?.unavailable_insert_grades;
+    const unavailableInsertGrades = unavailable?.status === 'confirmed' && unavailable.source?.kind === 'user_confirmation' &&
+      Array.isArray(unavailable.rules) ? unavailable.rules.filter(rule => rule?.grade === 'NC30' &&
+        Array.isArray(rule.interface_refs) && rule.interface_refs.length &&
+        rule.interface_refs.every(ref => ['cc0602_ns25045', 'cc0602_ns25060'].includes(ref)))
+        .map(rule => ({ ...rule, interface_refs: [...rule.interface_refs], source: { ...unavailable.source } })) : [];
     // 確認依據與型錄原列分開保存；不改寫一般切削列的 NC2033，也不創造新的外銷刀片。
     const equivalence = confirmedSpecs?.cutting_condition_equivalence;
     const confirmedConditionRules = equivalence?.status === 'confirmed' && equivalence.source?.kind === 'user_confirmation' &&
@@ -149,7 +157,7 @@
       ) : {};
     const systemInsertNames = unique((inventory.critical_source_issues || []).flatMap(issue => issue.catalog_system_insert_names || []));
     return {
-      bars, holders, adapters, inserts, insertGeometries, materials, cuttingRows, systemInsertNames, verifiedInsertRules, gradeMaterials, confirmedConditionRules,
+      bars, holders, adapters, inserts, insertGeometries, materials, cuttingRows, systemInsertNames, verifiedInsertRules, gradeMaterials, confirmedConditionRules, unavailableInsertGrades,
       conditions: unique(cuttingRows.map(row => row.cutting_condition_or_surface_finish)),
       series: unique(bars.map(bar => bar.series)),
       grades: cutting.grade_descriptions || [],
@@ -169,12 +177,16 @@
     return model.gradeMaterials[grade].includes(material);
   }
 
+  function gradeUnavailableFor(model, bar, grade) {
+    return !!model.unavailableInsertGrades?.some(rule => rule.grade === grade && rule.interface_refs.includes(bar.insertInterface.ref));
+  }
+
   function insertOptionsFor(model, bar, cuttingRow, material = cuttingRow?.workpiece_material) {
     const family = bar.insertInterface.family;
     // 家族通配只建立候選；自動推薦另檢查小刀片的原型錄證據，或0602已核對的原廠系列白名單。
     const safePattern = family.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\\\.\\\.\\\./g, '.*');
     const pattern = new RegExp(`^${safePattern}$`);
-    const options = model.inserts.filter(insert => pattern.test(insert.parts)).map(insert => {
+    const options = model.inserts.filter(insert => pattern.test(insert.parts) && !gradeUnavailableFor(model, bar, insert.grade)).map(insert => {
       const verifiedRule = model.verifiedInsertRules?.find(rule => rule.series.includes(bar.series) &&
         rule.interface_refs.includes(bar.insertInterface.ref) && rule.part_no_catalog === insert.parts &&
         rule.grade_designations.includes(insert.grade) && insert.raw.Ic_mm_catalog === rule.Ic_mm && insert.raw.S_mm_catalog === rule.S_mm);
@@ -303,7 +315,10 @@
       cuttingStatus = 'no_data';
       reviewNotes.push('No confirmed catalog cutting row exists for this material and condition. Geometric candidates remain available with manual cutting inputs.');
     } else if (insertOptions.some(insert => insert.recommended)) cuttingStatus = 'confirmed';
-    else if (insertOptions.some(insert => insert.gradeMatch)) {
+    else if (cuttingRow.grade_candidates.length && cuttingRow.grade_candidates.every(grade => gradeUnavailableFor(model, bar, grade))) {
+      cuttingStatus = 'unavailable';
+      reviewNotes.push(UNAVAILABLE_0602_NC30);
+    } else if (insertOptions.some(insert => insert.gradeMatch)) {
       cuttingStatus = 'geometry_review';
       reviewNotes.push('The cutting-row grade exists, but the mapping from CC...0602... to a physical insert part remains unconfirmed. Compatibility is not assumed.');
     } else {

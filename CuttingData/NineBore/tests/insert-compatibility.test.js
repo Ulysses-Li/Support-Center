@@ -6,6 +6,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const core = require('../core.js');
+const locale = require('../locale.zh-TW.js');
+const ui = require('../locale.ui.js');
 const research = path.join(__dirname, '..', 'data');
 const read = name => JSON.parse(fs.readFileSync(path.join(research, `${name}.json`), 'utf8'));
 const confirmed = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'confirmed-specs.json'), 'utf8'));
@@ -159,7 +161,16 @@ test('unconfirmed CCGH and additional grades never become aliases or invented ph
   inventory.physical_inserts.grade_variants.push(['CCFT060204', 'NC30', 'unverified']);
   specs.insert_compatibility.rules = [{ ...clone(rule), grade_designations: ['NC30'] }];
   const unknownGrade = normalize(specs, inventory);
-  assert.equal(insert(candidate(unknownGrade), 'CCFT060204|NC30').exactGeometry, false);
+  const unknownCandidate = candidate(unknownGrade);
+  assert.equal(insert(unknownCandidate, 'CCFT060204|NC30'), undefined);
+  assert.ok(!core.applicableInserts(unknownGrade, unknownCandidate, input.material).some(item => item.grade === 'NC30'));
+  const rejected = core.calculate(unknownGrade, unknownCandidate, { ...input, insertId: 'CCFT060204|NC30', vc: 110, feed: 0.04, useRecommendations: false });
+  assert.equal(rejected.insert, null);
+  assert.equal(rejected.recommendation, null);
+  assert.equal(rejected.vc, 110);
+  assert.equal(rejected.feed, 0.04);
+  assert.equal(rejected.canCopy, false);
+  assert.ok(rejected.errors.includes('The selected insert / grade is not a listed physical candidate for this bar.'));
 });
 
 test('invalid rules are ignored individually without discarding valid manufacturer evidence or changing source data', () => {
@@ -185,7 +196,7 @@ test('a mismatched manual grade or interrupted condition cannot borrow NC2033 re
   const interruptedInput = { ...input, condition: 'Interrupted cutting' };
   const interrupted = candidate(model, interruptedInput);
   assert.equal(interrupted.cuttingRow.id, 'carbon-interrupted');
-  assert.equal(interrupted.cuttingStatus, 'grade_gap');
+  assert.equal(interrupted.cuttingStatus, 'unavailable');
   const result = core.calculate(model, interrupted, { ...interruptedInput, insertId: 'CCFT060204|NC2033', allowReference: true });
   assert.equal(result.insert.exactGeometry, true);
   assert.equal(result.insert.gradeMatch, false);
@@ -193,4 +204,127 @@ test('a mismatched manual grade or interrupted condition cannot borrow NC2033 re
   assert.equal(result.recommendation, null);
   assert.equal(result.rpm, null);
   assert.equal(result.canCopy, false);
+});
+
+// 0602 沒有 NC30 是已確認的供應事實，不再把不存在的品項列為待補料號。
+const unavailableMessage = 'NC30 is not offered for size 0602. Automatic cutting values are unavailable for this material and cutting condition.';
+const routeCases = [
+  ['00-99101-20', {}], ['00-99121-20', {}],
+  ['00-99146-2000S', { clamping: 'purchase_holder', holderId: '00-99146-BT40H' }],
+  ['00-99151-2000W', { clamping: 'purchase_holder', holderId: '00-99146-BT40H' }]
+];
+
+test('0602 NC30-only cutting rows are unavailable across all four bar series', () => {
+  for (const [material, condition] of [
+    ['Carbon Steel', 'Interrupted cutting'], ['Alloy Steel', 'Interrupted cutting'],
+    ['Stainless Steel', 'Interrupted cutting'], ['Hardened Steel <HRC 50', 'Regular cutting']
+  ]) {
+    for (const [id, route] of routeCases) {
+      const values = { ...input, ...route, material, condition };
+      const selected = candidate(model, values, id);
+      assert.ok(selected, id);
+      assert.equal(selected.cuttingStatus, 'unavailable', `${id}: ${material}`);
+      assert.ok(selected.reviewNotes.includes(unavailableMessage));
+      assert.ok(!selected.reviewNotes.some(message => message.includes('selected cutting row remains unconfirmed')));
+      assert.ok(selected.insertOptions.every(item => item.grade !== 'NC30' && !item.recommended));
+      const result = core.calculate(model, selected, { ...values, allowReference: true });
+      assert.equal(result.recommendation, null);
+      assert.equal(result.conditionEquivalent, false);
+      assert.equal(result.referenceMode, false);
+      assert.equal(result.vc, null);
+      assert.equal(result.feed, null);
+      assert.equal(result.canCopy, false);
+      assert.ok(result.warnings.includes(unavailableMessage));
+    }
+  }
+});
+
+test('other existing 0602 grades retain their material matches and original geometry status', () => {
+  for (const [material, part, grade, vc] of [
+    ['Carbon Steel', 'CCFT060204', 'NC2033', 150], ['Alloy Steel', 'CCFT060204', 'NC2033', 120],
+    ['Stainless Steel', 'CCFT060204', 'NC2033', 100], ['Non-ferrous metal', 'CCFT060204', 'NC9036', 200],
+    ['Cast Iron', 'CCFW060204', 'NC2032', 100]
+  ]) {
+    for (const [id, route] of routeCases) {
+      const values = { ...input, ...route, material };
+      const selected = candidate(model, values, id);
+      const physical = insert(selected, `${part}|${grade}`);
+      const exact = ['99101', '99121'].includes(selected.bar.series);
+      assert.equal(physical.gradeMatch, true);
+      assert.equal(physical.exactGeometry, exact);
+      assert.equal(physical.recommended, exact);
+      assert.equal(selected.cuttingStatus, exact ? 'confirmed' : 'geometry_review');
+      const result = core.calculate(model, selected, { ...values, insertId: physical.id, allowReference: true });
+      assert.equal(result.conditionEquivalent, false);
+      assert.equal(result.vc, exact ? vc : null);
+      assert.equal(result.feed, exact ? 0.07 : null);
+      assert.equal(result.canCopy, false);
+      assert.ok(!result.warnings.includes(unavailableMessage));
+    }
+  }
+});
+
+test('unavailable NC30 does not substitute NC2033 parameters or overwrite manual and cleared fields', () => {
+  const values = { ...input, condition: 'Interrupted cutting', insertId: 'CCFT060204|NC2033', allowReference: true };
+  const selected = candidate(model, values);
+  const manual = core.calculate(model, selected, { ...values, vc: '93.25', feed: '0.043', useRecommendations: false });
+  assert.equal(manual.insert.id, values.insertId);
+  assert.equal(manual.insert.exactGeometry, true);
+  assert.equal(manual.insert.gradeMatch, false);
+  assert.equal(manual.recommendation, null);
+  assert.equal(manual.source, 'manual');
+  assert.equal(manual.vc, 93.25);
+  assert.equal(manual.feed, 0.043);
+  assert.ok(Number.isFinite(manual.rpm));
+  assert.equal(manual.canCopy, false);
+  assert.ok(manual.warnings.includes(unavailableMessage));
+  for (const fields of [{ vc: '', feed: '0.043' }, { vc: '93.25', feed: '' }, { vc: '', feed: '' }]) {
+    const cleared = core.calculate(model, selected, { ...values, ...fields, useRecommendations: false });
+    assert.equal(cleared.vc, fields.vc ? 93.25 : null);
+    assert.equal(cleared.feed, fields.feed ? 0.043 : null);
+    assert.equal(cleared.rpm, null);
+    assert.equal(cleared.recommendation, null);
+    assert.equal(cleared.source, 'manual');
+    assert.equal(cleared.canCopy, false);
+  }
+});
+
+test('missing or invalid unavailable-grade evidence retains an unresolved grade gap', () => {
+  const mutations = [
+    specs => { delete specs.unavailable_insert_grades; },
+    specs => { specs.unavailable_insert_grades.status = 'review'; },
+    specs => { specs.unavailable_insert_grades.source = null; },
+    specs => { specs.unavailable_insert_grades.source.kind = 'catalog'; },
+    specs => { specs.unavailable_insert_grades.rules = null; },
+    specs => { specs.unavailable_insert_grades.rules[0].grade = 'NC2033'; },
+    specs => { specs.unavailable_insert_grades.rules[0].interface_refs = ['cc030102']; },
+    specs => { specs.unavailable_insert_grades.rules[0].interface_refs = []; }
+  ];
+  for (const mutate of mutations) {
+    const specs = clone(confirmed);
+    mutate(specs);
+    const current = normalize(specs);
+    assert.deepEqual(current.unavailableInsertGrades, []);
+    const values = { ...input, condition: 'Interrupted cutting' };
+    const selected = candidate(current, values);
+    assert.equal(selected.cuttingStatus, 'grade_gap');
+    assert.ok(!selected.reviewNotes.includes(unavailableMessage));
+    assert.equal(core.calculate(current, selected, { ...values, allowReference: true }).recommendation, null);
+  }
+});
+
+test('0602 negative evidence leaves confirmed small NC30 parameters usable and translates the unavailable notice', () => {
+  const values = { diameter: 8, depth: 8, material: 'Stainless Steel', condition: 'Regular cutting', clamping: 'purchase_holder', holderId: '00-99146-BT40H' };
+  const selected = candidate(model, values, '00-99146-0800S');
+  const result = core.calculate(model, selected, values);
+  assert.equal(result.insert.id, 'CCGT040102|NC30');
+  assert.equal(result.conditionEquivalent, true);
+  assert.equal(result.vc, 80);
+  assert.equal(result.feed, 0.07);
+  assert.equal(result.canCopy, true);
+  const translated = locale.translate(unavailableMessage);
+  assert.notEqual(translated, unavailableMessage);
+  assert.equal(ui.translate(unavailableMessage), translated);
+  assert.match(translated, /0602/);
+  assert.match(translated, /NC30/);
 });

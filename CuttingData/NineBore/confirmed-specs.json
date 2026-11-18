@@ -42,6 +42,18 @@
       { "material": "Stainless Steel", "grade": "NC30", "parts": ["CCGT030102", "CCGT040102"], "requested_row_id": "stainless-regular", "source_row_id": "stainless-interrupted" }
     ]
   },
+  "unavailable_insert_grades": {
+    "status": "confirmed",
+    "source": {
+      "kind": "user_confirmation",
+      "date": "2026-11-18",
+      "statement_zh_tw": "0602根本就沒有NC30",
+      "scope_zh_tw": "0602 尺寸刀片沒有 NC30；不再詢問訂購料號，不新增該組合或以其他牌號代用 NC30 的切削數據。"
+    },
+    "rules": [
+      { "interface_refs": ["cc0602_ns25045", "cc0602_ns25060"], "grade": "NC30" }
+    ]
+  },
   "insert_compatibility": {
     "status": "verified",
     "source": {
