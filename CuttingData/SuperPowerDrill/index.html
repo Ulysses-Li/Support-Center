@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../../header/header.css">
   <link rel="stylesheet" href="../../footer/footer.css">
   <link rel="stylesheet" href="../../css/site-background.css">
-  <link rel="stylesheet" href="./styles.css?v=20261118-spd-material-options">
+  <link rel="stylesheet" href="./styles.css?v=20261118-spd-auto-depth">
   <link rel="icon" href="../../favicon.png">
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 </head>
@@ -95,7 +95,8 @@
           <div id="assemblySummary" class="assembly-summary"><p class="field-help">Choose a drill to view its assembly and cutting values.</p></div>
           <div id="cuttingSettings" class="cutting-section">
             <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3"><h3 class="subsection-heading m-0">Starting cutting values</h3><button id="medianButton" type="button" class="btn btn-soft">Use range midpoints</button></div>
-            <div id="spdClassGroup" class="mb-3"><label class="form-label" for="spdDepthClass">SPD cutting-table depth class</label><select id="spdDepthClass" name="spdDepthClass" form="jobForm" class="form-select" aria-describedby="spdClassHelp"><option value="">Not specified</option><option value="lt7d">T &lt; 7D</option><option value="gt7d">T &gt; 7D</option></select><p id="spdClassHelp" class="field-help">Select the row explicitly; the catalog depth basis awaits confirmation.</p></div>
+            <!-- 深度分組由刀體 T ÷ D 固定決定，僅顯示結果，不提供客戶切換。 -->
+            <div id="spdClassGroup" class="mb-3"><p id="spdDepthClassLabel" class="form-label">Automatic depth class (T ÷ D)</p><output id="spdDepthClassValue" class="d-block fw-bold" aria-labelledby="spdDepthClassLabel" aria-describedby="spdDepthClassHelp" aria-live="polite">Select a drill body</output><p id="spdDepthClassHelp" class="field-help">Calculated from the selected body's catalog drilling depth T and nominal diameter D.</p></div>
             <div class="row g-3">
               <div class="col-12 col-sm-6"><label class="form-label" for="vc">Cutting speed <span class="unit-muted">Vc</span></label><div class="input-group"><input id="vc" name="vc" class="form-control" type="number" min="0" step="any" inputmode="decimal" aria-describedby="vcRange"><span class="input-group-text">m/min</span></div><p id="vcRange" class="range-values">Catalog range —</p></div>
               <div class="col-12 col-sm-6"><label class="form-label" for="feed">Feed per revolution <span class="unit-muted">f</span></label><div class="input-group"><input id="feed" name="feed" class="form-control" type="number" min="0" step="any" inputmode="decimal" aria-describedby="feedRange"><span class="input-group-text">mm/rev</span></div><p id="feedRange" class="range-values">Catalog range —</p></div>
@@ -118,9 +119,9 @@
   <div id="dialogCanvas" class="dialog-canvas"></div><p class="field-help mt-3 mb-0">Dimensions in mm; schematic, not to scale.</p>
 </dialog>
 <div id="footer-placeholder"></div>
-<script src="./locale.js?v=20261118-spd-material-options" defer></script>
-<script src="./core.js?v=20261118-spd-material-options" defer></script>
-<script src="./diagrams.js?v=20261118-spd-material-options" defer></script>
-<script src="./app.js?v=20261118-spd-material-options" defer></script>
+<script src="./locale.js?v=20261118-spd-auto-depth" defer></script>
+<script src="./core.js?v=20261118-spd-auto-depth" defer></script>
+<script src="./diagrams.js?v=20261118-spd-auto-depth" defer></script>
+<script src="./app.js?v=20261118-spd-auto-depth" defer></script>
 </body>
 </html>

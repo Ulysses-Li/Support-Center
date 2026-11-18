@@ -21,8 +21,8 @@
   const sourceLink = page => `<a href="${sourceHref(page)}" target="_blank" rel="noopener">型錄 p${page} ↗</a>`;
   const product = { name: 'Super Power Drill', eyebrow: 'SPD · 中心導引＋外刃', title: '長孔鑽削，先配好整組刀具。', intro: '從孔徑與深度找刀體，分開配對中心刀片、外刃及內冷條件。' };
   const applications = { regular_surface: '一般平面', cross_holes: '交叉孔', stack_drilling: '疊板鑽孔', round_offset: '圓形工件偏心鑽孔', plunge: '插銑／下鑽', concave: '凹面', angled: '斜面', cone_offset: '錐形工件偏心鑽孔' };
-  const jobFields = ['diameter', 'toleranceUpper', 'toleranceLower', 'depth', 'material', 'shank', 'machineMode', 'application', 'coolant', 'pressure', 'machineMax', 'spdDepthClass'];
-  const defaults = { diameter: '', toleranceUpper: '', toleranceLower: '', depth: '', material: '', shank: '', machineMode: 'rotating', application: 'regular_surface', coolant: 'unknown', pressure: '', machineMax: '', spdDepthClass: '' };
+  const jobFields = ['diameter', 'toleranceUpper', 'toleranceLower', 'depth', 'material', 'shank', 'machineMode', 'application', 'coolant', 'pressure', 'machineMax'];
+  const defaults = { diameter: '', toleranceUpper: '', toleranceLower: '', depth: '', material: '', shank: '', machineMode: 'rotating', application: 'regular_surface', coolant: 'unknown', pressure: '', machineMax: '' };
   let catalog, state = { ...defaults }, selectedId = '', valuesMode = 'median', candidates = [], activeTool = null, activeCutting = null, activeCalculation = null;
 
   async function fetchJson(name) {
@@ -181,6 +181,15 @@
     $('diagramTitle').textContent = '選定刀體，查看尺寸';
     $('diagramSource').href = sourceHref(130);
     $('zoomDiagram').disabled = true;
+    renderDepthClass(null, null);
+  }
+
+  // 分組是所選實體刀體的固定屬性，唯讀顯示核心計算結果，不從表單或網址取值。
+  function renderDepthClass(tool, cutting) {
+    $('spdDepthClassValue').textContent = cutting?.depthClass || (Number.isFinite(cutting?.depthRatio) ? 'T = 7D · 型錄未列資料列' : '待選刀體');
+    $('spdDepthClassHelp').textContent = tool && Number.isFinite(cutting?.depthRatio)
+      ? `T ${fmt(tool.T)} mm ÷ D ${fmt(tool.D)} mm = ${fmt(cutting.depthRatio, 6)}`
+      : '依所選刀體的型錄鑽孔深度 T 與標準孔徑 D 自動計算。';
   }
 
   function renderAssembly(tool, cutting) {
@@ -199,13 +208,14 @@
     const tool = candidate.tool;
     const cutting = Core.selectCutting(catalog, tool, currentJob());
     activeTool = tool; activeCutting = cutting;
+    renderDepthClass(tool, cutting);
     $('selectedFamily').textContent = product.name;
     $('selectedId').textContent = tool.id;
     $('selectedStatus').textContent = cutting.status === 'blocked' ? '工況不適用' : cutting.vcRange && cutting.feedRange ? (cutting.status === 'review' || candidate.eligibility === 'review' ? '條件式參考' : '切削條件已配對') : '補充加工條件';
     $('selectedStatus').dataset.status = cutting.status;
     $('selectedStatus').className = `match-tag ${cutting.status === 'blocked' ? 'blocked' : cutting.status === 'ready' && candidate.eligibility === 'ready' ? 'ready' : 'review'}`;
     renderAssembly(tool, cutting);
-    $('cuttingSource').innerHTML = cutting.sourcePage ? `${esc(materialLabel())} · ${esc(state.spdDepthClass === 'lt7d' ? '採 T<7D 列' : state.spdDepthClass === 'gt7d' ? '採 T>7D 列' : '深徑比分組未選')} · ${sourceLink(cutting.sourcePage)}` : '請補齊材料與切削表分組。';
+    $('cuttingSource').innerHTML = cutting.sourcePage ? `${esc(materialLabel())} · ${cutting.depthClass ? t('自動採用') + ' ' + esc(cutting.depthClass) : t('無可套用資料列')} · ${sourceLink(cutting.sourcePage)}` : '請補齊材料與刀體資料。';
     const notes = [...new Set([...candidate.notes, ...cutting.notes])];
     if (!number(state.shank)) {
       notes.push(`尚未確認機台可夾持的柄徑；這支刀體需要 Ø${fmt(tool.shank)} mm 後端夾持。`);
@@ -304,7 +314,7 @@
 
   function bindEvents() {
     $('jobForm').addEventListener('submit', event => event.preventDefault());
-    // 切削分組位於結果欄，與左側加工需求共用狀態更新入口。
+    // 加工需求異動時重算選型；深度分組由所選刀體固定計算。
     document.addEventListener('input', event => {
       if (!jobFields.includes(event.target.id)) return;
       jobFields.forEach(key => { if ($(key)) state[key] = $(key).value; });
@@ -318,7 +328,7 @@
     ['vc', 'feed'].forEach(id => $(id).addEventListener('input', () => { valuesMode = 'manual'; renderCalculation(); updateUrl(); }));
     $('medianButton').addEventListener('click', () => { valuesMode = 'median'; renderSelected(); updateUrl(); });
     $('exampleButton').addEventListener('click', () => {
-      state = { ...defaults, diameter: '25', depth: '100', material: 'carbon_low', shank: '32', coolant: 'yes', pressure: '20', spdDepthClass: 'lt7d' };
+      state = { ...defaults, diameter: '25', depth: '100', material: 'carbon_low', shank: '32', coolant: 'yes', pressure: '20' };
       jobFields.forEach(key => { if ($(key)) $(key).value = state[key]; });
       selectedId = ''; valuesMode = 'median'; render();
     });
@@ -334,7 +344,7 @@
         `取值方式：${valuesMode === 'median' ? '網站起始中值，可調整' : !(activeCutting.vcRange && activeCutting.feedRange) ? '手動試算，非型錄推薦；材料或切削條件尚未完整' : '使用者手動設定'}`,
         `完成孔徑 Ø${state.diameter} mm；上偏差 ${state.toleranceUpper || '未填'} mm；下偏差 ${state.toleranceLower || '未填'} mm`,
         `需求深度 ${state.depth} mm；材料 ${materialLabel()}；${applications[state.application]}`,
-        `SPD 切削表分組：${state.spdDepthClass === 'lt7d' ? 'T<7D，使用者指定' : state.spdDepthClass === 'gt7d' ? 'T>7D，使用者指定' : '尚未指定'}`,
+        `SPD 切削表分組：${activeCutting.depthClass || t('無可套用資料列')} · ${t('自動判定')} · T ${fmt(activeTool.T)} mm ÷ D ${fmt(activeTool.D)} mm = ${fmt(activeCutting.depthRatio, 6)}`,
         `刀體 ${activeTool.id}；表列 T${activeTool.T} mm；後柄 Ø${activeTool.shank} mm`,
         $('assemblySummary').innerText.trim(),
         `Vc ${$('vc').value} m/min；f ${$('feed').value} mm/rev`,

@@ -167,6 +167,7 @@
       sourcePage: null,
       notes: [],
       depthClass: null,
+      depthRatio: null,
       diameterBand: null,
       rowId: null,
       vcMedian: null,
@@ -178,14 +179,31 @@
     }
     var section = catalog.cutting.section || {};
     result.sourcePage = sourcePage(section.source);
+    // 已選刀體的固定深徑比可先顯示；材料適用性仍獨立控制推薦與切削值。
+    var bodyDepth = positive(tool.T);
+    var bodyDiameter = positive(tool.D);
+    if (bodyDepth !== null && bodyDiameter !== null && Number.isFinite(bodyDepth / bodyDiameter)) {
+      result.depthRatio = bodyDepth / bodyDiameter;
+      if (result.depthRatio !== 7) result.depthClass = result.depthRatio < 7 ? 'T<7D' : 'T>7D';
+    }
     var materialSupport = getMaterialSupport(catalog, state.material, state.lang);
     result.materialSupported = materialSupport.supported;
     if (materialSupport.supported === false) {
       addNote(result, 'blocked', materialSupport.note);
       return localizeResult(result, state.lang);
     }
+    // 即使沒有可用深度列，也先檢查禁用條件；blocked 不得被缺列狀態降低。
     checkGeometry(tool, state, result);
     checkOperatingConditions(catalog, tool, state, result);
+    // 刀體 T 與標準孔徑 D 決定資料列；客戶需求孔深僅用來檢查可用鑽深。
+    if (result.depthRatio === null) {
+      addNote(result, 'missing', '此刀體缺少有效的型錄鑽孔深度 T 或標準孔徑 D，無法自動判定深度分組。');
+      return localizeResult(result, state.lang);
+    }
+    if (result.depthRatio === 7) {
+      addNote(result, 'missing', '刀體 T ÷ D 恰為7，型錄未列 T=7D 資料列；不自動套用較短或較長列。');
+      return localizeResult(result, state.lang);
+    }
     if (!state.material) {
       addNote(result, 'missing', '請先選擇工件材料。');
       return localizeResult(result, state.lang);
@@ -206,25 +224,11 @@
       addNote(result, 'missing', '此系列型錄未刊載所選材料的切速與進給，不借用其他材料數據。');
       return localizeResult(result, state.lang);
     }
-    var row;
-    if (state.spdDepthClass !== 'lt7d' && state.spdDepthClass !== 'gt7d') {
-      addNote(result, 'review', '請明確選擇 SPD 的 T<7D 或 T>7D 資料列；型錄尚未釐清分區應以需求深度還是刀體 T 為準。');
-      var depthWithoutClass = positive(state.depth);
-      if (depthWithoutClass !== null && tool.D !== null && equal(depthWithoutClass / tool.D, 7)) {
-        addNote(result, 'review', '需求深度恰為 7D，型錄未定義等號邊界，請原廠確認。');
-      }
-      return localizeResult(result, state.lang);
-    }
-    result.depthClass = state.spdDepthClass === 'lt7d' ? 'T<7D' : 'T>7D';
     // 採型錄既有的外周 NC2032 配對；中心牌號仍依材料列分別決定。
-    row = materialRows.find(function (item) {
+    var row = materialRows.find(function (item) {
       return item.depth_class_raw === result.depthClass && item.periphery_grade === 'NC2032';
     });
-    result.notes.push('SPD ' + result.depthClass + ' 列由使用者指定；分區採用需求深度或刀體 T 的依據仍待原廠確認。');
-    var depth = positive(state.depth);
-    if (depth !== null && tool.D !== null && equal(depth / tool.D, 7)) {
-      addNote(result, 'review', '需求深度恰為 7D；即使手動指定資料列，也須原廠確認等號邊界。');
-    }
+    result.notes.push('深度分組依刀體型錄 T ÷ 標準孔徑 D 自動判定。');
     if (!row) {
       addNote(result, 'missing', '沒有對應材料、刀體分區與已列實體刀片的切削資料列。');
       return localizeResult(result, state.lang);

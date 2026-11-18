@@ -39,7 +39,7 @@ const result = Core.calculate({D, vc, feed, machineMax});
 
 ## 狀態與數值規則
 
-URL 保留 `lang,diameter,toleranceUpper,toleranceLower,depth,material,shank,machineMode,application,coolant,pressure,machineMax,spdDepthClass,tool,values,vc,feed`；也接受舊的 `bar` 料號參數。`spdDepthClass` 須手選 `lt7d` 或 `gt7d`。恰好 7D 保留提醒，不改成包含等號。
+URL 保留 `lang,diameter,toleranceUpper,toleranceLower,depth,material,shank,machineMode,application,coolant,pressure,machineMax,tool,values,vc,feed`；也接受舊的 `bar` 料號參數。切削表分組依所選刀體的型錄鑽深 T ÷ 標稱孔徑 D 自動決定：T/D<7 採 T<7D 列，T/D>7 採 T>7D 列。需求孔深及舊網址的 `spdDepthClass` 不作選列依據，不要求客戶手選分組。型錄未列 T/D=7，恰好 7D 不自動套用任何資料列，仍列為原廠待確認問題，不將不等式改為包含等號。
 
 中心牌號依材料列選 NC2032／NC40，外刃先用已明確列入刀體的 NC2032。NC40 外刃尾碼 31 的直接替換關係尚待原廠確認，20 列來源仍完整保留，空格不補成零。無內冷、壓力低於 10 bar、斜面或疊板會停止計算；未確認壓力或非標準工況保留條件提醒。水平主軸與切屑修正不自動疊加。
 
@@ -54,4 +54,4 @@ node --check CuttingData/SuperPowerDrill/diagrams.js
 node --test CuttingData/SuperPowerDrill/tests/*.test.js
 ```
 
-測試覆蓋數量與來源頁碼、尺寸／深度邊界、中心外刃牌號、7D、內冷與禁用工況、S／F、另一產品拒絕、圖形跳脫與獨立依賴，以及 VM 表單／URL 載入。正式畫面由主代理統一檢查。
+測試覆蓋數量與來源頁碼、尺寸／深度邊界、中心外刃牌號、依刀體 T/D 自動分組與恰好 7D 缺列、內冷與禁用工況、S／F、另一產品拒絕、圖形跳脫與獨立依賴，以及 VM 表單／URL 載入。正式畫面由主代理統一檢查。

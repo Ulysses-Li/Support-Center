@@ -10,7 +10,7 @@ const Locale = require('../locale.js');
 const root = path.resolve(__dirname, '..');
 
 // 使用最小 DOM 與 fetch 替身檢查表單狀態，不依賴瀏覽器或其他產品檔案。
-async function load(search = '', defaultLang = 'zh-TW') {
+async function load(search = '', defaultLang = 'zh-TW', transformData = null) {
   if (defaultLang && !new URLSearchParams(search).has('lang')) search += (search ? '&' : '?') + 'lang=' + defaultLang;
   const markup = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   const nodes = {};
@@ -65,14 +65,22 @@ async function load(search = '', defaultLang = 'zh-TW') {
       requested.push(target.pathname);
       return {
         ok: true, text: async () => '',
-        json: async () => JSON.parse(fs.readFileSync(path.join(root, 'data', path.basename(target.pathname)), 'utf8'))
+        json: async () => {
+          const name = path.basename(target.pathname);
+          const data = JSON.parse(fs.readFileSync(path.join(root, 'data', name), 'utf8'));
+          return transformData ? transformData(data, name) : data;
+        }
       };
     }
   };
   vm.runInNewContext(fs.readFileSync(path.join(root, 'app.js'), 'utf8'), context);
   await new Promise(resolve => setImmediate(resolve));
   assert.deepEqual(errors, []);
-  return { nodes, listeners, requested, copied, urls, hub, notes, context };
+  return {
+    nodes, listeners, requested, copied, urls, hub, notes, context,
+    input(id, value) { nodes[id].value = value; listeners.input({ target: nodes[id] }); },
+    choose(id) { nodes.toolList.handlers.change({ target: { name: 'tool', value: id } }); }
+  };
 }
 
 test('自有資料載入與範例能完成選型，網址回傳自身與 hub', async () => {
@@ -83,6 +91,9 @@ test('自有資料載入與範例能完成選型，網址回傳自身與 hub', a
   assert.equal(app.nodes.vc.value, '115');
   assert.equal(app.nodes.feed.value, '0.08');
   assert.equal(app.nodes.copyButton.disabled, false);
+  assert.equal(app.nodes.spdDepthClass, undefined);
+  assert.equal(app.nodes.spdDepthClassValue.textContent, 'T<7D');
+  assert.match(app.nodes.spdDepthClassHelp.textContent, /T\s*100\s*mm.*D\s*25\s*mm/);
   assert.match(app.nodes.diagramCanvas.innerHTML, /L1 前段 139 mm/);
   assert.match(app.nodes.cuttingSource.innerHTML, /Super_Power_Drill_p128-135\.pdf#page=8/);
   assert.match(app.hub.href, /Machining\/Drilling\/index\.html\?.*spdTool=00-99307-25100/);
@@ -138,12 +149,13 @@ test('非鐵、耐熱與未知材料 URL 都顯示材料原因，手動值無法
   }
 });
 
-test('已支持材料缺少分組可手動試算，未選材料不能計算', async () => {
+test('已支持材料自動分組後可使用手動值，未選材料不能計算', async () => {
   const prefix = '?diameter=25&depth=100&shank=32&coolant=yes&pressure=10&tool=00-99307-25100&values=manual&vc=100&feed=0.08';
   const supported = await load(prefix + '&material=carbon_low');
   assert.notEqual(supported.nodes.rpmResult.textContent, '—');
   assert.equal(supported.nodes.copyButton.disabled, false);
-  assert.match(supported.nodes.machineLimitNote.textContent, /手動試算/);
+  assert.equal(supported.nodes.spdDepthClassValue.textContent, 'T<7D');
+  assert.match(supported.nodes.machineLimitNote.textContent, /使用你輸入/);
   const unselected = await load(prefix);
   assert.equal(unselected.nodes.rpmResult.textContent, '—');
   assert.equal(unselected.nodes.copyButton.disabled, true);
@@ -167,6 +179,76 @@ test('無 lang 預設英文，切換與 hub／notes 保留條件，複製內容�
   await app.nodes.copyButton.handlers.click();
   assert.equal(app.copied.length, 1);
   assert.doesNotMatch(app.copied[0], /[\u3400-\u9fff]/);
+  assert.match(app.copied[0], /T<7D.*automatic/i);
+  assert.doesNotMatch(app.copied[0], /user[- ]selected|user specified/i);
+});
+
+test('T350刀體按刀體T/D自動採長列，改需求深度不變，換T200才改短列', async () => {
+  const app = await load('?diameter=35&depth=150&material=carbon_high&shank=32&coolant=yes&pressure=20&tool=00-99307-35350');
+  assert.equal(app.nodes.selectedId.textContent, '00-99307-35350');
+  assert.equal(app.nodes.spdDepthClassValue.textContent, 'T>7D');
+  assert.match(app.nodes.spdDepthClassHelp.textContent, /T\s*350\s*mm.*D\s*35\s*mm.*10/);
+  assert.equal(app.nodes.vc.value, '90');
+  assert.equal(app.nodes.feed.value, '0.115');
+  // 需求深度恰好7D不等於刀體7D，不能把已選T350誤當成等號邊界。
+  app.input('depth', '245');
+  assert.equal(app.nodes.selectedId.textContent, '00-99307-35350');
+  assert.equal(app.nodes.spdDepthClassValue.textContent, 'T>7D');
+  assert.equal(app.nodes.vc.value, '90');
+  assert.equal(app.nodes.feed.value, '0.115');
+  app.input('depth', '150');
+  app.choose('00-99307-35200');
+  assert.equal(app.nodes.selectedId.textContent, '00-99307-35200');
+  assert.equal(app.nodes.spdDepthClassValue.textContent, 'T<7D');
+  assert.match(app.nodes.spdDepthClassHelp.textContent, /T\s*200\s*mm.*D\s*35\s*mm/);
+  assert.equal(app.nodes.vc.value, '115');
+  assert.equal(app.nodes.feed.value, '0.115');
+});
+
+test('舊分組網址不覆寫刀體自動結果，history與所有跨頁網址都移除此參數', async () => {
+  for (const legacyClass of ['lt7d', 'gt7d', 'unknown']) {
+    const app = await load('?lang=en&diameter=35&depth=150&material=carbon_high&shank=32&coolant=yes&pressure=20&tool=00-99307-35350&spdDepthClass=' + legacyClass, null);
+    assert.equal(app.nodes.spdDepthClassValue.textContent, 'T>7D');
+    assert.equal(app.nodes.vc.value, '90');
+    assert.equal(app.nodes.feed.value, '0.115');
+    for (const value of [app.urls.at(-1), app.nodes.languageToggle.href, app.notes.href, app.hub.href]) {
+      const url = new URL(value, 'https://example.test');
+      assert.equal(url.searchParams.has('spdDepthClass'), false, value);
+      assert.equal(url.searchParams.get('diameter'), '35');
+      assert.equal(url.searchParams.get('depth'), '150');
+    }
+    assert.equal(new URL(app.nodes.languageToggle.href).searchParams.get('tool'), '00-99307-35350');
+    assert.equal(new URL(app.hub.href).searchParams.get('spdTool'), '00-99307-35350');
+    await app.nodes.copyButton.handlers.click();
+    assert.equal(app.copied.length, 1);
+    assert.match(app.copied[0], /T>7D.*automatic/i);
+    assert.match(app.copied[0], /T\s*350\s*mm.*D\s*35\s*mm.*10/);
+    assert.doesNotMatch(app.copied[0], /[\u3400-\u9fff]|user[- ]selected|user specified/i);
+  }
+});
+
+test('刀體恰為7D或缺少T時不自動套用任一切削列，資料缺值不補0', async () => {
+  const query = '?lang=en&diameter=35&depth=150&material=carbon_high&shank=32&coolant=yes&pressure=20&tool=00-99307-35350&spdDepthClass=gt7d';
+  for (const bodyDepth of [245, null]) {
+    const app = await load(query, null, (data, name) => {
+      if (name === 'catalog.json') {
+        // 僅保留待核對刀體，避免缺值時自動改選另一支有完整資料的刀體。
+        data.holders = data.holders.filter(holder => holder.part_no === '00-99307-35350');
+        data.holders[0].drilling_depth_T_mm = bodyDepth;
+      }
+      return data;
+    });
+    assert.doesNotMatch(app.nodes.spdDepthClassValue.textContent, /T[<>]7D/);
+    assert.equal(app.nodes.vc.value, '');
+    assert.equal(app.nodes.feed.value, '');
+    assert.equal(app.nodes.medianButton.disabled, true);
+    assert.equal(app.nodes.copyButton.disabled, true);
+    assert.doesNotMatch(app.nodes.spdDepthClassHelp.textContent, /T\s*0\s*mm|D\s*0\s*mm/);
+    if (bodyDepth === 245) {
+      assert.match(app.nodes.spdDepthClassValue.textContent, /T\s*=\s*7D/);
+      assert.match(app.nodes.spdDepthClassHelp.textContent, /T\s*245\s*mm.*D\s*35\s*mm/);
+    }
+  }
 });
 
 test('英文不支持材料仍阻擋；繁中可切回原文', async () => {

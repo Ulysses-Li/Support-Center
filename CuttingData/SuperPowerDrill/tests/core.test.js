@@ -101,18 +101,95 @@ test('8 類材料分別選中心牌號，外刃維持已列 NC2032 實體配對'
   assert.equal(a.feedMedian, .06);
 });
 
-test('7D 分組必須手選；需求深度與刀體 T 均不自動推導資料列', () => {
-  const item = tool('00-99307-20150');
-  const missing = Core.selectCutting(catalog, item, state({ spdDepthClass: '' }));
-  assert.equal(missing.vcRange, null);
-  assert.equal(missing.status, 'review');
-  assert.match(missing.notes.join(' '), /明確選擇/);
-  const selected = Core.selectCutting(catalog, item, state({ depth: 20, spdDepthClass: 'gt7d' }));
-  assert.deepEqual(selected.vcRange, [60, 120]);
-  assert.equal(selected.depthClass, 'T>7D');
-  const boundary = Core.selectCutting(catalog, item, state({ depth: 140 }));
-  assert.equal(boundary.status, 'review');
-  assert.match(boundary.notes.join(' '), /恰為 7D/);
+test('依刀體 T/D 自動選組，需求孔深與兩種舊 override 均不改變資料列', () => {
+  for (const material of ['', 'non_ferrous']) {
+    const preview = Core.selectCutting(catalog, tool('00-99307-35350'), state({ diameter: 35, depth: 150, material }));
+    assert.equal(preview.depthRatio, 10);
+    assert.equal(preview.depthClass, 'T>7D');
+    assert.equal(preview.status, material ? 'blocked' : 'missing');
+    assert.equal(preview.vcRange, null);
+    assert.equal(preview.feedRange, null);
+  }
+  for (const override of ['', 'lt7d', 'gt7d']) {
+    const long = Core.selectCutting(catalog, tool('00-99307-35350'), state({ diameter: 35, depth: 150, spdDepthClass: override }));
+    assert.equal(long.status, 'ready');
+    assert.equal(long.depthRatio, 10);
+    assert.equal(long.depthClass, 'T>7D');
+    assert.deepEqual(long.vcRange, [60, 120]);
+    const short = Core.selectCutting(catalog, tool('00-99307-35200'), state({ diameter: 35, depth: 150, spdDepthClass: override }));
+    assert.equal(short.status, 'ready');
+    assert.equal(short.depthRatio, 200 / 35);
+    assert.equal(short.depthClass, 'T<7D');
+    assert.deepEqual(short.vcRange, [80, 150]);
+    const medium = Core.selectCutting(catalog, tool('00-99307-20150'), state({ depth: 20, spdDepthClass: override }));
+    assert.equal(medium.depthRatio, 7.5);
+    assert.equal(medium.depthClass, 'T>7D');
+    assert.deepEqual(medium.vcRange, [60, 120]);
+    // 需求孔深恰為7D不構成缺列：此刀體本身是7.5D。
+    const requestedSeven = Core.selectCutting(catalog, tool('00-99307-20150'), state({ depth: 140, spdDepthClass: override }));
+    assert.equal(requestedSeven.status, 'ready');
+    assert.equal(requestedSeven.depthClass, 'T>7D');
+  }
+});
+
+test('刀體恰為7D與缺少有效T/D時保留空值，不自動套用任一側', () => {
+  const boundary = { ...tool('00-99307-25150'), T: 175 };
+  for (const override of ['lt7d', 'gt7d']) {
+    const result = Core.selectCutting(catalog, boundary, state({ diameter: 25, depth: 100, spdDepthClass: override }));
+    assert.equal(result.depthRatio, 7);
+    assert.equal(result.depthClass, null);
+    assert.equal(result.status, 'missing');
+    assert.equal(result.vcRange, null);
+    assert.equal(result.feedRange, null);
+    assert.equal(result.notes[0], '刀體 T ÷ D 恰為7，型錄未列 T=7D 資料列；不自動套用較短或較長列。');
+  }
+  for (const dimensions of [{ T: null }, { T: 0 }, { D: null }, { D: Infinity }]) {
+    const result = Core.selectCutting(catalog, { ...boundary, ...dimensions }, state({ diameter: 25 }));
+    assert.equal(result.depthRatio, null);
+    assert.equal(result.depthClass, null);
+    assert.ok(result.status === 'missing' || result.status === 'blocked');
+    assert.equal(result.vcRange, null);
+    assert.equal(result.feedRange, null);
+  }
+});
+
+test('刀體恰為7D或缺尺寸時，禁用工況仍優先blocked，手動值不能繞過', () => {
+  for (const dimensions of [{ T: 175 }, { T: null }]) {
+    const boundary = { ...tool('00-99307-25150'), ...dimensions };
+    for (const prohibited of [{ coolant: 'no' }, { pressure: 9 }, { application: 'angled' }, { application: 'stack_drilling' }]) {
+      const result = Core.selectCutting(catalog, boundary, state({ diameter: 25, depth: 100, valuesMode: 'manual', vc: 100, feed: .08, ...prohibited }));
+      assert.equal(result.status, 'blocked');
+      assert.equal(result.depthClass, null);
+      assert.equal(result.vcRange, null);
+      assert.equal(result.feedRange, null);
+      assert.equal(result.vcMedian, null);
+      assert.equal(result.feedMedian, null);
+    }
+  }
+});
+
+test('八種適用材料在自動短／長分組仍選正確中心及外刃牌號', () => {
+  const expected = {
+    carbon_low: [[80, 150], [60, 120], [.08, .12]],
+    carbon_high: [[80, 150], [60, 120], [.08, .15]],
+    low_alloy_low: [[60, 150], [40, 120], [.08, .12]],
+    low_alloy_high: [[60, 150], [40, 120], [.08, .15]],
+    high_alloy: [[60, 120], [40, 100], [.08, .12]],
+    stainless: [[60, 120], [40, 100], [.06, .10]],
+    cast_iron: [[60, 120], [40, 100], [.08, .12]],
+    hardened_lt50: [[50, 80], [40, 60], [.06, .10]]
+  };
+  for (const body of [tool('00-99307-35200'), tool('00-99307-35350')]) {
+    for (const material of catalog.materials) {
+      const result = Core.selectCutting(catalog, body, state({ diameter: 35, depth: 150, material: material.id }));
+      assert.equal(result.status, 'ready', material.id);
+      assert.equal(result.depthClass, body.T === 200 ? 'T<7D' : 'T>7D');
+      assert.equal(result.peripheryGrade, 'NC2032');
+      assert.equal(result.centerGrade, ['carbon_low', 'low_alloy_low', 'stainless'].includes(material.id) ? 'NC2032' : 'NC40');
+      assert.deepEqual(result.vcRange, expected[material.id][body.T === 200 ? 0 : 1]);
+      assert.deepEqual(result.feedRange, expected[material.id][2]);
+    }
+  }
 });
 
 test('內冷、最低 10 bar、斜面與疊板限制保留', () => {

@@ -40,4 +40,24 @@ test('初始 HTML 英文、語言按鈕與專屬 locale 載入在核心之前', 
   assert.ok(html.indexOf('./locale.js') < html.indexOf('./core.js'));
   const text = html.replace(/<!--[\s\S]*?-->|<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '').replace(/<[^>]*>/g, '').replace(/繁體中文/g, '');
   assert.doesNotMatch(text, /[\u3400-\u9fff]/);
+  assert.match(html, /<output\b[^>]*\bid="spdDepthClassValue"/);
+  assert.match(html, /id="spdDepthClassHelp"/);
+  assert.doesNotMatch(html, /<(?:select|input)\b[^>]*(?:id|name)="spdDepthClass"/);
+});
+
+test('刀體自動分組的雙語說明不再宣稱手選，且數值與類別一致', () => {
+  const tool = catalog.tools.find(item => item.id === '00-99307-35350');
+  for (const lang of ['en', 'zh-TW']) {
+    const result = Core.selectCutting(catalog, tool, { diameter: 35, depth: 150, material: 'carbon_high', coolant: 'yes', pressure: 20, lang, spdDepthClass: 'lt7d' });
+    assert.equal(result.depthClass, 'T>7D');
+    assert.equal(result.depthRatio, 10);
+    assert.equal(result.vcMedian, 90);
+    assert.ok(Math.abs(result.feedMedian - 0.115) < 1e-10);
+    const copy = result.notes.join(' ');
+    assert.doesNotMatch(copy, /user[- ]selected|user specified|使用者指定|請明確選擇/i);
+    if (lang === 'en') {
+      assert.doesNotMatch(copy, /[\u3400-\u9fff]/);
+      assert.match(copy, /automatic/i);
+    } else assert.match(copy, /自動判定/);
+  }
 });

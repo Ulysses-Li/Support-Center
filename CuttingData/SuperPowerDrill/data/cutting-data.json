@@ -147,7 +147,7 @@
         "ratio": 7
       }
     ],
-    "depth_basis_status": "unresolved: source says T=Length/Dia.; confirm whether use actual requested hole depth or holder table T before implementation",
+    "depth_basis_status": "Website rule: select the class automatically from the chosen body's catalog drilling depth T divided by nominal diameter D. T/D<7 selects T<7D; T/D>7 selects T>7D. Required hole depth and legacy spdDepthClass values do not select the row. Exactly T/D=7 has no catalog row and remains unresolved.",
     "exactly_7d_status": "not defined; do not silently change either inequality to <= or >=",
     "cutting_rows": [
       {
@@ -1922,7 +1922,7 @@
   "manufacturer_questions": [
     {
       "id": "depth_class",
-      "question": "p135 的 T=Length/Dia. 應按需求孔深或刀體表列 T？恰好 7D 的邊界為何？",
+      "question": "網站依所選刀體的型錄鑽深 T ÷ 標稱孔徑 D 自動選列；p135 只列 T<7D 與 T>7D，未列 T/D=7。請確認刀體恰好 7D 時應採的資料列或正式切削條件。",
       "source": {
         "printed_page": 135,
         "pdf_page": 8,
