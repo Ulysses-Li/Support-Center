@@ -193,8 +193,8 @@ test('confirmed 99121 options preserve every physical part and all catalog dimen
       assert.deepEqual(confirmed.shankOptions, [20, 16, 13]);
       assert.equal(confirmed.shankOptionsConfirmed, true);
       assert.deepEqual(confirmed.shankOptionsSource, confirmedSpecs.series['99121'].source);
-      // 只改可選柄徑與其證據；不得從Ø16推算新料號、L或L1。
-      assert.deepEqual({ ...confirmed, shankOptions: original.shankOptions, shankOptionsConfirmed: original.shankOptionsConfirmed, shankOptionsSource: original.shankOptionsSource }, original);
+      // 柄徑與後柄長確認另行保存；原目錄的料號、L與L1仍逐項比對，不能推算新值。
+      assert.deepEqual({ ...confirmed, shankOptions: original.shankOptions, shankOptionsConfirmed: original.shankOptionsConfirmed, shankOptionsSource: original.shankOptionsSource, rearShankLengths: original.rearShankLengths }, original);
     } else assert.deepEqual(confirmed, original);
   }
   assert.deepEqual(confirmedModel.holders, model.holders);

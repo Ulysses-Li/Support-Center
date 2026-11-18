@@ -48,11 +48,22 @@
     // 99121 圖面括號尺寸未對應到個別料號；只提供來源中的待確認選項，不寫成實際柄徑。
     const shankIssue = (inventory.critical_source_issues || []).find(issue => issue.id === '99121_diagram_shank_mapping');
     const diagramShankOptions = unique((shankIssue?.catalog_diagram_diameter_labels || []).filter(value => Number.isFinite(value) && value > 0));
-    // 使用者另行確認的99121可選柄徑獨立保存；不改寫型錄原值、不建立變體料號或長度。
+    // 使用者確認的99121柄徑與後柄長獨立保存；L／L1沿用型錄，不建立變體料號。
     const confirmed99121 = confirmedSpecs?.series?.['99121'];
     const confirmedShankOptions = confirmed99121?.status === 'confirmed' && confirmed99121.source?.kind === 'user_confirmation' &&
       Array.isArray(confirmed99121.shank_diameters_mm) ? unique(confirmed99121.shank_diameters_mm.filter(value => Number.isFinite(value) && value > 0)) : [];
     const hasConfirmedShankOptions = confirmedShankOptions.length > 0;
+    const ordering = confirmed99121?.ordering;
+    const shankOrdering = ordering?.status === 'confirmed' && ordering.source?.kind === 'user_confirmation' &&
+      confirmedShankOptions.includes(ordering.standard_shank_diameter_mm) && Array.isArray(ordering.explicit_request_shank_diameters_mm) &&
+      ordering.explicit_request_shank_diameters_mm.every(value => confirmedShankOptions.includes(value) && value !== ordering.standard_shank_diameter_mm) ?
+      { ...ordering, explicit_request_shank_diameters_mm: [...ordering.explicit_request_shank_diameters_mm] } : null;
+    const rearDimensions = confirmed99121?.rear_shank_dimensions;
+    const rearShankLengths = rearDimensions?.status === 'confirmed' && rearDimensions.source?.kind === 'user_confirmation' &&
+      rearDimensions.catalog_L_L1_unchanged === true && rearDimensions.lengths_by_diameter_mm &&
+      typeof rearDimensions.lengths_by_diameter_mm === 'object' && !Array.isArray(rearDimensions.lengths_by_diameter_mm) ?
+      Object.fromEntries(Object.entries(rearDimensions.lengths_by_diameter_mm).filter(([diameter, length]) =>
+        confirmedShankOptions.includes(Number(diameter)) && Number.isFinite(length) && length > 0)) : {};
     const bars = (inventory.boring_bar_groups || []).flatMap(group => rowsAsObjects(group.columns, group.rows).map(row => {
       const raw = { ...group.defaults, ...row };
       const insertInterface = inventory.insert_interfaces[row.insert_interface_ref];
@@ -73,6 +84,7 @@
         shankOptions: group.series === '99121' ? [...(hasConfirmedShankOptions ? confirmedShankOptions : diagramShankOptions)] : [],
         shankOptionsConfirmed: group.series === '99121' && hasConfirmedShankOptions,
         shankOptionsSource: group.series === '99121' && hasConfirmedShankOptions ? { ...confirmed99121.source } : null,
+        rearShankLengths: group.series === '99121' ? { ...rearShankLengths } : {},
         shoulderD: raw.d1_mm_catalog ?? null,
         sourcePage: inventory.source_refs[group.source_ref].printed_page,
         source: inventory.source_refs[group.source_ref],
@@ -161,7 +173,7 @@
       ) : {};
     const systemInsertNames = unique((inventory.critical_source_issues || []).flatMap(issue => issue.catalog_system_insert_names || []));
     return {
-      bars, holders, adapters, inserts, insertGeometries, materials, cuttingRows, systemInsertNames, verifiedInsertRules, gradeMaterials, confirmedConditionRules, unavailableInsertGrades, insertProfiles,
+      bars, holders, adapters, inserts, insertGeometries, materials, cuttingRows, systemInsertNames, verifiedInsertRules, gradeMaterials, confirmedConditionRules, unavailableInsertGrades, insertProfiles, shankOrdering,
       conditions: unique(cuttingRows.map(row => row.cutting_condition_or_surface_finish)),
       series: unique(bars.map(bar => bar.series)),
       grades: cutting.grade_descriptions || [],
@@ -337,7 +349,9 @@
       bar,
       holder: criteria.clamping === 'unknown' || criteria.clamping === 'existing_general' ? null : holder,
       adapter,
-      depthStatus, clampStatus, shankStatus, selectedShankD, reviewNotes: unique(reviewNotes), insertOptions, cuttingRow, referenceRow, cuttingStatus, status,
+      depthStatus, clampStatus, shankStatus, selectedShankD,
+      selectedRearShankL: selectedShankD !== null ? bar.rearShankLengths?.[selectedShankD] ?? null : null,
+      reviewNotes: unique(reviewNotes), insertOptions, cuttingRow, referenceRow, cuttingStatus, status,
       criteria
     };
   }

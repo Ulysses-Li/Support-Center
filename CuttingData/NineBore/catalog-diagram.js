@@ -8,8 +8,8 @@
   'use strict';
 
   const fieldLabels = {
-    'zh-TW': { diameter: '目標孔徑', l1: '刀桿 L1', l: '刀桿 L', shankD: '刀桿柄徑', shoulderD: '刀桿頸部徑', holderD: '配件直徑 ØD', holderL: '刀柄／轉接座 L', thread: '螺紋', constant: '圖面固定尺寸' },
-    en: { diameter: 'Target diameter', l1: 'Bar L1', l: 'Bar L', shankD: 'Bar shank diameter', shoulderD: 'Bar neck diameter', holderD: 'Accessory diameter ØD', holderL: 'Holder / adapter L', thread: 'Thread', constant: 'Fixed drawing dimension' }
+    'zh-TW': { diameter: '目標孔徑', l1: '刀桿 L1', l: '刀桿 L', shankD: '刀桿柄徑', rearShankL: '後柄長度', shoulderD: '刀桿頸部徑', holderD: '配件直徑 ØD', holderL: '刀柄／轉接座 L', thread: '螺紋', constant: '圖面固定尺寸' },
+    en: { diameter: 'Target diameter', l1: 'Bar L1', l: 'Bar L', shankD: 'Bar shank diameter', rearShankL: 'Rear shank length', shoulderD: 'Bar neck diameter', holderD: 'Accessory diameter ØD', holderL: 'Holder / adapter L', thread: 'Thread', constant: 'Fixed drawing dimension' }
   };
   const diameterFields = new Set(['diameter', 'shankD', 'shoulderD', 'holderD']);
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
@@ -56,7 +56,12 @@
     if (!Array.isArray(drawing.overlay_labels) || !drawing.overlay_labels.length || !drawing.overlay_labels.every(label => validLabel(label, width, height))) return '';
     const language = input.language === 'en' ? 'en' : 'zh-TW';
     const dimensions = isObject(input.dimensions) ? input.dimensions : {};
-    const values = drawing.overlay_labels.map(label => ({ label, value: fieldValue(label, dimensions) }));
+    // 99121的50（48）原稿保留；收到已選柄徑的確認長度時，只替換該尺寸文字。
+    const values = drawing.overlay_labels.map(sourceLabel => {
+      const label = drawing.key === '99121' && sourceLabel.field === 'constant' && sourceLabel.value === '50 (48) mm' &&
+        Object.hasOwn(dimensions, 'rearShankL') ? { ...sourceLabel, field: 'rearShankL' } : sourceLabel;
+      return { label, value: fieldValue(label, dimensions) };
+    });
     const partLabel = typeof input.partLabel === 'string' ? input.partLabel : '';
     const title = [partLabel, language === 'en' ? 'Catalog dimensions' : '型錄尺寸圖'].filter(Boolean).join(' — ');
     const description = values.map(({ label, value }) => `${fieldLabels[language][label.field]}: ${value}`).join('; ');

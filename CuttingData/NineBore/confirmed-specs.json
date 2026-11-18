@@ -3,7 +3,29 @@
   "series": {
     "99121": {
       "shank_diameters_mm": [20, 16, 13],
+      "ordering": {
+        "status": "confirmed",
+        "standard_shank_diameter_mm": 20,
+        "explicit_request_shank_diameters_mm": [13, 16],
+        "source": {
+          "kind": "user_confirmation",
+          "date": "2026-11-18",
+          "statement_zh_tw": "一般默認Ø20mm；Ø13、Ø16需要客戶額外告知。",
+          "scope_zh_tw": "99121 的標準供應與下單註明方式；不建立其他料號，也不取代客戶實際夾持柄徑的選擇。"
+        }
+      },
       "status": "confirmed",
+      "rear_shank_dimensions": {
+        "status": "confirmed",
+        "lengths_by_diameter_mm": { "13": 48, "16": 48, "20": 50 },
+        "catalog_L_L1_unchanged": true,
+        "source": {
+          "kind": "user_confirmation",
+          "date": "2026-11-18",
+          "statement_zh_tw": "Ø13／Ø16 後柄長48mm；Ø20後柄長50mm；適用型號與L、L1跟目錄一樣。",
+          "scope_zh_tw": "99121 的後柄實體長度依所選柄徑對應；L、L1保留型錄值。不推定變體訂購料號或最小有效夾持量。"
+        }
+      },
       "source": {
         "kind": "user_confirmation",
         "date": "2026-11-12",

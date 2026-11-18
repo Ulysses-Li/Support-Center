@@ -23,6 +23,10 @@
 
   // 核心訊息與圖面固定字串集中管理；未列出的文字原樣回傳，避免誤翻產品資料。
   const MESSAGES = Object.freeze({
+    'Standard supplied shank':'標準供應柄徑',
+    'Specify a different shank when ordering.':'需於下單時額外告知。',
+    'Confirmed rear shank lengths':'已確認的後柄長度',
+    'L and L1 follow the catalog.':'L、L1 依型錄尺寸。',
     'Non-ISO insert for fine surface finishing on aluminium, copper and non-metallic materials such as plastics.':'非 ISO 刀片，主要用於鋁、銅及塑膠等非金屬材料的精細表面加工。',
     'NC30 is not offered for size 0602. Automatic cutting values are unavailable for this material and cutting condition.':'0602 尺寸沒有 NC30；此材料與加工條件沒有可自動套用的切削參數。',
     'User-confirmed shared cutting parameters':'使用者已確認共用切削參數',

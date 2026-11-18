@@ -45,6 +45,7 @@
     const variants=model.bars.find(bar=>bar.series==='99121');
     const variantSizes=(variants?.shankOptions||[]).map(size=>`Ø${fmt(size)}`).join(' / ');
     $('shankHint').textContent=variants?.shankOptionsConfirmed?`${translate('99121 shank options')}${isChinese?'：':': '}${variantSizes} mm${isChinese?'。 ':'. '}${translate('99101 uses Ø20 mm. Select the rear clamping diameter to suit your holder.')}`:controls.shankDiameter.value==='13' ? 'Ø13 appears in the 99121 drawing. Its applicable part number needs confirmation.' : controls.shankDiameter.value==='20' ? '99101: Ø20 listed. 99121: drawing option; confirm the applicable part number.' : 'Rear clamping diameter Ød, separate from the finished hole diameter D.';
+    if(model.shankOrdering)$('shankHint').textContent+=` ${translate('Standard supplied shank')}: Ø${fmt(model.shankOrdering.standard_shank_diameter_mm)} mm. ${model.shankOrdering.explicit_request_shank_diameters_mm.map(size=>`Ø${fmt(size)}`).join(' / ')} mm: ${translate('Specify a different shank when ordering.')}`;
     const material=model.materials.find(item=>item.id===controls.material.value);
     $('materialBadge').textContent=material?.iso||'—';$('materialBadge').dataset.iso=material?.iso||'';
   }
@@ -124,6 +125,9 @@
       $('geometryCaption').textContent='';return;
     }
     const shank=Number.isFinite(selected.selectedShankD)?selected.selectedShankD:b.shankD;
+    const hasRearLengths=Object.keys(b.rearShankLengths).length>0;
+    const rearDimensions=hasRearLengths?{rearShankL:selected.selectedRearShankL}:{};
+    const rearNote=hasRearLengths?`${translate('Confirmed rear shank lengths')}: ${Object.entries(b.rearShankLengths).map(([diameter,length])=>`Ø${fmt(Number(diameter))} → ${fmt(length)} mm`).join(' / ')}. ${translate('L and L1 follow the catalog.')}`:translate('99121 rear length 50 (48) mm is a shared catalog label; its shank-option mapping is not specified.');
     const facts=[
       [b.depthKind==='front_neck'?'Front-neck L1':'Boring depth L1',`${fmt(b.l1)} mm`],
       [Number.isFinite(b.l)?'Catalog length L':'Adjustable hole Ø',Number.isFinite(b.l)?`${fmt(b.l)} mm`:`${fmt(b.minD)}–${fmt(b.maxD)} mm`],
@@ -133,7 +137,7 @@
     if(selected.holder){const holderDrawing=drawings.resolve(drawingManifest,drawings.holderKey(selected.holder));if(holderDrawing)components.push({entry:holderDrawing,label:selected.holder.partsNo,title:'Machine-side holder',dimensions:selected.holder.dimensions_mm,thread:selected.holder.catalog_fields_original?.M});}
     if(selected.adapter){const adapterDrawing=drawings.resolve(drawingManifest,drawings.adapterKey(selected.adapter));if(adapterDrawing)components.push({entry:adapterDrawing,label:selected.adapter.partsNo,title:'Matching 99151 adapter',dimensions:selected.adapter.dimensions_mm});}
     const componentMarkup=components.length?`<details class="technical-details catalog-components mt-4"><summary>${esc(translate('Holder & adapter drawings'))}</summary><div class="catalog-component-list">${components.map(item=>`<section><p class="section-title mb-1">${esc(translate(item.title))}</p><p class="field-help mb-3">${esc(item.label)}</p>${catalogImage(item.entry,item.label,true,{holderD:item.dimensions?.['ØD'],holderL:item.dimensions?.L,thread:item.thread})}<p class="catalog-component-dimensions">${Object.entries(item.dimensions||{}).filter(([,value])=>Number.isFinite(value)).map(([label,value])=>`${esc(label)} ${fmt(value)} mm`).join(' · ')}</p></section>`).join('')}</div></details>`:'';
-    $('diagramCanvas').innerHTML=`<p class="catalog-current-part">${esc(b.id)}</p>${catalogImage(entry,b.id,false,{diameter:Number(controls.diameter.value)||null,l1:b.l1,l:b.l,shankD:shank,shoulderD:b.shoulderD})}<p class="field-help mt-3">${esc(translate('Drawing dimensions update with your selected part and hole diameter.'))}</p><dl class="catalog-dimensions mt-3">${facts.map(([label,value])=>`<div><dt>${esc(translate(label))}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl>${b.series==='99121'?`<p class="field-help">${esc(translate('99121 rear length 50 (48) mm is a shared catalog label; its shank-option mapping is not specified.'))}</p>`:''}${componentMarkup}`;
+    $('diagramCanvas').innerHTML=`<p class="catalog-current-part">${esc(b.id)}</p>${catalogImage(entry,b.id,false,{diameter:Number(controls.diameter.value)||null,l1:b.l1,l:b.l,shankD:shank,shoulderD:b.shoulderD,...rearDimensions})}<p class="field-help mt-3">${esc(translate('Drawing dimensions update with your selected part and hole diameter.'))}</p><dl class="catalog-dimensions mt-3">${facts.map(([label,value])=>`<div><dt>${esc(translate(label))}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl>${b.series==='99121'?`<p class="field-help">${esc(rearNote)}</p>`:''}${componentMarkup}`;
     $('geometryCaption').textContent=translate(b.depthKind==='front_neck'?'This L1 is the front-neck dimension. Actual reach and workpiece clearance still need confirmation.':'Catalog L1 is compared with your required depth. Assembly projection and workpiece clearance remain setup checks.');
   }
   // 放大的是本次數字已更新的同一張SVG，而非重新開啟仍帶L/L1代號的來源圖片。
