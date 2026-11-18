@@ -148,6 +148,7 @@
     ];
     if (state.hasBar) {
       pieces.push('Bar series: ' + state.series + '. Orange indicates the conceptual cutting location.');
+      if (state.series === '99151') pieces.push('L is the bar overall length. L1 is the designed boring depth.');
       pieces.push(state.depthKind === 'confirmed-boring-depth' ? 'L1 is confirmed as usable boring depth, including its stated limit.' : state.depthKind === 'boring-depth' ? 'The catalog lists L1 as Boring Depth for this series.' : state.depthKind === 'front-neck-geometry' ? 'L1 is front-neck geometry, not a verified boring depth.' : 'The meaning of L1 for this bar needs confirmation.');
       if (state.l1 !== null) pieces.push('L1: ' + String(state.l1) + ' mm.');
       const minimum = positiveNumber(state.bar.minD);
