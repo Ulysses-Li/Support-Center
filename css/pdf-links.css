@@ -1,0 +1,79 @@
+/* 全站 PDF 入口：Bootstrap Icons filetype-pdf 官方 SVG，以 mask 跟隨連結文字顏色。
+ * https://icons.getbootstrap.com/icons/filetype-pdf/
+ * SVG 同官方下載與 twbs/icons 原始檔；MIT 授權見 assets/icons/bootstrap-icons-LICENSE.txt。
+ * 空內容偽元素僅作裝飾，不取代原有連結文字、PDF 標籤或尾端箭頭。
+ */
+:root {
+  --nine9-pdf-icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktZmlsZXR5cGUtcGRmIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTE0IDQuNVYxNGEyIDIgMCAwIDEtMiAyaC0xdi0xaDFhMSAxIDAgMCAwIDEtMVY0LjVoLTJBMS41IDEuNSAwIDAgMSA5LjUgM1YxSDRhMSAxIDAgMCAwLTEgMXY5SDJWMmEyIDIgMCAwIDEgMi0yaDUuNXpNMS42IDExLjg1SDB2My45OTloLjc5MXYtMS4zNDJoLjgwM3EuNDMgMCAuNzMyLS4xNzMuMzA1LS4xNzUuNDYzLS40NzRhMS40IDEuNCAwIDAgMCAuMTYxLS42NzdxMC0uMzc1LS4xNTgtLjY3N2ExLjIgMS4yIDAgMCAwLS40Ni0uNDc3cS0uMy0uMTgtLjczMi0uMTc5bS41NDUgMS4zMzNhLjguOCAwIDAgMS0uMDg1LjM4LjU3LjU3IDAgMCAxLS4yMzguMjQxLjguOCAwIDAgMS0uMzc1LjA4MkguNzg4VjEyLjQ4aC42NnEuMzI3IDAgLjUxMi4xODEuMTg1LjE4My4xODUuNTIybTEuMjE3LTEuMzMzdjMuOTk5aDEuNDZxLjYwMiAwIC45OTgtLjIzN2ExLjQ1IDEuNDUgMCAwIDAgLjU5NS0uNjg5cS4xOTYtLjQ1LjE5Ni0xLjA4NCAwLS42My0uMTk2LTEuMDc1YTEuNDMgMS40MyAwIDAgMC0uNTg5LS42OHEtLjM5Ni0uMjM0LTEuMDA1LS4yMzR6bS43OTEuNjQ1aC41NjNxLjM3MSAwIC42MDkuMTUyYS45LjkgMCAwIDEgLjM1NC40NTRxLjExOC4zMDIuMTE4Ljc1M2EyLjMgMi4zIDAgMCAxLS4wNjguNTkyIDEuMSAxLjEgMCAwIDEtLjE5Ni40MjIuOC44IDAgMCAxLS4zMzQuMjUyIDEuMyAxLjMgMCAwIDEtLjQ4My4wODJoLS41NjN6bTMuNzQzIDEuNzYzdjEuNTkxaC0uNzlWMTEuODVoMi41NDh2LjY1M0g3Ljg5NnYxLjExN2gxLjYwNnYuNjM4eiIvPgo8L3N2Zz4=");
+}
+
+a:is([href$=".pdf" i], [href*=".pdf#" i], [href*=".pdf?" i])::before,
+a.resource-row:is([href$=".pdf" i], [href*=".pdf#" i], [href*=".pdf?" i]) > div:first-child > strong:first-child::before {
+  content: "";
+  display: inline-block;
+  inline-size: 1.2em;
+  block-size: 1.2em;
+  min-inline-size: 1.2em;
+  flex: 0 0 1.2em;
+  margin-inline-end: .4em;
+  vertical-align: -.18em;
+  background-color: currentColor;
+  -webkit-mask: var(--nine9-pdf-icon) center / contain no-repeat;
+  mask: var(--nine9-pdf-icon) center / contain no-repeat;
+}
+
+/* 既有前置文件 SVG 改由同一來源顯示；明確標示的箭頭／展開圖示仍保留。 */
+a:is([href$=".pdf" i], [href*=".pdf#" i], [href*=".pdf?" i]) > svg:first-child:not([class*="arrow" i]):not([class*="chevron" i]) {
+  display: none !important;
+}
+
+/* ACE V3 資源列以 block 內容排版；圖示放在標題文字前，避免另外佔一行。 */
+a.resource-row:is([href$=".pdf" i], [href*=".pdf#" i], [href*=".pdf?" i])::before {
+  content: none;
+  display: none;
+}
+
+/* 型錄封面保留 img 的 100% 尺寸；角落圖示與底板都絕對定位，不佔 flex 空間。 */
+a.resource-cover:is([href$=".pdf" i], [href*=".pdf#" i], [href*=".pdf?" i]) {
+  position: relative;
+}
+a.resource-cover:is([href$=".pdf" i], [href*=".pdf#" i], [href*=".pdf?" i])::before {
+  position: absolute;
+  inset: 1.35em 1.35em auto auto;
+  inline-size: 1.2em;
+  block-size: 1.2em;
+  margin: 0;
+  z-index: 2;
+  background-color: currentColor;
+  pointer-events: none;
+}
+a.resource-cover:is([href$=".pdf" i], [href*=".pdf#" i], [href*=".pdf?" i])::after {
+  content: "";
+  position: absolute;
+  inset: .75em .75em auto auto;
+  inline-size: 2.4em;
+  block-size: 2.4em;
+  box-sizing: border-box;
+  border: 1px solid #d6e4ee;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(12, 34, 55, .12);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 高對比使用系統連結色；裝飾圖示不被背景色強制消除，外框提供輪廓。 */
+@media (forced-colors: active) {
+  a:is([href$=".pdf" i], [href*=".pdf#" i], [href*=".pdf?" i])::before,
+  a.resource-row:is([href$=".pdf" i], [href*=".pdf#" i], [href*=".pdf?" i]) > div:first-child > strong:first-child::before {
+    background-color: LinkText;
+    forced-color-adjust: none;
+    outline: 1px solid LinkText;
+    outline-offset: 1px;
+  }
+  a.resource-cover:is([href$=".pdf" i], [href*=".pdf#" i], [href*=".pdf?" i])::after {
+    background: Canvas;
+    border-color: LinkText;
+    box-shadow: none;
+  }
+}

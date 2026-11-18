@@ -1,5 +1,7 @@
 /* 從全站唯一來源載入工程網格背景。 */
 @import url("../css/site-background.css");
+/* 全站 PDF 連結統一使用內嵌的 Bootstrap 官方 PDF 圖示。 */
+@import url("../css/pdf-links.css?v=20261118-pdf-icon");
 
 /* =========================================================
    Header
