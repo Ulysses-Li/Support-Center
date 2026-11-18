@@ -8,7 +8,7 @@ test('initial documents have a real doctype, English content and local locale de
   assert.match(html,/^<!doctype html>/i);assert.match(html,/<html lang="en">/);
   const visible=html.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi,'').replace(/<!--[\s\S]*?-->/g,'').replace(/<[^>]+>/g,'').replace(/繁體中文/g,'');
   assert.doesNotMatch(visible,/[\u3400-\u9fff]/,name);
-  assert.match(html,/\.\/locale\.js\?v=locale-2/);
+  assert.match(html,/\.\/locale\.js\?v=locale-3/);
  }
  assert.equal(Locale.markup('<!doctype html><p>本系列不建議用於非鐵金屬</p>'),'<!doctype html><p>This series is not recommended for non-ferrous metals</p>');
 });

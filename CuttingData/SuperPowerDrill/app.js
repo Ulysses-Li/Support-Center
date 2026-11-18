@@ -75,7 +75,7 @@
     $('pageIntro').textContent = product.intro;
     $('heroImage').innerHTML = `<img src="${new URL('assets/product.jpg', scriptRoot)}" alt="Super Power Drill 型錄實際產品圖"><span class="hero-image-caption">Ø19–40 mm · 表列 T100–350 mm</span>`;
     $('catalogLink').href = sourceHref(128);
-    $('material').innerHTML = '<option value="">請選擇材料</option>' + catalog.materials.map(material => `<option value="${esc(material.id)}">${esc(material.iso)} · ${esc(material.label_zh)}</option>`).join('') + '<option value="non_ferrous">N · 非鐵金屬（本系列不建議使用）</option><option value="heat_resistant">S · 耐熱合金（無適用配對）</option>';
+    $('material').innerHTML = '<option value="">請選擇材料</option>' + catalog.materials.filter(material => Core.getMaterialSupport(catalog, material.id, lang).supported === true).map(material => `<option value="${esc(material.id)}">${esc(material.iso)} · ${esc(material.label_zh)}</option>`).join('');
     $('shank').innerHTML = '<option value="">不限／尚未確認</option><option value="32">Ø32 mm</option>';
     $('application').innerHTML = Object.entries(applications).map(([id, label]) => `<option value="${id}">${esc(label)}</option>`).join('');
     $('shankHelp').textContent = '本系列標準後端柄徑為 Ø32 mm。';
@@ -83,12 +83,14 @@
 
   function restoreUrl() {
     const query = new URLSearchParams(location.search);
-    // 舊網址中的未知材料仍是客戶的真實需求，不讓原生 select 靜默退回「未選」。
+    // 舊網址的不適用材料保留於狀態，僅以隱藏停用項承接，不加入可選清單。
     const requestedMaterial = query.get('material');
     if (requestedMaterial && !Array.from($('material').options).some(option => option.value === requestedMaterial)) {
       const option = document.createElement('option');
       option.value = requestedMaterial;
-      option.textContent = '型錄未列材料（不提供推薦）';
+      option.textContent = t('請選擇材料');
+      option.hidden = true;
+      option.disabled = true;
       $('material').appendChild(option);
     }
     jobFields.forEach(key => {

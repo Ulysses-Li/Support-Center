@@ -56,7 +56,7 @@
     $('pageIntro').textContent = '選標準刀徑與鑽孔深度，配對刀片，再取得轉速與進給。';
     $('heroImage').innerHTML = `<img src="${new URL('assets/product.jpg', scriptRoot)}" alt="Super Drill 型錄實際產品圖"><span class="hero-image-caption">Ø10–30 mm · 3D／4D</span>`;
     $('catalogLink').href = sourceHref(136);
-    $('material').innerHTML = '<option value="">請選擇材料</option>' + catalog.materials.map(m => `<option value="${esc(m.id)}">${esc(m.iso)} · ${esc(m.label_zh)}</option>`).join('') + '<option value="non_ferrous">N · 非鐵金屬（本系列不建議）</option><option value="heat_resistant">S · 耐熱合金（無適用配對）</option>';
+    $('material').innerHTML = '<option value="">請選擇材料</option>' + catalog.materials.filter(m => Core.getMaterialSupport(catalog, m.id, lang).supported === true).map(m => `<option value="${esc(m.id)}">${esc(m.iso)} · ${esc(m.label_zh)}</option>`).join('');
     $('shank').innerHTML = '<option value="">不限／尚未確認</option>' + [20, 25, 32].map(v => `<option value="${v}">Ø${v} mm</option>`).join('');
     $('application').innerHTML = Object.entries(applications).map(([id, label]) => `<option value="${id}">${esc(label)}</option>`).join('');
     $('factorGroup').hidden = true;
@@ -69,7 +69,8 @@
     const requestedMaterial = query.get('material');
     if (requestedMaterial && !Array.from($('material').options).some(option => option.value === requestedMaterial)) {
       const option = document.createElement('option');
-      option.value = requestedMaterial; option.textContent = '型錄未列材料（不提供推薦）';
+      option.value = requestedMaterial; option.textContent = Locale.text('請選擇材料', lang);
+      option.hidden = true; option.disabled = true;
       $('material').add(option);
     }
     jobFields.forEach(key => {

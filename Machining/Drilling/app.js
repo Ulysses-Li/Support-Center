@@ -41,15 +41,17 @@
   }
 
   function configure() {
-    // 只合併相同材料 ID，不讓分類頁另存兩產品的切削資料副本。
-    materials = [...new Map(Object.values(packages).flatMap(entry => entry.catalog.materials).map(material => [material.id, material])).values()];
-    $('material').innerHTML = `<option value="">${t('請選擇材料', 'Select material')}</option>` + materials.map(material => `<option value="${esc(material.id)}">${esc(material.iso)} · ${esc(chinese ? material.label_zh : material.catalog_label)}</option>`).join('') + `<option value="non_ferrous">${t('N · 非鐵金屬（不建議使用）', 'N · Non-ferrous metals (not recommended)')}</option><option value="heat_resistant">${t('S · 耐熱合金（無適用配對）', 'S · Heat-resistant alloys (no suitable pairing)')}</option>`;
+    // 只列至少一個產品有正式配對的材料，不另加沒有適用資料的分類。
+    materials = [...new Map(Object.values(packages).flatMap(entry => entry.catalog.materials).map(material => [material.id, material])).values()]
+      .filter(material => Object.values(packages).some(entry => entry.core.getMaterialSupport(entry.catalog, material.id, language).supported === true));
+    $('material').innerHTML = `<option value="">${t('請選擇材料', 'Select material')}</option>` + materials.map(material => `<option value="${esc(material.id)}">${esc(material.iso)} · ${esc(chinese ? material.label_zh : material.catalog_label)}</option>`).join('');
     const query = new URLSearchParams(location.search);
-    // 未知材料保留為不推薦狀態，不能因舊網址無對應選項就默默回到未選材料。
+    // 舊網址的不適用材料僅保留狀態，不列入選單；避免清空後誤當成未指定材料而推薦。
     const requestedMaterial = query.get('material');
     if (requestedMaterial && !Array.from($('material').options).some(option => option.value === requestedMaterial)) {
       const option = document.createElement('option');
-      option.value = requestedMaterial; option.textContent = t('型錄未列材料（不提供推薦）', 'Unlisted material (no recommendation)');
+      option.value = requestedMaterial; option.textContent = t('請選擇材料', 'Select material');
+      option.hidden = true; option.disabled = true;
       $('material').append(option);
     }
     Selector.fields.forEach(key => {

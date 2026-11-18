@@ -10,8 +10,8 @@ function element(tag,a){
  let value=a.value||'',markup='';
  const e={id:a.id,name:a.name||'',href:a.href||'',dataset:{},hidden:'hidden'in a,disabled:'disabled'in a,textContent:'',className:a.class||'',listeners:{},options:null,classList:{add(){},remove(){},toggle(){return true}},setAttribute(k,v){this[k]=v;},addEventListener(t,f){this.listeners[t]=f;},showModal(){},close(){}};
  Object.defineProperty(e,'value',{get(){return value;},set(v){v=String(v??'');value=e.options&&!e.options.some(o=>o.value===v)?'':v;}});
- Object.defineProperty(e,'innerHTML',{get(){return markup;},set(v){markup=String(v);if(tag==='select'){e.options=[...markup.matchAll(/<option\b[^>]*value="([^"]*)"[^>]*>/g)].map(m=>({value:m[1]}));value=e.options.some(o=>o.value===value)?value:e.options[0]?.value||'';}}});
- e.add=option=>{e.options.push({value:option.value,textContent:option.textContent});markup+=`<option value="${option.value}">${option.textContent}</option>`;};
+ Object.defineProperty(e,'innerHTML',{get(){return markup;},set(v){markup=String(v);if(tag==='select'){e.options=[...markup.matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option>/g)].map(m=>{const a=attributes(m[1]);return{value:a.value||'',textContent:m[2],hidden:'hidden'in a,disabled:'disabled'in a};});value=e.options.some(o=>o.value===value)?value:e.options[0]?.value||'';}}});
+ e.add=option=>{e.options.push({value:option.value,textContent:option.textContent,hidden:option.hidden,disabled:option.disabled});markup+=`<option value="${option.value}"${option.hidden?' hidden':''}${option.disabled?' disabled':''}>${option.textContent}</option>`;};
  Object.defineProperty(e,'innerText',{get(){return markup.replace(/<[^>]*>/g,' ').trim()||e.textContent;}});
  return e;
 }
@@ -126,5 +126,26 @@ test('material blocking and prototype-safe labels work in both languages',async(
   assert.deepEqual(p.errors,[]);assert.equal(p.get('material').value,material);assert.equal(p.get('copyButton').disabled,true);
   assert.equal(p.get('emptyState').textContent,Locale.text(material==='non_ferrous'?'本系列不建議用於非鐵金屬':'型錄未列此材料適用配對，不提供推薦',lang));
   assert.doesNotMatch(p.get('resultSummary').textContent,/function|native code|object Object/);
+ }
+});
+
+test('dropdown shows only the eight supported materials; rejected URL values stay hidden and blocked',async()=>{
+ const supported=JSON.parse(fs.readFileSync(path.join(base,'data/cutting-data.json'),'utf8')).materials.map(m=>m.id);
+ for(const lang of ['en','zh-TW']){
+  for(const material of ['','non_ferrous','heat_resistant','old_unknown_material']){
+   const p=await page(`?lang=${lang}&diameter=24&depth=36&material=${material}&tool=00-99313-24&values=manual&vc=120&feed=0.08`);
+   assert.deepEqual(p.errors,[]);
+   const visible=p.get('material').options.filter(o=>!o.hidden&&!o.disabled&&o.value);
+   assert.deepEqual(visible.map(o=>o.value),supported);
+   assert.ok(visible.every(o=>!['non_ferrous','heat_resistant','old_unknown_material'].includes(o.value)));
+   if(material){const held=p.get('material').options.find(o=>o.value===material);assert.equal(held.hidden,true);assert.equal(held.disabled,true);assert.equal(held.textContent,lang==='en'?'Select material':'請選擇材料');assert.equal(p.get('material').value,material);assert.equal(p.get('copyButton').disabled,true);assert.equal(p.get('rpmResult').textContent,'—');}
+  }
+  for(const material of supported){
+   const p=await page(`?lang=${lang}&diameter=24&depth=36&shank=25&material=${material}&tool=00-99313-24`);
+   assert.equal(p.get('material').value,material);assert.equal(p.get('copyButton').disabled,false);
+   const option=p.get('material').options.find(o=>o.value===material);assert.equal(option.hidden,false);assert.equal(option.disabled,false);
+   if(lang==='en')assert.doesNotMatch(option.textContent,/[\u3400-\u9fff]/);
+   else assert.match(option.textContent,/[\u3400-\u9fff]/);
+  }
  }
 });

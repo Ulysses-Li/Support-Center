@@ -27,9 +27,20 @@ async function load(search = '', defaultLang = 'zh-TW') {
   Object.assign(nodes.machineMode, { value: 'rotating' });
   Object.assign(nodes.application, { value: 'regular_surface' });
   Object.assign(nodes.coolant, { value: 'unknown' });
-  nodes.material.options = [{ value: '' }];
-  const materials = JSON.parse(fs.readFileSync(path.join(root, 'data/cutting-data.json'), 'utf8')).materials;
-  nodes.material.options.push(...materials.map(material => ({ value: material.id })), { value: 'non_ferrous' }, { value: 'heat_resistant' });
+  // 選項由實際 innerHTML 解析，避免替身自行加入正式選單不存在的材料。
+  const decode = text => text.replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  const encode = text => String(text).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  Object.defineProperty(nodes.material, 'innerHTML', {
+    get() { return this.markup || ''; },
+    set(markup) {
+      this.markup = markup;
+      this.options = [...markup.matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option>/g)].map(([, attrs, text]) => ({ value: decode(attrs.match(/\bvalue="([^"]*)"/)?.[1] || ''), textContent: decode(text), hidden: /\bhidden\b/.test(attrs), disabled: /\bdisabled\b/.test(attrs) }));
+    }
+  });
+  nodes.material.appendChild = function (option) {
+    this.options.push(option);
+    this.markup += `<option value="${encode(option.value)}"${option.hidden ? ' hidden' : ''}${option.disabled ? ' disabled' : ''}>${encode(option.textContent)}</option>`;
+  };
   const listeners = {}, requested = [], errors = [], copied = [], urls = [];
   const hub = {}, notes = { dataset: { notesLink: 'questions' } };
   const scopedLocale = { ...Locale, renderScoped(_scope, lang) {
@@ -120,7 +131,10 @@ test('非鐵、耐熱與未知材料 URL 都顯示材料原因，手動值無法
     assert.equal(app.nodes.rpmResult.textContent, '—');
     assert.equal(app.nodes.feedResult.textContent, '—');
     assert.equal(app.nodes.copyButton.disabled, true);
-    if (material === 'unknown-material') assert.ok(app.nodes.material.options.some(option => option.value === material && option.textContent === '型錄未列材料（不提供推薦）'));
+    const legacy = app.nodes.material.options.find(option => option.value === material);
+    assert.ok(legacy && legacy.hidden && legacy.disabled);
+    assert.equal(legacy.textContent, '請選擇材料');
+    assert.ok(!app.nodes.material.options.some(option => !option.hidden && !option.disabled && option.value === material));
   }
 });
 
@@ -163,4 +177,24 @@ test('英文不支持材料仍阻擋；繁中可切回原文', async () => {
   assert.equal(zh.context.document.documentElement.lang, 'zh-Hant');
   assert.equal(zh.nodes.emptyState.textContent, '本系列不建議用於非鐵金屬');
   assert.equal(new URL(zh.nodes.languageToggle.href).searchParams.get('lang'), 'en');
+});
+
+test('英／繁中下拉只提供 8 種已支持材料，舊 N/S/未知材料不能成為可選項', async () => {
+  const supportedIds = JSON.parse(fs.readFileSync(path.join(root, 'data/cutting-data.json'), 'utf8')).materials.map(material => material.id).sort();
+  for (const lang of ['en', 'zh-TW']) {
+    const normal = await load('?lang=' + lang, null);
+    const visible = normal.nodes.material.options.filter(option => option.value && !option.hidden && !option.disabled);
+    assert.deepEqual(visible.map(option => option.value).sort(), supportedIds);
+    assert.equal(visible.length, 8);
+    assert.equal(/[\u3400-\u9fff]/.test(visible.map(option => option.textContent).join(' ')), lang === 'zh-TW');
+    for (const material of ['non_ferrous', 'heat_resistant', 'unknown-material']) {
+      const legacy = await load('?lang=' + lang + '&diameter=25&depth=100&material=' + material, null);
+      const option = legacy.nodes.material.options.find(item => item.value === material);
+      assert.ok(option.hidden && option.disabled);
+      assert.equal(option.textContent, lang === 'en' ? 'Choose a material' : '請選擇材料');
+      assert.deepEqual(legacy.nodes.material.options.filter(item => item.value && !item.hidden && !item.disabled).map(item => item.value).sort(), supportedIds);
+      assert.equal(legacy.nodes.copyButton.disabled, true);
+      assert.equal(legacy.nodes.rpmResult.textContent, '—');
+    }
+  }
 });
