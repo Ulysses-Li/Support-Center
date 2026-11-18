@@ -9,7 +9,7 @@
 
   const ROUTES = ['purchase_holder', 'existing_ninebore', 'existing_general', 'unknown'];
   const GENERAL_TYPES = ['side_lock', 'hydraulic', 'collet'];
-  // 僅允許這三組同材料跨條件試切參考；不得擴張成任意材料／條件的備援搜尋。
+  // 僅允許這三組同材料跨條件配對；另有使用者確認時才升為可推薦的共用參數。
   const REFERENCE_PAIRS = Object.freeze({
     'carbon-regular': { id: 'carbon-interrupted', material: 'Carbon Steel' },
     'alloy-regular': { id: 'alloy-interrupted', material: 'Alloy Steel' },
@@ -125,6 +125,15 @@
           rule.grade_designations.includes(insert.grade) && insert.raw.Ic_mm_catalog === rule.Ic_mm && insert.raw.S_mm_catalog === rule.S_mm)
       ).map(rule => ({ ...rule, series: [...rule.series], interface_refs: [...rule.interface_refs], grade_designations: [...rule.grade_designations], source: { ...compatibility.source } })) : [];
     const cuttingRows = (cutting.rows || []).map(row => ({ ...row }));
+    // 確認依據與型錄原列分開保存；不改寫一般切削列的 NC2033，也不創造新的外銷刀片。
+    const equivalence = confirmedSpecs?.cutting_condition_equivalence;
+    const confirmedConditionRules = equivalence?.status === 'confirmed' && equivalence.source?.kind === 'user_confirmation' &&
+      Array.isArray(equivalence.rules) ? equivalence.rules.filter(rule => {
+        const pair = rule && REFERENCE_PAIRS[rule.requested_row_id];
+        return pair && rule.material === pair.material && rule.source_row_id === pair.id && rule.grade === 'NC30' &&
+          Array.isArray(rule.parts) && rule.parts.length && rule.parts.every(part => ['CCGT030102', 'CCGT040102'].includes(part) &&
+            inserts.some(insert => insert.parts === part && insert.grade === rule.grade));
+      }).map(rule => ({ ...rule, parts: [...rule.parts], source: { ...equivalence.source } })) : [];
     const materials = unique(cuttingRows.map(row => row.workpiece_material)).map(label => ({
       id: label,
       label,
@@ -140,7 +149,7 @@
       ) : {};
     const systemInsertNames = unique((inventory.critical_source_issues || []).flatMap(issue => issue.catalog_system_insert_names || []));
     return {
-      bars, holders, adapters, inserts, insertGeometries, materials, cuttingRows, systemInsertNames, verifiedInsertRules, gradeMaterials,
+      bars, holders, adapters, inserts, insertGeometries, materials, cuttingRows, systemInsertNames, verifiedInsertRules, gradeMaterials, confirmedConditionRules,
       conditions: unique(cuttingRows.map(row => row.cutting_condition_or_surface_finish)),
       series: unique(bars.map(bar => bar.series)),
       grades: cutting.grade_descriptions || [],
@@ -183,8 +192,8 @@
         reviewNotes: exactGeometry ? [] : ['This bar lists only the CC...0602... family. Confirm the official mapping between CCGH060204 and the physical inserts on p162 with the manufacturer.']
       };
     });
-    // 原列沒有「幾何已確認＋牌號符合」的實體刀片時，才顯示獨立的參考資格。
-    // recommended／gradeMatch 仍只代表原選定列，不能藉此升級成型錄已確認配對。
+    // 原列沒有「幾何已確認＋牌號符合」的實體刀片時，才檢查同材料的共用條件。
+    // gradeMatch 保留原列意義；recommended 可另採已確認條件，未確認的資料仍只供試切參考。
     const pair = cuttingRow && REFERENCE_PAIRS[cuttingRow.id];
     const referenceRow = pair && cuttingRow.workpiece_material === pair.material &&
       cuttingRow.cutting_condition_or_surface_finish === 'Regular cutting' && !cuttingRow.hardness_condition &&
@@ -194,7 +203,15 @@
         !row.hardness_condition && row.grade_candidates.includes('NC30')) || null : null;
     return options.map(option => {
       const referenceRecommended = !!referenceRow && option.exactGeometry && option.materialSuitable !== false && option.grade === 'NC30';
-      return { ...option, referenceRecommended, referenceRow: referenceRecommended ? referenceRow : null };
+      const conditionRule = referenceRecommended && model.confirmedConditionRules?.find(rule =>
+        rule.requested_row_id === cuttingRow.id && rule.source_row_id === referenceRow.id &&
+        rule.material === material && rule.grade === option.grade && rule.parts.includes(option.parts));
+      const conditionEquivalent = !!conditionRule;
+      return { ...option, recommended: option.recommended || conditionEquivalent, conditionEquivalent,
+        confirmedCuttingRow: conditionEquivalent ? referenceRow : null,
+        conditionConfirmation: conditionEquivalent ? conditionRule.source : null,
+        referenceRecommended: referenceRecommended && !conditionEquivalent,
+        referenceRow: referenceRecommended && !conditionEquivalent ? referenceRow : null };
     });
   }
 
@@ -285,7 +302,7 @@
     } else if (!cuttingRow) {
       cuttingStatus = 'no_data';
       reviewNotes.push('No confirmed catalog cutting row exists for this material and condition. Geometric candidates remain available with manual cutting inputs.');
-    } else if (insertOptions.some(insert => insert.exactGeometry && insert.gradeMatch)) cuttingStatus = 'confirmed';
+    } else if (insertOptions.some(insert => insert.recommended)) cuttingStatus = 'confirmed';
     else if (insertOptions.some(insert => insert.gradeMatch)) {
       cuttingStatus = 'geometry_review';
       reviewNotes.push('The cutting-row grade exists, but the mapping from CC...0602... to a physical insert part remains unconfirmed. Compatibility is not assumed.');
@@ -380,7 +397,7 @@
       if (depth !== null && depth > bar.l1 + EPSILON) errors.push(`Boring depth exceeds this bar's listed L1 of ${bar.l1} mm.`);
     }
     const options = bar ? insertOptionsFor(model, bar, cuttingRow, material) : [];
-    // 舊 API 預設不採用跨條件資料；呼叫端必須明確開啟，且原列的直接配對永遠優先。
+    // 未確認的跨條件試切參考仍須明確開啟；原列的直接配對優先於已確認共用條件。
     const allowReference = input.allowReference === true;
     let insert = null;
     if (!missing(input.insertId)) {
@@ -389,7 +406,7 @@
     } else if (input.autoSelectInsert === false) {
       errors.push('Choose an applicable insert for the selected material.');
     } else {
-      const matched = options.filter(option => option.exactGeometry && option.gradeMatch);
+      const matched = options.filter(option => option.recommended);
       if (matched.length === 1) insert = matched[0];
       else {
         const references = allowReference && matched.length === 0 ? options.filter(option => option.referenceRecommended) : [];
@@ -399,18 +416,21 @@
     }
     const referenceMode = allowReference && !!insert?.referenceRecommended;
     const referenceRow = referenceMode ? insert.referenceRow : null;
-    const usedCuttingRow = referenceMode ? referenceRow : cuttingRow;
+    const conditionEquivalent = !!insert?.conditionEquivalent;
+    const conditionConfirmation = insert?.conditionConfirmation || null;
+    const usedCuttingRow = conditionEquivalent ? insert.confirmedCuttingRow : referenceMode ? referenceRow : cuttingRow;
     let recommendation = null;
-    if (insert && insert.exactGeometry && ((insert.gradeMatch && cuttingRow) || referenceMode)) {
+    if (insert && insert.exactGeometry && ((insert.recommended && cuttingRow) || referenceMode)) {
       const vcSequence = usedCuttingRow.cutting_speed.catalog_sequence;
       const feedSequence = usedCuttingRow.feed_per_revolution.catalog_sequence;
       recommendation = {
         vc: vcSequence[Math.floor(vcSequence.length / 2)],
         feed: feedSequence[Math.floor(feedSequence.length / 2)],
         source: referenceMode ? 'catalog_reference' : 'site_median',
-        basis: referenceMode ? 'same_material_other_condition' : 'selected_condition',
+        basis: conditionEquivalent ? 'user_confirmed_same_parameters' : referenceMode ? 'same_material_other_condition' : 'selected_condition',
         sourceRow: usedCuttingRow,
-        label: referenceMode ? 'Same-material NC30 interrupted-cutting trial reference (selected regular cutting remains unconfirmed)' : 'Site median starting point (adjustable; not a catalog optimum)',
+        confirmation: conditionConfirmation,
+        label: conditionEquivalent ? 'User-confirmed shared cutting parameters' : referenceMode ? 'Same-material NC30 interrupted-cutting trial reference (selected regular cutting remains unconfirmed)' : 'Site median starting point (adjustable; not a catalog optimum)',
         vcSequence: [...vcSequence],
         feedSequence: [...feedSequence]
       };
@@ -419,7 +439,7 @@
     if (insert?.materialSuitable === false) errors.push('The selected insert grade is not listed for the chosen material.');
     if (insert && !insert.exactGeometry) warnings.push('This insert matches only a family wildcard. Confirm the physical geometry with the manufacturer; cutting recommendations are not applied automatically.');
     if (referenceMode) warnings.push(REFERENCE_WARNING);
-    else if (insert && cuttingRow && !insert.gradeMatch) warnings.push('The selected physical insert grade is absent from this row. Conditions from another material or operation are not substituted.');
+    else if (insert && cuttingRow && !insert.gradeMatch && !conditionEquivalent) warnings.push('The selected physical insert grade is absent from this row. Conditions from another material or operation are not substituted.');
     if (cuttingRow?.hardness_condition) warnings.push('This H-material cutting row applies only to HRC < 50. Confirm actual hardness.');
 
     const manualVc = !missing(input.vc);
@@ -457,12 +477,12 @@
     if (ae !== null && aeLimit === null) warnings.push('The physical insert Re or its catalog Ae mapping is unconfirmed. Radial stock cannot be marked as verified.');
     if (candidate?.status !== 'confirmed') warnings.push(...(candidate?.reviewNotes || []), 'This combination still requires review. Calculated values do not approve the complete assembly.');
     const excessAe = ae !== null && aeLimit !== null && ae > aeLimit + EPSILON;
-    const canCopy = errors.length === 0 && !referenceMode && candidate?.status === 'confirmed' && !!insert?.exactGeometry && !!insert?.gradeMatch && !cuttingRow?.hardness_condition && !excessAe;
+    const canCopy = errors.length === 0 && !referenceMode && candidate?.status === 'confirmed' && !!insert?.recommended && !cuttingRow?.hardness_condition && !excessAe;
     return {
       rpm, feedRate, diameter, depth, ae, aeLimit, vc, feed,
       canCopy, errors: unique(errors), warnings: unique(warnings), recommendation,
       grade: insert?.grade || null, insert, cuttingRow, requestedCuttingRow: cuttingRow, referenceRow, usedCuttingRow, source,
-      machineMaxRpm, prebore, useRecommendations, allowReference, referenceMode,
+      machineMaxRpm, prebore, useRecommendations, allowReference, referenceMode, conditionEquivalent, conditionConfirmation,
       formula: { rpm: '1000 × Vc ÷ (π × D)', feedRate: 'S × f (no tooth-count factor)', ae: '(D − prebore) ÷ 2' }
     };
   }

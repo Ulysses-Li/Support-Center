@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>NineBore 原廠待確認清單｜2026-11-12</title>
+  <title>NineBore 原廠待確認清單｜更新 2026-11-18</title>
   <meta name="description" content="NineBore 刀片牌號、正式切削條件、訂購變體及組裝尺寸待確認清單，供原廠填覆與列印。">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../header/header.css">
@@ -82,9 +82,9 @@
         <header>
           <p class="mq-eyebrow mb-2">NINEBORE · 原廠技術資料補充</p>
           <h1>原廠待確認清單</h1>
-          <p class="mb-3">建立日期：<time datetime="2026-11-12">2026-11-12</time>　｜　範圍：刀片牌號與切削資料、99121 訂購變體、夾持及總成尺寸</p>
-          <p class="mq-note mb-4"><strong>本文件是問題與資料補充清單，非切削建議書。</strong><br>請原廠依實際刀片、材料及組裝條件填覆，並提供正式文件、版本／日期與頁碼。未列明的數值不視為零，也不以其他牌號或切削條件代替。</p>
-          <!-- 目前案例保留實際加工需求，讓原廠先處理小刀片一般切削資料的缺口。 -->
+          <p class="mb-3">建立日期：<time datetime="2026-11-12">2026-11-12</time>　｜　更新日期：<time datetime="2026-11-18">2026-11-18</time><br>範圍：刀片牌號與切削資料、99121 訂購變體、夾持及總成尺寸</p>
+          <p class="mq-note mb-4"><strong>本文件是問題與資料補充清單，非切削建議書。</strong><br>請原廠依實際刀片、材料及組裝條件填覆，並提供正式文件、版本／日期與頁碼。未列明的數值不視為零；除下列已記錄的使用者確認外，不以其他牌號或切削條件代替。</p>
+          <!-- 目前案例保留實際加工需求；小刀片 NC30 參數沿用已確認，其餘夾持與伸出問題繼續追蹤。 -->
           <section class="mq-case" aria-labelledby="case-title">
             <h2 id="case-title" class="h5 mb-3">目前客戶案例</h2>
             <dl class="row g-3 mb-0">
@@ -96,7 +96,7 @@
               <div class="col-6 col-md-4"><dt>預期切削條件</dt><dd>一般切削 Regular cutting</dd></div>
             </dl>
           </section>
-          <p class="mt-3 mb-2"><strong>本次不重問：</strong>99121 有 Ø13／Ø16／Ø20 後端柄徑選項已確認；CCFT060204、CCFW060204 適用 99101／99121 已有原廠系列頁佐證。以下只詢問尚缺的細項與正式數據。</p>
+          <p class="mt-3 mb-2"><strong>本次不重問：</strong>使用者已於 2026-11-18 確認，小刀片 NC30 在同材料的一般切削與斷續切削使用相同參數，原問題 01 已結案；99121 有 Ø13／Ø16／Ø20 後端柄徑選項已確認；CCFT060204、CCFW060204 適用 99101／99121 已有原廠系列頁佐證。其餘 6 項繼續詢問。此確認不新增產品、刀片或牌號。</p>
           <p class="mq-no-print text-secondary mb-3">原廠可直接點選回覆區填寫，再列印或另存 PDF。輸入內容不會送出至任何服務，也不會自動儲存；請保留完成後的 PDF。</p>
           <div class="d-flex flex-wrap gap-2 mq-no-print">
             <button type="button" class="btn mq-print-button" id="print-questions">列印／另存 PDF</button>
@@ -104,9 +104,9 @@
             <a class="btn mq-back-button" href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf" target="_blank" rel="noopener">查看產品型錄</a>
           </div>
           <nav class="mq-overview mt-4" aria-labelledby="overview-title">
-            <h2 id="overview-title" class="h5">待確認問題一覽</h2>
+            <h2 id="overview-title" class="h5">資料狀態：1 項已確認、6 項待確認</h2>
             <ol>
-              <li><a href="#question-01">小刀片 NC30 的一般切削數據</a></li>
+              <li><a href="#question-01">已確認：小刀片 NC30 一般切削沿用同材料斷續切削參數</a></li>
               <li><a href="#question-02">0602／NC30 的實體訂購料號</a></li>
               <li><a href="#question-03">CCGH0602U 的牌號、版本與 Re</a></li>
               <li><a href="#question-04">99121 三種柄徑與長度對照</a></li>
@@ -117,32 +117,28 @@
           </nav>
         </header>
 
-        <section class="mq-question" id="question-01" aria-labelledby="question-01-title">
-          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 01／07 · 切削資料</span><span class="mq-priority">P1 優先：影響目前案例</span></div>
-          <h2 id="question-01-title">小刀片 NC30 的一般切削正式條件</h2>
-          <h3>已知資料</h3>
-          <p>p162 實體 CCGT030102／CCGT040102 列 NC30、NC9036，未列 NC2033；碳鋼、合金鋼、不鏽鋼的「一般切削」列卻指定 NC2033。NC30 的牌號說明包含這三類材料，但表內 NC30 數據對應「斷續切削」。<strong>缺的是小刀片 NC30 的一般切削條件，不是判定 NC30 不適合這些材料。</strong></p>
-          <h3>請原廠填覆</h3>
-          <p>請按實體刀片與材料提供一般切削的正式 Vc、每轉進給 f、徑向餘量 Ae，以及適用限制。若可直接沿用某列，請明確指出「哪一牌號／刀片可沿用哪一列」，並附原廠依據。</p>
+        <!-- 原問題 01 保留錨點與確認紀錄，避免既有連結失效；不再要求重複填覆。 -->
+        <section class="mq-question" id="question-01" aria-labelledby="question-01-title" data-status="user-confirmed">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">原問題 01 · 切削資料</span><span class="mq-priority mq-priority-secondary">已確認：2026-11-18</span></div>
+          <h2 id="question-01-title">小刀片 NC30 一般切削沿用同材料斷續切削參數</h2>
+          <p class="mq-note"><strong>使用者確認：</strong>「一般切削 與斷續切削 一樣的參數」。本項依 2026-11-18 對話確認結案，來源標示為使用者確認，並非新增的原廠正式文件。</p>
+          <h3>已確認的採用方式</h3>
+          <p>現有外銷刀片 CCGT030102／NC30、CCGT040102／NC30，在碳鋼、合金鋼、不鏽鋼的一般切削，沿用同材料 NC30 斷續切削列的 Vc、每轉進給 f 與 Ae。保留型錄原列與來源，不借用 NC2033 的數值，不新增原本未販售的品項。</p>
           <div class="table-responsive"><table class="table table-bordered mq-table mb-2">
-            <caption class="visually-hidden">小刀片 NC30 一般切削資料回填表，單位 Vc：m/min、f：mm/rev、Ae：mm。</caption>
-            <thead><tr><th scope="col">刀片／牌號</th><th scope="col">材料</th><th scope="col">Vc<br>m/min</th><th scope="col">f<br>mm/rev</th><th scope="col">Ae<br>mm</th><th scope="col">限制／正式來源</th></tr></thead>
+            <caption class="visually-hidden">小刀片 NC30 已確認沿用的參數；兩種現有刀片按相同材料使用，Vc 單位 m/min、f 單位 mm/rev、Ae 單位 mm。</caption>
+            <thead><tr><th scope="col">現有刀片／牌號</th><th scope="col">材料</th><th scope="col">Vc<br>m/min</th><th scope="col">f<br>mm/rev</th><th scope="col">Ae<br>mm</th><th scope="col">採用依據</th></tr></thead>
             <tbody>
-              <tr><th scope="row">CCGT030102<br>NC30</th><td>碳鋼</td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 碳鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 碳鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 碳鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 碳鋼限制與正式來源"></div></td></tr>
-              <tr><th scope="row">CCGT030102<br>NC30</th><td>合金鋼</td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 合金鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 合金鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 合金鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 合金鋼限制與正式來源"></div></td></tr>
-              <tr><th scope="row">CCGT030102<br>NC30</th><td><strong>不鏽鋼</strong></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 不鏽鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 不鏽鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 不鏽鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT030102 NC30 不鏽鋼限制與正式來源"></div></td></tr>
-              <tr><th scope="row">CCGT040102<br>NC30</th><td>碳鋼</td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 碳鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 碳鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 碳鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 碳鋼限制與正式來源"></div></td></tr>
-              <tr><th scope="row">CCGT040102<br>NC30</th><td>合金鋼</td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 合金鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 合金鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 合金鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 合金鋼限制與正式來源"></div></td></tr>
-              <tr><th scope="row">CCGT040102<br>NC30</th><td>不鏽鋼</td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 不鏽鋼一般切削 Vc"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 不鏽鋼一般切削 f"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 不鏽鋼一般切削 Ae"></div></td><td><div class="mq-fill" contenteditable="true" role="textbox" aria-label="CCGT040102 NC30 不鏽鋼限制與正式來源"></div></td></tr>
+              <tr><th scope="row">CCGT030102／NC30<br>CCGT040102／NC30</th><td>碳鋼</td><td>100／120／140</td><td>0.04／0.05／0.08</td><td>0.05（Re 0.2）</td><td>同材料 NC30 斷續切削列；一般切削適用性由使用者確認。</td></tr>
+              <tr><th scope="row">CCGT030102／NC30<br>CCGT040102／NC30</th><td>合金鋼</td><td>80／100／120</td><td>0.04／0.05／0.08</td><td>0.05（Re 0.2）</td><td>同材料 NC30 斷續切削列；一般切削適用性由使用者確認。</td></tr>
+              <tr><th scope="row">CCGT030102／NC30<br>CCGT040102／NC30</th><td>不鏽鋼</td><td>70／80／100</td><td>0.05／0.07／0.10</td><td>0.05（Re 0.2）</td><td>同材料 NC30 斷續切削列；一般切削適用性由使用者確認。</td></tr>
             </tbody>
           </table></div>
-          <p class="small mb-2">請一併註明材料牌號／硬度、冷卻方式、Re、伸出／孔深限制；若以三個數值表示範圍，請定義各值的意義。現有表格未將三值逐一命名為最小／最佳／最大。</p>
-          <div class="mq-fill mq-fill-large" contenteditable="true" role="textbox" aria-multiline="true" aria-label="問題01補充回覆與正式依據" data-placeholder="補充回覆、文件名稱／版本／日期／頁碼或官方連結："></div>
-          <p class="mq-source">依據：<a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=15" target="_blank" rel="noopener">型錄 p162：實體刀片、牌號說明及 Cutting Data</a><a href="https://nine9.jic-tools.com.tw/Inserts-For-99101-121-111-146-151.html" target="_blank" rel="noopener">原廠系列刀片頁</a></p>
+          <p class="small mb-2">三個數值保留型錄順序；網站採中間值作為可調整的起始值，不將它命名為型錄最佳值。刀片實體配對、材料及組裝限制仍分別核對，原問題 02～07 不因本項確認而結案。</p>
+          <p class="mq-source">來源：2026-11-18 使用者對話確認（user_confirmation）；參數原值：<a href="./sources/13_NineBore%20Boring%20Tool_p148-166.pdf#page=15" target="_blank" rel="noopener">型錄 p162：同材料 NC30 斷續切削列與 Ae</a>。本項無須重複填覆。</p>
         </section>
 
         <section class="mq-question" id="question-02" aria-labelledby="question-02-title">
-          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 02／07 · 實體料號</span><span class="mq-priority">P1 優先：缺可訂購刀片</span></div>
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">待確認 01／06（原問題 02）· 實體料號</span><span class="mq-priority">P1 優先：缺可訂購刀片</span></div>
           <h2 id="question-02-title">0602 尺寸使用 NC30 時，應訂購哪一片？</h2>
           <h3>已知資料</h3>
           <p>p162 的 0602 實體庫只有 CCGH0602U／XP9001、CCFT060204／NC2033 或 NC9036、CCFW060204／NC2032，未列 0602／NC30；但碳鋼、合金鋼、不鏽鋼斷續切削，以及 HRC &lt; 50 淬硬鋼一般切削都列 NC30。p151 系統頁另寫 CCGH060204，不能自行將它當作上述其他料號的別名。</p>
@@ -153,7 +149,7 @@
         </section>
 
         <section class="mq-question" id="question-03" aria-labelledby="question-03-title">
-          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 03／07 · 版本差異</span><span class="mq-priority mq-priority-secondary">P2：訂購與數據一致性</span></div>
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">待確認 02／06（原問題 03）· 版本差異</span><span class="mq-priority mq-priority-secondary">P2：訂購與數據一致性</span></div>
           <h2 id="question-03-title">CCGH0602U 的現行牌號、正式名稱及 Re</h2>
           <h3>已知資料</h3>
           <p>參考型錄 p162 列 CCGH0602U／XP9001／Uncoated，Re 為「—」。現行官網表格則列 CCGH0602U／DLC／NC9036，上方牌號說明另有 U-NC9036。舊 XP9001 的 0.15 mm 特殊切削寬度說明，不能直接當作此實體刀片的 Re。</p>
@@ -164,7 +160,7 @@
         </section>
 
         <section class="mq-question" id="question-04" aria-labelledby="question-04-title">
-          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 04／07 · 訂購變體</span><span class="mq-priority mq-priority-secondary">P2：需完整型號對照</span></div>
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">待確認 03／06（原問題 04）· 訂購變體</span><span class="mq-priority mq-priority-secondary">P2：需完整型號對照</span></div>
           <h2 id="question-04-title">99121 三種柄徑的訂購碼與 50（48）長度映射</h2>
           <h3>已知資料</h3>
           <p>Ø13／Ø16／Ø20 選項已確認，本題不再詢問是否有這些柄徑。p153 圖面標 Ø20（Ø13）及後柄軸向長度 50（48），各表列料號未給三種柄徑的訂購變體與長度對照。</p>
@@ -183,7 +179,7 @@
         </section>
 
         <section class="mq-question" id="question-05" aria-labelledby="question-05-title">
-          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 05／07 · 直柄實際可用深度</span><span class="mq-priority">P1 優先：本案深度等於 L1</span></div>
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">待確認 04／06（原問題 05）· 直柄實際可用深度</span><span class="mq-priority">P1 優先：本案深度等於 L1</span></div>
           <h2 id="question-05-title">前頸 L1、可用搪深與最小夾持量</h2>
           <h3>已知資料</h3>
           <p>p152／153 的 L1 是前頸圖示尺寸，未明文標成所有裝夾情況下的保證搪孔深度。00-99121-05 表列 L1＝15 mm、L＝54 mm；本案要求搪深同為 15 mm，需核對錐肩、調整環與工件入口的間隙，不能單憑深度等於 L1 就判定可用。</p>
@@ -194,7 +190,7 @@
         </section>
 
         <section class="mq-question" id="question-06" aria-labelledby="question-06-title">
-          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 06／07 · 深孔總成</span><span class="mq-priority mq-priority-secondary">P2：伸出與插入尺寸缺口</span></div>
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">待確認 05／06（原問題 06）· 深孔總成</span><span class="mq-priority mq-priority-secondary">P2：伸出與插入尺寸缺口</span></div>
           <h2 id="question-06-title">99151 刀桿插入轉接座的要求與總成伸出</h2>
           <h3>已知資料</h3>
           <p>p158 列 00-99151A-06／08／10／11／15.5，轉接座 L 為前端至快換柄肩的尺寸，後方 42 mm 另標。p159 刀桿 L、L1 各有意義，不能把刀柄、轉接座、刀桿的 L 直接相加當作總成伸出或加工深度。</p>
@@ -205,7 +201,7 @@
         </section>
 
         <section class="mq-question" id="question-07" aria-labelledby="question-07-title">
-          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">問題 07／07 · 總成使用限制</span><span class="mq-priority mq-priority-secondary">P2：依實際組裝補資料</span></div>
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><span class="mq-number">待確認 06／06（原問題 07）· 總成使用限制</span><span class="mq-priority mq-priority-secondary">P2：依實際組裝補資料</span></div>
           <h2 id="question-07-title">總成最高轉速、內冷通路與 SB32 外接夾持</h2>
           <h3>已知資料</h3>
           <p>G6.3／10,000 rpm 是型錄平衡參考，未列成全部組裝共用的最高可用轉速。p153 僅說明 99121 自 Ø7 mm 起可按需訂製 H 型內冷，本案 Ø5 mm 未取得內冷支援證據；99151 刀桿與轉接座的逐項內冷狀態也未明列。SB32 是 Ø32 直柄接續介面，仍需外部機台刀柄夾持。</p>
@@ -222,7 +218,7 @@
             <div class="col-12 col-sm-6"><p class="mq-label mb-1">回覆日期／文件版本</p><div class="mq-fill" contenteditable="true" role="textbox" aria-label="原廠回覆日期與文件版本"></div></div>
             <div class="col-12"><p class="mq-label mb-1">附件、圖號與尚待提供項目</p><div class="mq-fill" contenteditable="true" role="textbox" aria-multiline="true" aria-label="原廠附件圖號與尚待提供項目"></div></div>
           </div>
-          <p class="mq-source mb-0">頁碼均為隨頁提供之 NineBore 型錄的印刷頁碼；連結已換算成 PDF 頁次。現行官網核對日期：2026-11-12。此清單不推定缺漏數值，不構成已驗證的完整加工組裝。</p>
+          <p class="mq-source mb-0">頁碼均為隨頁提供之 NineBore 型錄的印刷頁碼；連結已換算成 PDF 頁次。現行官網核對日期：2026-11-12；小刀片 NC30 條件共用的使用者確認日期：2026-11-18。此清單不推定缺漏數值，不構成已驗證的完整加工組裝。</p>
         </section>
       </div>
     </div>

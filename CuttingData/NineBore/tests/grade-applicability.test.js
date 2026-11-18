@@ -10,7 +10,8 @@ const research = path.join(__dirname, '..', 'data');
 const read = name => JSON.parse(fs.readFileSync(path.join(research, `${name}.json`), 'utf8'));
 const specs = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'confirmed-specs.json'), 'utf8'));
 const normalize = evidence => core.normalize(read('product-inventory'), read('clamping-data'), read('cutting-data'), evidence);
-const model = normalize(specs);
+// 適材與舊試切流程可獨立於後續共用參數確認運作；新確認另有專屬回歸測試。
+const model = normalize({ ...specs, cutting_condition_equivalence: undefined });
 const base = {
   diameter: 5, depth: 10, material: 'Stainless Steel', condition: 'Regular cutting',
   clamping: 'existing_general', generalType: 'hydraulic', gripDiameter: 20

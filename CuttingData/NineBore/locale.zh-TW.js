@@ -23,6 +23,10 @@
 
   // 核心訊息與圖面固定字串集中管理；未列出的文字原樣回傳，避免誤翻產品資料。
   const MESSAGES = Object.freeze({
+    'User-confirmed shared cutting parameters':'使用者已確認共用切削參數',
+    'Regular and interrupted cutting use the same parameters for this material and NC30.':'此材料、NC30 的一般切削與斷續切削使用相同參數。',
+    'User-confirmed parameters':'已確認共用參數',
+    'median':'中間值',
     'A same-material NC30 interrupted-cutting row is available only as a separately labeled trial reference.':'同材料 NC30 的斷續切削資料僅能獨立標示為試切參考，不代表一般切削建議。',
     'Reference values use the same material with NC30 under interrupted cutting; they are not catalog recommendations for the selected regular-cutting condition.':'參考值來自相同材料、NC30 的斷續切削資料，不是型錄對目前一般切削條件的推薦值。',
     'Same-material NC30 interrupted-cutting trial reference (selected regular cutting remains unconfirmed)':'同材料 NC30 斷續切削試切參考（尚非一般切削原廠推薦）',

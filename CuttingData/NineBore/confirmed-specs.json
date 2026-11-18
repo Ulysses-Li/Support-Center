@@ -28,6 +28,20 @@
       "XP9001": ["Non-ferrous metal"]
     }
   },
+  "cutting_condition_equivalence": {
+    "status": "confirmed",
+    "source": {
+      "kind": "user_confirmation",
+      "date": "2026-11-18",
+      "statement_zh_tw": "一般切削 與斷續切削 一樣的參數",
+      "scope_zh_tw": "既有外銷 CCGT030102／CCGT040102、NC30，在相同碳鋼／合金鋼／不鏽鋼材料下，一般切削沿用斷續切削的 Vc、每轉進給與 Ae；不新增品項或牌號，不取代其他牌號的原切削列。"
+    },
+    "rules": [
+      { "material": "Carbon Steel", "grade": "NC30", "parts": ["CCGT030102", "CCGT040102"], "requested_row_id": "carbon-regular", "source_row_id": "carbon-interrupted" },
+      { "material": "Alloy Steel", "grade": "NC30", "parts": ["CCGT030102", "CCGT040102"], "requested_row_id": "alloy-regular", "source_row_id": "alloy-interrupted" },
+      { "material": "Stainless Steel", "grade": "NC30", "parts": ["CCGT030102", "CCGT040102"], "requested_row_id": "stainless-regular", "source_row_id": "stainless-interrupted" }
+    ]
+  },
   "insert_compatibility": {
     "status": "verified",
     "source": {

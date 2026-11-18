@@ -165,16 +165,17 @@
     $('resultDepth').textContent=Number.isFinite(c.depth)?`${fmt(c.depth)} mm`:'—';$('mobileDepth').textContent=fmt(c.depth);
     $('resultL1').textContent=b?`${fmt(b.l1)} mm`:'—';$('l1Label').textContent=b?.depthKind==='front_neck'?'Front-neck L1':'Boring depth L1';
     renderChecks();
-    $('referenceNote').hidden=!c.referenceMode;
-    $('referenceNote').textContent=c.referenceMode?`${c.insert.parts} / NC30${isChinese?'：':': '}${translate('Suitable for the selected material.')}\n${translate('The regular-cutting table specifies')} ${c.cuttingRow.grade_candidates.join(' / ')}${isChinese?'；':'; '}${translate('this insert does not have that listed grade.')}\n${translate(origin==='manual'?'The displayed cutting values are your manual inputs.':'Shown values use the same-material NC30 interrupted-cutting row as a trial reference. Regular-cutting values are listed for manufacturer confirmation.')}`:'';
+    $('referenceNote').hidden=!c.referenceMode&&!c.conditionEquivalent;
+    // 已確認的共用條件與舊試切參考分開說明；型錄來源仍顯示實際採用的斷續切削列。
+    $('referenceNote').textContent=c.conditionEquivalent?`${translate('User-confirmed shared cutting parameters')} · ${c.conditionConfirmation.date}\n${translate('Regular and interrupted cutting use the same parameters for this material and NC30.')}${origin==='manual'?'\n'+translate('The displayed cutting values are your manual inputs.'):''}`:c.referenceMode?`${c.insert.parts} / NC30${isChinese?'：':': '}${translate('Suitable for the selected material.')}\n${translate('The regular-cutting table specifies')} ${c.cuttingRow.grade_candidates.join(' / ')}${isChinese?'；':'; '}${translate('this insert does not have that listed grade.')}\n${translate(origin==='manual'?'The displayed cutting values are your manual inputs.':'Shown values use the same-material NC30 interrupted-cutting row as a trial reference. Regular-cutting values are listed for manufacturer confirmation.')}`:'';
     $('referenceQuestions').hidden=!selected||!!c.recommendation&&!c.referenceMode;
     $('insertMaterialNotice').hidden=!rejectedInsert;
     $('insertMaterialNotice').textContent=rejectedInsert?`${translate('This grade is not listed for the selected material:')} ${rejectedInsert.grade}${isChinese?'。 ':'. '}${translate('Choose an applicable grade from the insert list.')}`:'';
     assembly();
-    $('insertHint').textContent=c.insert?`${c.insert.coating} · ${c.insert.matchEvidence==='manufacturer_series_and_p162_part'?'Manufacturer-listed compatible insert':c.insert.exactGeometry?'Listed insert geometry':'Family shown in catalog; confirm the exact insert'}${c.insert.gradeMatch?' · Grade matches this cutting row':c.referenceMode?' · Material match / trial reference':''}`:selected?.cuttingStatus==='geometry_review'?'The catalog lists a 0602 family. Choose the actual insert to review the setup; its exact pairing needs confirmation.':selected?'Choose a listed insert / grade to set cutting values.':'';
+    $('insertHint').textContent=c.insert?`${c.insert.coating} · ${c.insert.matchEvidence==='manufacturer_series_and_p162_part'?'Manufacturer-listed compatible insert':c.insert.exactGeometry?'Listed insert geometry':'Family shown in catalog; confirm the exact insert'}${c.conditionEquivalent?' · User-confirmed shared cutting parameters':c.insert.gradeMatch?' · Grade matches this cutting row':c.referenceMode?' · Material match / trial reference':''}`:selected?.cuttingStatus==='geometry_review'?'The catalog lists a 0602 family. Choose the actual insert to review the setup; its exact pairing needs confirmation.':selected?'Choose a listed insert / grade to set cutting values.':'';
     $('medianButton').disabled=!c.recommendation;
     $('medianButton').textContent=c.referenceMode?'Restore reference values':'Use median values';
-    $('valueOrigin').textContent=origin==='median'&&c.recommendation?(c.referenceMode?'Trial reference · catalog middle values':'Site median · adjustable'):origin==='manual'?'Your cutting values':'Enter cutting values';
+    $('valueOrigin').textContent=origin==='median'&&c.recommendation?(c.conditionEquivalent?'User-confirmed parameters · median':c.referenceMode?'Trial reference · catalog middle values':'Site median · adjustable'):origin==='manual'?'Your cutting values':'Enter cutting values';
     const cut=c.usedCuttingRow||c.cuttingRow;
     $('cuttingSource').textContent=cut?`${cut.workpiece_material} · ${cut.cutting_condition_or_surface_finish}. Listed Vc: ${cut.cutting_speed.catalog_sequence.join(' / ')} m/min; f: ${cut.feed_per_revolution.catalog_sequence.join(' / ')} mm/rev. Catalog p. 162.`:'No confirmed cutting row for this material and condition. Manual values remain separate from catalog recommendations.';
     $('aeResult').textContent=c.ae!==null?`Radial Ae ${(fmt(c.ae))} mm${c.aeLimit!==null?` · table value ${fmt(c.aeLimit)} mm for this Re`:''}.`:'Ae = (finished D − pre-bored D) / 2.';
@@ -195,7 +196,7 @@
     if(!selected){$('selectionChecks').innerHTML='';return;}
     const c=calculation,b=selected.bar;
     const material=translate(controls.material.value||'Material not set');
-    const materialText=c.insert?`${material} → ${c.insert.grade}${c.referenceMode?' · '+translate('material suitable'):c.insert.gradeMatch?' · '+translate('Material grade matched'):''}`:material+' · '+translate('Choose an insert / grade');
+    const materialText=c.insert?`${material} → ${c.insert.grade}${c.conditionEquivalent?' · '+translate('User-confirmed shared cutting parameters'):c.referenceMode?' · '+translate('material suitable'):c.insert.gradeMatch?' · '+translate('Material grade matched'):''}`:material+' · '+translate('Choose an insert / grade');
     const shankText=straightShank() ? findings.criteria.gripDiameter===null?translate('Choose shank Ød'):Number.isFinite(b.shankD)?`Ø${fmt(b.shankD)} mm · ${translate('Catalog shank listed')}`:selected.shankStatus==='confirmed'?`Ø${fmt(selected.selectedShankD)} mm · ${translate('Available shank option')}`:`Ø${fmt(findings.criteria.gripDiameter)} mm · ${translate('Drawing option; confirm applicable part')}` : selected.holder?selected.holder.partsNo+(selected.holder.requiresExternal32?' · '+translate('External Ø32 chuck required'):''):translate('Choose a holder');
     const reachText=c.depth===null?translate('Enter depth to compare reach'):b.depthKind==='front_neck'?translate('Front-neck dimension only; check actual projection'):selected.adapter?translate('Adapter insertion / projection to confirm'):translate('Requested depth within catalog L1');
     const checks=[['Material & insert',materialText],['Clamping / shank',shankText],['Reach check',reachText]];
@@ -208,6 +209,7 @@
     if(selected.adapter)lines.push(`Adapter: ${selected.adapter.partsNo}`);
     if(straightShank()&&findings.criteria.gripDiameter!==null)lines.push(`Bar shank diameter: Ø${fmt(findings.criteria.gripDiameter)} mm`);
     lines.push(`Insert: ${c.insert.parts} | Grade: ${c.insert.grade}`,`Vc: ${fmt(c.vc)} m/min | f: ${fmt(c.feed)} mm/rev`,`Spindle speed: ${fmt(c.rpm,0)} rpm | Feed rate: ${fmt(c.feedRate,1)} mm/min`,`Values: ${origin==='median'?'Site median starting values':'User cutting values'}`);
+    if(c.conditionEquivalent)lines.push(translate('User-confirmed shared cutting parameters')+' · '+c.conditionConfirmation.date,translate('Regular and interrupted cutting use the same parameters for this material and NC30.'));
     if(c.ae!==null)lines.push(`Radial stock Ae: ${fmt(c.ae)} mm`);
     lines.push('Requested depth is not a programmed Z or machining cycle. Confirm machine/clamping limits and workpiece clearance.',...c.warnings,new URL(`${pdf}#page=${b.sourcePage-147}`,location.href).href);
     return lines.map(translate).join('\n');
