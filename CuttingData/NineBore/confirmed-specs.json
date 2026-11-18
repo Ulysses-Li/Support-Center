@@ -32,6 +32,19 @@
         "statement_zh_tw": "這刀子有Ø20 Ø16 Ø13",
         "scope_zh_tw": "99121可選後端夾持柄徑；未指定變體訂購料號、長度或最小夾持量。"
       }
+    },
+    "99151": {
+      "dimension_definitions": {
+        "status": "confirmed",
+        "L": "bar_overall_length",
+        "L1": "designed_boring_depth",
+        "source": {
+          "kind": "user_confirmation",
+          "date": "2026-11-18",
+          "statement_zh_tw": "L是總長，L1是設計可以加工的深度",
+          "scope_zh_tw": "99151刀桿的L為刀桿總長，L1為設計可加工深度；保留型錄原值，不推算轉接座插入量或整組伸出長度。"
+        }
+      }
     }
   },
   "usable_depth": {
@@ -44,6 +57,29 @@
       "date": "2026-11-18",
       "statement_zh_tw": "L1就是可以做的；15mm就保證15mm可以做。",
       "scope_zh_tw": "99101／99121 的 L1 即可加工深度，需求深度小於或等於 L1 均符合；不推定最小有效夾持量或99151總成尺寸。"
+    }
+  },
+  "operating_features": {
+    "center_coolant": {
+      "status": "confirmed",
+      "supply": "custom_order",
+      "source": {
+        "kind": "user_confirmation",
+        "date": "2026-11-18",
+        "statement_zh_tw": "中心出水屬於訂製的",
+        "scope_zh_tw": "確認中心出水的供應方式為訂製；各型號可訂製的配置、通路與配套仍依實際需求確認，不視為標準配備。"
+      }
+    },
+    "dynamic_balance": {
+      "status": "confirmed",
+      "balanced_series": ["99146"],
+      "not_balanced_series": ["99101", "99121"],
+      "source": {
+        "kind": "user_confirmation",
+        "date": "2026-11-18",
+        "statement_zh_tw": "動平衡是屬於146的，121、101沒有動平衡",
+        "scope_zh_tw": "動平衡規格限99146，99101／99121無動平衡；不推定99151的動平衡狀態，也不將平衡參考轉速視為整組最高使用轉速。"
+      }
     }
   },
   "grade_applicability": {

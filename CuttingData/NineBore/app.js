@@ -34,7 +34,7 @@
     options(controls.condition,names.map(name=>({id:name,label:name})),previous);
   }
   // 深度定義由已確認來源決定，候選卡片、尺寸與結果摘要共用同一個標題。
-  function depthLabel(bar) { return bar?.depthKind==='confirmed_boring_depth'?'Usable boring depth L1':bar?.depthKind==='front_neck'?'Front-neck L1':'Boring depth L1'; }
+  function depthLabel(bar) { return bar?.series==='99151'?'Designed boring depth L1':bar?.depthKind==='confirmed_boring_depth'?'Usable boring depth L1':bar?.depthKind==='front_neck'?'Front-neck L1':'Boring depth L1'; }
   function clampUI() {
     const holder=model.holders.find(item=>item.id===controls.holderId.value);
     $('shankGroup').hidden=!straightShank();controls.shankDiameter.disabled=!straightShank();
@@ -132,7 +132,7 @@
     const rearNote=hasRearLengths?`${translate('Confirmed rear shank lengths')}: ${Object.entries(b.rearShankLengths).map(([diameter,length])=>`Ø${fmt(Number(diameter))} → ${fmt(length)} mm`).join(' / ')}. ${translate('L and L1 follow the catalog.')}`:translate('99121 rear length 50 (48) mm is a shared catalog label; its shank-option mapping is not specified.');
     const facts=[
       [depthLabel(b),`${fmt(b.l1)} mm`],
-      [Number.isFinite(b.l)?'Catalog length L':'Adjustable hole Ø',Number.isFinite(b.l)?`${fmt(b.l)} mm`:`${fmt(b.minD)}–${fmt(b.maxD)} mm`],
+      [Number.isFinite(b.l)?b.series==='99151'?'Bar overall length L':'Catalog length L':'Adjustable hole Ø',Number.isFinite(b.l)?`${fmt(b.l)} mm`:`${fmt(b.minD)}–${fmt(b.maxD)} mm`],
       ['Selected bar shank Ød',Number.isFinite(shank)?`Ø${fmt(shank)} mm`:translate('Choose shank Ød')]
     ];
     const components=[];
@@ -140,7 +140,7 @@
     if(selected.adapter){const adapterDrawing=drawings.resolve(drawingManifest,drawings.adapterKey(selected.adapter));if(adapterDrawing)components.push({entry:adapterDrawing,label:selected.adapter.partsNo,title:'Matching 99151 adapter',dimensions:selected.adapter.dimensions_mm});}
     const componentMarkup=components.length?`<details class="technical-details catalog-components mt-4"><summary>${esc(translate('Holder & adapter drawings'))}</summary><div class="catalog-component-list">${components.map(item=>`<section><p class="section-title mb-1">${esc(translate(item.title))}</p><p class="field-help mb-3">${esc(item.label)}</p>${catalogImage(item.entry,item.label,true,{holderD:item.dimensions?.['ØD'],holderL:item.dimensions?.L,thread:item.thread})}<p class="catalog-component-dimensions">${Object.entries(item.dimensions||{}).filter(([,value])=>Number.isFinite(value)).map(([label,value])=>`${esc(label)} ${fmt(value)} mm`).join(' · ')}</p></section>`).join('')}</div></details>`:'';
     $('diagramCanvas').innerHTML=`<p class="catalog-current-part">${esc(b.id)}</p>${catalogImage(entry,b.id,false,{diameter:Number(controls.diameter.value)||null,l1:b.l1,l:b.l,shankD:shank,shoulderD:b.shoulderD,...rearDimensions})}<p class="field-help mt-3">${esc(translate('Drawing dimensions update with your selected part and hole diameter.'))}</p><dl class="catalog-dimensions mt-3">${facts.map(([label,value])=>`<div><dt>${esc(translate(label))}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl>${b.series==='99121'?`<p class="field-help">${esc(rearNote)}</p>`:''}${componentMarkup}`;
-    $('geometryCaption').textContent=translate(b.depthKind==='confirmed_boring_depth'?'L1 is confirmed as usable boring depth, including its stated limit. Clamping requirements are checked separately.':b.depthKind==='front_neck'?'This L1 is the front-neck dimension. Actual reach and workpiece clearance still need confirmation.':'Catalog L1 is compared with your required depth. Assembly projection and workpiece clearance remain setup checks.');
+    $('geometryCaption').textContent=translate(b.series==='99151'?'L is the bar overall length. L1 is the designed boring depth. Adapter insertion and assembly projection are checked separately.':b.depthKind==='confirmed_boring_depth'?'L1 is confirmed as usable boring depth, including its stated limit. Clamping requirements are checked separately.':b.depthKind==='front_neck'?'This L1 is the front-neck dimension. Actual reach and workpiece clearance still need confirmation.':'Catalog L1 is compared with your required depth. Assembly projection and workpiece clearance remain setup checks.');
   }
   // 放大的是本次數字已更新的同一張SVG，而非重新開啟仍帶L/L1代號的來源圖片。
   $('diagramCanvas').addEventListener('click',event=>{
@@ -207,7 +207,8 @@
     const material=translate(controls.material.value||'Material not set');
     const materialText=c.insert?`${material} → ${c.insert.grade}${c.conditionEquivalent?' · '+translate('User-confirmed shared cutting parameters'):c.referenceMode?' · '+translate('material suitable'):c.insert.gradeMatch?' · '+translate('Material grade matched'):''}`:material+' · '+translate('Choose an insert / grade');
     const shankText=straightShank() ? findings.criteria.gripDiameter===null?translate('Choose shank Ød'):Number.isFinite(b.shankD)?`Ø${fmt(b.shankD)} mm · ${translate('Catalog shank listed')}`:selected.shankStatus==='confirmed'?`Ø${fmt(selected.selectedShankD)} mm · ${translate('Available shank option')}`:`Ø${fmt(findings.criteria.gripDiameter)} mm · ${translate('Drawing option; confirm applicable part')}` : selected.holder?selected.holder.partsNo+(selected.holder.requiresExternal32?' · '+translate('External Ø32 chuck required'):''):translate('Choose a holder');
-    const reachText=c.depth===null?translate('Enter depth to compare reach'):b.depthKind==='confirmed_boring_depth'?translate(c.depth<=b.l1?'Requested depth is within confirmed L1.':'Depth exceeds confirmed L1.'):b.depthKind==='front_neck'?translate('Front-neck dimension only; check actual projection'):selected.adapter?translate('Adapter insertion / projection to confirm'):translate('Requested depth within catalog L1');
+    // 99151 的深度依 L1 判定；轉接座插入量與總成伸出留在組裝待確認訊息。
+    const reachText=c.depth===null?translate('Enter depth to compare reach'):b.series==='99151'?translate(c.depth<=b.l1?'Requested depth is within designed L1.':'Depth exceeds designed L1.'):b.depthKind==='confirmed_boring_depth'?translate(c.depth<=b.l1?'Requested depth is within confirmed L1.':'Depth exceeds confirmed L1.'):b.depthKind==='front_neck'?translate('Front-neck dimension only; check actual projection'):selected.adapter?translate('Adapter insertion / projection to confirm'):translate('Requested depth within catalog L1');
     const checks=[['Material & insert',materialText],['Clamping / shank',shankText],['Reach check',reachText]];
     $('selectionChecks').innerHTML=checks.map(([label,value])=>`<div><dt>${esc(translate(label))}</dt><dd>${esc(value)}</dd></div>`).join('');
   }

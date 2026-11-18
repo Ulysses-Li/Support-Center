@@ -23,6 +23,15 @@
 
   // 核心訊息與圖面固定字串集中管理；未列出的文字原樣回傳，避免誤翻產品資料。
   const MESSAGES = Object.freeze({
+    'Median values are adjustable site starting values. Programmed Z and a machining cycle are not derived from the requested depth.':'建議值採型錄數列的中間值，可依現場調整。輸入的需求深度不會直接推算程式 Z 或加工循環。',
+    'Dynamic balance: 99146 — G6.3 at 10,000 rpm reference; 99101 / 99121 — not dynamically balanced. This is not a maximum speed rating.':'動平衡：99146 為 G6.3／10,000 rpm 平衡參考；99101／99121 無動平衡。平衡參考轉速不代表最高使用轉速。',
+    'Center coolant is custom-order; confirm configuration and coolant path before ordering.':'中心出水屬於訂製，下單前請確認適用配置與出水通路。',
+    'Bar overall length L':'刀桿總長 L',
+    'Designed boring depth L1':'設計可加工深度 L1',
+    'L is the bar overall length. L1 is the designed boring depth.':'L 為刀桿總長，L1 為設計可加工深度。',
+    'L is the bar overall length. L1 is the designed boring depth. Adapter insertion and assembly projection are checked separately.':'L 為刀桿總長，L1 為設計可加工深度；轉接座插入量與總成伸出另行核對。',
+    'Requested depth is within designed L1.':'需求深度符合設計可加工深度 L1。',
+    'Depth exceeds designed L1.':'需求深度超過設計可加工深度 L1。',
     'Usable boring depth L1':'可加工深度 L1',
     'confirmed_boring_depth':'已確認可加工深度',
     'L1 is confirmed as usable boring depth, including its stated limit. Clamping requirements are checked separately.':'L1 已確認為可加工深度，包含標示的最大深度；夾持要求另行核對。',
@@ -63,7 +72,7 @@
     'No confirmed 99151 adapter is listed for this bar shank diameter.': '尚未列出已確認可搭配此刀桿柄徑的 99151 轉接座。',
     'The selected holder is not listed as compatible with this adapter.': '型錄未列出所選刀柄與此轉接座相容。',
     'Clamping remains unconfirmed. Candidates matching diameter and depth are retained for review.': '夾持方式待確認。保留符合孔徑與深度的候選刀桿供檢查。',
-    'Although within the listed 99151 L1, actual insertion into the adapter, assembly projection and shoulder clearance still require confirmation.': '雖然深度在型錄所列的 99151 L1 範圍內，仍須確認刀桿插入轉接座的實際長度、總成伸出長度及肩部間隙。',
+    'For the 99151 assembly, actual insertion into the adapter, assembly projection and shoulder clearance still require confirmation.': '99151 組裝待確認：刀桿插入轉接座的實際長度、總成伸出長度及肩部間隙。',
     'Select the workpiece material to check insert grade and cutting data.': '請選擇工件材質，以檢查刀片材種與切削資料。',
     'No confirmed catalog cutting row exists for this material and condition. Geometric candidates remain available with manual cutting inputs.': '此材質與加工條件沒有已確認的型錄切削資料列。仍可檢視幾何尺寸符合的候選刀桿，並手動輸入切削值。',
     'The cutting-row grade exists, but the mapping from CC...0602... to a physical insert part remains unconfirmed. Compatibility is not assumed.': '切削資料列所需材種存在，但 CC...0602... 與實體刀片料號的對應關係待確認。目前不視為相容。',

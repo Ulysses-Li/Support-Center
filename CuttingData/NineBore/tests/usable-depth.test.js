@@ -143,3 +143,56 @@ test('normalized schematic and Chinese labels show confirmed depth while no-evid
   assert.ok(copyLabel.includes('15 mm'));
   assert.ok(copyLabel.includes('已確認可加工深度'));
 });
+
+test('all 34 actual 99151 bars use their own inclusive designed L1 without altering catalog parts or approving the assembly', () => {
+  const bars = model.bars.filter(bar => bar.series === '99151');
+  assert.equal(bars.length, 34);
+  assert.equal(model.bars.length, 167);
+  assert.deepEqual(model.bars.map(bar => bar.id), legacy.bars.map(bar => bar.id));
+  assert.deepEqual(model.sourceInventory, legacy.sourceInventory);
+  for (const bar of bars) {
+    const original = legacy.bars.find(item => item.id === bar.id);
+    assert.deepEqual(bar, original);
+    assert.equal(bar.depthKind, 'catalog_boring_depth');
+    assert.equal(bar.l, bar.raw.L_mm_catalog);
+    assert.equal(bar.l1, bar.raw.L1_mm_catalog);
+    const values = {
+      diameter: bar.nominalD, depth: bar.l1, material: 'Non-ferrous metal', condition: 'Regular cutting',
+      clamping: 'purchase_holder', holderId: '00-99146-BT40H'
+    };
+    const selected = core.find(model, values).candidates.find(item => item.id === bar.id);
+    assert.ok(selected, `${bar.id}: L1 ${bar.l1}`);
+    assert.equal(selected.depthStatus, 'confirmed');
+    assert.equal(selected.status, 'review');
+    assert.ok(selected.reviewNotes.some(note => note.includes('actual insertion into the adapter')));
+    const result = core.calculate(model, selected, { ...values, vc: 200, feed: 0.07, useRecommendations: false });
+    assert.equal(result.depth, bar.l1);
+    assert.ok(!result.errors.some(error => error.includes('exceeds this bar')));
+    assert.equal(result.canCopy, false);
+    const over = { ...values, depth: bar.l1 + 0.01 };
+    assert.ok(!core.find(model, over).candidates.some(item => item.id === bar.id));
+    const rejected = core.calculate(model, selected, { ...over, vc: 200, feed: 0.07, useRecommendations: false });
+    assert.ok(rejected.errors.includes(`Boring depth exceeds this bar's listed L1 of ${bar.l1} mm.`));
+    assert.equal(rejected.canCopy, false);
+  }
+});
+
+test('99151 length meanings retain the user source and translate as bar length and designed boring depth', () => {
+  const definition = confirmed.series['99151'].dimension_definitions;
+  assert.equal(definition.status, 'confirmed');
+  assert.equal(definition.L, 'bar_overall_length');
+  assert.equal(definition.L1, 'designed_boring_depth');
+  assert.equal(definition.source.kind, 'user_confirmation');
+  assert.equal(definition.source.date, '2026-11-18');
+  assert.equal(definition.source.statement_zh_tw, 'L是總長，L1是設計可以加工的深度');
+  for (const [english, semantic] of [
+    ['Bar overall length L', /刀桿.*總長.*L/],
+    ['Designed boring depth L1', /設計.*深度.*L1/],
+    ['Requested depth is within designed L1.', /需求深度.*設計.*L1/]
+  ]) {
+    const translated = ui.translate(english);
+    assert.notEqual(translated, english);
+    assert.match(translated, semantic);
+    assert.equal(locale.translate(english), translated);
+  }
+});

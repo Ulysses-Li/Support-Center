@@ -325,7 +325,8 @@
       }
     } else reviewNotes.push('Clamping remains unconfirmed. Candidates matching diameter and depth are retained for review.');
 
-    if (bar.series === '99151') reviewNotes.push('Although within the listed 99151 L1, actual insertion into the adapter, assembly projection and shoulder clearance still require confirmation.');
+    // 99151 的 L1 已是設計可加工深度；下列僅追蹤組裝尺寸，不否定 L1 深度判定。
+    if (bar.series === '99151') reviewNotes.push('For the 99151 assembly, actual insertion into the adapter, assembly projection and shoulder clearance still require confirmation.');
     const cuttingRow = cuttingRowFor(model, criteria.material, criteria.condition);
     const insertOptions = insertOptionsFor(model, bar, cuttingRow, criteria.material);
     const referenceRow = insertOptions.find(insert => insert.referenceRecommended)?.referenceRow || null;
