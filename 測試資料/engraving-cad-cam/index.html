@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>雕刻 CAD/CAM 工作台 | Nine9 Support Center</title>
+  <link rel="icon" href="../../favicon.png">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../header/header.css">
+  <link rel="stylesheet" href="../../footer/footer.css">
+  <link rel="stylesheet" href="../../css/site-background.css">
+  <link rel="stylesheet" href="./styles.css">
+  <!-- 樣板暫時共用測試版刀路解析與畫布；正式頁整合前再整理共用模組。 -->
+  <script defer src="../gcode-viewer/parser.js"></script>
+  <script defer src="../gcode-viewer/viewer.js"></script>
+  <script defer src="./stock-viewer.js"></script>
+  <script defer src="./core.js"></script>
+  <script defer src="./cad-interaction.js"></script>
+  <script defer src="./vendor/opentype.min.js"></script>
+  <script defer src="./text-path.js"></script>
+  <script defer src="./singleline-latin.js"></script>
+  <script defer src="./singleline-latin-extra.js"></script>
+  <script defer src="./singleline-chinese.js"></script>
+  <script defer src="./singleline-text.js"></script>
+  <script defer src="./serial-numbers.js"></script>
+  <script defer src="./app.js"></script>
+  <script defer src="../../NCProgram/scripts/layout.js" data-header-url="/header/header.html" data-footer-url="/footer/footer.html"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div id="header-placeholder"></div>
+<main class="workbench flex-grow-1">
+  <div class="container-fluid workbench-container">
+    <nav aria-label="麵包屑"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Support Center</a></li><li class="breadcrumb-item"><a href="../../Machining/Engraving/index.html">Engraving</a></li><li class="breadcrumb-item active" aria-current="page">雕刻工作台</li></ol></nav>
+    <header class="page-header d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <div class="heading-group"><div class="heading-icon"><img src="../../img/engraving.png" width="58" height="58" alt=""></div><div><p class="eyebrow mb-1">NINE9 · ENGRAVING WORKSPACE</p><h1>雕刻 CAD/CAM 工作台</h1><p class="intro mb-0">建立圖形、規劃雕刻路徑，讓每一步都看得見。</p></div></div>
+      <span class="preview-badge"><span aria-hidden="true"></span>本機測試樣板</span>
+    </header>
+
+    <div class="workspace-grid">
+      <!-- 圖形匯入、文字及流水號設計，未支援的 DXF 內容由解析結果提示。 -->
+      <aside class="surface design-panel" aria-labelledby="designTitle">
+        <div class="section-title"><div><p class="eyebrow mb-1">01 · DESIGN</p><h2 id="designTitle">建立圖形</h2></div><svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h13A1.5 1.5 0 0 1 16 1.5v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5zm1 0v13a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-13a.5.5 0 0 0-.5.5"/><path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/></svg></div>
+        <div class="upload-box"><div class="upload-icon"><svg width="23" height="23" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M.5 9.9a.5.5 0 0 1 .5.5V13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.6a.5.5 0 0 1 1 0V13a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.6a.5.5 0 0 1 .5-.5"/><path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/></svg></div><div><strong>匯入 DXF 圖檔</strong><p>支援 ASCII DXF 基本圖形</p></div></div>
+        <label class="form-label" for="dxfFile">選擇圖檔</label><input class="form-control" type="file" id="dxfFile" accept=".dxf">
+        <label class="form-label mt-3" for="dxfUnits">圖檔單位</label><select class="form-select" id="dxfUnits"><option value="auto">依檔案設定判斷</option><option value="mm">毫米 mm</option><option value="inch">英吋 inch</option></select>
+        <p class="hint mt-2">支援直線、圓、圓弧及新舊版多段線；文字需先轉成支援的線條。沒有單位的圖檔請手動選擇。</p>
+        <p class="hint"><a href="./nine9-example.dxf" download="Nine-9.dxf">下載範例 DXF</a>，可用來測試匯入。</p>
+        <button class="btn outline-button w-100" type="button" id="loadExample">載入 Nine-9 雕刻範例</button>
+        <p class="hint mt-2 mb-0">範例使用 DXF 字形輪廓，與下方新增文字的字型設定獨立。</p>
+        <!-- 文字來源轉為向量後，與圖形共用雕刻路徑。 -->
+        <div class="subsection" aria-labelledby="textTitle">
+          <h3 id="textTitle">加入雕刻文字</h3>
+          <label class="form-label" for="textInput">文字內容</label>
+          <input id="textInput" class="form-control" type="text" maxlength="100" placeholder="輸入要雕刻的文字" value="Nine-9">
+          <label class="form-label mt-3" for="textFont">字型</label>
+          <select id="textFont" class="form-select">
+            <option value="single">單線工程體（英數）</option>
+            <option value="single:ems-tech">單線技術體（英數）</option>
+            <option value="single:ems-hand">單線手寫體（英數）</option>
+            <option value="single:ems-swiss" selected>單線 Swiss（英數花體）</option>
+            <option value="single:ems-capitol">單線 Capitol（英數花體）</option>
+            <option value="single:ems-league">單線 League（英數）</option>
+            <option value="single:ems-neato">單線 Neato（英數手寫）</option>
+            <option value="default">Noto Sans TC（外框）</option>
+          </select>
+          <div class="font-preview mt-2"><span>字型預覽</span><canvas id="fontPreview" aria-label="目前輸入文字的字型預覽"></canvas><p id="fontPreviewMessage" class="hint mb-0" role="status" aria-live="polite"></p></div>
+          <div class="row g-2 mt-1">
+            <div class="col-12"><label class="form-label" for="textHeight">文字高度 (mm)</label><input id="textHeight" class="form-control" type="number" min="0.01" step="any" value="20"></div>
+            <div class="col-6"><label class="form-label" for="textX">起點 X (mm)</label><input id="textX" class="form-control" type="number" step="any" value="0"></div>
+            <div class="col-6"><label class="form-label" for="textY">起點 Y (mm)</label><input id="textY" class="form-control" type="number" step="any" value="0"></div>
+          </div>
+          <p id="textFontHelp" class="hint mt-2 mb-0">單線體的英數字形各有不同；中文共用近似筆畫，請先檢查預覽。</p>
+          <button class="btn outline-button w-100 mt-3" id="textAdd" type="button">＋ 加入文字</button>
+          <p id="textStatus" class="hint mt-2 mb-0" role="status" aria-live="polite"></p>
+        </div>
+        <!-- 流水號共用上方的字型、字高與起點；每個號碼作為獨立文字群組。 -->
+        <div class="subsection" aria-labelledby="serialTitle"><h3 id="serialTitle">設計流水號</h3>
+          <div class="row g-2">
+            <div class="col-6"><label class="form-label" for="serialPrefix">前綴</label><input id="serialPrefix" class="form-control" type="text" maxlength="40" placeholder="例如 SN-"></div>
+            <div class="col-6"><label class="form-label" for="serialSuffix">後綴</label><input id="serialSuffix" class="form-control" type="text" maxlength="40" placeholder="選填"></div>
+            <div class="col-6"><label class="form-label" for="serialStart">起始號碼</label><input id="serialStart" class="form-control" type="number" min="0" step="1" value="1"></div>
+            <div class="col-6"><label class="form-label" for="serialDigits">數字位數</label><input id="serialDigits" class="form-control" type="number" min="1" max="16" step="1" value="4"></div>
+            <div class="col-6"><label class="form-label" for="serialStep">遞增數值</label><input id="serialStep" class="form-control" type="number" min="1" step="1" value="1"></div>
+            <div class="col-6"><label class="form-label" for="serialCount">數量</label><input id="serialCount" class="form-control" type="number" min="1" max="100" step="1" value="3"></div>
+            <div class="col-12"><label class="form-label" for="serialPitch">列間距 (mm)</label><input id="serialPitch" class="form-control" type="number" min="0.01" step="any" value="30"></div>
+          </div>
+          <p class="hint mt-2 mb-0">使用上方的字型、字高及起點；多個號碼由上往下排列在同一張圖與同一支程式中，列間距為相鄰起點的距離。</p>
+          <p id="serialPreview" class="serial-preview mt-2 mb-0" role="status" aria-live="polite"></p>
+          <button class="btn outline-button w-100 mt-3" type="button" id="serialAdd">＋ 加入流水號</button>
+          <p id="serialStatus" class="hint mt-2 mb-0" role="status" aria-live="polite"></p>
+        </div>
+        <div class="subsection"><div class="d-flex align-items-center justify-content-between gap-2 mb-2"><h3 class="mb-0">圖形清單</h3><button class="btn text-button" type="button" id="clearShapes">清除圖形</button></div><div id="shapeList" class="shape-list" aria-label="圖形清單"></div></div>
+      </aside>
+
+      <div class="drawing-column">
+        <section class="surface drawing-panel" aria-labelledby="drawingTitle"><div class="section-title"><div><p class="eyebrow mb-1">02 · DESIGN VIEW</p><h2 id="drawingTitle">2D 圖形</h2></div><span class="unit-badge">XY · mm</span></div>
+          <!-- 同一畫布支援桌面滑鼠與手機觸控，工具狀態由 JavaScript 更新。 -->
+          <div class="cad-toolbar" role="group" aria-label="圖形繪製工具">
+            <button type="button" id="cadSelect" aria-pressed="true">選取</button>
+            <button type="button" id="cadLine" aria-pressed="false">直線</button>
+            <button type="button" id="cadRect" aria-pressed="false">矩形</button>
+            <button type="button" id="cadCircle" aria-pressed="false">圓形</button>
+            <button type="button" id="cadUndo">復原</button>
+            <button type="button" id="cadDelete">刪除選取</button>
+            <button type="button" id="cadFit">適合畫面</button>
+          </div>
+          <p id="cadStatus" class="hint cad-status" role="status" aria-live="polite">選取工具：點選圖形；繪圖工具：在畫布上拖曳建立。</p>
+          <div class="canvas-stage drawing-stage"><canvas id="drawingCanvas" tabindex="0" aria-label="2D 圖形繪製畫布">瀏覽器不支援圖形預覽</canvas></div>
+          <!-- 游標座標使用與繪圖相同的 XY 毫米座標系。 -->
+          <div class="drawing-meta"><span>圖形 <strong id="summaryShapes">0</strong></span><span class="cursor-coordinates">游標 <strong id="cursorCoordinates">X —　Y — mm</strong></span><span>範圍 <strong id="summarySize">—</strong></span></div></section>
+        <section class="surface preview-panel" aria-labelledby="previewTitle"><div class="section-title"><div><p class="eyebrow mb-1">03 · TOOLPATH PREVIEW</p><h2 id="previewTitle">3D 工件與刀路</h2></div><div class="legend"><span><i class="rapid-key"></i>快速移動</span><span><i class="cut-key"></i>雕刻路徑</span></div></div><div class="canvas-stage viewer-stage"><canvas id="viewerCanvas" role="img" aria-label="3D 工件與刀路預覽">瀏覽器不支援刀路預覽</canvas><div class="view-toolbar" role="group" aria-label="刀路視角"><button id="viewIso" type="button">等角</button><button id="viewTop" type="button">俯視</button><button id="viewFront" type="button">正視</button><button id="viewSide" type="button">側視</button><button id="viewFit" type="button">適合畫面</button></div></div><div class="drawing-meta"><span>拖曳旋轉，滾輪縮放</span><span>刀路段數 <strong id="summaryMoves">0</strong></span></div>
+          <div class="row g-2 mt-1"><div class="col-6"><label class="form-label" for="stockMargin">工件邊距 (mm)</label><input class="form-control" id="stockMargin" type="number" min="0" step="any" value="5"></div><div class="col-6"><label class="form-label" for="stockThickness">工件厚度 (mm)</label><input class="form-control" id="stockThickness" type="number" min="0.001" step="any" value="5"></div></div><p class="hint mt-2 mb-0">工件依圖形範圍與邊距建立；頂面顯示圖形與刀路示意，未模擬材料移除。</p>
+          <!-- 播放只控制示意進度，不表示機台的實際加工時間。 -->
+          <div class="player mt-3"><div class="d-flex flex-wrap align-items-center gap-2"><button class="btn outline-button" id="playButton" type="button" aria-pressed="false">播放刀路</button><label for="playSpeed" class="form-label mb-0 ms-sm-auto">速度</label><select id="playSpeed" class="form-select speed-select" aria-label="播放速度"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select><span id="progressLabel" class="hint">0 / 0 段</span></div><label for="progress" class="visually-hidden">刀路播放進度</label><input class="form-range mt-2" id="progress" type="range" min="0" max="0" value="0"><p class="hint mb-0">播放速度為示意，與實際加工時間無關。</p></div>
+        </section>
+        <!-- 雕刻程式接續 3D 預覽，方便一邊檢查刀路一邊查看輸出。 -->
+        <section class="surface program-panel" aria-labelledby="programTitle"><div class="section-title flex-wrap"><div><p class="eyebrow mb-1">05 · NC PROGRAM</p><h2 id="programTitle">雕刻程式</h2><p class="hint mb-0">調整圖形或設定後，請重新產生程式。</p></div><div class="d-flex flex-wrap gap-2"><button type="button" id="copyButton" class="btn outline-button">複製程式</button><button type="button" id="downloadButton" class="btn outline-button">下載 .nc</button></div></div><label class="visually-hidden" for="gcodeOutput">產生的 G-code 程式</label><textarea id="gcodeOutput" class="form-control gcode-output" readonly spellcheck="false" placeholder="產生雕刻刀路後，NC 程式將顯示於此。"></textarea><p class="hint mt-3 mb-0">樣板以工件表面 Z0 建立名義中心線路徑；控制器格式、機台設定、刀長及加工狀況須依實際機台確認。</p></section>
+      </div>
+
+      <!-- 設定僅供中心線雕刻；刀具尺寸不會自動推定切削條件或刀具形狀。 -->
+      <aside class="surface settings-panel" aria-labelledby="settingsTitle"><div class="section-title"><div><p class="eyebrow mb-1">04 · ENGRAVING SETUP</p><h2 id="settingsTitle">雕刻設定</h2></div></div>
+        <div class="tool-banner"><img src="../../assets/home-products/engraving-tools.jpg" alt="Nine9 雕刻刀具" loading="lazy"><div><strong>Nine9 雕刻系列</strong><span>X060 · V060 / V045 · W060 · N9MT-W</span></div></div>
+        <p class="hint mt-3">以下數值為示範設定，請依刀具、材料與機台條件自行確認。</p>
+        <div class="row g-3 settings-fields"><div class="col-6"><label class="form-label" for="depth">雕刻深度</label><div class="input-group"><input class="form-control" id="depth" type="number" step="any" min="0.001" value="0.5"><span class="input-group-text">mm</span></div></div><div class="col-6"><label class="form-label" for="stepdown">每層深度</label><div class="input-group"><input class="form-control" id="stepdown" type="number" step="any" min="0.001" value="0.5"><span class="input-group-text">mm</span></div></div><div class="col-6"><label class="form-label" for="safeZ">安全高度</label><div class="input-group"><input class="form-control" id="safeZ" type="number" step="any" min="0.001" value="5"><span class="input-group-text">mm</span></div></div><div class="col-6"><label class="form-label" for="toolDiameter">刀具直徑</label><div class="input-group"><input class="form-control" id="toolDiameter" type="number" step="any" min="0.001" value="3"><span class="input-group-text">mm</span></div></div><div class="col-12"><label class="form-label" for="cutFeed">雕刻進給</label><div class="input-group"><input class="form-control" id="cutFeed" type="number" step="any" min="0.001" value="300"><span class="input-group-text">mm/min</span></div></div><div class="col-12"><label class="form-label" for="plungeFeed">下刀進給</label><div class="input-group"><input class="form-control" id="plungeFeed" type="number" step="any" min="0.001" value="100"><span class="input-group-text">mm/min</span></div></div><div class="col-12"><label class="form-label" for="spindle">主軸轉速</label><div class="input-group"><input class="form-control" id="spindle" type="number" step="1" min="1" value="3000"><span class="input-group-text">rpm</span></div></div></div>
+        <div class="info-note mt-3"><strong>中心線雕刻</strong><span>以圖線為刀具中心路徑，刀具直徑僅供參考，不計算刀徑補正或實際刀具形狀。</span></div>
+        <button class="btn primary-button w-100 mt-3" type="button" id="generateButton">產生雕刻刀路</button><p id="status" class="status mt-2 mb-0" role="status" aria-live="polite">調整設定後，請重新產生刀路。</p><div id="warnings" class="warning-box mt-3" role="status" aria-live="polite" hidden></div>
+      </aside>
+    </div>
+
+  </div>
+</main>
+<div id="footer-placeholder"></div>
+</body>
+</html>
