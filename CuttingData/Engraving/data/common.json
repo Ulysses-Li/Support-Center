@@ -1,0 +1,170 @@
+{
+  "schema_version": "1.0",
+  "title": "Engraving Tool 四組產品共通資料",
+  "prepared_at": "2026-11-24",
+  "status": "catalog_reference",
+  "source": {
+    "paths_relative_to": "shared_engraving_directory",
+    "pdf": "./sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "./sources/manifest.json",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "document_title": "Engraving Tool",
+    "printed_page_range": [
+      68,
+      83
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67"
+  },
+  "units": {
+    "length": "mm",
+    "inch_shank": "inch",
+    "angle": "deg",
+    "spindle_speed": "rpm",
+    "feed_per_revolution": "mm/rev",
+    "feed_rate": "mm/min",
+    "torque": "Nm"
+  },
+  "technical_constraints": [
+    {
+      "id": "holders",
+      "zh_TW": "建議高精度彈性筒夾、熱縮或油壓刀柄。",
+      "source_page": 80
+    },
+    {
+      "id": "balance",
+      "zh_TW": "刀柄至少預平衡G6.3/10,000rpm；這是平衡要求，非全組最高允許轉速。實際工具、機台和夾具上限仍需確認。",
+      "source_page": 80
+    },
+    {
+      "id": "z_feed",
+      "zh_TW": "Z軸下刀進給減至工作台切削進給的50%。",
+      "source_page": 80,
+      "factor": 0.5
+    },
+    {
+      "id": "runout",
+      "zh_TW": "刀桿偏擺小於0.01mm。",
+      "source_page": 80,
+      "max_runout_mm_exclusive": 0.01
+    },
+    {
+      "id": "torque",
+      "zh_TW": "建議使用扭力起子，按各刀柄螺絲表扭力。",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        80
+      ]
+    },
+    {
+      "id": "coolant",
+      "zh_TW": "P鋼/M不鏽鋼/S鈦/H硬鋼用乳化液或油；N非鐵用油；K鑄鐵用吹氣。",
+      "source_page": 80
+    },
+    {
+      "id": "clamp_insert",
+      "zh_TW": "刀片靠緊定位側後置入螺絲再鎖固。",
+      "source_page": 80
+    },
+    {
+      "id": "cutting_edges",
+      "zh_TW": "可換刃數不是同時切削齒數；不得把W060的2刃或N9MT-W的4刃乘進已用mm/rev給定的F=S×f。",
+      "source_pages": [
+        68,
+        69,
+        77,
+        78
+      ],
+      "kind": "implementation_inference"
+    },
+    {
+      "id": "depth_passes",
+      "zh_TW": "各道Ap是單道切深提示，與刀片最大總雕刻深Tmax不同。按需求總深截斷最後一道且預留精修量，不將整列道次當固定循環。",
+      "source_pages": [
+        77,
+        78,
+        81,
+        82,
+        83
+      ],
+      "kind": "implementation_inference"
+    },
+    {
+      "id": "finishing_total",
+      "zh_TW": "p82碳鋼前五道已合計2mm，不能再盲目加0.05mm精修成2.05mm。Finishing欄是否應預留於總深、作末道替代或另有基準需確認；程式只能將需求總深當硬上限。",
+      "source_pages": [
+        82
+      ],
+      "kind": "implementation_inference"
+    }
+  ],
+  "implementation_policy_zh_TW": [
+    "純型錄數值與網站推導值分開；原表沒有推薦Vc，不從柄徑或刻線寬硬算切速再回算S。",
+    "原表直接給S與f；F=S×f，Fz=F×0.5。兩式前者為依單位推導，後者的0.5來自p80。",
+    "牌號僅作同實體刀片與材種直接表列交集配對；未列值不當0，不任意跨表補值。",
+    "範圍中值若採用只能標網站預設，不宣稱為型錄指定起始值。",
+    "最大刻線寬、最大雕刻深、刀柄總長、可用突出量與每道Ap是不同欄位。",
+    "槽形精確換算、Finishing總深安排及完整組合額定未確認前，不提供自動完整刀路。"
+  ],
+  "customer_questions": [
+    {
+      "order": 1,
+      "question_zh_TW": "要刻出的線寬是多少？是否有線寬公差、最小文字或細節？",
+      "used_for": [
+        "Wmin/Wmax初篩",
+        "精細雕刻系列篩選"
+      ]
+    },
+    {
+      "order": 2,
+      "question_zh_TW": "需要多深？指定刀尖夾角30/45/60/90°嗎？底部要圓弧(R形)還是帶小平底的圓角V形？",
+      "used_for": [
+        "Tmax/Tmin",
+        "X060 W與R型區分",
+        "寬深相容檢查"
+      ]
+    },
+    {
+      "order": 3,
+      "question_zh_TW": "工件材料的實際牌號及硬度是多少？是否熱處理？",
+      "used_for": [
+        "實體刀片牌號與切削表配對",
+        "HRC限值"
+      ]
+    },
+    {
+      "order": 4,
+      "question_zh_TW": "現有夾持柄徑、夾具型式及允許總長/突出量？加工位置是否需長柄或避障？",
+      "used_for": [
+        "Ø4/6/8/10mm或3/8in",
+        "Steel/Carbide/XL柄選擇",
+        "XL材料限制"
+      ]
+    },
+    {
+      "order": 5,
+      "question_zh_TW": "機台最低/最高可用轉速、進給上限及偏擺/平衡能力？可使用哪種冷卻？",
+      "used_for": [
+        "S範圍與機台交集",
+        "F=S×f及Z下刀50%",
+        "p80裝夾條件"
+      ]
+    },
+    {
+      "order": 6,
+      "question_zh_TW": "主要是薄淺精雕、一般刻字、曲面刻字或較寬槽？表面粗糙度與毛邊要求？",
+      "used_for": [
+        "W060薄淺用",
+        "X060精細/底型",
+        "V045/V060難控毛邊用途",
+        "超出本章的特殊案例確認"
+      ]
+    }
+  ]
+}

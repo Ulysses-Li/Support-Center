@@ -1,0 +1,43 @@
+{
+  "source_pdf": "CuttingData/Engraving/sources/Engraving-Tool-p068-083.pdf",
+  "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+  "printed_page": 77,
+  "pdf_page": 10,
+  "bbox_pdf_points": [
+    290.6,
+    394.5,
+    392.9,
+    405.0
+  ],
+  "viewbox": [
+    290.6,
+    394.5,
+    102.3,
+    10.5
+  ],
+  "drawing_indices": [
+    215,
+    216,
+    217,
+    218,
+    225,
+    226
+  ],
+  "clip_fill_paths": [
+    "clip_27"
+  ],
+  "removed": "Dimensions/text paths219–224 and raster gradient image; no hand-drawn geometry",
+  "geometry_policy": "Original path commands preserved; only flat fill/stroke colors and five-decimal serialization changed",
+  "holder_part_numbers": [
+    "00-99619-W060-04"
+  ],
+  "shank_dimension_y_pdf": [
+    394.80950927734375,
+    404.6824951171875
+  ],
+  "shank_dimension_y_normalized": [
+    0.029477074032738096,
+    0.9697614397321429
+  ],
+  "output_asset": "CuttingData/Engraving/assets/w060-holder-outline.svg"
+}

@@ -1,0 +1,935 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "V060-V045",
+  "title": "V060 / V045",
+  "families": [
+    "V045",
+    "V060"
+  ],
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      75,
+      76,
+      82,
+      83
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      79,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "units": {
+    "spindle_speed": "rpm",
+    "feed_per_revolution": "mm/rev",
+    "feed_rate": "mm/min",
+    "depth": "mm"
+  },
+  "materials": [
+    {
+      "id": "carbon_steel",
+      "label_zh_TW": "碳鋼",
+      "iso_group": "P"
+    },
+    {
+      "id": "alloy_steel",
+      "label_zh_TW": "合金鋼",
+      "iso_group": "P"
+    },
+    {
+      "id": "stainless_steel",
+      "label_zh_TW": "不鏽鋼",
+      "iso_group": "M"
+    },
+    {
+      "id": "cast_iron",
+      "label_zh_TW": "鑄鐵",
+      "iso_group": "K"
+    },
+    {
+      "id": "non_ferrous",
+      "label_zh_TW": "非鐵金屬",
+      "iso_group": "N"
+    },
+    {
+      "id": "hardened_steel",
+      "label_zh_TW": "淬硬鋼",
+      "iso_group": "H"
+    },
+    {
+      "id": "titanium",
+      "label_zh_TW": "鈦／鈦合金",
+      "iso_group": "S"
+    }
+  ],
+  "rows": [
+    {
+      "model": "V045/V060 T1W06",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        5000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.008,
+        0.05
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.8,
+          0.6,
+          0.3,
+          0.2,
+          0.1,
+          null
+        ],
+        "subsequent_pass_value": null,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC2071",
+        "NC2032"
+      ],
+      "Tmax_mm": 2,
+      "source_catalog_page": 82,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "hardness_limit": null,
+      "pass_placeholder_note": "None是原表~，不等於0、亦不是可自動補足的數字。",
+      "compatibility_warning": null,
+      "id": "V045/V060 T1W06|carbon_steel|all_forms"
+    },
+    {
+      "model": "V045/V060 T1W06",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        5000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.008,
+        0.03
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.5,
+          0.4,
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ],
+        "subsequent_pass_value": 0.1,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC2032",
+        "NC2071"
+      ],
+      "Tmax_mm": 2,
+      "source_catalog_page": 82,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "hardness_limit": null,
+      "pass_placeholder_note": "None是原表~，不等於0、亦不是可自動補足的數字。",
+      "compatibility_warning": null,
+      "id": "V045/V060 T1W06|alloy_steel|all_forms"
+    },
+    {
+      "model": "V045/V060 T1W06",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        5000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.008,
+        0.05
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.5,
+          0.4,
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ],
+        "subsequent_pass_value": 0.1,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC2071",
+        "NC9031"
+      ],
+      "Tmax_mm": 2,
+      "source_catalog_page": 82,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "hardness_limit": null,
+      "pass_placeholder_note": "None是原表~，不等於0、亦不是可自動補足的數字。",
+      "compatibility_warning": null,
+      "id": "V045/V060 T1W06|stainless_steel|all_forms"
+    },
+    {
+      "model": "V045/V060 T1W06",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        5000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.008,
+        0.03
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.8,
+          0.6,
+          0.3,
+          0.2,
+          0.1,
+          null
+        ],
+        "subsequent_pass_value": null,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 2,
+      "source_catalog_page": 82,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "hardness_limit": null,
+      "pass_placeholder_note": "None是原表~，不等於0、亦不是可自動補足的數字。",
+      "compatibility_warning": null,
+      "id": "V045/V060 T1W06|cast_iron|all_forms"
+    },
+    {
+      "model": "V045/V060 T1W06",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        5000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.008,
+        0.08
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          1,
+          0.8,
+          0.2,
+          null,
+          null,
+          null
+        ],
+        "subsequent_pass_value": null,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC2071",
+        "NC9031"
+      ],
+      "Tmax_mm": 2,
+      "source_catalog_page": 82,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "hardness_limit": null,
+      "pass_placeholder_note": "None是原表~，不等於0、亦不是可自動補足的數字。",
+      "compatibility_warning": null,
+      "id": "V045/V060 T1W06|non_ferrous|all_forms"
+    },
+    {
+      "model": "V045/V060 T1W06",
+      "material_id": "hardened_steel",
+      "iso_group": "H",
+      "spindle_speed_rpm": [
+        6000,
+        35000
+      ],
+      "feed_per_revolution_mm": [
+        0.003,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.2,
+          0.15,
+          0.15,
+          0.1,
+          0.1
+        ],
+        "subsequent_pass_value": 0.1,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC2035"
+      ],
+      "Tmax_mm": 2,
+      "source_catalog_page": 82,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "hardness_limit": "HRC < 56",
+      "pass_placeholder_note": "None是原表~，不等於0、亦不是可自動補足的數字。",
+      "compatibility_warning": "p75沒有V04506T1W06-NC2035實體料號；硬鋼列不得自動供V045使用。",
+      "id": "V045/V060 T1W06|hardened_steel|all_forms"
+    },
+    {
+      "model": "V06006T1W03",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.005,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 83,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "id": "V06006T1W03|carbon_steel|all_forms"
+    },
+    {
+      "model": "V06006T1W03",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        6000,
+        35000
+      ],
+      "feed_per_revolution_mm": [
+        0.005,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.1,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 83,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "id": "V06006T1W03|alloy_steel|all_forms"
+    },
+    {
+      "model": "V06006T1W03",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        35000
+      ],
+      "feed_per_revolution_mm": [
+        0.003,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC9036"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 83,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "id": "V06006T1W03|stainless_steel|all_forms"
+    },
+    {
+      "model": "V06006T1W03",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        6000,
+        35000
+      ],
+      "feed_per_revolution_mm": [
+        0.005,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 83,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "id": "V06006T1W03|cast_iron|all_forms"
+    },
+    {
+      "model": "V06006T1W03",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.005,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC9036"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 83,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "id": "V06006T1W03|non_ferrous|all_forms"
+    },
+    {
+      "model": "V06006T1W03",
+      "material_id": "titanium",
+      "iso_group": "S",
+      "spindle_speed_rpm": [
+        6000,
+        15000
+      ],
+      "feed_per_revolution_mm": [
+        0.003,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC9036"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 83,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "id": "V06006T1W03|titanium|all_forms"
+    }
+  ],
+  "pairings": [
+    {
+      "row_id": "V045/V060 T1W06|carbon_steel|all_forms",
+      "insert_ids": [
+        "V04506T1W06|NC2071",
+        "V04506T1W06|NC2032",
+        "V06006T1W06|NC2071",
+        "V06006T1W06|NC2032"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V045": {
+          "status": "supported",
+          "insert_ids": [
+            "V04506T1W06|NC2071",
+            "V04506T1W06|NC2032"
+          ]
+        },
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W06|NC2071",
+            "V06006T1W06|NC2032"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "row_id": "V045/V060 T1W06|alloy_steel|all_forms",
+      "insert_ids": [
+        "V04506T1W06|NC2071",
+        "V04506T1W06|NC2032",
+        "V06006T1W06|NC2071",
+        "V06006T1W06|NC2032"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V045": {
+          "status": "supported",
+          "insert_ids": [
+            "V04506T1W06|NC2071",
+            "V04506T1W06|NC2032"
+          ]
+        },
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W06|NC2071",
+            "V06006T1W06|NC2032"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "row_id": "V045/V060 T1W06|stainless_steel|all_forms",
+      "insert_ids": [
+        "V04506T1W06|NC2071",
+        "V04506T1W06|NC9031",
+        "V06006T1W06|NC2071",
+        "V06006T1W06|NC9031"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V045": {
+          "status": "supported",
+          "insert_ids": [
+            "V04506T1W06|NC2071",
+            "V04506T1W06|NC9031"
+          ]
+        },
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W06|NC2071",
+            "V06006T1W06|NC9031"
+          ]
+        }
+      },
+      "notes": [
+        "依此模型直接切削表配對；NC9031/NC9036的牌號簡介涵蓋範圍不同，保留原廠矩陣待確認Q08，不自行換牌號。"
+      ]
+    },
+    {
+      "row_id": "V045/V060 T1W06|cast_iron|all_forms",
+      "insert_ids": [
+        "V04506T1W06|NC2032",
+        "V06006T1W06|NC2032"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V045": {
+          "status": "supported",
+          "insert_ids": [
+            "V04506T1W06|NC2032"
+          ]
+        },
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W06|NC2032"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "row_id": "V045/V060 T1W06|non_ferrous|all_forms",
+      "insert_ids": [
+        "V04506T1W06|NC2071",
+        "V04506T1W06|NC9031",
+        "V06006T1W06|NC2071",
+        "V06006T1W06|NC9031"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V045": {
+          "status": "supported",
+          "insert_ids": [
+            "V04506T1W06|NC2071",
+            "V04506T1W06|NC9031"
+          ]
+        },
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W06|NC2071",
+            "V06006T1W06|NC9031"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "row_id": "V045/V060 T1W06|hardened_steel|all_forms",
+      "insert_ids": [
+        "V06006T1W06|NC2035"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V045": {
+          "status": "no-listed-insert",
+          "insert_ids": []
+        },
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W06|NC2035"
+          ]
+        }
+      },
+      "notes": [
+        "共表硬鋼列只配到已列出的V06006T1W06|NC2035；V045缺實體NC2035訂購碼，不自動生成。"
+      ]
+    },
+    {
+      "row_id": "V06006T1W03|carbon_steel|all_forms",
+      "insert_ids": [
+        "V06006T1W03|NC2032"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W03|NC2032"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "row_id": "V06006T1W03|alloy_steel|all_forms",
+      "insert_ids": [
+        "V06006T1W03|NC2032"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W03|NC2032"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "row_id": "V06006T1W03|stainless_steel|all_forms",
+      "insert_ids": [
+        "V06006T1W03|NC9036"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W03|NC9036"
+          ]
+        }
+      },
+      "notes": [
+        "依此模型直接切削表配對；NC9031/NC9036的牌號簡介涵蓋範圍不同，保留原廠矩陣待確認Q08，不自行換牌號。"
+      ]
+    },
+    {
+      "row_id": "V06006T1W03|cast_iron|all_forms",
+      "insert_ids": [
+        "V06006T1W03|NC2032"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W03|NC2032"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "row_id": "V06006T1W03|non_ferrous|all_forms",
+      "insert_ids": [
+        "V06006T1W03|NC9036"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W03|NC9036"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "row_id": "V06006T1W03|titanium|all_forms",
+      "insert_ids": [
+        "V06006T1W03|NC9036"
+      ],
+      "status": "supported",
+      "family_support": {
+        "V060": {
+          "status": "supported",
+          "insert_ids": [
+            "V06006T1W03|NC9036"
+          ]
+        }
+      },
+      "notes": []
+    }
+  ],
+  "gaps": [
+    {
+      "id": "Q01",
+      "topic": "V045硬鋼牌號",
+      "question_zh_TW": "p82共用T1W06表含NC2035/HRC<56，但p75 V045未列NC2035訂購code；V045是否供此牌號？",
+      "source_pages": [
+        75,
+        82
+      ],
+      "blocking": "V045硬鋼自動推薦"
+    },
+    {
+      "id": "Q04",
+      "topic": "每個刀柄允許轉速",
+      "question_zh_TW": "p80最低預平衡及表格40000rpm不等於每支Steel/Carbide/XL柄額定上限；請提供各型號及突出長度的允許轉速/平衡規範。",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        80
+      ],
+      "blocking": "全組高速額定驗證"
+    },
+    {
+      "id": "Q05",
+      "topic": "XL單位",
+      "question_zh_TW": "unbalanced<0.6gm的單位、檢測基準、最大轉速與夾持量為何？",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "blocking": "100mm XL高速條件"
+    },
+    {
+      "id": "Q06",
+      "topic": "精確寬深曲線",
+      "question_zh_TW": "各刀片完整刀尖幾何、寬深計算基準及可供程式使用的數值曲線？尤其X060 Radius及V06W03。",
+      "source_pages": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        82,
+        83
+      ],
+      "blocking": "精確雙向寬深換算及公差"
+    },
+    {
+      "id": "Q07",
+      "topic": "塑膠/壓克力與特殊材料",
+      "question_zh_TW": "牌號文字含塑膠/壓克力/鈦，但部分切削表僅總稱非鐵或未列S；可否提供材料細分切削參數及限制？",
+      "source_pages": [
+        71,
+        75,
+        76,
+        81,
+        82,
+        83
+      ],
+      "blocking": "未列材料自動推薦"
+    },
+    {
+      "id": "Q08",
+      "topic": "牌號文字與切削列交叉",
+      "question_zh_TW": "NC2032/NC9031/NC9036部分簡介與切削列涵蓋材料不完全同範圍；以各模型明確表格為目前依據，需原廠確認完整適用矩陣。",
+      "source_pages": [
+        71,
+        75,
+        76,
+        77,
+        81,
+        82,
+        83
+      ],
+      "blocking": "宣稱通用最佳牌號"
+    },
+    {
+      "id": "Q09",
+      "topic": "刀長重複性與精度",
+      "question_zh_TW": "本章宣稱換刃無需重設，但未給數值刀長重複精度、裝夾公差及最小夾持量；請補正式數據。",
+      "source_pages": [
+        68,
+        69,
+        78,
+        80
+      ],
+      "blocking": "公差與重複精度承諾"
+    },
+    {
+      "id": "Q10",
+      "topic": "道次自動化",
+      "question_zh_TW": "各表~與Finishing的實施方式、剩餘深度小於表值時的處理及切入/退刀路徑條件？ p82碳鋼前五道合計2mm即達Tmax，Finishing=.05是預留、替代末道還是有其他定義？不可直接累加。",
+      "source_pages": [
+        77,
+        78,
+        81,
+        82,
+        83
+      ],
+      "blocking": "可直接執行NC程式"
+    },
+    {
+      "id": "Q11",
+      "topic": "W03最小槽寬",
+      "question_zh_TW": "p76 Wmin=0.25、Tmin=.05mm；p83寬深圖t=.05處標W=.24mm。精確寬深與公差應以何標準？參考圖不能當精密尺寸。",
+      "source_pages": [
+        76,
+        83
+      ],
+      "blocking": "寬深換算及公差保證"
+    }
+  ],
+  "reference_examples": [
+    {
+      "source_page": 79,
+      "role": "單一實驗案例，不當通用切削推薦",
+      "holder": "00-99619-V060-06",
+      "insert": "V06006T1W06-NC2071",
+      "material": "SKD61, HRB92-93 (HB200)",
+      "S_rpm": 10000,
+      "F_mm_min": 100,
+      "Ap_mm": 0.2,
+      "Ra_um": 0.36
+    },
+    {
+      "source_page": 79,
+      "role": "單一實驗案例",
+      "holder": "00-99619-V060-06",
+      "insert": "V06006T1W06-NC2071",
+      "material": "SKD51",
+      "S_rpm": 10000,
+      "F_mm_min": 300,
+      "Ap_mm": 0.1,
+      "reported_life": "24 min / 1440 sec"
+    },
+    {
+      "source_page": 79,
+      "role": "單一實驗案例",
+      "holder": "00-99619-V060-06",
+      "insert": "V06006T1W06-NC2071",
+      "material": "SS",
+      "S_rpm": 10000,
+      "F_mm_min": 300,
+      "Ap_mm": 0.35,
+      "reported_life": "7.2 meters"
+    },
+    {
+      "source_page": 79,
+      "role": "單一實驗案例",
+      "holder": "00-99619-V060-06",
+      "insert": "V06006T1W06-NC2035",
+      "material": "SKD61 50HRC",
+      "S_rpm": 10000,
+      "F_mm_min": 100,
+      "Ap_mm": 0.2,
+      "reported_life": "3.5 meters"
+    }
+  ],
+  "interpretation": {
+    "speed_source": "direct_catalog_rpm_range_not_Vc",
+    "feed_is_per_revolution": true,
+    "multiply_by_available_cutting_edges": false,
+    "reference_examples_role": "p79單次實驗案例的F為mm/min，不能與rows內f mm/rev互換或當通用推薦。",
+    "raw_numeric_policy": "所有原始數值與null照研究資料保留；None/~與---不是零。"
+  },
+  "prepared_at": "2026-11-24",
+  "data_status": "catalog_reference",
+  "common_file": "../Engraving/data/common.json"
+}

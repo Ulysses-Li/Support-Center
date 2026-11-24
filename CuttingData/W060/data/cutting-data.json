@@ -1,0 +1,791 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "W060",
+  "title": "W060",
+  "families": [
+    "W060"
+  ],
+  "prepared_at": "2026-11-24",
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      77
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "units": {
+    "spindle_speed": "rpm",
+    "feed_per_revolution": "mm/rev",
+    "feed_rate": "mm/min",
+    "depth": "mm"
+  },
+  "materials": [
+    {
+      "id": "carbon_steel",
+      "label_zh_TW": "碳鋼",
+      "iso_group": "P"
+    },
+    {
+      "id": "alloy_steel",
+      "label_zh_TW": "合金鋼",
+      "iso_group": "P"
+    },
+    {
+      "id": "stainless_steel",
+      "label_zh_TW": "不鏽鋼",
+      "iso_group": "M"
+    },
+    {
+      "id": "cast_iron",
+      "label_zh_TW": "鑄鐵",
+      "iso_group": "K"
+    },
+    {
+      "id": "non_ferrous",
+      "label_zh_TW": "非鐵金屬",
+      "iso_group": "N"
+    }
+  ],
+  "rows": [
+    {
+      "model": "W06004S101",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.1,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.02,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.2,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S101|carbon_steel|angled"
+    },
+    {
+      "model": "W06004S101",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.08,
+          0.03,
+          0.03
+        ],
+        "subsequent_pass_value": 0.02,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.2,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S101|alloy_steel|angled"
+    },
+    {
+      "model": "W06004S101",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.08,
+          0.03,
+          0.03
+        ],
+        "subsequent_pass_value": 0.02,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.2,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S101|stainless_steel|angled"
+    },
+    {
+      "model": "W06004S101",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.1,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.02,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.2,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S101|cast_iron|angled"
+    },
+    {
+      "model": "W06004S101",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.1,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.02,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.2,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S101|non_ferrous|angled"
+    },
+    {
+      "model": "W06004S102",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.4,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S102|carbon_steel|angled"
+    },
+    {
+      "model": "W06004S102",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.12,
+          0.08,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.4,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S102|alloy_steel|angled"
+    },
+    {
+      "model": "W06004S102",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.12,
+          0.05,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.4,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S102|stainless_steel|angled"
+    },
+    {
+      "model": "W06004S102",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.4,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S102|cast_iron|angled"
+    },
+    {
+      "model": "W06004S102",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.4,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S102|non_ferrous|angled"
+    },
+    {
+      "model": "W06004S103",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S103|carbon_steel|angled"
+    },
+    {
+      "model": "W06004S103",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S103|alloy_steel|angled"
+    },
+    {
+      "model": "W06004S103",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.05,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S103|stainless_steel|angled"
+    },
+    {
+      "model": "W06004S103",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S103|cast_iron|angled"
+    },
+    {
+      "model": "W06004S103",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 77,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "pass_header_note": "S101原欄1st,2nd,3rd,~；S102/S103原欄1st至4th,~；~是後續道次提示。",
+      "id": "W06004S103|non_ferrous|angled"
+    }
+  ],
+  "pairings": [
+    {
+      "row_id": "W06004S101|carbon_steel|angled",
+      "insert_ids": [
+        "W06004S101|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S101|alloy_steel|angled",
+      "insert_ids": [
+        "W06004S101|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S101|stainless_steel|angled",
+      "insert_ids": [
+        "W06004S101|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S101|cast_iron|angled",
+      "insert_ids": [
+        "W06004S101|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S101|non_ferrous|angled",
+      "insert_ids": [
+        "W06004S101|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S102|carbon_steel|angled",
+      "insert_ids": [
+        "W06004S102|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S102|alloy_steel|angled",
+      "insert_ids": [
+        "W06004S102|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S102|stainless_steel|angled",
+      "insert_ids": [
+        "W06004S102|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S102|cast_iron|angled",
+      "insert_ids": [
+        "W06004S102|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S102|non_ferrous|angled",
+      "insert_ids": [
+        "W06004S102|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S103|carbon_steel|angled",
+      "insert_ids": [
+        "W06004S103|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S103|alloy_steel|angled",
+      "insert_ids": [
+        "W06004S103|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S103|stainless_steel|angled",
+      "insert_ids": [
+        "W06004S103|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S103|cast_iron|angled",
+      "insert_ids": [
+        "W06004S103|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    },
+    {
+      "row_id": "W06004S103|non_ferrous|angled",
+      "insert_ids": [
+        "W06004S103|NC2032"
+      ],
+      "status": "supported",
+      "notes": [
+        "同一實體型號與NC2032牌號交集；不得跨S101/S102/S103借用尺寸或道次。"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "W060-G01",
+      "topic": "完整組合允許最高轉速",
+      "status": "manufacturer_confirmation_required",
+      "source_catalog_pages": [
+        77,
+        80
+      ],
+      "detail_zh_TW": "8000–40000rpm是切削表範圍；此章沒有逐刀柄/突出量/夾具的額定最高轉速，holder.rpm_limit保留null。"
+    },
+    {
+      "id": "W060-G02",
+      "topic": "未列材種",
+      "status": "not_listed",
+      "source_catalog_pages": [
+        77
+      ],
+      "material_ids": [
+        "hardened_steel",
+        "titanium"
+      ],
+      "detail_zh_TW": "未列淬硬鋼與鈦材切削列，不從X060/V060或全域牌號說明借用。塑膠等細分材料亦未有專屬數據。"
+    },
+    {
+      "id": "W060-G03",
+      "topic": "刀尖圓角及最小深度",
+      "status": "not_listed",
+      "source_catalog_pages": [
+        77
+      ],
+      "fields": [
+        "insert_dimensions_mm.Re",
+        "engraving_limits_mm.Tmin"
+      ],
+      "detail_zh_TW": "Re與Tmin未列，保持null，不當作0，也不使用理想尖V公式承諾精確寬深換算。"
+    },
+    {
+      "id": "W060-G04",
+      "topic": "道次與精修安排",
+      "status": "manufacturer_confirmation_required",
+      "source_catalog_pages": [
+        77
+      ],
+      "detail_zh_TW": "各表~是後續道次提示；須以客戶總深及Tmax作硬上限，不能把整列Ap與Finishing盲目相加。表列剩餘量、精修保留與最後一刀調配需原廠說明。 例如S102非鐵列前四道0.2+0.1+0.1+0.05=0.45mm，已超過該表Tmax=0.4mm；保留原表數值，不能自動照整列累加。"
+    },
+    {
+      "id": "W060-G05",
+      "topic": "NC2032材料範圍文字",
+      "status": "manufacturer_confirmation_required",
+      "source_catalog_pages": [
+        77
+      ],
+      "detail_zh_TW": "牌號簡介寫未淬硬鋼；同頁切削表另含不鏽鋼、鑄鐵與非鐵。目前保留同頁明確切削配對，未宣稱跨材種通用最佳牌號。"
+    }
+  ],
+  "calculation_policy": {
+    "catalog_spindle_input": "S直接取型錄rpm範圍，不從刻線寬或柄徑反算Vc。",
+    "feed_rate": {
+      "formula": "F = S * f",
+      "result_unit": "mm/min",
+      "classification": "site_calculation",
+      "basis_zh_TW": "依單位推導，非本章印出的原式；f已為每轉進給。"
+    },
+    "available_cutting_edges": 2,
+    "multiply_available_cutting_edges": false,
+    "midpoint_default": {
+      "classification": "site_preference",
+      "enabled_by_catalog": false,
+      "note_zh_TW": "中位數是未來網站可採用的起始預設，非型錄指定；需先取得完整組合允許轉速與機台限制。"
+    },
+    "z_entry_feed": {
+      "factor": 0.5,
+      "basis": "catalog_instruction",
+      "source_catalog_page": 80,
+      "common_requirements_file": "../Engraving/data/common.json"
+    },
+    "automatic_pass_schedule": false
+  },
+  "counts": {
+    "materials": 5,
+    "rows": 15,
+    "supported_pairings": 15,
+    "unmatched_rows": 0
+  },
+  "data_status": "catalog_reference",
+  "common_file": "../Engraving/data/common.json"
+}

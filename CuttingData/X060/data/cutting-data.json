@@ -1,0 +1,1989 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "X060",
+  "title": "X060",
+  "families": [
+    "X060"
+  ],
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      71,
+      72,
+      73,
+      74,
+      81
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "units": {
+    "spindle_speed": "rpm",
+    "feed_per_revolution": "mm/rev",
+    "feed_rate": "mm/min",
+    "depth": "mm"
+  },
+  "materials": [
+    {
+      "id": "carbon_steel",
+      "label_zh_TW": "碳鋼",
+      "iso_group": "P"
+    },
+    {
+      "id": "alloy_steel",
+      "label_zh_TW": "合金鋼",
+      "iso_group": "P"
+    },
+    {
+      "id": "stainless_steel",
+      "label_zh_TW": "不鏽鋼",
+      "iso_group": "M"
+    },
+    {
+      "id": "cast_iron",
+      "label_zh_TW": "鑄鐵",
+      "iso_group": "K"
+    },
+    {
+      "id": "non_ferrous",
+      "label_zh_TW": "非鐵金屬",
+      "iso_group": "N"
+    },
+    {
+      "id": "hardened_steel",
+      "label_zh_TW": "淬硬鋼",
+      "iso_group": "H",
+      "hardness_limit": "< HRC50"
+    }
+  ],
+  "rows": [
+    {
+      "model": "X060A30W020R",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.001,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30W020R|carbon_steel|radius_angled"
+    },
+    {
+      "model": "X060A30R020",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30R020|carbon_steel|radius"
+    },
+    {
+      "model": "X060A30W020R",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.001,
+        0.006
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30W020R|alloy_steel|radius_angled"
+    },
+    {
+      "model": "X060A30R020",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30R020|alloy_steel|radius"
+    },
+    {
+      "model": "X060A30W020R",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.001,
+        0.006
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.1,
+          0.05,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30W020R|stainless_steel|radius_angled"
+    },
+    {
+      "model": "X060A30R020",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.1,
+          0.05,
+          0.05,
+          0.03
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30R020|stainless_steel|radius"
+    },
+    {
+      "model": "X060A30W020R",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.001,
+        0.006
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30W020R|cast_iron|radius_angled"
+    },
+    {
+      "model": "X060A30R020",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30R020|cast_iron|radius"
+    },
+    {
+      "model": "X060A30W020R",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.001,
+        0.012
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.02
+      },
+      "grades": [
+        "XP9001"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30W020R|non_ferrous|radius_angled"
+    },
+    {
+      "model": "X060A30R020",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.02
+      },
+      "grades": [
+        "XP9001"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30R020|non_ferrous|radius"
+    },
+    {
+      "model": "X060A30W020R",
+      "material_id": "hardened_steel",
+      "iso_group": "H",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.001,
+        0.005
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.1,
+          0.05,
+          0.03,
+          0.03
+        ],
+        "subsequent_pass_value": 0.02,
+        "finishing": 0.01
+      },
+      "grades": [
+        "NC2035"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": "HRC < 50",
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30W020R|hardened_steel|radius_angled"
+    },
+    {
+      "model": "X060A30R020",
+      "material_id": "hardened_steel",
+      "iso_group": "H",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.006
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.1,
+          0.05,
+          0.03,
+          0.03
+        ],
+        "subsequent_pass_value": 0.02,
+        "finishing": 0.01
+      },
+      "grades": [
+        "NC2035"
+      ],
+      "Tmax_mm": 0.6,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": "HRC < 50",
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A30R020|hardened_steel|radius"
+    },
+    {
+      "model": "X060A45W020R",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.012
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.25,
+          0.15,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45W020R|carbon_steel|radius_angled"
+    },
+    {
+      "model": "X060A45R020",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.25,
+          0.15,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45R020|carbon_steel|radius"
+    },
+    {
+      "model": "X060A45W020R",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45W020R|alloy_steel|radius_angled"
+    },
+    {
+      "model": "X060A45R020",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45R020|alloy_steel|radius"
+    },
+    {
+      "model": "X060A45W020R",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.008
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45W020R|stainless_steel|radius_angled"
+    },
+    {
+      "model": "X060A45R020",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45R020|stainless_steel|radius"
+    },
+    {
+      "model": "X060A45W020R",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45W020R|cast_iron|radius_angled"
+    },
+    {
+      "model": "X060A45R020",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45R020|cast_iron|radius"
+    },
+    {
+      "model": "X060A45W020R",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.1,
+          0.1
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "XP9001"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45W020R|non_ferrous|radius_angled"
+    },
+    {
+      "model": "X060A45R020",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.1,
+          0.1
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "XP9001"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45R020|non_ferrous|radius"
+    },
+    {
+      "model": "X060A45W020R",
+      "material_id": "hardened_steel",
+      "iso_group": "H",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.006
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2035"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": "HRC < 50",
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45W020R|hardened_steel|radius_angled"
+    },
+    {
+      "model": "X060A45R020",
+      "material_id": "hardened_steel",
+      "iso_group": "H",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.006
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.15,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2035"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": "HRC < 50",
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A45R020|hardened_steel|radius"
+    },
+    {
+      "model": "X060A60W020R",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.012
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.1,
+          0.1
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60W020R|carbon_steel|radius_angled"
+    },
+    {
+      "model": "X060A60R020",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.1,
+          0.1
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60R020|carbon_steel|radius"
+    },
+    {
+      "model": "X060A60W020R",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60W020R|alloy_steel|radius_angled"
+    },
+    {
+      "model": "X060A60R020",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60R020|alloy_steel|radius"
+    },
+    {
+      "model": "X060A60W020R",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.008
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60W020R|stainless_steel|radius_angled"
+    },
+    {
+      "model": "X060A60R020",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60R020|stainless_steel|radius"
+    },
+    {
+      "model": "X060A60W020R",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60W020R|cast_iron|radius_angled"
+    },
+    {
+      "model": "X060A60R020",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60R020|cast_iron|radius"
+    },
+    {
+      "model": "X060A60W020R",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.1,
+          0.1
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "XP9001"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60W020R|non_ferrous|radius_angled"
+    },
+    {
+      "model": "X060A60R020",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.1,
+          0.1
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "XP9001"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": null,
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60R020|non_ferrous|radius"
+    },
+    {
+      "model": "X060A60W020R",
+      "material_id": "hardened_steel",
+      "iso_group": "H",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.006
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2035"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": "HRC < 50",
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60W020R|hardened_steel|radius_angled"
+    },
+    {
+      "model": "X060A60R020",
+      "material_id": "hardened_steel",
+      "iso_group": "H",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.006
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2035"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius",
+      "hardness_limit": "HRC < 50",
+      "pass_header_note": "原表欄為1st,2nd,3rd,4th,5th~；subsequent_pass_value對應5th~，不是固定總道次。",
+      "id": "X060A60R020|hardened_steel|radius"
+    },
+    {
+      "model": "X060A90W020R",
+      "material_id": "carbon_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.015
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.1,
+          0.1
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "id": "X060A90W020R|carbon_steel|radius_angled"
+    },
+    {
+      "model": "X060A90W020R",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032",
+        "NC2035"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "id": "X060A90W020R|alloy_steel|radius_angled"
+    },
+    {
+      "model": "X060A90W020R",
+      "material_id": "stainless_steel",
+      "iso_group": "M",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "id": "X060A90W020R|stainless_steel|radius_angled"
+    },
+    {
+      "model": "X060A90W020R",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.01
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.1,
+          0.1,
+          0.05
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "NC2032"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "id": "X060A90W020R|cast_iron|radius_angled"
+    },
+    {
+      "model": "X060A90W020R",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.4,
+          0.3,
+          0.2,
+          0.1
+        ],
+        "subsequent_pass_value": 0.05,
+        "finishing": 0.03
+      },
+      "grades": [
+        "XP9001"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": null,
+      "id": "X060A90W020R|non_ferrous|radius_angled"
+    },
+    {
+      "model": "X060A90W020R",
+      "material_id": "hardened_steel",
+      "iso_group": "H",
+      "spindle_speed_rpm": [
+        8000,
+        40000
+      ],
+      "feed_per_revolution_mm": [
+        0.002,
+        0.006
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.2,
+          0.1,
+          0.05,
+          0.05
+        ],
+        "subsequent_pass_value": 0.03,
+        "finishing": 0.02
+      },
+      "grades": [
+        "NC2035"
+      ],
+      "Tmax_mm": 1,
+      "source_catalog_page": 81,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "form": "radius_angled",
+      "hardness_limit": "HRC < 50",
+      "id": "X060A90W020R|hardened_steel|radius_angled"
+    }
+  ],
+  "pairings": [
+    {
+      "row_id": "X060A30W020R|carbon_steel|radius_angled",
+      "insert_ids": [
+        "X060A30W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A30R020|carbon_steel|radius",
+      "insert_ids": [
+        "X060A30R020|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A30W020R|alloy_steel|radius_angled",
+      "insert_ids": [
+        "X060A30W020R|NC2032",
+        "X060A30W020R|NC2035"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A30R020|alloy_steel|radius",
+      "insert_ids": [
+        "X060A30R020|NC2032",
+        "X060A30R020|NC2035"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A30W020R|stainless_steel|radius_angled",
+      "insert_ids": [
+        "X060A30W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A30R020|stainless_steel|radius",
+      "insert_ids": [
+        "X060A30R020|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A30W020R|cast_iron|radius_angled",
+      "insert_ids": [
+        "X060A30W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A30R020|cast_iron|radius",
+      "insert_ids": [
+        "X060A30R020|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A30W020R|non_ferrous|radius_angled",
+      "insert_ids": [
+        "X060A30W020R|XP9001"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A30R020|non_ferrous|radius",
+      "insert_ids": [
+        "X060A30R020|XP9001"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A30W020R|hardened_steel|radius_angled",
+      "insert_ids": [
+        "X060A30W020R|NC2035"
+      ],
+      "status": "supported",
+      "notes": [
+        "必須先確認工件硬度符合此列 HRC < 50"
+      ]
+    },
+    {
+      "row_id": "X060A30R020|hardened_steel|radius",
+      "insert_ids": [
+        "X060A30R020|NC2035"
+      ],
+      "status": "supported",
+      "notes": [
+        "必須先確認工件硬度符合此列 HRC < 50"
+      ]
+    },
+    {
+      "row_id": "X060A45W020R|carbon_steel|radius_angled",
+      "insert_ids": [
+        "X060A45W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A45R020|carbon_steel|radius",
+      "insert_ids": [
+        "X060A45R020|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A45W020R|alloy_steel|radius_angled",
+      "insert_ids": [
+        "X060A45W020R|NC2032",
+        "X060A45W020R|NC2035"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A45R020|alloy_steel|radius",
+      "insert_ids": [
+        "X060A45R020|NC2032",
+        "X060A45R020|NC2035"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A45W020R|stainless_steel|radius_angled",
+      "insert_ids": [
+        "X060A45W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A45R020|stainless_steel|radius",
+      "insert_ids": [
+        "X060A45R020|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A45W020R|cast_iron|radius_angled",
+      "insert_ids": [
+        "X060A45W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A45R020|cast_iron|radius",
+      "insert_ids": [
+        "X060A45R020|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A45W020R|non_ferrous|radius_angled",
+      "insert_ids": [
+        "X060A45W020R|XP9001"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A45R020|non_ferrous|radius",
+      "insert_ids": [
+        "X060A45R020|XP9001"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A45W020R|hardened_steel|radius_angled",
+      "insert_ids": [
+        "X060A45W020R|NC2035"
+      ],
+      "status": "supported",
+      "notes": [
+        "必須先確認工件硬度符合此列 HRC < 50"
+      ]
+    },
+    {
+      "row_id": "X060A45R020|hardened_steel|radius",
+      "insert_ids": [
+        "X060A45R020|NC2035"
+      ],
+      "status": "supported",
+      "notes": [
+        "必須先確認工件硬度符合此列 HRC < 50"
+      ]
+    },
+    {
+      "row_id": "X060A60W020R|carbon_steel|radius_angled",
+      "insert_ids": [
+        "X060A60W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A60R020|carbon_steel|radius",
+      "insert_ids": [
+        "X060A60R020|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A60W020R|alloy_steel|radius_angled",
+      "insert_ids": [
+        "X060A60W020R|NC2032",
+        "X060A60W020R|NC2035"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A60R020|alloy_steel|radius",
+      "insert_ids": [
+        "X060A60R020|NC2032",
+        "X060A60R020|NC2035"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A60W020R|stainless_steel|radius_angled",
+      "insert_ids": [
+        "X060A60W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A60R020|stainless_steel|radius",
+      "insert_ids": [
+        "X060A60R020|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A60W020R|cast_iron|radius_angled",
+      "insert_ids": [
+        "X060A60W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A60R020|cast_iron|radius",
+      "insert_ids": [
+        "X060A60R020|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A60W020R|non_ferrous|radius_angled",
+      "insert_ids": [
+        "X060A60W020R|XP9001"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A60R020|non_ferrous|radius",
+      "insert_ids": [
+        "X060A60R020|XP9001"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A60W020R|hardened_steel|radius_angled",
+      "insert_ids": [
+        "X060A60W020R|NC2035"
+      ],
+      "status": "supported",
+      "notes": [
+        "必須先確認工件硬度符合此列 HRC < 50"
+      ]
+    },
+    {
+      "row_id": "X060A60R020|hardened_steel|radius",
+      "insert_ids": [
+        "X060A60R020|NC2035"
+      ],
+      "status": "supported",
+      "notes": [
+        "必須先確認工件硬度符合此列 HRC < 50"
+      ]
+    },
+    {
+      "row_id": "X060A90W020R|carbon_steel|radius_angled",
+      "insert_ids": [
+        "X060A90W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A90W020R|alloy_steel|radius_angled",
+      "insert_ids": [
+        "X060A90W020R|NC2032",
+        "X060A90W020R|NC2035"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A90W020R|stainless_steel|radius_angled",
+      "insert_ids": [
+        "X060A90W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A90W020R|cast_iron|radius_angled",
+      "insert_ids": [
+        "X060A90W020R|NC2032"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A90W020R|non_ferrous|radius_angled",
+      "insert_ids": [
+        "X060A90W020R|XP9001"
+      ],
+      "status": "supported",
+      "notes": []
+    },
+    {
+      "row_id": "X060A90W020R|hardened_steel|radius_angled",
+      "insert_ids": [
+        "X060A90W020R|NC2035"
+      ],
+      "status": "supported",
+      "notes": [
+        "必須先確認工件硬度符合此列 HRC < 50"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "x060-precision-geometry",
+      "status": "needs_manufacturer_confirmation",
+      "topic": "圓弧底最小線寬及精確寬深換算",
+      "note_zh_TW": "Radius型未列Wmin、所有X060未列Tmin；不得將null補0，也不得用理想尖V公式冒充精確曲線。",
+      "source_catalog_pages": [
+        70,
+        71,
+        72,
+        73,
+        74
+      ]
+    },
+    {
+      "id": "x060-material-detail",
+      "status": "needs_manufacturer_confirmation",
+      "topic": "材料細分",
+      "note_zh_TW": "XP9001文字列塑膠/壓克力等，p81只列非鐵金屬，未列鈦或各類塑膠專用切削列，不能自動借值。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74,
+        81
+      ]
+    },
+    {
+      "id": "x060-rpm-rating",
+      "status": "needs_manufacturer_confirmation",
+      "topic": "整組最高允許轉速",
+      "note_zh_TW": "p81的8000-40000rpm為材種切削表範圍，不是5支刀柄或任意突出量的額定許可。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74,
+        80,
+        81
+      ]
+    },
+    {
+      "id": "x060-pass-sequence",
+      "status": "needs_manufacturer_confirmation",
+      "topic": "道次/精修定義",
+      "note_zh_TW": "保留1st-4th、5th~、Finishing；單道深度不等於總深，不能將後續刀次無限累加或使總深超出需求/Tmax。",
+      "source_catalog_pages": [
+        81
+      ]
+    }
+  ],
+  "calculation_rules": [
+    {
+      "id": "feed_rate",
+      "kind": "site_calculation",
+      "expression": "F_mm_min = S_rpm * f_mm_rev",
+      "note_zh_TW": "由單位推導的網站計算，不宣稱為本章印出的原式；不再乘可換刃角數。"
+    },
+    {
+      "id": "z_feed",
+      "kind": "catalog_factor",
+      "factor": 0.5,
+      "expression": "Fz_mm_min = 0.5 * F_mm_min",
+      "source_catalog_page": 80,
+      "note_zh_TW": "Z軸下刀進給取工作台切削進給50%。"
+    },
+    {
+      "id": "starting_value",
+      "kind": "site_policy_required",
+      "catalog_recommended_default": null,
+      "note_zh_TW": "原表未指定中位數啟動值。未來若採中值須標網站預設、檢查機台與刀柄限制；多牌號不設原廠唯一優先排名。"
+    },
+    {
+      "id": "no_vc_conversion",
+      "kind": "data_boundary",
+      "note_zh_TW": "原章直接給S與f，未列Vc；不能用刀柄徑或刻線寬度套鑽孔公式推原廠推薦轉速。"
+    }
+  ],
+  "counts": {
+    "cutting_rows": 42,
+    "row_pairings": 42,
+    "supported_rows": 42,
+    "insert_row_pairs": 49
+  },
+  "shared_requirements_file": "../Engraving/data/common.json",
+  "prepared_at": "2026-11-24",
+  "data_status": "catalog_reference",
+  "common_file": "../Engraving/data/common.json"
+}

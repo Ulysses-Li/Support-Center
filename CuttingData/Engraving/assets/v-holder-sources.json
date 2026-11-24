@@ -1,0 +1,124 @@
+{
+  "source_pdf": "CuttingData/Engraving/sources/Engraving-Tool-p068-083.pdf",
+  "policy": "Source path geometry preserved, raster gradients and dimensions/text removed, only flat fills changed. Stroke attributes retained.",
+  "assets": [
+    {
+      "file": "v045-holder-outline.svg",
+      "printed_page": 75,
+      "pdf_page": 8,
+      "viewBox": [
+        55.1,
+        516.7,
+        142.8,
+        14.4
+      ],
+      "path_indices": [
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328
+      ],
+      "clip_fill_path": "clip_68",
+      "anchors_pdf_points": {
+        "tip_x": 55.375,
+        "tail_x": 197.447,
+        "rear_top_y": 517.867,
+        "rear_bottom_y": 529.562
+      },
+      "anchors_fraction_of_viewBox": {
+        "tip_x": 0.0019257703081232392,
+        "tail_x": 0.9968277310924369,
+        "rear_top_y": 0.08104166666666085,
+        "rear_bottom_y": 0.8931944444444421
+      },
+      "raster_count": 0,
+      "paths": 10
+    },
+    {
+      "file": "v060-holder-outline.svg",
+      "printed_page": 76,
+      "pdf_page": 9,
+      "viewBox": [
+        177.35,
+        658.48,
+        142.8,
+        14.42
+      ],
+      "path_indices": [
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "clip_fill_path": "clip_4",
+      "anchors_pdf_points": {
+        "tip_x": 177.626,
+        "tail_x": 319.698,
+        "rear_top_y": 659.651,
+        "rear_bottom_y": 671.346
+      },
+      "anchors_fraction_of_viewBox": {
+        "tip_x": 0.0019327731092437705,
+        "tail_x": 0.9968347338935573,
+        "rear_top_y": 0.08120665742024517,
+        "rear_bottom_y": 0.8922330097087369
+      },
+      "raster_count": 0,
+      "paths": 10
+    },
+    {
+      "file": "v060-04-holder-outline.svg",
+      "printed_page": 76,
+      "pdf_page": 9,
+      "viewBox": [
+        71.1,
+        656.1,
+        69.7,
+        18.2
+      ],
+      "path_indices": [
+        184,
+        185,
+        186,
+        187,
+        195,
+        196,
+        197,
+        198,
+        199
+      ],
+      "clip_fill_path": "clip_7",
+      "anchors_pdf_points": {
+        "tip_x": 71.418,
+        "tail_x": 140.5164,
+        "step_x": 111.5016,
+        "rear_top_y": 660.3746,
+        "rear_bottom_y": 670.1436,
+        "front_top_y": 658.3101,
+        "front_bottom_y": 671.7811
+      },
+      "anchors_fraction_of_viewBox": {
+        "tip_x": 0.004562410329985825,
+        "tail_x": 0.9959311334289814,
+        "step_x": 0.5796499282639885,
+        "rear_top_y": 0.2348681318681299,
+        "rear_bottom_y": 0.771626373626372,
+        "front_top_y": 0.12143406593406655,
+        "front_bottom_y": 0.8615989010989019
+      },
+      "raster_count": 0,
+      "paths": 10
+    }
+  ],
+  "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052"
+}

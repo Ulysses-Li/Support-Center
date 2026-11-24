@@ -151,13 +151,14 @@ const CUTTING_DATA_PRODUCTS = [
     name: "N9MT-W",
     category: "Engraving",
     image: "../img/engraving.png",
-    status: "Preparing",
-    href: "../Products/N9MTW/index.html#cutting-data",
-    summary: "N9MT-W engraving cutting data is being prepared.",
+    status: "Available",
+    href: "./N9MTW/index.html",
+    actionLabel: "Set Up Engraving",
+    summary: "Match a 60° or 90° N9MT-W insert and holder, then set engraving speed and feed.",
     details: [
-      "Planned: angle and width selection",
-      "Planned: material presets",
-      "Planned: fine feed guidance"
+      "Angle, width, depth and material matching",
+      "Catalog insert grades and matching holders",
+      "Spindle speed, feed rate and Z plunge feed"
     ]
   },
   {
@@ -281,13 +282,14 @@ const CUTTING_DATA_PRODUCTS = [
     name: "V060 / V045",
     category: "Engraving",
     image: "../img/engraving.png",
-    status: "Preparing",
-    href: "../Products/V060/index.html#cutting-data",
-    summary: "V060 / V045 engraving cutting data is being prepared.",
+    status: "Available",
+    href: "./V060/index.html",
+    actionLabel: "Set Up Engraving",
+    summary: "Select a V045 or V060 insert and material-matched W03 or W06 cutting data.",
     details: [
-      "Planned: angle and tool selection",
-      "Planned: material presets",
-      "Planned: fine feed guidance"
+      "45° and 60° insert and holder selection",
+      "Separate W03 and W06 material cutting tables",
+      "Spindle speed, feed rate and Z plunge feed"
     ]
   },
   {
@@ -295,13 +297,14 @@ const CUTTING_DATA_PRODUCTS = [
     name: "W060",
     category: "Engraving",
     image: "../img/engraving.png",
-    status: "Preparing",
-    href: "../Products/W060/index.html#cutting-data",
-    summary: "W060 engraving cutting data is being prepared.",
+    status: "Available",
+    href: "./W060/index.html",
+    actionLabel: "Set Up Engraving",
+    summary: "Select the W060 S101, S102 or S103 insert for thin and shallow engraving.",
     details: [
-      "Planned: width and tool selection",
-      "Planned: material presets",
-      "Planned: RPM and feed conversion"
+      "Individual insert width and depth limits",
+      "Material cutting ranges and Ø4 mm holder",
+      "Spindle speed, feed rate and Z plunge feed"
     ]
   },
   {
@@ -309,13 +312,14 @@ const CUTTING_DATA_PRODUCTS = [
     name: "X060",
     category: "Engraving",
     image: "../img/engraving.png",
-    status: "Preparing",
-    href: "../Products/X060/index.html#cutting-data",
-    summary: "X060 engraving cutting data is being prepared.",
+    status: "Available",
+    href: "./X060/index.html",
+    actionLabel: "Set Up Engraving",
+    summary: "Select an X060 angle, tip form and material-matched insert grade for engraving.",
     details: [
-      "Planned: tip width and depth selection",
-      "Planned: material presets",
-      "Planned: conservative starter values"
+      "30°, 45°, 60° and 90° insert selection",
+      "Separate radius and radius-angled cutting data",
+      "Spindle speed, feed rate and Z plunge feed"
     ]
   }
 ];

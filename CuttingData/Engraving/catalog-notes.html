@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>雕刻刀型錄與資料說明｜Nine9 支援中心</title>
+  <meta name="description" content="Nine9 X060、V045/V060、W060與N9MT-W雕刻刀的型錄範圍、計算規則與原廠待確認事項。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../header/header.css">
+  <link rel="stylesheet" href="../../footer/footer.css">
+  <link rel="stylesheet" href="../../css/site-background.css">
+  <link rel="icon" href="../../favicon.png">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <style>
+    .engraving-notes{color:#0c2237;padding:28px 0 40px;font-family:Arial,"Microsoft JhengHei",sans-serif;font-size:1rem;line-height:1.8}.engraving-notes a{color:#0067ad;text-decoration:none}.engraving-notes a:hover{text-decoration:underline}.notes-trail{font-size:.9rem;color:#5c7488;margin-bottom:24px}.notes-surface{background:#fff;border:1px solid #d5e4ee;border-radius:13px;padding:28px;margin-bottom:22px;box-shadow:0 7px 24px #0c223705}.notes-header{border-top:3px solid #0067ad}.notes-eyebrow{color:#0067ad;font-size:.8rem;letter-spacing:.1em;font-weight:750}.notes-surface h1{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:750}.notes-surface h2{font-size:1.35rem;font-weight:750}.notes-surface h3{font-size:1.05rem;font-weight:700}.notes-muted{color:#5c7488}.notes-actions .btn{font-size:.95rem;min-height:44px;display:inline-flex;align-items:center;font-weight:650}.notes-actions .btn-primary{background:#f05a1a;border-color:#f05a1a;color:#fff}.notes-actions .btn-outline-primary{color:#0067ad;border-color:#bed6e8}.notes-actions .btn-outline-primary:hover{color:white;background:#0067ad}.notes-filter{max-width:360px}.notes-filter .form-select{font-size:1rem;min-height:46px;border-color:#bfd6e6;color:#0c2237}.notes-callout{border-left:3px solid #f05a1a;background:#fff5ed;border-radius:3px;padding:14px 18px}.notes-list{padding-left:21px}.notes-list li{margin:10px 0}.notes-meta{color:#5c7488;font-size:.9rem}.notes-pills{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}.notes-pills span{color:#0067ad;background:#edf6fc;padding:5px 10px;border-radius:5px;font-size:.9rem}.notes-question{padding:18px 0;border-top:1px solid #e1ebf2}.notes-question:first-of-type{border-top:0;padding-top:0}.notes-question p{margin:7px 0}.notes-table{font-size:.95rem}.notes-table th{color:#456b87;background:#edf6fc}.notes-table td,.notes-table th{padding:10px 12px;vertical-align:top}.notes-status{color:#5c7488}.notes-failure{color:#9d3516}.notes-products{display:flex;flex-wrap:wrap;gap:8px}.notes-products a{border:1px solid #cbdfea;border-radius:6px;background:#f7fbfe;padding:7px 13px;font-size:.95rem}.notes-products a[aria-current=true]{color:#fff;background:#0067ad;border-color:#0067ad}@media(max-width:575.98px){.engraving-notes{padding-top:20px}.notes-surface{padding:21px 18px}.notes-filter{max-width:none}.notes-actions .btn{width:100%;justify-content:center}.notes-surface h2{font-size:1.2rem}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <div id="header-placeholder"></div>
+  <main class="engraving-notes flex-grow-1" id="main-content">
+    <div class="container-xl">
+      <nav class="notes-trail" aria-label="目前位置"><a href="../index.html">切削資料</a><span class="mx-2" aria-hidden="true">/</span><span>雕刻刀型錄與資料說明</span></nav>
+      <header class="notes-surface notes-header">
+        <p class="notes-eyebrow mb-2">ENGRAVING TOOL · CATALOG REFERENCE</p>
+        <h1 class="mb-3">型錄與資料說明</h1>
+        <p class="notes-muted mb-3">各系列依實體刀片、底形與材料表配對；下列資訊保留適用範圍及需要原廠補充的條件。</p>
+        <div class="notes-actions d-flex flex-wrap gap-2"><a id="returnTool" class="btn btn-primary" href="../index.html">回到切削資料</a><a class="btn btn-outline-primary" href="./sources/Engraving-Tool-p068-083.pdf#page=3" target="_blank" rel="noopener">產品型錄 PDF</a><a class="btn btn-outline-primary" href="./sources/Engraving-Tool-p068-083.pdf#page=13" target="_blank" rel="noopener">共通裝夾條件 p.80</a></div>
+      </header>
+
+      <section class="notes-surface" aria-labelledby="calculationTitle">
+        <h2 id="calculationTitle" class="mb-3">轉速、進給與深度怎麼使用</h2>
+        <div class="table-responsive"><table class="table notes-table mb-3"><caption class="visually-hidden">雕刻刀計算與型錄單位</caption><thead><tr><th scope="col">項目</th><th scope="col">使用方式</th></tr></thead><tbody><tr><th scope="row">主軸轉速 S</th><td>直接使用各刀片與材料表給定的 rpm 範圍；本章沒有推薦 Vc，不用柄徑或刻線寬反推切削速度。</td></tr><tr><th scope="row">每轉進給 f</th><td>單位為 mm/rev。網站依 F = S × f 計算每分鐘進給，不再乘可換刃角數。</td></tr><tr><th scope="row">Z 軸下刀進給</th><td>型錄 p.80 要求降為工作台切削進給的 50%，即 Fz = 0.5 × F。</td></tr><tr><th scope="row">中間值</th><td>若工具使用範圍中間值，這是網站便於調整的啟動預設，並非原廠指定的唯一最佳條件。</td></tr><tr><th scope="row">寬、深與槽底形狀</th><td>分別檢查同一片刀片的型錄尺寸。這不代表兩個數字已形成精確槽形；含圓角的刀尖不能用理想尖 V 公式作原廠精確換算。</td></tr><tr><th scope="row">單道 Ap／精修</th><td>僅列原表參考，不自動累加成完整循環。總深不得超過需求及刀片／切削表共同上限。</td></tr></tbody></table></div>
+        <p class="notes-callout mb-0">切削表的最高轉速不等於每一套刀柄、夾具及突出量的額定最高轉速。G6.3／10,000 rpm 是型錄列出的最低預平衡要求，仍需核對實際組合與機台上限。</p>
+      </section>
+
+      <section class="notes-surface" aria-labelledby="productScopeTitle">
+        <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-3"><div><h2 id="productScopeTitle" class="mb-1">查看各系列的資料範圍</h2><p class="notes-muted mb-0">來源：Engraving Tool p.68–83，PDF 第 1 頁對應型錄 p.68。</p></div><div class="notes-filter"><label for="productScope" class="form-label mb-1">產品系列</label><select class="form-select" id="productScope"><option value="all">全部系列</option><option value="X060">X060</option><option value="V060">V060 / V045</option><option value="W060">W060</option><option value="N9MTW">N9MT-W</option></select></div></div>
+        <nav id="productLinks" class="notes-products" aria-label="雕刻刀工具"></nav>
+      </section>
+      <p id="notesStatus" class="notes-status" role="status">正在載入系列資料…</p>
+      <div id="productNotes"></div>
+
+      <section class="notes-surface" aria-labelledby="assemblyTitle"><h2 id="assemblyTitle" class="mb-3">共通裝夾條件</h2><ul class="notes-list mb-0"><li>建議精密彈性筒夾、熱縮或油壓刀柄，刀桿偏擺小於 0.01 mm。</li><li>刀片須靠緊定位側後再鎖螺絲，使用各刀柄表列的鎖固扭力。</li><li>P 鋼／M 不鏽鋼／S 鈦／H 硬鋼：乳化液或油；N 非鐵金屬：油；K 鑄鐵：吹氣。</li><li>X060／V045／V060 的 100 mm XL 柄僅適用鋁與鋁合金；不能因材料選擇「非鐵金屬」就視為所有細分材料均可使用。</li></ul></section>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script>
+  /* 本頁直接讀取各產品正式JSON，問題清單與工具使用同一份資料，不重複維護。 */
+  (() => {
+    "use strict";
+    const products = [{id:"X060",title:"X060"},{id:"V060",title:"V060 / V045"},{id:"W060",title:"W060"},{id:"N9MTW",title:"N9MT-W"}];
+    const $ = id => document.getElementById(id);
+    const escapeHTML = value => String(value ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;");
+    const validProduct = value => products.some(product => product.id === value) ? value : "all";
+    const selection = validProduct(new URLSearchParams(window.location.search).get("product"));
+    $("productScope").value = selection;
+    const pdfLink = page => `./sources/Engraving-Tool-p068-083.pdf#page=${page - 67}`;
+    let entries = [];
+
+    function questionsFor(entry) {
+      const candidates = [...(entry.cutting.gaps || []),...(entry.rules.open_questions || []),...(entry.rules.manufacturer_questions || []),...(entry.rules.product_specific_gaps || [])];
+      const result = [], seen = new Set();
+      for (const question of candidates) {
+        const detail = typeof question === "string" ? question : question.question_zh_TW || question.detail_zh_TW || question.note_zh_TW || question.description_zh_TW || question.description || "";
+        const title = typeof question === "string" ? "資料待確認" : question.topic || question.title || question.id || "資料待確認";
+        if (!detail || seen.has(detail)) continue;
+        seen.add(detail);
+        const pages = typeof question === "string" ? [] : question.source_pages || question.source_catalog_pages || (question.source_catalog_page ? [question.source_catalog_page] : []);
+        result.push({title, detail, pages:pages.filter(page => Number.isInteger(page) && page >= 68 && page <= 83)});
+      }
+      return result;
+    }
+
+    function render() {
+      const selected = $("productScope").value;
+      const shown = selected === "all" ? entries : entries.filter(entry => entry.id === selected);
+      const product = products.find(item => item.id === selected);
+      $("returnTool").href = product ? `../${product.id}/index.html` : "../index.html";
+      $("returnTool").textContent = product ? `回到 ${product.title} 工具` : "回到切削資料";
+      $("productLinks").innerHTML = products.map(item => `<a href="../${item.id}/index.html" ${item.id === selected ? 'aria-current="true"' : ""}>${escapeHTML(item.title)}</a>`).join("");
+      $("productNotes").innerHTML = shown.map(entry => {
+        const pages = entry.catalog.source.printed_pages || [];
+        const questions = questionsFor(entry);
+        const materialNames = (entry.cutting.materials || []).map(material => material.label_zh_TW || material.label || material.id);
+        return `<section class="notes-surface" aria-labelledby="scope-${entry.id}"><h2 id="scope-${entry.id}" class="mb-2">${escapeHTML(entry.title)}</h2><p class="notes-meta mb-2">型錄 ${pages.map(page => `<a href="${pdfLink(page)}" target="_blank" rel="noopener">p.${page}</a>`).join("、")}</p><div class="notes-pills"><span>${entry.catalog.inserts.length} 種刀片／牌號</span><span>${entry.catalog.holders.length} 支刀柄</span><span>${entry.cutting.rows.length} 列切削配對</span></div><p class="notes-muted">本組直接切削表列材料：${escapeHTML(materialNames.join("、"))}。未列材料維持資料未列，不借用其他系列的參數。</p><h3 class="mt-4 mb-3">需要原廠補充或確認</h3>${questions.length ? questions.map(question => `<article class="notes-question"><h3>${escapeHTML(question.title)}</h3><p>${escapeHTML(question.detail)}</p>${question.pages.length ? `<p class="notes-meta mb-0">核對 ${question.pages.map(page => `<a href="${pdfLink(page)}" target="_blank" rel="noopener">p.${page}</a>`).join("、")}</p>` : ""}</article>`).join("") : '<p class="notes-muted">本包未另列產品專屬缺口，仍須遵守共通裝夾及機台條件。</p>'}</section>`;
+      }).join("");
+      $("notesStatus").textContent = `已載入 ${shown.length} 組系列資料。`;
+    }
+
+    $("productScope").addEventListener("change", () => { const url = new URL(window.location.href); if ($("productScope").value === "all") url.searchParams.delete("product"); else url.searchParams.set("product",$("productScope").value); window.history.replaceState(null,"",url); render(); });
+    Promise.all(products.map(async product => {
+      const files = await Promise.all(["catalog","cutting-data","selection-rules"].map(async name => { const response = await fetch(`../${product.id}/data/${name}.json`); if (!response.ok) throw new Error("資料載入失敗"); return response.json(); }));
+      return {...product,catalog:files[0],cutting:files[1],rules:files[2]};
+    })).then(result => { entries=result; render(); }).catch(error => { $("notesStatus").textContent="資料說明載入失敗，請重新整理頁面。"; $("notesStatus").classList.add("notes-failure"); console.error(error); });
+
+    // 共用頁首/頁尾取自根目錄；手機選單圖示避免額外字型依賴。
+    Promise.all(["header","footer"].map(async part => {
+      try { const response = await fetch(`../../${part}/${part}.html`); if(!response.ok) throw new Error(part); $(`${part}-placeholder`).innerHTML = await response.text(); if(part === "header") { const button=$("mobileMenuBtn"), nav=$("topNav"); if(button && nav) { button.innerHTML='<svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0 4a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0 4a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/></svg>'; button.setAttribute("aria-expanded","false");button.setAttribute("aria-controls","topNav");button.addEventListener("click",()=>button.setAttribute("aria-expanded",String(nav.classList.toggle("active")))); } } } catch(error) { console.error("共用區塊載入失敗",error); }
+    }));
+  })();
+  </script>
+</body>
+</html>

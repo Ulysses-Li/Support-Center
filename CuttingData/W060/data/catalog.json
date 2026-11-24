@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "W060",
+  "title": "W060",
+  "families": [
+    "W060"
+  ],
+  "prepared_at": "2026-11-24",
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      77
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "units": {
+    "dimensions": "mm",
+    "screw_torque": "N·m"
+  },
+  "inserts": [
+    {
+      "id": "W06004S101|NC2032",
+      "family": "W060",
+      "part_base": "W06004S101",
+      "grade": "NC2032",
+      "order_code": "01W2001",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "angled",
+      "insert_dimensions_mm": {
+        "L": 4.5,
+        "S": 1.3,
+        "Re": null
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.1,
+        "Wmax": 0.33,
+        "Tmin": null,
+        "Tmax": 0.2
+      },
+      "source_catalog_page": 77,
+      "verification": "visually_verified",
+      "Re_status": "not_listed",
+      "cutting_edges_available": 2
+    },
+    {
+      "id": "W06004S102|NC2032",
+      "family": "W060",
+      "part_base": "W06004S102",
+      "grade": "NC2032",
+      "order_code": "01W2002",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "angled",
+      "insert_dimensions_mm": {
+        "L": 4.5,
+        "S": 1.3,
+        "Re": null
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 0.66,
+        "Tmin": null,
+        "Tmax": 0.4
+      },
+      "source_catalog_page": 77,
+      "verification": "visually_verified",
+      "Re_status": "not_listed",
+      "cutting_edges_available": 2
+    },
+    {
+      "id": "W06004S103|NC2032",
+      "family": "W060",
+      "part_base": "W06004S103",
+      "grade": "NC2032",
+      "order_code": "01W2003",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "angled",
+      "insert_dimensions_mm": {
+        "L": 4.5,
+        "S": 1.3,
+        "Re": null
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.3,
+        "Wmax": 0.99,
+        "Tmin": null,
+        "Tmax": 0.6
+      },
+      "source_catalog_page": 77,
+      "verification": "visually_verified",
+      "Re_status": "not_listed",
+      "cutting_edges_available": 2
+    }
+  ],
+  "holders": [
+    {
+      "part_number": "00-99619-W060-04",
+      "order_code": "69W001",
+      "family": "W060",
+      "shank_material": "Steel",
+      "shank_diameter": {
+        "value": 4,
+        "unit": "mm"
+      },
+      "length_L_mm": 40,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        77
+      ],
+      "screw": "NS-18037",
+      "screw_torque_Nm": 0.6,
+      "key": "NK-T6",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter"
+    }
+  ],
+  "starter_kits": [],
+  "grade_descriptions": [
+    {
+      "families": [
+        "W060"
+      ],
+      "grade": "NC2032",
+      "description_zh_TW": "頁面牌號說明通用未淬硬鋼；同頁切削表另列不鏽鋼、鑄鐵與非鐵金屬。",
+      "source_pages": [
+        77
+      ]
+    }
+  ],
+  "usage_zh_TW": "適合薄淺或輕量雕刻，使用於雕刻機；三種刀片需按各自線寬與深度範圍選擇。",
+  "counts": {
+    "inserts": 3,
+    "holders": 1,
+    "starter_kits": 0
+  },
+  "preparation_status": "data_prepared_only",
+  "data_status": "catalog_reference",
+  "common_file": "../Engraving/data/common.json"
+}

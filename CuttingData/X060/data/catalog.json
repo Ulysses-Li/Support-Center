@@ -1,0 +1,968 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "X060",
+  "title": "X060",
+  "families": [
+    "X060"
+  ],
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      71,
+      72,
+      73,
+      74,
+      81
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "units": {
+    "dimensions": "mm",
+    "angle": "degree",
+    "screw_torque": "Nm"
+  },
+  "inserts": [
+    {
+      "id": "X060A30W020R|NC2032",
+      "family": "X060",
+      "part_base": "X060A30W020R",
+      "grade": "NC2032",
+      "order_code": "01X0140",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 30,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 0.52,
+        "Tmin": null,
+        "Tmax": 0.6
+      },
+      "source_catalog_page": 71,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A30W020R|NC2035",
+      "family": "X060",
+      "part_base": "X060A30W020R",
+      "grade": "NC2035",
+      "order_code": "01X0141",
+      "coating": "ALDURA",
+      "carbide_class": "K20F",
+      "angle_deg": 30,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 0.52,
+        "Tmin": null,
+        "Tmax": 0.6
+      },
+      "source_catalog_page": 71,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A30W020R|XP9001",
+      "family": "X060",
+      "part_base": "X060A30W020R",
+      "grade": "XP9001",
+      "order_code": "01X0142",
+      "coating": "Uncoated",
+      "carbide_class": "K20F",
+      "angle_deg": 30,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 0.52,
+        "Tmin": null,
+        "Tmax": 0.6
+      },
+      "source_catalog_page": 71,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A30R020|NC2032",
+      "family": "X060",
+      "part_base": "X060A30R020",
+      "grade": "NC2032",
+      "order_code": "01X0119",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 30,
+      "form": "radius",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": null,
+        "Wmax": 0.63,
+        "Tmin": null,
+        "Tmax": 0.6
+      },
+      "source_catalog_page": 71,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": 0.15,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "not_listed_for_radius_form"
+    },
+    {
+      "id": "X060A30R020|NC2035",
+      "family": "X060",
+      "part_base": "X060A30R020",
+      "grade": "NC2035",
+      "order_code": "01X0132",
+      "coating": "ALDURA",
+      "carbide_class": "K20F",
+      "angle_deg": 30,
+      "form": "radius",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": null,
+        "Wmax": 0.63,
+        "Tmin": null,
+        "Tmax": 0.6
+      },
+      "source_catalog_page": 71,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": 0.15,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "not_listed_for_radius_form"
+    },
+    {
+      "id": "X060A30R020|XP9001",
+      "family": "X060",
+      "part_base": "X060A30R020",
+      "grade": "XP9001",
+      "order_code": "01X0134",
+      "coating": "Uncoated",
+      "carbide_class": "K20F",
+      "angle_deg": 30,
+      "form": "radius",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": null,
+        "Wmax": 0.63,
+        "Tmin": null,
+        "Tmax": 0.6
+      },
+      "source_catalog_page": 71,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": 0.15,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "not_listed_for_radius_form"
+    },
+    {
+      "id": "X060A45W020R|NC2032",
+      "family": "X060",
+      "part_base": "X060A45W020R",
+      "grade": "NC2032",
+      "order_code": "01X0021",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 45,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 0.86,
+        "Tmin": null,
+        "Tmax": 0.8
+      },
+      "source_catalog_page": 72,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A45W020R|NC2035",
+      "family": "X060",
+      "part_base": "X060A45W020R",
+      "grade": "NC2035",
+      "order_code": "01X0153",
+      "coating": "ALDURA",
+      "carbide_class": "K20F",
+      "angle_deg": 45,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 0.86,
+        "Tmin": null,
+        "Tmax": 0.8
+      },
+      "source_catalog_page": 72,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A45W020R|XP9001",
+      "family": "X060",
+      "part_base": "X060A45W020R",
+      "grade": "XP9001",
+      "order_code": "01X0154",
+      "coating": "Uncoated",
+      "carbide_class": "K20F",
+      "angle_deg": 45,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 0.86,
+        "Tmin": null,
+        "Tmax": 0.8
+      },
+      "source_catalog_page": 72,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A45R020|NC2032",
+      "family": "X060",
+      "part_base": "X060A45R020",
+      "grade": "NC2032",
+      "order_code": "01X0013",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 45,
+      "form": "radius",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": null,
+        "Wmax": 0.93,
+        "Tmin": null,
+        "Tmax": 0.8
+      },
+      "source_catalog_page": 72,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": 0.12,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "not_listed_for_radius_form"
+    },
+    {
+      "id": "X060A45R020|NC2035",
+      "family": "X060",
+      "part_base": "X060A45R020",
+      "grade": "NC2035",
+      "order_code": "01X0149",
+      "coating": "ALDURA",
+      "carbide_class": "K20F",
+      "angle_deg": 45,
+      "form": "radius",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": null,
+        "Wmax": 0.93,
+        "Tmin": null,
+        "Tmax": 0.8
+      },
+      "source_catalog_page": 72,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": 0.12,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "not_listed_for_radius_form"
+    },
+    {
+      "id": "X060A45R020|XP9001",
+      "family": "X060",
+      "part_base": "X060A45R020",
+      "grade": "XP9001",
+      "order_code": "01X0150",
+      "coating": "Uncoated",
+      "carbide_class": "K20F",
+      "angle_deg": 45,
+      "form": "radius",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": null,
+        "Wmax": 0.93,
+        "Tmin": null,
+        "Tmax": 0.8
+      },
+      "source_catalog_page": 72,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": 0.12,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "not_listed_for_radius_form"
+    },
+    {
+      "id": "X060A60W020R|NC2032",
+      "family": "X060",
+      "part_base": "X060A60W020R",
+      "grade": "NC2032",
+      "order_code": "01X0063",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 1.36,
+        "Tmin": null,
+        "Tmax": 1
+      },
+      "source_catalog_page": 73,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A60W020R|NC2035",
+      "family": "X060",
+      "part_base": "X060A60W020R",
+      "grade": "NC2035",
+      "order_code": "01X0165",
+      "coating": "ALDURA",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 1.36,
+        "Tmin": null,
+        "Tmax": 1
+      },
+      "source_catalog_page": 73,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A60W020R|XP9001",
+      "family": "X060",
+      "part_base": "X060A60W020R",
+      "grade": "XP9001",
+      "order_code": "01X0166",
+      "coating": "Uncoated",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 1.36,
+        "Tmin": null,
+        "Tmax": 1
+      },
+      "source_catalog_page": 73,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A60R020|NC2032",
+      "family": "X060",
+      "part_base": "X060A60R020",
+      "grade": "NC2032",
+      "order_code": "01X0117",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "radius",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": null,
+        "Wmax": 1.39,
+        "Tmin": null,
+        "Tmax": 1
+      },
+      "source_catalog_page": 73,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": 0.1,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "not_listed_for_radius_form"
+    },
+    {
+      "id": "X060A60R020|NC2035",
+      "family": "X060",
+      "part_base": "X060A60R020",
+      "grade": "NC2035",
+      "order_code": "01X0158",
+      "coating": "ALDURA",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "radius",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": null,
+        "Wmax": 1.39,
+        "Tmin": null,
+        "Tmax": 1
+      },
+      "source_catalog_page": 73,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": 0.1,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "not_listed_for_radius_form"
+    },
+    {
+      "id": "X060A60R020|XP9001",
+      "family": "X060",
+      "part_base": "X060A60R020",
+      "grade": "XP9001",
+      "order_code": "01X0159",
+      "coating": "Uncoated",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "radius",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": null,
+        "Wmax": 1.39,
+        "Tmin": null,
+        "Tmax": 1
+      },
+      "source_catalog_page": 73,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": 0.1,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "not_listed_for_radius_form"
+    },
+    {
+      "id": "X060A90W020R|NC2032",
+      "family": "X060",
+      "part_base": "X060A90W020R",
+      "grade": "NC2032",
+      "order_code": "01X0207",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 90,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 2.2,
+        "Tmin": null,
+        "Tmax": 1
+      },
+      "source_catalog_page": 74,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A90W020R|NC2035",
+      "family": "X060",
+      "part_base": "X060A90W020R",
+      "grade": "NC2035",
+      "order_code": "01X0208",
+      "coating": "ALDURA",
+      "carbide_class": "K20F",
+      "angle_deg": 90,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 2.2,
+        "Tmin": null,
+        "Tmax": 1
+      },
+      "source_catalog_page": 74,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    },
+    {
+      "id": "X060A90W020R|XP9001",
+      "family": "X060",
+      "part_base": "X060A90W020R",
+      "grade": "XP9001",
+      "order_code": "01X0209",
+      "coating": "Uncoated",
+      "carbide_class": "K20F",
+      "angle_deg": 90,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6,
+        "S": 2.05,
+        "Re": 0.04
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 2.2,
+        "Tmin": null,
+        "Tmax": 1
+      },
+      "source_catalog_page": 74,
+      "verification": "visually_verified",
+      "radius_max_depth_mm": null,
+      "Tmin_status": "not_listed",
+      "Wmin_status": "listed"
+    }
+  ],
+  "holders": [
+    {
+      "part_number": "00-99619-X060-06",
+      "order_code": "69X001",
+      "family": "X060",
+      "shank_material": "Steel",
+      "shank_diameter": {
+        "value": 6,
+        "unit": "mm"
+      },
+      "length_L_mm": 40,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "compatible_insert_family": "all_X060",
+      "material_restriction": null,
+      "unbalance_catalog_text": null
+    },
+    {
+      "part_number": "00-99619-X060-06L",
+      "order_code": "69X002",
+      "family": "X060",
+      "shank_material": "Carbide",
+      "shank_diameter": {
+        "value": 6,
+        "unit": "mm"
+      },
+      "length_L_mm": 60,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "compatible_insert_family": "all_X060",
+      "material_restriction": null,
+      "unbalance_catalog_text": null
+    },
+    {
+      "part_number": "00-99619-X060-06LS",
+      "order_code": "69X003",
+      "family": "X060",
+      "shank_material": "Steel",
+      "shank_diameter": {
+        "value": 6,
+        "unit": "mm"
+      },
+      "length_L_mm": 60,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "compatible_insert_family": "all_X060",
+      "material_restriction": null,
+      "unbalance_catalog_text": null
+    },
+    {
+      "part_number": "00-99619-X060-06XL",
+      "order_code": "69X004",
+      "family": "X060",
+      "shank_material": "Carbide",
+      "shank_diameter": {
+        "value": 6,
+        "unit": "mm"
+      },
+      "length_L_mm": 100,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "compatible_insert_family": "all_X060",
+      "material_restriction": "Al / Al-alloy only",
+      "unbalance_catalog_text": "<0.6gm"
+    },
+    {
+      "part_number": "00-99619-X060-08",
+      "order_code": "69X005",
+      "family": "X060",
+      "shank_material": "Steel",
+      "shank_diameter": {
+        "value": 8,
+        "unit": "mm"
+      },
+      "length_L_mm": 60,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "compatible_insert_family": "all_X060",
+      "material_restriction": null,
+      "unbalance_catalog_text": null
+    }
+  ],
+  "starter_kits": [],
+  "grade_descriptions": [
+    {
+      "families": [
+        "X060"
+      ],
+      "grade": "NC2032",
+      "description_zh_TW": "適用HRC<40鋼、碳鋼、合金鋼、鑄鐵；p81另明列不鏽鋼切削列。",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        81
+      ]
+    },
+    {
+      "families": [
+        "X060"
+      ],
+      "grade": "NC2035",
+      "description_zh_TW": "ALDURA降低熱及磨耗，熱處理鋼至HRC50；切削表硬鋼列寫HRC<50。",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        81
+      ]
+    },
+    {
+      "families": [
+        "X060"
+      ],
+      "grade": "XP9001",
+      "description_zh_TW": "非鐵金屬、鋁、黃銅、銅、塑膠、壓克力；p81未細分各種非金屬加工參數。",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        81
+      ]
+    }
+  ],
+  "holder_pairings": [
+    {
+      "holder_part_number": "00-99619-X060-06",
+      "insert_ids": [
+        "X060A30W020R|NC2032",
+        "X060A30W020R|NC2035",
+        "X060A30W020R|XP9001",
+        "X060A30R020|NC2032",
+        "X060A30R020|NC2035",
+        "X060A30R020|XP9001",
+        "X060A45W020R|NC2032",
+        "X060A45W020R|NC2035",
+        "X060A45W020R|XP9001",
+        "X060A45R020|NC2032",
+        "X060A45R020|NC2035",
+        "X060A45R020|XP9001",
+        "X060A60W020R|NC2032",
+        "X060A60W020R|NC2035",
+        "X060A60W020R|XP9001",
+        "X060A60R020|NC2032",
+        "X060A60R020|NC2035",
+        "X060A60R020|XP9001",
+        "X060A90W020R|NC2032",
+        "X060A90W020R|NC2035",
+        "X060A90W020R|XP9001"
+      ],
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "material_restriction": null,
+      "rpm_limit": null,
+      "eligibility_note_zh_TW": "所有X060刀片共用此系列刀柄；XL的材料與夾持/轉速條件仍另行限制，並非所有配對可直接執行。"
+    },
+    {
+      "holder_part_number": "00-99619-X060-06L",
+      "insert_ids": [
+        "X060A30W020R|NC2032",
+        "X060A30W020R|NC2035",
+        "X060A30W020R|XP9001",
+        "X060A30R020|NC2032",
+        "X060A30R020|NC2035",
+        "X060A30R020|XP9001",
+        "X060A45W020R|NC2032",
+        "X060A45W020R|NC2035",
+        "X060A45W020R|XP9001",
+        "X060A45R020|NC2032",
+        "X060A45R020|NC2035",
+        "X060A45R020|XP9001",
+        "X060A60W020R|NC2032",
+        "X060A60W020R|NC2035",
+        "X060A60W020R|XP9001",
+        "X060A60R020|NC2032",
+        "X060A60R020|NC2035",
+        "X060A60R020|XP9001",
+        "X060A90W020R|NC2032",
+        "X060A90W020R|NC2035",
+        "X060A90W020R|XP9001"
+      ],
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "material_restriction": null,
+      "rpm_limit": null,
+      "eligibility_note_zh_TW": "所有X060刀片共用此系列刀柄；XL的材料與夾持/轉速條件仍另行限制，並非所有配對可直接執行。"
+    },
+    {
+      "holder_part_number": "00-99619-X060-06LS",
+      "insert_ids": [
+        "X060A30W020R|NC2032",
+        "X060A30W020R|NC2035",
+        "X060A30W020R|XP9001",
+        "X060A30R020|NC2032",
+        "X060A30R020|NC2035",
+        "X060A30R020|XP9001",
+        "X060A45W020R|NC2032",
+        "X060A45W020R|NC2035",
+        "X060A45W020R|XP9001",
+        "X060A45R020|NC2032",
+        "X060A45R020|NC2035",
+        "X060A45R020|XP9001",
+        "X060A60W020R|NC2032",
+        "X060A60W020R|NC2035",
+        "X060A60W020R|XP9001",
+        "X060A60R020|NC2032",
+        "X060A60R020|NC2035",
+        "X060A60R020|XP9001",
+        "X060A90W020R|NC2032",
+        "X060A90W020R|NC2035",
+        "X060A90W020R|XP9001"
+      ],
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "material_restriction": null,
+      "rpm_limit": null,
+      "eligibility_note_zh_TW": "所有X060刀片共用此系列刀柄；XL的材料與夾持/轉速條件仍另行限制，並非所有配對可直接執行。"
+    },
+    {
+      "holder_part_number": "00-99619-X060-06XL",
+      "insert_ids": [
+        "X060A30W020R|NC2032",
+        "X060A30W020R|NC2035",
+        "X060A30W020R|XP9001",
+        "X060A30R020|NC2032",
+        "X060A30R020|NC2035",
+        "X060A30R020|XP9001",
+        "X060A45W020R|NC2032",
+        "X060A45W020R|NC2035",
+        "X060A45W020R|XP9001",
+        "X060A45R020|NC2032",
+        "X060A45R020|NC2035",
+        "X060A45R020|XP9001",
+        "X060A60W020R|NC2032",
+        "X060A60W020R|NC2035",
+        "X060A60W020R|XP9001",
+        "X060A60R020|NC2032",
+        "X060A60R020|NC2035",
+        "X060A60R020|XP9001",
+        "X060A90W020R|NC2032",
+        "X060A90W020R|NC2035",
+        "X060A90W020R|XP9001"
+      ],
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "material_restriction": "Al / Al-alloy only",
+      "rpm_limit": null,
+      "eligibility_note_zh_TW": "所有X060刀片共用此系列刀柄；XL的材料與夾持/轉速條件仍另行限制，並非所有配對可直接執行。"
+    },
+    {
+      "holder_part_number": "00-99619-X060-08",
+      "insert_ids": [
+        "X060A30W020R|NC2032",
+        "X060A30W020R|NC2035",
+        "X060A30W020R|XP9001",
+        "X060A30R020|NC2032",
+        "X060A30R020|NC2035",
+        "X060A30R020|XP9001",
+        "X060A45W020R|NC2032",
+        "X060A45W020R|NC2035",
+        "X060A45W020R|XP9001",
+        "X060A45R020|NC2032",
+        "X060A45R020|NC2035",
+        "X060A45R020|XP9001",
+        "X060A60W020R|NC2032",
+        "X060A60W020R|NC2035",
+        "X060A60W020R|XP9001",
+        "X060A60R020|NC2032",
+        "X060A60R020|NC2035",
+        "X060A60R020|XP9001",
+        "X060A90W020R|NC2032",
+        "X060A90W020R|NC2035",
+        "X060A90W020R|XP9001"
+      ],
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "material_restriction": null,
+      "rpm_limit": null,
+      "eligibility_note_zh_TW": "所有X060刀片共用此系列刀柄；XL的材料與夾持/轉速條件仍另行限制，並非所有配對可直接執行。"
+    }
+  ],
+  "counts": {
+    "insert_grade_variants": 21,
+    "geometries": 7,
+    "holders": 5,
+    "starter_kits": 0
+  },
+  "shared_requirements_file": "../Engraving/data/common.json",
+  "prepared_at": "2026-11-24",
+  "data_status": "catalog_reference",
+  "common_file": "../Engraving/data/common.json"
+}

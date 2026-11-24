@@ -1,0 +1,64 @@
+{
+  "source_pdf": "CuttingData/Engraving/sources/Engraving-Tool-p068-083.pdf",
+  "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+  "printed_page": 78,
+  "pdf_page": 11,
+  "bbox_pdf_points": [
+    132.3,
+    491.4,
+    285.4,
+    511.0
+  ],
+  "viewbox": [
+    132.3,
+    491.4,
+    153.1,
+    19.6
+  ],
+  "drawing_indices": [
+    106,
+    107,
+    108,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    118,
+    119
+  ],
+  "clip_fill_paths": [
+    "clip_6"
+  ],
+  "removed_drawing_indices": {
+    "dimensions": [
+      109,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125
+    ],
+    "axis": [
+      117
+    ]
+  },
+  "compatible_holder_part_numbers": [
+    "00-99616-10",
+    "00-99616-3/8"
+  ],
+  "shared_catalog_figure": true,
+  "shank_y_pdf_points": [
+    492.5409240722656,
+    509.447998046875
+  ],
+  "shank_y_viewbox_fraction": [
+    0.05821041185028815,
+    0.9208162268813787
+  ],
+  "geometry_policy": "Original PDF path commands preserved; only fills/strokes palette and 5-decimal serialization changed. No manual tracing.",
+  "output_asset": "CuttingData/Engraving/assets/n9mtw-holder-outline.svg"
+}

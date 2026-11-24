@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "V060-V045",
+  "title": "V060 / V045",
+  "families": [
+    "V045",
+    "V060"
+  ],
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      75,
+      76,
+      82,
+      83
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      79,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "common_requirements_file": "../Engraving/data/common.json",
+  "common_requirements_path_base": "product_group_directory",
+  "data_status": "catalog_reference",
+  "selection_steps_zh_TW": [
+    "以實體刀片訂購碼為最小配對單位，先依角度及個別Wmin/Wmax/Tmin/Tmax篩選；不能以系列最大範圍拼湊另一片刀片。",
+    "同時輸入線寬與深度時，只能先做型錄範圍初篩；實際槽底幾何及兩者精確對應需圖面或原廠公式。",
+    "材料配對採cutting-data.json的pairings；不能只靠全域牌號名稱，W03不能借W06的切削表。",
+    "W06各牌號Wmin/Tmin不同，NC2071/NC2032/NC2035為0.65/0.20mm；NC9031為0.45/0.05mm。V045無NC2035實體型號。",
+    "W03僅V060，Wmin0.25/Tmin0.05/Wmax1.1/Tmax0.8mm，Re未知；碳鋼/合金/鑄鐵NC2032，不鏽/非鐵/鈦NC9036。",
+    "夾持刀柄只配同family，確認柄徑、材質、突出長與機台上限。100mm XL僅鋁與鋁合金，不以非鐵金屬大類一律放行。",
+    "淬硬鋼需確認實際HRC；W06硬鋼列是HRC<56，只有V060|NC2035可直接配對；W03無硬鋼切削列。"
+  ],
+  "geometry": {
+    "W06": {
+      "angle_by_family_deg": {
+        "V045": 45,
+        "V060": 60
+      },
+      "Re_mm": 0.2,
+      "Re_tolerance_mm": 0.05,
+      "Tmax_mm": 2,
+      "source_pages": [
+        75,
+        76,
+        82
+      ]
+    },
+    "W03": {
+      "family": "V060",
+      "angle_deg": 60,
+      "Re_mm": null,
+      "Re_status": "catalog_dash_not_zero",
+      "Tmax_mm": 0.8,
+      "source_pages": [
+        76,
+        83
+      ]
+    },
+    "width_depth_conversion": {
+      "status": "requires_manufacturer_definition",
+      "use_ideal_sharp_v_formula_as_exact": false,
+      "W03_minimum_width_conflict": {
+        "specification_Wmin_mm": 0.25,
+        "reference_chart_at_Tmin_W_mm": 0.24,
+        "Tmin_mm": 0.05,
+        "question_id": "Q11"
+      }
+    }
+  },
+  "calculation_policy": {
+    "feed_rate": {
+      "kind": "site_calculation",
+      "expression": "F_mm_min = S_rpm * f_mm_per_rev",
+      "source_basis": "依型錄單位推導，非本章印出的原式。",
+      "multiply_by_cutting_edges": false
+    },
+    "z_plunge_feed": {
+      "kind": "catalog_condition",
+      "factor": 0.5,
+      "expression": "Fz_mm_min = 0.5 * F_mm_min",
+      "source_catalog_page": 80
+    },
+    "range_midpoint": {
+      "kind": "site_default_if_implemented",
+      "catalog_recommends_midpoint": false,
+      "expression": "(minimum + maximum) / 2",
+      "enabled_in_data_package": false,
+      "constraints_zh_TW": "中值屬網站預設；未確認完整組合額定最高轉速、夾持/平衡及機台上限前，不宣稱為已確認加工建議。"
+    },
+    "Vc_to_rpm": {
+      "enabled": false,
+      "reason_zh_TW": "本章直接列rpm；未給Vc，不以柄徑或刻線寬反推。"
+    },
+    "pass_plan": {
+      "automation_ready": false,
+      "hard_end_point": "customer_requested_total_depth",
+      "auto_sum_all_catalog_passes": false,
+      "finishing_definition_pending": "Q10",
+      "example_zh_TW": "p82碳鋼前五道0.8+0.6+0.3+0.2+0.1已達2mm，不能另加0.05精修做成2.05mm。~不視為0，也不自動補足。"
+    }
+  },
+  "holder_restrictions": {
+    "rpm_limit_individually_rated": false,
+    "max_catalog_speed_is_not_holder_rating": true,
+    "source_pages": [
+      75,
+      76,
+      80
+    ],
+    "XL_material_scope": [
+      "aluminum",
+      "aluminum_alloy"
+    ],
+    "XL_unbalance_text": "<0.6gm",
+    "XL_unbalance_unit_status": "requires_confirmation",
+    "small_shank_holder": {
+      "part_number": "00-99619-V060-04",
+      "shank_diameter_mm": 4,
+      "front_head_diameter_mm": 6,
+      "length_L_mm": 30,
+      "length_L1_mm": 12
+    }
+  },
+  "open_questions": [
+    {
+      "id": "Q01",
+      "topic": "V045硬鋼牌號",
+      "question_zh_TW": "p82共用T1W06表含NC2035/HRC<56，但p75 V045未列NC2035訂購code；V045是否供此牌號？",
+      "source_pages": [
+        75,
+        82
+      ],
+      "blocking": "V045硬鋼自動推薦"
+    },
+    {
+      "id": "Q04",
+      "topic": "每個刀柄允許轉速",
+      "question_zh_TW": "p80最低預平衡及表格40000rpm不等於每支Steel/Carbide/XL柄額定上限；請提供各型號及突出長度的允許轉速/平衡規範。",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        80
+      ],
+      "blocking": "全組高速額定驗證"
+    },
+    {
+      "id": "Q05",
+      "topic": "XL單位",
+      "question_zh_TW": "unbalanced<0.6gm的單位、檢測基準、最大轉速與夾持量為何？",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "blocking": "100mm XL高速條件"
+    },
+    {
+      "id": "Q06",
+      "topic": "精確寬深曲線",
+      "question_zh_TW": "各刀片完整刀尖幾何、寬深計算基準及可供程式使用的數值曲線？尤其X060 Radius及V06W03。",
+      "source_pages": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        82,
+        83
+      ],
+      "blocking": "精確雙向寬深換算及公差"
+    },
+    {
+      "id": "Q07",
+      "topic": "塑膠/壓克力與特殊材料",
+      "question_zh_TW": "牌號文字含塑膠/壓克力/鈦，但部分切削表僅總稱非鐵或未列S；可否提供材料細分切削參數及限制？",
+      "source_pages": [
+        71,
+        75,
+        76,
+        81,
+        82,
+        83
+      ],
+      "blocking": "未列材料自動推薦"
+    },
+    {
+      "id": "Q08",
+      "topic": "牌號文字與切削列交叉",
+      "question_zh_TW": "NC2032/NC9031/NC9036部分簡介與切削列涵蓋材料不完全同範圍；以各模型明確表格為目前依據，需原廠確認完整適用矩陣。",
+      "source_pages": [
+        71,
+        75,
+        76,
+        77,
+        81,
+        82,
+        83
+      ],
+      "blocking": "宣稱通用最佳牌號"
+    },
+    {
+      "id": "Q09",
+      "topic": "刀長重複性與精度",
+      "question_zh_TW": "本章宣稱換刃無需重設，但未給數值刀長重複精度、裝夾公差及最小夾持量；請補正式數據。",
+      "source_pages": [
+        68,
+        69,
+        78,
+        80
+      ],
+      "blocking": "公差與重複精度承諾"
+    },
+    {
+      "id": "Q10",
+      "topic": "道次自動化",
+      "question_zh_TW": "各表~與Finishing的實施方式、剩餘深度小於表值時的處理及切入/退刀路徑條件？ p82碳鋼前五道合計2mm即達Tmax，Finishing=.05是預留、替代末道還是有其他定義？不可直接累加。",
+      "source_pages": [
+        77,
+        78,
+        81,
+        82,
+        83
+      ],
+      "blocking": "可直接執行NC程式"
+    },
+    {
+      "id": "Q11",
+      "topic": "W03最小槽寬",
+      "question_zh_TW": "p76 Wmin=0.25、Tmin=.05mm；p83寬深圖t=.05處標W=.24mm。精確寬深與公差應以何標準？參考圖不能當精密尺寸。",
+      "source_pages": [
+        76,
+        83
+      ],
+      "blocking": "寬深換算及公差保證"
+    }
+  ],
+  "prepared_at": "2026-11-24",
+  "common_file": "../Engraving/data/common.json"
+}

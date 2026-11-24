@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "N9MT-W",
+  "common_constraints": "../Engraving/data/common.json",
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      78
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "geometry_rules": [
+    {
+      "angle_deg": 60,
+      "part_base": "N9MT080201W-60",
+      "width_range_mm": [
+        0.2,
+        1.1
+      ],
+      "spec_max_depth_mm": 0.8,
+      "cutting_max_depth_mm": 0.8
+    },
+    {
+      "angle_deg": 90,
+      "part_base": "N9MT080201W",
+      "width_range_mm": [
+        0.2,
+        2.0
+      ],
+      "spec_max_depth_mm": 0.9,
+      "cutting_max_depth_mm": 0.8
+    }
+  ],
+  "pairing_rules_zh_TW": [
+    "先以同一實體刀片同時比對線寬、深度、角度，再以材料切削表及牌號交集配對。",
+    "合金鋼可選60度NC40或90度NC40；鑄鐵可選60度NC40或90度NC10；非鐵只有90度NC10的直接表列配對。",
+    "缺料號、缺材種切削列時回報資料待補，不自動替換刀片或借其他材種參數。",
+    "寬與深只作各自型錄範圍比對；本章未給N9MT精確寬深公式，不以理想尖V式當作原廠精確幾何。"
+  ],
+  "holder_rules_zh_TW": [
+    "詳細表列00-99616-10（Ø10mm）及00-99616-3/8（Ø3/8 inch），總長L90mm。",
+    "螺絲NS-30055，扭力2Nm，NK-T8；未知L1與柄材保持null。",
+    "完整刀柄SW訂購尾碼仍待核實；不把型錄轉速範圍當作該刀柄最高額定。"
+  ],
+  "missing_value_policy": "null與原表未列值不可當作0；4可用刃角不乘入每轉進給。",
+  "open_questions": [
+    {
+      "id": "Q02",
+      "topic": "N9MT 90°深度",
+      "question_zh_TW": "p78尺寸表90°Tmax=.9mm，切削共表Tmax=.8mm；.8-.9mm的適用條件為何？",
+      "source_pages": [
+        78
+      ],
+      "blocking": "深度>.8mm切削建議"
+    },
+    {
+      "id": "Q03",
+      "topic": "N9MT刀柄料號",
+      "question_zh_TW": "p70寫99616-10...SW，p78列00-99616-10及00-99616-3/8；實際訂購是否需SW後綴？",
+      "source_pages": [
+        70,
+        78
+      ],
+      "blocking": "未來訂購完整料號核實"
+    },
+    {
+      "id": "Q04",
+      "topic": "每個刀柄允許轉速",
+      "question_zh_TW": "p80最低預平衡及表格40000rpm不等於每支Steel/Carbide/XL柄額定上限；請提供各型號及突出長度的允許轉速/平衡規範。",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        80
+      ],
+      "blocking": "全組高速額定驗證"
+    },
+    {
+      "id": "Q06",
+      "topic": "精確寬深曲線",
+      "question_zh_TW": "各刀片完整刀尖幾何、寬深計算基準及可供程式使用的數值曲線？尤其X060 Radius及V06W03。",
+      "source_pages": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        82,
+        83
+      ],
+      "blocking": "精確雙向寬深換算及公差"
+    },
+    {
+      "id": "Q09",
+      "topic": "刀長重複性與精度",
+      "question_zh_TW": "本章宣稱換刃無需重設，但未給數值刀長重複精度、裝夾公差及最小夾持量；請補正式數據。",
+      "source_pages": [
+        68,
+        69,
+        78,
+        80
+      ],
+      "blocking": "公差與重複精度承諾"
+    },
+    {
+      "id": "Q10",
+      "topic": "道次自動化",
+      "question_zh_TW": "各表~與Finishing的實施方式、剩餘深度小於表值時的處理及切入/退刀路徑條件？ p82碳鋼前五道合計2mm即達Tmax，Finishing=.05是預留、替代末道還是有其他定義？不可直接累加。",
+      "source_pages": [
+        77,
+        78,
+        81,
+        82,
+        83
+      ],
+      "blocking": "可直接執行NC程式"
+    }
+  ],
+  "title": "N9MT-W",
+  "families": [
+    "N9MT-W"
+  ],
+  "prepared_at": "2026-11-24",
+  "data_status": "catalog_reference",
+  "common_file": "../Engraving/data/common.json"
+}

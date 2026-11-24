@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "N9MT-W",
+  "title": "N9MT-W",
+  "families": [
+    "N9MT-W"
+  ],
+  "data_status": "catalog_reference",
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      78
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "inserts": [
+    {
+      "id": "N9MT080201W-60|NC40",
+      "family": "N9MT-W",
+      "part_base": "N9MT080201W-60",
+      "grade": "NC40",
+      "order_code": "013404",
+      "coating": "TiN",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "angled",
+      "insert_dimensions_mm": {
+        "L": 8,
+        "S": 2.38,
+        "Re": null
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 1.1,
+        "Tmin": null,
+        "Tmax": 0.8
+      },
+      "source_catalog_page": 78,
+      "verification": "visually_verified",
+      "Re_status": "not_listed",
+      "cutting_edges_available": 4,
+      "angle_specific_order_suffix": "-60-NC40"
+    },
+    {
+      "id": "N9MT080201W|NC40",
+      "family": "N9MT-W",
+      "part_base": "N9MT080201W",
+      "grade": "NC40",
+      "order_code": "013405",
+      "coating": "TiN",
+      "carbide_class": "K20F",
+      "angle_deg": 90,
+      "form": "angled",
+      "insert_dimensions_mm": {
+        "L": 8,
+        "S": 2.38,
+        "Re": null
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 2,
+        "Tmin": null,
+        "Tmax": 0.9
+      },
+      "source_catalog_page": 78,
+      "verification": "visually_verified",
+      "Re_status": "not_listed",
+      "cutting_edges_available": 4,
+      "angle_specific_order_suffix": null
+    },
+    {
+      "id": "N9MT080201W|NC10",
+      "family": "N9MT-W",
+      "part_base": "N9MT080201W",
+      "grade": "NC10",
+      "order_code": "013406",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 90,
+      "form": "angled",
+      "insert_dimensions_mm": {
+        "L": 8,
+        "S": 2.38,
+        "Re": null
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.2,
+        "Wmax": 2,
+        "Tmin": null,
+        "Tmax": 0.9
+      },
+      "source_catalog_page": 78,
+      "verification": "visually_verified",
+      "Re_status": "not_listed",
+      "cutting_edges_available": 4,
+      "angle_specific_order_suffix": null
+    }
+  ],
+  "holders": [
+    {
+      "part_number": "00-99616-10",
+      "order_code": "603001",
+      "family": "N9MT-W",
+      "shank_material": null,
+      "shank_diameter": {
+        "value": 10,
+        "unit": "mm"
+      },
+      "length_L_mm": 90,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        78
+      ],
+      "screw": "NS-30055",
+      "screw_torque_Nm": 2,
+      "key": "NK-T8",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "shank_material_status": "not_listed",
+      "pairing_note": "型錄列NC Spot Drill基本刀柄；系統總覽p70寫99616-10...SW，詳細訂購表p78列00-99616-10及00-99616-3/8。保留原列料號，不自行加SW後綴。"
+    },
+    {
+      "part_number": "00-99616-3/8",
+      "order_code": "613001",
+      "family": "N9MT-W",
+      "shank_material": null,
+      "shank_diameter": {
+        "value": 0.375,
+        "unit": "inch"
+      },
+      "length_L_mm": 90,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        78
+      ],
+      "screw": "NS-30055",
+      "screw_torque_Nm": 2,
+      "key": "NK-T8",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "shank_material_status": "not_listed",
+      "pairing_note": "型錄列NC Spot Drill基本刀柄；系統總覽p70寫99616-10...SW，詳細訂購表p78列00-99616-10及00-99616-3/8。保留原列料號，不自行加SW後綴。"
+    }
+  ],
+  "starter_kits": [],
+  "grade_descriptions": [
+    {
+      "families": [
+        "N9MT-W"
+      ],
+      "grade": "NC40",
+      "description_zh_TW": "90°未淬硬鋼通用；60°專用60-NC40為高正角、未淬硬鋼與鑄鐵。",
+      "source_pages": [
+        78
+      ]
+    },
+    {
+      "families": [
+        "N9MT-W"
+      ],
+      "grade": "NC10",
+      "description_zh_TW": "90°非鐵與鑄鐵。60°未列此實體刀片。",
+      "source_pages": [
+        78
+      ]
+    }
+  ],
+  "drawing_fields": {
+    "insert": [
+      "angle_deg",
+      "engraving_limits_mm.Wmin",
+      "engraving_limits_mm.Wmax",
+      "engraving_limits_mm.Tmax",
+      "insert_dimensions_mm.L",
+      "insert_dimensions_mm.S"
+    ],
+    "holder": [
+      "shank_diameter",
+      "length_L_mm"
+    ],
+    "not_listed": [
+      "insert_dimensions_mm.Re",
+      "engraving_limits_mm.Tmin",
+      "holders.length_L1_mm",
+      "holders.rpm_limit"
+    ],
+    "notes_zh_TW": [
+      "60度與90度分別顯示實體刀片數字，不能從刀片長L推算雕刻深度。",
+      "90度尺寸表Tmax0.9mm與切削表Tmax0.8mm分欄保存。",
+      "總覽p70的SW尾碼與p78詳細料號不一致，不自行加SW。"
+    ]
+  },
+  "prepared_at": "2026-11-24",
+  "common_file": "../Engraving/data/common.json"
+}

@@ -1,0 +1,46 @@
+{
+  "source_pdf": "CuttingData/Engraving/sources/Engraving-Tool-p068-083.pdf",
+  "printed_page": 71,
+  "pdf_page": 4,
+  "bbox_pdf_points": [
+    55.2,
+    675.6,
+    195.9,
+    688.4
+  ],
+  "viewbox": [
+    55.2,
+    675.6,
+    140.7,
+    12.8
+  ],
+  "drawing_indices": [
+    132,
+    133,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153
+  ],
+  "clip_fill_paths": [
+    "clip_23",
+    "clip_24",
+    "clip_26"
+  ],
+  "removed": "Dimensions/text, center axis path154, raster gradient images",
+  "geometry_policy": "Original path commands preserved; only fills and 5-decimal precision serialization changed",
+  "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+  "output_asset": "CuttingData/Engraving/assets/x060-holder-outline.svg"
+}

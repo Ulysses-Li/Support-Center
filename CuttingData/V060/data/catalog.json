@@ -1,0 +1,675 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "V060-V045",
+  "title": "V060 / V045",
+  "families": [
+    "V045",
+    "V060"
+  ],
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      75,
+      76,
+      82,
+      83
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      79,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "prepared_at": "2026-11-24",
+  "status": "data_prepared_not_published",
+  "inserts": [
+    {
+      "id": "V04506T1W06|NC2071",
+      "family": "V045",
+      "part_base": "V04506T1W06",
+      "grade": "NC2071",
+      "order_code": "0104501",
+      "coating": "TiN",
+      "carbide_class": "K20F",
+      "angle_deg": 45,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6.35,
+        "S": 2,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.65,
+        "Wmax": 2.1,
+        "Tmin": 0.2,
+        "Tmax": 2
+      },
+      "source_catalog_page": 75,
+      "verification": "visually_verified",
+      "Re_tolerance_mm": 0.05
+    },
+    {
+      "id": "V04506T1W06|NC2032",
+      "family": "V045",
+      "part_base": "V04506T1W06",
+      "grade": "NC2032",
+      "order_code": "0104502",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 45,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6.35,
+        "S": 2,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.65,
+        "Wmax": 2.1,
+        "Tmin": 0.2,
+        "Tmax": 2
+      },
+      "source_catalog_page": 75,
+      "verification": "visually_verified",
+      "Re_tolerance_mm": 0.05
+    },
+    {
+      "id": "V04506T1W06|NC9031",
+      "family": "V045",
+      "part_base": "V04506T1W06",
+      "grade": "NC9031",
+      "order_code": "0104504",
+      "coating": "TiN",
+      "carbide_class": "K20F",
+      "angle_deg": 45,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6.35,
+        "S": 2,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.45,
+        "Wmax": 2.1,
+        "Tmin": 0.05,
+        "Tmax": 2
+      },
+      "source_catalog_page": 75,
+      "verification": "visually_verified",
+      "Re_tolerance_mm": 0.05
+    },
+    {
+      "id": "V06006T1W06|NC2071",
+      "family": "V060",
+      "part_base": "V06006T1W06",
+      "grade": "NC2071",
+      "order_code": "0106001",
+      "coating": "TiN",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6.35,
+        "S": 2,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.65,
+        "Wmax": 2.7,
+        "Tmin": 0.2,
+        "Tmax": 2
+      },
+      "source_catalog_page": 76,
+      "verification": "visually_verified",
+      "Re_tolerance_mm": 0.05
+    },
+    {
+      "id": "V06006T1W06|NC2032",
+      "family": "V060",
+      "part_base": "V06006T1W06",
+      "grade": "NC2032",
+      "order_code": "0106002",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6.35,
+        "S": 2,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.65,
+        "Wmax": 2.7,
+        "Tmin": 0.2,
+        "Tmax": 2
+      },
+      "source_catalog_page": 76,
+      "verification": "visually_verified",
+      "Re_tolerance_mm": 0.05
+    },
+    {
+      "id": "V06006T1W06|NC2035",
+      "family": "V060",
+      "part_base": "V06006T1W06",
+      "grade": "NC2035",
+      "order_code": "0106003",
+      "coating": "ALDURA",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6.35,
+        "S": 2,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.65,
+        "Wmax": 2.7,
+        "Tmin": 0.2,
+        "Tmax": 2
+      },
+      "source_catalog_page": 76,
+      "verification": "visually_verified",
+      "Re_tolerance_mm": 0.05
+    },
+    {
+      "id": "V06006T1W06|NC9031",
+      "family": "V060",
+      "part_base": "V06006T1W06",
+      "grade": "NC9031",
+      "order_code": "0106004",
+      "coating": "TiN",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "radius_angled",
+      "insert_dimensions_mm": {
+        "L": 6.35,
+        "S": 2,
+        "Re": 0.2
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.45,
+        "Wmax": 2.7,
+        "Tmin": 0.05,
+        "Tmax": 2
+      },
+      "source_catalog_page": 76,
+      "verification": "visually_verified",
+      "Re_tolerance_mm": 0.05
+    },
+    {
+      "id": "V06006T1W03|NC2032",
+      "family": "V060",
+      "part_base": "V06006T1W03",
+      "grade": "NC2032",
+      "order_code": "0106006",
+      "coating": "TiAlN",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "angled",
+      "insert_dimensions_mm": {
+        "L": 6.35,
+        "S": 2,
+        "Re": null
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.25,
+        "Wmax": 1.1,
+        "Tmin": 0.05,
+        "Tmax": 0.8
+      },
+      "source_catalog_page": 76,
+      "verification": "visually_verified",
+      "Re_status": "catalog_dash_not_zero"
+    },
+    {
+      "id": "V06006T1W03|NC9036",
+      "family": "V060",
+      "part_base": "V06006T1W03",
+      "grade": "NC9036",
+      "order_code": "0106007",
+      "coating": "DLC",
+      "carbide_class": "K20F",
+      "angle_deg": 60,
+      "form": "angled",
+      "insert_dimensions_mm": {
+        "L": 6.35,
+        "S": 2,
+        "Re": null
+      },
+      "engraving_limits_mm": {
+        "Wmin": 0.25,
+        "Wmax": 1.1,
+        "Tmin": 0.05,
+        "Tmax": 0.8
+      },
+      "source_catalog_page": 76,
+      "verification": "visually_verified",
+      "Re_status": "catalog_dash_not_zero"
+    }
+  ],
+  "holders": [
+    {
+      "part_number": "00-99619-V045-06",
+      "order_code": "691001",
+      "family": "V045",
+      "shank_material": "Steel",
+      "shank_diameter": {
+        "value": 6,
+        "unit": "mm"
+      },
+      "length_L_mm": 40,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        75
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "material_restriction": null,
+      "unbalance_catalog_text": null
+    },
+    {
+      "part_number": "00-99619-V045-06L",
+      "order_code": "691002",
+      "family": "V045",
+      "shank_material": "Carbide",
+      "shank_diameter": {
+        "value": 6,
+        "unit": "mm"
+      },
+      "length_L_mm": 60,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        75
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "material_restriction": null,
+      "unbalance_catalog_text": null
+    },
+    {
+      "part_number": "00-99619-V045-06XL",
+      "order_code": "691003",
+      "family": "V045",
+      "shank_material": "Carbide",
+      "shank_diameter": {
+        "value": 6,
+        "unit": "mm"
+      },
+      "length_L_mm": 100,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        75
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "material_restriction": "Al / Al-alloy only",
+      "unbalance_catalog_text": "<0.6gm"
+    },
+    {
+      "part_number": "00-99619-V045-08",
+      "order_code": "691004",
+      "family": "V045",
+      "shank_material": "Steel",
+      "shank_diameter": {
+        "value": 8,
+        "unit": "mm"
+      },
+      "length_L_mm": 60,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        75
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "material_restriction": null,
+      "unbalance_catalog_text": null
+    },
+    {
+      "part_number": "00-99619-V060-04",
+      "order_code": "692004",
+      "family": "V060",
+      "shank_material": "Steel",
+      "shank_diameter": {
+        "value": 4,
+        "unit": "mm"
+      },
+      "length_L_mm": 30,
+      "length_L1_mm": 12,
+      "source_catalog_pages": [
+        76
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "material_restriction": null,
+      "unbalance_catalog_text": null,
+      "L1_status": "listed"
+    },
+    {
+      "part_number": "00-99619-V060-06",
+      "order_code": "692001",
+      "family": "V060",
+      "shank_material": "Steel",
+      "shank_diameter": {
+        "value": 6,
+        "unit": "mm"
+      },
+      "length_L_mm": 40,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        76
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "material_restriction": null,
+      "unbalance_catalog_text": null,
+      "L1_status": "catalog_dash_not_zero"
+    },
+    {
+      "part_number": "00-99619-V060-06L",
+      "order_code": "692002",
+      "family": "V060",
+      "shank_material": "Carbide",
+      "shank_diameter": {
+        "value": 6,
+        "unit": "mm"
+      },
+      "length_L_mm": 60,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        76
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "material_restriction": null,
+      "unbalance_catalog_text": null,
+      "L1_status": "catalog_dash_not_zero"
+    },
+    {
+      "part_number": "00-99619-V060-06XL",
+      "order_code": "692003",
+      "family": "V060",
+      "shank_material": "Carbide",
+      "shank_diameter": {
+        "value": 6,
+        "unit": "mm"
+      },
+      "length_L_mm": 100,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        76
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "material_restriction": "Al / Al-alloy only",
+      "unbalance_catalog_text": "<0.6gm",
+      "L1_status": "catalog_dash_not_zero"
+    },
+    {
+      "part_number": "00-99619-V060-08",
+      "order_code": "692005",
+      "family": "V060",
+      "shank_material": "Steel",
+      "shank_diameter": {
+        "value": 8,
+        "unit": "mm"
+      },
+      "length_L_mm": 60,
+      "length_L1_mm": null,
+      "source_catalog_pages": [
+        76
+      ],
+      "screw": "NS-22044",
+      "screw_torque_Nm": 0.9,
+      "key": "NK-T7",
+      "rpm_limit": null,
+      "rpm_limit_status": "not_individually_rated_in_this_chapter",
+      "material_restriction": null,
+      "unbalance_catalog_text": null,
+      "L1_status": "catalog_dash_not_zero"
+    }
+  ],
+  "starter_kits": [
+    {
+      "family": "V045",
+      "angle_deg": 45,
+      "order_code": "691201-4501",
+      "part_number": "00-99619-V045-03K-71",
+      "shank_diameter_mm": 6,
+      "contents": {
+        "holder": "00-99619-V045-06",
+        "holder_qty": 1,
+        "key": "T7",
+        "key_qty": 1,
+        "insert_id": "V04506T1W06|NC2071",
+        "insert_qty": 3
+      },
+      "source_catalog_page": 75
+    },
+    {
+      "family": "V045",
+      "angle_deg": 45,
+      "order_code": "691201-4502",
+      "part_number": "00-99619-V045-03K-32",
+      "shank_diameter_mm": 6,
+      "contents": {
+        "holder": "00-99619-V045-06",
+        "holder_qty": 1,
+        "key": "T7",
+        "key_qty": 1,
+        "insert_id": "V04506T1W06|NC2032",
+        "insert_qty": 3
+      },
+      "source_catalog_page": 75
+    },
+    {
+      "family": "V045",
+      "angle_deg": 45,
+      "order_code": "691201-4504",
+      "part_number": "00-99619-V045-03K-31",
+      "shank_diameter_mm": 6,
+      "contents": {
+        "holder": "00-99619-V045-06",
+        "holder_qty": 1,
+        "key": "T7",
+        "key_qty": 1,
+        "insert_id": "V04506T1W06|NC9031",
+        "insert_qty": 3
+      },
+      "source_catalog_page": 75
+    },
+    {
+      "family": "V060",
+      "angle_deg": 60,
+      "order_code": "692201-6001",
+      "part_number": "00-99619-V060-03K-71",
+      "shank_diameter_mm": 6,
+      "contents": {
+        "holder": "00-99619-V060-06",
+        "holder_qty": 1,
+        "key": "T7",
+        "key_qty": 1,
+        "insert_id": "V06006T1W06|NC2071",
+        "insert_qty": 3
+      },
+      "source_catalog_page": 75
+    },
+    {
+      "family": "V060",
+      "angle_deg": 60,
+      "order_code": "692201-6002",
+      "part_number": "00-99619-V060-03K-32",
+      "shank_diameter_mm": 6,
+      "contents": {
+        "holder": "00-99619-V060-06",
+        "holder_qty": 1,
+        "key": "T7",
+        "key_qty": 1,
+        "insert_id": "V06006T1W06|NC2032",
+        "insert_qty": 3
+      },
+      "source_catalog_page": 75
+    },
+    {
+      "family": "V060",
+      "angle_deg": 60,
+      "order_code": "692201-6003",
+      "part_number": "00-99619-V060-03K-35",
+      "shank_diameter_mm": 6,
+      "contents": {
+        "holder": "00-99619-V060-06",
+        "holder_qty": 1,
+        "key": "T7",
+        "key_qty": 1,
+        "insert_id": "V06006T1W06|NC2035",
+        "insert_qty": 3
+      },
+      "source_catalog_page": 75
+    },
+    {
+      "family": "V060",
+      "angle_deg": 60,
+      "order_code": "692201-6004",
+      "part_number": "00-99619-V060-03K-31",
+      "shank_diameter_mm": 6,
+      "contents": {
+        "holder": "00-99619-V060-06",
+        "holder_qty": 1,
+        "key": "T7",
+        "key_qty": 1,
+        "insert_id": "V06006T1W06|NC9031",
+        "insert_qty": 3
+      },
+      "source_catalog_page": 75
+    }
+  ],
+  "grade_descriptions": [
+    {
+      "families": [
+        "V045",
+        "V060"
+      ],
+      "grade": "NC2071",
+      "description_zh_TW": "具斷屑槽強刃，最適最小切深0.2mm，適HRC<30鋼、非鐵及不鏽鋼。",
+      "source_pages": [
+        75,
+        76
+      ]
+    },
+    {
+      "families": [
+        "V045",
+        "V060"
+      ],
+      "grade": "NC2032",
+      "description_zh_TW": "長壽命；HRC30-50鋼、碳鋼、合金鋼、鑄鐵。實際材料選型先看p82/83對應模型列。",
+      "source_pages": [
+        75,
+        76,
+        82,
+        83
+      ]
+    },
+    {
+      "families": [
+        "V060"
+      ],
+      "grade": "NC2035",
+      "description_zh_TW": "ALDURA，熱處理鋼至HRC56；p82切削列寫HRC<56。V045規格表未列此牌號。",
+      "source_pages": [
+        76,
+        82
+      ]
+    },
+    {
+      "families": [
+        "V045",
+        "V060"
+      ],
+      "grade": "NC9031",
+      "description_zh_TW": "高正前角精磨銳刃，適淺雕非鐵、鋁、黃銅、銅、鈦、塑膠、壓克力；p82亦明列不鏽鋼。",
+      "source_pages": [
+        75,
+        76,
+        82
+      ]
+    },
+    {
+      "families": [
+        "V060"
+      ],
+      "grade": "NC9036",
+      "description_zh_TW": "DLC銳刃，非鐵及上述材料；p83 W03列明確含不鏽鋼與鈦。不得套到W06或其他NC9036不存在型號。",
+      "source_pages": [
+        76,
+        83
+      ]
+    }
+  ],
+  "drawings": [
+    {
+      "type": "insert_and_holder",
+      "source_catalog_pages": [
+        75,
+        76
+      ],
+      "fields": [
+        "angle_deg",
+        "engraving_limits_mm.Wmin",
+        "engraving_limits_mm.Wmax",
+        "engraving_limits_mm.Tmin",
+        "engraving_limits_mm.Tmax",
+        "insert_dimensions_mm.Re",
+        "Re_tolerance_mm",
+        "shank_diameter",
+        "length_L_mm",
+        "length_L1_mm"
+      ],
+      "note_zh_TW": "依實體型號顯示數字與mm；W03 Re原表---保留null；總長L不等同可用突出長。"
+    },
+    {
+      "type": "width_depth_reference",
+      "source_catalog_pages": [
+        82,
+        83
+      ],
+      "calculation_status": "reference_chart_only",
+      "note_zh_TW": "W06與W03分圖；無完整精確曲線公式，不能用理想尖V公式或W06 R0.2替代W03幾何。"
+    }
+  ],
+  "data_status": "catalog_reference",
+  "common_file": "../Engraving/data/common.json"
+}

@@ -1,0 +1,14 @@
+{
+  "document_title": "Engraving Tool",
+  "printed_pages": [
+    68,
+    83
+  ],
+  "pdf_pages": 16,
+  "pdf_page_formula": "pdf_page = printed_page - 67",
+  "source_pdf": "Engraving-Tool-p068-083.pdf",
+  "sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+  "original_file_name": "05_Ergo ER Taper-Shank Cutter_p068-083.pdf",
+  "identity_note_zh_TW": "原始拆分檔名誤標Ergo，內頁已確認為Engraving Tool p68-83。正式站使用正確產品名稱保留同一PDF內容，未改動原頁。",
+  "copied_at": "2026-11-24"
+}

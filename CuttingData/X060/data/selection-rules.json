@@ -1,0 +1,379 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "X060",
+  "title": "X060",
+  "families": [
+    "X060"
+  ],
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      71,
+      72,
+      73,
+      74,
+      81
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "shared_requirements_file": "../Engraving/data/common.json",
+  "scope": {
+    "prepared_for": "X060獨立雕刻切削頁資料基礎",
+    "status": "data_prepared",
+    "product_ui_ready": false,
+    "published": false,
+    "other_uses_excluded": [
+      "Micro Spot Drill",
+      "Ergo ER"
+    ]
+  },
+  "geometry_rules": [
+    {
+      "id": "same_insert_geometry",
+      "rule_zh_TW": "寬度、總深、角度、底型必須同時對應同一片實體刀片，不能使用不同型號的系列最大值拼湊。",
+      "match_fields": [
+        "part_base",
+        "angle_deg",
+        "form",
+        "engraving_limits_mm"
+      ],
+      "source_catalog_pages": [
+        70,
+        71,
+        72,
+        73,
+        74
+      ]
+    },
+    {
+      "id": "forms_are_distinct",
+      "rule_zh_TW": "Radius Angled與Radius的進給欄不同；前者Wmin=0.2/Re=0.04，後者Re=0.2且沒有Wmin欄，不能混用。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74,
+        81
+      ]
+    },
+    {
+      "id": "unknown_minimums",
+      "rule_zh_TW": "Radius Wmin及所有X060 Tmin保持null。無法依缺失最小值確認的尺寸只作待核對候選，不當作0下限。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ]
+    },
+    {
+      "id": "radius_max_depth",
+      "rule_zh_TW": "Radius型的radius_max_depth_mm是底部R形深度欄，不是刀片最大總雕刻深Tmax。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73
+      ]
+    },
+    {
+      "id": "depth_limit",
+      "rule_zh_TW": "各刀片Tmax為總雕刻深度上限；30°=.6、45°=.8、60°及90°=1mm；選定刀片後再比對，不套同一上限。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ]
+    },
+    {
+      "id": "width_depth_relation",
+      "rule_zh_TW": "寬與深同填時只能先做各自型錄範圍比對，不能因此宣稱槽形精確相容。精確聯動需原廠CAD/刀尖基準。",
+      "source_catalog_pages": [
+        70,
+        71,
+        72,
+        73,
+        74
+      ]
+    }
+  ],
+  "material_and_grade_rules": [
+    {
+      "id": "explicit_intersection",
+      "rule_zh_TW": "按同模型、同底型、材料切削列與實體牌號交集推薦；不得只依牌號簡介宣稱全材種通用。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74,
+        81
+      ]
+    },
+    {
+      "id": "hardness",
+      "rule_zh_TW": "淬硬鋼切削列為HRC<50、牌號NC2035；客戶未提供硬度時僅能初篩，不能完成切削適用性確認。",
+      "source_catalog_pages": [
+        81
+      ]
+    },
+    {
+      "id": "no_invented_material",
+      "rule_zh_TW": "p81未列鈦或塑膠細分專用條件；不拿其他系列或其他材種補值。",
+      "source_catalog_pages": [
+        81
+      ]
+    }
+  ],
+  "holder_rules": [
+    {
+      "id": "all_x060",
+      "rule_zh_TW": "5支刀柄共用全部X060刀片，仍需依柄徑、刀柄材質、總長與可用夾持量選擇；總長L不等於可任意突出長。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ]
+    },
+    {
+      "id": "xl_aluminium_only",
+      "holder_part_number": "00-99619-X060-06XL",
+      "eligible_material_subtypes": [
+        "aluminium",
+        "aluminium_alloy"
+      ],
+      "rule_zh_TW": "100mm XL僅供鋁及鋁合金，不能讓泛用non_ferrous選項涵蓋銅、黃銅等材料；須補問材料細分。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ]
+    },
+    {
+      "id": "xl_unbalance_unknown",
+      "catalog_text": "unbalanced <0.6gm",
+      "rule_zh_TW": "保留原文，不擅自換算成g·mm或指定高速許可；需原廠確認單位及測試條件。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ]
+    },
+    {
+      "id": "not_rated",
+      "rule_zh_TW": "所有holder.rpm_limit為null，組合最高轉速未在本章個別額定。",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74,
+        80
+      ]
+    }
+  ],
+  "cutting_calculation_rules": [
+    {
+      "id": "feed_rate",
+      "kind": "site_calculation",
+      "expression": "F_mm_min = S_rpm * f_mm_rev",
+      "note_zh_TW": "由單位推導的網站計算，不宣稱為本章印出的原式；不再乘可換刃角數。"
+    },
+    {
+      "id": "z_feed",
+      "kind": "catalog_factor",
+      "factor": 0.5,
+      "expression": "Fz_mm_min = 0.5 * F_mm_min",
+      "source_catalog_page": 80,
+      "note_zh_TW": "Z軸下刀進給取工作台切削進給50%。"
+    },
+    {
+      "id": "starting_value",
+      "kind": "site_policy_required",
+      "catalog_recommended_default": null,
+      "note_zh_TW": "原表未指定中位數啟動值。未來若採中值須標網站預設、檢查機台與刀柄限制；多牌號不設原廠唯一優先排名。"
+    },
+    {
+      "id": "no_vc_conversion",
+      "kind": "data_boundary",
+      "note_zh_TW": "原章直接給S與f，未列Vc；不能用刀柄徑或刻線寬度套鑽孔公式推原廠推薦轉速。"
+    }
+  ],
+  "pass_rules": {
+    "source_catalog_pages": [
+      81
+    ],
+    "mode": "catalog_schedule_reference_only",
+    "auto_generate_executable_nc": false,
+    "requirements_zh_TW": [
+      "numbered_passes為每刀Ap，不是總深。",
+      "subsequent_pass_value對應5th~，不是固定總道次或無限循環。",
+      "Finishing要與剩餘深度一起安排，任何程式都不得使總深超出客戶目標及Tmax。",
+      "未列道次/最小值維持null，不能補0；實際切入、退刀及精修安排需原廠或應用工程確認。"
+    ]
+  },
+  "drawing_fields": [
+    {
+      "kind": "groove_section",
+      "source_catalog_pages": [
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "fields": [
+        "angle_deg",
+        "form",
+        "engraving_limits_mm.Wmin",
+        "engraving_limits_mm.Wmax",
+        "engraving_limits_mm.Tmax",
+        "insert_dimensions_mm.Re",
+        "radius_max_depth_mm"
+      ]
+    },
+    {
+      "kind": "holder_dimensions",
+      "source_catalog_pages": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "fields": [
+        "part_number",
+        "shank_diameter",
+        "length_L_mm",
+        "length_L1_mm"
+      ],
+      "note_zh_TW": "選定後顯示實際數字及mm；未知L1維持未知。"
+    }
+  ],
+  "required_customer_inputs_zh_TW": [
+    "刻線寬度/公差",
+    "總雕刻深度",
+    "夾角及底型",
+    "實際材料牌號與硬度",
+    "夾持柄徑、刀柄總長/突出/避障",
+    "機台轉速與進給上限、冷卻、偏擺與平衡條件"
+  ],
+  "open_questions": [
+    {
+      "id": "Q04",
+      "topic": "每個刀柄允許轉速",
+      "question_zh_TW": "p80最低預平衡及表格40000rpm不等於每支Steel/Carbide/XL柄額定上限；請提供各型號及突出長度的允許轉速/平衡規範。",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        80
+      ],
+      "blocking": "全組高速額定驗證"
+    },
+    {
+      "id": "Q05",
+      "topic": "XL單位",
+      "question_zh_TW": "unbalanced<0.6gm的單位、檢測基準、最大轉速與夾持量為何？",
+      "source_pages": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "blocking": "100mm XL高速條件"
+    },
+    {
+      "id": "Q06",
+      "topic": "精確寬深曲線",
+      "question_zh_TW": "各刀片完整刀尖幾何、寬深計算基準及可供程式使用的數值曲線？尤其X060 Radius及V06W03。",
+      "source_pages": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        82,
+        83
+      ],
+      "blocking": "精確雙向寬深換算及公差"
+    },
+    {
+      "id": "Q07",
+      "topic": "塑膠/壓克力與特殊材料",
+      "question_zh_TW": "牌號文字含塑膠/壓克力/鈦，但部分切削表僅總稱非鐵或未列S；可否提供材料細分切削參數及限制？",
+      "source_pages": [
+        71,
+        75,
+        76,
+        81,
+        82,
+        83
+      ],
+      "blocking": "未列材料自動推薦"
+    },
+    {
+      "id": "Q08",
+      "topic": "牌號文字與切削列交叉",
+      "question_zh_TW": "NC2032/NC9031/NC9036部分簡介與切削列涵蓋材料不完全同範圍；以各模型明確表格為目前依據，需原廠確認完整適用矩陣。",
+      "source_pages": [
+        71,
+        75,
+        76,
+        77,
+        81,
+        82,
+        83
+      ],
+      "blocking": "宣稱通用最佳牌號"
+    },
+    {
+      "id": "Q09",
+      "topic": "刀長重複性與精度",
+      "question_zh_TW": "本章宣稱換刃無需重設，但未給數值刀長重複精度、裝夾公差及最小夾持量；請補正式數據。",
+      "source_pages": [
+        68,
+        69,
+        78,
+        80
+      ],
+      "blocking": "公差與重複精度承諾"
+    },
+    {
+      "id": "Q10",
+      "topic": "道次自動化",
+      "question_zh_TW": "各表~與Finishing的實施方式、剩餘深度小於表值時的處理及切入/退刀路徑條件？ p82碳鋼前五道合計2mm即達Tmax，Finishing=.05是預留、替代末道還是有其他定義？不可直接累加。",
+      "source_pages": [
+        77,
+        78,
+        81,
+        82,
+        83
+      ],
+      "blocking": "可直接執行NC程式"
+    }
+  ],
+  "prepared_at": "2026-11-24",
+  "data_status": "catalog_reference",
+  "common_file": "../Engraving/data/common.json"
+}

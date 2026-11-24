@@ -1,0 +1,319 @@
+{
+  "schema_version": "1.0-prepared",
+  "product_group": "N9MT-W",
+  "source": {
+    "paths_relative_to": "product_entry_directory",
+    "pdf_file": "../Engraving/sources/Engraving-Tool-p068-083.pdf",
+    "source_manifest": "../Engraving/sources/manifest.json",
+    "document_title": "Engraving Tool",
+    "source_pdf_sha256": "54bce9c904371810eed1641882c151834a082233fe5a645b7ee5a62f6d621052",
+    "printed_pages": [
+      78
+    ],
+    "shared_reference_pages": [
+      68,
+      69,
+      70,
+      80
+    ],
+    "pdf_page_formula": "pdf_page = printed_page - 67",
+    "common_file": "../Engraving/data/common.json"
+  },
+  "units": {
+    "spindle_speed": "rpm",
+    "feed_per_revolution": "mm/rev",
+    "feed_rate": "mm/min",
+    "depth": "mm"
+  },
+  "materials": [
+    {
+      "id": "alloy_steel",
+      "label_zh_TW": "合金鋼",
+      "iso_group": "P"
+    },
+    {
+      "id": "cast_iron",
+      "label_zh_TW": "鑄鐵",
+      "iso_group": "K"
+    },
+    {
+      "id": "non_ferrous",
+      "label_zh_TW": "非鐵金屬",
+      "iso_group": "N"
+    }
+  ],
+  "rows": [
+    {
+      "model": "N9MT080201W",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        5000,
+        20000
+      ],
+      "feed_per_revolution_mm": [
+        0.008,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.2
+        ],
+        "subsequent_pass_value": null,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC40"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 78,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "coverage_note": "原共表Tmax=0.8；90°實體尺寸表Tmax=0.9，0.8以上缺直接切削支持。原表另列60-NC40，已拆至60°專用型號；不可將NC10當60°選項。",
+      "id": "N9MT080201W|alloy_steel|angled"
+    },
+    {
+      "model": "N9MT080201W",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        5000,
+        20000
+      ],
+      "feed_per_revolution_mm": [
+        0.008,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.2
+        ],
+        "subsequent_pass_value": null,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC10"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 78,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "coverage_note": "原共表Tmax=0.8；90°實體尺寸表Tmax=0.9，0.8以上缺直接切削支持。原表另列60-NC40，已拆至60°專用型號；不可將NC10當60°選項。",
+      "id": "N9MT080201W|cast_iron|angled"
+    },
+    {
+      "model": "N9MT080201W",
+      "material_id": "non_ferrous",
+      "iso_group": "N",
+      "spindle_speed_rpm": [
+        5000,
+        20000
+      ],
+      "feed_per_revolution_mm": [
+        0.008,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.2
+        ],
+        "subsequent_pass_value": null,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC10"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 78,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "coverage_note": "原共表Tmax=0.8；90°實體尺寸表Tmax=0.9，0.8以上缺直接切削支持。原表另列60-NC40，已拆至60°專用型號；不可將NC10當60°選項。",
+      "id": "N9MT080201W|non_ferrous|angled"
+    },
+    {
+      "model": "N9MT080201W-60",
+      "material_id": "alloy_steel",
+      "iso_group": "P",
+      "spindle_speed_rpm": [
+        5000,
+        20000
+      ],
+      "feed_per_revolution_mm": [
+        0.008,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.2
+        ],
+        "subsequent_pass_value": null,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC40"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 78,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "grade_label_as_printed": "60-NC40",
+      "id": "N9MT080201W-60|alloy_steel|angled"
+    },
+    {
+      "model": "N9MT080201W-60",
+      "material_id": "cast_iron",
+      "iso_group": "K",
+      "spindle_speed_rpm": [
+        5000,
+        20000
+      ],
+      "feed_per_revolution_mm": [
+        0.008,
+        0.02
+      ],
+      "depth_of_cut_mm": {
+        "numbered_passes": [
+          0.3,
+          0.2,
+          0.2
+        ],
+        "subsequent_pass_value": null,
+        "finishing": 0.05
+      },
+      "grades": [
+        "NC40"
+      ],
+      "Tmax_mm": 0.8,
+      "source_catalog_page": 78,
+      "feed_unit_as_printed": "mm/rev.",
+      "verification": "visually_verified",
+      "row_type": "cutting_recommendation",
+      "grade_label_as_printed": "60-NC40",
+      "id": "N9MT080201W-60|cast_iron|angled"
+    }
+  ],
+  "pairings": [
+    {
+      "row_id": "N9MT080201W|alloy_steel|angled",
+      "insert_ids": [
+        "N9MT080201W|NC40"
+      ],
+      "status": "supported",
+      "notes": [
+        "依實體型號與牌號交集配對；60-NC40原表寫法只對應60度NC40刀片。"
+      ]
+    },
+    {
+      "row_id": "N9MT080201W|cast_iron|angled",
+      "insert_ids": [
+        "N9MT080201W|NC10"
+      ],
+      "status": "supported",
+      "notes": [
+        "依實體型號與牌號交集配對；60-NC40原表寫法只對應60度NC40刀片。"
+      ]
+    },
+    {
+      "row_id": "N9MT080201W|non_ferrous|angled",
+      "insert_ids": [
+        "N9MT080201W|NC10"
+      ],
+      "status": "supported",
+      "notes": [
+        "依實體型號與牌號交集配對；60-NC40原表寫法只對應60度NC40刀片。"
+      ]
+    },
+    {
+      "row_id": "N9MT080201W-60|alloy_steel|angled",
+      "insert_ids": [
+        "N9MT080201W-60|NC40"
+      ],
+      "status": "supported",
+      "notes": [
+        "依實體型號與牌號交集配對；60-NC40原表寫法只對應60度NC40刀片。"
+      ]
+    },
+    {
+      "row_id": "N9MT080201W-60|cast_iron|angled",
+      "insert_ids": [
+        "N9MT080201W-60|NC40"
+      ],
+      "status": "supported",
+      "notes": [
+        "依實體型號與牌號交集配對；60-NC40原表寫法只對應60度NC40刀片。"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "n9mt-cutting-depth",
+      "status": "requires_manufacturer_confirmation",
+      "description_zh_TW": "90度實體尺寸Tmax0.9mm，但切削表只到0.8mm。需求超過0.8且不超過0.9時，僅保留幾何候選，不輸出直接切削建議。",
+      "source_catalog_page": 78,
+      "topic": "90度刀片的切削深度範圍"
+    },
+    {
+      "id": "n9mt-missing-material-rows",
+      "status": "not_listed",
+      "materials": [
+        "carbon_steel",
+        "stainless_steel",
+        "hardened_steel",
+        "titanium"
+      ],
+      "description_zh_TW": "本章未列這些材料的N9MT-W直接切削條件；未列不等於原廠判定禁止使用，但不能借用其他材種自動填值。",
+      "topic": "未列材料的切削條件"
+    },
+    {
+      "id": "n9mt-60-non-ferrous",
+      "status": "not_listed",
+      "description_zh_TW": "60度只列專用NC40刀片；非鐵切削列指定NC10，只能配90度實體NC10，不能生成60度NC10。",
+      "source_catalog_page": 78,
+      "topic": "60度刀片的非鐵材料配對"
+    }
+  ],
+  "calculation_policy": {
+    "feed_rate": {
+      "formula": "F_mm_min = S_rpm * f_mm_rev",
+      "kind": "site_calculation_inference",
+      "multiply_available_edges": false
+    },
+    "downward_z_feed": {
+      "factor": 0.5,
+      "source_catalog_page": 80
+    },
+    "range_midpoint": {
+      "allowed_as_site_default": true,
+      "catalog_recommends_midpoint": false,
+      "required_conditions": [
+        "完整材料/實體刀片配對",
+        "工件需求未超過切削表與刀片尺寸共同上限",
+        "另行確認機台及組合額定轉速、進給上限"
+      ]
+    },
+    "pass_planning": {
+      "automatic_cycle_ready": false,
+      "keep_requested_total_depth_as_limit": true,
+      "finishing_meaning": "requires_manufacturer_confirmation"
+    }
+  },
+  "title": "N9MT-W",
+  "families": [
+    "N9MT-W"
+  ],
+  "prepared_at": "2026-11-24",
+  "data_status": "catalog_reference",
+  "common_file": "../Engraving/data/common.json"
+}

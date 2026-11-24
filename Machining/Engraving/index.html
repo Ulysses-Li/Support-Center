@@ -1,72 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Engraving</title>
-
-  <!-- Bootstrap -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
-
-  <!-- Font Awesome -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    rel="stylesheet"
-  >
-
-  <!-- 共用 Header / Footer -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>雕刻刀選型 Engraving｜Nine9 支援中心</title>
+  <meta name="description" content="從刻線寬度、雕刻深度、材料與角度，比對 Nine9 雕刻刀系列。">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../header/header.css">
   <link rel="stylesheet" href="../../footer/footer.css">
-
-  <!-- 本頁 CSS -->
-  <link rel="stylesheet" href="../../css/MachiningV1.0.css">
-  <!-- 全站共用的瀏覽器分頁圖示；版本參數用來更新瀏覽器快取。 -->
-  <link rel="icon" type="image/png" href="/favicon.png?v=20260904">
-  <!-- 全站共用的 iPhone／iPad 主畫面圖示。 -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../css/site-background.css">
+  <link rel="stylesheet" href="./styles.css?v=20261124-official">
+  <link rel="icon" href="../../favicon.png">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <script src="./engraving-data.js?v=20261124-official" defer></script>
+  <script src="./engraving-engine.js?v=20261124-official" defer></script>
+  <script src="./app.js?v=20261124-official" defer></script>
 </head>
-
-<body class="d-flex flex-column min-vh-100" data-category="Engraving">
-
-  <!-- Header 插入位置 -->
+<body class="d-flex flex-column min-vh-100">
   <div id="header-placeholder"></div>
+  <main class="ef-page flex-grow-1" id="main-content" aria-busy="true">
+    <div class="container-xl">
+      <nav class="page-trail d-flex justify-content-between align-items-center flex-wrap gap-2" aria-label="目前位置">
+        <div><a href="../../nine9/products.html">依加工用途找產品</a><span class="mx-2" aria-hidden="true">/</span><span>雕刻 Engraving</span></div>
+      </nav>
 
-  <!-- Main 外層負責 sticky footer -->
-  <main class="flex-grow-1">
+      <header class="finder-intro row g-4 align-items-center">
+        <div class="col-12 col-md-7">
+          <p class="eyebrow mb-2">NINE9 · ENGRAVING TOOL FINDER</p>
+          <h1>你想刻出多細的線？</h1>
+          <p class="intro-copy mb-0">從刻線寬度或深度開始，找到合適的雕刻刀系列。</p>
+        </div>
+        <div class="col-12 col-md-5">
+          <figure class="intro-product m-0">
+            <img src="../../assets/home-products/engraving-tools.jpg" alt="Nine9 X060 可換式刀片雕刻刀" width="550" height="340">
+            <figcaption><span>X060</span> 一支刀柄，多種雕刻角度</figcaption>
+          </figure>
+        </div>
+      </header>
 
-    <!-- 本頁內容容器 -->
-    <div class="product-page">
+      <!-- 四項初篩先處理加工需求；刀柄與機台條件留待選定系列後。 -->
+      <section class="filter-panel" aria-labelledby="filterTitle">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
+          <div><h2 id="filterTitle" class="section-title mb-2">設定你的刻線</h2><p class="muted mb-0">線寬、深度至少填一項，其餘可先不指定。</p></div>
+          <button type="button" class="btn btn-text" id="resetButton">清除條件</button>
+        </div>
+        <form id="jobForm" novalidate>
+          <div class="row g-3 g-xl-4">
+            <div class="col-12 col-sm-6 col-xl-3">
+              <label for="width" class="form-label">刻線寬度 <span class="field-symbol">W</span></label>
+              <div class="input-group"><input type="number" class="form-control" id="width" name="width" min="0" step="any" inputmode="decimal" placeholder="例如 0.5" aria-describedby="widthHelp"><span class="input-group-text">mm</span></div>
+              <p id="widthHelp" class="field-help">刻出來的線條實際寬度。</p>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+              <label for="depth" class="form-label">雕刻深度 <span class="field-symbol">t</span></label>
+              <div class="input-group"><input type="number" class="form-control" id="depth" name="depth" min="0" step="any" inputmode="decimal" placeholder="例如 0.2" aria-describedby="depthHelp"><span class="input-group-text">mm</span></div>
+              <p id="depthHelp" class="field-help">從工件表面量起的總深度。</p>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+              <label for="material" class="form-label">工件材料</label>
+              <select class="form-select" id="material" name="material" aria-describedby="materialHelp"><option value="">先不指定材料</option></select>
+              <p id="materialHelp" class="field-help">比對有切削資料的刀片牌號。</p>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+              <label for="angle" class="form-label">刻槽角度 <span class="field-symbol">α</span></label>
+              <select class="form-select" id="angle" name="angle" aria-describedby="angleHelp"><option value="">不指定，幫我找</option><option value="30">30°</option><option value="45">45°</option><option value="60">60°</option><option value="90">90°</option></select>
+              <p id="angleHelp" class="field-help">圖面有要求時再選擇。</p>
+            </div>
+          </div>
+        </form>
+        <div class="filter-bottom row g-3 align-items-center">
+          <div class="col-12 col-lg-7">
+            <div class="d-flex flex-wrap align-items-center gap-2 examples"><span>試試看</span><button class="example-chip" type="button" data-example="fine">細線標記</button><button class="example-chip" type="button" data-example="deep">較深刻槽</button><button class="example-chip" type="button" data-example="shallow">薄淺雕刻</button></div>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="dimension-key d-flex align-items-center justify-content-lg-end gap-3">
+              <svg viewBox="0 0 132 68" width="132" height="68" role="img" aria-label="刻槽剖面示意：W為上方刻線寬度，t為向下深度，α為兩側夾角。非比例圖。"><path d="M7 29H37L53 53H79L95 29H125V63H7Z" fill="#e5eef5" stroke="#8098aa" stroke-width="1.3"/><path d="M37 29L53 53H79L95 29" fill="none" stroke="#f05a1a" stroke-width="2.4"/><path d="M37 9V23M95 9V23M37 15H95M108 29H118M108 53H118M113 29V53" fill="none" stroke="#0067ad" stroke-width="1.2"/><path d="M42 12L37 15L42 18M90 12L95 15L90 18M110 34L113 29L116 34M110 48L113 53L116 48" fill="none" stroke="#0067ad" stroke-width="1.2"/><text x="66" y="10" text-anchor="middle">W</text><text x="120" y="44">t</text><path d="M51 35Q66 21 81 35" stroke="#7c95a8" fill="none" stroke-dasharray="3 2"/><text x="66" y="36" text-anchor="middle">α</text></svg>
+              <p class="mb-0">看工件的刻槽剖面<br><span class="muted">依線寬、深度與角度找刀具</span></p>
+            </div>
+          </div>
+        </div>
+        <p id="validationMessage" class="validation-message mb-0" role="alert" hidden></p>
+      </section>
 
-      <h1 class="page-title">
-        Engraving
-      </h1>
+      <section class="result-section" aria-labelledby="resultsTitle">
+        <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-2">
+          <div><p class="eyebrow mb-2">FIND YOUR TOOL</p><h2 class="section-title mb-0" id="resultsTitle">找到適合的雕刻刀</h2></div>
+          <span id="resultCount" class="result-count" role="status" aria-live="polite">5 個系列可比較</span>
+        </div>
+        <p id="resultSummary" class="muted mb-3">先瀏覽系列，或填入加工需求縮小範圍。</p>
+        <p id="geometryNote" class="geometry-note" hidden>已比對型錄的線寬與深度範圍；實際槽底形狀及兩者的對應關係，選定刀片後再確認。</p>
+        <div id="emptyState" class="empty-state" hidden></div>
+        <!-- 同一份卡片HTML以CSS完成桌面三欄與手機收合；資料只有一個來源。 -->
+        <div id="familyGrid" class="row g-4" aria-label="雕刻刀系列"></div>
+        <div id="excludedArea" class="excluded-area" hidden>
+          <button class="btn btn-text" id="excludedToggle" type="button" aria-expanded="false" aria-controls="excludedGrid">查看未符合的系列</button>
+          <div id="excludedGrid" class="row g-4 mt-0" hidden></div>
+        </div>
+      </section>
 
-      <div class="title-line"></div>
-
-      <!-- JS 自動插入產品卡片 -->
-      <section
-        class="product-grid"
-        id="productGrid"
-      ></section>
-
+      <aside class="next-step-strip d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <div><h2 class="h6 mb-2">選定系列後，再把設定補齊。</h2><p class="muted mb-0">確認刀尖底形、夾持柄徑與機台轉速，再決定刀片與切削條件。</p></div>
+        <a class="btn btn-outline-primary" href="../../Products/NCSpotDrill/index.html">NC Spot Drill 產品資料</a>
+      </aside>
+      <div class="source-row d-flex flex-wrap justify-content-between gap-2"><span>型錄資料：Engraving Tool，p.68–83</span><a href="../../CuttingData/Engraving/sources/Engraving-Tool-p068-083.pdf#page=3" target="_blank" rel="noopener">查看產品型錄 PDF</a></div>
     </div>
-
   </main>
-
-  <!-- Footer 插入位置 -->
   <div id="footer-placeholder"></div>
 
-  <!-- 本頁資料 -->
-  <script src="../../js/data/product-categories.js"></script>
-
-  <!-- 本頁渲染邏輯 -->
-  <script src="../../js/render/products-render-v1.0.js"></script>
-
+  <!-- 使用原生dialog保留鍵盤焦點管理及Escape關閉，規格依當前初篩條件輸出。 -->
+  <dialog id="specDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-head d-flex justify-content-between align-items-center gap-3"><div><p class="eyebrow mb-1">CATALOG MATCH</p><h2 id="dialogTitle" class="section-title mb-0"></h2></div><button class="close-button" id="closeDialog" type="button" aria-label="關閉規格視窗"><svg width="22" height="22" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.146 2.146a.5.5 0 0 1 .708 0L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854a.5.5 0 0 1 0-.708"/></svg></button></div>
+    <div id="dialogContent"></div>
+  </dialog>
 </body>
-
 </html>
