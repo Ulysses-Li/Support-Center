@@ -4,7 +4,7 @@
   const core = window.GCodeEngrave;
   const viewer = new window.EngravingStockViewer($('viewerCanvas'));
   const state = { paths: [], source: null, blocked: false, warnings: [], generated: '', segments: [], progress: 0, playing: false, frame: null, last: null, carry: 0, revision: 0, textGroup: 0 };
-  let sourceRequest=0;
+  let sourceRequest=0, pendingExample=0;
   const fmt = n => Number(n).toFixed(2);
   const number = id => Number($(id).value);
   const cad = new window.EngravingCAD($('drawingCanvas'), {
@@ -117,6 +117,9 @@
   // 範例沿用 DXF 匯入器，保留原始輪廓；載入期間有其他編輯時不覆寫使用者資料。
   async function loadExample() {
     const request=++sourceRequest, revision=state.revision;
+    pendingExample=request;
+    $('generateButton').disabled=true;
+    report('正在載入 Nine-9 範例…');
     try {
       const response=await fetch('./nine9-example.dxf');
       if(!response.ok)throw new Error('無法讀取 Nine-9 範例圖檔。');
@@ -128,6 +131,7 @@
       cad.setEnabled(true);cad.resetHistory();cad.resetView();
       invalidate();updateShapes();report('已載入 Nine-9 DXF 輪廓範例，請設定參數後產生刀路。');
     } catch(error){if(request===sourceRequest && state.revision===revision)report('無法載入雕刻範例。',[error.message]);}
+    finally {if(pendingExample===request){pendingExample=0;$('generateButton').disabled=false;}}
   }
   function importDXF() {
     try {
@@ -146,12 +150,13 @@
     const file=event.target.files[0];if (!file)return;
     // 最後啟動的匯入或範例載入才可套用；讀檔期間的畫布編輯也會保留。
     const request=++sourceRequest,revision=state.revision;
+    pendingExample=0;$('generateButton').disabled=false;
     try {const source=await file.text();if(request!==sourceRequest||revision!==state.revision)return;state.source=source;importDXF();}
     catch(error) {if(request!==sourceRequest||revision!==state.revision)return;state.blocked=true;invalidate();report('讀取檔案失敗。',[error.message]);}
   });
   $('dxfUnits').addEventListener('change',()=>{if(state.source !== null)importDXF();});
   $('loadExample').addEventListener('click',loadExample);
-  $('clearShapes').addEventListener('click',()=>{sourceRequest++;if(!state.blocked)cad.checkpoint();else cad.resetHistory();state.paths=[];state.source=null;state.blocked=false;state.warnings=[];$('dxfFile').value='';cad.setEnabled(true);cad.clearSelection();cad.resetView();invalidate();updateShapes();report('畫布已清空。');});
+  $('clearShapes').addEventListener('click',()=>{sourceRequest++;pendingExample=0;$('generateButton').disabled=false;if(!state.blocked)cad.checkpoint();else cad.resetHistory();state.paths=[];state.source=null;state.blocked=false;state.warnings=[];$('dxfFile').value='';cad.setEnabled(true);cad.clearSelection();cad.resetView();invalidate();updateShapes();report('畫布已清空。');});
   // 工具列只切換目前繪圖方式；每次實際繪製、移動或刪除都會清除舊 NC。
   const tools = {cadSelect:'select',cadLine:'line',cadRect:'rectangle',cadCircle:'circle'};
   Object.entries(tools).forEach(([id, tool]) => $(id).addEventListener('click', () => {
